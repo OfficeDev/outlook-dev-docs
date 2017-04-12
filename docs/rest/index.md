@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # One Outlook REST API. Your favorite platform. 400+ million users.
 
-## With the simplicity of REST, you can use your favorite language and IDE, write your app once, and capture 400 million monthly active Outlook.com users, and tens of millions active Office 365 users.
+With the simplicity of REST, you can use your favorite language and IDE, write your app once, and capture 400 million monthly active Outlook.com users, and tens of millions active Office 365 users.
 
 Start with choosing a language for your app - Node, Python, Ruby, Swift - just to name a few. Write the code, take advantage of new, streamlined services to register and authorize the app, and access user's mail, calendar, and contacts data on Outlook.com or Office 365. You can use the same Outlook REST API for Android, iOS, Windows, on the web, mobile, and desktop. There's no need for any specialized Exchange knowledge!
 
@@ -43,13 +43,14 @@ Take an early look at the following services in preview status:
 
 Plan to upgrade in-production Office 365 apps once the preview period is over.
 
-> * Make sure Outlook.com apps handle user mailboxes that have not been enabled for the Outlook REST API. API calls made against these users will return either `MailboxNotEnabledForRESTAPI` or `MailboxNotSupportedForRESTAPI` error codes. See [Use the Outlook REST API](https://msdn.microsoft.com/office/office365/APi/use-outlook-rest-api#outlookrestcaution) for more information.
+> [!TIP]
+> Make sure Outlook.com apps handle user mailboxes that have not been enabled for the Outlook REST API. API calls made against these users will return either `MailboxNotEnabledForRESTAPI` or `MailboxNotSupportedForRESTAPI` error codes. See [Use the Outlook REST API](https://msdn.microsoft.com/office/office365/APi/use-outlook-rest-api#outlookrestcaution) for more information.
 
 ### Outlook REST API via Microsoft Graph
 
 Use one common REST endpoint -
 
-```
+```http
 https://graph.microsoft.com/{version} 
 ```
 

@@ -1,7 +1,7 @@
-- name: Outlook REST APIs
+- name: Overview
   href: index.md
 - name: Get Started
-  href: 
+  href: get-started.md
   items:
   - name: .NET
     href: dotnet-tutorial.md
