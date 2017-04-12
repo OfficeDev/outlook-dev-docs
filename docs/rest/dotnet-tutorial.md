@@ -835,6 +835,9 @@ Save your changes and run the app. You should now get a list of messages that lo
 
 Now that you've mastered calling the Outlook Mail API, doing the same for Calendar and Contacts APIs is similar and easy.
 
+> [!TIP]
+> If you've followed along with the tutorial, you probably have an access token saved in your session. That token will only be valid for the `Mail.Read` scope. In order to call the Calendar or Contacts API, we will need to add new scopes. Be sure sign out of the app to get rid of the saved tokens so that you can start the login process from the beginning to get a new access token.
+
 ### For Calendar API:
 
 1. Update the `ida:AppScopes` value in `Web.config` to include the `Calendars.Read` scope.
