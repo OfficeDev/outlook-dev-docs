@@ -32,7 +32,9 @@
     "externalReference": [],
     "globalMetadata": {
       "uhfHeaderId": "MSDocsHeader-Outlook",
-      "searchScope": [ "Outlook Developer" ]
+      "searchScope": [ "Outlook Developer" ],
+      "ms.suite": "Office",
+      "ms.prod": "Outlook"
     },
     "fileMetadata": {},
     "template": [],

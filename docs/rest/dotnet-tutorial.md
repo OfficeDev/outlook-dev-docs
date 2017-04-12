@@ -3,7 +3,6 @@ title: Write an ASP.NET MVC Web app to get Outlook mail | Microsoft Docs
 description: Learn how to use Microsoft Graph in an ASP.NET web app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
 
-ms.prod: .net
 ms.topic: get-started-article
 ms.devlang: csharp
 ms.date: 04/11/2017
@@ -564,8 +563,6 @@ Replace those lines with this code:
 
 Now if you save your changes and restart the app, the home page should display the logged on user's name and show two new menu items in the top navigation bar after you sign in. Now that we've got the signed in user and an access token, we're ready to call the Mail API.
 
----
-
 ## Using the Mail API
 
 Let's start by adding a new function to the `HomeController` class to get the user's access token. In this function we'll use MSAL and our token cache. If there is a valid non-expired token in the cache, MSAL will return it. If it is expired, MSAL will refresh the token for us.
@@ -719,8 +716,6 @@ To summarize the new code in the `Inbox` function:
 
 If you restart the app now, you should get a very basic listing of email subjects. However, we can use the features of MVC to do better than that.
 
----
-
 ## Displaying the results
 
 MVC can generate views based on a model. So let's start by creating a view based on the `Microsoft.Graph.Message` object. In Solution Explorer, right-click the `./Views/Home` folder and choose **Add**, then **View**. Enter `Inbox` for the **View name**. Change the **Template** field to `Empty (without model)`. Leave everything else as default values and click **Add**.
@@ -835,8 +830,6 @@ The changes here are minimal. Instead of building a string with the results, we 
 Save your changes and run the app. You should now get a list of messages that looks something like this.
 
 ![The sample app displaying a user's inbox.](images/dotnet-tutorial/inbox-display.PNG)
-
----
 
 ## Adding Calendar and Contacts APIs
 
