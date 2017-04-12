@@ -7,3 +7,15 @@
     href: dotnet-tutorial.md
   - name: iOS
     href: ios-tutorial.md
+  - name: Java
+    href: java-tutorial.md
+  - name: JavaScript
+    href: javascript-tutorial.md
+  - name: Node.js
+    href: node-tutorial.md
+  - name: PHP
+    href: php-tutorial.md
+  - name: Python
+    href: python-tutorial.md
+  - name: Ruby
+    href: ruby-tutorial.md
