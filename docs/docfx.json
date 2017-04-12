@@ -3,7 +3,8 @@
     "content": [
       {
         "files": [
-          "**/*.md"
+          "**/*.md",
+          "**/*.yml"
         ],
         "exclude": [
           "**/obj/**",
@@ -30,7 +31,8 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "uhfHeaderId": "MSDocsHeader-Outlook"
+      "uhfHeaderId": "MSDocsHeader-Outlook",
+      "searchScope": [ "Outlook Developer" ]
     },
     "fileMetadata": {},
     "template": [],
