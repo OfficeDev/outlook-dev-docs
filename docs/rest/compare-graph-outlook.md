@@ -20,12 +20,12 @@ However, there are some features that are either only available on the Outlook e
 
 ### Features only available on the Outlook endpoint
 
-[!div class="mx-tdBreakAll"]
-| Feature | Description |
-|---------|-------------|
-| Synchronization | The Outlook API endpoint provides the ability to sync messages, mail folders, events, contacts, and contact folders. This feature is currently only available in beta on the Graph endpoint. |
-| [Outlook Tasks](https://msdn.microsoft.com/en-us/office/office365/api/task-rest-operations) | The Outlook API provides acccess to user's tasks. This is not available on the Graph endpoint. |
-| [Batch REST requests](https://msdn.microsoft.com/en-us/office/office365/api/batch-outlook-rest-requests) | The Outlook API beta endpoint allows an app to send multiple REST requests in one HTTP request. |
+> [!div class="mx-tdBreakAll"]
+> | Feature | Description |
+> |---------|-------------|
+> | Synchronization | The Outlook API endpoint provides the ability to sync messages, mail folders, events, contacts, and contact folders. This feature is currently only available in beta on the Graph endpoint. |
+> | [Outlook Tasks](https://msdn.microsoft.com/en-us/office/office365/api/task-rest-operations) | The Outlook API provides acccess to user's tasks. This is not available on the Graph endpoint. |
+> | [Batch REST requests](https://msdn.microsoft.com/en-us/office/office365/api/batch-outlook-rest-requests) | The Outlook API beta endpoint allows an app to send multiple REST requests in one HTTP request. |
 
 ## Translating between Graph and Outlook
 
@@ -71,23 +71,23 @@ The server returns the following response:
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('b63d5fb9-4f43-44c4-8f9d-fd0727842876')/mailFolders('inbox')/messages(subject,from,receivedDateTime,isRead)",
-    "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages?$top=1&$select=subject%2cfrom%2creceivedDateTime%2cisRead&$skip=1",
-    "value": [
-        {
-            "@odata.etag": "W/\"CwAAABYAAACd9nJ/tVysQos2hTfspaWRAAD8ujHV\"",
-            "id": "AAMkAGI2NGVhZTVlLTI1OGMtNDI4My1iZmE5LTA5OGJiZGEzMTc0YQBGAAAAAADUuTJK1K9aTpCdqXop_4NaBwCd9nJ-tVysQos2hTfspaWRAAAAAAEMAACd9nJ-tVysQos2hTfspaWRAAD8tDzlAAA=",
-            "receivedDateTime": "2015-11-03T03:21:04Z",
-            "subject": "Scrum",
-            "isRead": false,
-            "from": {
-                "emailAddress": {
-                    "name": "user0TestUser",
-                    "address": "user0@a830edad9050849NDA1.onmicrosoft.com"
-                }
-            }
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('b63d5fb9-4f43-44c4-8f9d-fd0727842876')/mailFolders('inbox')/messages(subject,from,receivedDateTime,isRead)",
+  "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages?$top=1&$select=subject%2cfrom%2creceivedDateTime%2cisRead&$skip=1",
+  "value": [
+    {
+      "@odata.etag": "W/\"CwAAABYAAACd9nJ/tVysQos2hTfspaWRAAD8ujHV\"",
+      "id": "AAMkAGI2NGVhZTVlLTI1OGMtNDI4My1iZmE5LTA5OGJiZGEzMTc0YQBGAAAAAADUuTJK1K9aTpCdqXop_4NaBwCd9nJ-tVysQos2hTfspaWRAAAAAAEMAACd9nJ-tVysQos2hTfspaWRAAD8tDzlAAA=",
+      "receivedDateTime": "2015-11-03T03:21:04Z",
+      "subject": "Scrum",
+      "isRead": false,
+      "from": {
+        "emailAddress": {
+          "name": "user0TestUser",
+          "address": "user0@a830edad9050849NDA1.onmicrosoft.com"
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
@@ -111,22 +111,22 @@ The server returns the following response:
 
 ```json
 {
-    "@odata.context": "https://outlook.office.com/api/v2.0/$metadata#Me/MailFolders('inbox')/Messages(Subject,From,ReceivedDateTime,IsRead)",
-    "@odata.nextLink": "https://outlook.office.com/api/v2.0/$metadata#Me/MailFolders('inbox')/Messages(Subject,From,ReceivedDateTime,IsRead)",
-    "value": [
-        {
-            "@odata.etag": "W/\"CwAAABYAAACd9nJ/tVysQos2hTfspaWRAAD8ujHV\"",
-            "Id": "AAMkAGI2NGVhZTVlLTI1OGMtNDI4My1iZmE5LTA5OGJiZGEzMTc0YQBGAAAAAADUuTJK1K9aTpCdqXop_4NaBwCd9nJ-tVysQos2hTfspaWRAAAAAAEMAACd9nJ-tVysQos2hTfspaWRAAD8tDzlAAA=",
-            "ReceivedDateTime": "2015-11-03T03:21:04Z",
-            "Subject": "Scrum",
-            "IsRead": false,
-            "From": {
-                "EmailAddress": {
-                    "Name": "user0TestUser",
-                    "Address": "user0@a830edad9050849NDA1.onmicrosoft.com"
-                }
-            }
+  "@odata.context": "https://outlook.office.com/api/v2.0/$metadata#Me/MailFolders('inbox')/Messages(Subject,From,ReceivedDateTime,IsRead)",
+  "@odata.nextLink": "https://outlook.office.com/api/v2.0/$metadata#Me/MailFolders('inbox')/Messages(Subject,From,ReceivedDateTime,IsRead)",
+  "value": [
+    {
+      "@odata.etag": "W/\"CwAAABYAAACd9nJ/tVysQos2hTfspaWRAAD8ujHV\"",
+      "Id": "AAMkAGI2NGVhZTVlLTI1OGMtNDI4My1iZmE5LTA5OGJiZGEzMTc0YQBGAAAAAADUuTJK1K9aTpCdqXop_4NaBwCd9nJ-tVysQos2hTfspaWRAAAAAAEMAACd9nJ-tVysQos2hTfspaWRAAD8tDzlAAA=",
+      "ReceivedDateTime": "2015-11-03T03:21:04Z",
+      "Subject": "Scrum",
+      "IsRead": false,
+      "From": {
+        "EmailAddress": {
+          "Name": "user0TestUser",
+          "Address": "user0@a830edad9050849NDA1.onmicrosoft.com"
         }
-    ]
+      }
+    }
+  ]
 }
 ```
