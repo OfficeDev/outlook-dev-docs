@@ -61,3 +61,5 @@ to make all Outlook REST API calls in the following APIs:
 - [Outlook Contacts REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/contact)
 - [Outlook Notifications REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/webhooks)
 - [Outlook Photo REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/profilephoto)
+
+For more information and a comparison between the Graph endpoints and the Outlook API endpoints, see [Compare the Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).
