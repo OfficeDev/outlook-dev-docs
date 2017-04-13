@@ -13,7 +13,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Python web app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/python_tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via https://outlook.office.com/api) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/python_tutorial/tree/outlook-api).
+This guide will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/python_tutorial/tree/outlook-api).
 
 This guide assumes that you already have [Python](https://www.python.org/) and [Django](https://www.djangoproject.com/) installed and working on your development machine. This sample was created using Python version 3.5.2 and Django 1.10.
 
@@ -306,7 +306,7 @@ urlpatterns = [
 Save your changes and browse to http://localhost:8000. If you hover over the link, it should look like:
 
 ```http
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?scope=openid++User.Read+Mail.Read&response_type=code&client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Ftutorial%2Fgettoken%2F
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?scope=openid+User.Read+Mail.Read&response_type=code&client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Ftutorial%2Fgettoken%2F
 ```
 
 The `<SOME GUID>` portion should match your client ID. Click on the link and you should be presented with a sign in page. Sign in with your Office 365 or Outlook.com account. Your browser should redirect to back to the `gettoken` view. The view doesn't do anything yet, so let's fix that now.
