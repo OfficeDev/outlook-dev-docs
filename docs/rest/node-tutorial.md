@@ -632,10 +632,10 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     ```js
     // The scopes the app requires
     var scopes = [ 'openid',
-                  'offline_access',
-                  'User.Read',
-                  'Mail.Read',
-                  'Calendars.Read' ];
+                   'offline_access',
+                   'User.Read',
+                   'Mail.Read',
+                   'Calendars.Read' ];
     ```
 
 1. Add a `calendar` route in `index.js`.

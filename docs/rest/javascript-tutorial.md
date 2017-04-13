@@ -268,7 +268,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![](images/dotnet-tutorial/app-registration.PNG)
+![](images/javascript-tutorial/app-registration.PNG)
 
 ## Implementing OAuth2
 
