@@ -18,7 +18,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of calling the [Outlook Mail API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/message) to retrieve messages in Office 365 and Outlook.com. Unlike the platform-specific getting started guides, this guide focuses on the OAuth and REST requests and responses. It will cover the sequence of requests and responses that an app uses to authenticate and retrieve messages.
 
-This tutorial will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph) to call the Mail API. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via https://outlook.office.com/api) only if you require a feature that is not available on the Graph endpoints.
+This tutorial will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph) to call the Mail API. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints.
 
 With the information in this guide, you can implement this in any language or platform capable of sending HTTP requests.
 
