@@ -19,3 +19,11 @@
     href: python-tutorial.md
   - name: Ruby
     href: ruby-tutorial.md
+- name: Concepts
+  items:
+  - name: Compare Graph and Outlook
+    href: compare-graph-outlook.md
+  - name: Webhooks and Notifications
+    href: webhooks.md
+- name: Reference
+  href: reference.md
