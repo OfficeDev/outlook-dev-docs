@@ -2,3 +2,5 @@
   href: index.md
 - name: REST APIs
   href: rest/toc.yml
+- name: Add-ins
+  href: addins/toc.yml
