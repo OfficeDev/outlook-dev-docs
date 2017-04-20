@@ -1,0 +1,19 @@
+- name: Overview
+  href: index.md
+- name: Get Started
+  href: get-started.md
+  items:
+  - name: Actionable Messages via Email
+    href: actionable-messages-via-email.md
+  - name: Actionable Messages via Connectors
+    href: actionable-messages-via-connectors.md
+- name: Security Requirements
+  href: security-requirements.md
+- name: Card Reference
+  href: card-reference.md
+- name: Actionable Email Developer Dashboard
+  href: actionable-email-dev-dashboard.md
+- name: Connectors Developer Dashboard
+  href: connectors-dev-dashboard.md
+- name: Card Playground
+  href: https://messagecardplayground.azurewebsites.net/
