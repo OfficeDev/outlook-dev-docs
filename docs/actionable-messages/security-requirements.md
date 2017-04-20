@@ -65,8 +65,8 @@ public async Task<HttpResponseMessage> Post([FromBody]string value)
     // We have a valid token. We will next verify the sender and the action performer.
     // In this example, we verify that the email is sent by Contoso LOB system
     // and the action performer is john@contoso.com.
-    if (!string.Equals(result.Sender, @@"lob@@contoso.com") ||
-        !string.Equals(result.ActionPerformer, "john@@contoso.com")
+    if (!string.Equals(result.Sender, @"lob@contoso.com") ||
+        !string.Equals(result.ActionPerformer, "john@contoso.com")
     {
         return request.CreateErrorResponse(HttpStatusCode.Forbidden, string.Empty);
     }
