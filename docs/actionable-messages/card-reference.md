@@ -156,11 +156,11 @@ If there is a single `ActionCard` action in a `potentialAction` collection, then
 
 ```json
 {
-  "@@type": "ActionCard",
+  "@type": "ActionCard",
   "name": "Comment",
   "inputs": [
     {
-      "@@type": "TextInput",
+      "@type": "TextInput",
       "id": "comment",
       "isMultiline": true,
       "title": "Input's title property"
@@ -168,7 +168,7 @@ If there is a single `ActionCard` action in a `potentialAction` collection, then
   ],
   "actions": [
     {
-      "@@type": "HttpPOST",
+      "@type": "HttpPOST",
       "name": "Action's name prop.",
       "target": "https://yammer.com/comment?postId=123",
       "body": "comment={{comment.value}}"
@@ -205,7 +205,7 @@ Use this input type when you need users to provide free text, such as the respon
 
 ```json
 {
-  "@@type": "TextInput",
+  "@type": "TextInput",
   "id": "comment",
   "isMultiline": true,
   "title": "Input's title property"
@@ -224,7 +224,7 @@ Use this input type when you need users to provide a date and or a time, such as
 
 ```json
 {
-  "@@type": "DateInput",
+  "@type": "DateInput",
   "id": "dueDate",
   "title": "Input's title property"
 }
@@ -237,14 +237,14 @@ Use this input type when you need users to select from a list of pre-defined cho
 | Field | Type | Description |
 |-------|------|-------------|
 | `choices` | Array of name/value pairs | Defines the values that can be selected for the multichoice input. |
-| `isMultiSelect` | Boolean | If set to `true`, indicates that the user can select more than one choice. The specified choices will be displayed as a list of checkboxes. Default value is `false`. |
-| `style` | String (`normal`(default or `expanded`)) | When `isMultiSelect` is `false`, setting the `style` property to `expanded` will instruct the host application to try and display all choices on the screen, typically using a set of radio buttons. |
+| `isMultiSelect` | Boolean | If set to `true`, indicates that the user can select more than one choice. The specified choices will be displayed as a list of checkboxes. Default value is `false`.<br><br><img src="images/reference/ismultiselect.PNG"/> |
+| `style` | String (`normal`(default or `expanded`)) | When `isMultiSelect` is `false`, setting the `style` property to `expanded` will instruct the host application to try and display all choices on the screen, typically using a set of radio buttons.<br><br><img src="images/reference/expanded.PNG"/> |
 
-**Example (dropdown)**
+**Example (compact)**
 
 ```json
 {
-  "@@type": "MultichoiceInput",
+  "@type": "MultichoiceInput",
   "id": "list",
   "title": "Pick an option",
   "choices": [
@@ -255,11 +255,11 @@ Use this input type when you need users to select from a list of pre-defined cho
 }
 ```
 
-**Example (checkboxes)**
+**Example (multi-selection)**
 
 ```json
 {
-  "@@type": "MultichoiceInput",
+  "@type": "MultichoiceInput",
   "id": "list",
   "title": "Pick an option",
   "isMultiSelect": true,
@@ -271,11 +271,11 @@ Use this input type when you need users to select from a list of pre-defined cho
 }
 ```
 
-**Example (radio buttons)**
+**Example (expanded)**
 
 ```json
 {
-  "@@type": "MultichoiceInput",
+  "@type": "MultichoiceInput",
   "id": "list",
   "title": "Pick an option",
   "style": "expanded",
@@ -300,11 +300,11 @@ To reference an input's value, use the following format:
 
 ```json
 {
-  "@@type": "ActionCard",
+  "@type": "ActionCard",
   "name": "Comment",
   "inputs": [
     {
-      "@@type": "TextInput",
+      "@type": "TextInput",
       "id": "comment",
       "isMultiline": true,
       "title": "Input's title property"
@@ -312,7 +312,7 @@ To reference an input's value, use the following format:
   ],
   "actions": [
     {
-      "@@type": "HttpPOST",
+      "@type": "HttpPOST",
       "name": "Action's name prop.",
       "target": "https://yammer.com/comment?postId=123",
       "body": "comment={{comment.value}}"
@@ -419,29 +419,29 @@ Here's how the **Add a comment** action is built:
   ],
   "potentialAction": [
     {
-      "@@type": "ActionCard",
+      "@type": "ActionCard",
       "name": "Set due date",
       "inputs": [
         {
-          "@@type": "DateInput",
+          "@type": "DateInput",
           "id": "dueDate",
           "title": "Select a date"
         }
       ],
       "actions": [
         {
-          "@@type": "HttpPOST",
+          "@type": "HttpPOST",
           "name": "OK",
           "target": "https://..."
         }
       ]
     },
     {
-      "@@type": "ActionCard",
+      "@type": "ActionCard",
       "name": "Move",
       "inputs": [
         {
-          "@@type": "MultichoiceInput",
+          "@type": "MultichoiceInput",
           "id": "move",
           "title": "Pick a list",
           "choices": [
@@ -452,18 +452,18 @@ Here's how the **Add a comment** action is built:
       ],
       "actions": [
         {
-          "@@type": "HttpPOST",
+          "@type": "HttpPOST",
           "name": "OK",
           "target": "https://..."
         }
       ]
     },
     {
-      "@@type": "ActionCard",
+      "@type": "ActionCard",
       "name": "Add a comment",
       "inputs": [
         {
-          "@@type": "TextInput",
+          "@type": "TextInput",
           "id": "comment",
           "isMultiline": true,
           "title": "Enter your comment"
@@ -471,14 +471,14 @@ Here's how the **Add a comment** action is built:
       ],
       "actions": [
         {
-          "@@type": "HttpPOST",
+          "@type": "HttpPOST",
           "name": "OK",
           "target": "https://..."
         }
       ]
     },
     {
-      "@@type": "OpenUri",
+      "@type": "OpenUri",
       "name": "View in Trello",
       "targets": [
         { "os": "default", "uri": "https://..." }
@@ -506,13 +506,13 @@ Here's how that card is built:
   "sections": [
     {
       "activityTitle": "**Elon Musk**",
-      "activitySubtitle": "@@elonmusk - 9/12/2016 at 5:33pm",
+      "activitySubtitle": "@elonmusk - 9/12/2016 at 5:33pm",
       "activityImage": "https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0.jpg",
       "activityText": "Climate change explained in comic book form by xkcd xkcd.com/1732"
     },
     {
       "activityTitle": "**Mark Knopfler**",
-      "activitySubtitle": "@@MarkKnopfler - 9/12/2016 at 1:12pm",
+      "activitySubtitle": "@MarkKnopfler - 9/12/2016 at 1:12pm",
       "activityImage": "https://pbs.twimg.com/profile_images/378800000221985528/b2ebfafca6fd7b565fdf3bf4ccdb4dc9.jpeg",
       "activityText": "Mark Knopfler features on B.B King's all-star album of Blues greats, released on this day in 2005..."
     }

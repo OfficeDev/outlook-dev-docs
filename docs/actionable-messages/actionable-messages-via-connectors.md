@@ -77,5 +77,5 @@ The webhook URL should look simliar to the following:
 Use [cURL](https://curl.haxx.se/) to post an actionable message payload. For example, to post the example payload above, use the following command:
 
 ```Shell
-curl -H "Content-Type: application/json" -d "{\"@@context\": \"http://schema.org/extensions\", \"@@type\": \"MessageCard\", \"themeColor\": \"0072C6\", \"title\": \"Visit the Outlook Dev Portal\", \"text\": \"Click **Learn More** to learn more about Actionable Messages!\", \"potentialAction\": [{\"@@type\": \"OpenUri\", \"name\": \"Learn More\", \"targets\": [{\"os\": \"default\", \"uri\": \"https://docs.microsoft.com/en-us/outlook/actionable-messages\"}]}]}" <YOUR WEBHOOK URL>
+curl -H "Content-Type: application/json" -d "{\"@context\": \"http://schema.org/extensions\", \"@type\": \"MessageCard\", \"themeColor\": \"0072C6\", \"title\": \"Visit the Outlook Dev Portal\", \"text\": \"Click **Learn More** to learn more about Actionable Messages!\", \"potentialAction\": [{\"@type\": \"OpenUri\", \"name\": \"Learn More\", \"targets\": [{\"os\": \"default\", \"uri\": \"https://docs.microsoft.com/en-us/outlook/actionable-messages\"}]}]}" <YOUR WEBHOOK URL>
 ```
