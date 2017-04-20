@@ -36,6 +36,7 @@ All text fields in a card and its section can be formatted using Markdown. We su
 | Bulleted lists | `* List item` or `- List item` |
 
 > [!TIP]
+> 
 > - **Do** use Markdown to format text.
 > - **Don't** use HTML markup in your cards. HTML is ignored and treated as plain text.
 
@@ -46,6 +47,7 @@ If your card represents a single "entity", you may be able to get away with not 
 If your card represents multiple "entities" or is, for instance, a digest for a particular news source, you will definitely want to use multiple sections, one per "entity."
 
 > [!TIP]
+> 
 > - **Do** use sections to logically group data together.
 > - Sometimes, multiple sections MAY be used to represent a single logical group of data; this allows for more flexibility on ordering the information presented in the card. For example, it makes it possible to display a list of facts before an activity.
 > - **Don't** include more than 10 sections. Cards are meant to be easy to read; if there is too much information in a card, it will be lost on the user.
@@ -323,6 +325,7 @@ To reference an input's value, use the following format:
 The value of the header will be displayed in a consistent way in a reserved area of the card. It is also saved with the card so it can be displayed later on, so users can be reminded of the actions that have already been executed on a given card.
 
 > [!TIP]
+> 
 > -	**Do** return the `CARD-ACTION-STATUS` header in your responses.
 > -	**Do** make the message in that header as informative and meaningful as possible. For instance, for an "approve" action on an expense report:
 >     - In case of success, don't return "The action was successful", instead return "The expense was approved"
@@ -350,6 +353,7 @@ To refresh a card as a result of an `HttpPOST` action, a service needs to do the
 
 
 > [!TIP]
+> 
 > - **Do** use refresh cards with actions that can only be taken a single time. In those cases, the refresh card would not include any action that cannot be taken anymore
 > - **Do** use refresh cards with actions that change the state of the entity they are performed on. In those cases, the refresh card should include updated information about the entity, and MAY change the set of actions that can be performed
 > - **Don't** use refresh cards to lead a conversation with the user. For instance, don't use refresh cards for a multi-step "wizard"
