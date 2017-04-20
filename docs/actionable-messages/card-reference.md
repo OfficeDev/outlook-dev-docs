@@ -36,10 +36,9 @@ All text fields in a card and its section can be formatted using Markdown. We su
 | Bulleted lists | `* List item` or `- List item` |
 
 > [!TIP]
-> Consider the following guidelines:
-> 
 > - **Do** use Markdown to format text.
 > - **Don't** use HTML markup in your cards. HTML is ignored and treated as plain text.
+> 
 
 ### Using sections
 
