@@ -39,6 +39,7 @@ All text fields in a card and its section can be formatted using Markdown. We su
 > - **Do** use Markdown to format text.
 > - **Don't** use HTML markup in your cards. HTML is ignored and treated as plain text.
 > 
+> Follow these guidelines when formatting text fields.
 
 ### Using sections
 
