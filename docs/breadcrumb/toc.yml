@@ -7,14 +7,14 @@
     topicHref: /outlook/rest/index
     items:
       - name: Get Started
-        tocHref: /outlook/rest/
+        tocHref: /outlook/rest/get-started
         topicHref: /outlook/rest/get-started
         items: 
           - name: .NET
-            tocHref: /outlook/rest/
+            tocHref: /outlook/rest/dotnet-tutorial
             topicHref: /outlook/rest/dotnet-tutorial
           - name: iOS
-            tocHref: /outlook/rest/
+            tocHref: /outlook/rest/ios-tutorial
             topicHref: /outlook/rest/ios-tutorial
   - name: Add-ins
     tocHref: /outlook/addins/
