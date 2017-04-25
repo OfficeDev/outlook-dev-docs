@@ -5,6 +5,17 @@
   - name: REST APIs
     tocHref: /outlook/rest/
     topicHref: /outlook/rest/index
+    items:
+      - name: Get Started
+        tocHref: /outlook/rest/
+        topicHref: /outlook/rest/get-started
+        items: 
+          - name: .NET
+            tocHref: /outlook/rest/
+            topicHref: /outlook/rest/dotnet-tutorial
+          - name: iOS
+            tocHref: /outlook/rest/
+            topicHref: /outlook/rest/ios-tutorial
   - name: Add-ins
     tocHref: /outlook/addins/
     topicHref: /outlook/addins/index
