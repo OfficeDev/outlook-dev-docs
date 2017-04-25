@@ -23,7 +23,7 @@ However, there are some features that are either only available on the Outlook e
 | Feature | Description |
 |---------|-------------|
 | Synchronization | The Outlook API endpoint provides the ability to sync messages, mail folders, events, contacts, and contact folders. This feature is currently only available in beta on the Graph endpoint. |
-| [Outlook Tasks](https://msdn.microsoft.com/en-us/office/office365/api/task-rest-operations) | The Outlook API provides acccess to user's tasks. This is not available on the Graph endpoint. |
+| [Outlook Tasks](https://msdn.microsoft.com/en-us/office/office365/api/task-rest-operations) | The Outlook API provides acccess to user's tasks. This feature is currently only available in beta on the Graph endpoint. |
 | [Batch REST requests](https://msdn.microsoft.com/en-us/office/office365/api/batch-outlook-rest-requests) | The Outlook API beta endpoint allows an app to send multiple REST requests in one HTTP request. |
 
 ## Translating between Graph and Outlook
