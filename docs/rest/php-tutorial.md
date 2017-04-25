@@ -33,7 +33,7 @@ This will create new `php-tutorial` directory, scaffold the project, and downloa
 php artisan serve
 ```
 
-Open your brower and browse to [http://localhost:8000](http://localhost:8000). You should see a default Laravel start page.
+Open your brower and browse to `http://localhost:8000`. You should see a default Laravel start page.
 
 ## Designing the app
 
@@ -220,7 +220,7 @@ OAUTH_TOKEN_ENDPOINT=/oauth2/v2.0/token
 
 Replace `YOUR_APP_ID_HERE` and `YOUR_APP_PASSWORD_HERE` with the application ID and password you obtained from the App Registration Tool and save the file.
 
-Save all your changes and restart the Laravel development server (`php artisan serve`). Browse to [http://localhost:8000](http://localhost:8000) and click on the **Connect to Outlook** button. You should see the authorization URL printed to the page, which should look something like this.
+Save all your changes and restart the Laravel development server (`php artisan serve`). Browse to `http://localhost:8000` and click on the **Connect to Outlook** button. You should see the authorization URL printed to the page, which should look something like this.
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?state=48b0ad0b3b443a543cf823f98db760c4&scope=openid%20profile%20offline_access%20User.Read%20Mail.Read&response_type=code&approval_prompt=auto&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Foauth&client_id=<YOUR_CLIENT_ID>
@@ -290,7 +290,7 @@ Add a new route in `./php-tutorial/routes/web.php`
 Route::get('/authorize', 'AuthController@gettoken');
 ```
 
-Save your changes and browse to [http://localhost:8000](http://localhost:8000). This time when you click on the **Connect to Outlook** button you should be redirected to the login page. If you enter your Office 365 or Outlook.com account information and accept the requested permissions, the app will display the authorization code. Now let's do something with it.
+Save your changes and browse to `http://localhost:8000`. This time when you click on the **Connect to Outlook** button you should be redirected to the login page. If you enter your Office 365 or Outlook.com account information and accept the requested permissions, the app will display the authorization code. Now let's do something with it.
 
 ### Exchanging the code for a token
 
@@ -518,7 +518,7 @@ Open the `./php-tutorial/routes/web.php` file and add the following line at the 
 Route::get('/mail', 'OutlookController@mail')->name('mail');
 ```
 
-Save your changes, browse to [http://localhost:8000](http://localhost:8000) and sign in again. This time, the app should redirect to `https://localhost:8000/mail' and display the token, verifying that our token cache is working across controllers. Now that we have an access token and we can refresh if needed, we're ready to use the Mail API.
+Save your changes, browse to `http://localhost:8000` and sign in again. This time, the app should redirect to `https://localhost:8000/mail` and display the token, verifying that our token cache is working across controllers. Now that we have an access token and we can refresh if needed, we're ready to use the Mail API.
 
 ## Using the Mail API ##
 
@@ -569,7 +569,7 @@ public function mail() {
 }
 ```
 
-Save your changes and refresh the mail view. You should see the authenticated user's name and email address. (If not, start over at [http://localhost:8000](http://localhost:8000) and login again.)
+Save your changes and refresh the mail view. You should see the authenticated user's name and email address. (If not, start over at `http://localhost:8000` and login again.)
 
 Now let's add code to retrieve the user's messages. Replace the existing `mail` function with the following.
 

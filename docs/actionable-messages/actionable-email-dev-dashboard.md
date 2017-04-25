@@ -39,7 +39,7 @@ In this section, you need to supply key details that will allow Office 365 to ac
 The key fields are:
 
 - **Sender email address**: This is one or more static email addresses corresponding to the service that will send out emails with action markup. Example: `myservice@contoso.com`.
-- **Target URLs**: This is one or more domains corresponding to URLs that will process the actions. Your target URL can correspond to the top level domain or the subdomain of the TLD. They need to be https enabled URLs. Example. https://api.myservice.com.
+- **Target URLs**: This is one or more domains corresponding to URLs that will process the actions. Your target URL can correspond to the top level domain or the subdomain of the TLD. They need to be https enabled URLs. Example. `https://api.myservice.com`.
 
 ### Scope of your submission
 

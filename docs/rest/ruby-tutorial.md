@@ -36,7 +36,7 @@ On the command line, change your directory to the `o365-tutorial` sub-directory.
 rails server
 ```
 
-Open a browser and navigate to [http://localhost:3000](http://localhost:3000). You should see the default Ruby on Rails welcome page.
+Open a browser and navigate to `http://localhost:3000`. You should see the default Ruby on Rails welcome page.
 
 ![The default Ruby on Rails welcome page.](images/ruby-tutorial/default-ruby-page.PNG)
 
@@ -135,7 +135,7 @@ Rails.application.routes.draw do
 end
 ```
 
-Save your changes. Now browsing to [http://localhost:3000](http://localhost:3000) should look like:
+Save your changes. Now browsing to `http://localhost:3000` should look like:
 
 ![The app's home page.](images/ruby-tutorial/home-page.PNG)
 
@@ -239,7 +239,7 @@ class HomeController < ApplicationController
 end
 ```
 
-Save your changes and browse to [http://localhost:3000](http://localhost:3000). If you hover over the link, it should look like:
+Save your changes and browse to `http://localhost:3000`. If you hover over the link, it should look like:
 
     https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauthorize&response_type=code&scope=openid+profile+User.Read+Mail.Read
 
@@ -464,7 +464,7 @@ def gettoken
 end
 ```
 
-Now going through the sign-in process in the app lands you at http://localhost:3000/mail/index. Of course that page doesn't do anything, so let's fix that.
+Now going through the sign-in process in the app lands you at `http://localhost:3000/mail/index`. Of course that page doesn't do anything, so let's fix that.
 
 Open the `.\o365-tutorial\app\controllers\mail_controller.rb` file and define the `index` action:
 

@@ -107,7 +107,7 @@ At this point, you should have a working app. Open a command prompt to the direc
 npm start
 ```
 
-You should get a confirmation saying `Server has started.` Open your browser and navigate to [http://localhost:8000](http://localhost:8000). You should see "Hello world!".
+You should get a confirmation saying `Server has started.` Open your browser and navigate to `http://localhost:8000`. You should see "Hello world!".
 
 Now that we've confirmed that the app is working, we're ready to do some real work.
 
@@ -217,7 +217,7 @@ function home(response, request) {
 }
 ```
 
-Save your changes and browse to [http://localhost:8000](http://localhost:8000). If you hover over the link, it should look like:
+Save your changes and browse to `http://localhost:8000`. If you hover over the link, it should look like:
 
     https://login.microsoftonline.com/common/oauth2/authorize?redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauthorize&scope=openid+User.Read+Mail.Read&response_type=code&client_id=<SOME GUID>
 

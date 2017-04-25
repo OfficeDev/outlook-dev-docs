@@ -96,11 +96,11 @@ Now let's configure the project to build with Maven and run on a local test serv
 </build>
 ```
 
-This code adds the [Jetty server maven plugin](https://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html), which runs your project on an embedded Jetty web server at http://localhost:8080. It also adds the Maven compiler plugin.
+This code adds the [Jetty server maven plugin](https://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html), which runs your project on an embedded Jetty web server at `http://localhost:8080`. It also adds the Maven compiler plugin.
 
 Save the file. Right-click the project in **Project Explorer** and choose **Maven**, then **Update Project**. Click **OK**.
 
-Now let's make sure it works. Right-click the project and choose **Run as**, then **Maven build**. In the **Goals** field, enter `jetty:run`, then click **Run**. In the **Console** view, you should see output from the Maven build process. Assuming nothing goes wrong, you should eventually see `[INFO] Started Jetty Server`. Open a browser and browse to http://localhost:8080. Because there is no content there, you should see something like this:
+Now let's make sure it works. Right-click the project and choose **Run as**, then **Maven build**. In the **Goals** field, enter `jetty:run`, then click **Run**. In the **Console** view, you should see output from the Maven build process. Assuming nothing goes wrong, you should eventually see `[INFO] Started Jetty Server`. Open a browser and browse to `http://localhost:8080`. Because there is no content there, you should see something like this:
 
 ![The default landing page for the Jetty test server](images/java-tutorial/jetty-default.PNG)
 
@@ -394,7 +394,7 @@ public class IndexController {
 }
 ```
 
-Save all of the files and restart the app. Now if you browse to http://localhost:8080, you should see the following:
+Save all of the files and restart the app. Now if you browse to `http://localhost:8080`, you should see the following:
 
 ![The app's home page showing "Hello World"](images/java-tutorial/hello-world.PNG)
 
@@ -659,13 +659,13 @@ Open the `pages.xml` file (**Deployed Resources**, **webapp**, **WEB-INF**, **de
 </definition>
 ```
 
-Save all of your changes and restart the app. Browse to http://localhost:8080 and click the login button. Sign in with an Office 365 or Outlook.com account. Once you sign in and grant access to your information, the browser should redirect to the app, which displays the authorization code and ID token.
+Save all of your changes and restart the app. Browse to `http://localhost:8080` and click the login button. Sign in with an Office 365 or Outlook.com account. Once you sign in and grant access to your information, the browser should redirect to the app, which displays the authorization code and ID token.
 
 ![The app's mail page showing the user's access token](images/java-tutorial/auth-code.PNG)
 
 ### Exchanging the code for a token ###
 
-The next step is to exchange the authorization code for an access token. In order to do that, we need to parse the ID token and extract some information from it. ID tokens are [JSON web tokens](https://tools.ietf.org/rfc/rfc7519.txt), so we'll need a JSON parser. Let's start by adding a dependency to the [Jackson](http://wiki.fasterxml.com/JacksonHome/) library. In `pom.xml`, add the following lines before the `</dependencies>` line:
+The next step is to exchange the authorization code for an access token. In order to do that, we need to parse the ID token and extract some information from it. ID tokens are [JSON web tokens](https://tools.ietf.org/rfc/rfc7519.txt), so we'll need a JSON parser. Let's start by adding a dependency to the [Jackson](https://github.com/FasterXML/jackson) library. In `pom.xml`, add the following lines before the `</dependencies>` line:
 
 ```xml
 <dependency>
@@ -1059,7 +1059,7 @@ public String logout(HttpServletRequest request) {
 }
 ```
 
-Save all of your changes, restart the app, and browse to http://localhost:8080. This time if you log in, you should see an access token. 
+Save all of your changes, restart the app, and browse to `http://localhost:8080`. This time if you log in, you should see an access token. 
 
 ### Refreshing the access token
 
