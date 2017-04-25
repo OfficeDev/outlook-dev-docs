@@ -1,3 +1,5 @@
+- name: Overview
+  href: index.md
 - name: Get Started
   items:
   - name: Write your first Outlook add-in
