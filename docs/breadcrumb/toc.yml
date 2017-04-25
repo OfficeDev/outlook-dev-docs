@@ -34,16 +34,12 @@
           - name: Ruby
             tocHref: /outlook/rest/ruby-tutorial
             topicHref: /outlook/rest/ruby-tutorial
-      - name: Concepts
-        tocHref: /outlook/rest/concepts
-        topicHref: /outlook/rest/concepts
-        items:
-          - name: Compare Graph and Outlook
-            tocHref: /outlook/rest/compare-graph-outlook
-            topicHref: /outlook/rest/compare-graph-outlook
-          - name: Compare Graph and Outlook
-            tocHref: /outlook/rest/webhooks
-            topicHref: /outlook/rest/webhooks
+      - name: Compare Graph and Outlook
+        tocHref: /outlook/rest/compare-graph-outlook
+        topicHref: /outlook/rest/compare-graph-outlook
+      - name: Compare Graph and Outlook
+        tocHref: /outlook/rest/webhooks
+        topicHref: /outlook/rest/webhooks
       - name: Reference
         tocHref: /outlook/rest/reference
         topicHref: /outlook/rest/reference
