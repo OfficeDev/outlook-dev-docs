@@ -210,7 +210,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![](images/python-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/python-tutorial/app-registration.PNG)
 
 ## Implementing OAuth2
 
