@@ -213,4 +213,4 @@ When the user marks a message read, the notifications services sends a notificat
 
 ## Next steps
 
-We are really excited about the Outlook Notification REST API and webhooks for mail, calendar and contacts. Try them out and send us feedback on [UserVoice](https://officespdev.uservoice.com/forums/224641-general/category/131775-outlook-apis). This will help us improve our APIs and let you create delightful experiences in your apps.
+We are really excited about the Outlook Notification REST API and webhooks for mail, calendar and contacts. Try them out and send us feedback on [UserVoice](https://officespdev.uservoice.com). This will help us improve our APIs and let you create delightful experiences in your apps.

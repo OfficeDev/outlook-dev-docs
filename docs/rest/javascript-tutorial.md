@@ -42,7 +42,7 @@ Before you begin you'll need to have [Node.js](https://nodejs.org/en/) installed
     http-server
     ```
 
-1. Open a browser and browse to http://localhost:8080. If the server is working correctly, you should see something like the following:
+1. Open a browser and browse to `http://localhost:8080`. If the server is working correctly, you should see something like the following:
 
     ![Browser showing a directory listing of an empty directory.](images/javascript-tutorial/empty-directory-listing.PNG)
 
@@ -268,7 +268,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![](images/javascript-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/javascript-tutorial/app-registration.PNG)
 
 ## Implementing OAuth2
 
@@ -344,7 +344,7 @@ With:
 $('#connect-button').attr('href', buildAuthUrl());
 ```
 
-Save your changes and browse to http://localhost:8080. If you hover over the **Connect to Outlook** button, it should look like:
+Save your changes and browse to `http://localhost:8080`. If you hover over the **Connect to Outlook** button, it should look like:
 
     https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token+token&client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A8080&scope=openid+profile+User.Read+Mail.Read&state=f175f48d-d277-9893-9c8d-dcc2a95ffe16&nonce=593a2b06-d77b-31c2-ae43-e74c0ebeb304&response_mode=fragment
 

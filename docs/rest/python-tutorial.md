@@ -31,7 +31,7 @@ This creates a new subdirectory called `python_tutorial`. Change your command pr
 python manage.py runserver
 ```
 
-Once the server starts, open a web browser and browse to http://localhost:8000/. You should see a success message.
+Once the server starts, open a web browser and browse to `http://localhost:8000/`. You should see a success message.
 
 ![The default Django welcome page.](images/python-tutorial/django_welcome.PNG)
 
@@ -114,7 +114,7 @@ If you're familiar with Django development, this isn't anything new for you. If 
 
 The entries in the `.\tutorial\urls.py` file tell Django to send requests to either `/tutorial` or `/tutorial/home` to the `home` view. Finally, the `home` function in `.\tutorial\views.py` returns a simple HTTP response.
 
-If you save all of your changes and navigate to http://localhost:8000 you should see "Welcome to the tutorial." Now that we've confirmed that the app is working, we're ready to do some real work.
+If you save all of your changes and navigate to `http://localhost:8000` you should see "Welcome to the tutorial." Now that we've confirmed that the app is working, we're ready to do some real work.
 
 ## Designing the app
 
@@ -210,7 +210,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![](images/python-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/python-tutorial/app-registration.PNG)
 
 ## Implementing OAuth2
 
@@ -303,7 +303,7 @@ urlpatterns = [
 ]
 ```
 
-Save your changes and browse to http://localhost:8000. If you hover over the link, it should look like:
+Save your changes and browse to `http://localhost:8000`. If you hover over the link, it should look like:
 
 ```http
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?scope=openid+User.Read+Mail.Read&response_type=code&client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Ftutorial%2Fgettoken%2F
