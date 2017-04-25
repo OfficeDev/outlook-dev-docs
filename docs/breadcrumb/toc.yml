@@ -16,6 +16,37 @@
           - name: iOS
             tocHref: /outlook/rest/ios-tutorial
             topicHref: /outlook/rest/ios-tutorial
+          - name: Java
+            tocHref: /outlook/rest/java-tutorial
+            topicHref: /outlook/rest/java-tutorial
+          - name: JavaScript
+            tocHref: /outlook/rest/javascript-tutorial
+            topicHref: /outlook/rest/javascript-tutorial
+          - name: Node.js
+            tocHref: /outlook/rest/node-tutorial
+            topicHref: /outlook/rest/node-tutorial
+          - name: PHP
+            tocHref: /outlook/rest/php-tutorial
+            topicHref: /outlook/rest/php-tutorial
+          - name: Python
+            tocHref: /outlook/rest/python-tutorial
+            topicHref: /outlook/rest/python-tutorial
+          - name: Ruby
+            tocHref: /outlook/rest/ruby-tutorial
+            topicHref: /outlook/rest/ruby-tutorial
+      - name: Concepts
+        tocHref: /outlook/rest/concepts
+        topicHref: /outlook/rest/concepts
+        items:
+          - name: Compare Graph and Outlook
+            tocHref: /outlook/rest/compare-graph-outlook
+            topicHref: /outlook/rest/compare-graph-outlook
+          - name: Compare Graph and Outlook
+            tocHref: /outlook/rest/webhooks
+            topicHref: /outlook/rest/webhooks
+      - name: Reference
+        tocHref: /outlook/rest/reference
+        topicHref: /outlook/rest/reference
   - name: Add-ins
     tocHref: /outlook/addins/
     topicHref: /outlook/addins/index
