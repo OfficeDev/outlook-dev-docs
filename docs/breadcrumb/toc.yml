@@ -1,0 +1,13 @@
+- name: Outlook
+  tocHref: /outlook/
+  topicHref: /outlook/index
+  items:
+  - name: REST APIs
+    tocHref: /outlook/rest/
+    topicHref: /outlook/rest/index
+  - name: Add-ins
+    tocHref: /outlook/addins/
+    topicHref: /outlook/addins/index
+  - name: Actionable Messages
+    tocHref: /outlook/actionable-messages/
+    topicHref: /outlook/actionable-messages/index
