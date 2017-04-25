@@ -16,9 +16,69 @@
           - name: iOS
             tocHref: /outlook/rest/ios-tutorial
             topicHref: /outlook/rest/ios-tutorial
+          - name: Java
+            tocHref: /outlook/rest/java-tutorial
+            topicHref: /outlook/rest/java-tutorial
+          - name: JavaScript
+            tocHref: /outlook/rest/javascript-tutorial
+            topicHref: /outlook/rest/javascript-tutorial
+          - name: Node.js
+            tocHref: /outlook/rest/node-tutorial
+            topicHref: /outlook/rest/node-tutorial
+          - name: PHP
+            tocHref: /outlook/rest/php-tutorial
+            topicHref: /outlook/rest/php-tutorial
+          - name: Python
+            tocHref: /outlook/rest/python-tutorial
+            topicHref: /outlook/rest/python-tutorial
+          - name: Ruby
+            tocHref: /outlook/rest/ruby-tutorial
+            topicHref: /outlook/rest/ruby-tutorial
+      - name: Compare Graph and Outlook
+        tocHref: /outlook/rest/compare-graph-outlook
+        topicHref: /outlook/rest/compare-graph-outlook
+      - name: Webhooks and Notifications
+        tocHref: /outlook/rest/webhooks
+        topicHref: /outlook/rest/webhooks
+      - name: Reference
+        tocHref: /outlook/rest/reference
+        topicHref: /outlook/rest/reference
   - name: Add-ins
     tocHref: /outlook/addins/
     topicHref: /outlook/addins/index
+    items:
+      - name: Write your first Outlook add-in
+        tocHref: /outlook/addins/addin-tutorial
+        topicHref: /outlook/addins/addin-tutorial
+      - name: Concepts
+        tocHref: /outlook/addins/concepts
+        topicHref: /outlook/addins/concepts
+      - name: Reference
+        tocHref: /outlook/addins/reference
+        topicHref: /outlook/addins/reference
   - name: Actionable Messages
     tocHref: /outlook/actionable-messages/
     topicHref: /outlook/actionable-messages/index
+    items:
+      - name: Get Started
+        tocHref: /outlook/actionable-messages/get-started
+        topicHref: /outlook/actionable-messages/get-started
+        items:
+          - name: Actionable Messages via Email
+            tocHref: /outlook/actionable-messages/actionable-messages-via-email
+            topicHref: /outlook/actionable-messages/actionable-messages-via-email
+          - name: Actionable Messages via Connectors
+            tocHref: /outlook/actionable-messages/actionable-messages-via-connectors
+            topicHref: /outlook/actionable-messages/actionable-messages-via-connectors
+      - name: Security Requirements
+        tocHref: /outlook/actionable-messages/security-requirements
+        topicHref: /outlook/actionable-messages/security-requirements
+      - name: Card Reference
+        tocHref: /outlook/actionable-messages/card-reference
+        topicHref: /outlook/actionable-messages/card-reference
+      - name: Actionable Email Developer Dashboard
+        tocHref: /outlook/actionable-messages/actionable-email-dev-dashboard
+        topicHref: /outlook/actionable-messages/actionable-email-dev-dashboard
+      - name: Connectors Developer Dashboard
+        tocHref: /outlook/actionable-messages/connectors-dev-dashboard
+        topicHref: /outlook/actionable-messages/connectors-dev-dashboard
