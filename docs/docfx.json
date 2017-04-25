@@ -34,7 +34,8 @@
       "uhfHeaderId": "MSDocsHeader-Outlook",
       "searchScope": [ "Outlook Developer" ],
       "ms.suite": "Office",
-      "ms.prod": "Outlook"
+      "ms.prod": "Outlook",
+      "breadcrumb_path": "/outlook/toc.json"
     },
     "fileMetadata": {},
     "template": [],
