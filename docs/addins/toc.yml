@@ -1,10 +1,8 @@
-- name: Overview
-  href: https://dev.office.com/docs/add-ins/outlook/overview
 - name: Get Started
   items:
   - name: Write your first Outlook add-in
     href: addin-tutorial.md
-- name: Outlook add-in design guidelines
-  href: https://dev.office.com/docs/add-ins/outlook/outlook-addin-design
+- name: Concepts
+  href: concepts.md
 - name: Reference
-  href: https://dev.office.com/reference/add-ins/javascript-api-for-office?product=outlook
+  href: reference.md
