@@ -4,7 +4,8 @@ description: Learn about the benefits of the Outlook APIs in the Microsoft Graph
 author: jasonjoh
 
 ms.topic: landing-page
-ms.date: 04/11/2017
+ms.technology: graph
+ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 

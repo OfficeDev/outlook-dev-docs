@@ -4,7 +4,8 @@ description: Learn where to find Outlook add-in conceptual documentation.
 author: jasonjoh
 
 ms.topic: article
-ms.date: 04/11/2017
+ms.technology: office-add-ins
+ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 

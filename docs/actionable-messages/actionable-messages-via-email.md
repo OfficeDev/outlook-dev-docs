@@ -4,7 +4,8 @@ description: Learn how to create an actionable message card and send it via emai
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.technology: office-365-connectors
+ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 

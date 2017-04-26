@@ -4,7 +4,8 @@ description: Get a list of the Outlook API references.
 author: jasonjoh
 
 ms.topic: reference
-ms.date: 04/11/2017
+ms.technology: graph
+ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 

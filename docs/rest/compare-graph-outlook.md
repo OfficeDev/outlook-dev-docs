@@ -4,7 +4,7 @@ description: Compare the differences between Graph and Outlook APIs. Learn which
 author: jasonjoh
 
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
