@@ -23,11 +23,26 @@ Securing actionable email is simple and easy. There are two phases within the en
 
 ## Bearer Token
 
-All action requests from Microsoft will have a bearer token (JWT) in the HTTP authorization header. The bearer token will prove that the request came from Microsoft and that the intended audience is the service provider.
+All action requests from Microsoft have a bearer token (JWT) in the HTTP authorization header. This token is a JWT token signed by Microsoft. The token also provides information about the user who took the action. It is strongly recommended that services handling these requests verify the bearer token.
+
+The description of important claims available in this token is given below.
+
+| Claim Type | Description | Value |
+|------------|-------------|-------|
+| 'aud' | The audience claim identifies the target service that this token is intended for. | The domain of the service API URL, as specified by target URL in the actions markup. |
+| 'sub' | Subject | The email address of the user who took the action **Note:** for connectors, the `sub` claim will have the objectID of the user who took the action. |
+| 'sender ' | Sender of the message containing the action. | The email address of the sender of the message containing the action. |
+
 
 The token also provides important information (claims) about the user who took the action and the sender who sent the action request.
 
-Service providers handling these requests must verify the bearer token and its claims. Verifying a bearer token is very simple. Please refer to the Microsoft code samples provided below.
+Service providers handling these requests must verify the bearer token and its claims.
+
+1. The token is in JWT format and is signed by Azure Active Directory.
+1. Verify the 'aud' claim and make sure that it is what the service API is expecting.
+1. Verify the 'sender' and 'sub' claims are what the service API expects.
+
+Please refer to the Microsoft code samples provided below, which show how to do these validations on the JWT token.
 
 - [.NET Sample](https://github.com/OfficeDev/outlook-actionable-messages-csharp-token-validation)
 - [Node.js Sample](https://github.com/OfficeDev/outlook-actionable-messages-node-token-validation)
