@@ -4,8 +4,9 @@ description: Learn how to write a simple Outlook add-in and test it locally
 author: jasonjoh
 
 ms.topic: get-started-article
+ms.technology: office-add-ins
 ms.devlang: javascript
-ms.date: 04/11/2017
+ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
@@ -65,7 +66,7 @@ Open the `git-the-gist-manifest.xml` and locate the `SupportUrl` element. Remove
 #### Sideload the add-in
 
 1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
-    - If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.mdnp) for details.
+    - If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
     - If the browser does not indicate a problem with the certificate, proceed to the next step.
 1. Open Outlook 2016. On the **Home** tab in the ribbon, click the **Store** button.
 1. In the Store UI, click the text **Click here to add a custom add-in**, and select **Add from file...**. Browse to the `git-the-gist-manifest.xml` file and click **Open**. Click **Install** when prompted.

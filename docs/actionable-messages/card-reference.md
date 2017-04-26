@@ -4,7 +4,8 @@ description: Learn about the available fields for actionable message cards and d
 author: jasonjoh
 
 ms.topic: reference
-ms.date: 04/11/2017
+ms.technology: office-365-connectors
+ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 

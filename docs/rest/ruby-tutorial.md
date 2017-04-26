@@ -4,8 +4,9 @@ description: Learn how to use Microsoft Graph in a Ruby app to access the Outloo
 author: jasonjoh
 
 ms.topic: get-started-article
+ms.technology: graph
 ms.devlang: ruby
-ms.date: 04/11/2017
+ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
