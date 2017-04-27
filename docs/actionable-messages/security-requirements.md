@@ -27,15 +27,15 @@ All action requests from Microsoft have a bearer token in the HTTP `Authorizatio
 
 | Claim name | Value |
 |------------|-------|
-| 'aud' | The base URL of the target service, e.g. `https://www.api.contoso.com` |
-| 'sub' | The identity of the user who took the action. For Actionable Messages sent over email, `sub` would be the email address of the user. For connectors, `sub` will be the objectID of the user who took the action. |
-| 'sender ' | The identity of sender of the message containing the action. |
+| `aud` | The base URL of the target service, e.g. `https://www.api.contoso.com` |
+| `sub` | The identity of the user who took the action. For Actionable Messages sent over email, `sub` would be the email address of the user. For connectors, `sub` will be the objectID of the user who took the action. |
+| `sender` | The identity of sender of the message containing the action. |
 
 Typically, a service will perform the following verifications.
 
 1. The token is signed by Microsoft.
-1. The 'aud' claim corresponds to the service's base URL.
-1. Verify the 'sender' claim is what the service expects.
+1. The `aud` claim corresponds to the service's base URL.
+1. Verify the `sender` claim is what the service expects.
 
 With all the above verifications done, the service can trust the `sub` claim to be the address of the user taking the action. A service can optionally validate that the `sub` claim matches the user it is expecting.
 
