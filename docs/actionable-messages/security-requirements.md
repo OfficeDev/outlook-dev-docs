@@ -23,24 +23,21 @@ Securing actionable email is simple and easy. There are two phases within the en
 
 ## Bearer Token
 
-All action requests from Microsoft have a bearer token (JWT) in the HTTP authorization header. This token is a JWT token signed by Microsoft. The token also provides information about the user who took the action. It is strongly recommended that services handling these requests verify the bearer token.
+All action requests from Microsoft have a bearer token in the HTTP `Authorization` header. This token is a [JSON Web Token](https://jwt.io/) (JWT) token signed by Microsoft, and it includes important claims that we strongly recommend should be verified by the service handling the associated request.
 
-The description of important claims available in this token is given below.
+| Claim name | Value |
+|------------|-------|
+| 'aud' | The base URL of the target service, e.g. `https://www.api.contoso.com` |
+| 'sub' | The identity of the user who took the action. For Actionable Messages sent over email, `sub` would be the email address of the user. For connectors, `sub` will be the objectID of the user who took the action. |
+| 'sender ' | The identity of sender of the message containing the action. |
 
-| Claim Type | Description | Value |
-|------------|-------------|-------|
-| 'aud' | The audience claim identifies the target service that this token is intended for. | The domain of the service API URL, as specified by target URL in the actions markup. |
-| 'sub' | Subject | The email address of the user who took the action **Note:** for connectors, the `sub` claim will have the objectID of the user who took the action. |
-| 'sender ' | Sender of the message containing the action. | The email address of the sender of the message containing the action. |
+Typically, a service will perform the following verifications.
 
+1. The token is signed by Microsoft.
+1. The 'aud' claim corresponds to the service's base URL.
+1. Verify the 'sender' claim is what the service expects.
 
-The token also provides important information (claims) about the user who took the action and the sender who sent the action request.
-
-Service providers handling these requests must verify the bearer token and its claims.
-
-1. The token is in JWT format and is signed by Azure Active Directory.
-1. Verify the 'aud' claim and make sure that it is what the service API is expecting.
-1. Verify the 'sender' and 'sub' claims are what the service API expects.
+With all the above verifications done, the service can trust the `sub` claim to be the address of the user taking the action. A service can optionally validate that the `sub` claim matches the user it is expecting.
 
 Please refer to the Microsoft code samples provided below, which show how to do these validations on the JWT token.
 
