@@ -9,7 +9,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Webhooks for Mail, Calendar and Contacts REST notifications
+# Use webhooks for mail, calendar and contacts REST notifications
 
 We are excited about the release of the [Outlook Notifications REST API](https://msdn.microsoft.com/office/office365/APi/notify-rest-operations) for mail, calendar, and contacts in Office 365 and Outlook.com. The Outlook Notifications REST API uses a webhook mechanism to deliver notifications to clients. A client, in this context, is actually a third-party web service that configures its own notification URL to which Office 365 pushes these notifications.  Mail and calendaring apps typically use notifications to update their local cache and corresponding client views upon changes. Additionally, CRM apps usually use notifications to update their systems with changes to relevant conversations.
  

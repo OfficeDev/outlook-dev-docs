@@ -1,5 +1,5 @@
 ---
-title: Write an Java Spring MVC Web app to get Outlook mail | Microsoft Docs
+title: How to use Outlook REST APIs in a Java Spring MVC Web app | Microsoft Docs
 description: Learn how to use Microsoft Graph in a Java web app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
 
@@ -10,7 +10,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Write a Java Spring MVC Web app to get Outlook mail
+# Write a Java Spring MVC Web app to get Outlook mail, calendar, and contacts
 
 The purpose of this guide is to walk through the process of creating a simple Java Spring MVC app that retrieves messages in Office 365 or Outlook.com. The source code in this <a href="https://github.com/jasonjoh/java-tutorial">repository</a> is what you should end up with if you follow the steps outlined here.
 

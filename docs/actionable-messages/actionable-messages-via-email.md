@@ -9,7 +9,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Get started with actionable messages via email
+# Send an actionable message via email in Office 365
 
 ## Create an actionable message card
 

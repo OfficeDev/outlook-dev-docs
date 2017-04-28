@@ -1,5 +1,5 @@
 ---
-title: Get started with actionable messages via email | Microsoft Docs
+title: Get started with actionable messages via connectors | Microsoft Docs
 description: Learn how to create an actionable message card and send it via connectors.
 author: jasonjoh
 
@@ -9,7 +9,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Get started with actionable messages via email
+# Post an actionable message card to an Office 365 group
 
 ## Create an actionable message card
 

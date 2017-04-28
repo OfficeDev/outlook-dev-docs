@@ -9,7 +9,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Security requirements for actionable messages
+# Security requirements for actionable messages in Office 365
 
 Securing actionable email is simple and easy. There are two phases within the end-to-end experience that impose security requirements on your service when supporting actionable messages with Office 365. The phases and their corresponding requirements are as follows.
 

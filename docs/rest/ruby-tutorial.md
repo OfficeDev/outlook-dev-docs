@@ -1,5 +1,5 @@
 ---
-title: Write a Ruby on Rails app to get Outlook mail | Microsoft Docs
+title: How to use Outlook REST APIs in a Ruby on Rails app | Microsoft Docs
 description: Learn how to use Microsoft Graph in a Ruby app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
 
@@ -10,7 +10,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Write a Ruby on Rails app to get Outlook mail
+# Write a Ruby on Rails app to get Outlook mail, calendar, and contacts
 
 The purpose of this guide is to walk through the process of creating a simple Ruby on Rails app that accesses a user's data in Office 365 or Outlook.com. The source code in this repository is what you should end up with if you follow the steps outlined here.
 

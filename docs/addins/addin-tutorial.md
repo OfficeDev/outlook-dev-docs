@@ -10,7 +10,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Write an Outlook add-in
+# Write your first Outlook add-in
 
 The purpose of this guide is to walk through the process of creating an Outlook add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outline here.
 
