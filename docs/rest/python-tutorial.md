@@ -527,15 +527,15 @@ def get_access_token(request, redirect_uri):
   current_token = request.session['access_token']
   expiration = request.session['token_expires']
   now = int(time.time())
-  if (current_token && now < expiration):
-    // Token still valid
+  if (current_token and now < expiration):
+    # Token still valid
     return current_token
   else:
-    // Token expired
+    # Token expired
     refresh_token = request.session['refresh_token']
     new_tokens = get_token_from_refresh_token(refresh_token, redirect_uri)
 
-    // Update session
+    # Update session
     # expires_in is in seconds
     # Get current timestamp (seconds since Unix Epoch) and
     # add expires_in to get expiration time
@@ -603,11 +603,21 @@ def gettoken(request):
   redirect_uri = request.build_absolute_uri(reverse('tutorial:gettoken'))
   token = get_token_from_code(auth_code, redirect_uri)
   access_token = token['access_token']
-  user_email = get_user_email_from_id_token(token['id_token'])
+  user = get_me(access_token)
+  refresh_token = token['refresh_token']
+  expires_in = token['expires_in']
 
+  # expires_in is in seconds
+  # Get current timestamp (seconds since Unix Epoch) and
+  # add expires_in to get expiration time
+  # Subtract 5 minutes to allow for clock differences
+  expiration = int(time.time()) + expires_in - 300
+  
   # Save the token in the session
   request.session['access_token'] = access_token
-  request.session['user_email'] = user_email
+  request.session['refresh_token'] = refresh_token
+  request.session['token_expires'] = expiration
+  request.session['user_email'] = user['mail']
   return HttpResponseRedirect(reverse('tutorial:mail'))
 ```
 
