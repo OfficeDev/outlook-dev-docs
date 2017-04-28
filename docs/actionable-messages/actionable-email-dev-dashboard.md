@@ -9,13 +9,13 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Actionable messages via email developer dashboard guide
+# Register your service with the actionable email developer dashboard
 
 Outlook is a communication hub and central to how users get things done using email. Enterprise users receive a variety of emails such as expense approvals, task reminders, survey requests and in general notifications from services to enable you to get things done. 
 
 As a developer, you can easily enrich your emails from your service, so Office 365 users can complete simple tasks from right within Outlook. This helps drive engagement for users with your service by minimizing distraction of switching from one application to another for simple and routine tasks. For more information on enabling actionable messages via email, please visit [Get started with actionable messages](get-started.md).
 
-To test and publish actionable messages from your service, you need to provide certain information to Microsoft to enable this functionality for emails from your service. The [developer dashboard](https://outlook.office.com/connectors/oam/publish) helps you submit and track status of your submission via the web portal.
+To test and publish actionable messages from your service, you need to provide certain information to Microsoft to enable this functionality for emails from your service. The [developer dashboard](https://aka.ms/publishoam) helps you submit and track status of your submission via the web portal.
 
 If you are a developer working with actionable messages via email, you will use the portal for the following cases:
 

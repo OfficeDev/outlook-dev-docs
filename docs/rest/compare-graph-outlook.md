@@ -9,7 +9,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Compare the Microsoft Graph and Outlook endpoints
+# Compare the Microsoft Graph and Outlook REST API endpoints
 
 The Outlook REST APIs are available in both the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) and the Outlook API endpoint (`https://outlook.office.com/api`). The APIs generally provide the same functionality and use the same resource types.
 

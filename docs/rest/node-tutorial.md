@@ -1,5 +1,5 @@
 ---
-title: Write a Node.js app to get Outlook mail | Microsoft Docs
+title: How to use Outlook REST APIs in a Node.js app | Microsoft Docs
 description: Learn how to use Microsoft Graph in a Node.js app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
 
@@ -10,7 +10,7 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Write a Node.js app to get Outlook mail
+# Write a Node.js app to get Outlook mail, calendar, and contacts
 
 The purpose of this guide is to walk through the process of creating a simple Node.js app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/node-tutorial) is what you should end up with if you follow the steps outlined here.
 

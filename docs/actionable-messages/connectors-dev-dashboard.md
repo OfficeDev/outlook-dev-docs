@@ -9,9 +9,9 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Office Connectors developer dashboard
+# Register your connector with the Office 365 Connectors developer dashboard
 
-Office 365 provides a variety of applications with conversation-centric collaboration experience such as Office365 Groups, Inbox, Microsoft Teams and is used by millions of Office 365 users. Connectors are light weight extensions that let teams or individuals stay current with information and updates from products such as Twitter, Trello, Zendesk and more. You can learn more about connectors in the [overview](index.md) and about connector cards in the [card reference](card-reference.md). Now you can build your own connector through our [developer portal](https://go.microsoft.com/fwlink/?LinkID=780623) in a few easy steps. 
+Office 365 provides a variety of applications with conversation-centric collaboration experience such as Office365 Groups, Inbox, Microsoft Teams and is used by millions of Office 365 users. Connectors are light weight extensions that let teams or individuals stay current with information and updates from products such as Twitter, Trello, Zendesk and more. You can learn more about connectors in the [overview](index.md) and about connector cards in the [card reference](card-reference.md). Now you can build your own connector through our [developer portal](https://aka.ms/publishconnector) in a few easy steps. 
 
 Building an Office 365 Connector for your application is easy. All you need to do is register your connector in our developer portal, add a **Connect to Office 365** button to your application and implement your connector. Once you add a Connect button to your application, your users are able to use it to authorize their Office 365 Groups or Inbox to receive your actionable message cards. You can make it easy for your users to discover the connector by publishing to our catalog.
 
@@ -22,7 +22,7 @@ Building an Office 365 Connector for your application is easy. All you need to d
 
 ### Registering your Connector
 
-1. Visit the [Connector Developer Portal](https://go.microsoft.com/fwlink/?LinkID=780623) and login with your Office 365 credentials. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://dev.office.com/devprogram) under the Office 365 Developer Program.  Alternately, if you have an existing MSDN subscription, you can activate your [free Office 365 benefit](https://msdn.microsoft.com/en-us/subscriptions/manage).
+1. Visit the [Connector Developer Portal](https://aka.ms/publishconnector) and login with your Office 365 credentials. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://dev.office.com/devprogram) under the Office 365 Developer Program.  Alternately, if you have an existing MSDN subscription, you can activate your [free Office 365 benefit](https://msdn.microsoft.com/en-us/subscriptions/manage).
 
 1. Click on **New Connector**.
 
