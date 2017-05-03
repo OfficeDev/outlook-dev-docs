@@ -17,21 +17,21 @@ Outlook provides integrations that allow you to both access Outlook data from yo
 
 ### REST APIs
 
-![](images/restapis.png)
-
 You can access Outlook data in Office 365 or Outlook.com via OData and REST using OAuth2 and the [Microsoft Graph](https://developer.microsoft.com/en-us/graph). These APIs empower your app to perform actions like search email, post events to user's calendars, synchronize contacts, and much more. Check our [Get Started](rest/get-started.md) section for guided walkthroughs on a number of popular platforms.
+
+![](images/restapis-smaller.png)
 
 ### Outlook Add-ins
 
-![](images/addins.png)
-
 Outlook add-ins provide a way for you to bring your app or experience right into Outlook. Outlook add-ins work across desktop, web, and mobile versions of Outlook and allow users to take actions on the message or appointment they are currently reading or composing. Check out our [tutorial](addins/addin-tutorial.md) to get started with your first add-in.
+
+![](images/addins-smaller.png)
 
 ### Actionable Messages
 
-![](images/connectors.png)
-
 Actionable Messages allow users to complete simple tasks against external services right within Outlook, so users can save time by avoiding the need to switch between applications. Your service can send actionable messages directly to users over SMTP, or can allow users or groups to subscribe via Office 365 Connectors. This can enable scenarios such as expense report approval or task management workflows, or responding to a survey. Check out our [Get Started](actionable-messages/get-started.md) section to try it out.
+
+![](images/connectors-smaller.png)
 
 ## Need help?
 
