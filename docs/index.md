@@ -23,7 +23,7 @@ You can access Outlook data in Office 365 or Outlook.com via OData and REST usin
 
 ### Outlook Add-ins
 
-Outlook add-ins provide a way for you to bring your app or experience right into Outlook. Outlook add-ins work across desktop, web, and mobile versions of Outlook and allow users to take actions on the message or appointment they are currently reading or composing. Check out our [tutorial](addins/addin-tutorial.md) to get started with your first add-in.
+Outlook add-ins provide a way for you to bring your app or experience right into Outlook. Outlook add-ins work across desktop, web, and mobile versions of Outlook and allow users to take actions on the message or appointment they are currently reading or composing. Check out our [tutorial](add-ins/addin-tutorial.md) to get started with your first add-in.
 
 ![The PayPal add-in loaded on a laptop](images/addins.png)
 

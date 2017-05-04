@@ -44,18 +44,18 @@
         tocHref: /outlook/rest/reference
         topicHref: /outlook/rest/reference
   - name: Add-ins
-    tocHref: /outlook/addins/
-    topicHref: /outlook/addins/index
+    tocHref: /outlook/add-ins/
+    topicHref: /outlook/add-ins/index
     items:
       - name: Write your first Outlook add-in
-        tocHref: /outlook/addins/addin-tutorial
-        topicHref: /outlook/addins/addin-tutorial
+        tocHref: /outlook/add-ins/addin-tutorial
+        topicHref: /outlook/add-ins/addin-tutorial
       - name: Concepts
-        tocHref: /outlook/addins/concepts
-        topicHref: /outlook/addins/concepts
+        tocHref: /outlook/add-ins/concepts
+        topicHref: /outlook/add-ins/concepts
       - name: Reference
-        tocHref: /outlook/addins/reference
-        topicHref: /outlook/addins/reference
+        tocHref: /outlook/add-ins/reference
+        topicHref: /outlook/add-ins/reference
   - name: Actionable Messages
     tocHref: /outlook/actionable-messages/
     topicHref: /outlook/actionable-messages/index
