@@ -3,7 +3,8 @@
     "content": [
       {
         "files": [
-          "**/*.md"
+          "**/*.md",
+          "**/*.yml"
         ],
         "exclude": [
           "**/obj/**",
@@ -29,7 +30,13 @@
     ],
     "overwrite": [],
     "externalReference": [],
-    "globalMetadata": {},
+    "globalMetadata": {
+      "uhfHeaderId": "MSDocsHeader-Outlook",
+      "searchScope": [ "Outlook Developer" ],
+      "ms.suite": "Office",
+      "ms.prod": "Outlook",
+      "breadcrumb_path": "/outlook/breadcrumb/toc.json"
+    },
     "fileMetadata": {},
     "template": [],
     "dest": "outlook"
