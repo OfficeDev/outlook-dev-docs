@@ -35,9 +35,8 @@ Typically, a service will perform the following verifications.
 
 1. The token is signed by Microsoft.
 1. The `aud` claim corresponds to the service's base URL.
-1. Verify the `sender` claim is what the service expects.
 
-With all the above verifications done, the service can trust the `sub` claim to be the address of the user taking the action. A service can optionally validate that the `sub` claim matches the user it is expecting.
+With all the above verifications done, the service can trust the `sender` and `sub` claims to be the identity of the sender and the user taking the action. A service can optionally validate that the `sender` and `sub` claims match the sender and user it is expecting.
 
 Please refer to the Microsoft code samples provided below, which show how to do these validations on the JWT token.
 
@@ -45,50 +44,6 @@ Please refer to the Microsoft code samples provided below, which show how to do 
 - [Node.js Sample](https://github.com/OfficeDev/outlook-actionable-messages-node-token-validation)
 - [Java Sample](https://github.com/OfficeDev/outlook-actionable-messages-java-token-validation)
 - [Python Sample](https://github.com/OfficeDev/outlook-actionable-messages-python-token-validation)
-
-### C# Sample
-
-```csharp
-public async Task<HttpResponseMessage> Post([FromBody]string value)
-{
-    HttpRequestMessage request = this.ActionContext.Request;
-    
-    // Validate that we have a bearer token.
-    if (request.Headers.Authorization == null ||
-        !string.Equals(request.Headers.Authorization.Scheme, "bearer", StringComparison.OrdinalIgnoreCase) ||
-        string.IsNullOrEmpty(request.Headers.Authorization.Parameter))
-    {
-        return request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Bearer token not found.");
-    }
-
-    // Validate that the bearer token is valid.
-    string bearerToken = request.Headers.Authorization.Parameter;
-    ActionableMessageTokenValidator validator = new ActionableMessageTokenValidator();
-    ActionableMessageTokenValidationResult result = await validator.ValidateTokenAsync(bearerToken, "https://api.contoso.com");
-    if (!result.ValidationSucceeded)
-    {
-        if (result.Exception != null)
-        {
-            Trace.TraceError(result.Exception.ToString());
-        }
-
-        return request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Invalid bearer token");
-    }
-
-    // We have a valid token. We will next verify the sender and the action performer.
-    // In this example, we verify that the email is sent by Contoso LOB system
-    // and the action performer is john@contoso.com.
-    if (!string.Equals(result.Sender, @"lob@contoso.com") ||
-        !string.Equals(result.ActionPerformer, "john@contoso.com")
-    {
-        return request.CreateErrorResponse(HttpStatusCode.Forbidden, string.Empty);
-    }
-
-    // Process the request.
-    
-    return Request.CreateResponse(HttpStatusCode.OK);
-}
-```
 
 ## Limited-Purpose Tokens
 

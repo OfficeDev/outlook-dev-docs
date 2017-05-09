@@ -29,7 +29,7 @@ Outlook add-ins provide a way for you to bring your app or experience right into
 
 ### Actionable Messages
 
-Actionable Messages allow users to complete simple tasks against external services right within Outlook, so users can save time by avoiding the need to switch between applications. Your service can send actionable messages directly to users over SMTP, or can allow users or groups to subscribe via Office 365 Connectors. This can enable scenarios such as expense report approval or task management workflows, or responding to a survey. Check out our [Get Started](actionable-messages/get-started.md) section to try it out.
+Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook and Teams. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity. Check out our [Get Started](actionable-messages/get-started.md) section to try it out.
 
 ![A Twitter actionable message displayed on a mobile device](images/connectors.png)
 
