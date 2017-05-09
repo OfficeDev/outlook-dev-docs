@@ -11,10 +11,6 @@ ms.author: jasonjoh
 
 # Register your service with the actionable email developer dashboard
 
-Outlook is a communication hub and central to how users get things done using email. Enterprise users receive a variety of emails such as expense approvals, task reminders, survey requests and in general notifications from services to enable you to get things done. 
-
-As a developer, you can easily enrich your emails from your service, so Office 365 users can complete simple tasks from right within Outlook. This helps drive engagement for users with your service by minimizing distraction of switching from one application to another for simple and routine tasks. For more information on enabling actionable messages via email, please visit [Get started with actionable messages](get-started.md).
-
 To test and publish actionable messages from your service, you need to provide certain information to Microsoft to enable this functionality for emails from your service. The [developer dashboard](https://aka.ms/publishoam) helps you submit and track status of your submission via the web portal.
 
 If you are a developer working with actionable messages via email, you will use the portal for the following cases:
@@ -104,10 +100,6 @@ There are some things you need to keep in mind when you submit your solution for
 - Low failure rate and fast response for services handling action requests.
 - Please see the [Card reference](card-reference.md) for additional guidelines on designing actionable messages.
 
-## SLA for approval of your submission
+## Approval of your submission
 
-There are different SLAs associated with whitelisting your sender email addresses and target URLs based on the scope for which you want to enable actionable messages for your service. We will notify you on the email address you provided during your submission, so please ensure you provide the right contact information.
-
-- **My mailbox** scope: SLA is 3 business days.
-- **My organization** scope: SLA is 5 business days.
-- **Global** scope: SLA is 15 business days. If approved, the sender addresses and target URLs will be whitelisted. However, it may take an additional 2-3 weeks for the whitelisting to take effect globally.
+We will notify you on the email address you provided during your submission, so please ensure you provide the right contact information.

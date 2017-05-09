@@ -11,8 +11,6 @@ ms.author: jasonjoh
 
 # Register your connector with the Office 365 Connectors developer dashboard
 
-Office 365 provides a variety of applications with conversation-centric collaboration experience such as Office365 Groups, Inbox, Microsoft Teams and is used by millions of Office 365 users. Connectors are light weight extensions that let teams or individuals stay current with information and updates from products such as Twitter, Trello, Zendesk and more. You can learn more about connectors in the [overview](index.md) and about connector cards in the [card reference](card-reference.md). Now you can build your own connector through our [developer portal](https://aka.ms/publishconnector) in a few easy steps. 
-
 Building an Office 365 Connector for your application is easy. All you need to do is register your connector in our developer portal, add a **Connect to Office 365** button to your application and implement your connector. Once you add a Connect button to your application, your users are able to use it to authorize their Office 365 Groups or Inbox to receive your actionable message cards. You can make it easy for your users to discover the connector by publishing to our catalog.
 
 > [!NOTE]
@@ -70,7 +68,8 @@ The following query parameters are sent back in the response:
 | `group_name`  | The name of the group selected by the user. The `group_name` is returned only when the application returns successfully and the user selected a group from the picker page. If the user is configuring the connector for the inbox, this parameter will not be returned. |
 | `webhook_url` | The webhook URL for the selected group. Persist the webhook URL & use it to POST structured JSON to send connector cards to the group. The `webhook_url` is returned only when application returns successfully. |
 | `error`       | The error code that is returned if the application doesn't return successfully. |
-| `app_type` | The values returned can be `mail`, `groups` or `teams` corresponding to the Office 365 Mail, Office 365 Groups or Microsoft Teams respectively. | 
+| `app_type` | The values returned can be `mail`, `groups` or `teams` corresponding to the Office 365 Mail, Office 365 Groups or Microsoft Teams respectively. |
+| `user_objectId` | This is the unique id corresponding to the Office 365 user who initiated set up of the connector. It is returned only when the application returns successfully. It should be secured. This value can be used to associate the user in Office 365 who set up the configuration to the user in your service. |
 
 ### Secure the webhook URL
 
@@ -78,10 +77,10 @@ The URL returned in `webhook_url` must be persisted securely and not disclosed p
 
 #### Implement a `302` redirect
 
-After persisting the values of `group_name`, `app_type`, and `webhook_url` securely, redirect back to your `callback_url` (or any other URL) without these query parameters. For example, if the connector configuration process redirected to: 
+After persisting the values of `group_name`, `app_type`, `user_objectId`, and `webhook_url` securely, redirect back to your `callback_url` (or any other URL) without these query parameters. For example, if the connector configuration process redirected to: 
 
 ```http
-http://contoso.com/integrations/Office365/callback?state=myState&webhook_url=myWebhookUrl&group_name=selectedGroupName
+http://contoso.com/integrations/Office365/callback?state=myState&webhook_url=myWebhookUrl&group_name=selectedGroupName&user_objectId=uniqueIdOfUser&app_type=Groups
 ```
 
 Your app securely stores the values, then redirects to a URL without these query parameters:
