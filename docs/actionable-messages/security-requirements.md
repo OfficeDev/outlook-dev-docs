@@ -36,7 +36,7 @@ Typically, a service will perform the following verifications.
 1. The token is signed by Microsoft.
 1. The `aud` claim corresponds to the service's base URL.
 
-With all the above verifications done, the service can trust the `sender` and `sub` claims to be the address of the user taking the action. A service can optionally validate that the `sender` and `sub` claims match the sender and user it is expecting.
+With all the above verifications done, the service can trust the `sender` and `sub` claims to be the identity of the sender and the user taking the action. A service can optionally validate that the `sender` and `sub` claims match the sender and user it is expecting.
 
 Please refer to the Microsoft code samples provided below, which show how to do these validations on the JWT token.
 
