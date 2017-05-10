@@ -13,10 +13,6 @@ ms.author: jasonjoh
 
 Actionable messages can be posted via a group or inbox connector, or can be sent directly over email. Choosing the right delivery mechanism depends on your scenario.
 
-## Sign up for the preview
-
-To get access to the actionable messages preview, get in touch with Microsoft by signing-up at [https://aka.ms/gotactions](https://aka.ms/gotactions) and we will get back to you. For questions prior to signing up or for help, please send email to [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com). 
-
 ## Connectors vs Email: Choosing a delivery mechanism
 
 With Office 365 Connectors, any user can choose to connect to services like Trello, Bing News, Twitter, etc., from Outlook and get notified of activity from that service into their Office 365 inbox or Group. With actionable messages for Office 365 Connectors, user can now act on these notifications to complete routine tasks without the hassle of context switching or signing in. For example the Trello connector allow users to subscribe to the boards and notifications they care about and lets them take actions such as set a due date or add a comment without ever leaving Outlook.  
@@ -27,5 +23,10 @@ The two approaches may not be necessarily mutually exclusive, as you may choose 
 
 Once you've decided which delivery method is best for your scenario, you're ready to start trying some examples.
 
+- [Designing Actions and Inputs](actions-and-inputs.md)
 - [Actionable Messages via Email](actionable-messages-via-email.md)
 - [Actionable Messages via Connectors](actionable-messages-via-connectors.md)
+
+## Question?
+
+For questions prior to signing up or for help, please send email to [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com). 

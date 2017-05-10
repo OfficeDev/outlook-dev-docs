@@ -64,6 +64,8 @@
         tocHref: /outlook/actionable-messages/get-started
         topicHref: /outlook/actionable-messages/get-started
         items:
+          - name: Action and Input Types
+            tocHref: /outlook/actionable-messages/actions-and-inputs
           - name: Actionable Messages via Email
             tocHref: /outlook/actionable-messages/actionable-messages-via-email
             topicHref: /outlook/actionable-messages/actionable-messages-via-email

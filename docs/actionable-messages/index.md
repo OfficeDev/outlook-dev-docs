@@ -11,7 +11,7 @@ ms.author: jasonjoh
 
 # Actionable messages in Outlook, Office 365 Groups, and Microsoft Teams
 
-Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook and Teams. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity. Check out our [Get Started](get-started.md) section to try it out.
+Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook and Teams. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity.
 
 Office 365 provides two solutions to enhance productivity with Outlook Actionable Messages: actionable messages via email, and actionable messages via Office 365 Connectors.
 
@@ -49,30 +49,6 @@ Adele then clicks the **Save** button, and the notes are immediately saved to th
 
 ![The ](images/trello-card-infobar.png)
 
-## Action types
-
-Outlook Actionable Messages support two types of actions: calling an external service via HTTP POST, and opening a URI.
-
-### Calling an external service
-
-The [`HttpPOST`](card-reference.md#httppost-action) action type calls an external service. It supports collecting input from the user and including that in the call.
-
-#### Actions without input
-
-There are many scenarios where the user is expected to confirm a pre-defined request. For example, marking a task as complete or approving access requests to documents. In these scenarios a simple click of a button can invoke an action.
-
-#### Actions with input
-
-Actionable messages can be used to support several scenarios with input. Some scenarios require specialized controls to support them. Here's some example of scenarios corresponding to the controls that are available with actionable messages.
-
-- Date input: The date control enables many scenarios where a date input is desired. For example, it can be used for setting due dates for tasks/projects.
-- Choosing from a list: The list box control enables scenarios that require users to pick a value from a pre-defined list. For example, setting a stage for a lead in a CRM system, setting the status of an issue in an incident tracking system.
-- Text input: The text box control enables scenarios that require the user to enter text, such as commenting on an assigned task.
-
-### Opening a URI
-
-The [`OpenUri`](card-reference.md#openuri-action) action type opens a URI, either in a browser or as a deep link into an app. This is typically used to view the content that was received in the actionable message directly in the service.
-
 ## Office 365 Connectors for Groups and Microsoft Teams
 
 Office 365 Connectors are a great way to get useful information and content into your Office 365 Groups or Microsoft Teams. Any user can connect their group or team to services like Trello, Bing News, Twitter, etc., and get notified of activity from that service. From tracking a team's progress in Trello, to following important hashtags in Twitter, Office 365 Connectors make it easier for an Office 365 group or Microsoft Team to stay in sync and get more done. Office 365 Connectors currently have over 50 connectors with dozen or more to be added each month.
@@ -98,6 +74,10 @@ Check out our end-user documentation to learn more on how to <a target="_blank" 
 From Microsoft Teams, you can easily add and configure connectors for any channel, either from the channel context menu or in the channel header.
 
 ![A screenshot of the channel context menu in Microsoft Teams](images/teams-context-menu.PNG)
+
+The following is an example of an actionable message rendered in Microsoft Teams.
+
+![A screenshot of an actionable message in Microsoft Teams](images/teams-actionable-message.PNG)
 
 ## Release Notes 
 
