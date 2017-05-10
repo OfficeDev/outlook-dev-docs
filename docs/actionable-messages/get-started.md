@@ -5,17 +5,13 @@ author: jasonjoh
 
 ms.topic: get-started-article
 ms.technology: office-365-connectors
-ms.date: 04/26/2017
+ms.date: 05/09/2017
 ms.author: jasonjoh
 ---
 
 # Get started with actionable messages in Office 365
 
 Actionable messages can be posted via a group or inbox connector, or can be sent directly over email. Choosing the right delivery mechanism depends on your scenario.
-
-## Sign up for the preview
-
-To get access to the actionable messages preview, get in touch with Microsoft by signing-up at [https://aka.ms/gotactions](https://aka.ms/gotactions) and we will get back to you. For questions prior to signing up or for help, please send email to [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com). 
 
 ## Connectors vs Email: Choosing a delivery mechanism
 
@@ -27,5 +23,10 @@ The two approaches may not be necessarily mutually exclusive, as you may choose 
 
 Once you've decided which delivery method is best for your scenario, you're ready to start trying some examples.
 
+- [Designing Actions and Inputs](actions-and-inputs.md)
 - [Actionable Messages via Email](actionable-messages-via-email.md)
 - [Actionable Messages via Connectors](actionable-messages-via-connectors.md)
+
+## Question?
+
+For questions prior to signing up or for help, please send email to [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com). 

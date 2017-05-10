@@ -13,9 +13,6 @@ ms.author: jasonjoh
 
 Building an Office 365 Connector for your application is easy. All you need to do is register your connector in our developer portal, add a **Connect to Office 365** button to your application and implement your connector. Once you add a Connect button to your application, your users are able to use it to authorize their Office 365 Groups or Inbox to receive your actionable message cards. You can make it easy for your users to discover the connector by publishing to our catalog.
 
-> [!NOTE]
-> The Connectors Developer Dashboard is only available for building Connectors for Outlook. Support for Microsoft Teams is coming soon.
-
 ## Build your own Connector
 
 ### Registering your Connector
@@ -33,8 +30,6 @@ Building an Office 365 Connector for your application is easy. All you need to d
 1. Once you save the connector information, the html code snippet for the **Connect to Office 365** button is generated. The name, logo, description, company website & events you shared are displayed to a user when he tries to add a new configuration or view an existing one.
 
 Once your connector is published to our catalog, users would be able to configure your connector from within Office 365. When users try to configure your connector from within Office 365, they would be taken to the link you provide in the **Landing page for your users**. So we recommend that you provide a deep link to the page in your product where you would add the connect button. Alternately, you can direct the user to documentation on your website on how to configure the connector on your website.
-
-![A screenshot of the Connector Developer Portal](images/connector-dev-dashboard/register-connector.png)
 
 ### Adding the **Connect to Office 365** button
 
@@ -58,7 +53,7 @@ When a user clicks on the button, the user is redirected to an Office 365 login 
 
 Once you have registered your connector and implemented it using the connect button, it is fully functional & available to all your users. If you would like your users to discover your connector in our catalog, use the **Publish to Store** button to submit to us for approval.
 
-![Connect to Office 365 group selector and authorization window](images/connector-dev-dashboard/connect-screenshot.jpg)
+![Connect to Office 365 group selector and authorization window](images/connector-dev-dashboard/connect-screenshot.PNG)
 
 The following query parameters are sent back in the response:
 
