@@ -9,7 +9,7 @@ ms.date: 05/09/2017
 ms.author: jasonjoh
 ---
 
-# Avaialable action and input types for Outlook Actionable Messages
+# Available action and input types for Outlook Actionable Messages
 
 Outlook Actionable Messages support two types of actions: calling an external service via HTTP POST, and opening a URI. When calling an external service, an actionable message can also contain a number of different input types to get information from the user.
 
