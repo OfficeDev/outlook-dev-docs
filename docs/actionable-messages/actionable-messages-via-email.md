@@ -13,7 +13,7 @@ ms.author: jasonjoh
 
 ## Create an actionable message card
 
-Let's start by creating an actionable message card. We'll start with something simple, just a basic card with a single `OpenUri` action. We'll use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to design the card.
+Let's start by creating an actionable message card. We'll start with something simple, just a basic card with an `HttpPOST` action and an `OpenUri` action. We'll use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to design the card.
 
 Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and paste in the following JSON:
 
@@ -25,6 +25,26 @@ Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and pa
   "title": "Visit the Outlook Dev Portal",
   "text": "Click **Learn More** to learn more about Actionable Messages!",
   "potentialAction": [
+    {
+      "@type": "ActionCard",
+      "name": "Send Feedback",
+      "inputs": [
+        {
+          "@type": "TextInput",
+          "id": "feedback",
+          "isMultiline": true,
+          "title": "Let us know what you think about Actionable Messages"
+        }
+      ],
+      "actions": [
+        {
+          "@type": "HttpPOST",
+          "name": "Send Feedback",
+          "isPrimary": true,
+          "target": "http://..."
+        }
+      ]
+    },
     {
       "@type": "OpenUri",
       "name": "Learn More",
@@ -57,6 +77,26 @@ To embed an actionable message card in an email message, we need to wrap the car
       "text": "Click **Learn More** to learn more about Actionable Messages!",
       "potentialAction": [
         {
+          "@type": "ActionCard",
+          "name": "Send Feedback",
+          "inputs": [
+            {
+              "@type": "TextInput",
+              "id": "feedback",
+              "isMultiline": true,
+              "title": "Let us know what you think about Actionable Messages"
+            }
+          ],
+          "actions": [
+            {
+              "@type": "HttpPOST",
+              "name": "Send Feedback",
+              "isPrimary": true,
+              "target": "http://..."
+            }
+          ]
+        },
+        {
           "@type": "OpenUri",
           "name": "Learn More",
           "targets": [
@@ -78,6 +118,26 @@ To embed an actionable message card in an email message, we need to wrap the car
       "title": "Visit the Outlook Dev Portal",
       "text": "Click **Learn More** to learn more about Actionable Messages!",
       "potentialAction": [
+        {
+          "@type": "ActionCard",
+          "name": "Send Feedback",
+          "inputs": [
+            {
+              "@type": "TextInput",
+              "id": "feedback",
+              "isMultiline": true,
+              "title": "Let us know what you think about Actionable Messages"
+            }
+          ],
+          "actions": [
+            {
+              "@type": "HttpPOST",
+              "name": "Send Feedback",
+              "isPrimary": true,
+              "target": "http://..."
+            }
+          ]
+        },
         {
           "@type": "OpenUri",
           "name": "Learn More",
@@ -104,6 +164,26 @@ To embed an actionable message card in an email message, we need to wrap the car
         "title": "Visit the Outlook Dev Portal",
         "text": "Click **Learn More** to learn more about Actionable Messages!",
         "potentialAction": [
+          {
+            "@type": "ActionCard",
+            "name": "Send Feedback",
+            "inputs": [
+              {
+                "@type": "TextInput",
+                "id": "feedback",
+                "isMultiline": true,
+                "title": "Let us know what you think about Actionable Messages"
+              }
+            ],
+            "actions": [
+              {
+                "@type": "HttpPOST",
+                "name": "Send Feedback",
+                "isPrimary": true,
+                "target": "http://..."
+              }
+            ]
+          },
           {
             "@type": "OpenUri",
             "name": "Learn More",
