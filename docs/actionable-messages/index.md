@@ -49,7 +49,7 @@ Adele then clicks the **Save** button, and the notes are immediately saved to th
 
 ![The ](images/trello-card-infobar.png)
 
-## Office 365 Connectors for Groups and Microsoft Teams
+## Office 365 Connectors for Groups, Microsoft Teams and Yammer
 
 Office 365 Connectors are a great way to get useful information and content into your Office 365 Groups or Microsoft Teams. Any user can connect their group or team to services like Trello, Bing News, Twitter, etc., and get notified of activity from that service. From tracking a team's progress in Trello, to following important hashtags in Twitter, Office 365 Connectors make it easier for an Office 365 group or Microsoft Team to stay in sync and get more done. Office 365 Connectors currently have over 50 connectors with dozen or more to be added each month.
 
@@ -79,9 +79,16 @@ The following is an example of an actionable message rendered in Microsoft Teams
 
 ![A screenshot of an actionable message in Microsoft Teams](images/teams-actionable-message.PNG)
 
+## Accessing Office 365 Connectors from Yammer
+
+From Yammer, you can easily add and configure connectors for any O365 connected Yammer group by clicking the "Add or Remove Apps" link.
+
+
+For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">support article</a>.
+
 ## Release Notes 
 
-Currently, you can only configure connectors from Office 365 Outlook and Microsoft Teams on the web, but you can view information posted by Connectors to your Group or Team by multiple clients such as Outlook on the web, Outlook 2016 and the Office365 Groups Mobile app, as well as Microsoft Teams web, desktop, and iOS and Android apps.
+Currently, you can only configure connectors from Office 365 Outlook, Microsoft Teams and Yammer on the web, but you can view information posted by Connectors to your Group or Team by multiple clients such as Outlook on the web, Outlook 2016 and the Office365 Groups Mobile app; Microsoft Teams web, desktop, and iOS and Android apps; and Yammer web, desktop, iOS and Android apps.
 
 ## Submit feedback 
 
