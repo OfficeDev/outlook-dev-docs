@@ -51,9 +51,9 @@ Adele then clicks the **Save** button, and the notes are immediately saved to th
 
 ## Office 365 Connectors for Groups, Microsoft Teams and Yammer
 
-Office 365 Connectors are a great way to get useful information and content into your Office 365 Groups or Microsoft Teams. Any user can connect their group or team to services like Trello, Bing News, Twitter, etc., and get notified of activity from that service. From tracking a team's progress in Trello, to following important hashtags in Twitter, Office 365 Connectors make it easier for an Office 365 group or Microsoft Team to stay in sync and get more done. Office 365 Connectors currently have over 50 connectors with dozen or more to be added each month.
+Office 365 Connectors are a great way to get useful information and content into your Office 365 Groups in Outlook, Microsoft Teams and Yammer. Any user can connect their group or team to services like Trello, Bing News, Twitter, etc., and get notified of activity from that service. From tracking a team's progress in Trello, to following important hashtags in Twitter, Office 365 Connectors make it easier for an Office 365 group in Outlook, Microsoft Teams, or Yammer to stay in sync and get more done. Office 365 Connectors currently have over 80 connectors with dozen or more to be added each month.
 
-Office 365 Connectors for Groups is broadly available in Outlook 2016, Outlook on the web and the Groups mobile app for iOS and Android. It is also available in Microsoft Teams on web, desktop, iOS and Android.
+Office 365 Connectors for Groups is broadly available in Outlook 2016, Outlook on the web and the Groups mobile app for iOS and Android. It is also available in Microsoft Teams on web, desktop, iOS and Android; and Yammer on web, desktop, iOS and Android. 
 
 Office 365 Connectors also provide a compelling extensibility solution for developers. Developers can build connectors through incoming webhooks to generate rich connector cards. Additionally, with the new "Connect to Office 365" button, developers can embed the button on their site and enable users to connect to Office 365 groups. Try them today as part of our general availability!
 
@@ -89,11 +89,11 @@ From Yammer, you can easily add and configure connectors for any O365 connected 
 
 ![Yammer O365 Connected Group](images/yammer_card.jpg)
 
-For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">support article</a>.
-
 ## Release Notes 
 
 Currently, you can only configure connectors from Office 365 Outlook, Microsoft Teams and Yammer on the web, but you can view information posted by Connectors to your Group or Team by multiple clients such as Outlook on the web, Outlook 2016 and the Office365 Groups Mobile app; Microsoft Teams web, desktop, and iOS and Android apps; and Yammer web, desktop, iOS and Android apps.
+
+For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">support article</a>.
 
 ## Submit feedback 
 
