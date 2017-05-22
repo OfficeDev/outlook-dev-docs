@@ -81,13 +81,13 @@ The following is an example of an actionable message rendered in Microsoft Teams
 
 ## Accessing Office 365 Connectors from Yammer
 
-From Yammer, you can easily add and configure connectors for any O365 connected Yammer group by clicking the "Add or Remove Apps" link.
+From Yammer, you can easily add and configure connectors for any O365 connected Yammer group by clicking the **Add or Remove Apps** link.
 
-![Yammer O365 Connected Group](images/yammer_connected%20group.jpg)
+![A Yammer group page with the "Add or Remove Apps" link highlighted](images/yammer_connected_group.jpg)
 
-![Yammer O365 Connected Group](images/yammer_configuration%20card.jpg)
+Configured connectors post cards directly in the group feed.
 
-![Yammer O365 Connected Group](images/yammer_card.jpg)
+![A Yammer group page with a Bing News card posted in the feed](images/yammer_card.jpg)
 
 ## Release Notes 
 
