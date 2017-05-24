@@ -94,7 +94,7 @@ Let's start by updating some properties of the add-in itself.
     <Description DefaultValue="Allows users to access their Gists on GitHub"/>
     ```
 
-Now we'll change the buttons defined by the add-in. For our add-in, we'll implement two buttons: **Insert Gist** and **Insert Default Gist** on the compose message window. However, the current manifest only adds buttons to the read message window. We'll have to add the message compopse command surface extension point.
+Now we'll change the buttons defined by the add-in. For our add-in, we'll implement two buttons: **Insert Gist** and **Insert Default Gist** on the compose message window. However, the current manifest only adds buttons to the read message window. We'll have to add the message compose command surface extension point.
 
 > [!NOTE]
 > For now we will leave the message read command surface as-is. In future parts of this series, we will revisit the message read scenario.
