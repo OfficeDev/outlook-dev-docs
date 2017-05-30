@@ -312,16 +312,16 @@ Replace the current `OnAuthorizationCodeReceived` function with the following.
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
     ConfidentialClientApplication cca = new ConfidentialClientApplication(
-        appId, redirectUri, new ClientCredential(appPassword), null);
+        appId, redirectUri, new ClientCredential(appPassword), null, null);
 
     string message;
     string debug;
 
     try
     {
-        var result = await cca.AcquireTokenByAuthorizationCodeAsync(scopes, notification.Code);
+        var result = await cca.AcquireTokenByAuthorizationCodeAsync(notification.Code, scopes);
         message = "See access token below";
-        debug = result.Token;
+        debug = result.AccessToken;
     }
     catch (MsalException ex)
     {
