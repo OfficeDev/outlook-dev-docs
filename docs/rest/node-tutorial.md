@@ -171,7 +171,7 @@ var credentials = {
     tokenPath: 'common/oauth2/v2.0/token'
   }
 };
-var oauth2 = require('simple-oauth2')(credentials);
+var oauth2 = require('simple-oauth2').create(credentials);
 
 var redirectUri = 'http://localhost:8000/authorize';
 
