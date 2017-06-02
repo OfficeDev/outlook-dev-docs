@@ -20,7 +20,7 @@ This guide assumes that you already have PHP installed and working on your devel
 
 ## Create the app
 
-Let's dive right in! To start, we're going to use [Composer](http://getcomposer.org/) and [Laravel](https://laravel.com) to quickly create our PHP app. If you don't already have these tools installed, please install them before proceeding.
+Let's dive right in! To start, we're going to use [PHP 7.1](http://php.net/downloads.php), [Composer](http://getcomposer.org/) and [Laravel](https://laravel.com) to quickly create our PHP app. If you don't already have these tools installed, please install them before proceeding.
 
 On your development machine, open your command prompt or shell to a directory where you want to create your new project. Enter the following command to create the project.
 
@@ -106,6 +106,9 @@ Now we'll modify the existing home page to use this layout. Open the `./php-tuto
 #### Contents of the `./php-tutorial/resources/views/welcome.blade.php` file
 
 ```PHP
+@extends('layout')
+
+@section('content')
 <div class="jumbotron">
   <h1>PHP Outlook Sample</h1>
   <p>This example shows how to get an OAuth token from Azure using the <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-code" target="_blank">authorization code grant flow</a> and to use that token to make calls to the Outlook APIs in the <a href="https://developer.microsoft.com/en-us/graph/" target="_blank">Microsoft Graph</a>.</p>
@@ -113,6 +116,7 @@ Now we'll modify the existing home page to use this layout. Open the `./php-tuto
     <a class="btn btn-lg btn-primary" href="/signin" role="button" id="connect-button">Connect to Outlook</a>
   </p>
 </div>
+@endsection
 ```
 
 The **Connect to Outlook** button doesn't do anything yet, but we'll fix that soon.
@@ -160,7 +164,7 @@ composer update
 
 This will install the OAuth 2 client and dependencies into your `./php-tutorial/vendors` folder.
 
-Once composer is done downloading the required librarires, let's create a new controller to contain all of our OAuth functions. Create a new file in the `./php-tutorial/app/Http/Controllers` directory called `AuthController.php`. Add the following code.
+Once composer is done downloading the required libraries, let's create a new controller to contain all of our OAuth functions. Create a new file in the `./php-tutorial/app/Http/Controllers` directory called `AuthController.php`. Add the following code.
 
 #### Contents of the `./php-tutorial/app/Http/Controllers/AuthController.php` file
 
@@ -295,7 +299,7 @@ Save your changes and browse to `http://localhost:8000`. This time when you clic
 
 ### Exchanging the code for a token
 
-Let's update the `gettoken` method to use the OAuth 2 client to make a token request. First we'll verify that the state included in the redirect matches the one we saved in the session after generating the authorization URL. Replace the existing `gettoken` with this new one.
+Let's update the `gettoken` method to use the OAuth 2 client to make a token request. First we'll verify that the state included in the redirect matches the one we saved in the session after generating the authorization URL, then we'll make the actual token request using the authorization code. Replace the existing `gettoken` with this new one.
 
 #### Updated `gettoken` function in `./php-tutorial/app/Http/Controllers/AuthController.php`
 
@@ -499,7 +503,8 @@ use App\Http\Controllers\Controller;
 
 class OutlookController extends Controller
 {
-  public function mail() {
+  public function mail() 
+  {
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
     }
@@ -523,9 +528,9 @@ Save your changes, browse to `http://localhost:8000` and sign in again. This tim
 
 ## Using the Mail API ##
 
-We're going to use the [Microsoft Graph SDK for PHP](https://github.com/microsoftgraph/msgraph-sdk-php) to make all of our Outlook APi Calls, so let's start by installing it.
+We're going to use the [Microsoft Graph SDK for PHP](https://github.com/microsoftgraph/msgraph-sdk-php) to make all of our Outlook API Calls, so let's start by installing it.
 
-Open the `./php-tutorial/composer.json` file and locate the `require` entry. Update this entry to add `"microsoft/microsoft-graph": "0.1.*"` and save the file.
+Open the `./php-tutorial/composer.json` file and locate the `require` entry. Update this entry to add `"microsoft/microsoft-graph": "1.0.*"` and save the file.
 
 #### Updated `require` entry in `./php-tutorial/composer.json`
 
@@ -535,7 +540,7 @@ Open the `./php-tutorial/composer.json` file and locate the `require` entry. Upd
     "laravel/framework": "5.4.*",
     "laravel/tinker": "~1.0",
     "league/oauth2-client": "^2.0",
-    "microsoft/microsoft-graph": "0.1.*"
+    "microsoft/microsoft-graph": "1.0.*"
 },
 ```
 
@@ -547,12 +552,20 @@ composer update
 
 Now let's modify the `mail` function. Our first use of the Graph SDK here will be to get the user's name and email address. You'll see why we want this soon.
 
+Add the following lines just after the `use App\Http\Controllers\Controller;` line in `OutlookController.php`.
+
+```PHP
+use Microsoft\Graph\Graph;
+use Microsoft\Graph\Model;
+```
+
 Replace the existing `mail` function with the following code.
 
 #### Updated `mail` function in `./php-tutorial/app/Http/Controllers/OutlookController.php`
 
 ```PHP
-public function mail() {
+public function mail() 
+{
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
@@ -577,7 +590,8 @@ Now let's add code to retrieve the user's messages. Replace the existing `mail` 
 #### Updated `mail` function in `./php-tutorial/app/Http/Controllers/OutlookController.php`
 
 ```PHP
-public function mail() {
+public function mail() 
+{
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
@@ -663,7 +677,8 @@ Now update the `mail` function to return this view.
 #### Updated `mail` function in `./php-tutorial/app/Http/Controllers/OutlookController.php`
 
 ```PHP
-public function mail() {
+public function mail() 
+{
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
@@ -724,7 +739,8 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Add a new function `calendar` to the `OutlookController` class in `./php-tutorial/app/Http/Controllers/OutlookController.php`.
 
     ```PHP
-    public function calendar() {
+    public function calendar() 
+    {
       if (session_status() == PHP_SESSION_NONE) {
         session_start();
       }
@@ -816,7 +832,8 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Add a new function `contacts` to the `OutlookController` class in `./php-tutorial/app/Http/Controllers/OutlookController.php`.
 
     ```PHP
-    public function contacts() {
+    public function contacts() 
+    {
       if (session_status() == PHP_SESSION_NONE) {
         session_start();
       }
