@@ -43,9 +43,6 @@
       - name: Reference
         tocHref: /outlook/rest/reference
         topicHref: /outlook/rest/reference
-      - name: Terms of Use
-        tocHref: /outlook/rest/terms-of-use
-        topicHref: /outlook/rest/terms-of-use
   - name: Add-ins
     tocHref: /outlook/add-ins/
     topicHref: /outlook/add-ins/index
