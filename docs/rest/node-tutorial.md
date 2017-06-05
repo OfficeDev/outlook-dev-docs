@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: graph
 ms.devlang: nodejs
-ms.date: 04/26/2017
+ms.date: 06/01/2017
 ms.author: jasonjoh
 ---
 
@@ -171,7 +171,7 @@ var credentials = {
     tokenPath: 'common/oauth2/v2.0/token'
   }
 };
-var oauth2 = require('simple-oauth2')(credentials);
+var oauth2 = require('simple-oauth2').create(credentials);
 
 var redirectUri = 'http://localhost:8000/authorize';
 

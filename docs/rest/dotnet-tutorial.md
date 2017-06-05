@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: graph
 ms.devlang: csharp
-ms.date: 04/26/2017
+ms.date: 05/31/2017
 ms.author: jasonjoh
 ---
 
@@ -312,16 +312,16 @@ Replace the current `OnAuthorizationCodeReceived` function with the following.
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
     ConfidentialClientApplication cca = new ConfidentialClientApplication(
-        appId, redirectUri, new ClientCredential(appPassword), null);
+        appId, redirectUri, new ClientCredential(appPassword), null, null);
 
     string message;
     string debug;
 
     try
     {
-        var result = await cca.AcquireTokenByAuthorizationCodeAsync(scopes, notification.Code);
+        var result = await cca.AcquireTokenByAuthorizationCodeAsync(notification.Code, scopes);
         message = "See access token below";
-        debug = result.Token;
+        debug = result.AccessToken;
     }
     catch (MsalException ex)
     {
@@ -346,36 +346,48 @@ using System.Web;
 
 using Microsoft.Identity.Client;
 
-namespace dotnet_tutorial.TokenStorage 
+namespace dotnet_tutorial.TokenStorage
 {
     // Adapted from https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-v2
-    public class SessionTokenCache : TokenCache
+    public class SessionTokenCache
     {
-        private static ReaderWriterLockSlim sessionLock = new ReaderWriterLockSlim(LockRecursionPolicy.NoRecursion); 
-        string userId = string.Empty; 
-        string cacheId = string.Empty; 
+        private static ReaderWriterLockSlim sessionLock = new ReaderWriterLockSlim(LockRecursionPolicy.NoRecursion);
+        string userId = string.Empty;
+        string cacheId = string.Empty;
         HttpContextBase httpContext = null;
+
+        TokenCache tokenCache = new TokenCache();
 
         public SessionTokenCache(string userId, HttpContextBase httpContext)
         {
             this.userId = userId;
             cacheId = userId + "_TokenCache";
             this.httpContext = httpContext;
-            BeforeAccess = BeforeAccessNotification;
-            AfterAccess = AfterAccessNotification;
             Load();
         }
 
-        public override void Clear(string clientId)
+        public TokenCache GetMsalCacheInstance()
         {
-            base.Clear(clientId);
+            tokenCache.SetBeforeAccess(BeforeAccessNotification);
+            tokenCache.SetAfterAccess(AfterAccessNotification);
+            Load();
+            return tokenCache;
+        }
+
+        public bool HasData()
+        {
+            return (httpContext.Session[cacheId] != null && ((byte[])httpContext.Session[cacheId]).Length > 0);
+        }
+
+        public void Clear()
+        {
             httpContext.Session.Remove(cacheId);
         }
 
         private void Load()
         {
             sessionLock.EnterReadLock();
-            Deserialize((byte[])httpContext.Session[cacheId]);
+            tokenCache.Deserialize((byte[])httpContext.Session[cacheId]);
             sessionLock.ExitReadLock();
         }
 
@@ -385,9 +397,9 @@ namespace dotnet_tutorial.TokenStorage
 
             // Optimistically set HasStateChanged to false. 
             // We need to do it early to avoid losing changes made by a concurrent thread.
-            HasStateChanged = false;
+            tokenCache.HasStateChanged = false;
 
-            httpContext.Session[cacheId] = Serialize();
+            httpContext.Session[cacheId] = tokenCache.Serialize();
             sessionLock.ExitReadLock();
         }
 
@@ -402,7 +414,7 @@ namespace dotnet_tutorial.TokenStorage
         private void AfterAccessNotification(TokenCacheNotificationArgs args)
         {
             // if the access operation resulted in a cache update
-            if (HasStateChanged)
+            if (tokenCache.HasStateChanged)
             {
                 Persist();
             }
@@ -432,11 +444,11 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
         notification.OwinContext.Environment["System.Web.HttpContextBase"] as HttpContextBase);
 
     ConfidentialClientApplication cca = new ConfidentialClientApplication(
-        appId, redirectUri, new ClientCredential(appPassword), tokenCache);
+        appId, redirectUri, new ClientCredential(appPassword), tokenCache.GetMsalCacheInstance(), null);
 
     try
     {
-        var result = await cca.AcquireTokenByAuthorizationCodeAsync(scopes, notification.Code);
+        var result = await cca.AcquireTokenByAuthorizationCodeAsync(notification.Code, scopes);
     }
     catch (MsalException ex)
     {
@@ -467,10 +479,9 @@ public void SignOut()
 
         if (!string.IsNullOrEmpty(userId))
         {
-            string appId = ConfigurationManager.AppSettings["ida:AppId"];
             // Get the user's token cache and clear it
             SessionTokenCache tokenCache = new SessionTokenCache(userId, HttpContext);
-            tokenCache.Clear(appId);
+            tokenCache.Clear();
         }
     }
     // Send an OpenID Connect sign-out request. 
@@ -504,7 +515,7 @@ public ActionResult Index()
         // authenticated but not have a valid token cache. Check for this
         // and force signout.
         SessionTokenCache tokenCache = new SessionTokenCache(userId, HttpContext);
-        if (tokenCache.Count <= 0)
+        if (!tokenCache.HasData())
         {
             // Cache is empty, sign out
             return RedirectToAction("SignOut");
@@ -591,14 +602,14 @@ public async Task<string> GetAccessToken()
         SessionTokenCache tokenCache = new SessionTokenCache(userId, HttpContext);
 
         ConfidentialClientApplication cca = new ConfidentialClientApplication(
-            appId, redirectUri, new ClientCredential(appPassword), tokenCache);
+            appId, redirectUri, new ClientCredential(appPassword), tokenCache.GetMsalCacheInstance(), null);
 
         // Call AcquireTokenSilentAsync, which will return the cached
         // access token if it has not expired. If it has expired, it will
         // handle using the refresh token to get a new one.
-        AuthenticationResult result = await cca.AcquireTokenSilentAsync(scopes);
+        AuthenticationResult result = await cca.AcquireTokenSilentAsync(scopes, cca.Users.First());
 
-        accessToken = result.Token;
+        accessToken = result.AccessToken;
     }
 
     return accessToken;
