@@ -11,6 +11,8 @@ ms.author: jasonjoh
 
 # Outlook add-ins overview
 
+Add-ins are the coolest!
+
 Outlook add-ins are integrations built by third parties into Outlook using the new web technologies based platform. Outlook add-ins have three key aspects:
 
 - The same add-in and business logic works across desktop Outlook for Windows and Mac, web (Office 365 and Outlook.com), and mobile.
