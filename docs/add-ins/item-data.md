@@ -59,10 +59,6 @@ You can also use the [mailbox.makeEwsRequestAsync](https://dev.office.com/refere
 
 ## Additional resources
 
-
-
-- [Outlook add-ins](outlook-add-ins.md)
-    
 - [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md)
     
 - [Call web services from an Outlook add-in](web-services.md)

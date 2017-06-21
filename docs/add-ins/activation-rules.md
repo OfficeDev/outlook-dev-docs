@@ -185,7 +185,6 @@ To provide a satisfactory experience with Outlook add-ins, you should adhere to 
 
 ## Additional resources
 
-- [Outlook add-ins](outlook-add-ins.md)
 - [Create Outlook add-ins for compose forms](compose-scenario.md)
 - [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
 - [Item Types and Message Classes](http://msdn.microsoft.com/library/15b709cc-7486-b6c7-88a3-4a4d8e0ab292%28Office.15%29.aspx)

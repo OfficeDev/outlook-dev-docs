@@ -270,7 +270,7 @@ If the add-in's requested permissions change, users will be prompted to upgrade 
 
 ## VersionOverrides
 
-The  **VersionOverrides** element is the location of information for add-in commands. For more information on this element, see [Define add-in commands in your Outlook add-in manifest](define-add-in-commands.md).
+The  **VersionOverrides** element is the location of information for add-in commands. For more information on this element, see [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands).
 
 This element is also where add-ins define support for [mobile add-ins](add-mobile-support.md).
 
@@ -320,7 +320,7 @@ Outlook add-ins specify the  **Hosts** element like the followiing.
 </OfficeApp>
 ```
 
-This is separate from the  **Hosts** element inside the **VersionOverrides** element, which is discussed in [Define add-in commands in your Outlook add-in manifest](define-add-in-commands.md).
+This is separate from the  **Hosts** element inside the **VersionOverrides** element, which is discussed in [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands).
 
 ## Requirements
 
@@ -415,8 +415,6 @@ Add-ins can optionally add support for Outlook mobile. Outlook mobile supports a
 
 ## Additional resources
 
-- [Outlook add-ins](outlook-add-ins.md)
-    
 - [Localization for Office Add-ins](https://dev.office.com/docs/add-ins/develop/localization?product=outlook)
     
 - [Privacy, permissions, and security for Outlook add-ins](privacy-and-security.md)

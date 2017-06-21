@@ -176,7 +176,7 @@ In addition, the following applies if you use an [ItemHasKnownEntity](https://de
     
 - [Extract entity strings from an Outlook item](extract-entity-strings-from-an-item.md)
     
-- [Activation rules for Outlook add-ins](manifests/activation-rules.md)
+- [Activation rules for Outlook add-ins](activation-rules.md)
     
 - [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
     

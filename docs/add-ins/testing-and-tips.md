@@ -105,9 +105,6 @@ You can use the following additional PowerShell cmdlets to manage the add-ins fo
 
 ## Additional resources
 
-
-
-- [Outlook add-ins](outlook-add-ins.md)
     
 - [Troubleshoot user errors with Office Add-ins](https://dev.office.com/docs/add-ins/testing/testing-and-troubleshooting?product=outlook)
     

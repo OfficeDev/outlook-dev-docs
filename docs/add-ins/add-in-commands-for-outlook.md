@@ -114,7 +114,7 @@ When using a module extension, add-in commands appear on the extension's custom 
 
 ## Additional resources
 
-- [Define add-in commands in your Outlook add-in manifest](define-add-in-commands.md)
+- [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands)
     
 - [Add-in Command Demo Outlook Add-in](https://github.com/officedev/outlook-add-in-command-demo)
     

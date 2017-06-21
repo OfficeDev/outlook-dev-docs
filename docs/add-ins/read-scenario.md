@@ -58,9 +58,4 @@ Read add-ins can be any combination of the following types.
 
 ## Additional resources
 
-
-
 - [Write your first Outlook add-in](addin-tutorial.md)
-    
-- [Outlook add-ins](outlook-add-ins.md)
-    

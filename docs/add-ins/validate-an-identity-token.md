@@ -476,7 +476,7 @@ The  **ServicePointManager** class in the .NET Framework System.Net namespace en
 ## Compute the unique ID for an Exchange account
 
 
-You can create a unique identifier for an Exchange account by hashing the authentication metadata document URL with the Exchange identifier for the account. When you have this unique identifier, you can use it to create a single sign-on (SSO) system for your Outlook add-in web service. For details about using the unique identifier for SSO, see [Authenticate a user with an identity token for Exchange](../outlook/authenticate-a-user-with-an-identity-token.md)
+You can create a unique identifier for an Exchange account by hashing the authentication metadata document URL with the Exchange identifier for the account. When you have this unique identifier, you can use it to create a single sign-on (SSO) system for your Outlook add-in web service. For details about using the unique identifier for SSO, see [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md)
 
 The  **UniqueUserIdentification** property creates a salted SHA256 hash of the Exchange ID and authentication metadata URL by using the standard SHA256 provider from the **System.Security.Cryptography** namespace.
 

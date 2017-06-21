@@ -48,9 +48,6 @@ Let's get into the specifics. In the following articles, we'll use a simple Outl
 
 ## Additional resources
 
-
-
-- [Outlook add-ins](outlook-add-ins.md)
     
 - [Call web services from an Outlook add-in](web-services.md)
     

@@ -207,10 +207,6 @@ Your add-in must specify the  **ReadWriteMailbox** permission in its add-in mani
 
 ## Additional resources
 
-
-
-- [Outlook add-ins](outlook-add-ins.md)
-    
 - [Privacy and security for Office Add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)
     
 - [Addressing same-origin policy limitations in Office Add-ins](https://dev.office.com/docs/add-ins/develop/addressing-same-origin-policy-limitations?product=outlook)

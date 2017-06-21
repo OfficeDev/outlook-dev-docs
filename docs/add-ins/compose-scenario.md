@@ -71,6 +71,3 @@ Compose add-ins are implemented as [Add-in commands for Outlook](add-in-commands
 
 
 - [Get Started with Outlook add-ins for Office 365](addin-tutorial.md)
-    
-- [Outlook add-ins](outlook-add-ins.md)
-    
