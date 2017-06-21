@@ -42,7 +42,7 @@ Here are examples of scenarios that make sense in Outlook Mobile.
 
 **An example user interaction to create a Trello card from an email message**
 
-![An animated GIF showing user interaction with an Outlook Mobile add-in](images/outlook-mobile-addin-example.gif)
+![An animated GIF showing user interaction with an Outlook Mobile add-in](images/outlook-mobile-addin-interaction.gif)
 
 ## Testing your add-ins on mobile
 
