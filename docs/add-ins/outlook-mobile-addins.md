@@ -40,8 +40,6 @@ Here are examples of scenarios that make sense in Outlook Mobile.
 - The add-in brings valuable information into Outlook, helping users triage their email and respond appropriately. Example: a CRM add-in that lets the user see customer information and share appropriate information.
 - The add-in adds value to the user's email content by saving the information to a tracking, collaboration, or similar system. Example: an add-in that lets users turn emails into task items for project tracking, or help tickets for a support team.
 
-There are definitely other great scenarios out there, so if you have an idea for an add-in that expands beyond these, please reach out to us using the [form here](https://aka.ms/outlookmobileaddin) to get feedback on whether this is an acceptable scenario for Outlook Mobile. We'll be happy to provide guidance, and the more information you can provide the better. We love a good UI walkthrough!
-
 **An example user interaction to create a Trello card from an email message**
 
 ![An animated GIF showing user interaction with an Outlook Mobile add-in](images/outlook-mobile-addin-example.gif)
