@@ -12,7 +12,7 @@ ms.author: jasonjoh
 
 # Write a Ruby on Rails app to get Outlook mail, calendar, and contacts
 
-The purpose of this guide is to walk through the process of creating a simple Ruby on Rails app that accesses a user's data in Office 365 or Outlook.com. The source code in this repository is what you should end up with if you follow the steps outlined here.
+The purpose of this guide is to walk through the process of creating a simple Ruby on Rails app that accesses a user's data in Office 365 or Outlook.com. The source code in [this repository](https://github.com/jasonjoh/o365-tutorial) is what you should end up with if you follow the steps outlined here.
 
 This guide will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/o365-tutorial/tree/outlook-api).
 
