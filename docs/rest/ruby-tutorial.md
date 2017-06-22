@@ -109,7 +109,7 @@ body {
 Now let's replace the default welcome page with a page of our own. To do that, we'll create a new controller for the home page. On the command line, run the following command:
 
 ```Shell
-rails generate controller Auth
+rails generate controller Home
 ```
 
 Once that command is complete, create a new file in the `.\o365-tutorial\app\views\home` directory called `index.html.erb`. Paste in the following code.
