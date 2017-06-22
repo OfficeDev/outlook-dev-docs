@@ -278,6 +278,7 @@ The added line tells Rails that when a GET request comes in for `/authorize`, in
 
 ```ruby
 class AuthController < ApplicationController
+  include AuthHelper
 
   def gettoken
     render text: params[:code]
@@ -373,6 +374,7 @@ Let's make sure that works. Modify the `gettoken` action in the `auth_controller
 
 ```ruby
 class AuthController < ApplicationController
+  include AuthHelper
 
   def gettoken
   token = get_token_from_code params[:code]
@@ -473,7 +475,6 @@ Open the `.\o365-tutorial\app\controllers\mail_controller.rb` file and define th
 
 ```ruby
 class MailController < ApplicationController
-
   include AuthHelper
 
   def index
