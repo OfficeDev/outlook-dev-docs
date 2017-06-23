@@ -65,6 +65,9 @@ Feel free to experiment with this simple example in the playground. You can see 
 
 To embed an actionable message card in an email message, we need to wrap the card in a `<script>` tag. The `<script>` tag is then inserted into the `<head>` of the email's HTML body.
 
+> [!NOTE]
+> Because the card JSON must be wrapped in a `<script>` tag, the body of the actionable message email MUST be HTML. Plain-text messages are not supported.
+
 1. Add the `hideOriginalBody` attribute to control what happens with the body of the email. In this case we'll set the attribute to `true` so that the body will not be shown.
 
     ```json
