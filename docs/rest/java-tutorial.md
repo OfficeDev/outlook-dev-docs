@@ -1040,7 +1040,7 @@ with the following code:
 IdToken idTokenObj = IdToken.parseEncodedToken(idToken, expectedNonce.toString());
 if (idTokenObj != null) {
   TokenResponse tokenResponse = AuthHelper.getTokenFromAuthCode(code, idTokenObj.getTenantId());
-  session.setAttribute("accessToken", tokenResponse.getAccessToken());
+  session.setAttribute("tokens", tokenResponse);
   session.setAttribute("userConnected", true);
   session.setAttribute("userName", idTokenObj.getName());
   session.setAttribute("userTenantId", idTokenObj.getTenantId());
