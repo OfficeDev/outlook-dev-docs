@@ -29,25 +29,28 @@ The following example shows a single taskpane button in a **MobileFormFactor** e
   <MobileFormFactor>
     <FunctionFile resid="residUILessFunctionFileUrl" />
     <ExtensionPoint xsi:type="MobileMessageReadCommandSurface">
-      <Control xsi:type="MobileButton" id="TaskPane1Btn">
-        <Label resid="residTaskPaneButton0Name" />
-        <Icon xsi:type="bt:MobileIconList">
-          <bt:Image size="25" scale="1" resid="tp0icon" />
-          <bt:Image size="25" scale="2" resid="tp0icon" />
-          <bt:Image size="25" scale="3" resid="tp0icon" />
+      <Group id="mobileMsgRead">
+        <Label resid="groupLabel" />
+        <Control xsi:type="MobileButton" id="TaskPaneBtn">
+          <Label resid="residTaskPaneButtonName" />
+          <Icon xsi:type="bt:MobileIconList">
+            <bt:Image size="25" scale="1" resid="tp0icon" />
+            <bt:Image size="25" scale="2" resid="tp0icon" />
+            <bt:Image size="25" scale="3" resid="tp0icon" />
 
-          <bt:Image size="32" scale="1" resid="tp0icon" />
-          <bt:Image size="32" scale="2" resid="tp0icon" />
-          <bt:Image size="32" scale="3" resid="tp0icon" />
+            <bt:Image size="32" scale="1" resid="tp0icon" />
+            <bt:Image size="32" scale="2" resid="tp0icon" />
+            <bt:Image size="32" scale="3" resid="tp0icon" />
 
-          <bt:Image size="48" scale="1" resid="tp0icon" />
-          <bt:Image size="48" scale="2" resid="tp0icon" />
-          <bt:Image size="48" scale="3" resid="tp0icon" />
-        </Icon>
-        <Action xsi:type="ShowTaskpane">
-          <SourceLocation resid="residTaskpaneUrl" />
-        </Action>
-      </Control>
+            <bt:Image size="48" scale="1" resid="tp0icon" />
+            <bt:Image size="48" scale="2" resid="tp0icon" />
+            <bt:Image size="48" scale="3" resid="tp0icon" />
+          </Icon>
+          <Action xsi:type="ShowTaskpane">
+            <SourceLocation resid="residTaskpaneUrl" />
+          </Action>
+        </Control>
+      </Group>
     </ExtensionPoint>
   </MobileFormFactor>
   ...
