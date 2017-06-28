@@ -43,6 +43,9 @@
       - name: Reference
         tocHref: /outlook/rest/reference
         topicHref: /outlook/rest/reference
+      - name: Terms of Use
+        tocHref: /outlook/rest/terms-of-use
+        topicHref: /outlook/rest/terms-of-use
   - name: Add-ins
     tocHref: /outlook/add-ins/
     topicHref: /outlook/add-ins/index
@@ -50,9 +53,141 @@
       - name: Write your first Outlook add-in
         tocHref: /outlook/add-ins/addin-tutorial
         topicHref: /outlook/add-ins/addin-tutorial
-      - name: Concepts
-        tocHref: /outlook/add-ins/concepts
-        topicHref: /outlook/add-ins/concepts
+      - name: Outlook add-in design guidelines
+        tocHref: /outlook/add-ins/outlook-addin-design
+        topicHref: /outlook/add-ins/outlook-addin-design
+      - name: Add-in commands
+        tocHref: /outlook/add-ins/add-in-commands-for-outlook
+        topicHref: /outlook/add-ins/add-in-commands-for-outlook
+      - name: Contextual add-ins
+        tocHref: /outlook/add-ins/contextual-outlook-add-ins
+        topicHref: /outlook/add-ins/contextual-outlook-add-ins
+      - name: Module extension add-ins
+        tocHref: /outlook/add-ins/extension-module-outlook-add-ins
+        topicHref: /outlook/add-ins/extension-module-outlook-add-ins
+      - name: Add-ins for Outlook Mobile
+        tocHref: /outlook/add-ins/outlook-mobile-addins
+        topicHref: /outlook/add-ins/outlook-mobile-addins
+      - name: On send add-ins
+        tocHref: /outlook/add-ins/outlook-on-send-addins
+        topicHref: /outlook/add-ins/outlook-on-send-addins
+      - name: Pinnable task pane
+        tocHref: /outlook/add-ins/pinnable-taskpane
+        topicHref: /outlook/add-ins/pinnable-taskpane
+      - name: Manifests
+        tocHref: /outlook/add-ins/manifests
+        topicHref: /outlook/add-ins/manifests
+        items:
+        - name: Activation rules
+          tocHref: /outlook/add-ins/activation-rules
+          topicHref: /outlook/add-ins/activation-rules
+        - name: Add support for Outlook Mobile
+          tocHref: /outlook/add-ins/add-mobile-support
+          topicHref: /outlook/add-ins/add-mobile-support
+      - name: Add-in APIs
+        tocHref: /outlook/add-ins/apis
+        topicHref: /outlook/add-ins/apis
+      - name: Call Outlook REST APIs
+        tocHref: /outlook/add-ins/use-rest-api
+        topicHref: /outlook/add-ins/use-rest-api
+      - name: Call Exchange web services
+        tocHref: /outlook/add-ins/web-services
+        topicHref: /outlook/add-ins/web-services
+      - name: Get or set item data
+        tocHref: /outlook/add-ins/item-data
+        topicHref: /outlook/add-ins/item-data
+      - name: Get or set add-in metadata
+        tocHref: /outlook/add-ins/metadata-for-an-outlook-add-in
+        topicHref: /outlook/add-ins/metadata-for-an-outlook-add-in
+      - name: Read scenario
+        tocHref: /outlook/add-ins/read-scenario
+        topicHref: /outlook/add-ins/read-scenario
+        items:
+        - name: Use regular expressions to activate contextual add-ins
+          tocHref: /outlook/add-ins/use-regular-expressions-to-show-an-outlook-add-in
+          topicHref: /outlook/add-ins/use-regular-expressions-to-show-an-outlook-add-in
+        - name: Match well known entities in an item
+          tocHref: /outlook/add-ins/match-strings-in-an-item-as-well-known-entities
+          topicHref: /outlook/add-ins/match-strings-in-an-item-as-well-known-entities
+        - name: Extract entities from an item
+          tocHref: /outlook/add-ins/extract-entity-strings-from-an-item
+          topicHref: /outlook/add-ins/extract-entity-strings-from-an-item
+        - name: Get attachments
+          tocHref: /outlook/add-ins/get-attachments-of-an-outlook-item
+          topicHref: /outlook/add-ins/get-attachments-of-an-outlook-item
+      - name: Compose scenario
+        tocHref: /outlook/add-ins/compose-scenario
+        topicHref: /outlook/add-ins/compose-scenario
+        items:
+        - name: Add and remove attachments
+          tocHref: /outlook/add-ins/add-and-remove-attachments-to-an-item-in-a-compose-form
+          topicHref: /outlook/add-ins/add-and-remove-attachments-to-an-item-in-a-compose-form
+        - name: Get and set item data
+          tocHref: /outlook/add-ins/get-and-set-item-data-in-a-compose-form
+          topicHref: /outlook/add-ins/get-and-set-item-data-in-a-compose-form
+        - name: Get and set recipients
+          tocHref: /outlook/add-ins/get-set-or-add-recipients
+          topicHref: /outlook/add-ins/get-set-or-add-recipients
+        - name: Insert data in the body
+          tocHref: /outlook/add-ins/insert-data-in-the-body
+          topicHref: /outlook/add-ins/insert-data-in-the-body
+        - name: Get and set subject
+          tocHref: /outlook/add-ins/get-or-set-the-subject
+          topicHref: /outlook/add-ins/get-or-set-the-subject
+        - name: Get and set times
+          tocHref: /outlook/add-ins/get-or-set-the-time-of-an-appointment
+          topicHref: /outlook/add-ins/get-or-set-the-time-of-an-appointment
+        - name: Get and set location
+          tocHref: /outlook/add-ins/get-or-set-the-location-of-an-appointment
+          topicHref: /outlook/add-ins/get-or-set-the-location-of-an-appointment
+      - name: Privacy and security
+        tocHref: /outlook/add-ins/privacy-and-security
+        topicHref: /outlook/add-ins/privacy-and-security
+        items:
+        - name: Understanding add-in permissions
+          tocHref: /outlook/add-ins/understanding-outlook-add-in-permissions
+          topicHref: /outlook/add-ins/understanding-outlook-add-in-permissions
+      - name: Authentication
+        tocHref: /outlook/add-ins/authentication
+        topicHref: /outlook/add-ins/authentication
+        items:
+        - name: Inside the identity token
+          tocHref: /outlook/add-ins/inside-the-identity-token
+          topicHref: /outlook/add-ins/inside-the-identity-token
+        - name: Call a service by using an identity token
+          tocHref: /outlook/add-ins/call-a-service-by-using-an-identity-token
+          topicHref: /outlook/add-ins/call-a-service-by-using-an-identity-token
+        - name: Use the token validation library
+          tocHref: /outlook/add-ins/use-the-token-validation-library
+          topicHref: /outlook/add-ins/use-the-token-validation-library
+        - name: Validate an identity token
+          tocHref: /outlook/add-ins/validate-an-identity-token
+          topicHref: /outlook/add-ins/validate-an-identity-token
+        - name: Use PHP to validate an identity token
+          tocHref: /outlook/add-ins/use-php-to-validate-an-identity-token
+          topicHref: /outlook/add-ins/use-php-to-validate-an-identity-token
+        - name: Authenticate a user with an identity token
+          tocHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
+          topicHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
+      - name: Testing and tips
+        tocHref: /outlook/add-ins/testing-and-tips
+        topicHref: /outlook/add-ins/testing-and-tips
+        items:
+        - name: Sideload an add-in for testing
+          tocHref: /outlook/add-ins/sideload-outlook-add-ins-for-testing
+          topicHref: /outlook/add-ins/sideload-outlook-add-ins-for-testing
+        - name: Compare add-in support in Outlook for Mac
+          tocHref: /outlook/add-ins/compare-outlook-add-in-support-in-outlook-for-mac
+          topicHref: /outlook/add-ins/compare-outlook-add-in-support-in-outlook-for-mac
+        - name: Tips for handling date values
+          tocHref: /outlook/add-ins/tips-for-handling-date-values-in-outlook-add-ins
+          topicHref: /outlook/add-ins/tips-for-handling-date-values-in-outlook-add-ins
+        - name: Limits for activation and JavaScript API
+          tocHref: /outlook/add-ins/limits-for-activation-and-javascript-api-for-outlook-add-ins
+          topicHref: /outlook/add-ins/limits-for-activation-and-javascript-api-for-outlook-add-ins
+        - name: Troubleshoot add-in activation
+          tocHref: /outlook/add-ins/troubleshoot-outlook-add-in-activation
+          topicHref: /outlook/add-ins/troubleshoot-outlook-add-in-activation
       - name: Reference
         tocHref: /outlook/add-ins/reference
         topicHref: /outlook/add-ins/reference
@@ -66,6 +201,7 @@
         items:
           - name: Action and Input Types
             tocHref: /outlook/actionable-messages/actions-and-inputs
+            topicHref: /outlook/actionable-messages/actions-and-inputs
           - name: Actionable Messages via Email
             tocHref: /outlook/actionable-messages/actionable-messages-via-email
             topicHref: /outlook/actionable-messages/actionable-messages-via-email
