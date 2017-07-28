@@ -11,16 +11,15 @@ ms.author: jasonjoh
 
 # Add-ins for Outlook Mobile 
 
+> **Note:** Add-ins are available on Outlook for iOS. Outlook for Android support is coming soon.
+
 Add-ins now work on Outlook Mobile, using the same APIs available for other Outlook endpoints. If you've built an add-in for Outlook already, it's easy to get it working on Outlook Mobile.
 
-Outlook Mobile Add-ins are supported on all Office 365 Commercial accounts, Outlook.com accounts, and support is rolling out to Gmail accounts.
+Outlook Mobile Add-ins are supported on all Office 365 Commercial accounts, and support is rolling out to Outlook.com accounts.
 
 **An example taskpane in Outlook for iOS**
 
 ![A screenshot of a taskpane in Outlook for iOS](images/outlook-mobile-addin-taskpane.png)
-
-**An example taskpane in Outlook for Android**
-![A screenshot of a taskpane in Outlook for Android](images/outlook-mobile-addin-taskpane-android.png)
 
 ## What's different on mobile? 
 
@@ -41,13 +40,9 @@ Here are examples of scenarios that make sense in Outlook Mobile.
 - The add-in brings valuable information into Outlook, helping users triage their email and respond appropriately. Example: a CRM add-in that lets the user see customer information and share appropriate information.
 - The add-in adds value to the user's email content by saving the information to a tracking, collaboration, or similar system. Example: an add-in that lets users turn emails into task items for project tracking, or help tickets for a support team.
 
-**An example user interaction to create a Trello card from an email message on iOS**
+**An example user interaction to create a Trello card from an email message**
 
-![An animated GIF showing user interaction with an Outlook Mobile add-in on iOS](images/outlook-mobile-addin-interaction.gif)
-
-**An example user interaction to create a Trello card from an email message on Android**
-
-![An animated GIF showing user interaction with an Outlook Mobile add-in on Android](images/outlook-mobile-addin-interaction-android.gif)
+![An animated GIF showing user interaction with an Outlook Mobile add-in](images/outlook-mobile-addin-interaction.gif)
 
 ## Testing your add-ins on mobile
 
