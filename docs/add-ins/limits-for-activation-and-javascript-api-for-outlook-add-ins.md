@@ -5,45 +5,38 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 07/28/2017
 ms.author: jasonjoh
 ---
 
 # Limits for activation and JavaScript API for Outlook add-ins
 
-To provide a satisfactory experience for users of Outlook add-ins, you should be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits. These guidelines exist so that an individual add-in cannot require Exchange Server or Outlook to spend an unusually long period of time to process its activation rules or calls to the JavaScript API for Office, affecting the overall user experience for Outlook and other add-ins. These limits apply to designing activation rules in the add-in manifest, and using custom properties, roaming settings, recipients, Exchange Web Services (EWS) requests and responses, and asynchronous calls. 
+To provide a satisfactory experience for users of Outlook add-ins, you should be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits. These guidelines exist so that an individual add-in cannot require Exchange Server or Outlook to spend an unusually long period of time to process its activation rules or calls to the JavaScript API for Office, affecting the overall user experience for Outlook and other add-ins. These limits apply to designing activation rules in the add-in manifest, and using custom properties, roaming settings, recipients, Exchange Web Services (EWS) requests and responses, and asynchronous calls.
 
- >**Note** If your add-in runs on an Outlook rich client, you must also verify that the add-in performs within certain run-time resource usage limits. 
+> [!NOTE]
+> If your add-in runs on an Outlook rich client, you must also verify that the add-in performs within certain run-time resource usage limits.
 
+## Limits on where add-ins activate
+
+Add-ins are designed to activate in the user's main mailbox only. Add-ins do not activate in shared mailboxes, folders from other user's mailboxes opened with delegate access, archive mailboxes, or public folders.
 
 ## Limits for activation rules
 
-
 Follow these guidelines when designing activation rules for Outlook add-ins:
 
-
 - Limit the size of the manifest to 256 KB. You cannot install the Outlook add-in for an Exchange mailbox if you exceed that limit.
-
 - Specify up to 15 activation rules for the add-in. You cannot install the add-in if you exceed that limit.
-    
 - If you use an [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) rule on the body of the selected item, expect an Outlook rich client to apply the rule against only the first 1 MB of the body and not to the rest of the body over that limit. Your add-in would not be activated if matches exist only after the first MB of the body. If you expect that to be a likely scenario, re-design your conditions for activation.
-    
 - If you use regular expressions in  **ItemHasKnownEntity** or [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rules, be aware of the following limits and guidelines that generally apply to any Outlook host, and those described in tables 1, 2 and 3 that differ depending on the host:
-    
     - Specify up to only five regular expressions in activation rules in a add-in. You cannot install a add-in if you exceed that limit.
-      
     - Specify regular expressions such that the results you anticipate are returned by the  **getRegExMatches** method call within the first 50 matches.
-      
     - Can specify look-ahead assertions in regular expressions, but not look-behind, `(?<=text)`, and negative look-behind `(?<!text)`.
-    
 
 Table 1 lists the limits and describes the differences in the support for regular expressions between an Outlook rich client and Outlook Web App or OWA for Devices. The support is independent of any specific type of device and item body.
 
-
  **Table 1. General differences in the support for regular expressions**
 
-
-|**Outlook rich client**|**Outlook Web App or OWA for Devices**|
+|Outlook rich client|Outlook Web App or OWA for Devices|
 |:-----|:-----|
 |Uses the C++ regular expression engine provided as part of the Visual Studio standard template library. This engine complies with ECMAScript 5 standards. |Uses regular expression evaluation that is part of JavaScript, is provided by the browser, and supports a superset of ECMAScript 5.|
 |Because of the different regex engines, expect a regex that includes a custom character class based on predefined character classes may return different results in an Outlook rich client than in Outlook Web App or OWA for Devices.<br/><br/>As an example, the regex "[\s\S]{0,100}" matches any number, between 0 and 100, of single characters that is a white space or a non-white-space. This regex returns different results in an Outlook rich client than Outlook Web App and OWA for Devices. You should rewrite the regex as ""(\s\|\S){0,100}" as a work-around. This workaround regex matches any number, between 0 and 100, of white space or non-white space.<br/><br/>You should test each regex thoroughly on each Outlook host, and if a regex returns different results, rewrite the regex. |You should test each regex thoroughly on each Outlook host, and if a regex returns different results, rewrite the regex.|
@@ -53,8 +46,7 @@ Table 2 lists the limits and describes the differences in the portion of the ite
 
 **Table 2. Limits on the size of the item body evaluated**
 
-
-||**Outlook rich client**|**Outlook Web App, OWA for Devices,OWA for iPad or OWA for iPhone**|**Outlook Web App**|
+||Outlook rich client|Outlook Web App, OWA for Devices,OWA for iPad or OWA for iPhone|Outlook Web App|
 |:-----|:-----|:-----|:-----|
 |Form factor|Any supported device|Android smartphones, iPad or iPhone|Any supported device other than Android smartphones, iPad and iPhone|
 |Plain text item body|Applies the regex on the first 1 MB of the data of the body, but not on the rest of the body over that limit.|Activates the add-in only if the body < 16,000 characters.|Activates the add-in only if the body < 500,000 characters.|
@@ -64,8 +56,7 @@ Table 3 lists the limits and describes the differences in the matches that each 
 
 **Table 3. Limits on the matches returned**
 
-
-||**Outlook rich client**|**Outlook Web App or OWA for Devices**|
+||Outlook rich client|Outlook Web App or OWA for Devices|
 |:-----|:-----|:-----|
 |Order of returned matches|Assume  **getRegExMatches** returns matches for the same regular expression applied on the same item is different in an Outlook rich client than in Outlook Web App or OWA for Devices.|Assume  **getRegExMatches** returns matches in different order in an Outlook rich client than in Outlook Web App or OWA for Devices.|
 |Plain text item body|**getRegExMatches** returns any matches that are up to 1,536 (1.5 KB) characters, for a maximum of 50 matches.<br/><br/>**Note**: **getRegExMatches** does not return matches in any specific order in the returned array. In general, assume the order of matches in an Outlook rich client for the same regular expression applied on the same item is different from that in Outlook Web App and OWA for Devices.|**getRegExMatches** returns any matches that are up to 3,072 (3 KB) characters, for a maximum of 50 matches.|
@@ -73,14 +64,11 @@ Table 3 lists the limits and describes the differences in the matches that each 
 
 ## Limits for JavaScript API
 
-
 Aside from the preceding guidelines for activation rules, each of the Outlook hosts enforces certain limits in the JavaScript object model, as described in Table 4.
-
 
 **Table 4. Limits to get or set certain data using the JavaScript API for Office**
 
-
-|**Feature**|**Limit**|**Related API**|**Description**|
+|Feature|Limit|Related API|Description|
 |:-----|:-----|:-----|:-----|
 |Custom properties|2,500 characters|[CustomProperties](https://dev.office.com/reference/add-ins/outlook/1.5/CustomProperties?product=outlook&version=v1.5) object<br/> <br/>[item.loadCustomPropertiesAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method|Limit for all custom properties for an appointment or message item. All the Outlook hosts return an error if the total size of all custom properties of an add-in exceeds this limit.|
 |Roaming settings|32 KB number of characters|[RoamingSettings](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) object<br/><br/> [context.roamingSettings](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context?product=outlook&version=v1.5) property|Limit for all roaming settings for the add-in. All the Outlook hosts return an error if your settings exceed this limit.|
@@ -102,9 +90,5 @@ Aside from the preceding guidelines for activation rules, each of the Outlook ho
 
 ## Additional resources
 
-
-
 - [Deploy and install Outlook add-ins for testing](testing-and-tips.md)
-    
-- [Privacy, permissions, and security for Outlook add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)
-    
+- [Privacy, permissions, and security for Outlook add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security)
