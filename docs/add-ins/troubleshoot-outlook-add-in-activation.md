@@ -215,13 +215,13 @@ This section applies to all activation rules that use regular expressions -- par
 - Number of regular expression matches -- The Outlook rich clients, Outlook Web App and OWA for Devices each returns a maximum of 50 regular expression matches. These matches are unique, and duplicate matches do not count against this limit. Do not assume any order to the returned matches, and do not assume the order in an Outlook rich client is the same as that in Outlook Web App and OWA for Devices. If you expect many matches to regular expressions in your activation rules, and you're missing a match, you may be exceeding this limit.
 - Length of a regular expression match -- There are limits to the length of a regular expression match that the host application would return. The host application does not include any match above the limit and does not display any warning message. You can run your regular expression using other regex evaluation tools or a stand-alone C++ test program to verify whether you have a match that exceeds such limits. Table 3 summarizes the limits. For more information, see Table 3 in [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
 
-    **Table 3. Length limits for a regular expression match**
+**Table 3. Length limits for a regular expression match**
 
+|Limit on length of a regex match|Outlook rich clients|Outlook Web App or OWA for Devices|
+|:-----|:-----|:-----|
+|Item body is plain text|1.5 KB|3 KB|
+|Item body is HTML|3 KB|3 KB|
 
-    |Limit on length of a regex match|Outlook rich clients|Outlook Web App or OWA for Devices|
-    |:-----|:-----|:-----|
-    |Item body is plain text|1.5 KB|3 KB|
-    |Item body is HTML|3 KB|3 KB|
 - Time spent on evaluating all regular expressions of a read add-in for an Outlook rich client: By default, for each read add-in, Outlook must finish evaluating all the regular expressions in its activation rules within 1 second. Otherwise Outlook retries up to three times and disables the add-in if Outlook cannot complete the evaluation. Outlook displays a message in the notification bar that the add-in has been disabled. The amount of time available for your regular expression can be modified by setting a group policy or a registry key. 
 
     > [!NOTE]
