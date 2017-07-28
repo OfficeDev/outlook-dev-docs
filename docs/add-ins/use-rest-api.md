@@ -55,6 +55,8 @@ Your add-in can determine which Outlook client it is loaded in by checking the [
 
 ```js
 function getItemRestId() {
+  // Currently the only Outlook Mobile version that supports add-ins
+  // is Outlook for iOS.
   if (Office.context.mailbox.diagnostics.hostName === 'OutlookIOS') {
     // itemId is already REST-formatted
     return Office.context.mailbox.item.itemId;
