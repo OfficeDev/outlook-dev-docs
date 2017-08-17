@@ -129,9 +129,18 @@ When an `HttpPOST` action is executed, a POST request is made to the URL in the 
 |-------|------|-------------|
 | `name` | String | The `name` property defines the text that will be displayed on screen for the action.<br><br>**Do** use verbs. For instance, use "Set due date" instead of "Due date" or "Add note" instead of "Note." In some cases, the noun itself just works because it is also a verb: "Comment" |
 | `target` | String | Defines the URL endpoint of the service that implements the action. |
-| `headers` | Array of Strings | A collection of strings representing a set of HTTP headers that will be emitted when sending the POST request to the target URL. |
+| `headers` | Array of `Header` | A collection of `Header` objects representing a set of HTTP headers that will be emitted when sending the POST request to the target URL. See [Header](#header). |
 | `body` | String | The body of the POST request. |
 | `bodyContentType` | String | The `bodyContentType` is optional and specifies the MIME type of the body in the POST request. Some services require that a content type be specified. |
+
+#### Header
+
+The `Header` object is a name/value pair that represents an HTTP header.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String | The header name |
+| `value` | String | The header value |
 
 ### ActionCard action
 
