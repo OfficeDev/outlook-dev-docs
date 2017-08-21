@@ -84,6 +84,9 @@
         - name: Add support for Outlook Mobile
           tocHref: /outlook/add-ins/add-mobile-support
           topicHref: /outlook/add-ins/add-mobile-support
+      - name: Add-in requirements
+        tocHref: /outlook/add-ins/add-in-requirements
+        topicHref: /outlook/add-ins/add-in-requirements
       - name: Add-in APIs
         tocHref: /outlook/add-ins/apis
         topicHref: /outlook/add-ins/apis
