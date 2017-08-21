@@ -27,6 +27,8 @@
       href: activation-rules.md
     - name: Add support for Outlook Mobile
       href: add-mobile-support.md
+  - name: Add-in requirements
+    href: add-in-requirements.md
   - name: Add-in APIs
     href: apis.md
   - name: Call Outlook REST APIs
