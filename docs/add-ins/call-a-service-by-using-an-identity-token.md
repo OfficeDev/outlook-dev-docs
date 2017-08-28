@@ -106,7 +106,7 @@ Identity tokens provide identity information about the client that is calling yo
     
 - A web service running on the server that provides the UI for your add-in that validates the identity token. You'll find the information that you need to create the web service in one of the following topics:
     
-      - [Use the Exchange token validation library](use-the-token-validation-library.md) -- If you're using the validation library that we provide.
+  - [Use the Exchange token validation library](use-the-token-validation-library.md) -- If you're using the validation library that we provide.
     
   - [Validate an Exchange identity token](validate-an-identity-token.md) -- If you're writing your own validation code.
     
