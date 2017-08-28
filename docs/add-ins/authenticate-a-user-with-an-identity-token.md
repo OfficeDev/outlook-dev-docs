@@ -183,7 +183,7 @@ If you are using the managed library to validate identity tokens, you do not nee
 
             if (null == credentials)
             {
-                string uniqueKey = token.UniqueUserIdentitification;
+                string uniqueKey = token.UniqueUserIdentification;
                 if (!AuthenticationCache.ContainsKey(uniqueKey))
                 {
                     // The user's credentials are not in the authentication cache. Ask
@@ -219,7 +219,7 @@ If you are using the managed library to validate identity tokens, you do not nee
                 {
                     // The local credentials are known. Add them to the 
                     // cached credentials. 
-                    string uniqueKey = token.UniqueUserIdentitification;
+                    string uniqueKey = token.UniqueUserIdentification;
                     AuthenticationCache.Add(uniqueKey, credentials);
 
                     // Get a response from the service.
