@@ -40,6 +40,7 @@ The daily recurrence pattern is used when an event should repeat based on a numb
 #### Examples
 
 - Repeat this event every day
+
     ```json
     "pattern": {
       "type": "daily",
@@ -47,6 +48,7 @@ The daily recurrence pattern is used when an event should repeat based on a numb
     }
     ```
 - Repeat this event every three days
+
     ```json
     "pattern": {
       "type": "daily",
