@@ -1,6 +1,6 @@
 ---
 title: Recurrence rules in Outlook REST APIs | Microsoft Docs
-description: Learn how to use recurrence rules in the Outlook REST APIs to create recurring appointments and meetings.
+description: Learn how to use recurrence patterns and ranges in the Outlook REST APIs to create recurring appointments and meetings.
 author: jasonjoh
 
 ms.topic: article
@@ -15,7 +15,7 @@ Recurring events are an important part of Outlook calendaring. Whether it's a we
 
 The key bit of information that allows recurring events to "expand" into individial occurrences is the recurrence rule. The rule specifies both how often an event repeats, and for how long. The Outlook REST APIs model recurrence rules in the `recurrence` property of the [event resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/event). Each `recurrence` is made up of two parts: the recurrence pattern (how often), and the recurrence range (for how long).
 
-## Patterns
+## Recurrence patterns
 
 The first part of a recurrence is the pattern. This specifies how often the event repeats. For example, an event could repeat "every 3 days", "every Thursday", or "on July 22 every year". A pattern is represented in the API by the [recurrencePattern resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/recurrencepattern).
 
@@ -28,7 +28,7 @@ Let's take a look at each of the possible pattern types.
 
 ### Daily
 
-The daily recurrence pattern is used when an event should repeat based on a number of days between each occurrence.
+The daily recurrence pattern causes an event to repeat based on a number of days between each occurrence.
 
 #### Relevant properties
 
@@ -58,7 +58,7 @@ The daily recurrence pattern is used when an event should repeat based on a numb
 
 ### Weekly
 
-The weekly recurrence pattern is used when an event should repeat on the same day or days of the week, based on the number of weeks between each set of occurrences.
+The weekly recurrence pattern causes an event to repeat on the same day or days of the week, based on the number of weeks between each set of occurrences.
 
 #### Relevant properties
 
@@ -95,7 +95,7 @@ The weekly recurrence pattern is used when an event should repeat on the same da
 
 ### Absolute monthly
 
-The absolute monthly pattern is used when an event should repeat on the same day of the month (e.g. the 15th), based on the number of months between each occurrence.
+The absolute monthly pattern causes an event to repeat on the same day of the month (e.g. the 15th), based on the number of months between each occurrence.
 
 #### Relevant properties
 
@@ -128,7 +128,7 @@ The absolute monthly pattern is used when an event should repeat on the same day
 
 ### Relative monthly
 
-The relative monthly pattern is used when an event should repeat on the same day of the week in the same relative position in the month, based on the number of months between each occurrence. For example, "every second Wednesday of the month".
+The relative monthly pattern causes an event to repeat on the same day of the week in the same relative position in the month, based on the number of months between each occurrence. For example, "every second Wednesday of the month".
 
 #### Relevant properties
 
@@ -164,7 +164,7 @@ The relative monthly pattern is used when an event should repeat on the same day
 
 ### Absolute yearly
 
-The absolute yearly pattern is used when an event should repeat on the same month and day (e.g. April 15th), based on the number of years between each occurrence.
+The absolute yearly pattern causes an event to repeat on the same month and day (e.g. April 15th), based on the number of years between each occurrence.
 
 #### Relevant properties
 
@@ -190,7 +190,7 @@ The absolute yearly pattern is used when an event should repeat on the same mont
 
 ### Relative yearly
 
-The relative yearly pattern is used when an event should repeat on the same day of the week in the same relative position in a specific month, based on the number of years between each occurrence. For example, "every last Wednesday of November".
+The relative yearly pattern causes an event to repeat on the same day of the week in the same relative position in a specific month, based on the number of years between each occurrence. For example, "every last Wednesday of November".
 
 #### Relevant properties
 
@@ -215,3 +215,180 @@ The relative yearly pattern is used when an event should repeat on the same day 
       "month": 11
     }
     ```
+
+## Recurrence ranges
+
+The second part of a recurrence is the range. This specifies how long the pattern repeats. For example, an event could end after 10 occurrences, by a specific date, or could have no end. A range is represented in the API by the [recurrenceRange resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/recurrencepattern).
+
+Depending on the type of range, certain fields of the `recurrenceRange` are required or ignored.
+
+> [!NOTE]
+> Even if a field is ignored, it is still validated. If a field has a set list of possible values, using a value outside the allowed set will cause an error, even if that field is ignored.
+
+Let's take a look at each of the possible range types.
+
+### Numbered range
+
+The numbered range causes an event to occur a fixed number of times (based on the pattern) from a start date.
+
+#### Relevant properties
+
+| Property | Relevance | Description |
+|----------|-----------|-------------|
+| `numberOfOccurences` | **Required** | Specifies the number of occurrences. Must be a positive integer. |
+| `recurrenceTimeZone` | **Optional** | Specifies the time zone for the `startDate` property. If not specified, the time zone of the event is used. |
+| `startDate` | **Required** | Specifies the date to start applying the pattern. **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
+| `type` | **Required** | Must be set to `numbered`. |
+
+#### Examples
+
+- Repeat this event 10 times
+
+    ```json
+    "range": {
+      "type": "numbered",
+      "startDate": "2017-04-02",
+      "numberOfOccurrences": 10
+    }
+    ```
+
+### End date range
+
+The end date range causes an event to occur on all days that fit the applicable pattern between a start date and an end date.
+
+#### Relevant properties
+
+| Property | Relevance | Description |
+|----------|-----------|-------------|
+| `endDate` | **Required** | Specifies the date to stop applying the pattern. **Note:** the last occurrence of the meeting may not occur on this date if it does not fit the pattern. |
+| `recurrenceTimeZone` | **Optional** | Specifies the time zone for the `startDate` and `endDate` properties. If not specified, the time zone of the event is used. |
+| `startDate` | **Required** | Specifies the date to start applying the pattern. **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
+| `type` | **Required** | Must be set to `endDate`. |
+
+#### Examples
+
+- Repeat this event from July 1 2017 to July 31 2017
+
+    ```json
+    "range": {
+      "type": "endDate",
+      "startDate": "2017-07-01",
+      "endDate": "2017-07-31"
+    }
+    ```
+
+### No end range
+
+The no end range causes an event to occur on all days that fit the applicable pattern after a start date.
+
+#### Relevant properties
+
+| Property | Relevance | Description |
+|----------|-----------|-------------|
+| `recurrenceTimeZone` | **Optional** | Specifies the time zone for the `startDate` property. If not specified, the time zone of the event is used. |
+| `startDate` | **Required** | Specifies the date to start applying the pattern. **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
+| `type` | **Required** | Must be set to `noEnd`. |
+
+#### Examples
+
+- Repeat this event from May 15 2017 forever
+
+    ```json
+    "range": {
+      "type": "noEnd",
+      "startDate": "2017-05-15"
+    }
+    ```
+
+## Using patterns and ranges to create recurring events
+
+Now that we've looked at patterns and ranges separately, let's look at how they work together and how they interact with the `start` and `end` properties on the event.
+
+### Creating a recurrence rule
+
+In order to create a recurrence rule, you must specify both a pattern and a range. Any pattern type can work with any range type. Here are a couple of examples.
+
+- **Meet from 1:00 PM to 1:30 PM every Monday starting September 4, 2017 until the end of the year**
+
+    - The "every Monday" requirement is easily met by the `weekly` recurrence pattern type.
+    - The "until the end of the year" requirement indicates an `endDate` recurrence range type.
+
+    ```json
+    "recurrence": {
+      "pattern": {
+        "type": "weekly",
+        "interval": 1,
+        "daysOfWeek": [ "Monday" ]
+      },
+      "range": {
+        "type": "endDate",
+        "startDate": "2017-09-04",
+        "endDate": "2017-12-31"
+      }
+    }
+    ```
+
+    Because December 31, 2017 is on a Sunday, the last occurrence in this series will be on Monday, December 25.
+
+- **Meet from 2:00 PM to 3:00 PM on the first Thursday of every other month starting August 29, 2017**
+
+    - The "first Thursday of every other month" requirement is achievable using a relative monthly pattern. The "every other month" portion indicates the `interval` should be set to `2`.
+    - Since there is no requirement on an end date, a `noEnd` range type can be used.
+
+    ```json
+    "recurrence": {
+      "pattern": {
+        "type": "relativeMonthly",
+        "interval": 2,
+        "daysOfWeek": [ "Thursday" ],
+        "index": "second"
+      },
+      "range": {
+        "type": "noEnd",
+        "startDate": "2017-08-29"
+      }
+    }
+    ```
+
+    Because the value of `startDate` is after the first Thursday in August, the first occurrence of this series will be in September.
+
+### How recurrence rules interact with the start and end properties
+
+When creating a recurring event, it's important to understand how the values of the `start` and `end` properties on the `event` resource interact with the pattern and the `startDate` property of the range.
+
+- The date portions of `start` and `end` are used to calculate the duration of the meeting only. For all other purposes, only the time portions of these values are used and the date is ignored.
+- The `startDate` in the range determines when the pattern can start to be applied. If the value of `startDate` satisfies the pattern, the first occurrence of the series falls on that date. If not, the first occurrence of the series falls on the first date after `startDate` that fits the pattern.
+
+Let's take a look at an example.
+
+```json
+{
+  "start": {
+    "dateTime": "2017-08-28T10:00:00",
+    "timeZone": "Eastern Standard Time"
+  },
+  "end": {
+    "dateTime": "2017-08-28T11:30:00",
+    "timeZone": "Eastern Standard Time"
+  },
+  "recurrence": {
+    "pattern": {
+      "type": "weekly",
+      "interval": 1,
+      "daysOfWeek": [ "Monday" ]
+    },
+    "range": {
+      "type": "numbered",
+      "startDate": "2017-09-03",
+      "numberOfOccurrences": 2
+    }
+  }
+}
+```
+
+1. First the values of `start` and `end` are compared to determine the duration of the meeting is 1.5 hours, and the start time is 10:00 AM Eastern Standard Time.
+1. Next, we start evaluating potential occurrences starting at the value of `startDate`, which is September 3, 2017. That is on a Sunday, which does not satisfy the `daysOfWeek` value in the pattern.
+1. Evaluation moves to the next day, which is September 4. This is a Monday, so it satifies the conditions of the pattern. The first occurrence of the series is on Monday, September 4, 2017, from 10:00 AM to 11:30 AM EST.
+
+> [!NOTE]
+> The first occurrence did not occur on August 28, 2017, even though that date satisifies the pattern. Because it does not fall within the range, it is an invalid date for the series.
