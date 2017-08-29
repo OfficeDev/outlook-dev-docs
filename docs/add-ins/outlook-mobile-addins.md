@@ -20,6 +20,7 @@ Outlook Mobile Add-ins are supported on all Office 365 Commercial accounts, Outl
 ![A screenshot of a taskpane in Outlook for iOS](images/outlook-mobile-addin-taskpane.png)
 
 **An example taskpane in Outlook for Android**
+
 ![A screenshot of a taskpane in Outlook for Android](images/outlook-mobile-addin-taskpane-android.png)
 
 ## What's different on mobile? 
