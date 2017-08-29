@@ -72,6 +72,7 @@ The weekly recurrence pattern is used when an event should repeat on the same da
 #### Examples
 
 - Repeat this event every Thursday
+
     ```json
     "pattern": {
       "type": "weekly",
@@ -80,6 +81,7 @@ The weekly recurrence pattern is used when an event should repeat on the same da
     }
     ```
 - Repeat this event every other Monday and Tuesday
+
     ```json
     "pattern": {
       "type": "weekly",
@@ -106,6 +108,7 @@ The absolute monthly pattern is used when an event should repeat on the same day
 #### Examples
 
 - Repeat this event on the 15th of every month
+
     ```json
     "pattern": {
       "type": "absoluteMonthly",
@@ -114,6 +117,7 @@ The absolute monthly pattern is used when an event should repeat on the same day
     }
     ```
 - Repeat this event quarterly (every 3 months) on the 7th
+
     ```json
     "pattern": {
       "type": "absoluteMonthly",
@@ -138,6 +142,7 @@ The relative monthly pattern is used when an event should repeat on the same day
 #### Examples
 
 - Repeat this event on the second Wednesday of every month
+
     ```json
     "pattern": {
       "type": "relativeMonthly",
@@ -147,6 +152,7 @@ The relative monthly pattern is used when an event should repeat on the same day
     }
     ```
 - Repeat this event on the first Thursday or Friday of every month
+
     ```json
     "pattern": {
       "type": "relativeMonthly",
@@ -172,6 +178,7 @@ The absolute yearly pattern is used when an event should repeat on the same mont
 #### Example
 
 - Repeat this event on April 15 every year
+
     ```json
     "pattern": {
       "type": "absoluteYearly",
@@ -198,6 +205,7 @@ The relative yearly pattern is used when an event should repeat on the same day 
 #### Examples
 
 - Repeat this event on the last Wednesday of November every year
+
     ```json
     "pattern": {
       "type": "relativeYearly",
