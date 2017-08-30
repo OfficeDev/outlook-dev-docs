@@ -26,7 +26,7 @@ The EWS Managed API validation library provides the  **AppIdentityToken** class 
 
 ```C#
 // Required to use the validation library.
-using Microsoft.Exchange.WebServices.Auth.Validate;
+using Microsoft.Exchange.WebServices.Auth.Validation;
 
 private AppIdentityToken CreateAndValidateIdentityToken(string rawToken, string hostUri)
 {
