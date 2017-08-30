@@ -73,7 +73,7 @@ This section is only applicable when your scope of submission to enable actionab
 
 In this section, you need to provide details for Microsoft to verify the actionable message and the corresponding actions that are invoked from the email sent by your provider/service.
 
-Additionally, send a valid email coming from your production servers (or a server with similar DKIM/SPF/From:/Return-Path: headers) including the markup to oamverify@microsoft.onmicrosoft.com. This procedure will enable Microsoft to determine that the solution complies with all the guidelines and requirements listed in Registration Criteria.
+Additionally, send a valid email coming from your production servers (or a server with similar DKIM/SPF/From:/Return-Path: headers) including the markup to amverify@microsoft.com. This procedure will enable Microsoft to determine that the solution complies with all the guidelines and requirements listed in Registration Criteria.
 
 - Make sure that the markup is correct prior to sending the email.
 - Office 365 removes all markup when forwarding an email. Do not forward the email but send it directly.
