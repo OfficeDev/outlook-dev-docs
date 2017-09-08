@@ -13,7 +13,7 @@ ms.author: jasonjoh
 
 Recurring events are an important part of Outlook calendaring. Whether it's a weekly one-on-one meeting with your manager, or a division-wide review meeting that happens on the second Tuesday of each month, recurring events make it easy to create the event once, and let the server fill in the rest of the series.
 
-The key bit of information that allows recurring events to "expand" into individial occurrences is the recurrence rule. The rule specifies both how often an event repeats, and for how long. The Outlook REST APIs model recurrence rules in the `recurrence` property of the [event resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/event). Each `recurrence` is made up of two parts: the recurrence pattern (how often), and the recurrence range (for how long).
+The key bit of information that allows recurring events to "expand" into individual occurrences is the recurrence rule. The rule specifies both how often an event repeats, and for how long. The Outlook REST APIs model recurrence rules in the `recurrence` property of the [event resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/event). Each `recurrence` is made up of two parts: the recurrence pattern (how often), and the recurrence range (for how long).
 
 ## Recurrence patterns
 
@@ -64,7 +64,7 @@ The weekly recurrence pattern causes an event to repeat on the same day or days 
 
 | Property | Relevance | Description |
 |----------|-----------|-------------|
-| `daysOfWeek` | **Required** | Specifies on which days of the week the event occurs. |
+| `daysOfWeek` | **Required** | Specifies on which day(s) of the week the event occurs. |
 | `firstDayOfWeek` | **Optional** | Specifies which day is considered the first day of the week. Default value: `Sunday`. |
 | `interval` | **Required** | Specifies the number of weeks between each set of occurrences. |
 | `type` | **Required** | Must be set to `weekly`. |
@@ -134,7 +134,7 @@ The relative monthly pattern causes an event to repeat on the same day of the we
 
 | Property | Relevance | Description |
 |----------|-----------|-------------|
-| `daysOfWeek` | **Required** | Specifies on which days of the week the event can occur. Relative monthly events only occur once per month, so if more than one value is specified, the event falls on the first day that satisfies the pattern. |
+| `daysOfWeek` | **Required** | Specifies on which day(s) of the week the event can occur. Relative monthly events only occur once per month, so if more than one value is specified, the event falls on the first day that satisfies the pattern. |
 | `index` | **Optional** | Specifies on which instance of the allowed days specified in `daysOfsWeek` the event occurs, counted from the first instance in the month. Default value: `first`. |
 | `interval` | **Required** | Specifies the number of months between each occurrence. |
 | `type` | **Required** | Must be set to `relativeMonthly`. |
@@ -158,7 +158,7 @@ The relative monthly pattern causes an event to repeat on the same day of the we
       "type": "relativeMonthly",
       "interval": 1,
       "daysOfWeek": [ "Thursday", "Friday" ],
-      "index": "second"
+      "index": "first"
     }
     ```
 
@@ -196,7 +196,7 @@ The relative yearly pattern causes an event to repeat on the same day of the wee
 
 | Property | Relevance | Description |
 |----------|-----------|-------------|
-| `daysOfWeek` | **Required** | Specifies on which days of the week the event can occur. Relative yearly events only occur once per year, so if more than one value is specified, the event falls on the first day that satisfies the pattern. |
+| `daysOfWeek` | **Required** | Specifies on which day(s) of the week the event can occur. Relative yearly events only occur once per year, so if more than one value is specified, the event falls on the first day that satisfies the pattern. |
 | `index` | **Optional** | Specifies on which instance of the allowed days specified in `daysOfsWeek` the event occurs, counted from the first instance in the month. Default value: `first`. |
 | `month` | **Required** | Specifies in which month the event occurs. |
 | `interval` | **Required** | Specifies the number of years between each occurrence. |
@@ -341,7 +341,7 @@ In order to create a recurrence rule, you must specify both a pattern and a rang
         "type": "relativeMonthly",
         "interval": 2,
         "daysOfWeek": [ "Thursday" ],
-        "index": "second"
+        "index": "first"
       },
       "range": {
         "type": "noEnd",
