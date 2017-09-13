@@ -162,7 +162,7 @@ Keep in mind the following guidelines when validating the token:
 
 ### Using the SSO token as an identity
 
-If your add-in needs to verify the user's identity, the SSO token contains information that can be used to estblish the identity. The following claims in the token relate to identity.
+If your add-in needs to verify the user's identity, the SSO token contains information that can be used to establish the identity. The following claims in the token relate to identity.
 
 - `name` - The user's display name.
 - `preferred_username` - The user's login name.
