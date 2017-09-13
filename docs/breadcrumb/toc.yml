@@ -40,6 +40,9 @@
       - name: Webhooks and Notifications
         tocHref: /outlook/rest/webhooks
         topicHref: /outlook/rest/webhooks
+      - name: Recurrence rules
+        tocHref: /outlook/rest/recurrence-rules
+        topicHref: /outlook/rest/recurrence-rules
       - name: Reference
         tocHref: /outlook/rest/reference
         topicHref: /outlook/rest/reference
