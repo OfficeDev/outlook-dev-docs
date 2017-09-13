@@ -157,6 +157,9 @@
         tocHref: /outlook/add-ins/authentication
         topicHref: /outlook/add-ins/authentication
         items:
+        - name: Authenticate with an SSO token
+          tocHref: /outlook/add-ins/authenticate-a-user-with-an-sso-token
+          topicHref: /outlook/add-ins/authenticate-a-user-with-an-sso-token
         - name: Inside the identity token
           tocHref: /outlook/add-ins/inside-the-identity-token
           topicHref: /outlook/add-ins/inside-the-identity-token

@@ -75,6 +75,8 @@
   - name: Authentication
     href: authentication.md
     items:
+    - name: Authenticate with SSO token
+      href: authenticate-a-user-with-an-sso-token.md
     - name: Inside the identity token
       href: inside-the-identity-token.md
     - name: Call a service by using an identity token
