@@ -1,55 +1,57 @@
 ---
-title: Authenticate an Outlook add-in by using Exchange identity tokens | Microsoft Docs
-description: Learn how Exchange identity tokens can be used to authenticate an Outlook add-in with your service.
+title: Authentication options in Outlook add-ins | Microsoft Docs
+description: Learn about the ways to authenticate a user in an Outlook add-in.
 author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 09/13/2017
 ms.author: jasonjoh
 ---
 
-# Authenticate an Outlook add-in by using Exchange identity tokens
+# Authentication options in Outlook add-ins
 
-Your Outlook add-in can provide your customers with information from anywhere on the Internet, whether from the server that hosts the add-in, from your internal network, or from somewhere else in the cloud. If that information is protected, however, your add-in needs a way to associate the Exchange email account with your information service. Exchange 2013 can enable single sign-on (SSO) for your add-in by providing a token that identifies the email account that is making the request. You can associate this token with a registered user for your application so that the user is recognized whenever the add-in connects to your service.
+Your Outlook add-in can access information from anywhere on the internet, whether from the server that hosts the add-in, from your internal network, or from somewhere else in the cloud. If that information is protected, your add-in needs a way to authenticate your user. Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
 
-## Identity tokens
+## Single sign-on access token
 
+Single sign-on access tokens provide a seamless way for your add-in to authenticate and obtain access tokens to call the [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/concepts/overview). Consider using SSO access tokens if your add-in:
 
-Two of our sample add-ins use publically available information - one shows a Bing map for addresses in a message, and one shows a preview for YouTube video links in a message. But your add-in can also access nonpublic information. You can use the server that hosts your add-in to link your add-in to the information in your internal network, or anywhere in the cloud.
+- Is used primarily by Office 365 users
+- Needs access to:
+    - Microsoft services that are exposed as part of the Microsoft Graph
+    - A non-Microsoft service that you control
 
-You can use many different techniques to identify and authenticate add-in users. Exchange 2013 simplifies user authentication by providing your add-in an identity token that identifies a specific Exchange email account. You can associate this token in your service with a registered user, enabling single sign-on (SSO) for your customers that use Outlook add-ins. 
+The SSO authentication method uses the [OAuth2 On-Behalf-Of flow provided by Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of). It requires that the add-in register in the [Application Registration Portal](https://apps.dev.microsoft.com/) and specify any required Microsoft Graph scopes in its manifest.
 
-To use SSO in your add-in, the code does this:
+Using this method, your add-in can obtain an access token scoped to your server back-end API. The add-in uses this as a bearer token in the `Authorization` header to authenticate a call back to your API. At that point your server can:
 
+- Complete the On-Behalf-Of flow to obtain an access token scoped to the Microsoft Graph API
+- Use the identity information in the token to establish the user's identity and authenticate to your own back-end services
 
-* Calls a function in the Outlook add-in API that returns an identity token.
-* Sends the token together with a request to your server.
-* Unpacks the response from the server to display information from your service.
-    
-On the server side, things are somewhat more complex. When your server receives a request from an Outlook add-in, the process works like this:
+For a more detailed overview, see the [full overview of the SSO authentication method](https://dev.office.com/docs/add-ins/develop/sso-in-office-add-ins).
 
-* The server validates the token. You can use our [managed token validation library](use-the-token-validation-library.md), or you can [create your own library](validate-an-identity-token.md) for your service.
-* The server looks up the unique identifier from the token to see whether it's associated with a known identity. Your service must [implement a method that matches the identifier](authenticate-a-user-with-an-identity-token.md) with known users of your service.
-* If the unique identifier matches an identifier previously stored with a set of credentials on the server, your server can respond with the requested information without requiring your customer to log on to your service.
-* If the unique identifier is unknown, the server sends a response asking the user to log on with credentials for the server.
-* If the credentials match a known identity on the server, you can map that identity to the unique identifier in the token so that the next time a request comes in, your server can respond without requiring an additional logon step.
+For details on using the SSO token in an Outlook add-in, see [Authenticate a user with an single-sign-on token in an Outlook add-in](authenticate-a-user-with-an-sso-token.md)
 
- >**Note**  This is just one suggestion for how to use the identity token. As always, when you're dealing with identity and authentication, you have to make sure that your code meets the security requirements of your organization.
+## Exchange user identity token
 
-Let's get into the specifics. In the following articles, we'll use a simple Outlook add-in that sends the identity token and a list of phone numbers found in the message to a web service. 
+Exchange user identity tokens provide a way for your add-in to establish the identity of the user. By verifying the user's identity, you can then perform a one-time authentication into your back-end system, then accept the user identity token as an authorization for future requests. Consider using user identity tokens if your add-in:
 
-- [Inside the Exchange identity token](inside-the-identity-token.md)
-- [Call a service from an Outlook add-in by using an identity token in Exchange](call-a-service-by-using-an-identity-token.md)
-- [Use the Exchange token validation library](use-the-token-validation-library.md)
-- [Validate an Exchange identity token](validate-an-identity-token.md )
-- [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md)
+- Is used primarily by Exchange on-premises users
+- Needs access to a non-Microsoft service that you control
 
+## Access tokens obtained via OAuth2 flows
 
-## Additional resources
+Add-ins can also access third-party services that support OAuth2 for authorization. Consider using OAuth2 tokens if your add-in:
 
-    
-- [Call web services from an Outlook add-in](web-services.md)
-    
+- Needs access to a third-party service outside of your control
 
+Using this method, your add-in prompts the user to sign-in to the service either by using the [displayDialogAsync](https://dev.office.com/reference/add-ins/shared/officeui.displaydialogasync?product=outlook) method to initialize the OAuth2 flow, or by using the [office-js-helpers library](https://github.com/OfficeDev/office-js-helpers) to the OAuth2 Implicit flow.
 
+## Callback tokens
+
+Callback tokens provide access to the user's mailbox from your server back-end, either using [Exchange Web Services (EWS)](https://msdn.microsoft.com/en-us/library/office/dd877012(v=exchg.150).aspx), or the [Outlook REST API](https://msdn.microsoft.com/en-us/office/office365/api/use-outlook-rest-api). Consider using callback tokens if your add-in:
+
+- Needs access to the user's mailbox from your server back-end.
+
+Add-ins obtain callback tokens using the [getCallbackTokenAsync method](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook). The level of access is controlled by the permissions specified in the add-in manifest.
