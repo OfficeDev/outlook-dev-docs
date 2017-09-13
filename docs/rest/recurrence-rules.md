@@ -135,7 +135,7 @@ The relative monthly pattern causes an event to repeat on the same day of the we
 | Property | Relevance | Description |
 |----------|-----------|-------------|
 | `daysOfWeek` | **Required** | Specifies on which day(s) of the week the event can occur. Relative monthly events only occur once per month, so if more than one value is specified, the event falls on the first day that satisfies the pattern. |
-| `index` | **Optional** | Specifies on which instance of the allowed days specified in `daysOfsWeek` the event occurs, counted from the first instance in the month. Default value: `first`. |
+| `index` | **Optional** | Specifies on which instance of the allowed days specified in `daysOfsWeek` the event occurs, counted from the first instance in the month. Possible values: `first`, `second`, `third`, `fourth`, and `last`. Default value: `first`. |
 | `interval` | **Required** | Specifies the number of months between each occurrence. |
 | `type` | **Required** | Must be set to `relativeMonthly`. |
 
@@ -197,7 +197,7 @@ The relative yearly pattern causes an event to repeat on the same day of the wee
 | Property | Relevance | Description |
 |----------|-----------|-------------|
 | `daysOfWeek` | **Required** | Specifies on which day(s) of the week the event can occur. Relative yearly events only occur once per year, so if more than one value is specified, the event falls on the first day that satisfies the pattern. |
-| `index` | **Optional** | Specifies on which instance of the allowed days specified in `daysOfsWeek` the event occurs, counted from the first instance in the month. Default value: `first`. |
+| `index` | **Optional** | Specifies on which instance of the allowed days specified in `daysOfsWeek` the event occurs, counted from the first instance in the month. Possible values: `first`, `second`, `third`, `fourth`, and `last`. Default value: `first`. |
 | `month` | **Required** | Specifies in which month the event occurs. |
 | `interval` | **Required** | Specifies the number of years between each occurrence. |
 | `type` | **Required** | Must be set to `relativeMonthly`. |
@@ -237,7 +237,7 @@ The numbered range causes an event to occur a fixed number of times (based on th
 |----------|-----------|-------------|
 | `numberOfOccurences` | **Required** | Specifies the number of occurrences. Must be a positive integer. |
 | `recurrenceTimeZone` | **Optional** | Specifies the time zone for the `startDate` property. If not specified, the time zone of the event is used. |
-| `startDate` | **Required** | Specifies the date to start applying the pattern. **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
+| `startDate` | **Required** | Specifies the date to start applying the pattern. The value of `startDate` MUST correspond to the date value of the `start` property on the [event resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/event). **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
 | `type` | **Required** | Must be set to `numbered`. |
 
 #### Examples
@@ -262,7 +262,7 @@ The end date range causes an event to occur on all days that fit the applicable 
 |----------|-----------|-------------|
 | `endDate` | **Required** | Specifies the date to stop applying the pattern. **Note:** the last occurrence of the meeting may not occur on this date if it does not fit the pattern. |
 | `recurrenceTimeZone` | **Optional** | Specifies the time zone for the `startDate` and `endDate` properties. If not specified, the time zone of the event is used. |
-| `startDate` | **Required** | Specifies the date to start applying the pattern. **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
+| `startDate` | **Required** | Specifies the date to start applying the pattern. The value of `startDate` MUST correspond to the date value of the `start` property on the [event resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/event). **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
 | `type` | **Required** | Must be set to `endDate`. |
 
 #### Examples
@@ -286,7 +286,7 @@ The no end range causes an event to occur on all days that fit the applicable pa
 | Property | Relevance | Description |
 |----------|-----------|-------------|
 | `recurrenceTimeZone` | **Optional** | Specifies the time zone for the `startDate` property. If not specified, the time zone of the event is used. |
-| `startDate` | **Required** | Specifies the date to start applying the pattern. **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
+| `startDate` | **Required** | Specifies the date to start applying the pattern. The value of `startDate` MUST correspond to the date value of the `start` property on the [event resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/event). **Note:** the first occurrence of the meeting may not occur on this date if it does not fit the pattern. |
 | `type` | **Required** | Must be set to `noEnd`. |
 
 #### Examples
@@ -351,44 +351,3 @@ In order to create a recurrence rule, you must specify both a pattern and a rang
     ```
 
     Because the value of `startDate` is after the first Thursday in August, the first occurrence of this series will be in September.
-
-### How recurrence rules interact with the start and end properties
-
-When creating a recurring event, it's important to understand how the values of the `start` and `end` properties on the `event` resource interact with the pattern and the `startDate` property of the range.
-
-- The date portions of `start` and `end` are used to calculate the duration of the meeting only. For all other purposes, only the time portions of these values are used and the date is ignored.
-- The `startDate` in the range determines when the pattern can start to be applied. If the value of `startDate` satisfies the pattern, the first occurrence of the series falls on that date. If not, the first occurrence of the series falls on the first date after `startDate` that fits the pattern.
-
-Let's take a look at an example.
-
-```json
-{
-  "start": {
-    "dateTime": "2017-08-28T10:00:00",
-    "timeZone": "Eastern Standard Time"
-  },
-  "end": {
-    "dateTime": "2017-08-28T11:30:00",
-    "timeZone": "Eastern Standard Time"
-  },
-  "recurrence": {
-    "pattern": {
-      "type": "weekly",
-      "interval": 1,
-      "daysOfWeek": [ "Monday" ]
-    },
-    "range": {
-      "type": "numbered",
-      "startDate": "2017-09-03",
-      "numberOfOccurrences": 2
-    }
-  }
-}
-```
-
-1. First the values of `start` and `end` are compared to determine the duration of the meeting is 1.5 hours, and the start time is 10:00 AM Eastern Standard Time.
-1. Next, we start evaluating potential occurrences starting at the value of `startDate`, which is September 3, 2017. That is on a Sunday, which does not satisfy the `daysOfWeek` value in the pattern.
-1. Evaluation moves to the next day, which is September 4. This is a Monday, so it satifies the conditions of the pattern. The first occurrence of the series is on Monday, September 4, 2017, from 10:00 AM to 11:30 AM EST.
-
-> [!NOTE]
-> The first occurrence did not occur on August 28, 2017, even though that date satisifies the pattern. Because it does not fall within the range, it is an invalid date for the series.
