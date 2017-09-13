@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: graph
-ms.date: 08/25/2017
+ms.date: 09/13/2017
 ms.author: jasonjoh
 ---
 
