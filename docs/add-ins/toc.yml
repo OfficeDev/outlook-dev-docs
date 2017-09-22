@@ -83,12 +83,6 @@
       href: validate-an-identity-token.md
     - name: Inside the identity token
       href: inside-the-identity-token.md
-    - name: Call a service by using an identity token
-      href: call-a-service-by-using-an-identity-token.md
-    - name: Use the token validation library
-      href: use-the-token-validation-library.md
-    - name: Use PHP to validate an identity token
-      href: use-php-to-validate-an-identity-token.md
   - name: Testing and tips
     href: testing-and-tips.md
     items:
