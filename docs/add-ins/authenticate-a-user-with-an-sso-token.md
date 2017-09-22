@@ -79,6 +79,32 @@ For example, if your add-in requires read access to the user's OneDrive files, t
 
 ![A screenshot of the Microsoft Graph Permissions section of an application registration for an add-in that uses single-sign-on](images/single-sign-on-graph-permissions.PNG)
 
+### Providing consent when sideloading an add-in
+
+When an add-in that uses SSO is acquired from the Office Store, the store UI handles prompting the user for consent to the requested Graph permissions. However, when sideloading the add-in for testing purposes, the store consent UI is bypassed. In order for the add-in to obtain tokens, you need to provide consent.
+
+You have two choices for providing consent. You can use an administrator account and consent once for all users in your Office 365 organization, or you can use any account to consent for just that user.
+
+#### Provide admin consent for all users
+
+If you have access to a tenant administrator account, this method will allow you to provide consent for all users in your organization, which can be convenient if you have multiple developers that need to develop and test your add-in.
+
+1. Browse to `https://login.microsoftonline.com/common/adminconsent?client_id={application_ID}&state=12345`, where `{application_ID}` is the application ID shown in your app registration.
+1. Sign in with your administrator account.
+1. Review the permissions and click **Accept**.
+
+The browser will attempt to redirect back to your app, which may not be running. You might see a "this site cannot be reached" error after clicking **Accept**. This is OK, the consent was still recorded.
+
+#### Provide consent for a single user
+
+If you don't have access to a tenant administrator account, or you just want to limit consent to a few users, this method will allow you to provide consent for a single user.
+
+1. Browse to `https://login.microsoftonline.com/common/oauth2/authorize?client_id={application_ID}&state=12345&response_type=code`, where `{application_ID}` is the application ID shown in your app registration.
+1. Sign in with your account.
+1. Review the permissions and click **Accept**.
+
+The browser will attempt to redirect back to your app, which may not be running. You might see a "this site cannot be reached" error after clicking **Accept**. This is OK, the consent was still recorded.
+
 ## Updating the add-in manifest
 
 The next step to enable SSO in the add-in is to add a `WebApplicationInfo` element into the `VersionOverridesV1_1` [VersionOverrides](https://dev.office.com/reference/add-ins/manifest/versionoverrides?product=outlook) element. This element contains the following child elements:
