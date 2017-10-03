@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 07/28/2017
+ms.date: 10/03/2017
 ms.author: jasonjoh
 ---
 
@@ -61,7 +61,6 @@ If your Outlook add-in is a read add-in and is supposed to be activated when the
 - Protected by Information Rights Management (IRM).
 - In S/MIME format or encrypted in other ways for protection.
 - A draft (does not have a sender assigned to it), or is in the Outlook Drafts folder.
-- In the Junk Email folder.
 - A delivery report or notification that has the message class IPM.Report.*, including delivery and Non-Delivery Report (NDR) reports, and read, non-read, and delay notifications.
 - A .msg file that is attached to another message or was opened from the file system.
 - In a shared mailbox, in another user's mailbox, in an archive mailbox, or in a public folder.

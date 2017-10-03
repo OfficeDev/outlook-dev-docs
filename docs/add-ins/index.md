@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 04/26/2017
+ms.date: 10/03/2017
 ms.author: jasonjoh
 ---
 
@@ -49,8 +49,6 @@ Outlook add-ins are available on messages or appointments while composing or rea
 
 
 - Protected by Information Rights Management (IRM), in S/MIME format or encrypted in other ways for protection. A digitally signed message is an example since digital signing relies on one of these mechanisms.
-    
-- In the Junk Email folder.
     
 - A delivery report or notification that has the message class IPM.Report.*, including delivery and Non-Delivery Report (NDR) reports, and read, non-read, and delay notifications.
     

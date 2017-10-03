@@ -5,13 +5,13 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 10/03/2017
 ms.author: jasonjoh
 ---
 
 # Use regular expression activation rules to show an Outlook add-in
 
-You can specify regular expression rules to have an Outlook add-in activated in read scenarios - when the user views a message or appointment in the Reading Pane or inspector, Outlook evaluates regular expression rules to determine if it should activate your add-in. Outlook does not evaluate these rules when the user is composing an item. There are also other scenarios where Outlook does not activate add-ins, for example, items protected by Information Rights Management (IRM) or in the Junk Email folder. For more information, see [Activation rules for Outlook add-ins](activation-rules.md).
+You can specify regular expression rules to have an Outlook add-in activated in read scenarios - when the user views a message or appointment in the Reading Pane or inspector, Outlook evaluates regular expression rules to determine if it should activate your add-in. Outlook does not evaluate these rules when the user is composing an item. There are also other scenarios where Outlook does not activate add-ins, for example, items protected by Information Rights Management (IRM). For more information, see [Activation rules for Outlook add-ins](activation-rules.md).
 
 You can specify a regular expression as part of an [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rule or [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) rule in the add-in XML manifest. Outlook evaluates regular expressions based on the rules for the JavaScript interpreter used by the browser on the client computer. Outlook supports the same list of special characters that all XML processors also support. The following table lists these special characters. You can use these characters in a regular expression by specifying the escaped sequence for the corresponding character, as described in the following table.
 
