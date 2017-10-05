@@ -160,24 +160,18 @@
         - name: Authenticate with an SSO token
           tocHref: /outlook/add-ins/authenticate-a-user-with-an-sso-token
           topicHref: /outlook/add-ins/authenticate-a-user-with-an-sso-token
-        - name: Inside the identity token
-          tocHref: /outlook/add-ins/inside-the-identity-token
-          topicHref: /outlook/add-ins/inside-the-identity-token
-        - name: Call a service by using an identity token
-          tocHref: /outlook/add-ins/call-a-service-by-using-an-identity-token
-          topicHref: /outlook/add-ins/call-a-service-by-using-an-identity-token
-        - name: Use the token validation library
-          tocHref: /outlook/add-ins/use-the-token-validation-library
-          topicHref: /outlook/add-ins/use-the-token-validation-library
+        - name: Authenticate with an identity token
+          tocHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
+          topicHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
         - name: Validate an identity token
           tocHref: /outlook/add-ins/validate-an-identity-token
           topicHref: /outlook/add-ins/validate-an-identity-token
-        - name: Use PHP to validate an identity token
-          tocHref: /outlook/add-ins/use-php-to-validate-an-identity-token
-          topicHref: /outlook/add-ins/use-php-to-validate-an-identity-token
-        - name: Authenticate a user with an identity token
-          tocHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
-          topicHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
+        - name: Inside the identity token
+          tocHref: /outlook/add-ins/inside-the-identity-token
+          topicHref: /outlook/add-ins/inside-the-identity-token
+        - name: Scenario: Implement single sign-on
+          tocHref: /outlook/add-ins/implement-sso-in-outlook-add-in
+          topicHref: /outlook/add-ins/implement-sso-in-outlook-add-in
       - name: Testing and tips
         tocHref: /outlook/add-ins/testing-and-tips
         topicHref: /outlook/add-ins/testing-and-tips

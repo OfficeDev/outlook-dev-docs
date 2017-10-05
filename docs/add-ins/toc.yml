@@ -77,12 +77,14 @@
     items:
     - name: Authenticate with SSO token
       href: authenticate-a-user-with-an-sso-token.md
-    - name: Authenticate a user with an identity token
+    - name: Authenticate with an identity token
       href: authenticate-a-user-with-an-identity-token.md
     - name: Validate an identity token
       href: validate-an-identity-token.md
     - name: Inside the identity token
       href: inside-the-identity-token.md
+    - name: Scenario: Implement single sign-on
+      href: implement-sso-in-outlook-add-in.md
   - name: Testing and tips
     href: testing-and-tips.md
     items:
