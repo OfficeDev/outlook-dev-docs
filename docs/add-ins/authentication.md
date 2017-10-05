@@ -31,7 +31,7 @@ Using this method, your add-in can obtain an access token scoped to your server 
 
 For a more detailed overview, see the [full overview of the SSO authentication method](https://dev.office.com/docs/add-ins/develop/sso-in-office-add-ins).
 
-For details on using the SSO token in an Outlook add-in, see [Authenticate a user with an single-sign-on token in an Outlook add-in](authenticate-a-user-with-an-sso-token.md)
+For details on using the SSO token in an Outlook add-in, see [Authenticate a user with an single-sign-on token in an Outlook add-in](authenticate-a-user-with-an-sso-token.md).
 
 ## Exchange user identity token
 
