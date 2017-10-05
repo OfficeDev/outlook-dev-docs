@@ -207,3 +207,7 @@ For example, your service could format those values together like `{oid-value}@{
 In order to access the Microsoft Graph API, the add-in sends a [service-to-service request using the On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of#service-to-service-access-token-request) to the Azure Active Directory v2.0 token endpoint using a shared secret.
 
 The response contains a JSON payload, with the Microsoft Graph token supplied in the `access_token` property. That token is used in the `Authorization` header when making calls to the Microsoft Graph API.
+
+## Resources
+
+For a sample add-in that uses the SSO token to access the Microsoft Graph API, see [AttachmentsDemo Sample Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo).

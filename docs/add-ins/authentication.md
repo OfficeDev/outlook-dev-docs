@@ -33,6 +33,8 @@ For a more detailed overview, see the [full overview of the SSO authentication m
 
 For details on using the SSO token in an Outlook add-in, see [Authenticate a user with an single-sign-on token in an Outlook add-in](authenticate-a-user-with-an-sso-token.md).
 
+For a sample add-in that uses the SSO token, see [AttachmentsDemo Sample Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo).
+
 ## Exchange user identity token
 
 Exchange user identity tokens provide a way for your add-in to establish the identity of the user. By verifying the user's identity, you can then perform a one-time authentication into your back-end system, then accept the user identity token as an authorization for future requests. Consider using user identity tokens if your add-in:
