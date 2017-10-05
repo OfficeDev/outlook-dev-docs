@@ -169,7 +169,7 @@
         - name: Inside the identity token
           tocHref: /outlook/add-ins/inside-the-identity-token
           topicHref: /outlook/add-ins/inside-the-identity-token
-        - name: Scenario: Implement single sign-on
+        - name: "Scenario: Implement single sign-on"
           tocHref: /outlook/add-ins/implement-sso-in-outlook-add-in
           topicHref: /outlook/add-ins/implement-sso-in-outlook-add-in
       - name: Testing and tips
