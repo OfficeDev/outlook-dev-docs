@@ -15,7 +15,7 @@ Your Outlook add-in can access information from anywhere on the internet, whethe
 
 ## Single sign-on access token
 
-Single sign-on access tokens provide a seamless way for your add-in to authenticate and obtain access tokens to call the [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/concepts/overview). Consider using SSO access tokens if your add-in:
+Single sign-on access tokens provide a seamless way for your add-in to authenticate and obtain access tokens to call the [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/concepts/overview). This capability reduces friction since the user is not required to enter their credentials. Consider using SSO access tokens if your add-in:
 
 - Is used primarily by Office 365 users
 - Needs access to:
