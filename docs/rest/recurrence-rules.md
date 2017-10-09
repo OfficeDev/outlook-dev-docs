@@ -4,7 +4,7 @@ description: Learn how to use recurrence patterns and ranges in the Outlook REST
 author: jasonjoh
 
 ms.topic: article
-ms.technology: graph
+ms.technology: ms-graph
 ms.date: 09/13/2017
 ms.author: jasonjoh
 ---

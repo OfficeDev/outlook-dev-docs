@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Graph in an ASP.NET web app to access th
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: csharp
 ms.date: 05/31/2017
 ms.author: jasonjoh

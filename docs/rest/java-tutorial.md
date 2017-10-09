@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Graph in a Java web app to access the Ou
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: java
 ms.date: 04/26/2017
 ms.author: jasonjoh

@@ -4,7 +4,7 @@ description: Outlook Actionable Messages support calling an external service wit
 author: jasonjoh
 
 ms.topic: article
-ms.technology: office-365-connectors
+ms.technology: o365-connectors
 ms.date: 05/09/2017
 ms.author: jasonjoh
 ---
