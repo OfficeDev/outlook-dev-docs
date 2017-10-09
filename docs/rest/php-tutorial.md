@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Graph in a PHP app to access the Outlook
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: php
 ms.date: 06/02/2017
 ms.author: jasonjoh

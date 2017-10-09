@@ -4,7 +4,7 @@ description: Get started with actionable messages. Learn about the available del
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: office-365-connectors
+ms.technology: o365-connectors
 ms.date: 05/09/2017
 ms.author: jasonjoh
 ---

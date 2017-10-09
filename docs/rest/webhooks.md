@@ -4,7 +4,7 @@ description: Learn how to use webhooks to receive notifications of changes to ma
 author: jasonjoh
 
 ms.topic: conceptual
-ms.technology: graph-webhooks
+ms.technology: ms-graph-webhooks
 ms.date: 04/26/2017
 ms.author: jasonjoh
 ---

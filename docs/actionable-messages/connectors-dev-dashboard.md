@@ -4,7 +4,7 @@ description: Learn about the connectors developer dashboard.
 author: jasonjoh
 
 ms.topic: article
-ms.technology: office-365-connectors
+ms.technology: o365-connectors
 ms.date: 10/03/2017
 ms.author: jasonjoh
 ---

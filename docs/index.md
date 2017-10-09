@@ -4,7 +4,7 @@ description: Learn about the different ways to integrate with Outlook, including
 author: jasonjoh
 
 ms.topic: landing-page
-ms.technology: graph
+ms.technology: ms-graph
 ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
