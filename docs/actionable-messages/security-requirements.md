@@ -4,7 +4,7 @@ description: Learn about security requirements for actionable messages and how t
 author: jasonjoh
 
 ms.topic: article
-ms.technology: office-365-connectors
+ms.technology: o365-connectors
 ms.date: 04/26/2017
 ms.author: jasonjoh
 ---

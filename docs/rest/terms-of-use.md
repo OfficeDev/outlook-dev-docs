@@ -4,7 +4,7 @@ description: Review the terms of use for the Outlook REST APIs.
 author: jasonjoh
 
 ms.topic: article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: rest-api
 ms.date: 05/31/2017
 ms.author: jasonjoh

@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Graph in a Node.js app to access the Out
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: nodejs
 ms.date: 06/01/2017
 ms.author: jasonjoh
