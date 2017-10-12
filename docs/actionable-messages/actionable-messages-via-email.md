@@ -21,6 +21,7 @@ Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and pa
 {
   "@context": "http://schema.org/extensions",
   "@type": "MessageCard",
+  "originator": "Provider-id-from-developer-dashboard",
   "themeColor": "0072C6",
   "title": "Visit the Outlook Dev Portal",
   "text": "Click **Learn More** to learn more about Actionable Messages!",
@@ -74,6 +75,7 @@ To embed an actionable message card in an email message, we need to wrap the car
     {
       "@context": "http://schema.org/extensions",
       "@type": "MessageCard",
+      "originator": "Provider-id-from-developer-dashboard",
       "hideOriginalBody": "true",
       "themeColor": "0072C6",
       "title": "Visit the Outlook Dev Portal",
@@ -116,6 +118,7 @@ To embed an actionable message card in an email message, we need to wrap the car
     <script type="application/ld+json">{
       "@context": "http://schema.org/extensions",
       "@type": "MessageCard",
+      "originator": "Provider-id-from-developer-dashboard",
       "hideOriginalBody": "true",
       "themeColor": "0072C6",
       "title": "Visit the Outlook Dev Portal",
@@ -162,6 +165,7 @@ To embed an actionable message card in an email message, we need to wrap the car
       <script type="application/ld+json">{
         "@context": "http://schema.org/extensions",
         "@type": "MessageCard",
+        "originator": "Provider-id-from-developer-dashboard",
         "hideOriginalBody": "true",
         "themeColor": "0072C6",
         "title": "Visit the Outlook Dev Portal",
