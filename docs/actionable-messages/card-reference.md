@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: reference
 ms.technology: o365-connectors
-ms.date: 04/26/2017
+ms.date: 10/18/2017
 ms.author: jasonjoh
 ---
 
