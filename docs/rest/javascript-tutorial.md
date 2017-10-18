@@ -1216,7 +1216,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Add a **Contacts** button to the nav bar in `index.html`.
 
     ```HTML
-    <li id='calendar-nav'><a href="#calendar">Calendar</a></li>
+    <li id='contacts-nav'><a href="#contacts">Contacts</a></li>
     ```
 
 1. Add a contacts display to `index.html`.
