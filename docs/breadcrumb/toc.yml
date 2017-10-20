@@ -217,6 +217,9 @@
       - name: Security Requirements
         tocHref: /outlook/actionable-messages/security-requirements
         topicHref: /outlook/actionable-messages/security-requirements
+      - name: Invoke an Outlook add-in
+        tocHref: /outlook/actionable-messages/invoke-add-in-from-actionable-message
+        topicHref: /outlook/actionable-messages/invoke-add-in-from-actionable-message
       - name: Card Reference
         tocHref: /outlook/actionable-messages/card-reference
         topicHref: /outlook/actionable-messages/card-reference

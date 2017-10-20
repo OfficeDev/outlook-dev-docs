@@ -343,7 +343,7 @@ Opens an Outlook add-in taskpane. If the add-in is not installed, the user is pr
 
 When an `InvokeAddInCommand` action is executed, Outlook first checks if the requested add-in is installed and turned on for the user. If it is not, the user is notified that the action requires the add-in, and is able to install and enable the add-in with a single click. Outlook opens the requested taskpane, making any initialization context specified by the action available to the add-in.
 
-For more information, see []().
+For more information, see [Invoke an Outlook add-in from an actionable message](invoke-add-in-from-actionable-message.md).
 
 | Field | Type | Description |
 |-------|------|-------------|
