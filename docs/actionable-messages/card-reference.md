@@ -97,7 +97,12 @@ Defines an image as used by the `heroImage` and `images` property of a section.
 
 Cards are very powerful in the sense that they allow users to take quick actions without leaving their email client. When designing cards, consider making them actionable, as that will increase user engagement and productivity.
 
-Actions are specified using the `potentialAction` property which is available both on the card itself and on each section. There are three types of actions: [OpenUri](#openuri-action), [HttpPost](#httppost-action), and [ActionCard](#actioncard-action).
+Actions are specified using the `potentialAction` property which is available both on the card itself and on each section. There are four types of actions: 
+
+- [OpenUri](#openuri-action)
+- [HttpPost](#httppost-action)
+- [ActionCard](#actioncard-action)
+- [InvokeAddInCommand](#invokeaddincommand-action)
 
 There can be a maximum of 4 actions (whatever their type) in a `potentialAction` collection.
 
@@ -329,6 +334,37 @@ To reference an input's value, use the following format:
       "body": "comment={{comment.value}}"
     }
   ]
+}
+```
+
+### InvokeAddInCommand action
+
+Opens an Outlook add-in taskpane. If the add-in is not installed, the user is prompted to install the add-in with a single click.
+
+When an `InvokeAddInCommand` action is executed, Outlook first checks if the requested add-in is installed and turned on for the user. If it is not, the user is notified that the action requires the add-in, and is able to install and enable the add-in with a single click. Outlook opens the requested taskpane, making any initialization context specified by the action available to the add-in.
+
+For more information, see []().
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String | The `name` property defines the text that will be displayed on screen for the action.<br><br>**Do** use verbs. For instance, use "Set due date" instead of "Due date" or "Add note" instead of "Note." In some cases, the noun itself just works because it is also a verb: "Comment" |
+| `addInId` | UUID | Specifies the add-in ID of the required add-in. The add-in ID is found in the [Id element](https://dev.office.com/reference/add-ins/manifest/id?product=outlook) in the add-in's manifest. |
+| `dekstopCommandId` | String | Specifies the ID of the add-in command button that opens the required taskpane. The command button ID is found in the `id` attribute of the [Control element](https://dev.office.com/reference/add-ins/manifest/control?product=outlook) that defines the button in the add-in's manifest. The specified `Control` element must be of type `Button`, and the control's `Action` must be of type `ShowTaskPane`. |
+| `initializationContext` | Object | Optional. Developers may specify any valid JSON object in this field. The value is serialized into a string and made available to the add-in when the action is executed. This allows the action to pass initialization data to the add-in. |
+
+**Example**
+
+```json
+{
+  "@type": "InvokeAddInCommand",
+  "name": "Invoke My Add-in",
+  "addInId": "527104a1-f1a5-475a-9199-7a968161c870",
+  "desktopCommandId": "showTaskPane",
+  "initializationContext": {
+    "property1": "Hello world",
+    "property2": 5,
+    "property3": true
+  }
 }
 ```
 
