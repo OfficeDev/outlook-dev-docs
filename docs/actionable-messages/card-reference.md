@@ -37,10 +37,10 @@ All text fields in a card and its section can be formatted using Markdown. We su
 | Bulleted lists | `* List item` or `- List item` |
 
 > [!TIP]
+> Follow these guidelines when formatting text fields.
+>
 > - **Do** use Markdown to format text.
 > - **Don't** use HTML markup in your cards. HTML is ignored and treated as plain text.
-> 
-> Follow these guidelines when formatting text fields.
 
 ### Using sections
 
@@ -49,13 +49,12 @@ If your card represents a single "entity", you may be able to get away with not 
 If your card represents multiple "entities" or is, for instance, a digest for a particular news source, you will definitely want to use multiple sections, one per "entity."
 
 > [!TIP]
+> Follow these guidelines when planning the layout of your card.
 > 
 > - **Do** use sections to logically group data together.
 > - Sometimes, multiple sections MAY be used to represent a single logical group of data; this allows for more flexibility on ordering the information presented in the card. For example, it makes it possible to display a list of facts before an activity.
 > - **Don't** include more than 10 sections. Cards are meant to be easy to read; if there is too much information in a card, it will be lost on the user.
 > - For digest-like cards, consider adding a "View full digest" action at the end of the card.
-> 
-> Follow these guidelines when planning the layout of your card.
 
 ## Card fields
 
@@ -147,6 +146,49 @@ The `Header` object is a name/value pair that represents an HTTP header.
 |-------|------|-------------|
 | `name` | String | The header name |
 | `value` | String | The header value |
+
+#### Reporting an action's execution success or failure
+
+`HttpPOST` actions can include the `CARD-ACTION-STATUS` HTTP header in their response. This header is meant to contain text that indicates the outcome of the action's execution, whether it has succeeded or failed.
+
+The value of the header will be displayed in a consistent way in a reserved area of the card. It is also saved with the card so it can be displayed later on, so users can be reminded of the actions that have already been executed on a given card.
+
+> [!TIP]
+> Follow these guidelines when returning a response to `HttpPOST` actions.
+>
+> -	**Do** return the `CARD-ACTION-STATUS` header in your responses.
+> -	**Do** make the message in that header as informative and meaningful as possible. For instance, for an "approve" action on an expense report:
+>     - In case of success, don't return "The action was successful", instead return "The expense was approved"
+>     - In case of failure, don't return "The action failed", instead return "The expense couldn't be approved at this time. Please try again later"
+> -	**Don't** mention either the name of the person taking the action nor the time the action is being taken in your `CARD-ACTION-STATUS` header. Both these pieces of information will be automatically added for you and displayed in a consistent way.
+
+#### Refresh cards
+
+Refresh cards are a very powerful mechanism that allow `HttpPOST` actions to fully update the card on the fly as the action successfully completes. There are many scenarios that benefit from refresh cards:
+
+- Approval scenario (e.g. expense report)
+    - Once the request is approved or rejected, the card is refreshed to remove the approve/decline actions and update its content so it reflects the fact that it's been approved or declined
+- Task status
+    - When an action is taken on a task, such as setting its due date, the card refreshes to include the updated due date in its facts
+- Survey
+    - Once the question has been answered, the card is refreshed so:
+        - It no longer allows the user to respond
+        - It shows updated status, like "Thanks for responding to this survey" alongside the user's actual response
+        - Potentially include a new `OpenUri` action that allows the user to consult the survey online
+
+To refresh a card as a result of an `HttpPOST` action, a service needs to do the following:
+
+- Include the JSON payload of the new card in the body of the response to the HTTP POST request it received.
+- Add the `CARD-UPDATE-IN-BODY: true` HTTP header to the response, in order to let the receiving client know that it should parse the response body and extract a new card (this is to avoid unnecessary processing when no refresh card is included.)
+
+
+> [!TIP]
+> Follow these guidelines when returning refresh cards.
+>
+> - **Do** use refresh cards with actions that can only be taken a single time. In those cases, the refresh card would not include any action that cannot be taken anymore
+> - **Do** use refresh cards with actions that change the state of the entity they are performed on. In those cases, the refresh card should include updated information about the entity, and MAY change the set of actions that can be performed
+> - **Don't** use refresh cards to lead a conversation with the user. For instance, don't use refresh cards for a multi-step "wizard"
+> - **Do** include at least an `OpenUri` action to view the entity in the external app it comes from.
 
 ### ActionCard action
 
@@ -367,49 +409,6 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
   }
 }
 ```
-
-### Reporting an action's execution success or failure
-
-`HttpPOST` actions can include the `CARD-ACTION-STATUS` HTTP header in their response. This header is meant to contain text that indicates the outcome of the action's execution, whether it has succeeded or failed.
-
-The value of the header will be displayed in a consistent way in a reserved area of the card. It is also saved with the card so it can be displayed later on, so users can be reminded of the actions that have already been executed on a given card.
-
-> [!TIP]
-> -	**Do** return the `CARD-ACTION-STATUS` header in your responses.
-> -	**Do** make the message in that header as informative and meaningful as possible. For instance, for an "approve" action on an expense report:
->     - In case of success, don't return "The action was successful", instead return "The expense was approved"
->     - In case of failure, don't return "The action failed", instead return "The expense couldn't be approved at this time. Please try again later"
-> -	**Don't** mention either the name of the person taking the action nor the time the action is being taken in your `CARD-ACTION-STATUS` header. Both these pieces of information will be automatically added for you and displayed in a consistent way.
-> 
-> Follow these guidelines when returning a response to `HttpPOST` actions.
-
-### Refresh cards
-
-Refresh cards are a very powerful mechanism that allow `HttpPOST` actions to fully update the card on the fly as the action successfully completes. There are many scenarios that benefit from refresh cards:
-
-- Approval scenario (e.g. expense report)
-    - Once the request is approved or rejected, the card is refreshed to remove the approve/decline actions and update its content so it reflects the fact that it's been approved or declined
-- Task status
-    - When an action is taken on a task, such as setting its due date, the card refreshes to include the updated due date in its facts
-- Survey
-    - Once the question has been answered, the card is refreshed so:
-        - It no longer allows the user to respond
-        - It shows updated status, like "Thanks for responding to this survey" alongside the user's actual response
-        - Potentially include a new `OpenUri` action that allows the user to consult the survey online
-
-To refresh a card as a result of an `HttpPOST` action, a service needs to do the following:
-
-- Include the JSON payload of the new card in the body of the response to the HTTP POST request it received.
-- Add the `CARD-UPDATE-IN-BODY: true` HTTP header to the response, in order to let the receiving client know that it should parse the response body and extract a new card (this is to avoid unnecessary processing when no refresh card is included.)
-
-
-> [!TIP]
-> - **Do** use refresh cards with actions that can only be taken a single time. In those cases, the refresh card would not include any action that cannot be taken anymore
-> - **Do** use refresh cards with actions that change the state of the entity they are performed on. In those cases, the refresh card should include updated information about the entity, and MAY change the set of actions that can be performed
-> - **Don't** use refresh cards to lead a conversation with the user. For instance, don't use refresh cards for a multi-step "wizard"
-> - **Do** include at least an `OpenUri` action to view the entity in the external app it comes from.
-> 
-> Follow these guidelines when returning refresh cards.
 
 ## Card Examples
 
