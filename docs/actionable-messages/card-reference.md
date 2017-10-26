@@ -137,7 +137,7 @@ When an `HttpPOST` action is executed, a POST request is made to the URL in the 
 | `target` | String | Defines the URL endpoint of the service that implements the action. |
 | `headers` | Array of `Header` | A collection of `Header` objects representing a set of HTTP headers that will be emitted when sending the POST request to the target URL. See [Header](#header). |
 | `body` | String | The body of the POST request. |
-| `bodyContentType` | String | The `bodyContentType` is optional and specifies the MIME type of the body in the POST request. Some services require that a content type be specified. |
+| `bodyContentType` | String | The `bodyContentType` is optional and specifies the MIME type of the body in the POST request. Some services require that a content type be specified. Valid values are `application/json` and `application/x-www-form-urlencoded`. If not specified, `application/json` is assumed. |
 
 #### Header
 
