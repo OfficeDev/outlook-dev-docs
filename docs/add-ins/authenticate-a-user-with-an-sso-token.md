@@ -200,7 +200,7 @@ Since the `name` and `preferred_username` values could change, it's recommended 
 For example, your service could format those values together like `{oid-value}@{tid-value}`, then store that as a value on the user's record in your internal user database. Then on subsequent requests, the user could be retrieved by using the same value, and access to specific resources could be determined based on your existing access control mechanisms.
 
 > [!IMPORTANT]
-> When using the SSO token as an identity, it is recommended that you also [use the Exchange identity token](authenticate-a-user-with-an-identity-token.md) as an alternate identity. Users of your add-in may use multiple clients, and some may not support providing an SSO token. By using the Exchange identity token as an alternate, you can avoid having to prompt these users for credentials multiple times. For more details, see [](implement-sso-in-outlook-addin.md).
+> When using the SSO token as an identity, it is recommended that you also [use the Exchange identity token](authenticate-a-user-with-an-identity-token.md) as an alternate identity. Users of your add-in may use multiple clients, and some may not support providing an SSO token. By using the Exchange identity token as an alternate, you can avoid having to prompt these users for credentials multiple times. For more details, see [](implement-sso-in-outlook-add-in.md).
 
 ### Using the SSO token to get a Microsoft Graph token
 
