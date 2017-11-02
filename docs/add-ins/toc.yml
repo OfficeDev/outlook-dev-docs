@@ -75,18 +75,16 @@
   - name: Authentication
     href: authentication.md
     items:
-    - name: Inside the identity token
-      href: inside-the-identity-token.md
-    - name: Call a service by using an identity token
-      href: call-a-service-by-using-an-identity-token.md
-    - name: Use the token validation library
-      href: use-the-token-validation-library.md
+    - name: Authenticate with SSO token
+      href: authenticate-a-user-with-an-sso-token.md
+    - name: Authenticate with an identity token
+      href: authenticate-a-user-with-an-identity-token.md
     - name: Validate an identity token
       href: validate-an-identity-token.md
-    - name: Use PHP to validate an identity token
-      href: use-php-to-validate-an-identity-token.md
-    - name: Authenticate a user with an identity token
-      href: authenticate-a-user-with-an-identity-token.md
+    - name: Inside the identity token
+      href: inside-the-identity-token.md
+    - name: "Scenario: Implement single sign-on"
+      href: implement-sso-in-outlook-add-in.md
   - name: Testing and tips
     href: testing-and-tips.md
     items:
