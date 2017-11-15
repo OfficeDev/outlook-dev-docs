@@ -14,9 +14,9 @@ ms.author: jasonjoh
 You can use sideloading to install an Outlook add-in for testing without having to first put it in an add-in catalog.
 
 
-## Sideload an add-in in Outlook on the web
+## Sideload an add-in in Outlook in Office 365
 
-1. Go to [Outlook on the web](https://outlook.office.com).
+1. Go to [Outlook in Office 365](https://outlook.office.com).
     
 1. Choose the gear icon in the top-right section and select  **Manage integrations**.
     
