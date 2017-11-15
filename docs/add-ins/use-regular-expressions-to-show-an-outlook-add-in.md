@@ -50,7 +50,7 @@ Pay special attention to the following when you use regular expressions:
     
     Because different browsers use different ways to obtain the text body of a selected item, you should make sure that your regular expression supports the subtle differences that can be returned as part of the body text. For example, some browsers such as Internet Explorer 9 uses the  **innerText** property of the DOM, and others such as Firefox uses the **.textContent()** method to obtain the text body of an item. Also, different browsers may return line breaks differently: a line break is "\r\n" on Internet Explorer, and "\n" on Firefox and Chrome. For more information, se [W3C DOM Compatibility - HTML](http://www.quirksmode.org/dom/w3c_html.mdl#t07).
     
-- The HTML body of an item is slightly different between an Outlook rich client, and Outlook Web App or OWA for Devices. Define your regular expressions carefully. As an example, consider the following regular expression used in an  **ItemHasRegularExpressionMatch** rule with **BodyAsHTML** as the **PropertyName** attribute value:
+- The HTML body of an item is slightly different between an Outlook rich client, and Outlook on the web or OWA for Devices. Define your regular expressions carefully. As an example, consider the following regular expression used in an  **ItemHasRegularExpressionMatch** rule with **BodyAsHTML** as the **PropertyName** attribute value:
     
 ```
       http.*\.contoso\.com
@@ -65,7 +65,7 @@ Pay special attention to the following when you use regular expressions:
 ```
 
 
-The same rule does not return this match in Outlook Web App and OWA for Devices because the HTML body in these hosts does not include that  **META** tag. This can affect whether the add-in is activated appropriately for the various Outlook clients. In this example, use the following regular expression instead:
+The same rule does not return this match in Outlook on the web and OWA for Devices because the HTML body in these hosts does not include that  **META** tag. This can affect whether the add-in is activated appropriately for the various Outlook clients. In this example, use the following regular expression instead:
     
 
 ```
@@ -164,7 +164,7 @@ You can obtain matches to a regular expression by using the following methods on
 When the regular expressions are evaluated, the matches are returned to your add-in in an array object. For  **getRegExMatches**, that object has the identifier of the name of the regular expression. 
 
 
- >**Note**  An Outlook rich client does not return matches in any particular order in the array. Also, you should not assume the Outlook rich client to return matches in the same order in this array as Outlook Web App or OWA for Devices, even when you run the same add-in on each of these clients on the same item in the same mailbox. For other differences in processing regular expressions between an Outlook rich client and Outlook Web App or OWA for Devices, see [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
+ >**Note**  An Outlook rich client does not return matches in any particular order in the array. Also, you should not assume the Outlook rich client to return matches in the same order in this array as Outlook on the web or OWA for Devices, even when you run the same add-in on each of these clients on the same item in the same mailbox. For other differences in processing regular expressions between an Outlook rich client and Outlook on the web or OWA for Devices, see [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
 
 
 ### Examples
