@@ -20,7 +20,7 @@ In this article, you'll walk through the process of building an Outlook add-in b
 
 If you haven't done so previously, you'll need to install [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
 
-```bash
+```Shell
 npm install -g yo generator-office
 ```
 
@@ -29,13 +29,13 @@ npm install -g yo generator-office
 1. Create a folder on your local drive and name it `my-outlook-addin`. This is where you'll create the files for your add-in.
 1. Navigate to your new folder.
 
-    ```bash
+    ```Shell
     cd my-outlook-addin
     ```
 
 1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
 
-    ```bash
+    ```Shell
     yo office
     ```
 
@@ -55,7 +55,7 @@ npm install -g yo generator-office
 1. In your code editor, open **index.html** in the root of the project. This files contains the HTML that will be rendered in the add-in's task pane.
 1. Replace the `<header>` and `<main>` elements inside the `<body>` element with the following markup and save the file.
 
-    ```html
+    ```HTML
     <div class="ms-Fabric content-main">
         <h1 class="ms-font-xxl">Message properties</h1>
         <table class="ms-Table ms-Table--selectable">
@@ -107,7 +107,7 @@ npm install -g yo generator-office
 
 1. Open **app.css** in the root of the project, replace the entire contents with the following code, and save the file.
 
-    ```css
+    ```CSS
     html,
     body {
         width: 100%;
