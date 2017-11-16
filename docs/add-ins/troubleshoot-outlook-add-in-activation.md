@@ -20,8 +20,8 @@ First, ensure that the user's email account you're testing with is on a version 
 You can verify the version of Exchange 2013 by using one of the following approaches:
 
 - Check with your Exchange Server administrator.
-- If you are testing the add-in on Outlook Web App or OWA for Devices, in a script debugger (for example, the JScript Debugger that comes with Internet Explorer), look for the  **src** attribute of the **script** tag that specifies the location from which scripts are loaded. The path should contain a substring **owa/15.0.516.x/owa2/...**, where  **15.0.516.x** represents the version of the Exchange Server, such as **15.0.516.2**.
-- Alternatively, you can use the [Office.context.mailbox.diagnostics.hostVersion](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.diagnostics?product=outlook&version=v1.5) property to verify the version. On Outlook Web App and OWA for Devices, this property returns the version of the Exchange Server.
+- If you are testing the add-in on Outlook on the web or OWA for Devices, in a script debugger (for example, the JScript Debugger that comes with Internet Explorer), look for the  **src** attribute of the **script** tag that specifies the location from which scripts are loaded. The path should contain a substring **owa/15.0.516.x/owa2/...**, where  **15.0.516.x** represents the version of the Exchange Server, such as **15.0.516.2**.
+- Alternatively, you can use the [Office.context.mailbox.diagnostics.hostVersion](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.diagnostics?product=outlook&version=v1.5) property to verify the version. On Outlook on the web and OWA for Devices, this property returns the version of the Exchange Server.
 - If you can test the add-in on Outlook, you can use the following simple debugging technique that uses the Outlook object model and Visual Basic Editor:
     1. First, verify that macros are enabled for Outlook. Choose  **File**,  **Options**,  **Trust Center**,  **Trust Center Settings**,  **Macro Settings**. Ensure that  **Notifications for all macros** is selected in the Trust Center. You should have also selected **Enable Macros** during Outlook startup.
     1. On the  **Developer** tab of the ribbon, choose **Visual Basic**.
@@ -46,11 +46,11 @@ You can verify the version of Exchange 2013 by using one of the following approa
 Any one of the Outlook rich clients can disable an add-in for performance reasons, including exceeding usage thresholds for CPU core or memory, tolerance for crashes, and length of time to process all the regular expressions for an add-in. When this happens, the Outlook rich client displays a notification that it is disabling the add-in. 
 
 > [!NOTE]
-> Only Outlook rich clients monitor resource usage, but disabling an add-in in an Outlook rich client also disables the add-in in Outlook Web App and OWA for Devices.
+> Only Outlook rich clients monitor resource usage, but disabling an add-in in an Outlook rich client also disables the add-in in Outlook on the web and OWA for Devices.
 
 Use one of the following approaches to verify whether an add-in is disabled: 
 
-- In Outlook Web App, sign in directly to the email account, choose the Settings icon, and then choose  **Manage add-ins** to go to the Exchange Admin Center, where you can verify whether the add-in is enabled.
+- In Outlook on the web, sign in directly to the email account, choose the Settings icon, and then choose  **Manage add-ins** to go to the Exchange Admin Center, where you can verify whether the add-in is enabled.
 - In Outlook, go to the Backstage view and choose  **Manage add-ins**. Sign in to the Exchange Admin Center to verify whether the add-in is enabled.
 - In Outlook for Mac, choose  **Manage add-ins** in the add-in bar. Sign in to the Exchange Admin Center to verify whether the add-in is enabled.
 
@@ -155,13 +155,13 @@ Because regular expressions in activation rules are part of the XML manifest fil
 |<|Less-than sign|&amp;lt;|
 |>|Greater-than sign|&amp;gt;|
 
-## If you use a regular expression, is the read add-in activating in Outlook Web App or OWA for Devices, but not in any of the Outlook rich clients?
+## If you use a regular expression, is the read add-in activating in Outlook on the web or OWA for Devices, but not in any of the Outlook rich clients?
 
-Outlook rich clients use a regular expression engine that's different from the one used by Outlook Web App and OWA for Devices. Outlook rich clients use the C++ regular expression engine provided as part of the Visual Studio standard template library. This engine complies with ECMAScript 5 standards. Outlook Web App and OWA for Devices use regular expression evaluation that is part of JavaScript, is provided by the browser, and supports a superset of ECMAScript 5. 
+Outlook rich clients use a regular expression engine that's different from the one used by Outlook on the web and OWA for Devices. Outlook rich clients use the C++ regular expression engine provided as part of the Visual Studio standard template library. This engine complies with ECMAScript 5 standards. Outlook on the web and OWA for Devices use regular expression evaluation that is part of JavaScript, is provided by the browser, and supports a superset of ECMAScript 5. 
 
-While in most cases, these host applications find the same matches for the same regular expression in an activation rule, there are exceptions. For instance, if the regex includes a custom character class based on predefined character classes, an Outlook rich client may return results different from Outlook Web App and OWA for Devices. As an example, character classes that contain shorthand character classes  `[\d\w]` within them would return different results. In this case, to avoid different results on different hosts, use `(\d|\w)` instead.
+While in most cases, these host applications find the same matches for the same regular expression in an activation rule, there are exceptions. For instance, if the regex includes a custom character class based on predefined character classes, an Outlook rich client may return results different from Outlook on the web and OWA for Devices. As an example, character classes that contain shorthand character classes  `[\d\w]` within them would return different results. In this case, to avoid different results on different hosts, use `(\d|\w)` instead.
 
-Test your regular expression thoroughly. If it returns different results, rewrite the regular expression for compatibility with both engines. To verify evaluation results on an Outlook rich client, write a small C++ program that applies the regular expression against a sample of the text you are trying to match. Running on Visual Studio, the C++ test program would use the standard template library, simulating the behavior of the Outlook rich client when running the same regular expression. To verify evaluation results on Outlook Web App or OWA for Devices, use your favorite JavaScript regular expression tester.
+Test your regular expression thoroughly. If it returns different results, rewrite the regular expression for compatibility with both engines. To verify evaluation results on an Outlook rich client, write a small C++ program that applies the regular expression against a sample of the text you are trying to match. Running on Visual Studio, the C++ test program would use the standard template library, simulating the behavior of the Outlook rich client when running the same regular expression. To verify evaluation results on Outlook on the web or OWA for Devices, use your favorite JavaScript regular expression tester.
 
 ## If you use an ItemIs, ItemHasAttachment, or ItemHasRegularExpressionMatch rule, have you verified the related item property?
 
@@ -208,15 +208,15 @@ After verifying the property value, you can then use a regular expression evalua
 
 ## Does the host application apply all the regular expressions to the portion of the item body as you expect?
 
-This section applies to all activation rules that use regular expressions -- particularly those that are applied to the item body, which may be large in size and take longer to evaluate for matches. You should be aware that even if the item property that an activation rule depends on has the value you expect, the host application may not be able to evaluate all the regular expressions on the entire value of the item property. To provide reasonable performance and to control excessive resource usage by a read add-in, Outlook, Outlook Web App and OWA for Devices observe the following limits on processing regular expressions in activation rules at run time:
+This section applies to all activation rules that use regular expressions -- particularly those that are applied to the item body, which may be large in size and take longer to evaluate for matches. You should be aware that even if the item property that an activation rule depends on has the value you expect, the host application may not be able to evaluate all the regular expressions on the entire value of the item property. To provide reasonable performance and to control excessive resource usage by a read add-in, Outlook, Outlook on the web and OWA for Devices observe the following limits on processing regular expressions in activation rules at run time:
 
 - The size of the item body evaluated -- There are limits to the portion of an item body on which the host application evaluates a regular expression. These limits depend on the host application, form factor, and format of the item body. See the details in Table 2 in [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
-- Number of regular expression matches -- The Outlook rich clients, Outlook Web App and OWA for Devices each returns a maximum of 50 regular expression matches. These matches are unique, and duplicate matches do not count against this limit. Do not assume any order to the returned matches, and do not assume the order in an Outlook rich client is the same as that in Outlook Web App and OWA for Devices. If you expect many matches to regular expressions in your activation rules, and you're missing a match, you may be exceeding this limit.
+- Number of regular expression matches -- The Outlook rich clients, Outlook on the web and OWA for Devices each returns a maximum of 50 regular expression matches. These matches are unique, and duplicate matches do not count against this limit. Do not assume any order to the returned matches, and do not assume the order in an Outlook rich client is the same as that in Outlook on the web and OWA for Devices. If you expect many matches to regular expressions in your activation rules, and you're missing a match, you may be exceeding this limit.
 - Length of a regular expression match -- There are limits to the length of a regular expression match that the host application would return. The host application does not include any match above the limit and does not display any warning message. You can run your regular expression using other regex evaluation tools or a stand-alone C++ test program to verify whether you have a match that exceeds such limits. Table 3 summarizes the limits. For more information, see Table 3 in [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
 
 **Table 3. Length limits for a regular expression match**
 
-|Limit on length of a regex match|Outlook rich clients|Outlook Web App or OWA for Devices|
+|Limit on length of a regex match|Outlook rich clients|Outlook on the web or OWA for Devices|
 |:-----|:-----|:-----|
 |Item body is plain text|1.5 KB|3 KB|
 |Item body is HTML|3 KB|3 KB|
@@ -224,7 +224,7 @@ This section applies to all activation rules that use regular expressions -- par
 - Time spent on evaluating all regular expressions of a read add-in for an Outlook rich client: By default, for each read add-in, Outlook must finish evaluating all the regular expressions in its activation rules within 1 second. Otherwise Outlook retries up to three times and disables the add-in if Outlook cannot complete the evaluation. Outlook displays a message in the notification bar that the add-in has been disabled. The amount of time available for your regular expression can be modified by setting a group policy or a registry key. 
 
     > [!NOTE]
-    > If the Outlook rich client disables a read add-in, the read add-in is not available for use for the same mailbox on the Outlook rich client, Outlook Web App and OWA for Devices.
+    > If the Outlook rich client disables a read add-in, the read add-in is not available for use for the same mailbox on the Outlook rich client, Outlook on the web and OWA for Devices.
 
 ## Additional resources
 

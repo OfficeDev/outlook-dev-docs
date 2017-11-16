@@ -62,7 +62,7 @@ In general, Outlook can activate add-ins in read forms for items in the Sent Ite
 ## Supported hosts
 
 
-Outlook add-ins are supported in Outlook 2013 and later versions, Outlook 2016 for Mac, Outlook Web App for Exchange 2013 on-premises, Outlook Web App in Office 365 and Outlook.com. Not all of the newest features are supported in all clients at the same time. Please refer to individual topics and API references, to see which hosts they are/are not supported in.
+Outlook add-ins are supported in Outlook 2013 and later versions, Outlook 2016 for Mac, Outlook Web App for Exchange 2013 on-premises, Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all clients at the same time. Please refer to individual topics and API references, to see which hosts they are/are not supported in.
 
 
 ## Get started building Outlook add-ins
