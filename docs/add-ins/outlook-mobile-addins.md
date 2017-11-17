@@ -52,7 +52,7 @@ Here are examples of scenarios that make sense in Outlook Mobile.
 
 ## Testing your add-ins on mobile
 
-To test an add-in on Outlook Mobile, you can side-load an add-in to an O365 or Outlook.com account. In the Outlook Web App, go to the settings gear, and choose "Manage Integrations" or "Manage Add-ins." Near the top, click where it says "Click here to add a custom add-in" and upload your manifest. Make sure your manifest is properly formatted to contain `MobileFormFactor` or it won't load.
+To test an add-in on Outlook Mobile, you can side-load an add-in to an O365 or Outlook.com account. In Outlook on the web, go to the settings gear, and choose "Manage Integrations" or "Manage Add-ins." Near the top, click where it says "Click here to add a custom add-in" and upload your manifest. Make sure your manifest is properly formatted to contain `MobileFormFactor` or it won't load.
 
 Once your add-in is working, make sure to test it on different screen sizes, including phones and tablets. You should make sure it meets accessibility guidelines for contrast, font size, and color, as well as being usable with a screen reader such as VoiceOver on iOS or TalkBack on Android.
 

@@ -36,7 +36,7 @@ While you can use the JavaScript  **Date** object to get a date or time value ba
 ## Date-related features for Outlook add-ins
 
 
-The afore-mentioned JavaScript limitation has an implication for you, when you use the JavaScript API for Office to handle date or time values in Outlook add-ins that run in an Outlook rich client, and in Outlook Web App or OWA for Devices.
+The afore-mentioned JavaScript limitation has an implication for you, when you use the JavaScript API for Office to handle date or time values in Outlook add-ins that run in an Outlook rich client, and in Outlook on the web or OWA for Devices.
 
 
 ### Time zones for Outlook clients
@@ -48,8 +48,8 @@ For clarity, let's define the time zones in question.
 |**Time zone**|**Description**|
 |:-----|:-----|
 |Client computer time zone|This is set on the operating system of the client computer. Most browsers use the client computer time zone to display date or time values of the JavaScript  **Date** object.<br/><br/>An Outlook rich client uses this time zone to display date or time values in the user interface. <br/><br/>For example, on a client computer running Windows, Outlook uses the time zone set on Windows as the local time zone. On the Mac, if the user changes the time zone on the client computer, Outlook for Mac would prompt the user to update the time zone in Outlook as well.|
-|Exchange Admin Center (EAC) time zone|The user sets this time zone value (and the preferred language) when he or she logs on to Outlook Web App or OWA for Devices the first time. <br/><br/>Outlook Web App and OWA for Devices use this time zone to display date or time values in the user interface.|
-Because an Outlook rich client uses the client computer time zone, and the user interface of Outlook Web App and OWA for Devices uses the EAC time zone, the local time for the same add-in installed for the same mailbox can be different when running in an Outlook rich client and in Outlook Web App or OWA for Devices. As an Outlook add-in developer, you should appropriately input and output date values so that those values are always consistent with the time zone that the user expects on the corresponding client.
+|Exchange Admin Center (EAC) time zone|The user sets this time zone value (and the preferred language) when he or she logs on to Outlook on the web or OWA for Devices the first time. <br/><br/>Outlook on the web and OWA for Devices use this time zone to display date or time values in the user interface.|
+Because an Outlook rich client uses the client computer time zone, and the user interface of Outlook on the web and OWA for Devices uses the EAC time zone, the local time for the same add-in installed for the same mailbox can be different when running in an Outlook rich client and in Outlook on the web or OWA for Devices. As an Outlook add-in developer, you should appropriately input and output date values so that those values are always consistent with the time zone that the user expects on the corresponding client.
 
 
 ### Date-related API
@@ -58,17 +58,17 @@ The following are the properties and methods in the JavaScript API for Office th
 
 
 
-**API member**|**Time zone representation**|**Example in an Outlook rich client**|**Example in Outlook Web App or OWA for Devices**
+**API member**|**Time zone representation**|**Example in an Outlook rich client**|**Example in Outlook on the web or OWA for Devices**
 --------------|----------------------------|-------------------------------------|-------------------------------------------------
-[Office.context.mailbox.userProfile.timeZone](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.userProfile?product=outlook&version=v1.5)|In an Outlook rich client, this property returns the client computer time zone. In Outlook Web App and OWA for Devices, this property returns the EAC time zone. |EST|PST
-[Office.context.mailbox.item.dateTimeCreated](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) and [Office.context.mailbox.item.dateTimeModified](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5)|Each of these properties returns a JavaScript  **Date** object. This **Date** value is UTC-correct, as shown in the following example - `myUTCDate` has the same value in an Outlook rich client, Outlook Web App and OWA for Devices.<br/><br/>`var myDate = Office.mailbox.item.dateTimeCreated;`<br/>`var myUTCDate = myDate.getUTCDate;`<br/><br/>However, calling  `myDate.getDate` returns a date value in the client computer time zone, which is consistent with the time zone used to display date times values in the Outlook rich client interface, but may be different from the EAC time zone that Outlook Web App and OWA for Devices use in its user interface.|If the item is created at 9am UTC:<br/><br/>`Office.mailbox.item.`<br/>`dateTimeCreated.getHours` returns 4am EST.<br/><br/>If the item is modified at 11am UTC:<br/><br/>`Office.mailbox.item.`<br/>`dateTimeModified.getHours` returns 6am EST.|If the item creation time is 9am UTC:<br/><br/>`Office.mailbox.item.`</br>`dateTimeCreated.getHours` returns 4am EST.<br/><br/>If the item is modified at 11am UTC:<br/><br/>`Office.mailbox.item.`</br>`dateTimeModified.getHours` returns 6am EST.<br/><br/>Notice that if you want to display the creation or modification time in the user interface, you would want to first convert the time to PST to be consistent with the rest of the user interface.
-[Office.context.mailbox.displayNewAppointmentForm](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5)|Each of the  _Start_ and _End_ parameters requires a JavaScript **Date** object. The arguments should be UTC-correct regardless of the time zone used in the user interface of an Outlook rich client, Outlook Web App or OWA for Devices.|If the start and end times for the appointment form are 9am UTC and 11am UTC, then you should assure that the `start` and `end` arguments are UTC-correct, which means:<br/><br/><ul><li>`start.getUTCHours` returns 9am UTC</li><li>`end.getUTCHours` returns 11am UTC</li></ul>|If the start and end times for the appointment form are 9am UTC and 11am UTC, then you should assure that the `start` and `end` arguments are UTC-correct, which means:<br/><br/><ul><li>`start.getUTCHours` returns 9am UTC</li><li>`end.getUTCHours` returns 11am UTC</li></ul>
+[Office.context.mailbox.userProfile.timeZone](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.userProfile?product=outlook&version=v1.5)|In an Outlook rich client, this property returns the client computer time zone. In Outlook on the web and OWA for Devices, this property returns the EAC time zone. |EST|PST
+[Office.context.mailbox.item.dateTimeCreated](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) and [Office.context.mailbox.item.dateTimeModified](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5)|Each of these properties returns a JavaScript  **Date** object. This **Date** value is UTC-correct, as shown in the following example - `myUTCDate` has the same value in an Outlook rich client, Outlook on the web and OWA for Devices.<br/><br/>`var myDate = Office.mailbox.item.dateTimeCreated;`<br/>`var myUTCDate = myDate.getUTCDate;`<br/><br/>However, calling  `myDate.getDate` returns a date value in the client computer time zone, which is consistent with the time zone used to display date times values in the Outlook rich client interface, but may be different from the EAC time zone that Outlook on the web and OWA for Devices use in its user interface.|If the item is created at 9am UTC:<br/><br/>`Office.mailbox.item.`<br/>`dateTimeCreated.getHours` returns 4am EST.<br/><br/>If the item is modified at 11am UTC:<br/><br/>`Office.mailbox.item.`<br/>`dateTimeModified.getHours` returns 6am EST.|If the item creation time is 9am UTC:<br/><br/>`Office.mailbox.item.`</br>`dateTimeCreated.getHours` returns 4am EST.<br/><br/>If the item is modified at 11am UTC:<br/><br/>`Office.mailbox.item.`</br>`dateTimeModified.getHours` returns 6am EST.<br/><br/>Notice that if you want to display the creation or modification time in the user interface, you would want to first convert the time to PST to be consistent with the rest of the user interface.
+[Office.context.mailbox.displayNewAppointmentForm](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5)|Each of the  _Start_ and _End_ parameters requires a JavaScript **Date** object. The arguments should be UTC-correct regardless of the time zone used in the user interface of an Outlook rich client, Outlook on the web or OWA for Devices.|If the start and end times for the appointment form are 9am UTC and 11am UTC, then you should assure that the `start` and `end` arguments are UTC-correct, which means:<br/><br/><ul><li>`start.getUTCHours` returns 9am UTC</li><li>`end.getUTCHours` returns 11am UTC</li></ul>|If the start and end times for the appointment form are 9am UTC and 11am UTC, then you should assure that the `start` and `end` arguments are UTC-correct, which means:<br/><br/><ul><li>`start.getUTCHours` returns 9am UTC</li><li>`end.getUTCHours` returns 11am UTC</li></ul>
 
 ## Helper methods for date-related scenarios
 
 
-As described in the preceding sections, because the "local time" for a user in Outlook Web App or OWA for Devices can be different on an Outlook rich client, but the JavaScript  **Date** object supports converting to only the client computer time zone or UTC, the JavaScript API for Office provides two helper methods: [Office.context.mailbox.convertToLocalClientTime](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) and [Office.context.mailbox.convertToUtcClientTime](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5). <br/><br/>
-These helper methods take care of any need to handle date or time differently for the following two date-related scenarios, in an Outlook rich client, Outlook Web App and OWA for Devices, thus reinforcing "write-once" for different clients of your add-in.
+As described in the preceding sections, because the "local time" for a user in Outlook on the web or OWA for Devices can be different on an Outlook rich client, but the JavaScript  **Date** object supports converting to only the client computer time zone or UTC, the JavaScript API for Office provides two helper methods: [Office.context.mailbox.convertToLocalClientTime](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) and [Office.context.mailbox.convertToUtcClientTime](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5). <br/><br/>
+These helper methods take care of any need to handle date or time differently for the following two date-related scenarios, in an Outlook rich client, Outlook on the web and OWA for Devices, thus reinforcing "write-once" for different clients of your add-in.
 
 
 ### Scenario A: displaying item creation or modified time
@@ -84,7 +84,7 @@ var myDate = Office.context.mailbox.item.dateTimeCreated;
 // represented in the appropriate local time.
 // In an Outlook rich client, this is dictionary format 
 // in client computer time zone.
-// In Outlook web app or OWA for Devices, this dictionary 
+// In Outlook on the web or OWA for Devices, this dictionary 
 // format is in EAC time zone.
 var myLocalDictionaryDate = Office.context.mailbox.convertToLocalClientTime(myDate);
 
@@ -93,12 +93,12 @@ document.write ("The item was created at " + myLocalDictionaryDate["hours"] +
     ":" + myLocalDictionaryDate["minutes"]);)
 ```
 
-Note that  **convertToLocalClientTime** takes care of the difference between an Outlook rich client, and Outlook Web App or OWA for Devices:
+Note that  **convertToLocalClientTime** takes care of the difference between an Outlook rich client, and Outlook on the web or OWA for Devices:
 
 
 - If  **convertToLocalClientTime** detects the current host is a rich client, the method converts the **Date** representation to a dictionary representation in the same client computer time zone, consistent with the rest of the rich client user interface.
     
-- If  **convertToLocalClientTime** detects the current host is Outlook Web App or OWA for Devices, the method converts the UTC-correct **Date** representation to a dictionary format in the EAC time zone, consistent with the rest of the Outlook Web App or OWA for Devices user interface.
+- If  **convertToLocalClientTime** detects the current host is Outlook on the web or OWA for Devices, the method converts the UTC-correct **Date** representation to a dictionary format in the EAC time zone, consistent with the rest of the Outlook on the web or OWA for Devices user interface.
     
 
 ### Scenario B: displaying start and end dates in a new appointment form
@@ -113,12 +113,12 @@ var myUTCCorrectEndDate = Office.context.mailbox.convertToUtcClientTime(myLocalD
 ```
 
 The resultant values,  `myUTCCorrectStartDate` and `myUTCCorrectEndDate`, are UTC-correct. Then pass these  **Date** objects as arguments for the _Start_ and _End_ parameters of the **Mailbox.displayNewAppointmentForm** method to display the new appointment form.<br/><br/>
-Note that  **convertToUtcClientTime** takes care of the difference between an Outlook rich client, and Outlook Web App or OWA for Devices:
+Note that  **convertToUtcClientTime** takes care of the difference between an Outlook rich client, and Outlook on the web or OWA for Devices:
 
 
 - If  **convertToUtcClientTime** detects the current host is an Outlook rich client, the method simply converts the dictionary representation to a **Date** object. This **Date** object is UTC-correct, as expected by **displayNewAppointmentForm**.
     
-- If  **convertToUtcClientTime** detects the current host is Outlook Web App or OWA for Devices, the method converts the dictionary format of the date and time values expressed in the EAC time zone to a **Date** object. This **Date** object is UTC-correct, as expected by **displayNewAppointmentForm**.
+- If  **convertToUtcClientTime** detects the current host is Outlook on the web or OWA for Devices, the method converts the dictionary format of the date and time values expressed in the EAC time zone to a **Date** object. This **Date** object is UTC-correct, as expected by **displayNewAppointmentForm**.
     
 
 ## Additional resources

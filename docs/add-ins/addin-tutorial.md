@@ -1,6 +1,6 @@
 ---
-title: Write an Outlook add-in | Microsoft Docs
-description: Learn how to write a simple Outlook add-in and test it locally
+title: Advanced Outlook add-in tutorial | Microsoft Docs
+description: Follow along to create an Outlook add-in that inserts GitHub Gists into the body of new email messages
 author: jasonjoh
 
 ms.topic: get-started-article
@@ -10,7 +10,7 @@ ms.date: 10/03/2017
 ms.author: jasonjoh
 ---
 
-# Write your first Outlook add-in
+# Advanced Outlook add-in tutorial: Git the Gist
 
 The purpose of this guide is to walk through the process of creating an Outlook add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outline here.
 

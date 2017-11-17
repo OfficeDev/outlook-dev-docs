@@ -11,9 +11,9 @@ ms.author: jasonjoh
 
 # Compare Outlook add-in support in Outlook for Mac with other Outlook hosts
 
-You can create and run an Outlook add-in the same way in Outlook for Mac as in the other hosts including Outlook for Windows, OWA for Devices, and Outlook Web App, without customizing the JavaScript for each host. The same calls from the add-in to the JavaScript API for Office generally work the same way, except for the areas described in the following table.
+You can create and run an Outlook add-in the same way in Outlook for Mac as in the other hosts including Outlook for Windows, OWA for Devices, and Outlook on the web, without customizing the JavaScript for each host. The same calls from the add-in to the JavaScript API for Office generally work the same way, except for the areas described in the following table.
 
-|**Area**|**Outlook for Windows, OWA for Devices, Outlook Web App**|**Outlook for Mac**|
+|**Area**|**Outlook for Windows, OWA for Devices, Outlook on the web**|**Outlook for Mac**|
 |:-----|:-----|:-----|
 |Supported versions of office.js and Office Add-ins manifest schema|All APIs in Office.js and schema v1.1.|<ul><li>Supports requirement sets 1.0, 1.1, 1.2, 1.3, and 1.4</li><li>Schema v1.1.</li></ul>**Note:** Outlook for Mac does not support saving a meeting. The `saveAsync` method will fail when called from a meeting in compose mode. |
 |Instances of a recurring appointment series|<ul><li>Can get the item ID and other properties of a master appointment or appointment instance of a recurring series. </li><li>Can use [mailbox.displayAppointmentForm](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5#displayappointmentformitemid) to display an instance or the master of a recurring series.</li></ul>|<ul><li>Can get the item ID and other properties of the master appointment, but not those of an instance of a recurring series.</li><li>Can display the master appointment of a recurring series. Without the item ID, cannot display an instance of a recurring series.</li></ul>|
