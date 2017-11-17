@@ -3,6 +3,8 @@
 - name: Get Started
   items:
   - name: Write your first Outlook add-in
+    href: quick-start.md
+  - name: Advanced Tutorial
     href: addin-tutorial.md
 - name: Concepts
   items:

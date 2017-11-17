@@ -54,6 +54,9 @@
     topicHref: /outlook/add-ins/index
     items:
       - name: Write your first Outlook add-in
+        tocHref: /outlook/add-ins/quick-start
+        topicHref: /outlook/add-ins/quick-start
+      - name: Advanced Tutorial
         tocHref: /outlook/add-ins/addin-tutorial
         topicHref: /outlook/add-ins/addin-tutorial
       - name: Outlook add-in design guidelines
