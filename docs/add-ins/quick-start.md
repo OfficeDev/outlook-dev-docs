@@ -174,4 +174,7 @@ Once your browser loads the add-in page without any certificate errors, follow t
 
 ## Next steps
 
-Congratulations, you've successfully created your first Outlook add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with [this tutorial](addin-tutorial.md).
+Congratulations, you've successfully created your first Outlook add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with the Advanced Outlook add-in tutorial.
+
+> [!div class="nextstepaction"]
+> [Advanced Outlook add-in tutorial](addin-tutorial.md)
