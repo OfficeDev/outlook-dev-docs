@@ -133,7 +133,7 @@ For example, for the add-in mentioned in the prior examples, the `WebApplication
 
 ## Getting the SSO token
 
-The add-in obtains an SSO token by calling `Office.context.auth.getAccessTokenAsync`.
+The add-in obtains an SSO token by calling [Office.context.auth.getAccessTokenAsync](https://dev.office.com/reference/add-ins/shared/office.context.auth.getAccessTokenAsync).
 
 ```js
 Office.context.auth.getAccessTokenAsync(function (result) {
