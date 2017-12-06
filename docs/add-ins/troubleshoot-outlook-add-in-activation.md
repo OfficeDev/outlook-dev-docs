@@ -64,6 +64,7 @@ If your Outlook add-in is a read add-in and is supposed to be activated when the
 - A delivery report or notification that has the message class IPM.Report.*, including delivery and Non-Delivery Report (NDR) reports, and read, non-read, and delay notifications.
 - A .msg file that is attached to another message or was opened from the file system.
 - In a shared mailbox, in another user's mailbox, in an archive mailbox, or in a public folder.
+- Uses a [custom form](https://support.office.com/en-us/article/Overview-of-forms-in-Outlook-CC2D2F5B-635F-4E60-95CA-6B8D91639214).
 
 Also, because appointments are always saved in Rich Text Format, an [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rule that specifies a **PropertyName** value of **BodyAsHTML** would not activate an add-in on an appointment or message that is saved in plain text or Rich Text Format.
 

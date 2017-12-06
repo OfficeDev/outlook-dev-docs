@@ -53,7 +53,7 @@
     tocHref: /outlook/add-ins/
     topicHref: /outlook/add-ins/index
     items:
-      - name: Write your first Outlook add-in
+      - name: Build your first Outlook add-in
         tocHref: /outlook/add-ins/quick-start
         topicHref: /outlook/add-ins/quick-start
       - name: Advanced Tutorial
