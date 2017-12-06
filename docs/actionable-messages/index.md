@@ -105,6 +105,9 @@ The following table lists the availability of actionable messages for current Ou
 | Office 365 ProPlus Monthly Channel | Yes | Version 1705, Build 8201 |
 | Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes | Version 1708, Build 8431 |
 | Office 365 ProPlus Semi-Annual Channel | No | Coming Soon |
+| Outlook 2016 for Mac | No | Coming Soon |
+| Outlook for iOS | No | Coming Soon |
+| Outlook for Android | No | Coming Soon |
 | Office Professional Plus 2016 | No | Actionable Messages are available for Office 365 only |
 | Exchange 2016 On-Premises Outlook on the web | No | Actionable Messages are available for Office 365 only |
 
