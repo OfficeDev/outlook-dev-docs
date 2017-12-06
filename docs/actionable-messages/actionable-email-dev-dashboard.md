@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 04/26/2017
+ms.date: 12/06/2017
 ms.author: jasonjoh
 ---
 
@@ -22,8 +22,8 @@ If you are a developer working with actionable messages via email, you will use 
 For all the above cases, you will be submitting certain details to Microsoft, which after being reviewed and approved, will enable actionable messages for your service.
 
 > [!NOTE]
-> You can easily try out actionable messages via email by sending email to self with the required markup without any intervention from Microsoft. This would typically be the first step you try out as you dip your toes into this capability.
-> Check out [these samples](actionable-messages-via-email.md#sending-the-message) to send an actionable message to your mailbox.
+> You can easily try out actionable messages via email by sending email to yourself with the required markup without any intervention from Microsoft. This would typically be the first step you try out as you dip your toes into this capability.
+> Check out [these samples](actionable-messages-via-email.md#sending-the-message) to send an actionable message to your mailbox, or use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to send an actionable message to yourself.
 
 ## Dashboard sections
 
@@ -49,7 +49,7 @@ In this section, you need to specify at what scope you want to enable actionable
 Each of the above are independent steps. i.e. you can pick only one scope for each submission and will be subject to the approval process by Microsoft.
 
 > [!NOTE]
-> Remember, you can easily try out actionable messages by sending an email to self with the required markup without any intervention from Microsoft. This would typically be the first step to try out actionable messages.
+> Remember, you can easily try out actionable messages by sending an email to yourself with the required markup without any intervention from Microsoft. You can use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to send to yourself without writing any code. This would typically be the first step to try out actionable messages.
 
 ### Contact info
 
