@@ -151,17 +151,17 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Try it out
 
-1. Using Visual Studio, test the newly created Outlook add-in by pressing F5 or choosing the **Start** button to launch Outlook with the **Display all properties** add-in button displayed in the ribbon. The add-in will be hosted locally on IIS.
+1. Using Visual Studio, test the newly created Outlook add-in by pressing F5 or choosing the **Start** button to launch Outlook on the web. The add-in will be hosted locally on IIS.
 
-1. In Outlook, select or open a message.
+1. In Outlook on the web, select or open a message.
 
-1. On the **Home** tab (**Message** tab if you opened the message in a new window), locate the add-in's **Display all properties** button.
+1. Within the message, locate the add-in's button.
 
-    ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button.PNG)
+    ![A screenshot of a message window in Outlook on the web with the add-in button highlighted](images/quick-start-button-owa.png)
 
 1. Click the button to open the add-in's taskpane.
 
-    ![A screenshot of the add-in's taskpane displaying message properties](images/quick-start-task-pane.PNG)
+    ![A screenshot of the add-in's taskpane in Outlook on the web displaying message properties](images/quick-start-task-pane-owa.png)
 
 # [Any editor](#tab/visual-studio-code)
 
