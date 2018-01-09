@@ -25,6 +25,8 @@ Using this method, your add-in can obtain an access token scoped to your server 
 - Complete the On-Behalf-Of flow to obtain an access token scoped to the Microsoft Graph API
 - Use the identity information in the token to establish the user's identity and authenticate to your own back-end services
 
+ >**Note** If your application needs to use Exchange Web Services for operations beyond what is supported with the [mailbox.makeEwsRequestAsync method] (https://docs.microsoft.com/en-us/outlook/add-ins/web-services) (such as using the EWS Managed API), you cannot configure the required Exchange Online permissions in the Application Registration Portal. You will need to register your application in your [Azure Active Directory tenant] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-app-registration) in order to configure the necessary permissions.
+
 ## Registering your add-in
 
 In order to participate in the Azure OAuth flows, the add-in must be registered in the Application Registration Portal. Minimally the add-in must register a Web API in order for the add-in to obtain an SSO token. If the add-in requires access to the Microsoft Graph API, then the add-in must also register a web app.
