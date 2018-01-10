@@ -37,7 +37,7 @@ Outlook makes a request to the expense report approval system, and the expense r
 
 Adele Vance and her team use Trello as their task management system. Adele has configured the Trello connector in her account, and will receive granular notifications as activity occurs in the Trello boards she is interested in.
 
-Shiva, in Adele's team, creates a new Trello card in the "Hiring" board. He needs the latest job postings to be published. Adele receives an actionable message that tells here all about the new card and the task it represents: who created it, in which list, what the due date is, and more.
+Shiva, in Adele's team, creates a new Trello card in the "Hiring" board. He needs the latest job postings to be published. Adele receives an actionable message that tells her all about the new card and the task it represents: who created it, in which list, what the due date is, and more.
 
 ![A Trello connector card with actions](images/trello-card-actions.png)
 
