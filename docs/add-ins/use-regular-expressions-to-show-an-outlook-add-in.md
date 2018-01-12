@@ -45,23 +45,7 @@ Pay special attention to the following when you use regular expressions:
 
     Because different browsers use different ways to obtain the text body of a selected item, you should make sure that your regular expression supports the subtle differences that can be returned as part of the body text. For example, some browsers such as Internet Explorer 9 uses the `innerText` property of the DOM, and others such as Firefox uses the `.textContent()` method to obtain the text body of an item. Also, different browsers may return line breaks differently: a line break is `\r\n` on Internet Explorer, and `\n` on Firefox and Chrome. For more information, se [W3C DOM Compatibility - HTML](https://quirksmode.org/dom/html/).
     
-- The HTML body of an item is slightly different between an Outlook rich client, and Outlook on the web or OWA for Devices. Define your regular expressions carefully. As an example, consider the following regular expression used in an `ItemHasRegularExpressionMatch` rule with `BodyAsHTML` as the `PropertyName` attribute value:
-
-    ```
-    http.*\.contoso\.com
-    ```
-
-    A rule with this regular expression would match the string `http-equiv="Content-Type"` which exists in the HTML body of an item in an Outlook rich client, as part of the following `META` tag:
-
-    ```HTML
-    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
-    ```
-
-    The same rule does not return this match in Outlook on the web and OWA for Devices because the HTML body in these hosts does not include that `META` tag. This can affect whether the add-in is activated appropriately for the various Outlook clients. In this example, use the following regular expression instead:
-
-    ```
-    http://.*\.contoso\.com/
-    ```
+- The HTML body of an item is slightly different between an Outlook rich client, and Outlook on the web or Outlook mobile. Define your regular expressions carefully.
 
 - Depending on the host application, type of device, or property that a regular expression is being applied on, there are other best practices and limits for each of the hosts that you should be aware of when designing regular expressions as activation rules. See [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) for details.
 
