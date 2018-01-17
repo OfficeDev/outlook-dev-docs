@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 01/12/2018
 ms.author: jasonjoh
 ---
 
@@ -21,10 +21,17 @@ The following are examples of contextual add-ins:
 
 ## How to make a contextual add-in
 
-A contextual add-in's manifest must include an [ExtensionPoint](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the addin specifies the entities or regular expression that can activate it. If specifying an entity, the entity can be any of the properties in the [Entities](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object. Thus, the add-in manifest must contain a rule of type **ItemHasKnownEntity** or **ItemHasRegularExpressionMatch**. The following example shows how to specify an entity that is a phone number:
+A contextual add-in's manifest must include an [ExtensionPoint](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the addin specifies the entities or regular expression that can activate it. If specifying an entity, the entity can be any of the properties in the [Entities](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object. Thus, the add-in manifest must contain a rule of type **ItemHasKnownEntity** or **ItemHasRegularExpressionMatch**. The following example shows how to specify that an add-in should activate on messages with a detected entity that is a phone number:
 
 ```XML
-<Rule xsi:type="ItemHasKnownEntity" EntityType="PhoneNumber" Highlight="all" />
+<ExtensionPoint xsi:type="DetectedEntity">
+  <Label resid="contextLabel" />
+  <SourceLocation resid="detectedEntityURL" />
+  <Rule xsi:type="RuleCollection" Mode="And">
+    <Rule xsi:type="ItemIs" ItemType="Message" />
+    <Rule xsi:type="ItemHasKnownEntity" EntityType="PhoneNumber" Highlight="all" />
+  </Rule>
+</ExtensionPoint>
 ```
 
 After a contextual add-in is associated with an account, it will automatically start when the user clicks a highlighted entity or regular expression. For more information on regular expressions for Outlook add-ins, see [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md).
@@ -72,6 +79,7 @@ The following contextual add-ins are installed by default for users with Outlook
 
 ## Additional Resources
 
-- [Write your first Outlook add-in](addin-tutorial.md)
+- [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) - A sample contextual add-in that activates based on a regular expression match.
+- [Write your first Outlook add-in](quick-start.md)
 - [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
 - [Entities object](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5)
