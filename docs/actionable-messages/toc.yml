@@ -2,7 +2,6 @@
   href: index.md
 - name: Get Started
   href: get-started.md
-  expanded: true
   items:
   - name: Action and Input Types
     href: actions-and-inputs.md
