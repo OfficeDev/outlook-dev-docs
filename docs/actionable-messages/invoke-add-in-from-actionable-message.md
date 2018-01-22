@@ -85,10 +85,17 @@ With these two pieces of information, we can create a basic `InvokeAddInCommand`
 
 ```json
 {
-    "@type": "InvokeAddInCommand",
-    "name": "Invoke \"View Initialization Context\"",
-    "addInId": "527104a1-f1a5-475a-9199-7a968161c870",
-    "desktopCommandId": "showInitContext"
+  "@type": "MessageCard",
+  "@context": "http://schema.org/extensions",
+  "title": "Invoking an Add-in command from an Actionable Message card",
+  "potentialAction": [
+    {
+      "@type": "InvokeAddInCommand",
+      "name": "Invoke \"View Initialization Context\"",
+      "addInId": "527104a1-f1a5-475a-9199-7a968161c870",
+      "desktopCommandId": "showInitContext"
+    }
+  ]
 }
 ```
 
@@ -102,15 +109,22 @@ For example, to extend the sample action from above, we could modify the action 
 
 ```json
 {
-    "@type": "InvokeAddInCommand",
-    "name": "Invoke \"View Initialization Context\"",
-    "addInId": "527104a1-f1a5-475a-9199-7a968161c870",
-    "desktopCommandId": "showInitContext",
-    "initializationContext": {
-        "property1": "Hello world",
-        "property2": 5,
-        "property3": true
+  "@type": "MessageCard",
+  "@context": "http://schema.org/extensions",
+  "title": "Invoking an Add-in command from an Actionable Message card",
+  "potentialAction": [
+    {
+      "@type": "InvokeAddInCommand",
+      "name": "Invoke \"View Initialization Context\"",
+      "addInId": "527104a1-f1a5-475a-9199-7a968161c870",
+      "desktopCommandId": "showInitContext",
+      "initializationContext": {
+          "property1": "Hello world",
+          "property2": 5,
+          "property3": true
+      }
     }
+  ]
 }
 ```
 
