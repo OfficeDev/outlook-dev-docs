@@ -268,7 +268,7 @@ Let's add another helper function to `authHelper.js` called `getTokenFromCode`.
 #### `getTokenFromCode` in the `.\authHelper.js` file
 
 ```js
-function getTokenFromCode(auth_code, callback, response) {
+async function getTokenFromCode(auth_code, callback, response) {
   let result = await oauth2.authorizationCode.getToken({
     code: auth_code,
     redirect_uri: redirectUri,
