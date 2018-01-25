@@ -5,7 +5,7 @@
 > - Needs to access other Office 365 workloads besides Outlook (such as OneDrive for Business or SharePoint)
 > 
 > Bear in mind that apps registered using the Azure Management Portal will not be compatible with Outlook.com, and will not be able to dynamically request permissions scopes.
-> Existing app registrations that were created in the the Azure Management Portal will continue to work for Office 365 only. These registrations do not show up in the Application Registration Portal and must be managed in the Azure Management Portal.
+> Existing app registrations that were created in the Azure Management Portal will continue to work for Office 365 only. These registrations do not show up in the Application Registration Portal and must be managed in the Azure Management Portal.
 >
 > ### Account requirements
 > 
