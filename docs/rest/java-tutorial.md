@@ -1640,7 +1640,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     }
     ```
 
-1. Add a `getEvents` function to the the `OutlookService` interface.
+1. Add a `getEvents` function to the `OutlookService` interface.
 
     ```java
     @GET("/v1.0/me/events")
@@ -1834,7 +1834,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     }
     ```
 
-1. Add a `getContacts` function to the the `OutlookService` interface.
+1. Add a `getContacts` function to the `OutlookService` interface.
 
     ```java
     @GET("/v1.0/me/contacts")
