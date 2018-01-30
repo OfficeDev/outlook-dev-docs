@@ -100,5 +100,8 @@
       href: limits-for-activation-and-javascript-api-for-outlook-add-ins.md
     - name: Troubleshoot add-in activation
       href: troubleshoot-outlook-add-in-activation.md
+  - name: Publish
+    href: /office/dev/add-ins/publish/publish.md
+    maintainContext: true
 - name: Reference
   href: reference.md
