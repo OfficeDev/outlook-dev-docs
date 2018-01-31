@@ -101,7 +101,16 @@
     - name: Troubleshoot add-in activation
       href: troubleshoot-outlook-add-in-activation.md
   - name: Publish
-    href: /office/dev/add-ins/publish/publish.md
+    href: /office/dev/add-ins/publish/publish
     maintainContext: true
+    items:
+      name: Host an Office add-in on Microsoft Azure
+      href: /office/dev/add-ins/publish/host-an-office-add-in-on-microsoft-azure
+      name: Package your add-in using Visual Studio
+      href: /office/dev/add-ins/publish/package-your-add-in-using-visual-studio
+      name: Publish add-ins to AppSource
+      href: /office/dev/store/submit-to-the-office-store
+      name: AppSource validation policies
+      href: /office/dev/store/validation-policies
 - name: Reference
   href: reference.md
