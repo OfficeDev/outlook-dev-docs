@@ -106,11 +106,15 @@
     items:
     - name: Host an Office add-in on Microsoft Azure
       href: /office/dev/add-ins/publish/host-an-office-add-in-on-microsoft-azure
+      maintainContext: true
     - name: Package your add-in using Visual Studio
       href: /office/dev/add-ins/publish/package-your-add-in-using-visual-studio
+      maintainContext: true
     - name: Publish add-ins to AppSource
       href: /office/dev/store/submit-to-the-office-store
+      maintainContext: true
     - name: AppSource validation policies
       href: /office/dev/store/validation-policies
+      maintainContext: true
 - name: Reference
   href: reference.md
