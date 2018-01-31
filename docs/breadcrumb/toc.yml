@@ -199,16 +199,16 @@
         topicHref: /office/dev/add-ins/publish/publish
         items:
         - name: Host an Office add-in on Microsoft Azure
-          tocHref: /outlook/add-ins/
+          tocHref: /outlook/add-ins/host-an-office-add-in-on-microsoft-azure
           topicHref: /office/dev/add-ins/publish/host-an-office-add-in-on-microsoft-azure
         - name: Package your add-in using Visual Studio
-          tocHref: /outlook/add-ins/
+          tocHref: /outlook/add-ins/package-your-add-in-using-visual-studio
           topicHref: /office/dev/add-ins/publish/package-your-add-in-using-visual-studio
         - name: Publish add-ins to AppSource
-          tocHref: /outlook/add-ins/
+          tocHref: /outlook/add-ins/submit-to-the-office-store
           topicHref: /office/dev/store/submit-to-the-office-store
         - name: AppSource validation policies
-          tocHref: /outlook/add-ins/
+          tocHref: /outlook/add-ins/validation-policies
           topicHref: /office/dev/store/validation-policies
       - name: Reference
         tocHref: /outlook/add-ins/reference
