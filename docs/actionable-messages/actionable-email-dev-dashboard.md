@@ -66,7 +66,7 @@ Each of the above are independent steps. i.e. you can pick only one scope for ea
 
 Self-service of registrations is available for registrations that use the following scopes.
 
-- **My mailbox**: The registration request is auto-approved for your own mailbox. This will enable actionable emails from your service sent to you own mailbox.
+- **My mailbox**: The registration request is auto-approved for your own mailbox. This will enable actionable emails from your service sent to your own mailbox.
 - **My organization**: This registration request will be sent to your organization's administrators with **Exchange administrator** or **Global administrator** permissions. Any administrator with those permissions receive an email with submission details and will be able to review and approve your request.
 
 Once the submission is approved, whether auto-approved or by your administrator, it will take up to an hour for the registration to take effect.
