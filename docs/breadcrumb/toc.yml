@@ -195,7 +195,7 @@
           tocHref: /outlook/add-ins/troubleshoot-outlook-add-in-activation
           topicHref: /outlook/add-ins/troubleshoot-outlook-add-in-activation
       - name: Publish
-        tocHref: /outlook/add-ins/publish/
+        tocHref: /outlook/add-ins/publish
         topicHref: /office/dev/add-ins/publish/publish
         items:
         - name: Host an Office add-in on Microsoft Azure
