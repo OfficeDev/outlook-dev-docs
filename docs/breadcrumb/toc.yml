@@ -176,6 +176,7 @@
           tocHref: /outlook/add-ins/implement-sso-in-outlook-add-in
           topicHref: /outlook/add-ins/implement-sso-in-outlook-add-in
       - name: Testing and tips
+        maintainContext: true
         tocHref: /outlook/add-ins/testing-and-tips
         topicHref: /outlook/add-ins/testing-and-tips
         items:
