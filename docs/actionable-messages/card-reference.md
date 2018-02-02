@@ -103,6 +103,7 @@ Actions are specified using the `potentialAction` property which is available bo
 - [HttpPost](#httppost-action)
 - [ActionCard](#actioncard-action)
 - [InvokeAddInCommand](#invokeaddincommand-action)
+- [Transaction](#transaction-action)
 
 There can be a maximum of 4 actions (whatever their type) in a `potentialAction` collection.
 
@@ -408,6 +409,37 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
     "property2": 5,
     "property3": true
   }
+}
+```
+
+### Transaction action
+
+Initiates an Outlook Pay scenario. For more information see [Link to overview doc for Outlook Pay](#).
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String | The `name` property defines the text that will be displayed on screen for the action.<br><br>**Do** use verbs. For instance, use "Pay invoice" instead of "Invoice". |
+| `isPrimaryAction` | Boolean | NEED EXPLANATION |
+| `merchantId` | UUID | Your merchant ID provided by registering with TBD. |
+| `displayId` | UUID | Your display ID provided by registering with TBD. |
+| `productContext` | Object | Optional. Developers may specify any valid JSON object in this field. The value is included in the payloads sent to your payment request and payment complete webhooks. |
+| `environment` | String | NEED EXPLANATION and valid values |
+
+**Example**
+
+```json
+{
+  "@type" : "Transaction",
+  "name" : "Pay invoice",
+  "isPrimaryAction" : true,
+  "merchantId": "SAMPLE_ID",
+  "displayId": "SAMPLE_ID",
+  "productContext": {
+    "invoiceId": "103032", 
+    "createdDate" :"12/8/2017",
+    "dueDate":"01/31/2019"
+  },
+  "environment": "ppe"
 }
 ```
 
