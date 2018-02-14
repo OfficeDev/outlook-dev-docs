@@ -4,9 +4,9 @@ description: Learn how to use Microsoft Graph in a Node.js app to access the Out
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: nodejs
-ms.date: 06/01/2017
+ms.date: 01/23/2018
 ms.author: jasonjoh
 ---
 
@@ -41,19 +41,19 @@ Create a new file called `server.js`. Paste the following code into `server.js` 
 #### Contents of the `.\server.js` file
 
 ```js
-var http = require('http');
-var url = require('url');
+const http = require('http');
+const url = require('url');
 
 function start(route, handle) {
   function onRequest(request, response) {
-    var pathName = url.parse(request.url).pathname;
-    console.log('Request for ' + pathName + ' received.');
+    const pathName = url.parse(request.url).pathname; 
+    console.log(`Request for ${pathName} received.`);
     route(handle, pathName, response, request);
   }
   
-  var port = 8000;
+  const port = 8000;
   http.createServer(onRequest).listen(port);
-  console.log('Server has started. Listening on port: ' + port + '...');
+  console.log(`Server has started. Listening on port: ${port} ...`);
 }
 
 exports.start = start;
@@ -67,12 +67,12 @@ Create a new file called `router.js`, and add the following code.
 
 ```js
 function route(handle, pathname, response, request) {
-  console.log('About to route a request for ' + pathname);
+  console.log(`About to route a request for ${pathname}`);
   if (typeof handle[pathname] === 'function') {
     return handle[pathname](response, request);
   } else {
-    console.log('No request handler found for ' + pathname);
-    response.writeHead(404 ,{'Content-Type': 'text/plain'});
+    console.log(`No request handler found for ${pathname}`);
+    response.writeHead(404, { 'Content-Type': 'text/plain' });
     response.write('404 Not Found');
     response.end();
   }
@@ -86,10 +86,10 @@ This code looks up a function to call based on the requested path. It uses the `
 #### Contents of the `.\index.js` file
 
 ```js
-var server = require('./server');
-var router = require('./router');
+const server = require('./server');
+const router = require('./router');
 
-var handle = {};
+const handle = {};
 handle['/'] = home;
 
 server.start(router.route, handle);
@@ -124,7 +124,7 @@ Let's begin by replacing the "Hello world!" message with a signon link. To do th
 function home(response, request) {
   console.log('Request handler \'home\' was called.');
   response.writeHead(200, {'Content-Type': 'text/html'});
-  response.write('<p>Please <a href='#'>sign in</a> with your Office 365 or Outlook.com account.</p>');
+  response.write('<p>Please <a href=\'#\'>sign in</a> with your Office 365 or Outlook.com account.</p>');
   response.end();
 }
 ```
@@ -160,7 +160,7 @@ Now the library is installed and ready to use. Create a new file called `authHel
 #### Contents of the `.\authHelper.js` file
 
 ```js
-var credentials = {
+const credentials = {
   client: {
     id: 'YOUR APP ID HERE',
     secret: 'YOUR APP PASSWORD HERE',
@@ -171,21 +171,21 @@ var credentials = {
     tokenPath: 'common/oauth2/v2.0/token'
   }
 };
-var oauth2 = require('simple-oauth2').create(credentials);
+const oauth2 = require('simple-oauth2').create(credentials);
 
-var redirectUri = 'http://localhost:8000/authorize';
+const redirectUri = 'http://localhost:8000/authorize';
 
 // The scopes the app requires
-var scopes = [ 'openid',
-               'User.Read',
-               'Mail.Read' ];
+const scopes = [ 'openid',
+                 'User.Read',
+                 'Mail.Read' ];
     
 function getAuthUrl() {
-  var returnVal = oauth2.authorizationCode.authorizeURL({
+  const returnVal = oauth2.authorizationCode.authorizeURL({
     redirect_uri: redirectUri,
     scope: scopes.join(' ')
   });
-  console.log('Generated auth url: ' + returnVal);
+  console.log(`Generated auth url: ${returnVal}`);
   return returnVal;
 }
 
@@ -201,11 +201,11 @@ Now that we have actual values for the client ID and secret, let's put the `simp
 #### Updated contents of the `.\index.js` file
 
 ```js
-var server = require('./server');
-var router = require('./router');
-var authHelper = require('./authHelper');
+const server = require('./server');
+const router = require('./router');
+const authHelper = require('./authHelper');
 
-var handle = {};
+const handle = {};
 handle['/'] = home;
 
 server.start(router.route, handle);
@@ -213,7 +213,7 @@ server.start(router.route, handle);
 function home(response, request) {
   console.log('Request handler \'home\' was called.');
   response.writeHead(200, {'Content-Type': 'text/html'});
-  response.write('<p>Please <a href="' + authHelper.getAuthUrl() + '">sign in</a> with your Office 365 or Outlook.com account.</p>');
+  response.write(`<p>Please <a href="${authHelper.getAuthUrl()}">sign in</a> with your Office 365 or Outlook.com account.</p>`);
   response.end();
 }
 ```
@@ -237,7 +237,7 @@ First, let's add a route for the `/authorize` path to the `handle` array in `ind
 #### Updated handle array in `.\index.js`####
 
 ```js
-var handle = {};
+const handle = {};
 handle['/'] = home;
 handle['/authorize'] = authorize;
 ```
@@ -247,16 +247,16 @@ The added line tells our router that when a GET request comes in for `/authorize
 #### `authorize` function in the `.\index.js` file
 
 ```js
-var url = require('url');
+const url = require('url');
 function authorize(response, request) {
   console.log('Request handler \'authorize\' was called.');
   
   // The authorization code is passed as a query parameter
-  var url_parts = url.parse(request.url, true);
-  var code = url_parts.query.code;
-  console.log('Code: ' + code);
+  const url_parts = url.parse(request.url, true);
+  const code = url_parts.query.code;
+  console.log(`Code: ${code}`);
   response.writeHead(200, {'Content-Type': 'text/html'});
-  response.write('<p>Received auth code: ' + code + '</p>');
+  response.write(`<p>Received auth code: ${code}</p>`);
   response.end();
 }
 ```
@@ -268,22 +268,16 @@ Let's add another helper function to `authHelper.js` called `getTokenFromCode`.
 #### `getTokenFromCode` in the `.\authHelper.js` file
 
 ```js
-function getTokenFromCode(auth_code, callback, response) {
-  var token;
-  oauth2.authorizationCode.getToken({
+async function getTokenFromCode(auth_code, callback, response) {
+  let result = await oauth2.authorizationCode.getToken({
     code: auth_code,
     redirect_uri: redirectUri,
     scope: scopes.join(' ')
-  }, function (error, result) {
-    if (error) {
-      console.log('Access token error: ', error.message);
-      callback(response, error, null);
-    } else {
-      token = oauth2.accessToken.create(result);
-      console.log('Token created: ', token.token);
-      callback(response, null, token);
-    }
   });
+
+  const token = oauth2.accessToken.create(result);
+  console.log('Token created: ', token.token);
+  return token;
 }
 
 exports.getTokenFromCode = getTokenFromCode;
@@ -291,9 +285,9 @@ exports.getTokenFromCode = getTokenFromCode;
 
 ### Getting the user's email address ###
 
-Our first use of the access token will be to get the user's email address from the Outlook API. You'll see why we want this soon.
+Our first use of the access token will be to get the user's email address from the Microsoft Graph API. You'll see why we want this soon.
 
-In order to use the Outlook API, install the [Microsoft Graph JavaScript Client Library](https://github.com/microsoftgraph/msgraph-sdk-javascript) from the command line.
+In order to use the Microsoft Graph API, install the [Microsoft Graph JavaScript Client Library](https://github.com/microsoftgraph/msgraph-sdk-javascript) from the command line.
 
 ```Shell
 npm install @microsoft/microsoft-graph-client es6-promise --save
@@ -302,7 +296,7 @@ npm install @microsoft/microsoft-graph-client es6-promise --save
 Then require the `microsoft-graph-client` library by adding the following line to `index.js`.
 
 ```js
-var microsoftGraph = require("@microsoft/microsoft-graph-client");
+const microsoftGraph = require("@microsoft/microsoft-graph-client");
 ```
 
 Add a new function `getUserEmail` to `index.js`.
@@ -310,9 +304,9 @@ Add a new function `getUserEmail` to `index.js`.
 #### `getUserEmail` in the `.\index.js` file ####
 
 ```js
-function getUserEmail(token, callback) {
+async function getUserEmail(token) {
   // Create a Graph client
-  var client = microsoftGraph.Client.init({
+  const client = microsoftGraph.Client.init({
     authProvider: (done) => {
       // Just return the token
       done(null, token);
@@ -320,57 +314,61 @@ function getUserEmail(token, callback) {
   });
 
   // Get the Graph /Me endpoint to get user email address
-  client
+  const res = await client
     .api('/me')
-    .get((err, res) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, res.mail);
-      }
-    });
+    .get();
+
+  // Office 365 users have a mail attribute
+  // Outlook.com users do not, instead they have
+  // userPrincipalName
+  return res.mail ? res.mail : res.userPrincipalName;
 }
 ```
 
-Let's make sure that works. Modify the `authorize` function in the `index.js` file to use these helper functions and display the return values. Note that `getToken` function is asynchronous, so we need to implement a callback function to receive the results.
-
+Let's make sure that works. Modify the `authorize` function in the `index.js` file to use these helper functions and display the return values.
 #### Updated `authorize` function in `.\index.js`
 
 ```js
 function authorize(response, request) {
   console.log('Request handler \'authorize\' was called.');
-  
+
   // The authorization code is passed as a query parameter
-  var url_parts = url.parse(request.url, true);
-  var code = url_parts.query.code;
-  console.log('Code: ' + code);
-  authHelper.getTokenFromCode(code, tokenReceived, response);
+  const url_parts = url.parse(request.url, true);
+  const code = url_parts.query.code;
+  console.log(`Code: ${code}`);
+  processAuthCode(response, code);
 }
 ```
 
-#### Callback function `tokenReceived` in `.\index.js`
+#### Callback function `processAuthCode` in `.\index.js`
 
 ```js
-function tokenReceived(response, error, token) {
-  if (error) {
+async function processAuthCode(response, code) {
+  let token,email;
+
+  try {
+    token = await authHelper.getTokenFromCode(code);
+  } catch(error){
     console.log('Access token error: ', error.message);
     response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<p>ERROR: ' + error + '</p>');
+    response.write(`<p>ERROR: ${error}</p>`);
     response.end();
-  } else {
-    getUserEmail(token.token.access_token, function(error, email) {
-      if (error) {
-        console.log('getUserEmail returned an error: ' + error);
-        response.write('<p>ERROR: ' + error + '</p>');
-        response.end();
-      } else if (email) {
-        response.writeHead(200, {'Content-Type': 'text/html'});
-        response.write('<p>Email: ' + email + '</p>');
-        response.write('<p>Access token: ' + token.token.access_token + '</p>');
-        response.end();
-      }
-    });
+    return;
   }
+
+  try {
+    email = await getUserEmail(token.token.access_token);
+  } catch(error){
+    console.log(`getUserEmail returned an error: ${error}`);
+    response.write(`<p>ERROR: ${error}</p>`);
+    response.end();
+    return;
+  }
+
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.write('<p>Email: ' + email + '</p>');
+  response.write('<p>Access token: ' + token.token.access_token + '</p>');
+  response.end();
 }
 ```
 
@@ -378,30 +376,36 @@ If you save your changes, restart the server, and go through the sign-in process
 
 Now let's change our code to store the token and email in a session cookie instead of displaying them.
 
-#### New version of `tokenReceived` function ####
+#### New version of `processAuthCode` function ####
 
 ```js
-function tokenReceived(response, error, token) {
-  if (error) {
+async function processAuthCode(response, code) {
+  let token,email;
+
+  try {
+    token = await authHelper.getTokenFromCode(code);
+  } catch(error){
     console.log('Access token error: ', error.message);
     response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<p>ERROR: ' + error + '</p>');
+    response.write(`<p>ERROR: ${error}</p>`);
     response.end();
-  } else {
-    getUserEmail(token.token.access_token, function(error, email){
-      if (error) {
-        console.log('getUserEmail returned an error: ' + error);
-        response.write('<p>ERROR: ' + error + '</p>');
-        response.end();
-      } else if (email) {
-        var cookies = ['node-tutorial-token=' + token.token.access_token + ';Max-Age=3600',
-                       'node-tutorial-email=' + email + ';Max-Age=3600'];
-        response.setHeader('Set-Cookie', cookies);
-        response.writeHead(302, {'Location': 'http://localhost:8000/mail'});
-        response.end();
-      }
-    }); 
+    return;
   }
+
+  try {
+    email = await getUserEmail(token.token.access_token);
+  } catch(error){
+    console.log(`getUserEmail returned an error: ${error}`);
+    response.write(`<p>ERROR: ${error}</p>`);
+    response.end();
+    return;
+  }
+
+  const cookies = [`node-tutorial-token=${token.token.access_token};Max-Age=4000`,
+                   `node-tutorial-email=${email ? email : ''}';Max-Age=4000`];
+  response.setHeader('Set-Cookie', cookies);
+  response.writeHead(302, {'Location': 'http://localhost:8000/mail'});
+  response.end();
 }
 ```
 
@@ -411,9 +415,9 @@ Let's also add a helper function to read cookie values.
 
 ```js
 function getValueFromCookie(valueName, cookie) {
-  if (cookie.indexOf(valueName) !== -1) {
-    var start = cookie.indexOf(valueName) + valueName.length + 1;
-    var end = cookie.indexOf(';', start);
+  if (cookie.includes(valueName)) {
+    let start = cookie.indexOf(valueName) + valueName.length + 1;
+    let end = cookie.indexOf(';', start);
     end = end === -1 ? cookie.length : end;
     return cookie.substring(start, end);
   }
@@ -428,40 +432,46 @@ In order to do that, the app must request the `offline_access` scope. Add this s
 
 ```js
 // The scopes the app requires
-var scopes = [ 'openid',
-               'offline_access',
-               'User.Read',
-               'Mail.Read' ];
+const scopes = [ 'openid',
+                 'offline_access',
+                 'User.Read',
+                 'Mail.Read' ];
 ```
 
-This will cause the token response from Azure to include a refresh token. Let's update the `tokenReceived` function to save the refresh token and the expiration time in a session cookie.
+This will cause the token response from Azure to include a refresh token. Let's update the `processAuthCode` function to save the refresh token and the expiration time in a session cookie.
 
-#### New version of `tokenReceived` function ####
+#### New version of `processAuthCode` function ####
 
 ```js
-function tokenReceived(response, error, token) {
-  if (error) {
+async function tokenReceived(response, error, token) {
+  let token,email;
+
+  try {
+    token = await authHelper.getTokenFromCode(code);
+  } catch(error){
     console.log('Access token error: ', error.message);
     response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<p>ERROR: ' + error + '</p>');
+    response.write(`<p>ERROR: ${error}</p>`);
     response.end();
-  } else {
-    getUserEmail(token.token.access_token, function(error, email){
-      if (error) {
-        console.log('getUserEmail returned an error: ' + error);
-        response.write('<p>ERROR: ' + error + '</p>');
-        response.end();
-      } else if (email) {
-        var cookies = ['node-tutorial-token=' + token.token.access_token + ';Max-Age=4000',
-                       'node-tutorial-refresh-token=' + token.token.refresh_token + ';Max-Age=4000',
-                       'node-tutorial-token-expires=' + token.token.expires_at.getTime() + ';Max-Age=4000',
-                       'node-tutorial-email=' + email + ';Max-Age=4000'];
-        response.setHeader('Set-Cookie', cookies);
-        response.writeHead(302, {'Location': 'http://localhost:8000/mail'});
-        response.end();
-      }
-    }); 
+    return;
   }
+
+  try {
+    email = await getUserEmail(token.token.access_token);
+  } catch(error){
+    console.log(`getUserEmail returned an error: ${error}`);
+    response.write(`<p>ERROR: ${error}</p>`);
+    response.end();
+    return;
+  }
+
+  const cookies = [`node-tutorial-token=${token.token.access_token};Max-Age=4000`,
+                   `node-tutorial-refresh-token=${token.token.refresh_token};Max-Age=4000`,
+                   `node-tutorial-token-expires=${token.token.expires_at.getTime()};Max-Age=4000`,
+                   `node-tutorial-email=${email ? email : ''}';Max-Age=4000`];
+  response.setHeader('Set-Cookie', cookies);
+  response.writeHead(302, {'Location': 'http://localhost:8000/mail'});
+  response.end();
 }
 ```
 
@@ -470,29 +480,24 @@ Now let's add a helper function in `index.js` to retrieve the cached token, chec
 #### `getAccessToken` in the `.\index.js` file ####
 
 ```js
-function getAccessToken(request, response, callback) {
-  var expiration = new Date(parseFloat(getValueFromCookie('node-tutorial-token-expires', request.headers.cookie)));
+async function getAccessToken(request, response) {
+  const expiration = new Date(parseFloat(getValueFromCookie('node-tutorial-token-expires', request.headers.cookie)));
 
   if (expiration <= new Date()) {
     // refresh token
     console.log('TOKEN EXPIRED, REFRESHING');
-    var refresh_token = getValueFromCookie('node-tutorial-refresh-token', request.headers.cookie);
-    authHelper.refreshAccessToken(refresh_token, function(error, newToken){
-      if (error) {
-        callback(error, null);
-      } else if (newToken) {
-        var cookies = ['node-tutorial-token=' + newToken.token.access_token + ';Max-Age=4000',
-                       'node-tutorial-refresh-token=' + newToken.token.refresh_token + ';Max-Age=4000',
-                       'node-tutorial-token-expires=' + newToken.token.expires_at.getTime() + ';Max-Age=4000'];
-        response.setHeader('Set-Cookie', cookies);
-        callback(null, newToken.token.access_token);
-      }
-    });
-  } else {
-    // Return cached token
-    var access_token = getValueFromCookie('node-tutorial-token', request.headers.cookie);
-    callback(null, access_token);
+    const refresh_token = getValueFromCookie('node-tutorial-refresh-token', request.headers.cookie);
+    const newToken = await authHelper.refreshAccessToken(refresh_token);
+
+    const cookies = [`node-tutorial-token=${token.token.access_token};Max-Age=4000`,
+                     `node-tutorial-refresh-token=${token.token.refresh_token};Max-Age=4000`,
+                     `node-tutorial-token-expires=${token.token.expires_at.getTime()};Max-Age=4000`];
+    response.setHeader('Set-Cookie', cookies);
+    return newToken.token.access_token;
   }
+
+  // Return cached token
+  return getValueFromCookie('node-tutorial-token', request.headers.cookie);
 }
 ```
 
@@ -502,8 +507,7 @@ Finally, let's add the `refreshAccessToken` function to `authHelper.js`.
 
 ```js
 function refreshAccessToken(refreshToken, callback) {
-  var tokenObj = oauth2.accessToken.create({refresh_token: refreshToken});
-  tokenObj.refresh(callback);
+  return oauth2.accessToken.create({refresh_token: refreshToken}).refresh();
 }
 
 exports.refreshAccessToken = refreshAccessToken;
@@ -516,7 +520,7 @@ Now that we can get an access token, we're in a good position to do something wi
 #### Updated handle array in `.\index.js`
 
 ```js
-var handle = {};
+const handle = {};
 handle['/'] = home;
 handle['/authorize'] = authorize;
 handle['/mail'] = mail;
@@ -527,21 +531,21 @@ Then add the `mail` function.
 #### `mail` function in `.\index.js`
 
 ```js
-function mail(response, request) {
-  getAccessToken(request, response, function(error, token) {
-    console.log('Token found in cookie: ', token);
-    var email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
-    console.log('Email found in cookie: ', email);
-    if (token) {
-      response.writeHead(200, {'Content-Type': 'text/html'});
-      response.write('<p>Token retrieved from cookie: ' + token + '</p>');
-      response.end();
-    } else {
-      response.writeHead(200, {'Content-Type': 'text/html'});
-      response.write('<p> No token found in cookie!</p>');
-      response.end();
-    }
-  });
+async function mail(response, request) {
+  let token;
+
+  try {
+    token = await getAccessToken(request, response);
+  } catch (error){
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    response.write('<p> No token found in cookie!</p>');
+    response.end();
+    return;
+  }
+
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.write('<p>Token retrieved from cookie: ' + token + '</p>');
+  response.end();
 }
 ```
 
@@ -550,56 +554,60 @@ For now all this does is read the token back from the cookie and display it. Sav
 #### New version of the `mail` function in `./index.js`
 
 ```js
-function mail(response, request) {
-  getAccessToken(request, response, function(error, token) {
-    console.log('Token found in cookie: ', token);
-    var email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
-    console.log('Email found in cookie: ', email);
-    if (token) {
-      response.writeHead(200, {'Content-Type': 'text/html'});
-      response.write('<div><h1>Your inbox</h1></div>');
+async function mail(response, request) {
+  let token;
 
-      // Create a Graph client
-      var client = microsoftGraph.Client.init({
-        authProvider: (done) => {
-          // Just return the token
-          done(null, token);
-        }
-      });
+  try {
+    token = await getAccessToken(request, response);
+  } catch (error){
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    response.write('<p> No token found in cookie!</p>');
+    response.end();
+    return;
+  }
 
-      // Get the 10 newest messages
-      client
-        .api('/me/mailfolders/inbox/messages')
-        .header('X-AnchorMailbox', email)
-        .top(10)
-        .select('subject,from,receivedDateTime,isRead')
-        .orderby('receivedDateTime DESC')
-        .get((err, res) => {
-          if (err) {
-            console.log('getMessages returned an error: ' + err);
-            response.write('<p>ERROR: ' + err + '</p>');
-            response.end();
-          } else {
-            console.log('getMessages returned ' + res.value.length + ' messages.');
-            response.write('<table><tr><th>From</th><th>Subject</th><th>Received</th></tr>');
-            res.value.forEach(function(message) {
-              console.log('  Subject: ' + message.subject);
-              var from = message.from ? message.from.emailAddress.name : 'NONE';
-              response.write('<tr><td>' + from + 
-                '</td><td>' + (message.isRead ? '' : '<b>') + message.subject + (message.isRead ? '' : '</b>') +
-                '</td><td>' + message.receivedDateTime.toString() + '</td></tr>');
-            });
-            
-            response.write('</table>');
-            response.end();
-          }
-        });
-    } else {
-      response.writeHead(200, {'Content-Type': 'text/html'});
-      response.write('<p> No token found in cookie!</p>');
-      response.end();
+  console.log('Token found in cookie: ', token);
+  const email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
+  console.log('Email found in cookie: ', email);
+
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.write('<div><h1>Your inbox</h1></div>');
+
+  // Create a Graph client
+  const client = microsoftGraph.Client.init({
+    authProvider: (done) => {
+      // Just return the token
+      done(null, token);
     }
   });
+
+  try {
+    // Get the 10 newest messages
+    const res = await client
+      .api('/me/mailfolders/inbox/messages')
+      .header('X-AnchorMailbox', email)
+      .top(10)
+      .select('subject,from,receivedDateTime,isRead')
+      .orderby('receivedDateTime DESC')
+      .get();
+
+    console.log(`getMessages returned ${res.value.length} messages.`);
+    response.write('<table><tr><th>From</th><th>Subject</th><th>Received</th></tr>');
+    res.value.forEach(message => {
+      console.log('  Subject: ' + message.subject);
+      const from = message.from ? message.from.emailAddress.name : 'NONE';
+      response.write(`<tr><td>${from}` +
+        `</td><td>${message.isRead ? '' : '<b>'} ${message.subject} ${message.isRead ? '' : '</b>'}` +
+        `</td><td>${message.receivedDateTime.toString()}</td></tr>`);
+    });
+
+    response.write('</table>');
+  } catch (err) {
+    console.log(`getMessages returned an error: ${err}`);
+    response.write(`<p>ERROR: ${err}</p>`);
+  }
+
+  response.end();
 }
 ```
 
@@ -632,7 +640,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
     ```js
     // The scopes the app requires
-    var scopes = [ 'openid',
+    const scopes = [ 'openid',
                    'offline_access',
                    'User.Read',
                    'Mail.Read',
@@ -659,32 +667,51 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       }
     });
 
-    // Get the 10 events with the greatest start date
-    client
-      .api('/me/events')
-      .header('X-AnchorMailbox', email)
-      .top(10)
-      .select('subject,start,end')
-      .orderby('start/dateTime DESC')
-      .get((err, res) => {
-        if (err) {
-          console.log('getEvents returned an error: ' + err);
-          response.write('<p>ERROR: ' + err + '</p>');
-          response.end();
-        } else {
-          console.log('getEvents returned ' + res.value.length + ' events.');
-          response.write('<table><tr><th>Subject</th><th>Start</th><th>End</th><th>Attendees</th></tr>');
-          res.value.forEach(function(event) {
-            console.log('  Subject: ' + event.subject);
-            response.write('<tr><td>' + event.subject + 
-              '</td><td>' + event.start.dateTime.toString() +
-              '</td><td>' + event.end.dateTime.toString() + '</td></tr>');
-          });
-          
-          response.write('</table>');
-          response.end();
-        }
+    try {
+      // Get the 10 events with the greatest start date
+      const res = await client
+        .api('/me/events')
+        .header('X-AnchorMailbox', email)
+        .top(10)
+        .select('subject,start,end,attendees')
+        .orderby('start/dateTime DESC')
+        .get();
+
+      console.log('getEvents returned ' + res.value.length + ' events.');
+      response.write('<table><tr><th>Subject</th><th>Start</th><th>End</th><th>Attendees</th></tr>');
+      res.value.forEach(function(event) {
+        console.log(`  Subject: ${event.subject}`);
+        response.write(`<tr><td>${event.subject}` +
+          `</td><td>${event.start.dateTime.toString()}` +
+          `</td><td>${event.end.dateTime.toString()}` +
+          `</td><td>${buildAttendeeString(event.attendees)}</td></tr>`);
       });
+
+      response.write('</table>');
+      response.end();
+    } catch(err) {
+      console.log(`getEvents returned an error: ${err}`);
+      response.write(`<p>ERROR: ${err}</p>`);
+    }
+    ```
+
+1. Add a `buildAttendeeString` function in `index.js`.
+
+    ```
+    function buildAttendeeString(attendees) {
+      let attendeeString = '';
+      if (attendees) {
+        attendees.forEach(attendee => {
+          attendeeString += `<p>Name:${attendee.emailAddress.name}</p>`;
+          attendeeString += `<p>Email:${attendee.emailAddress.address}</p>`;
+          attendeeString += `<p>Type:${attendee.type}</p>`;
+          attendeeString += `<p>Response:${attendee.status.response}</p>`;
+          attendeeString += `<p>Respond time:${attendee.status.time}</p>`;
+        });
+      }
+
+      return attendeeString;
+    }
     ```
 
 1. Restart the app. After signing in, browse to `http://localhost:8000/calendar`.
@@ -695,7 +722,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
     ```js
     // The scopes the app requires
-    var scopes = [ 'openid',
+    const scopes = [ 'openid',
                    'offline_access',
                    'User.Read',
                    'Mail.Read',
@@ -722,33 +749,31 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       }
     });
 
-    // Get the first 10 contacts in alphabetical order
-    // by given name
-    client
-      .api('/me/contacts')
-      .header('X-AnchorMailbox', email)
-      .top(10)
-      .select('givenName,surname,emailAddresses')
-      .orderby('givenName ASC')
-      .get((err, res) => {
-        if (err) {
-          console.log('getContacts returned an error: ' + err);
-          response.write('<p>ERROR: ' + err + '</p>');
-          response.end();
-        } else {
-          console.log('getContacts returned ' + res.value.length + ' contacts.');
-          response.write('<table><tr><th>First name</th><th>Last name</th><th>Email</th></tr>');
-          res.value.forEach(function(contact) {
-            var email = contact.emailAddresses[0] ? contact.emailAddresses[0].address : 'NONE';
-            response.write('<tr><td>' + contact.givenName + 
-              '</td><td>' + contact.surname +
-              '</td><td>' + email + '</td></tr>');
-          });
-          
-          response.write('</table>');
-          response.end();
-        }
-      });
+    try {
+      // Get the first 10 contacts in alphabetical order
+      // by given name
+      const res = await client
+          .api('/me/contacts')
+          .header('X-AnchorMailbox', email)
+          .top(10)
+          .select('givenName,surname,emailAddresses')
+          .orderby('givenName ASC')
+          .get();
+
+        console.log(`getContacts returned ${res.value.length} contacts.`);
+        response.write('<table><tr><th>First name</th><th>Last name</th><th>Email</th></tr>');
+        res.value.forEach(contact => {
+            const email = contact.emailAddresses[0] ? contact.emailAddresses[0].address : 'NONE';
+            response.write(`<tr><td>${contact.givenName}` +
+                `</td><td>${contact.surname}` +
+                `</td><td>${email}</td></tr>`);
+        });
+
+        response.write('</table>');
+    } catch (err) {
+      console.log(`getContacts returned an error: ${err}`);
+      response.write(`<p>ERROR: ${err}</p>`);
+    }
     ```
 
 1. Restart the app. After signing in, browse to `http://localhost:8000/contacts`.

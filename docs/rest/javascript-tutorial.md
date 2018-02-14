@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Graph in JavaScript to access the Outloo
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: javascript
 ms.date: 04/26/2017
 ms.author: jasonjoh
@@ -799,7 +799,7 @@ Add the following function after the `// OUTLOOK API FUNCTIONS` line.
 ```js
 function getUserEmailAddress(callback) {
   if (sessionStorage.userEmail) {
-    return sessionStorage.userEmail;
+    callback(sessionStorage.userEmail);
   } else {
     getAccessToken(function(accessToken) {
       if (accessToken) {
@@ -818,7 +818,14 @@ function getUserEmailAddress(callback) {
             if (err) {
               callback(null, err);
             } else {
-              callback(res.mail);
+              // Get result, which may be one of two values
+              // For Office 365 users, use the mail property
+              // For MSA users, use the userPrincipalName property
+              var email = res.mail ? res.mail : res.userPrincipalName;
+
+              // Store in session
+              sessionStorage.userEmail = email;
+              callback(email);
             }
           });
       } else {
@@ -1216,7 +1223,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Add a **Contacts** button to the nav bar in `index.html`.
 
     ```HTML
-    <li id='calendar-nav'><a href="#calendar">Calendar</a></li>
+    <li id='contacts-nav'><a href="#contacts">Contacts</a></li>
     ```
 
 1. Add a contacts display to `index.html`.

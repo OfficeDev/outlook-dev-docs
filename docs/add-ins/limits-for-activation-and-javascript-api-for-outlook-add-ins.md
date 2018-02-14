@@ -5,56 +5,48 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 07/28/2017
 ms.author: jasonjoh
 ---
 
 # Limits for activation and JavaScript API for Outlook add-ins
 
-To provide a satisfactory experience for users of Outlook add-ins, you should be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits. These guidelines exist so that an individual add-in cannot require Exchange Server or Outlook to spend an unusually long period of time to process its activation rules or calls to the JavaScript API for Office, affecting the overall user experience for Outlook and other add-ins. These limits apply to designing activation rules in the add-in manifest, and using custom properties, roaming settings, recipients, Exchange Web Services (EWS) requests and responses, and asynchronous calls. 
+To provide a satisfactory experience for users of Outlook add-ins, you should be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits. These guidelines exist so that an individual add-in cannot require Exchange Server or Outlook to spend an unusually long period of time to process its activation rules or calls to the JavaScript API for Office, affecting the overall user experience for Outlook and other add-ins. These limits apply to designing activation rules in the add-in manifest, and using custom properties, roaming settings, recipients, Exchange Web Services (EWS) requests and responses, and asynchronous calls.
 
- >**Note** If your add-in runs on an Outlook rich client, you must also verify that the add-in performs within certain run-time resource usage limits. 
+> [!NOTE]
+> If your add-in runs on an Outlook rich client, you must also verify that the add-in performs within certain run-time resource usage limits.
 
+## Limits on where add-ins activate
+
+Add-ins are designed to activate in the user's main mailbox only. Add-ins do not activate in shared mailboxes, folders from other user's mailboxes opened with delegate access, archive mailboxes, or public folders.
 
 ## Limits for activation rules
 
-
 Follow these guidelines when designing activation rules for Outlook add-ins:
 
-
 - Limit the size of the manifest to 256 KB. You cannot install the Outlook add-in for an Exchange mailbox if you exceed that limit.
-
 - Specify up to 15 activation rules for the add-in. You cannot install the add-in if you exceed that limit.
-    
 - If you use an [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) rule on the body of the selected item, expect an Outlook rich client to apply the rule against only the first 1 MB of the body and not to the rest of the body over that limit. Your add-in would not be activated if matches exist only after the first MB of the body. If you expect that to be a likely scenario, re-design your conditions for activation.
-    
 - If you use regular expressions in  **ItemHasKnownEntity** or [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rules, be aware of the following limits and guidelines that generally apply to any Outlook host, and those described in tables 1, 2 and 3 that differ depending on the host:
-    
     - Specify up to only five regular expressions in activation rules in a add-in. You cannot install a add-in if you exceed that limit.
-      
     - Specify regular expressions such that the results you anticipate are returned by the  **getRegExMatches** method call within the first 50 matches.
-      
     - Can specify look-ahead assertions in regular expressions, but not look-behind, `(?<=text)`, and negative look-behind `(?<!text)`.
-    
 
-Table 1 lists the limits and describes the differences in the support for regular expressions between an Outlook rich client and Outlook Web App or OWA for Devices. The support is independent of any specific type of device and item body.
-
+Table 1 lists the limits and describes the differences in the support for regular expressions between an Outlook rich client and Outlook on the web or OWA for Devices. The support is independent of any specific type of device and item body.
 
  **Table 1. General differences in the support for regular expressions**
 
-
-|**Outlook rich client**|**Outlook Web App or OWA for Devices**|
+|Outlook rich client|Outlook on the web or OWA for Devices|
 |:-----|:-----|
 |Uses the C++ regular expression engine provided as part of the Visual Studio standard template library. This engine complies with ECMAScript 5 standards. |Uses regular expression evaluation that is part of JavaScript, is provided by the browser, and supports a superset of ECMAScript 5.|
-|Because of the different regex engines, expect a regex that includes a custom character class based on predefined character classes may return different results in an Outlook rich client than in Outlook Web App or OWA for Devices.<br/><br/>As an example, the regex "[\s\S]{0,100}" matches any number, between 0 and 100, of single characters that is a white space or a non-white-space. This regex returns different results in an Outlook rich client than Outlook Web App and OWA for Devices. You should rewrite the regex as ""(\s\|\S){0,100}" as a work-around. This workaround regex matches any number, between 0 and 100, of white space or non-white space.<br/><br/>You should test each regex thoroughly on each Outlook host, and if a regex returns different results, rewrite the regex. |You should test each regex thoroughly on each Outlook host, and if a regex returns different results, rewrite the regex.|
+|Because of the different regex engines, expect a regex that includes a custom character class based on predefined character classes may return different results in an Outlook rich client than in Outlook on the web or OWA for Devices.<br/><br/>As an example, the regex "[\s\S]{0,100}" matches any number, between 0 and 100, of single characters that is a white space or a non-white-space. This regex returns different results in an Outlook rich client than Outlook on the web and OWA for Devices. You should rewrite the regex as ""(\s\|\S){0,100}" as a work-around. This workaround regex matches any number, between 0 and 100, of white space or non-white space.<br/><br/>You should test each regex thoroughly on each Outlook host, and if a regex returns different results, rewrite the regex. |You should test each regex thoroughly on each Outlook host, and if a regex returns different results, rewrite the regex.|
 |By default, limits the evaluation of all regular expressions for an add-in to 1 second. Exceeding this limit causes reevaluation of up to 3 times. Beyond the reevaluation limit, an Outlook rich client disables the add-in from running for the same mailbox in any of the Outlook host.<br/><br/>Administrators can override these evaluation limits by using the  **OutlookActivationAlertThreshold** and **OutlookActivationManagerRetryLimit** registry keys.|Do not support the same resource monitoring or registry settings as in an Outlook rich client. But add-ins with regular expressions that require excessive amount of evaluation time on an Outlook rich client are disabled for the same mailbox on all the Outlook hosts.|
 
 Table 2 lists the limits and describes the differences in the portion of the item body that the each of the Outlook applies a regular expression. Some of these limits depend on the type of device and item body, if the regular expression is applied on the item body.
 
 **Table 2. Limits on the size of the item body evaluated**
 
-
-||**Outlook rich client**|**Outlook Web App, OWA for Devices,OWA for iPad or OWA for iPhone**|**Outlook Web App**|
+||Outlook rich client|Outlook on the web, OWA for Devices,OWA for iPad or OWA for iPhone|Outlook on the web|
 |:-----|:-----|:-----|:-----|
 |Form factor|Any supported device|Android smartphones, iPad or iPhone|Any supported device other than Android smartphones, iPad and iPhone|
 |Plain text item body|Applies the regex on the first 1 MB of the data of the body, but not on the rest of the body over that limit.|Activates the add-in only if the body < 16,000 characters.|Activates the add-in only if the body < 500,000 characters.|
@@ -64,23 +56,19 @@ Table 3 lists the limits and describes the differences in the matches that each 
 
 **Table 3. Limits on the matches returned**
 
-
-||**Outlook rich client**|**Outlook Web App or OWA for Devices**|
+||Outlook rich client|Outlook on the web or OWA for Devices|
 |:-----|:-----|:-----|
-|Order of returned matches|Assume  **getRegExMatches** returns matches for the same regular expression applied on the same item is different in an Outlook rich client than in Outlook Web App or OWA for Devices.|Assume  **getRegExMatches** returns matches in different order in an Outlook rich client than in Outlook Web App or OWA for Devices.|
-|Plain text item body|**getRegExMatches** returns any matches that are up to 1,536 (1.5 KB) characters, for a maximum of 50 matches.<br/><br/>**Note**: **getRegExMatches** does not return matches in any specific order in the returned array. In general, assume the order of matches in an Outlook rich client for the same regular expression applied on the same item is different from that in Outlook Web App and OWA for Devices.|**getRegExMatches** returns any matches that are up to 3,072 (3 KB) characters, for a maximum of 50 matches.|
-|HTML item body|**getRegExMatches** returns any matches that are up to 3,072 (3 KB) characters, for a maximum of 50 matches.<br/> <br/> **Note**:  **getRegExMatches** does not return matches in any specific order in the returned array. In general, assume the order of matches in an Outlook rich client for the same regular expression applied on the same item is different from that in Outlook Web App and OWA for Devices.|**getRegExMatches** returns any matches that are up to 3,072 (3 KB) characters, for a maximum of 50 matches.|
+|Order of returned matches|Assume  **getRegExMatches** returns matches for the same regular expression applied on the same item is different in an Outlook rich client than in Outlook on the web or OWA for Devices.|Assume  **getRegExMatches** returns matches in different order in an Outlook rich client than in Outlook on the web or OWA for Devices.|
+|Plain text item body|**getRegExMatches** returns any matches that are up to 1,536 (1.5 KB) characters, for a maximum of 50 matches.<br/><br/>**Note**: **getRegExMatches** does not return matches in any specific order in the returned array. In general, assume the order of matches in an Outlook rich client for the same regular expression applied on the same item is different from that in Outlook on the web and OWA for Devices.|**getRegExMatches** returns any matches that are up to 3,072 (3 KB) characters, for a maximum of 50 matches.|
+|HTML item body|**getRegExMatches** returns any matches that are up to 3,072 (3 KB) characters, for a maximum of 50 matches.<br/> <br/> **Note**:  **getRegExMatches** does not return matches in any specific order in the returned array. In general, assume the order of matches in an Outlook rich client for the same regular expression applied on the same item is different from that in Outlook on the web and OWA for Devices.|**getRegExMatches** returns any matches that are up to 3,072 (3 KB) characters, for a maximum of 50 matches.|
 
 ## Limits for JavaScript API
 
-
 Aside from the preceding guidelines for activation rules, each of the Outlook hosts enforces certain limits in the JavaScript object model, as described in Table 4.
-
 
 **Table 4. Limits to get or set certain data using the JavaScript API for Office**
 
-
-|**Feature**|**Limit**|**Related API**|**Description**|
+|Feature|Limit|Related API|Description|
 |:-----|:-----|:-----|:-----|
 |Custom properties|2,500 characters|[CustomProperties](https://dev.office.com/reference/add-ins/outlook/1.5/CustomProperties?product=outlook&version=v1.5) object<br/> <br/>[item.loadCustomPropertiesAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method|Limit for all custom properties for an appointment or message item. All the Outlook hosts return an error if the total size of all custom properties of an add-in exceeds this limit.|
 |Roaming settings|32 KB number of characters|[RoamingSettings](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) object<br/><br/> [context.roamingSettings](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context?product=outlook&version=v1.5) property|Limit for all roaming settings for the add-in. All the Outlook hosts return an error if your settings exceed this limit.|
@@ -91,20 +79,16 @@ Aside from the preceding guidelines for activation rules, each of the Outlook ho
 |Setting the subject|255 characters|[mailbox.displayNewAppointmentForm](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [Subject.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5) method|Limit for the subject in the new appointment form, or for setting the subject of an appointment or message.|
 |Setting the location|255 characters|[Location.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5) method|Limit for setting the location of an appointment or meeting request.|
 |Body in a new appointment form|32 KB number of characters|**Mailbox.displayNewAppointmentForm** method|Limit for the body in a new appointment form.|
-|Displaying the body of an existing item|32 KB number of characters|[mailbox.displayAppointmentForm](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [mailbox.displayMessageForm](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method|For Outlook Web App and OWA for Devices: limit for the body in an existing appointment or message form.|
+|Displaying the body of an existing item|32 KB number of characters|[mailbox.displayAppointmentForm](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [mailbox.displayMessageForm](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method|For Outlook on the web and OWA for Devices: limit for the body in an existing appointment or message form.|
 |Setting the body|1 MB number of characters|[Body.prependAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5) method<br/> <br/>[Body.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5)<br/><br/>[Body.setSelectedDataAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5) method|Limit for setting the body of an appointment or message item.|
-|Number of attachments|499 files on Outlook Web App and OWA for Devices|[item.addFileAttachmentAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method|Limit for the number of files that can be attached to an item for sending. Outlook Web App and OWA for Devices generally limit attaching up to 499 files, through the user interface and  **addFileAttachmentAsync**. An Outlook rich client does not specifically limit the number of file attachments. However, all Outlook hosts observe the limit for the size of attachments that user's Exchange Server has been configured with. See the next row for "Size of attachments".|
-|Size of attachments|Dependent on Exchange Server|**item.addFileAttachmentAsync** method|There is a limit on the size of all the attachments for an item, which an administrator can configure on the Exchange Server of the user's mailbox.For an Outlook rich client, this limits the number of attachments for an item. For Outlook Web App and OWA for Devices, the lesser of the two limits - the number of attachments and the size of all attachments - restricts the actual attachments for an item.|
+|Number of attachments|499 files on Outlook on the web and OWA for Devices|[item.addFileAttachmentAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method|Limit for the number of files that can be attached to an item for sending. Outlook on the web and OWA for Devices generally limit attaching up to 499 files, through the user interface and  **addFileAttachmentAsync**. An Outlook rich client does not specifically limit the number of file attachments. However, all Outlook hosts observe the limit for the size of attachments that user's Exchange Server has been configured with. See the next row for "Size of attachments".|
+|Size of attachments|Dependent on Exchange Server|**item.addFileAttachmentAsync** method|There is a limit on the size of all the attachments for an item, which an administrator can configure on the Exchange Server of the user's mailbox.For an Outlook rich client, this limits the number of attachments for an item. For Outlook on the web and OWA for Devices, the lesser of the two limits - the number of attachments and the size of all attachments - restricts the actual attachments for an item.|
 |Attachment filename|255 characters|**item.addFileAttachmentAsync** method|Limit for the length of the filename of an attachment to be added to an item.|
 |Attachment URI|2048 characters|**item.addFileAttachmentAsync** method|Limit of the URI of the filename to be added as an attachment to an item.|
 |Attachment ID|100 characters|[item.addItemAttachmentAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method<br/><br/> [item.removeAttachmentAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method|Limit for the length of the ID of the attachment to be added to or removed from an item.|
-|Asynchronous calls|3 calls|**item.addFileAttachmentAsync** method<br/><br/>**item.addItemAttachmentAsync** method<br/><br/><br/>**item.removeAttachmentAsync** method<br/><br/> [Body.getTypeAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5) method<br/><br/>**Body.prependAsync** method<br/><br/>**Body.setSelectedDataAsync** method<br/><br/> [CustomProperties.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/CustomProperties?product=outlook&version=v1.5) method<br/><br/><br/> [item.LoadCustomPropertiesAysnc](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method<br/><br/><br/> [Location.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5) method<br/><br/>**Location.setAsync** method<br/><br/> [mailbox.getCallbackTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [mailbox.getUserIdentityTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/>**Recipients.addAsync** method<br/><br/> [Recipients.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5) method<br/><br/>**Recipients.setAsync** method<br/><br/> [RoamingSettings.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method<br/><br/> [Subject.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5) method<br/><br/>**Subject.setAsync** method<br/><br/> [Time.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5) method<br/><br/> [Time.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5) method|For Outlook Web App or OWA for Devices: limit of the number of simultaneous asynchronous calls at any one time, as browsers allow only a limited number of asynchronous calls to servers. |
+|Asynchronous calls|3 calls|**item.addFileAttachmentAsync** method<br/><br/>**item.addItemAttachmentAsync** method<br/><br/><br/>**item.removeAttachmentAsync** method<br/><br/> [Body.getTypeAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5) method<br/><br/>**Body.prependAsync** method<br/><br/>**Body.setSelectedDataAsync** method<br/><br/> [CustomProperties.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/CustomProperties?product=outlook&version=v1.5) method<br/><br/><br/> [item.LoadCustomPropertiesAysnc](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method<br/><br/><br/> [Location.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5) method<br/><br/>**Location.setAsync** method<br/><br/> [mailbox.getCallbackTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [mailbox.getUserIdentityTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/>**Recipients.addAsync** method<br/><br/> [Recipients.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5) method<br/><br/>**Recipients.setAsync** method<br/><br/> [RoamingSettings.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method<br/><br/> [Subject.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5) method<br/><br/>**Subject.setAsync** method<br/><br/> [Time.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5) method<br/><br/> [Time.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5) method|For Outlook on the web or OWA for Devices: limit of the number of simultaneous asynchronous calls at any one time, as browsers allow only a limited number of asynchronous calls to servers. |
 
 ## Additional resources
 
-
-
 - [Deploy and install Outlook add-ins for testing](testing-and-tips.md)
-    
-- [Privacy, permissions, and security for Outlook add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)
-    
+- [Privacy, permissions, and security for Outlook add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security)

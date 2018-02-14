@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Graph in a PHP app to access the Outlook
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: php
 ms.date: 06/02/2017
 ms.author: jasonjoh
@@ -636,7 +636,7 @@ To summarize the new code in the `mail` function:
     - It uses the `top` method with a value of `10` to limit the results to the first 10.
     - It uses the `select` method to only request the `subject`, `from`, `receivedDateTime`, and `isRead` properties.
     - It uses the `orderby` method with a value of `receivedDateTime desc` to get the newest messages first.
-- It loops over the results and prints out the the subject.
+- It loops over the results and prints out the subject.
 
 If you restart the app now, you should get a very rough listing of the results array. Let's add a little HTML and PHP to display the results in a nicer way.
 

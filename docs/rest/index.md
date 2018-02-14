@@ -4,7 +4,7 @@ description: Learn about the benefits of the Outlook APIs in the Microsoft Graph
 author: jasonjoh
 
 ms.topic: landing-page
-ms.technology: graph
+ms.technology: ms-graph
 ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
@@ -43,9 +43,6 @@ Take an early look at the following services in preview status:
 - Creating new Outlook.com* and Office 365 apps that access mailbox data.
 
 Plan to upgrade in-production Office 365 apps once the preview period is over.
-
-> [!TIP]
-> Make sure Outlook.com apps handle user mailboxes that have not been enabled for the Outlook REST API. API calls made against these users will return either `MailboxNotEnabledForRESTAPI` or `MailboxNotSupportedForRESTAPI` error codes. See [Use the Outlook REST API](https://msdn.microsoft.com/office/office365/APi/use-outlook-rest-api#outlookrestcaution) for more information.
 
 ### Outlook REST API via Microsoft Graph
 

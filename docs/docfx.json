@@ -34,7 +34,7 @@
     "globalMetadata": {
       "uhfHeaderId": "MSDocsHeader-Outlook",
       "searchScope": [ "Outlook Developer" ],
-      "ms.suite": "Office",
+      "ms.suite": "office365",
       "ms.prod": "Outlook",
       "breadcrumb_path": "/outlook/breadcrumb/toc.json"
     },

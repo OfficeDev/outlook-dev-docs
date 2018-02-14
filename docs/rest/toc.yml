@@ -25,6 +25,8 @@
     href: compare-graph-outlook.md
   - name: Webhooks and Notifications
     href: webhooks.md
+  - name: Recurrence rules
+    href: recurrence-rules.md
 - name: Reference
   href: reference.md
 - name: Terms of Use

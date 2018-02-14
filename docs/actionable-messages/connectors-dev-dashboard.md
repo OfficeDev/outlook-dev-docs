@@ -4,8 +4,8 @@ description: Learn about the connectors developer dashboard.
 author: jasonjoh
 
 ms.topic: article
-ms.technology: office-365-connectors
-ms.date: 04/26/2017
+ms.technology: o365-connectors
+ms.date: 10/03/2017
 ms.author: jasonjoh
 ---
 
@@ -86,13 +86,12 @@ http://contoso.com/integrations/Office365/callback
 
 #### Implement a referrer policy
 
-Implement a referrer policy by adding a `meta` tag to the `head` section of your `callback_url` webpage. You can set it to one of the three options listed below.
+Implement a referrer policy by adding a `meta` tag to the `head` section of your `callback_url` webpage. You can set it to one of the two options listed below.
 
 | Meta tag | Description |
 |----------|-------------|
-| `<meta name="referrer" content="none">` | None: Never pass referral data. |
+| `<meta name="referrer" content="no-referrer">` | None: Never pass referral data. |
 | `<meta name="referrer" content="origin">` | Origin Only: Sends the scheme, host, and port (basically, the subdomain) stripped of the full URL as a referrer, i.e. `https://contoso.com/example.html` would simply send `https://contoso.com`. |
-| `<meta name="referrer" content="origin-when-crossorigin">` | Origin When Cross-Origin: Sends the full URL as the referrer when the target has the same scheme, host, and port (i.e. subdomain) regardless if it's HTTP or HTTPS, while sending origin-only referral information to external sites. |
 
 ### Error Handling
 

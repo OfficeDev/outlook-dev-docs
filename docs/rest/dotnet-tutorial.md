@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Graph in an ASP.NET web app to access th
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: csharp
 ms.date: 05/31/2017
 ms.author: jasonjoh
@@ -170,9 +170,9 @@ using Microsoft.Owin.Security.OpenIdConnect;
 using Owin;
 
 
-[assembly: OwinStartup(typeof(dotnet_tutorial_test.App_Start.Startup))]
+[assembly: OwinStartup(typeof(dotnet_tutorial.App_Start.Startup))]
 
-namespace dotnet_tutorial_test.App_Start
+namespace dotnet_tutorial.App_Start
 {
     public class Startup
     {
@@ -578,6 +578,13 @@ Now if you save your changes and restart the app, the home page should display t
 ## Using the Mail API
 
 Let's start by adding a new function to the `HomeController` class to get the user's access token. In this function we'll use MSAL and our token cache. If there is a valid non-expired token in the cache, MSAL will return it. If it is expired, MSAL will refresh the token for us.
+
+Add the following `using` statements to `./Controllers/HomeController.cs`.
+
+```csharp
+using System.Configuration;
+using System.Net.Http.Headers;
+```
 
 #### `GetAccessToken` function in `./Controllers/HomeController.cs`
 

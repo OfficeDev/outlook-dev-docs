@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 01/08/2018
 ms.author: jasonjoh
 ---
 
@@ -15,9 +15,7 @@ The [Office.context.mailbox.item](https://dev.office.com/reference/add-ins/outlo
 
 ## Get an access token
 
-The Outlook REST APIs require a bearer token in the `Authorization` header. Typically apps use OAuth2 flows to retrieve a token. However, add-ins can retrieve a token without implementing OAuth2 by using the new [Office.context.mailbox.getCallbackTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method introduced in the Mailbox requirement set 1.5 preview.
-
-> **Note**: Because Mailbox requirement set 1.5 is in preview, you cannot specify it as a requirement in the manifest. 
+The Outlook REST APIs require a bearer token in the `Authorization` header. Typically apps use OAuth2 flows to retrieve a token. However, add-ins can retrieve a token without implementing OAuth2 by using the new [Office.context.mailbox.getCallbackTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method introduced in the Mailbox requirement set 1.5.
 
 By setting the `isRest` option to `true`, you can request a token compatible with the REST APIs.
 
@@ -55,8 +53,6 @@ Your add-in can determine which Outlook client it is loaded in by checking the [
 
 ```js
 function getItemRestId() {
-  // Currently the only Outlook Mobile version that supports add-ins
-  // is Outlook for iOS.
   if (Office.context.mailbox.diagnostics.hostName === 'OutlookIOS') {
     // itemId is already REST-formatted
     return Office.context.mailbox.item.itemId;

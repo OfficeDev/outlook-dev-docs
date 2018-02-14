@@ -4,7 +4,7 @@ description: Learn how to create an actionable message card and send it via conn
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: office-365-connectors
+ms.technology: o365-connectors
 ms.date: 05/09/2017
 ms.author: jasonjoh
 ---

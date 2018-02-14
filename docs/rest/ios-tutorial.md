@@ -4,9 +4,9 @@ description: Learn how to use Microsoft Graph in an iOS app to access the Outloo
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: graph
+ms.technology: ms-graph
 ms.devlang: swift
-ms.date: 04/26/2017
+ms.date: 10/23/2017
 ms.author: jasonjoh
 ---
 
@@ -132,8 +132,9 @@ At this point the app should build and run. Tapping the **Log in** button should
 Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID. 
 
 1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `swift-tutorial` for the name and click **Create application**. 
-1. Locate the **Platforms** section, and click **Add Platform**. Choose **Mobile**.
+1. Click the **Add an app** button. Enter `swift-tutorial` for the name and click **Create**. 
+1. Locate the **Platforms** section, and click **Add Platform**. Choose **Native application**.
+1. Replace the value for **Custom Redirect URIs** with `swift-tutorial://oauth2/callback`.
 1. Click **Save** to complete the registration. Copy the **Application Id** and save it. We'll need it soon.
 
 Here's what the details of your app registration should look like when you are done.
@@ -161,21 +162,20 @@ class OutlookService {
         "authorize_uri": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
         "token_uri": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
         "scope": "openid profile offline_access User.Read Mail.Read",
-        "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob"],
+        "redirect_uris": ["swift-tutorial://oauth2/callback"],
         "verbose": true,
         ] as OAuth2JSON
-    
+
     private static var sharedService: OutlookService = {
         let service = OutlookService()
         return service
     }()
-    
+
     private let oauth2: OAuth2CodeGrant
-    
+
     private init() {
         oauth2 = OAuth2CodeGrant(settings: OutlookService.oauth2Settings)
         oauth2.authConfig.authorizeEmbedded = true
-        oauth2.authConfig.ui.useSafariView = false
     }
     
     class func shared() -> OutlookService {
@@ -187,7 +187,11 @@ class OutlookService {
             return oauth2.hasUnexpiredAccessToken() || oauth2.refreshToken != nil
         }
     }
-    
+
+    func handleOAuthCallback(url: URL) -> Void {
+        oauth2.handleRedirectURL(url)
+    }
+
     func login(from: AnyObject, callback: @escaping (String? ) -> Void) -> Void {
         oauth2.authorizeEmbedded(from: from) {
             result, error in
@@ -202,7 +206,7 @@ class OutlookService {
             }
         }
     }
-    
+
     func logout() -> Void {
         oauth2.forgetTokens()
     }
@@ -210,6 +214,40 @@ class OutlookService {
 ```
 	
 Replace the value of `clientId` with the application ID you generated in the Application Registration Portal.
+
+Open **AppDelegate.swift** and add a new function to the `AppDelegate` class. This function will handle activation of the app when it is activated by the custom redirect URI during sign in.
+
+#### `application` function in `AppDelegate.swift`
+
+```Swift
+func application(_ app: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    if url.scheme == "swift-tutorial" {
+        let service = OutlookService.shared()
+        service.handleOAuthCallback(url: url)
+        return true
+    }
+    else {
+        return false
+    }
+}
+```
+
+Now we need to register the custom URI scheme `swift-tutorial` so that our app will be invoked.
+
+1. Control-click the **Info.plist** file and choose **Open As**, then **Source Code**.
+1. Go to the end of the file, and add the following code just after the last `</array>` line in the file:
+
+    ```xml
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>swift-tutorial</string>
+            </array>
+        </dict>
+    </array>
+    ```
 
 Switch back to **MailViewController.swift**. Add a member to the `MailViewController` class to hold the shared instance of the `OutlookService` class.
 

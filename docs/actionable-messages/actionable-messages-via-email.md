@@ -4,8 +4,8 @@ description: Learn how to create an actionable message card and send it via emai
 author: jasonjoh
 
 ms.topic: get-started-article
-ms.technology: office-365-connectors
-ms.date: 04/26/2017
+ms.technology: o365-connectors
+ms.date: 01/08/2018
 ms.author: jasonjoh
 ---
 
@@ -21,6 +21,7 @@ Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and pa
 {
   "@context": "http://schema.org/extensions",
   "@type": "MessageCard",
+  "originator": "",
   "themeColor": "0072C6",
   "title": "Visit the Outlook Dev Portal",
   "text": "Click **Learn More** to learn more about Actionable Messages!",
@@ -74,6 +75,7 @@ To embed an actionable message card in an email message, we need to wrap the car
     {
       "@context": "http://schema.org/extensions",
       "@type": "MessageCard",
+      "originator": "",
       "hideOriginalBody": "true",
       "themeColor": "0072C6",
       "title": "Visit the Outlook Dev Portal",
@@ -116,6 +118,7 @@ To embed an actionable message card in an email message, we need to wrap the car
     <script type="application/ld+json">{
       "@context": "http://schema.org/extensions",
       "@type": "MessageCard",
+      "originator": "",
       "hideOriginalBody": "true",
       "themeColor": "0072C6",
       "title": "Visit the Outlook Dev Portal",
@@ -162,6 +165,7 @@ To embed an actionable message card in an email message, we need to wrap the car
       <script type="application/ld+json">{
         "@context": "http://schema.org/extensions",
         "@type": "MessageCard",
+        "originator": "",
         "hideOriginalBody": "true",
         "themeColor": "0072C6",
         "title": "Visit the Outlook Dev Portal",

@@ -4,9 +4,10 @@ description: Learn about actionable messages in Outlook email and connectors for
 author: jasonjoh
 
 ms.topic: article
-ms.technology: office-365-connectors
-ms.date: 05/09/2017
+ms.technology: o365-connectors
+ms.date: 12/06/2017
 ms.author: jasonjoh
+nodes_to_expand: get-started
 ---
 
 # Actionable messages in Outlook, Office 365 Groups, and Microsoft Teams
@@ -37,7 +38,7 @@ Outlook makes a request to the expense report approval system, and the expense r
 
 Adele Vance and her team use Trello as their task management system. Adele has configured the Trello connector in her account, and will receive granular notifications as activity occurs in the Trello boards she is interested in.
 
-Shiva, in Adele's team, creates a new Trello card in the "Hiring" board. He needs the latest job postings to be published. Adele receives an actionable message that tells here all about the new card and the task it represents: who created it, in which list, what the due date is, and more.
+Shiva, in Adele's team, creates a new Trello card in the "Hiring" board. He needs the latest job postings to be published. Adele receives an actionable message that tells her all about the new card and the task it represents: who created it, in which list, what the due date is, and more.
 
 ![A Trello connector card with actions](images/trello-card-actions.png)
 
@@ -94,6 +95,22 @@ Configured connectors post cards directly in the group feed.
 Currently, you can only configure connectors from Office 365 Outlook, Microsoft Teams and Yammer on the web, but you can view information posted by Connectors to your Group or Team by multiple clients such as Outlook on the web, Outlook 2016 and the Office365 Groups Mobile app; Microsoft Teams web, desktop, and iOS and Android apps; and Yammer web, desktop, iOS and Android apps.
 
 For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">support article</a>.
+
+### Outlook version requirements for actionable messages
+
+Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Office 365 ProPlus](https://support.office.com/en-us/article/Overview-of-update-channels-for-Office-365-ProPlus-9ccf0f13-28ff-4975-9bd2-7e4ea2fefef4).
+
+| Client | Actionable messages supported? | Minimum Version |
+|---------|--------------------------------|-----------------|
+| Outlook on the web for Office 365| Yes | Available to all Office 365 users |
+| Office 365 ProPlus Monthly Channel | Yes | Version 1705, Build 8201 |
+| Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes | Version 1708, Build 8431 |
+| Office 365 ProPlus Semi-Annual Channel | Yes | Version 1708, Build 8431.2153 |
+| Outlook 2016 for Mac | No | Coming Soon |
+| Outlook for iOS | No | Coming Soon |
+| Outlook for Android | No | Coming Soon |
+| Office Professional Plus 2016 | No | Actionable Messages are available for Office 365 only |
+| Exchange 2016 On-Premises Outlook on the web | No | Actionable Messages are available for Office 365 only |
 
 ## Submit feedback 
 

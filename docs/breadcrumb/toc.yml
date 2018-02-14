@@ -40,6 +40,9 @@
       - name: Webhooks and Notifications
         tocHref: /outlook/rest/webhooks
         topicHref: /outlook/rest/webhooks
+      - name: Recurrence rules
+        tocHref: /outlook/rest/recurrence-rules
+        topicHref: /outlook/rest/recurrence-rules
       - name: Reference
         tocHref: /outlook/rest/reference
         topicHref: /outlook/rest/reference
@@ -50,7 +53,10 @@
     tocHref: /outlook/add-ins/
     topicHref: /outlook/add-ins/index
     items:
-      - name: Write your first Outlook add-in
+      - name: Build your first Outlook add-in
+        tocHref: /outlook/add-ins/quick-start
+        topicHref: /outlook/add-ins/quick-start
+      - name: Advanced Tutorial
         tocHref: /outlook/add-ins/addin-tutorial
         topicHref: /outlook/add-ins/addin-tutorial
       - name: Outlook add-in design guidelines
@@ -84,6 +90,9 @@
         - name: Add support for Outlook Mobile
           tocHref: /outlook/add-ins/add-mobile-support
           topicHref: /outlook/add-ins/add-mobile-support
+      - name: Add-in requirements
+        tocHref: /outlook/add-ins/add-in-requirements
+        topicHref: /outlook/add-ins/add-in-requirements
       - name: Add-in APIs
         tocHref: /outlook/add-ins/apis
         topicHref: /outlook/add-ins/apis
@@ -151,25 +160,23 @@
         tocHref: /outlook/add-ins/authentication
         topicHref: /outlook/add-ins/authentication
         items:
-        - name: Inside the identity token
-          tocHref: /outlook/add-ins/inside-the-identity-token
-          topicHref: /outlook/add-ins/inside-the-identity-token
-        - name: Call a service by using an identity token
-          tocHref: /outlook/add-ins/call-a-service-by-using-an-identity-token
-          topicHref: /outlook/add-ins/call-a-service-by-using-an-identity-token
-        - name: Use the token validation library
-          tocHref: /outlook/add-ins/use-the-token-validation-library
-          topicHref: /outlook/add-ins/use-the-token-validation-library
+        - name: Authenticate with an SSO token
+          tocHref: /outlook/add-ins/authenticate-a-user-with-an-sso-token
+          topicHref: /outlook/add-ins/authenticate-a-user-with-an-sso-token
+        - name: Authenticate with an identity token
+          tocHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
+          topicHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
         - name: Validate an identity token
           tocHref: /outlook/add-ins/validate-an-identity-token
           topicHref: /outlook/add-ins/validate-an-identity-token
-        - name: Use PHP to validate an identity token
-          tocHref: /outlook/add-ins/use-php-to-validate-an-identity-token
-          topicHref: /outlook/add-ins/use-php-to-validate-an-identity-token
-        - name: Authenticate a user with an identity token
-          tocHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
-          topicHref: /outlook/add-ins/authenticate-a-user-with-an-identity-token
+        - name: Inside the identity token
+          tocHref: /outlook/add-ins/inside-the-identity-token
+          topicHref: /outlook/add-ins/inside-the-identity-token
+        - name: "Scenario: Implement single sign-on"
+          tocHref: /outlook/add-ins/implement-sso-in-outlook-add-in
+          topicHref: /outlook/add-ins/implement-sso-in-outlook-add-in
       - name: Testing and tips
+        maintainContext: true
         tocHref: /outlook/add-ins/testing-and-tips
         topicHref: /outlook/add-ins/testing-and-tips
         items:
@@ -211,6 +218,9 @@
       - name: Security Requirements
         tocHref: /outlook/actionable-messages/security-requirements
         topicHref: /outlook/actionable-messages/security-requirements
+      - name: Invoke an Outlook add-in
+        tocHref: /outlook/actionable-messages/invoke-add-in-from-actionable-message
+        topicHref: /outlook/actionable-messages/invoke-add-in-from-actionable-message
       - name: Card Reference
         tocHref: /outlook/actionable-messages/card-reference
         topicHref: /outlook/actionable-messages/card-reference

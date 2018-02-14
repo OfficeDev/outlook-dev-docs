@@ -9,8 +9,12 @@
     href: actionable-messages-via-email.md
   - name: Actionable Messages via Connectors
     href: actionable-messages-via-connectors.md
-- name: Security Requirements
-  href: security-requirements.md
+- name: Concepts
+  items:
+  - name: Security Requirements
+    href: security-requirements.md
+  - name: Invoke an Outlook add-in
+    href: invoke-add-in-from-actionable-message.md
 - name: Card Reference
   href: card-reference.md
 - name: Actionable Email Developer Dashboard
