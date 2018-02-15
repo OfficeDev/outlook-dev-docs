@@ -5,44 +5,34 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 08/09/2017
 ms.author: jasonjoh
 ---
 
 # Module extension Outlook add-ins
 
-Module extension add-ins appear in the Outlook navigation bar, right alongside mail, tasks,
-and calendars. A module extension is not limited to using mail and appointment information;
-you can create applications that run inside Outlook to make it easy for your users
-to access business information and productivity tools without ever leaving Outlook.
+Module extension add-ins appear in the Outlook navigation bar, right alongside mail, tasks, and calendars. A module extension is not limited to using mail and appointment information. You can create applications that run inside Outlook to make it easy for your users to access business information and productivity tools without ever leaving Outlook.
 
-> **Note**: Module extensions are available only in Office 2016.
+> [!NOTE]
+> Module extensions are available only in Outlook 2016.
 
-To open a module extension, users click on the module's name or icon in the Outlook 
-navigation bar. If the user has compact navigation selected, the navigation bar has an
-icon that shows an extension is loaded.
+To open a module extension, users click on the module's name or icon in the Outlook navigation bar. If the user has compact navigation selected, the navigation bar has an icon that shows an extension is loaded.
 
 ![Shows the compact navigation bar when a module extension is loaded in Outlook.](images/outlook-module-navigationbar-compact.png)
 
-If the user is not using compact navigation, the navigation bar has two looks; with one
-extension loaded it shows the name of the add-in.
+If the user is not using compact navigation, the navigation bar has two looks. With one extension loaded it shows the name of the add-in.
 
 ![Shows the expanded navigation bar when one module extension is loaded in Outlook.](images/outlook-module-navigationbar-one.png)
 
-When more than one add-in is loaded it shows the word "Add-ins". Clicking either will 
-open the extension's user interface.
+When more than one add-in is loaded it shows the word **Add-ins**. Clicking either will open the extension's user interface.
 
 ![Shows the expanded navigation bar when more than on module extension is loaded in Outlook.](images/outlook-module-navigationbar-more.png)
 
-When you click on an extension, Outlook replaces the built-in module with you custom module
-so that your users can interact with the add-in. You can use all of the features of the 
-Outlook JavaScript API in your add-in, and can create command buttons in the Outlook ribbon
-that will interact with the add-in content. This sample add-in is integrated in the Outlook
-navigation bar and has ribbon commands that will update the content of the add-in.
+When you click on an extension, Outlook replaces the built-in module with your custom module so that your users can interact with the add-in. You can use all of the features of the Outlook JavaScript API in your add-in, and can create command buttons in the Outlook ribbon that will interact with the add-in content. The following screenshot shows an add-in that is integrated in the Outlook navigation bar and has ribbon commands that will update the content of the add-in.
 
 ![Shows the user interface of a module extension](images/outlook-module-extension.png)
 
-The following is a section of a manifest file that definces a module extension.
+The following is a section of a manifest file that defines a module extension.
 
 ```xml
 <!-- Add Outlook module extension point -->
@@ -154,6 +144,6 @@ The following is a section of a manifest file that definces a module extension.
 
 ## Additional resources
 
-* [Outlook add-in manifests](manifests.md)
-* [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands)
-* [Outlook module extensions Billable hours sample](https://github.com/OfficeDev/Outlook-Add-in-JavaScript-ModuleExtension)
+- [Outlook add-in manifests](manifests.md)
+- [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands)
+- [Outlook module extensions Billable hours sample](https://github.com/OfficeDev/Outlook-Add-in-JavaScript-ModuleExtension)
