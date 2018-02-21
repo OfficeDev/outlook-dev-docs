@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: php
-ms.date: 02/21/2017
+ms.date: 02/21/2018
 ms.author: jasonjoh
 ---
 
