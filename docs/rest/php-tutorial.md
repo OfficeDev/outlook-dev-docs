@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: php
-ms.date: 06/02/2017
+ms.date: 02/21/2017
 ms.author: jasonjoh
 ---
 
@@ -550,7 +550,7 @@ Run the following command from your command prompt/shell in the `php-tutorial` d
 composer update
 ```
 
-Now let's modify the `mail` function. Our first use of the Graph SDK here will be to get the user's name and email address. You'll see why we want this soon.
+Now let's modify the `mail` function. Our first use of the Graph SDK here will be to get the user's name, just to verify that we can call the Microsoft Graph API.
 
 Add the following lines just after the `use App\Http\Controllers\Controller;` line in `OutlookController.php`.
 
@@ -579,11 +579,11 @@ public function mail()
                 ->setReturnType(Model\User::class)
                 ->execute();
 
-  echo 'User: '.$user->getDisplayName().' - '.$user->getMail();
+  echo 'User: '.$user->getDisplayName();
 }
 ```
 
-Save your changes and refresh the mail view. You should see the authenticated user's name and email address. (If not, start over at `http://localhost:8000` and login again.)
+Save your changes and refresh the mail view. You should see the authenticated user's name. (If not, start over at `http://localhost:8000` and login again.)
 
 Now let's add code to retrieve the user's messages. Replace the existing `mail` function with the following.
 
@@ -605,7 +605,7 @@ public function mail()
                 ->setReturnType(Model\User::class)
                 ->execute();
 
-  echo 'User: '.$user->getDisplayName().' - '.$user->getMail().'<br/>';
+  echo 'User: '.$user->getDisplayName().'<br/>';
 
   $messageQueryParams = array (
     // Only return Subject, ReceivedDateTime, and From fields
@@ -618,7 +618,6 @@ public function mail()
 
   $getMessagesUrl = '/me/mailfolders/inbox/messages?'.http_build_query($messageQueryParams);
   $messages = $graph->createRequest('GET', $getMessagesUrl)
-                    ->addHeaders(array ('X-AnchorMailbox' => $user->getMail()))
                     ->setReturnType(Model\Message::class)
                     ->execute();
 
@@ -631,7 +630,6 @@ public function mail()
 To summarize the new code in the `mail` function:
 
 - It creates a Graph client object and initializes it to use the access token passed to the function.
-- It sets the `X-AnchorMailbox` header on the request, which enables the API endpoint to route API calls to the appropriate backend mailbox server more efficiently. This is why we went to the trouble to get the user's email earlier.
 - It calls the `/me/mailfolders/inbox/messages` API to get inbox messages, and uses other methods to control the request:
     - It uses the `top` method with a value of `10` to limit the results to the first 10.
     - It uses the `select` method to only request the `subject`, `from`, `receivedDateTime`, and `isRead` properties.
@@ -703,13 +701,11 @@ public function mail()
 
   $getMessagesUrl = '/me/mailfolders/inbox/messages?'.http_build_query($messageQueryParams);
   $messages = $graph->createRequest('GET', $getMessagesUrl)
-                    ->addHeaders(array ('X-AnchorMailbox' => $user->getMail()))
                     ->setReturnType(Model\Message::class)
                     ->execute();
 
   return view('mail', array(
     'username' => $user->getDisplayName(),
-    'usermail' => $user->getMail(),
     'messages' => $messages
   ));
 }
@@ -765,13 +761,11 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
       $getEventsUrl = '/me/events?'.http_build_query($eventsQueryParams);
       $events = $graph->createRequest('GET', $getEventsUrl)
-                      ->addHeaders(array ('X-AnchorMailbox' => $user->getMail()))
                       ->setReturnType(Model\Event::class)
                       ->execute();
 
       return view('calendar', array(
         'username' => $user->getDisplayName(),
-        'usermail' => $user->getMail(),
         'events' => $events
       ));
     }
@@ -858,13 +852,11 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
       $getContactsUrl = '/me/contacts?'.http_build_query($contactsQueryParams);
       $contacts = $graph->createRequest('GET', $getContactsUrl)
-                        ->addHeaders(array ('X-AnchorMailbox' => $user->getMail()))
                         ->setReturnType(Model\Contact::class)
                         ->execute();
 
       return view('contacts', array(
         'username' => $user->getDisplayName(),
-        'usermail' => $user->getMail(),
         'contacts' => $contacts
       ));
     }
