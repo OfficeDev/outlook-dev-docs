@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: ruby
-ms.date: 04/26/2017
+ms.date: 02/21/2018
 ms.author: jasonjoh
 ---
 
@@ -338,37 +338,7 @@ def get_token_from_code(auth_code)
 end
 ```
 
-### Getting the user's email address ###
-
-Our first use of the access token will be to get the user's email address from the Graph. You'll see why we want this soon. Let's start by installing the [Microsoft Graph Client Library for Ruby](https://github.com/microsoftgraph/msgraph-sdk-ruby). We'll be using this gem for all of our Outlook-related requests.
-
-Open up the `Gemfile` file and add this line anywhere in the file:
-
-```ruby
-gem 'microsoft_graph'
-```
-
-Save the file, run `bundle install`, and restart the server. 
-
-Add a new function `get_user_email` to `auth_helper.rb`.
-
-#### `get_user_email` in the `.\o365-tutorial\app\helpers\auth_helper.rb` file ####
-
-```ruby
-# Gets the user's email from the /Me endpoint
-def get_user_email(access_token)
-  callback = Proc.new { |r| r.headers['Authorization'] = "Bearer #{access_token}"}
-
-  graph = MicrosoftGraph.new(base_url: 'https://graph.microsoft.com/v1.0',
-                             cached_metadata_file: File.join(MicrosoftGraph::CACHED_METADATA_DIRECTORY, 'metadata_v1.0.xml'),
-                             &callback)
-
-  me = graph.me
-  email = me.mail
-end
-```
-
-Let's make sure that works. Modify the `gettoken` action in the `auth_controller.rb` file to use these helper functions and display the return values.
+Let's make sure that works. Modify the `gettoken` action in the `auth_controller.rb` file to use this helper function and display the return value.
 
 #### Updated contents of the `.\o365-tutorial\app\controllers\auth_controller.rb` file
 
@@ -378,15 +348,14 @@ class AuthController < ApplicationController
 
   def gettoken
   token = get_token_from_code params[:code]
-  email = get_user_email token.token
-  render text: "Email: #{email}, TOKEN: #{token.token}"
+  render text: "TOKEN: #{token.token}"
   end
 end
 ```
 
-If you save your changes and go through the sign-in process again, you should now see the user's email followed by a long string of seemingly nonsensical characters. If everything's gone according to plan, that should be an access token.
+If you save your changes and go through the sign-in process again, you should now see a long string of seemingly nonsensical characters. If everything's gone according to plan, that should be an access token.
 
-Now let's change our code to store the token and email in a session cookie instead of displaying them.
+Now let's change our code to store the token in a session cookie instead of displaying it.
 
 #### New version of `gettoken` action
 
@@ -394,7 +363,6 @@ Now let's change our code to store the token and email in a session cookie inste
 def gettoken
   token = get_token_from_code params[:code]
   session[:azure_token] = token.to_hash
-  session[:user_email] = get_user_email token.token
   render text: "Access token saved in session cookie."
 end
 ```
@@ -446,7 +414,17 @@ end
 
 ## Using the Mail API ##
 
-Now that we can get an access token, we're in a good position to do something with the Mail API. Let's start by creating a controller for mail operations.
+Now that we can get an access token, we're in a good position to do something with the Mail API. Let's start by installing the [Microsoft Graph Client Library for Ruby](https://github.com/microsoftgraph/msgraph-sdk-ruby). We'll be using this gem for all of our Outlook-related requests.
+
+Open up the `Gemfile` file and add this line anywhere in the file:
+
+```ruby
+gem 'microsoft_graph'
+```
+
+Save the file, run `bundle install`, and restart the server. 
+
+Now let's create a controller for mail operations.
 
 ```ruby
 rails generate controller Mail index
@@ -462,7 +440,6 @@ Now we can modify the `gettoken` action one last time to redirect to the index a
 def gettoken
   token = get_token_from_code params[:code]
   session[:azure_token] = token.to_hash
-  session[:user_email] = get_user_email token.token
   redirect_to mail_index_url
 end
 ```
@@ -479,13 +456,11 @@ class MailController < ApplicationController
 
   def index
     token = get_access_token
-    email = session[:user_email]
 
     if token
       # If a token is present in the session, get messages from the inbox
       callback = Proc.new do |r| 
         r.headers['Authorization'] = "Bearer #{token}"
-        r.headers['X-AnchorMailbox'] = email
       end
 
       graph = MicrosoftGraph.new(base_url: 'https://graph.microsoft.com/v1.0',
@@ -508,7 +483,6 @@ To summarize the code in the `index` action:
 - It issues a GET request to the URL for inbox messages, with the following characteristics:
     - It uses the `order_by` method to sort the results by `receivedDateTime`.
     - It sets the `Authorization` header to use the access token from Azure.
-    - It sets the `X-AnchorMailbox` header to the user's email address. Setting this header allows the API endpoint to route API calls to the appropriate backend mailbox server more efficiently.
 - It saves the return collection to the `@messages` variable. This variable will be available to the view template.
 
 ## Displaying the results
@@ -577,12 +551,10 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       
       def index
         token = get_access_token
-        email = session[:user_email]
         if token
           # If a token is present in the session, get events from the calendar
           callback = Proc.new do |r| 
             r.headers['Authorization'] = "Bearer #{token}"
-            r.headers['X-AnchorMailbox'] = email
           end
 
           graph = MicrosoftGraph.new(base_url: 'https://graph.microsoft.com/v1.0',
@@ -648,12 +620,10 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       
       def index
         token = get_access_token
-        email = session[:user_email]
         if token
           # If a token is present in the session, get contacts
           callback = Proc.new do |r| 
             r.headers['Authorization'] = "Bearer #{token}"
-            r.headers['X-AnchorMailbox'] = email
           end
 
           graph = MicrosoftGraph.new(base_url: 'https://graph.microsoft.com/v1.0',

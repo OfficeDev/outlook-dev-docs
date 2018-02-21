@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: javascript
-ms.date: 04/26/2017
+ms.date: 02/20/2018
 ms.author: jasonjoh
 ---
 
@@ -787,57 +787,48 @@ $('#auth-iframe').remove();
 
 Now that we can get an access token, we're in a good position to do something with the Mail API. Let's start by downloading the Microsoft Graph JavaScript Client Library. We already added a reference to it in the HTML, so all we need to do is download it. Go to [https://github.com/microsoftgraph/msgraph-sdk-javascript](https://github.com/microsoftgraph/msgraph-sdk-javascript) and download the source. Copy the `./lib/graph-js-sdk-web.js` into the `javascript-tutorial` directory.
 
-Our first task with this API is to get the user's email address. We'll use this to set the `X-AnchorMailbox` header. Setting this header to the user's email address helps the Outlook servers route the request more efficiently, so it's a good idea to set it! Let's implement a method to get the user's email address from the Outlook API.
-
-> [!NOTE]
-> You may wonder why we don't just use the `preferred_username` value from the user's ID token here and save making an extra API request. While in a lot of cases this value may be the same as the user's email address, that isn't true for all accounts. For example, a user could be configured to sign in with a Skype name or a mobile telephone number. By requesting the email address from the API, we can be sure to always have the correct email address.
-
 Add the following function after the `// OUTLOOK API FUNCTIONS` line.
 
-#### The `getUserEmailAddress` function
+#### The `getUserInboxMessages` function
 
 ```js
-function getUserEmailAddress(callback) {
-  if (sessionStorage.userEmail) {
-    callback(sessionStorage.userEmail);
-  } else {
-    getAccessToken(function(accessToken) {
-      if (accessToken) {
-        // Create a Graph client
-        var client = MicrosoftGraph.Client.init({
-          authProvider: (done) => {
-            // Just return the token
-            done(null, accessToken);
+function getUserInboxMessages(callback) {
+  getAccessToken(function(accessToken) {
+    if (accessToken) {
+      // Create a Graph client
+      var client = MicrosoftGraph.Client.init({
+        authProvider: (done) => {
+          // Just return the token
+          done(null, accessToken);
+        }
+      });
+
+      // Get the 10 newest messages
+      client
+        .api('/me/mailfolders/inbox/messages')
+        .top(10)
+        .select('subject,from,receivedDateTime,bodyPreview')
+        .orderby('receivedDateTime DESC')
+        .get((err, res) => {
+          if (err) {
+            callback(null, err);
+          } else {
+            callback(res.value);
           }
         });
-
-        // Get the Graph /Me endpoint to get user email address
-        client
-          .api('/me')
-          .get((err, res) => {
-            if (err) {
-              callback(null, err);
-            } else {
-              // Get result, which may be one of two values
-              // For Office 365 users, use the mail property
-              // For MSA users, use the userPrincipalName property
-              var email = res.mail ? res.mail : res.userPrincipalName;
-
-              // Store in session
-              sessionStorage.userEmail = email;
-              callback(email);
-            }
-          });
-      } else {
-        var error = { responseText: 'Could not retrieve access token' };
-        callback(null, error);
-      }
-    });
-  }
+    } else {
+      var error = { responseText: 'Could not retrieve access token' };
+      callback(null, error);
+    }
+  });
 }
 ```
 
-This function checks if we have a value stored in the session, and if not, calls the API to get the user's email address. Since this is the first time using the Graph client library, let's test it before proceeding.
+This uses the Graph client to get the first 10 messages in the inbox. It uses query parameters to control the results we get back.
+
+- Using the `top` method limits the results to the first 10 messages.
+- Using the `select` method controls which fields are returned for each message. In this case we only request the `subject`, `from`, `receivedDateTime`, and `bodyPreview` fields.
+- Using the `orderby` method sorts the results by the `receivedDateTime` field in descending order (newest first).
 
 Add the following code after the `// Display inbox` line in the `render` function.
 
@@ -864,13 +855,9 @@ function renderInbox() {
   $('#inbox-status').text('Loading...');
   $('#message-list').empty();
   $('#inbox').show();
-  // Get user's email address
-  getUserEmailAddress(function(userEmail, error) {
-    if (error) {
-      renderError('getUserEmailAddress failed', error.responseText);
-    } else {
-      $('#inbox-status').text('Your email address is: ' + userEmail);
-    }
+  
+  getUserInboxMessages(function(messages, error){
+    $('#inbox-status').text(JSON.stringify(messages));
   });
 }
 ```
@@ -889,60 +876,6 @@ Add the following code to `index.html` after the `<!-- inbox display -->` line:
   <div class="list-group" id="message-list">
   </div>
 </div>
-```
-
-Save your changes and refresh your browser. After signing in click the **Inbox** button in the nav bar. If everything works properly, you should see the user's email address displayed on the page. Let's work on getting the user's messages.
-
-Add the following function to `outlook-demo.js` after the `getUserEmailAddress` function.
-
-#### The `getUserInboxMessages` function
-
-```js
-function getUserInboxMessages(emailAddress, callback) {
-  getAccessToken(function(accessToken) {
-    if (accessToken) {
-      // Create a Graph client
-      var client = MicrosoftGraph.Client.init({
-        authProvider: (done) => {
-          // Just return the token
-          done(null, accessToken);
-        }
-      });
-
-      // Get the 10 newest messages
-      client
-        .api('/me/mailfolders/inbox/messages')
-        .header('X-AnchorMailbox', emailAddress)
-        .top(10)
-        .select('subject,from,receivedDateTime,bodyPreview')
-        .orderby('receivedDateTime DESC')
-        .get((err, res) => {
-          if (err) {
-            callback(null, err);
-          } else {
-            callback(res.value);
-          }
-        });
-    } else {
-      var error = { responseText: 'Could not retrieve access token' };
-      callback(null, error);
-    }
-  });
-}
-```
-
-This uses the Graph client that we used in `getUserEmailAddress`, but this time the call is a little more complicated. It uses query parameters to control the results we get back.
-
-- Using the `top` method limits the results to the first 10 messages.
-- Using the `select` method controls which fields are returned for each message. In this case we only request the `subject`, `from`, `receivedDateTime`, and `bodyPreview` fields.
-- Using the `orderby` method sorts the results by the `receivedDateTime` field in descending order (newest first).
-
-Let's modify the `renderInbox` function to call this. Replace the line `$('#inbox-status').text('Your email address is: ' + userEmail);` with the following code.
-
-```js
-getUserInboxMessages(userEmail, function(messages, error){
-  $('#inbox-status').text(JSON.stringify(messages));
-});
 ```
 
 Save your changes and refresh your browser. When you click the **Inbox** button you should eventually see an unformatted JSON dump of messages. It isn't pretty, but it verifies that our API call is working. Let's fix the app to display the results in a nicer way.
@@ -1035,23 +968,17 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       $('#calendar-status').text('Loading...');
       $('#event-list').empty();
       $('#calendar').show();
-      // Get user's email address
-      getUserEmailAddress(function(userEmail, error) {
-        if (error) {
-          renderError('getUserEmailAddress failed', error.responseText);
-        } else {
-          getUserEvents(userEmail, function(events, error){
-            if (error) {
-              renderError('getUserEvents failed', error);
-            } else {
-              $('#calendar-status').text('Here are the 10 most recently created events on your calendar.');
-              var templateSource = $('#event-list-template').html();
-              var template = Handlebars.compile(templateSource);
 
-              var eventList = template({events: events});
-              $('#event-list').append(eventList);
-            }
-          });
+      getUserEvents(function(events, error){
+        if (error) {
+          renderError('getUserEvents failed', error);
+        } else {
+          $('#calendar-status').text('Here are the 10 most recently created events on your calendar.');
+          var templateSource = $('#event-list-template').html();
+          var template = Handlebars.compile(templateSource);
+
+          var eventList = template({events: events});
+          $('#event-list').append(eventList);
         }
       });
     }
@@ -1060,7 +987,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Add a `getUserEvents` function in `outlook-demo.js`.
 
     ```js
-    function getUserEvents(emailAddress, callback) {
+    function getUserEvents(callback) {
       getAccessToken(function(accessToken) {
         if (accessToken) {
           // Create a Graph client
@@ -1074,7 +1001,6 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
           // Get the 10 newest events
           client
             .api('/me/events')
-            .header('X-AnchorMailbox', emailAddress)
             .top(10)
             .select('subject,start,end,createdDateTime')
             .orderby('createdDateTime DESC')
@@ -1161,23 +1087,17 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       $('#contacts-status').text('Loading...');
       $('#contact-list').empty();
       $('#contacts').show();
-      // Get user's email address
-      getUserEmailAddress(function(userEmail, error) {
-        if (error) {
-          renderError('getUserEmailAddress failed', error.responseText);
-        } else {
-          getUserContacts(userEmail, function(contacts, error){
-            if (error) {
-              renderError('getUserContacts failed', error);
-            } else {
-              $('#contacts-status').text('Here are your first 10 contacts.');
-              var templateSource = $('#contact-list-template').html();
-              var template = Handlebars.compile(templateSource);
 
-              var contactList = template({contacts: contacts});
-              $('#contact-list').append(contactList);
-            }
-          });
+      getUserContacts(function(contacts, error){
+        if (error) {
+          renderError('getUserContacts failed', error);
+        } else {
+          $('#contacts-status').text('Here are your first 10 contacts.');
+          var templateSource = $('#contact-list-template').html();
+          var template = Handlebars.compile(templateSource);
+
+          var contactList = template({contacts: contacts});
+          $('#contact-list').append(contactList);
         }
       });
     }
@@ -1186,7 +1106,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Add a `getUserContacts` function in `outlook-demo.js`.
 
     ```js
-    function getUserContacts(emailAddress, callback) {
+    function getUserContacts(callback) {
       getAccessToken(function(accessToken) {
         if (accessToken) {
           // Create a Graph client
@@ -1201,7 +1121,6 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
           // by given name
           client
             .api('/me/contacts')
-            .header('X-AnchorMailbox', emailAddress)
             .top(10)
             .select('givenName,surname,emailAddresses')
             .orderby('givenName ASC')
