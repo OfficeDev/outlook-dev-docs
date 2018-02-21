@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: nodejs
-ms.date: 01/23/2018
+ms.date: 02/20/2018
 ms.author: jasonjoh
 ---
 

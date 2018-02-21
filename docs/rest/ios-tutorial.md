@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: swift
-ms.date: 10/23/2017
+ms.date: 02/20/2018
 ms.author: jasonjoh
 ---
 
