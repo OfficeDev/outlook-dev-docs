@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: nodejs
-ms.date: 01/23/2018
+ms.date: 02/20/2018
 ms.author: jasonjoh
 ---
 
@@ -283,49 +283,7 @@ async function getTokenFromCode(auth_code, callback, response) {
 exports.getTokenFromCode = getTokenFromCode;
 ```
 
-### Getting the user's email address ###
-
-Our first use of the access token will be to get the user's email address from the Microsoft Graph API. You'll see why we want this soon.
-
-In order to use the Microsoft Graph API, install the [Microsoft Graph JavaScript Client Library](https://github.com/microsoftgraph/msgraph-sdk-javascript) from the command line.
-
-```Shell
-npm install @microsoft/microsoft-graph-client es6-promise --save
-```
-
-Then require the `microsoft-graph-client` library by adding the following line to `index.js`.
-
-```js
-const microsoftGraph = require("@microsoft/microsoft-graph-client");
-```
-
-Add a new function `getUserEmail` to `index.js`.
-
-#### `getUserEmail` in the `.\index.js` file ####
-
-```js
-async function getUserEmail(token) {
-  // Create a Graph client
-  const client = microsoftGraph.Client.init({
-    authProvider: (done) => {
-      // Just return the token
-      done(null, token);
-    }
-  });
-
-  // Get the Graph /Me endpoint to get user email address
-  const res = await client
-    .api('/me')
-    .get();
-
-  // Office 365 users have a mail attribute
-  // Outlook.com users do not, instead they have
-  // userPrincipalName
-  return res.mail ? res.mail : res.userPrincipalName;
-}
-```
-
-Let's make sure that works. Modify the `authorize` function in the `index.js` file to use these helper functions and display the return values.
+Let's make sure that works. Modify the `authorize` function in the `index.js` file to use this helper function and display the return value.
 #### Updated `authorize` function in `.\index.js`
 
 ```js
@@ -344,43 +302,33 @@ function authorize(response, request) {
 
 ```js
 async function processAuthCode(response, code) {
-  let token,email;
+  let token;
 
   try {
     token = await authHelper.getTokenFromCode(code);
   } catch(error){
     console.log('Access token error: ', error.message);
     response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write(`<p>ERROR: ${error}</p>`);
-    response.end();
-    return;
-  }
-
-  try {
-    email = await getUserEmail(token.token.access_token);
-  } catch(error){
-    console.log(`getUserEmail returned an error: ${error}`);
     response.write(`<p>ERROR: ${error}</p>`);
     response.end();
     return;
   }
 
   response.writeHead(200, {'Content-Type': 'text/html'});
-  response.write('<p>Email: ' + email + '</p>');
   response.write('<p>Access token: ' + token.token.access_token + '</p>');
   response.end();
 }
 ```
 
-If you save your changes, restart the server, and go through the sign-in process again, you should now see the user's email and a long string of seemingly nonsensical characters. If everything's gone according to plan, that should be an access token.
+If you save your changes, restart the server, and go through the sign-in process again, you should now see long string of seemingly nonsensical characters. If everything's gone according to plan, that should be an access token.
 
-Now let's change our code to store the token and email in a session cookie instead of displaying them.
+Now let's change our code to store the token in a session cookie instead of displaying it.
 
 #### New version of `processAuthCode` function ####
 
 ```js
 async function processAuthCode(response, code) {
-  let token,email;
+  let token;
 
   try {
     token = await authHelper.getTokenFromCode(code);
@@ -392,17 +340,7 @@ async function processAuthCode(response, code) {
     return;
   }
 
-  try {
-    email = await getUserEmail(token.token.access_token);
-  } catch(error){
-    console.log(`getUserEmail returned an error: ${error}`);
-    response.write(`<p>ERROR: ${error}</p>`);
-    response.end();
-    return;
-  }
-
-  const cookies = [`node-tutorial-token=${token.token.access_token};Max-Age=4000`,
-                   `node-tutorial-email=${email ? email : ''}';Max-Age=4000`];
+  const cookies = [`node-tutorial-token=${token.token.access_token};Max-Age=4000`];
   response.setHeader('Set-Cookie', cookies);
   response.writeHead(302, {'Location': 'http://localhost:8000/mail'});
   response.end();
@@ -444,7 +382,7 @@ This will cause the token response from Azure to include a refresh token. Let's 
 
 ```js
 async function tokenReceived(response, error, token) {
-  let token,email;
+  let token;
 
   try {
     token = await authHelper.getTokenFromCode(code);
@@ -456,19 +394,9 @@ async function tokenReceived(response, error, token) {
     return;
   }
 
-  try {
-    email = await getUserEmail(token.token.access_token);
-  } catch(error){
-    console.log(`getUserEmail returned an error: ${error}`);
-    response.write(`<p>ERROR: ${error}</p>`);
-    response.end();
-    return;
-  }
-
   const cookies = [`node-tutorial-token=${token.token.access_token};Max-Age=4000`,
                    `node-tutorial-refresh-token=${token.token.refresh_token};Max-Age=4000`,
-                   `node-tutorial-token-expires=${token.token.expires_at.getTime()};Max-Age=4000`,
-                   `node-tutorial-email=${email ? email : ''}';Max-Age=4000`];
+                   `node-tutorial-token-expires=${token.token.expires_at.getTime()};Max-Age=4000`];
   response.setHeader('Set-Cookie', cookies);
   response.writeHead(302, {'Location': 'http://localhost:8000/mail'});
   response.end();
@@ -515,7 +443,21 @@ exports.refreshAccessToken = refreshAccessToken;
 
 ## Using the Mail API ##
 
-Now that we can get an access token, we're in a good position to do something with the Mail API. Let's start by creating a `mail` route and function. Open the `index.js` file and update the `handle` array.
+Now that we can get an access token, we're in a good position to do something with the Mail API.
+
+In order to use the Microsoft Graph API, install the [Microsoft Graph JavaScript Client Library](https://github.com/microsoftgraph/msgraph-sdk-javascript) from the command line.
+
+```Shell
+npm install @microsoft/microsoft-graph-client es6-promise --save
+```
+
+Then require the `microsoft-graph-client` library by adding the following line to `index.js`.
+
+```js
+const microsoftGraph = require("@microsoft/microsoft-graph-client");
+```
+
+Let's start by creating a `mail` route and function. Open the `index.js` file and update the `handle` array.
 
 #### Updated handle array in `.\index.js`
 
@@ -567,8 +509,6 @@ async function mail(response, request) {
   }
 
   console.log('Token found in cookie: ', token);
-  const email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
-  console.log('Email found in cookie: ', email);
 
   response.writeHead(200, {'Content-Type': 'text/html'});
   response.write('<div><h1>Your inbox</h1></div>');
@@ -585,7 +525,6 @@ async function mail(response, request) {
     // Get the 10 newest messages
     const res = await client
       .api('/me/mailfolders/inbox/messages')
-      .header('X-AnchorMailbox', email)
       .top(10)
       .select('subject,from,receivedDateTime,isRead')
       .orderby('receivedDateTime DESC')
@@ -614,7 +553,6 @@ async function mail(response, request) {
 To summarize the new code in the `mail` function:
 
 - It creates a Graph client object and initializes it to use the access token passed to the function.
-- It sets the `X-AnchorMailbox` header on the request, which enables the API endpoint to route API calls to the appropriate backend mailbox server more efficiently. This is why we went to the trouble to get the user's email earlier.
 - It calls the `/me/mailfolders/inbox/messages` API to get inbox messages, and uses other methods to control the request:
     - It uses the `top` method with a value of `10` to limit the results to the first 10.
     - It uses the `select` method to only request the `subject`, `from`, `receivedDateTime`, and `isRead` properties.
@@ -671,7 +609,6 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       // Get the 10 events with the greatest start date
       const res = await client
         .api('/me/events')
-        .header('X-AnchorMailbox', email)
         .top(10)
         .select('subject,start,end,attendees')
         .orderby('start/dateTime DESC')
@@ -754,7 +691,6 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       // by given name
       const res = await client
           .api('/me/contacts')
-          .header('X-AnchorMailbox', email)
           .top(10)
           .select('givenName,surname,emailAddresses')
           .orderby('givenName ASC')

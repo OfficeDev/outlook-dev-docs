@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: csharp
-ms.date: 05/31/2017
+ms.date: 02/20/2018
 ms.author: jasonjoh
 ---
 
@@ -117,16 +117,28 @@ Here's what the details of your app registration should look like when you are d
 
 Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx). To make things easier, we'll use the [Microsoft Authentication Library (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client) to handle our OAuth requests.
 
-Open the `Web.config` file and add the following keys inside the `<appSettings>` element:
+First, let's create a separate config file to hold the OAuth settings for the app. Right-click the **dotnet-tutorial** solution in **Solution Explorer**, choose **Add**, then **New Item...**. Select **Web Configuration File**, then enter `AzureOauth.config` in the **Name** field. Click **Add**.
+
+Open the `AzureOauth.config` file and replace its entire contents with the following.
 
 ```xml
-<add key="ida:AppID" value="YOUR APP ID" />
-<add key="ida:AppPassword" value="YOUR APP PASSWORD" />
-<add key="ida:RedirectUri" value="http://localhost:10800" />
-<add key="ida:AppScopes" value="User.Read Mail.Read" />
+<appSettings>
+    <add key="ida:AppID" value="YOUR APP ID" />
+    <add key="ida:AppPassword" value="YOUR APP PASSWORD" />
+    <add key="ida:RedirectUri" value="http://localhost:10800" />
+    <add key="ida:AppScopes" value="User.Read Mail.Read" />
+</appSettings>
 ```
 
 Replace the value of the `ida:AppID` key with the application ID you generated above, and replace the value of the `ida:AppPassword` key with the password you generated above. If the value of your redirect URI is different, be sure to update the value of `ida:RedirectUri`.
+
+Now open the `Web.config` file. Find the line with the `<appSettings>` element, and change it to the following.
+
+```xml
+<appSettings file="AzureOauth.config">
+```
+
+This will cause ASP.NET to add the keys from the `AzureOauth.config` file at runtime. By keeping these values in a separate file, we make it less likely that we'll accidentally commit them to source control.
 
 The next step is to install the OWIN middleware, MSAL, and Graph libraries from NuGet. On the Visual Studio **Tools** menu, choose **NuGet Package Manager**, then **Package Manager Console**. To install the OWIN middleware libraries, enter the following commands in the Package Manager Console:
 
@@ -643,35 +655,6 @@ public async Task<ActionResult> Inbox()
 
 If you run the app now and click the **Inbox** menu item after logging in, you should see the access token displayed in the browser. Let's put it to use.
 
-Our first task with the Mail API will be to get the user's email address. You'll see why we do this soon. Add another function to the `HomeController` class called `GetUserEmail`.
-
-#### `GetUserEmail` function in `./Controllers/HomeController.cs`
-
-```csharp
-public async Task<string> GetUserEmail()
-{
-    GraphServiceClient client = new GraphServiceClient(
-        new DelegateAuthenticationProvider(
-            async (requestMessage) =>
-            {
-                string accessToken = await GetAccessToken();
-                requestMessage.Headers.Authorization =
-                    new AuthenticationHeaderValue("Bearer", accessToken);
-            }));
-
-    // Get the user's email address
-    try
-    {
-        Microsoft.Graph.User user = await client.Me.Request().GetAsync();
-        return user.Mail;
-    }
-    catch (ServiceException ex)
-    {
-        return string.Format("#ERROR#: Could not get user's email address. {0}", ex.Message);
-    }
-}
-```
-
 Update the `Inbox` function with the following code.
 
 #### Updated `Inbox` action in `./Controllers/HomeController.cs`
@@ -686,16 +669,12 @@ public async Task<ActionResult> Inbox()
         return Redirect("/");
     }
 
-    string userEmail = await GetUserEmail();
-
     GraphServiceClient client = new GraphServiceClient(
         new DelegateAuthenticationProvider(
             (requestMessage) =>
             {
                 requestMessage.Headers.Authorization =
                     new AuthenticationHeaderValue("Bearer", token);
-
-                requestMessage.Headers.Add("X-AnchorMailbox", userEmail);
 
                 return Task.FromResult(0);
             }));
@@ -727,7 +706,7 @@ public async Task<ActionResult> Inbox()
 To summarize the new code in the `Inbox` function:
 
 - It creates a `GraphServiceClient` object.
-- It modifies the outgoing request's headers in the `DelegateAuthenticationProvider` by adding the access token as an `Authorization` header, and adding the user's email as an `X-AnchorMailbox` header. This is where our work to get the user's email pays off. Setting this header to the user's mailbox allows the API endpoint to route API calls to the appropriate backend mailbox server more efficiently.
+- It modifies the outgoing request's headers in the `DelegateAuthenticationProvider` by adding the access token as an `Authorization` header.
 - It issues a GET request to the URL for inbox messages, with the following characteristics:
     - It uses the `OrderBy()` function with a value of `receivedDateTime DESC` to sort the results by ReceivedDateTime.
     - It uses the `Select()` function with a LINQ expression to limit the fields returned to only those that we need.
@@ -813,16 +792,12 @@ public async Task<ActionResult> Inbox()
         return Redirect("/");
     }
 
-    string userEmail = await GetUserEmail();
-
     GraphServiceClient client = new GraphServiceClient(
         new DelegateAuthenticationProvider(
             (requestMessage) =>
             {
                 requestMessage.Headers.Authorization =
                     new AuthenticationHeaderValue("Bearer", token);
-
-                requestMessage.Headers.Add("X-AnchorMailbox", userEmail);
 
                 return Task.FromResult(0);
             }));
@@ -929,16 +904,12 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
             return Redirect("/");
         }
 
-        string userEmail = await GetUserEmail();
-
         GraphServiceClient client = new GraphServiceClient(
             new DelegateAuthenticationProvider(
                 (requestMessage) =>
                 {
                     requestMessage.Headers.Authorization =
                         new AuthenticationHeaderValue("Bearer", token);
-
-                    requestMessage.Headers.Add("X-AnchorMailbox", userEmail);
 
                     return Task.FromResult(0);
                 }));
@@ -1000,7 +971,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
                 @Html.DisplayFor(modelItem => item.DisplayName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EmailAddresses.First().Address)
+                @Html.Partial("EmailAddresses", item.EmailAddresses)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MobilePhone)
@@ -1009,6 +980,17 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     }
 
     </table>
+    ```
+
+1. Right-click the **Views\Shared** folder, choose **Add** then **View...**. Be sure to select the **Create as a partial view** option. Add  view for email addresses called `EmailAddresses` that uses the `Empty (without model)` template. Add the following code to `EmailAddresses.cshtml`:
+
+    ```csharp
+    @model IEnumerable<Microsoft.Graph.EmailAddress>
+
+    @foreach(var item in Model)
+    {
+        <p>@Html.DisplayFor(modelItem => item.Address)</p>
+    }
     ```
 
 1. Add a navigation item for the Contacts view to `./Views/Shared/_Layout.cshtml`.
@@ -1034,16 +1016,12 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
             return Redirect("/");
         }
 
-        string userEmail = await GetUserEmail();
-
         GraphServiceClient client = new GraphServiceClient(
             new DelegateAuthenticationProvider(
                 (requestMessage) =>
                 {
                     requestMessage.Headers.Authorization =
                         new AuthenticationHeaderValue("Bearer", token);
-
-                    requestMessage.Headers.Add("X-AnchorMailbox", userEmail);
 
                     return Task.FromResult(0);
                 }));
