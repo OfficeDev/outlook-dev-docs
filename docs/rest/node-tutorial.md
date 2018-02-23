@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: nodejs
-ms.date: 02/20/2018
+ms.date: 02/23/2018
 ms.author: jasonjoh
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Node.js app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/node-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/node-tutorial/tree/outlook-api).
+This guide will use the [Microsoft Graph](https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/node-tutorial/tree/outlook-api).
 
 This guide assumes that you already have Node.js installed and working on your development machine. 
 
@@ -25,7 +25,7 @@ Let's dive right in! The first  step is to install the [Express generator](http:
 ```Shell
 npm install -g express-generator
 ```
-Now run the following command to create an Express app that uses [Handlebars] as the rendering engine:
+Now run the following command to create an Express app that uses [Handlebars](http://handlebarsjs.com/) as the rendering engine:
 
 ```Shell
 express --hbs node-tutorial
@@ -170,7 +170,7 @@ Here's what the details of your app registration should look like when you are d
 
 ## Implementing OAuth2
 
-Our goal in this section is to make the button on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx). We'll use the [simple-oauth2 library](https://github.com/andreareginato/simple-oauth2) to handle our OAuth requests, and the [dotenv library](https://github.com/motdotla/dotenv) to load our app ID and secret from an ENV file. At your command prompt, enter the following command.
+Our goal in this section is to make the button on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code). We'll use the [simple-oauth2 library](https://github.com/andreareginato/simple-oauth2) to handle our OAuth requests, and the [dotenv library](https://github.com/motdotla/dotenv) to load our app ID and secret from an ENV file. At your command prompt, enter the following command.
 
 ```Shell
 npm install dotenv simple-oauth2 --save
