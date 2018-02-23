@@ -33,7 +33,7 @@ express --hbs node-tutorial
 
 This will create a new sub-directory called `node-tutorial` and create the file structure for the app. Change the current directory for your shell to the `node-tutorial` directory and run the following command to install dependencies.
 
-```
+```Shell
 npm install
 ```
 
