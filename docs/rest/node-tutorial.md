@@ -179,10 +179,10 @@ npm install dotenv simple-oauth2 --save
 Create a new file called `.env` in the `node-tutorial` folder, and add the following in the file.
 
 ```
-APP_ID="YOUR APP ID HERE"
-APP_PASSWORD="YOUR APP PASSWORD HERE"
-APP_SCOPES="openid profile User.Read Mail.Read"
-REDIRECT_URI="http://localhost:3000/authorize"
+APP_ID=YOUR APP ID HERE
+APP_PASSWORD=YOUR APP PASSWORD HERE
+APP_SCOPES=openid profile User.Read Mail.Read
+REDIRECT_URI=http://localhost:3000/authorize
 ```
 
 The first thing we do here is define our client ID and secret. We also define a redirect URI and an array of scopes. The scope array includes the `openid`, `User.Read`, and `Mail.Read` scopes, since we will only read the user's mail. Replace the `YOUR APP ID HERE` with the application ID and `YOUR APP PASSWORD HERE` with the password you generated in step 3 and save your changes.
@@ -491,7 +491,7 @@ Access tokens returned from Azure are valid for an hour. If you use the token af
 In order to do that, the app must request the `offline_access` scope. Add this scope to the `APP_SCOPES` value in `.env`.
 
 ```
-APP_SCOPES="openid profile offline_access User.Read Mail.Read"
+APP_SCOPES=openid profile offline_access User.Read Mail.Read
 ```
 
 This will cause the token response from Azure to include a refresh token. Let's update the `saveValuesToCookie` method in `./helpers/auth.js` to save the refresh token and the expiration time in a session cookie.
@@ -751,7 +751,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Update the `APP_SCOPES` value in `.env` to include the `Calendars.Read` scope.
 
     ```
-    APP_SCOPES="openid profile offline_access User.Read Mail.Read Calendars.Read"
+    APP_SCOPES=openid profile offline_access User.Read Mail.Read Calendars.Read
     ```
 
 1. Add a `calendar` route in `./app.js`.
@@ -870,7 +870,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Update the `APP_SCOPES` value in `.env` to include the `Contacts.Read` scope.
 
     ```
-    APP_SCOPES="openid profile offline_access User.Read Mail.Read Contacts.Read"
+    APP_SCOPES=openid profile offline_access User.Read Mail.Read Contacts.Read
     ```
 
 1. Add a `contacts` route in `./app.js`.
