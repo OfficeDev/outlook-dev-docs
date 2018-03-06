@@ -136,7 +136,7 @@ namespace AttachmentsSample
 
 #### Use the EWS Managed API to get the attachments
 
-If you use the [EWS Managed API](http://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](http://msdn.microsoft.com/en-us/library/office/dn600509%28v=exchg.80%29.aspx) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the a
+If you use the [EWS Managed API](http://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](http://msdn.microsoft.com/en-us/library/office/dn600509%28v=exchg.80%29.aspx) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
 
 ```C#
 private AttachmentSampleServiceResponse GetAtttachmentsFromExchangeServerUsingEWSManagedApi(AttachmentSampleServiceRequest request)
