@@ -17,7 +17,7 @@ Outlook add-ins are integrations built by third parties into Outlook using the n
 -  Outlook add-ins consist of a manifest, which describes how the add-in integrates into Outlook (for example, a button or a task pane), and JavaScript/HTML code, which makes up the UI and business logic of the add-in.
 - Outlook add-ins can be acquired from the Office store or side-loaded by end-users or administrators.
 
-Outlook add-ins are different from COM or VSTO add-ins, which are older integrations specific to Outlook running on Windows. Unlike COM add-ins, Outlook add-ins don't have any code physically installed to the user's device or Outlook client. For an Outlook add-in, Outlook reads the manifest and hooks up the specified controls in the UI, then loads the JavaScript and HTML. This all executes in the context of a browser in a sandbox.
+Outlook add-ins are different from COM or VSTO add-ins, which are older integrations specific to Outlook running on Windows. Unlike COM add-ins, Outlook add-ins don't have any code physically installed on the user's device or Outlook client. For an Outlook add-in, Outlook reads the manifest and hooks up the specified controls in the UI, then loads the JavaScript and HTML. This all executes in the context of a browser in a sandbox.
 
 The Outlook items that support mail add-ins include email messages, meeting requests, responses and cancellations, and appointments. Each mail add-in defines the context in which it is available, including the types of items and if the user is reading or composing an item.
 
@@ -56,15 +56,15 @@ Outlook add-ins are available on messages or appointments while composing or rea
     
 - A .msg file opened from the file system.
 
-- Uses a [custom form](https://support.office.com/en-us/article/Overview-of-forms-in-Outlook-CC2D2F5B-635F-4E60-95CA-6B8D91639214).
+- Using a [custom form](https://support.office.com/en-us/article/Overview-of-forms-in-Outlook-CC2D2F5B-635F-4E60-95CA-6B8D91639214).
     
-In general, Outlook can activate add-ins in read forms for items in the Sent Items folder, with the exception of add-ins that activate based on string matches of well-known entities. For more information about the reasons behind this, see "Support for well-known entities" in [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md).
+In general, Outlook can activate add-ins in read form for items in the Sent Items folder, with the exception of add-ins that activate based on string matches of well-known entities. For more information about the reasons behind this, see "Support for well-known entities" in [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md).
 
 
 ## Supported hosts
 
 
-Outlook add-ins are supported in Outlook 2013 and later versions, Outlook 2016 for Mac, Outlook Web App for Exchange 2013 on-premises, Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all clients at the same time. Please refer to individual topics and API references, to see which hosts they are/are not supported in.
+Outlook add-ins are supported in Outlook 2013 and later versions, Outlook 2016 for Mac, Outlook Web App for Exchange 2013 on-premises, and Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all clients at the same time. Please refer to individual topics and API references, to see which hosts they are/are not supported in.
 
 
 ## Get started building Outlook add-ins
