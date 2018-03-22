@@ -44,8 +44,8 @@ When an add-in command is added to an add-in, the add-in name is removed from th
 The UX shape for an add-in command consists of a ribbon tab in the host application that contains buttons that can perform various functions. Currently, three UI shapes are supported:
 
 - A button that executes a JavaScript function
-- A button that shows a drop-down menu with one or more buttons of the other two types
 - A button that launches a task pane
+- A button that shows a drop-down menu with one or more buttons of the other two types
 
 ### Executing a JavaScript function
 
@@ -79,7 +79,7 @@ Add-in commands are supported for four scenarios:
 
 ### Reading a message
 
-When the user is reading a message, add-in commands added to the default tab appear on the  **Home** tab when viewing the message in the reading pane and in the **Message** tab for a pop-out read form.
+When the user is reading a message in the reading pane or in the **Message** tab for a pop-out read form, add-in commands added to the default tab appear on the **Home** tab.
 
 ### Composing a message
 
