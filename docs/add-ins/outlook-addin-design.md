@@ -5,13 +5,13 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 03/21/2018
 ms.author: jasonjoh
 ---
 
 # Outlook add-in design guidelines
 
-Add-ins are a great way for partners to extend the functionality of Outlook beyond our core feature set. Add-ins enable users to access third party experiences, tasks, and content without needing to leave their inbox. Once installed, Outlook Add-ins are available on every platform and device. The following high-level guidelines will help you design and build a compelling add-in, which brings the best of your app right into Outlook – on Windows, Web, iOS, Mac and Android (coming soon).
+Add-ins are a great way for partners to extend the functionality of Outlook beyond our core feature set. Add-ins enable users to access third party experiences, tasks, and content without needing to leave their inbox. Once installed, Outlook Add-ins are available on every platform and device. The following high-level guidelines will help you design and build a compelling add-in, which brings the best of your app right into Outlook – on Windows, Web, iOS, Mac, and Android.
 
 ## Principles
 
@@ -27,7 +27,7 @@ Add-ins are a great way for partners to extend the functionality of Outlook beyo
 
     Your add-in should be designed using patterns native to the platform that Outlook is running on. To achieve this, be sure to respect and implement the interaction and visual guidelines set forth by each platform. Outlook has its own guidelines and those are also important to consider. A well-designed add-in will be an appropriate blend of your experience, the platform, and Outlook.
 
-    This does mean that your add-in will have to visually be different when it runs on Outlook for iOS vs Outlook for Android (when we roll out support for it). We recommend taking a look at [Framework7](https://framework7.io/) as one option to help you with styling. We will be posting updated guidelines, especially for Android, as we get closer to launching add-in support for Outlook for Android.
+    This does mean that your add-in will have to visually be different when it runs on Outlook for iOS vs Outlook for Android. We recommend taking a look at [Framework7](https://framework7.io/) as one option to help you with styling.
 
 3. **Make it enjoyable to use and get the details right**
 
@@ -130,7 +130,7 @@ Since the navigation bar cannot be used to label a page, use section titles to l
 
 ### Actions
 
-Even if your app handles a multitude of actions, think about the most important ones you want you add-in to perform, and concentrate on those.
+Even if your app handles a multitude of actions, think about the most important ones you want your add-in to perform, and concentrate on those.
 
 **Examples of actions on iOS**
 ![Actions and cells in iOS](images/outlook-mobile-design-action-cells.png)
@@ -176,7 +176,7 @@ Icons should follow the current Outlook iOS design when possible. Use our standa
 
 For our v1 Outlook Mobile Add-ins launch, we worked closely with our partners who were building add-ins. As a way to showcase the potential of their add-ins on Outlook Mobile, our designer put together end-to-end flows for each add-in, leveraging our guidelines and patterns.
 
-> **Important note:** these examples are meant to highlight the ideal way to approach both the interaction and visual design of an add-in and may not match the exact feature sets in the shipped versions of the add-ins. 
+> **Important note:** These examples are meant to highlight the ideal way to approach both the interaction and visual design of an add-in and may not match the exact feature sets in the shipped versions of the add-ins. 
 
 ### GIPHY
 

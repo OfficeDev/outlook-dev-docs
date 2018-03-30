@@ -152,7 +152,7 @@ Now let's look at exactly what that does.
 - The first `Control` element contains an `Action` element with `xsi:type="ShowTaskPane"`, so this button will open a task pane.
 - The second `Control` element contains an `Action` element with `xsi:type="ExecuteFunction"`, so this button will invoke a JavaScript function contained in the function file.
 
-Finally we'll update our resources. The code above refrenced labels, tooltips, and URLs that we need to define before our manifest will be valid.
+Finally we'll update our resources. The code above referenced labels, tooltips, and URLs that we need to define before our manifest will be valid.
 
 1. Add the following as a child of the `bt:Urls` element:
     ```xml
@@ -521,7 +521,7 @@ Let's start by creating our function file. Any functions that are invoked by a U
 </head>
 
 <body>
-  <!-- NOTE: The body is empty on purpose. Since function in function-file.js are
+  <!-- NOTE: The body is empty on purpose. Since functions in function-file.js are
        invoked via a button, there is no UI to render. -->
 </body>
 

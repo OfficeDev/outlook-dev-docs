@@ -21,7 +21,7 @@ The following are examples of contextual add-ins:
 
 ## How to make a contextual add-in
 
-A contextual add-in's manifest must include an [ExtensionPoint](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the addin specifies the entities or regular expression that can activate it. If specifying an entity, the entity can be any of the properties in the [Entities](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object. Thus, the add-in manifest must contain a rule of type **ItemHasKnownEntity** or **ItemHasRegularExpressionMatch**. The following example shows how to specify that an add-in should activate on messages with a detected entity that is a phone number:
+A contextual add-in's manifest must include an [ExtensionPoint](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the add-in specifies the entities or regular expression that can activate it. If an entity is specified, the entity can be any of the properties in the [Entities](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object. Thus, the add-in manifest must contain a rule of type **ItemHasKnownEntity** or **ItemHasRegularExpressionMatch**. The following example shows how to specify that an add-in should activate on messages with a detected entity that is a phone number:
 
 ```XML
 <ExtensionPoint xsi:type="DetectedEntity">
@@ -68,7 +68,7 @@ An activated contextual add-in appears in a card, which is a separate window nea
 
 ![Shows a contextual app in a card](images/outlook-detected-entity-card.PNG)
 
-To close the card and end the add-in, a user clicks anywhere outside of the card.
+To close the card and the add-in, a user clicks anywhere outside of the card.
 
 ## Current contextual add-ins
 

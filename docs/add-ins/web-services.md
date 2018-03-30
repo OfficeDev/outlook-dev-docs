@@ -67,9 +67,10 @@ When parsing a SOAP response from a EWS operation, note the following browser-de
 
 ```js
     var mailbox = Office.context.mailbox;
-    mailbox.makeEwsRequestAsync(mailbox.item.itemId), function(result) {
+    mailbox.makeEwsRequestAsync(mailbox.item.itemId, function(result) {
         var response = $.parseXML(result.value);
-        var extendedProps = response.getElementsByTagName("ExtendedProperty");
+        var extendedProps = response.getElementsByTagName("ExtendedProperty")
+        });
 ```
 
 
@@ -78,9 +79,10 @@ When parsing a SOAP response from a EWS operation, note the following browser-de
 
 ```js
     var mailbox = Office.context.mailbox;
-    mailbox.makeEwsRequestAsync(mailbox.item.itemId), function(result) {
+    mailbox.makeEwsRequestAsync(mailbox.item.itemId, function(result) {
         var response = $.parseXML(result.value);
-        var extendedProps = response.getElementsByTagName("t:ExtendedProperty");
+        var extendedProps = response.getElementsByTagName("t:ExtendedProperty")
+        });
 ```
 
 - Use the DOM property  **textContent** to get the contents of a tag in a EWS response, as shown below:
