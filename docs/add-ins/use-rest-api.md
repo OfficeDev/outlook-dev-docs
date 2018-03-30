@@ -90,7 +90,7 @@ function getCurrentItem(accessToken) {
   // Details for formatting the URL can be found at 
   // https://msdn.microsoft.com/office/office365/APi/mail-rest-operations#get-a-message-rest
   var getMessageUrl = Office.context.mailbox.restUrl +
-    '/api/v2.0/messages/' + itemId;
+    '/v2.0/me/messages/' + itemId;
 
   $.ajax({
     url: getMessageUrl,
