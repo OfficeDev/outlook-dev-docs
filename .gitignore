@@ -256,3 +256,6 @@ paket-files/
 _themes/
 .openpublishing.buildcore.ps1
 _site/
+
+# Visual Studio Code settings
+.vscode/
