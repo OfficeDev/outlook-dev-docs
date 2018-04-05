@@ -935,7 +935,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 ### For Contacts API:
 
-1. Update the `ida:AppScopes` value in `Web.config` to include the `Contacts.Read` scope.
+1. Update the `ida:AppScopes` value in `AzureOauth.config` to include the `Contacts.Read` scope.
 
     ```xml
     <add key="ida:AppScopes" value="User.Read Mail.Read Contacts.Read" />
