@@ -4,11 +4,10 @@ description: Learn about the payload fields for requests sent to payment webhook
 author: jasonjoh
 
 ms.topic: reference
-ms.technology: o365-connectors 
+ms.technology: o365-connectors
 ms.date: 03/20/2018
 ms.author: jasonjoh
 ---
-
 # Payments in Outlook webhook reference
 
 ## PaymentRequest webhook
@@ -93,8 +92,8 @@ When your webhook receives a POST, you should do the following:
 1. Validate the bearer token in the `Authorization` header to ensure that the request is coming from Microsoft.
 1. Check the `event` property of the [Data](#data) object to determine what UI event triggered the POST.
     1. If `event` is set to `loadentity`, follow the steps in [Load the invoice](#load-the-invoice).
-    1. If `event` is set to `shippingaddresschange`, follow the steps in [Handle shipping address change]().
-    1. If `event` is set to `shippingoptionchange`, follow the steps in [Handle shipping option change]().
+    1. If `event` is set to `shippingaddresschange`, follow the steps in [Handle shipping address change](#handle-shipping-address-change).
+    1. If `event` is set to `shippingoptionchange`, follow the steps in [Handle shipping option change](#handle-shipping-option-change).
 1. Return a `200 OK` response with the [Payment request webhook payload](#payment-request-webhook-payload) specified by the previous step in the body.
 
 #### Load the invoice
@@ -317,7 +316,7 @@ The following is an example of the incoming request sent by the Payments service
 
 Your webhook should modify the incoming request payload to set the `shippingOptions` property to specify the available shipping options for the provided address.
 
-The following is an example of a response to a `shippingaddresschange` event. In this example, the webhook is specifying two shipping options: regular shipping for free, or priority shipping for $3.00. 
+The following is an example of a response to a `shippingaddresschange` event. In this example, the webhook is specifying two shipping options: regular shipping for free, or priority shipping for $3.00.
 
 ```json
 {
@@ -647,5 +646,165 @@ The following is an example of a response to a `shippingoptionchange` event.
     "phone": "4255551212"
   },
   "shippingOption": "priority"
+}
+```
+
+## PaymentComplete webhook
+
+The payment complete webhook is called when the user finalizes the payment. The Payment service processes the payment and calls your webhook with the result.
+
+The format of the payload sent to your webhook and the payload you must send back in the response is specified in the following sections.
+
+### Payment request webhook incoming payload
+
+The Payment services sends a payload to your webhook in the following format.
+
+| Field | Type| Description |
+|-------|-----|-------------|
+| `requestId` | String | The request ID that corresponds to this payment. This value matches the value of `id` in the `PaymentDetailsInit` object you sent back to the `loadentity` event in your payment request webhook. |
+| `methodName` | String | MUST be set to `https://pay.microsoft.com/microsoftpay`. |
+| `details` | [PaymentCompleteDetails](#paymentcompletedetails) | Contains original `productContext`, payment token, and information about the amount. |
+| `shippingAddress` | `AddressInit` | The selected shipping address. (If shipping information was requested in `loadentity` response) |
+| `shippingOption` | String | The selected shipping option. (If shipping information was requested in `loadentity` response) |
+| `payerName` | String | The payer's name. (If requested) |
+| `payerEmail` | String | The payer's email address. (If requested) |
+| `payerPhone` | String | The payer's phone number. (If requested) |
+
+#### PaymentCompleteDetails
+
+Contains details about the completed payment.
+
+| Field | Type| Description |
+|-------|-----|-------------|
+| `productContext` | Object | A free-form object defined by the developer. The `productContext` can be used to store any contextual information needed for the payment process. This value is equal to the `productContext` sent to the payment request webhook for this payment. |
+| `paymentToken` | String | A JSON Web Token containing payment information. |
+| `amount` | `PaymentCurrencyAmount` | The amount of the payment. |
+
+### Payment request webhook response payload
+
+Your webhook should return a payload in the following format.
+
+| Field | Type| Description |
+|-------|-----|-------------|
+| `requestId` | String | The request ID that corresponds to this payment. This value MUST match the value of `requestId` in the incoming request. |
+| `result` | String | Indicates success or failure. Valid values are `success` and `fail`. |
+| `details` | String | A simple human-readable string regarding the result. Used to relay a success message or simple error message. |
+| `error` | [PaymentCompleteError](#paymentcompleteerror) | A more detailed error object. Only applicable if `result` is `fail`. |
+| `entity` | `Invoice` | An updated invoice that reflects the result of the payment. For example, if the payment succeeded, the total is updated to 0 and the payment status is marked complete. |
+
+#### PaymentCompleteError
+
+Contains more detailed error information for failed payment complete requests.
+
+| Field | Type| Description |
+|-------|-----|-------------|
+| `code` | String | Required. A language-independent string that indicates the error code. |
+| `message` | String | Required. A human-readable representation of the error. |
+| `target` | String | Optional. The target of the error. |
+| `details`| Array of Object | Optional. Contains an array of objects with `code` and `message` properties. Represents distinct related errors that occurred during the request. |
+| `innererror` | `PaymentCompleteError` | Provides a more specific error. |
+
+### Handling payment complete webhook POSTs
+
+When your webhook receives a POST, you should do the following:
+
+1. Validate the bearer token in the `Authorization` header to ensure that the request is coming from Microsoft.
+1. Parse the `paymentToken` value to determine:
+    - The type of the token (specified in the `Format` claim in the header)
+    - The token required for the specified payment processor (the payload of the `paymentToken`)
+1. Submit the extracted token to the specified payment processor.
+1. Return a success or error as appropriate.
+
+#### Example incoming payload
+
+```json
+{
+    "requestId": "12345",
+    "methodName": "https://pay.microsoft.com/microsoftpay",
+    "details": {
+        "productContext": {
+            "invoiceId": "12345"
+        },
+        "paymentToken": "eyJWZXJz...",
+        "amount": {
+            "currency": "USD",
+            "value": "10.00",
+            "currencySystem": null
+        }
+    },
+    "shippingAddress": {
+        "country": "US",
+        "addressLine": [
+            "1 Microsoft Way"
+        ],
+        "region": "WA",
+        "city": "Redmond",
+        "dependantLocality": null,
+        "postalCode": "98052",
+        "sortingCode": "",
+        "languageCode": "",
+        "organization": "",
+        "recipient": "Patti Fernandez",
+        "phone": "+14255551212"
+    },
+    "shippingOption": "norush",
+    "payerName": "Patti Fernandez",
+    "payerEmail": "patti@contoso.com",
+    "payerPhone": "+14255551212"
+}
+```
+
+#### Example success response
+
+```json
+{
+    "requestId": "12345",
+    "result": "success",
+    "details": "Thank you for paying your bill!",
+    "entity": {
+        "@type": "Invoice",
+        "@context": "http://schema.org",
+        "identifier": "12345",
+        "url": "https://contoso.com/invoice",
+        "broker": {
+            "@type": "LocalBusiness",
+            "name": "Contoso"
+        },
+        "paymentDueDate": "2019-01-31T00:00:00",
+        "paymentStatus": "PaymentComplete",
+        "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "price": 0,
+            "priceCurrency": "USD"
+        },
+        "confirmationNumber": "98765"
+    }
+}
+```
+
+#### Example failure response
+
+```json
+{
+    "requestId": "12345",
+    "result": "fail",
+    "details": "We were unable to charge your credit card.",
+    "entity": {
+        "@type": "Invoice",
+        "@context": "http://schema.org",
+        "identifier": "12345",
+        "url": "https://contoso.com/invoice",
+        "broker": {
+            "@type": "LocalBusiness",
+            "name": "Contoso"
+        },
+        "paymentDueDate": "2019-01-31T00:00:00",
+        "paymentStatus": "PaymentDue",
+        "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "price": 10,
+            "priceCurrency": "USD"
+        }
+    }
 }
 ```
