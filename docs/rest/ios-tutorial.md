@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: swift
-ms.date: 10/23/2017
+ms.date: 02/20/2018
 ms.author: jasonjoh
 ---
 
@@ -354,11 +354,6 @@ func makeApiCall(api: String, params: [String: String]? = nil, callback: @escapi
     
     var req = oauth2.request(forURL: apiUrl)
     req.addValue("application/json", forHTTPHeaderField: "Accept")
-    if (!userEmail.isEmpty) {
-        // Add X-AnchorMailbox header to optimize
-        // API routing
-        req.addValue(userEmail, forHTTPHeaderField: "X-AnchorMailbox")
-    }
     
     let loader = OAuth2DataLoader(oauth2: oauth2)
 
@@ -389,7 +384,6 @@ Let's look at what this function does.
 
 - It builds the API request URL, starting with a base of `https://graph.microsoft.com`, and adding whatever API string is passed in (e.g. `/v1.0/me`).
 - If any query parameters are passed in, it appends those to the URL as well (e.g. `$top` or `$select` parameters).
-- If we know the user's email address, it sets the `X-AnchorMailbox` header on the request. Setting this header to the user's email address allows the API endpoint to route API calls to the appropriate backend mailbox server more efficiently.
 - It creates an `OAuth2DataLoader` object to handle sending the request with authentication. The benefit to doing this is that the `OAuth2DataLoader` object will handle adding the access token to the request, and will automatically handle refreshing the token if needed.
 - It wraps the response using the SwiftyJSON library and calls the callback function.
 

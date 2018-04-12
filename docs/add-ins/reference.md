@@ -13,6 +13,7 @@ ms.author: jasonjoh
 
 Outlook add-in reference documentation is hosted on dev.office.com.
 
+- <a href="https://dev.office.com/reference/add-ins/outlook/1.6/index?product=outlook&version=v1.6" target="_blank">Requirement set 1.6 (Link opens in a new window)</a>
 - <a href="https://dev.office.com/reference/add-ins/outlook/1.5/index?product=outlook&version=v1.5" target="_blank">Requirement set 1.5 (Link opens in a new window)</a>
 - <a href="https://dev.office.com/reference/add-ins/outlook/1.4/index?product=outlook&version=v1.4" target="_blank">Requirement set 1.4 (Link opens in a new window)</a>
 - <a href="https://dev.office.com/reference/add-ins/outlook/1.3/index?product=outlook&version=v1.3" target="_blank">Requirement set 1.3 (Link opens in a new window)</a>

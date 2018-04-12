@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 01/08/2018
+ms.date: 03/30/2018
 ms.author: jasonjoh
 ---
 
@@ -90,7 +90,7 @@ function getCurrentItem(accessToken) {
   // Details for formatting the URL can be found at 
   // https://msdn.microsoft.com/office/office365/APi/mail-rest-operations#get-a-message-rest
   var getMessageUrl = Office.context.mailbox.restUrl +
-    '/api/v2.0/messages/' + itemId;
+    '/v2.0/me/messages/' + itemId;
 
   $.ajax({
     url: getMessageUrl,

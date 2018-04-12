@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: java
-ms.date: 04/26/2017
+ms.date: 02/20/2018
 ms.author: jasonjoh
 ---
 
@@ -1364,11 +1364,7 @@ public class OutlookServiceBuilder {
             .header("return-client-request-id", "true")
             .header("Authorization", String.format("Bearer %s", accessToken))
             .method(original.method(), original.body());
-        
-        if (userEmail != null && !userEmail.isEmpty()) {
-          builder = builder.header("X-AnchorMailbox", userEmail);
-        }
-        
+
         Request request = builder.build();
         return chain.proceed(request);
       }
@@ -1485,7 +1481,6 @@ Now if you save all of your changes, restart the app, then login, you should end
 User-Agent: java-tutorial
 client-request-id: 3d42cd86-f74b-40d9-9dd3-031de58fec0f
 return-client-request-id: true
-X-AnchorMailbox: AllieB@contoso.com
 Authorization: Bearer eyJ0eXAiOiJK...
 --> END GET
 ```

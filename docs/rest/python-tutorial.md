@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: python
-ms.date: 04/26/2017
+ms.date: 02/21/2018
 ms.author: jasonjoh
 ---
 
@@ -16,7 +16,7 @@ The purpose of this guide is to walk through the process of creating a simple Py
 
 This guide will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/python_tutorial/tree/outlook-api).
 
-This guide assumes that you already have [Python](https://www.python.org/) and [Django](https://www.djangoproject.com/) installed and working on your development machine. This sample was created using Python version 3.5.2 and Django 1.10.
+This guide assumes that you already have [Python](https://www.python.org/) and [Django](https://www.djangoproject.com/) installed and working on your development machine. This sample was created using Python version 3.6.3 and Django 2.0.2.
 
 ## Create the app
 
@@ -85,6 +85,7 @@ Create a new file in the `tutorial` directory called `urls.py`. Add the followin
 from django.conf.urls import url 
 from tutorial import views 
 
+app_name = 'tutorial'
 urlpatterns = [ 
   # The home view ('/tutorial/') 
   url(r'^$', views.home, name='home'), 
@@ -107,7 +108,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     # Defer any URLS to the /tutorial directory to the tutorial app
     url(r'^tutorial/', include('tutorial.urls', namespace='tutorial')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 ]
 ```
 
@@ -272,7 +273,7 @@ Now that we have actual values for the client ID and secret, let's put our new f
 ```python
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from tutorial.authhelper import get_signin_url
 
 # Create your views here.
@@ -294,6 +295,7 @@ The view doesn't do much now, but we'll change that soon. Add this new view to t
 from django.conf.urls import url 
 from tutorial import views 
 
+app_name = 'tutorial'
 urlpatterns = [
   # The home view ('/tutorial/') 
   url(r'^$', views.home, name='home'), 
@@ -355,9 +357,9 @@ def get_token_from_code(auth_code, redirect_uri):
     return 'Error retrieving token: {0} - {1}'.format(r.status_code, r.text)
 ```
 
-### Getting the user's email address ###
+### Getting the user ###
 
-Our first use of the access token will be to get the user's email address from the Outlook API. You'll see why we want this soon.
+Our first use of the access token will be to get the user's display name from the Microsoft Graph, just to make sure that our access token works. 
 
 Create a new file in the `tutorial` directory called `outlookservice.py`. We'll implement all of our Outlook API functions in this file. We'll start by creating a generic method for sending API requests called `make_api_call`.
 
@@ -371,12 +373,11 @@ import json
 graph_endpoint = 'https://graph.microsoft.com/v1.0{0}'
 
 # Generic API Sending
-def make_api_call(method, url, token, user_email, payload = None, parameters = None):
+def make_api_call(method, url, token, payload = None, parameters = None):
   # Send these headers with all API calls
   headers = { 'User-Agent' : 'python_tutorial/1.0',
               'Authorization' : 'Bearer {0}'.format(token),
-              'Accept' : 'application/json',
-              'X-AnchorMailbox' : user_email }
+              'Accept' : 'application/json' }
               
   # Use these headers to instrument calls. Makes it easier
   # to correlate requests and responses in case of problems
@@ -404,8 +405,6 @@ def make_api_call(method, url, token, user_email, payload = None, parameters = N
 ```
 
 This function uses the `requests` library to send API requests. It sets a standard set of headers on each requests, including client instrumentation.
-
-It also uses the email address we retrieved from the ID token to set the `X-AnchorMailbox` header. By setting this header, we enable the API endpoint to route API calls to the correct backend mailbox server more efficiently. This is why we want to get the user's email address.
 
 Now let's create a function to make us of the `make_api_call` function to get the user. Add a function called `get_me` to `outlookservice.py`.
 
@@ -444,8 +443,7 @@ def gettoken(request):
 
   # Save the token in the session
   request.session['access_token'] = access_token
-  request.session['user_email'] = user['mail']
-  return HttpResponse('User Email: {0}, Access token: {1}'.format(user['mail'], access_token))
+  return HttpResponse('User: {0}, Access token: {1}'.format(user['displayName'], access_token))
 ```
 
 If you save your changes, restart the server, and go through the sign-in process again, you should now see a long string of seemingly nonsensical characters. If everything's gone according to plan, that should be an access token.
@@ -491,8 +489,7 @@ def gettoken(request):
   request.session['access_token'] = access_token
   request.session['refresh_token'] = refresh_token
   request.session['token_expires'] = expiration
-  request.session['user_email'] = user['mail']
-  return HttpResponse('User Email: {0}, Access token: {1}'.format(user['mail'], access_token))
+  return HttpResponse('User: {0}, Access token: {1}'.format(user['displayName'], access_token))
 ```
 
 Now let's create a function to refresh the access token. Add the following function to `authhelper.py`.
@@ -565,7 +562,6 @@ Now that we can get an access token, we're in a good position to do something wi
 ```python
 def mail(request):
   access_token = get_access_token(request, request.build_absolute_uri(reverse('tutorial:gettoken')))
-  user_email = request.session['user_email']
   # If there is no token in the session, redirect to home
   if not access_token:
     return HttpResponseRedirect(reverse('tutorial:home'))
@@ -581,6 +577,7 @@ Update the `urls.py` file to include an entry for the new view.
 from django.conf.urls import url
 from tutorial import views 
 
+app_name = 'tutorial'
 urlpatterns = [ 
   # The home view ('/tutorial/') 
   url(r'^$', views.home, name='home'), 
@@ -617,7 +614,6 @@ def gettoken(request):
   request.session['access_token'] = access_token
   request.session['refresh_token'] = refresh_token
   request.session['token_expires'] = expiration
-  request.session['user_email'] = user['mail']
   return HttpResponseRedirect(reverse('tutorial:mail'))
 ```
 
@@ -628,7 +624,7 @@ Now let's add a function that will use the `make_api_call` function to implement
 #### The `get_my_messages` function in `./tutorial/outlookservice.py`
 
 ```python
-def get_my_messages(access_token, user_email):
+def get_my_messages(access_token):
   get_messages_url = graph_endpoint.format('/me/mailfolders/inbox/messages')
   
   # Use OData query parameters to control the results
@@ -639,7 +635,7 @@ def get_my_messages(access_token, user_email):
                       '$select': 'receivedDateTime,subject,from',
                       '$orderby': 'receivedDateTime DESC'}
                       
-  r = make_api_call('GET', get_messages_url, access_token, user_email, parameters = query_parameters)
+  r = make_api_call('GET', get_messages_url, access_token, parameters = query_parameters)
   
   if (r.status_code == requests.codes.ok):
     return r.json()
@@ -660,12 +656,11 @@ Then update the `mail` function to call the new function.
 ```python
 def mail(request):
   access_token = get_access_token(request, request.build_absolute_uri(reverse('tutorial:gettoken')))
-  user_email = request.session['user_email']
   # If there is no token in the session, redirect to home
   if not access_token:
     return HttpResponseRedirect(reverse('tutorial:home'))
   else:
-    messages = get_my_messages(access_token, user_email)
+    messages = get_my_messages(access_token)
     return HttpResponse('Messages: {0}'.format(messages))
 ```
 
@@ -708,12 +703,11 @@ Update the `mail` function in `views.py` to use this new template.
 ```python
 def mail(request):
   access_token = get_access_token(request, request.build_absolute_uri(reverse('tutorial:gettoken')))
-  user_email = request.session['user_email']
   # If there is no token in the session, redirect to home
   if not access_token:
     return HttpResponseRedirect(reverse('tutorial:home'))
   else:
-    messages = get_my_messages(access_token, user_email)
+    messages = get_my_messages(access_token)
     context = { 'messages': messages['value'] }
     return render(request, 'tutorial/mail.html', context)
 ```
@@ -745,7 +739,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Add a new function to `outlookservice.py` called `get_my_events`.
 
     ```python
-    def get_my_events(access_token, user_email):
+    def get_my_events(access_token):
       get_events_url = graph_endpoint.format('/me/events')
       
       # Use OData query parameters to control the results
@@ -756,7 +750,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
                           '$select': 'subject,start,end',
                           '$orderby': 'start/dateTime ASC'}
                           
-      r = make_api_call('GET', get_events_url, access_token, user_email, parameters = query_parameters)
+      r = make_api_call('GET', get_events_url, access_token, parameters = query_parameters)
       
       if (r.status_code == requests.codes.ok):
         return r.json()
@@ -775,12 +769,11 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     ```python
     def events(request):
       access_token = get_access_token(request, request.build_absolute_uri(reverse('tutorial:gettoken')))
-      user_email = request.session['user_email']
       # If there is no token in the session, redirect to home
       if not access_token:
         return HttpResponseRedirect(reverse('tutorial:home'))
       else:
-        events = get_my_events(access_token, user_email)
+        events = get_my_events(access_token)
         context = { 'events': events['value'] }
         return render(request, 'tutorial/events.html', context)
     ```
@@ -834,7 +827,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Add a new function to `outlookservice.py` called `get_my_contacts`.
 
     ```python
-    def get_my_contacts(access_token, user_email):
+    def get_my_contacts(access_token):
       get_contacts_url = graph_endpoint.format('/me/contacts')
       
       # Use OData query parameters to control the results
@@ -845,7 +838,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
                           '$select': 'givenName,surname,emailAddresses',
                           '$orderby': 'givenName ASC'}
                           
-      r = make_api_call('GET', get_contacts_url, access_token, user_email, parameters = query_parameters)
+      r = make_api_call('GET', get_contacts_url, access_token, parameters = query_parameters)
       
       if (r.status_code == requests.codes.ok):
         return r.json()
@@ -864,12 +857,11 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     ```python
     def contacts(request):
       access_token = get_access_token(request, request.build_absolute_uri(reverse('tutorial:gettoken')))
-      user_email = request.session['user_email']
       # If there is no token in the session, redirect to home
       if not access_token:
         return HttpResponseRedirect(reverse('tutorial:home'))
       else:
-        contacts = get_my_contacts(access_token, user_email)
+        contacts = get_my_contacts(access_token)
         context = { 'contacts': contacts['value'] }
         return render(request, 'tutorial/contacts.html', context)
     ```

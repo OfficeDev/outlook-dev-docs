@@ -104,7 +104,7 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Outlook on the web for Office 365| Yes | Available to all Office 365 users |
 | Office 365 ProPlus Monthly Channel | Yes | Version 1705, Build 8201 |
 | Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes | Version 1708, Build 8431 |
-| Office 365 ProPlus Semi-Annual Channel | No | Coming Soon |
+| Office 365 ProPlus Semi-Annual Channel | Yes | Version 1708, Build 8431.2153 |
 | Outlook 2016 for Mac | No | Coming Soon |
 | Outlook for iOS | No | Coming Soon |
 | Outlook for Android | No | Coming Soon |

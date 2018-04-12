@@ -3,7 +3,7 @@ title: Outlook Developer Documentation | Microsoft Docs
 description: Learn about the different ways to integrate with Outlook, including REST, add-ins, and actionable messages.
 author: jasonjoh
 
-ms.topic: landing-page
+ms.topic: overview
 ms.technology: ms-graph
 ms.date: 04/26/2017
 ms.author: jasonjoh
@@ -35,7 +35,7 @@ Whether you are filling out a survey, approving an expense report, or updating a
 
 ## Need help?
 
-Connect with us on StackOverflow and join the Outlook developer community. We have tags setup for each of the integration types.
+Connect with us on StackOverflow and join the Outlook developer community. We use the following tags for each of the integration types:
 
 - REST APIs: [StackOverflow outlook-restapi tag](http://stackoverflow.com/questions/tagged/outlook-restapi)
 - Outlook add-ins: [StackOverflow outlook-web-addins tag](http://stackoverflow.com/questions/tagged/outlook-web-addins)
@@ -43,4 +43,4 @@ Connect with us on StackOverflow and join the Outlook developer community. We ha
 
 ## Feedback
 
-We want to hear from you! If there are feature's you'd like us to consider, or if you have feedback about the existing features, please visit our [UserVoice page](https://officespdev.uservoice.com/).
+We want to hear from you! If there are features that you'd like us to consider, or if you have feedback about existing features, please visit our [UserVoice page](https://officespdev.uservoice.com/).
