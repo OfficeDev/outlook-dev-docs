@@ -16,7 +16,7 @@ The purpose of this guide is to walk through the process of setting up one of ou
 
 - An Office 365 subscription with Exchange Online. If you don't have an existing subscription, you can signup for a [25-user free trial](https://portal.office.com/Signup/Signup.aspx?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&alo=1&lc=1033&ali=1#0) of the Office 365 Business subscription.
 - A Microsoft account (MSA) to receive the test payment request. If you don't have a Microsoft account, you can [sign up for one for free]((https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1)).
-- A [Stripe](https://stripe.com/) account. If you don't have an account, you can sign up for one on their website.
+- A [Stripe](https://stripe.com/connect) connect platform account. If you don't have an account, you can sign up for one on their website.
 
 ## Download a sample service
 
