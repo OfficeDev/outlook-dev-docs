@@ -47,6 +47,6 @@ Follow the instructions in the [Payments in Outlook partner dashboard guide](par
 
     ![The message sent by the MessageCard Playground](images/payment-request-message.PNG)
 
-1. Choose the **Pay** button to open the payment pane. Your payment request webhook should receive a `loadentity` payload.
+1. Choose the **Review & Pay** button to open the payment pane. Your payment request webhook should receive a `loadentity` payload.
 
 Refer to the README for your sample of choice for further steps to test the payment experience.

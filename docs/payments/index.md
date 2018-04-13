@@ -18,13 +18,13 @@ Let's take a look at the flow for a simple invoice scenario.
 ![A flow diagram illustrating the sequence of events for an invoice scenario using Payments in Outlook](images/payments-flow.png)
 
 1. The merchant sends a payment request email to the recipient on Office 365.
-1. Office 365 validates that the sender is allowed to send payment requests before delivering to the user.
+1. The payment service validates that the sender is allowed to send payment requests before delivering to the user.
 1. The user opens the message, which is rendered as a payment card.
 1. The user invokes the payment action on the card.
-1. Office 365 POSTs a request to the merchant's server to get the invoice details and allowed payment methods.
+1. The payment service POSTs a request to the merchant's server to get the invoice details and allowed payment methods.
 1. The merchant uses the information in the POST to retrieve the invoice and sends it back to Outlook.
 1. The user reviews the invoice, selects a payment method, and approves payment without leaving Outlook.
-1. Office 365 POSTs a payment token to the merchant's server.
+1. The payment service POSTs a payment token to the merchant's server.
 1. The merchant processes the token using the appropriate payment processor API (Stripe, Microsoft Pay, etc.) and sends the result back to Outlook.
 1. Outlook displays the result.
 
