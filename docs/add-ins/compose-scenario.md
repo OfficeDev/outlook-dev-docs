@@ -18,7 +18,6 @@ Starting with version 1.1 of the schema for Office Add-ins manifests and v1.1 of
     
     > [!NOTE]
     > If the user is on the RTM release of Outlook 2013 and Exchange 2013 and is viewing a meeting item organized by the user, the user can find read add-ins available. Starting in the Office 2013 SP1 release, there's a change such that in the same scenario, only compose add-ins can activate and be available.
-    
 - Composing an inline response message or replying to a message in a separate compose form.
 - Editing a response (**Accept**, **Tentative**, or **Decline**) to a meeting request or meeting item.
 - Proposing a new time for a meeting item.
