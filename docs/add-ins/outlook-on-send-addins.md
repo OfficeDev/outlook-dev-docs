@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
@@ -280,7 +280,7 @@ To access the currently selected message (in this example, the newly composed  m
     }
 ```
 
-The `validateBody`function gets the current body in the specified format (HTML) and passes the **ItemSend** event object that the code wants to access in the callback method. In addition to the **getAsync** method, the **Body** object also provides a **setAsync** method that you can use to replace the body with the specified text. 
+The `validateBody` function gets the current body in the specified format (HTML) and passes the **ItemSend** event object that the code wants to access in the callback method. In addition to the **getAsync** method, the **Body** object also provides a **setAsync** method that you can use to replace the body with the specified text. 
 
 > [!NOTE]
 > For more information, see [Event Object](https://dev.office.com/reference/add-ins/outlook/1.5/Event?product=outlook&version=v1.5) and [Body.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5).
@@ -292,7 +292,7 @@ The `checkBodyOnlyOnSendCallBack` function uses a regular expression to determin
 
 ```js
   // Determine whether the body contains a specific set of blocked words. If it contains the blocked words, block email from being sent. Otherwise allow sending.
-    // <param name="asyncResult">ItemeSend event passed from the calling function.</param>
+    // <param name="asyncResult">ItemSend event passed from the calling function.</param>
     function checkBodyOnlyOnSendCallBack(asyncResult) {
         var listOfBlockedWords = new Array("blockedword", "blockedword1", "blockedword2");
         var wordExpression = listOfBlockedWords.join('|');

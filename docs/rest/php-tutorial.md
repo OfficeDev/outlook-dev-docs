@@ -726,7 +726,8 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Update the `OAUTH_SCOPES` value in `.\php-tutorial\.env` to include the `Calendars.Read` scope. 
 
-    > **Note:** Be sure to restart the development server after changing this file!
+    > [!NOTE]
+    > Be sure to restart the development server after changing this file!
 
     ```
     OAUTH_SCOPES='openid profile offline_access User.Read Mail.Read Calendars.Read'
@@ -817,7 +818,8 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Update the `OAUTH_SCOPES` value in `.\php-tutorial\.env` to include the `Contacts.Read` scope. 
 
-    > **Note:** Be sure to restart the development server after changing this file!
+    > [!NOTE]
+    > Be sure to restart the development server after changing this file!
 
     ```
     OAUTH_SCOPES='openid profile offline_access User.Read Mail.Read Contacts.Read'
