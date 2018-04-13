@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
@@ -240,7 +240,7 @@ Office.initialize = function () {
 ## Extracting addresses
 
 
-When the user clicks the  **Get Addresses** button, the `myGetAddresses` event handler obtains an array of addresses from the [addresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any address was extracted. Each extracted address is stored as a string in the array. `myGetAddresses` forms a local HTML string in .mdText` to display the list of extracted addresses. The following is the related JavaScript code.
+When the user clicks the  **Get Addresses** button, the `myGetAddresses` event handler obtains an array of addresses from the [addresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any address was extracted. Each extracted address is stored as a string in the array. `myGetAddresses` forms a local HTML string in `htmlText` to display the list of extracted addresses. The following is the related JavaScript code.
 
 
 ```js
@@ -281,7 +281,7 @@ When the user clicks the  **Get Contact Information** button, the `myGetContacts
     
 - The array of postal addresses associated with the contact from the [Contact.addresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each postal address is represented as a string in an array member.
     
- `myGetContacts` forms a local HTML string in `htmlText` to display the data for each contact. The following is the related JavaScript code.
+`myGetContacts` forms a local HTML string in `htmlText` to display the data for each contact. The following is the related JavaScript code.
 
 
 
@@ -378,7 +378,8 @@ function myGetEmailAddresses() {
 When the user clicks the  **Get Meeting Suggestions** button, the `myGetMeetingSuggestions` event handler obtains an array of meeting suggestions from the [meetingSuggestions](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted.
 
 
- >**Note**  Only messages but not appointments support the  **MeetingSuggestion** entity type.
+ > [!NOTE]
+ > Only messages but not appointments support the  **MeetingSuggestion** entity type.
 
 Each extracted meeting suggestion is stored as a [MeetingSuggestion](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetMeetingSuggestions` obtains further data about each meeting suggestion:
 
@@ -399,7 +400,7 @@ Each extracted meeting suggestion is stored as a [MeetingSuggestion](https://dev
     
 - The string representing the end time of the meeting suggestion from the [MeetingSuggestion.end](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
     
- `myGetMeetingSuggestions` forms a local HTML string in `htmlText` to display the data for each of the meeting suggestions. The following is the related JavaScript code.
+`myGetMeetingSuggestions` forms a local HTML string in `htmlText` to display the data for each of the meeting suggestions. The following is the related JavaScript code.
 
 
 
@@ -469,7 +470,7 @@ When the user clicks the  **Get Phone Numbers** button, the `myGetPhoneNumbers` 
     
 - The string that was originally identified as the phone number from the [PhoneNumber.originalPhoneString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
     
- `myGetPhoneNumbers` forms a local HTML string in `htmlText` to display the data for each of the phone numbers. The following is the related JavaScript code.
+`myGetPhoneNumbers` forms a local HTML string in `htmlText` to display the data for each of the phone numbers. The following is the related JavaScript code.
 
 
 
@@ -522,7 +523,7 @@ When the user clicks the  **Get Task Suggestions** button, the `myGetTaskSuggest
     
 - For each assignee, the SMTP address from the [EmailUser.emailAddress](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
     
- `myGetTaskSuggestions` forms a local HTML string in `htmlText` to display the data for each task suggestion. The following is the related JavaScript code.
+`myGetTaskSuggestions` forms a local HTML string in `htmlText` to display the data for each task suggestion. The following is the related JavaScript code.
 
 
 

@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
@@ -16,7 +16,7 @@ Before sending a message or meeting request item, Exchange Server parses the con
 
 Using the JavaScript API for Office, you can get these strings that match specific well-known entities for further processing. You can also specify a well-known entity in a rule in the add-in manifest so that Outlook can activate your add-in when the user is viewing an item that contains matches for that entity. You can then extract and take action on matches for the entity. 
 
-Being able to identify or extract such instances from a selected message or appointment is convenient. For example, you can build a reverse phone look-up service as an Outlook add-in. The add-in can extract strings in the item subject or body that resemble a phone number, do a reverse lookup and display the registered owner of each phone number.
+Being able to identify or extract such instances from a selected message or appointment is convenient. For example, you can build a reverse phone look-up service as an Outlook add-in. The add-in can extract strings in the item subject or body that resemble a phone number, do a reverse lookup, and display the registered owner of each phone number.
 
 This topic introduces these well-known entities, shows examples of activation rules based on well-known entities, and how to extract entity matches independently of having used entities in activation rules.
 
@@ -37,7 +37,7 @@ The following table lists the entities that Exchange Server and Outlook support 
 |**Entity type**|**Conditions for recognition**|**Object type**|
 |:-----|:-----|:-----|
 |**Address**|United States street addresses; for example: 1234 Main Street, Redmond, WA 07722. Generally, for an address to be recognized, it should follow the structure of a United States postal address, with most of the elements of a street number, street name, city, state, and zip code present. The address can be specified in one or multiple lines.|JavaScript  **String** object|
-|**Contact**|A reference to a person's information as recognized in natural language.The recognition of a contact depends on the context. For example, a signature at the end of a message, or a person's name appearing in the vicinity of some of the following information: a phone number, address, email address, and URL.|[Contact](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object|
+|**Contact**|A reference to a person's information as recognized in natural language. The recognition of a contact depends on the context. For example, a signature at the end of a message, or a person's name appearing in the vicinity of some of the following information: a phone number, address, email address, and URL.|[Contact](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object|
 |**EmailAddress**|SMTP email addresses.|JavaScript  **String** object|
 |**MeetingSuggestion**|A reference to an event or meeting. For example, Exchange 2013 would recognize the following text as a meeting suggestion:  _Let's meet tomorrow for lunch._|[MeetingSuggestion](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object|
 |**PhoneNumber**|United States telephone numbers; for example:  _(235) 555-0110_|[PhoneNumber](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object|
@@ -46,7 +46,7 @@ The following table lists the entities that Exchange Server and Outlook support 
 Figure 1 describes how Exchange Server and Outlook support well-known entities for add-ins, and what add-ins can do with well-known entities. See [Retrieving entities in your add-in](#retrieving-entities-in-your-add-in) and [Activating an add-in based on the existence of an entity](#activating-an-add-in-based-on-the-existence-of-an-entity) for more details on how to use these entities.
 
 
-**Figure 1. How Exchange Server, Outlook and add-ins support well-known entities**
+**Figure 1. How Exchange Server, Outlook, and add-ins support well-known entities**
 
 ![Support and use of well-known entities in mail app](images/well-known-entities-info.png)
 
@@ -56,7 +56,7 @@ Figure 1 describes how Exchange Server and Outlook support well-known entities f
 
 To extract entities in your JavaScript code or to have your add-in activated based on the existence of certain well-known entities, make sure you have requested the appropriate permissions in the add-in manifest.
 
-Specifying the default restricted permission allows your add-in to extract the  **Address**,  **MeetingSuggestion**, or  **TaskSuggestion** entity. To extract any of the other entities, specify read item, read/write item or read/write mailbox permission. To do that in the manifest, use the [Permissions](https://dev.office.com/reference/add-ins/manifest/permissions?product=outlook&version=v1.5) element and specify the appropriate permission - **Restricted**,  **ReadItem**,  **ReadWriteItem**, or  **ReadWriteMailbox** - as in the following example:
+Specifying the default restricted permission allows your add-in to extract the  **Address**,  **MeetingSuggestion**, or  **TaskSuggestion** entity. To extract any of the other entities, specify read item, read/write item, or read/write mailbox permission. To do that in the manifest, use the [Permissions](https://dev.office.com/reference/add-ins/manifest/permissions?product=outlook&version=v1.5) element and specify the appropriate permission - **Restricted**,  **ReadItem**,  **ReadWriteItem**, or  **ReadWriteMailbox** - as in the following example:
 
 
 
@@ -82,7 +82,7 @@ The following example shows how to retrieve any addresses found in a message.
 // Get the address entities from the item.
 var entities = Office.context.mailbox.item.getEntities();
 // Check to make sure that address entities are present.
-if (null != entities &amp;&amp; null != entities.addresses &amp;&amp; undefined != entities.addresses) {
+if (null != entities && null != entities.addresses && undefined != entities.addresses) {
    //Addresses are present, so use them here.
 }
 

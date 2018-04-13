@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
@@ -27,14 +27,15 @@ To have Outlook activate an add-in for specific conditions, specify activation r
 - [Rule element (RuleCollection complexType)](https://dev.office.com/reference/add-ins/manifest/rule#rulecollection) - Combines multiple rules using logical operations.
     
 
- > **Note:**  The **Rule** element that you use to specify an individual rule is of the abstract [Rule](https://dev.office.com/reference/add-ins/manifest/rule) complex type. Each of the following types of rules extends this abstract **Rule** complex type. So when you specify an individual rule in a manifest, you must use the [xsi:type](http://www.w3.org/TR/xmlschema-1/) attribute to further define one of the following types of rules. For example, the following rule defines an [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) rule: `<Rule xsi:type="ItemIs" ItemType="Message" />` The  **FormType** attribute applies to activation rules in the manifest v1.1 but is not defined in **VersionOverrides** v1.0. So it can't be used when [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) is used in the **VersionOverrides** node.
+ > [!NOTE]
+ > The **Rule** element that you use to specify an individual rule is of the abstract [Rule](https://dev.office.com/reference/add-ins/manifest/rule) complex type. Each of the following types of rules extends this abstract **Rule** complex type. So when you specify an individual rule in a manifest, you must use the [xsi:type](http://www.w3.org/TR/xmlschema-1/) attribute to further define one of the following types of rules. For example, the following rule defines an [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) rule: `<Rule xsi:type="ItemIs" ItemType="Message" />` The  **FormType** attribute applies to activation rules in the manifest v1.1 but is not defined in **VersionOverrides** v1.0. So it can't be used when [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) is used in the **VersionOverrides** node.
 
 The following table lists the types of rules that are available. You can find more information following the table and in the specified articles under [Create Outlook add-ins for read forms](read-scenario.md).
 
 
 |**Rule name**|**Applicable forms**|**Description**|
 |:-----|:-----|:-----|
-|[ItemIs](#itemis-rule)|Read ,Compose|Checks to see whether the current item is of the specified type (message or appointment). Can also check the item class and form type.and optionally, item message class.|
+|[ItemIs](#itemis-rule)|Read, Compose|Checks to see whether the current item is of the specified type (message or appointment). Can also check the item class and form type.and optionally, item message class.|
 |[ItemHasAttachment](#itemhasattachment-rule)|Read|Checks to see whether the selected item contains an attachment.|
 |[ItemHasKnownEntity](#itemhasknownentity-rule)|Read|Checks to see whether the selected item contains one or more well-known entities. More information: [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md).|
 |[ItemHasRegularExpressionMatch](#itemhasregularexpressionmatch-rule)|Read|Checks to see whether the sender's email address, the subject, and/or the body of the selected item contains a match to a regular expression.More information: [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md).|
@@ -56,7 +57,8 @@ Specify one of the following item types in the  **ItemType** attribute of an **I
 The  **FormType** attribute is used to specify the mode (read or compose) in which the add-in should activate.
 
 
- > **Note: **  The ItemIs **FormType** attribute is defined in schema v1.1 and later but not in **VersionOverrides** v1.0. Do not include the **FormType** attribute when defining add-in commands.
+ > [!NOTE]
+ > The ItemIs **FormType** attribute is defined in schema v1.1 and later but not in **VersionOverrides** v1.0. Do not include the **FormType** attribute when defining add-in commands.
 
 After an add-in is activated, you can use the [mailbox.item](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property to obtain the currently selected item in Outlook, and the [item.itemType](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property to obtain the type of the current item.
 

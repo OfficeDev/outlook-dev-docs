@@ -13,7 +13,8 @@ ms.author: jasonjoh
 
 An Outlook add-in consists of two components: the XML add-in manifest, and a web page, supported by the JavaScript library for Office Add-ins (office.js). The manifest describes how the add-in integrates across Outlook clients. The following is an example.
 
- >**Note**  All URL values in the following sample begin with "https://appdemo.contoso.com". This value is a placeholder. In an actual valid manifest, these values would contain valid https web URLs.
+ > [!NOTE]
+ > All URL values in the following sample begin with "https://appdemo.contoso.com". This value is a placeholder. In an actual valid manifest, these values would contain valid https web URLs.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -242,7 +243,8 @@ The current versions of the schema are:
 
 This article will cover the requirements for a v1.1 manifest. Even if your add-in manifest uses the  **VersionOverrides** element, it is still important to include the v1.1 manifest elements to allow your add-in to work with older clients that do not support **VersionOverrides**.
 
-> **Note:** Outlook uses a schema to validate manifests. The schema requires that elements in the manifest appear in a specific order. If you include elements out of the required order, you may get errors when sideloading your add-in. You can [download the schema definitions from GitHub](https://github.com/OfficeDev/office-js-docs-pr/tree/master/docs/overview/schemas) to help create your manifest with elements in the required order.
+> [!NOTE]
+> Outlook uses a schema to validate manifests. The schema requires that elements in the manifest appear in a specific order. If you include elements out of the required order, you may get errors when sideloading your add-in. You can [download the schema definitions from GitHub](https://github.com/OfficeDev/office-js-docs-pr/tree/master/docs/overview/schemas) to help create your manifest with elements in the required order.
 
 ## Root element
 
@@ -390,7 +392,8 @@ Activation rules are specified in the  **Rule** element. The **Rule** element ca
 
 Activation rules can be used to activate an add-in based on one or more of the following conditions on the currently selected item.
 
-> **Note:** Activation rules only apply to clients that do not support the **VersionOverrides** element. 
+> [!NOTE]
+> Activation rules only apply to clients that do not support the **VersionOverrides** element. 
 
 - The item type and/or message class
     
