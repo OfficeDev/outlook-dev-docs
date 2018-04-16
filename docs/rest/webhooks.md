@@ -105,12 +105,12 @@ The client can renew a subscription to the specified expiration date (up to thre
  
 ### Sample renew subscription response
 
-THe renew response is a replay of the create subscription response with the new expiration date-time.
+The renew response is a replay of the create subscription response with the new expiration date-time.
 
     {
       "@odata.context": "https://outlook.office.com/api/v2.0/$metadata#Me/Subscriptions/$entity",
       "@odata.id": "https://outlook.office.com/api/v2.0/Users('user@contoso.com')/subscriptions('NDc0MEE4...QQ==')",
-    "@odata.type": "#Microsoft.OutlookServices.PushSubscription",
+      "@odata.type": "#Microsoft.OutlookServices.PushSubscription",
       "ChangeType": "Created, Updated, Deleted, Acknowledgment, Missed",
       "ClientState": "MySecretClientStateString",
       "Id": "NDc0MEE4...QQ==",
