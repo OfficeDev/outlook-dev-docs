@@ -5,13 +5,16 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 12/06/2017
+ms.date: 04/16/2018
 ms.author: jasonjoh
 ---
-
 # Register your service with the actionable email developer dashboard
 
 To test and publish actionable messages from your service, you need to provide certain information to Microsoft to enable this functionality for emails from your service. The [developer dashboard](https://aka.ms/publishoam) helps you submit and track status of your submission via the web portal.
+
+> [!NOTE]
+> You can easily try out actionable messages via email by sending email to yourself with the required markup without any intervention from Microsoft. This would typically be the first step you try out as you dip your toes into this capability.
+> Check out [these samples](actionable-messages-via-email.md#sending-the-message) to send an actionable message to your mailbox, or use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to send an actionable message to yourself.
 
 If you are a developer working with actionable messages via email, you will use the portal for the following cases:
 
@@ -24,10 +27,6 @@ For all the above cases, you will be submitting certain details to Microsoft, wh
 > [!IMPORTANT]
 > We are gradually rolling out a new feature which enables self-service of registrations with a **My mailbox** or **My organization** scope. See [Scope of your submission](#scope-of-your-submission) for more details.
 
-> [!NOTE]
-> You can easily try out actionable messages via email by sending email to yourself with the required markup without any intervention from Microsoft. This would typically be the first step you try out as you dip your toes into this capability.
-> Check out [these samples](actionable-messages-via-email.md#sending-the-message) to send an actionable message to your mailbox, or use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to send an actionable message to yourself.
-
 ## Dashboard sections
 
 The developer dashboard is divided into a few logical sections you need to fill out based on the scope you’d like to request Microsoft to enable actionable message from your service.
@@ -39,7 +38,7 @@ In this section, you need to supply key details that will allow Office 365 to ac
 The key fields are:
 
 - **Sender email address**: This is one or more static email addresses corresponding to the service that will send out emails with action markup. Example: `myservice@contoso.com`.
-- **Target URLs**: This is one or more domains corresponding to URLs that will process the actions. Your target URL can correspond to the top level domain or the subdomain of the TLD. They need to be https enabled URLs. Example. `https://api.myservice.com`.
+- **Target URLs**: This is one or more domains corresponding to URLs that will process the actions. Your target URL can correspond to the top level domain or the sub-domain of the TLD. They need to be https enabled URLs. Example. `https://api.myservice.com`.
 
 ### Scope of your submission
 
@@ -109,7 +108,7 @@ There are some things you need to keep in mind when you submit your solution for
 ### Email sender quality guidelines
 
 - Emails must be authenticated via DKIM or SPF.
-- The top-level domain (TLD) of the SPF check or DKIM signature must match the TLD of your `From:` email address. For example, if you use `From: myservice@contoso.com` the DKIM or SPF must be for `contoso.com` or `subdomain.contoso.com`. 
+- The top-level domain (TLD) of the SPF check or DKIM signature must match the TLD of your `From:` email address. For example, if you use `From: myservice@contoso.com` the DKIM or SPF must be for `contoso.com` or `-.contoso.com`.
 - Emails must come from a static email address, e.g. `myservice@contoso.com`.
 - Emails must follow the email sender guidelines.
   - See [Sending mail to Office 365](https://technet.microsoft.com/en-us/library/mt706217(v=exchg.150).aspx) for Office 365.
@@ -123,9 +122,9 @@ There are some things you need to keep in mind when you submit your solution for
 ### Actions guidelines
 
 - Label of the button needs to reflect clear action to be taken.
-- `OpenURI` action must deep link into the specific page associated with the entity/information presented in the actionable message.
+- `Action.OpenUrl` action must deep link into the specific page associated with the entity/information presented in the actionable message.
 - Low failure rate and fast response for services handling action requests.
-- Please see the [Card reference](card-reference.md) for additional guidelines on designing actionable messages.
+- Please see [Designing Outlook actionable message cards with the Adaptive Card format](adaptive-card-reference.md) for additional guidelines on designing actionable messages.
 
 ## Approval of your submission
 

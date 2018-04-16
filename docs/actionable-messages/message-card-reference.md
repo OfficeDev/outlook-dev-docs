@@ -1,15 +1,17 @@
 ---
-title: Actionable message card reference | Microsoft Docs
+title: Legacy actionable message card reference | Microsoft Docs
 description: Learn about the available fields for actionable message cards and design guidelines for creating an effective card.
 author: jasonjoh
 
 ms.topic: reference
 ms.technology: o365-connectors
-ms.date: 04/05/2018
+ms.date: 04/16/2018
 ms.author: jasonjoh
 ---
+# Legacy actionable message card reference
 
-# Actionable message card reference
+> [!NOTE]
+> This document describes the original JSON format for the actionable message card format. This has been replaced with the [Adaptive Card format](adaptive-card-reference.md). Microsoft recommends that new actionable message integrations use the Adaptive Card format, and existing integrations consider updating to Adaptive Card format.
 
 Cards are meant to provide easy to read, at-a-glance information that users can very quickly decipher and act upon when appropriate. As such, the guiding principle for designing great card is "content over chrome," which means cards are straight to the point and minimize the use of anything that would be distracting such as icons or custom colors.
 
@@ -50,7 +52,7 @@ If your card represents multiple "entities" or is, for instance, a digest for a 
 
 > [!TIP]
 > Follow these guidelines when planning the layout of your card.
-> 
+>
 > - **Do** use sections to logically group data together.
 > - Sometimes, multiple sections MAY be used to represent a single logical group of data; this allows for more flexibility on ordering the information presented in the card. For example, it makes it possible to display a list of facts before an activity.
 > - **Don't** include more than 10 sections. Cards are meant to be easy to read; if there is too much information in a card, it will be lost on the user.
@@ -99,7 +101,7 @@ Defines an image as used by the `heroImage` and `images` property of a section.
 
 Cards are very powerful in the sense that they allow users to take quick actions without leaving their email client. When designing cards, consider making them actionable, as that will increase user engagement and productivity.
 
-Actions are specified using the `potentialAction` property which is available both on the card itself and on each section. There are four types of actions: 
+Actions are specified using the `potentialAction` property which is available both on the card itself and on each section. There are four types of actions:
 
 - [OpenUri](#openuri-action)
 - [HttpPost](#httppost-action)

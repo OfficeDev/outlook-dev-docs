@@ -15,11 +15,13 @@
     href: security-requirements.md
   - name: Invoke an Outlook add-in
     href: invoke-add-in-from-actionable-message.md
-- name: Card Reference
-  href: card-reference.md
+- name: Adaptive Card Reference
+  href: adaptive-card-reference.md
 - name: Actionable Email Developer Dashboard
   href: actionable-email-dev-dashboard.md
 - name: Connectors Developer Dashboard
   href: connectors-dev-dashboard.md
 - name: Card Playground
   href: https://messagecardplayground.azurewebsites.net/
+- name: MessageCard Reference (Legacy)
+  href: message-card-reference.md
