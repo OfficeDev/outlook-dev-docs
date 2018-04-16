@@ -130,7 +130,8 @@ However, a mail add-in can get MAPI-based extended properties by using the EWS [
 Before you can use custom properties, you must load them by calling the [loadCustomPropertiesAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method. If any custom properties are already set for the current item, they are loaded from the Exchanger server at this point. After you have created the property bag, you can use the [set](https://dev.office.com/reference/add-ins/outlook/1.5/CustomProperties?product=outlook&version=v1.5) and [get](https://dev.office.com/reference/add-ins/outlook/1.5/CustomProperties?product=outlook&version=v1.5) methods to add and retrieve custom properties. To save any changes that you make to the property bag, you must use the [saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/CustomProperties?product=outlook&version=v1.5) method to persist the changes on the Exchange server.
 
 
- >**Note**  Because Outlook for Mac doesn't cache custom properties, if the user's network goes down, mail add-ins in Outlook for Mac would not be able to access their custom properties.
+ > [!NOTE]
+ > Because Outlook for Mac doesn't cache custom properties, if the user's network goes down, mail add-ins in Outlook for Mac would not be able to access their custom properties.
 
 
 ### Custom properties example

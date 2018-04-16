@@ -116,7 +116,8 @@ Developers should follow the tiered permissions model to provide transparency an
     
 - Developers request permission by using the [Permissions](https://dev.office.com/reference/add-ins/manifest/permissions?product=outlook&version=v1.5) element in the manifest of the Outlook add-in, by assigning a value of **Restricted**,  **ReadItem**,  **ReadWriteItem** or **ReadWriteMailbox**, as appropriate. 
     
-     >**Note**  Note that the  **ReadWriteItem** permission is available starting in manifest schema v1.1.
+     > [!NOTE]
+     > Note that the  **ReadWriteItem** permission is available starting in manifest schema v1.1.
 
     The following example requests the  **read item** permission.
     

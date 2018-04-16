@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 08/09/2017
+ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
@@ -58,7 +58,7 @@ function attachmentTokenCallback(asyncResult, userContext) {
 
 ### Send attachment information to the remote service
 
-The remote service that your add-in calls defines the specifics of how you should send the attachment information to the service. In this example, the remote service is Web API application created by using Visual Studio 2013. The remote service expects the attachment information in a JSON object. The following code initializes an object that contains the attachment information.
+The remote service that your add-in calls defines the specifics of how you should send the attachment information to the service. In this example, the remote service is a Web API application created by using Visual Studio 2013. The remote service expects the attachment information in a JSON object. The following code initializes an object that contains the attachment information.
 
 ```js
 // Initialize a context object for the add-in.

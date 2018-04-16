@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 10/03/2017
+ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
@@ -20,7 +20,8 @@ Read add-ins are Outlook add-ins that are activated in the Reading Pane or read 
     
 - View a meeting item in which the user is the organizer (RTM release of Outlook 2013 and Exchange 2013 only).
     
-     >**Note**  Starting in the Office 2013 SP1 release, if the user is viewing a meeting item that the user has organized, only compose add-ins can activate and be available. Read add-ins are no longer available in this scenario.
+     > [!NOTE]
+     > Starting in the Office 2013 SP1 release, if the user is viewing a meeting item that the user has organized, only compose add-ins can activate and be available. Read add-ins are no longer available in this scenario.
 * Outlook doesn't activate add-ins in read form for certain types of messages, including items that are attachments to another message, items in the Outlook Drafts folder, or items that are encrypted or protected in other ways.
 
 In each of these read scenarios, Outlook activates add-ins when their activation conditions are fulfilled, and users can choose and open activated add-ins in the add-in bar in the Reading Pane or read inspector. Figure 1 shows the  **Bing Maps** add-in activated and opened as the user is reading a message that contains a geographic address.
@@ -58,4 +59,4 @@ Read add-ins can be any combination of the following types.
 
 ## Additional resources
 
-- [Write your first Outlook add-in](addin-tutorial.md)
+- [Write your first Outlook add-in](quick-start.md)

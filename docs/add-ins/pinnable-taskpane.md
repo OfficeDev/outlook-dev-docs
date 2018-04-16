@@ -15,7 +15,8 @@ The [taskpane](add-in-commands-for-outlook.md#launching-a-task-pane) UX shape fo
 
 However, by default, if a user has an add-in taskpane open for a message in the Reading Pane, and then selects a new message, the task pane is automatically closed. For a heavily-used add-in, the user may prefer to keep that pane open, eliminating the need to reactivate the add-in on each message. With pinnable taskpanes, your add-in can give the user that option.
 
-> **Note**: Pinnable taskpanes are currently only supported by Outlook 2016 for Windows (build 7668.2000 or later for users in the Current or Office Insider Channels, build 7900.xxxx or later for users in Deferred channels).
+> [!NOTE]
+> Pinnable taskpanes are currently only supported by Outlook 2016 for Windows (build 7668.2000 or later for users in the Current or Office Insider Channels, build 7900.xxxx or later for users in Deferred channels).
 
 ## Support taskpane pinning
 
@@ -23,7 +24,8 @@ The first step is to add pinning support, which is done in the add-in [manifest]
 
 The `SupportsPinning` element is defined in the VersionOverrides v1.1 schema, so you will need to include a [VersionOverrides](https://dev.office.com/reference/add-ins/manifest/versionoverrides?product=outlook&version=v1.5) element both for v1.0 and v1.1.
 
-> **Note:** If you plan to [publish](https://dev.office.com/docs/add-ins/publish/publish?product=outlook) your Outlook add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [Office Store validation](https://msdn.microsoft.com/en-us/library/jj220035.aspx), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
+> [!NOTE]
+> If you plan to [publish](https://dev.office.com/docs/add-ins/publish/publish?product=outlook) your Outlook add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [Office Store validation](https://msdn.microsoft.com/en-us/library/jj220035.aspx), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
 
 ```xml
 <!-- Task pane button -->
