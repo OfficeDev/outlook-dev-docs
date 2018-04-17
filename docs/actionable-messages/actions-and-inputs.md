@@ -14,7 +14,7 @@ Outlook Actionable Messages support two types of actions: calling an external se
 
 ## Calling an external service
 
-The [`Action.Http`](adaptive-card-reference.md#action.http) action type calls an external service. It supports collecting input from the user and including that in the call.
+The [`Action.Http`](adaptive-card-reference.md#actionhttp) action type calls an external service. It supports collecting input from the user and including that in the call.
 
 ### Actions without input
 
