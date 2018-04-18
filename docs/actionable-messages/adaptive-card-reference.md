@@ -1,14 +1,14 @@
 ---
-title: Adaptive Outlook actionable message card reference | Microsoft Docs
+title: Designing Outlook actionable message cards with the Adaptive Card format | Microsoft Docs
 description: Learn about the available fields for Outlook actionable message cards using the Adaptive Card format and design guidelines for creating an effective card.
 author: jasonjoh
 
-ms.topic: reference
+ms.topic: article
 ms.technology: o365-connectors
 ms.date: 04/16/2018
 ms.author: jasonjoh
 ---
-# Designing Outlook actionable message cards with the Adaptive Card format
+# Designing Outlook Actionable Message cards with the Adaptive Card format
 
 Outlook Actionable Messages cards are designed using the Adaptive Card format. The Adaptive Card format is a simple yet powerful declarative layout format that provides a lot of flexibility, allowing for visually rich cards. Adaptive Card is an open source format and is fully documented at the [Adaptive Card portal](http://adaptivecards.io). Please refer to that site for reference documentation and samples.
 
@@ -30,15 +30,15 @@ All `TextBlock` elements in a card can be formatted using Markdown. Outlook supp
 > [!IMPORTANT]
 > Since all `TextBlock` elements are processed as Markdown, be sure to escape Markdown special characters (such as `*` or `#`) if needed.
 
-| Effect | Markdown syntax | Result |
-|--------|-----------------|--------|
-| Italics | `*This text is in italics*` | *This text is in italics* |
-| Bold | `**This text is bold**` | **This text is bold** |
-| Bold + italics | `***This text is bold and in italics***` | ***This text is bold and in italics*** |
-| Strike-through | `~~This text is struck through~~` | ~~This text is struck through~~ |
-| Link | `[Microsoft](http://www.microsoft.com)` | [Microsoft](http://www.microsoft.com) |
-| Headings (level 1 through 6) | `# Heading` through `###### Heading` | TODO: I wasn't able to put a sample in the table |
-| Bulleted list | `* List item` or `- List item` | TODO: I wasn't able to put a sample in the table |
+| Effect | Markdown syntax |
+|--------|-----------------|
+| Italics | `*This text is in italics*` |
+| Bold | `**This text is bold**` |
+| Bold + italics | `***This text is bold and in italics***` |
+| Strike-through | `~~This text is struck through~~` |
+| Link | `[Microsoft](http://www.microsoft.com)` |
+| Headings (level 1 through 6) | `# Heading` through `###### Heading` |
+| Bulleted list | `* List item` or `- List item` |
 
 - **Do** use Markdown to format text.
 - **Don't** use HTML markup in your cards. HTML is ignored and treated as plain text.
@@ -85,9 +85,7 @@ Use `ColumnSet` only when you need to align several elements on a single horizon
 
 ## A simple Adaptive Card example
 
-```
-TODO: Insert screenshot
-```
+![A sample Adaptive Card](images/adaptive-card-example.png)
 
 The above card illustrates some of the core and most powerful capabilities of the Adaptive Card format:
 
@@ -99,7 +97,190 @@ The above card illustrates some of the core and most powerful capabilities of th
 Here is how this card is crafted:
 
 ```json
-TODO: Include sample card JSON
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0",
+  "type": "AdaptiveCard",
+  "speak": "<s>Your flight is confirmed for you and 3 other passengers from San Francisco to Amsterdam on Friday, October 10 8:30 AM</s>",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "width": "stretch",
+          "verticalContentAlignment": "center",
+          "items": [
+            {
+              "type": "TextBlock",
+              "size": "medium",
+              "text": "**FLIGHT ITINERARY - CONTOSO AIR**"
+            },
+            {
+              "type": "TextBlock",
+              "spacing": "none",
+              "text": "Passenger: David Claux",
+              "isSubtle": true
+            }
+          ]
+        },
+        {
+          "width": "auto",
+          "items": [
+            {
+              "type": "Image",
+              "pixelWidth": 48,
+              "url": "http://lh3.googleusercontent.com/ik5VKcUE5U7qGSpU3XWwAwe_zeOnHU5x_79o-VXf-C_EGrFPHp4-NcKRCtblrJM5iO61=w300"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "2 Stops",
+      "weight": "bolder",
+      "spacing": "medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Fri, October 10 8:30 AM",
+      "weight": "bolder",
+      "spacing": "none"
+    },
+    {
+      "type": "ColumnSet",
+      "separator": true,
+      "columns": [
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "San Francisco",
+              "isSubtle": true
+            },
+            {
+              "type": "TextBlock",
+              "size": "extraLarge",
+              "color": "accent",
+              "text": "SFO",
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "&nbsp;"
+            },
+            {
+              "type": "Image",
+              "url": "http://messagecardplayground.azurewebsites.net/assets/airplane.png",
+              "size": "small",
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "right",
+              "text": "Amsterdam",
+              "isSubtle": true
+            },
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "right",
+              "size": "extraLarge",
+              "color": "accent",
+              "text": "AMS",
+              "spacing": "none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Non-Stop",
+      "weight": "bolder",
+      "spacing": "medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Fri, October 18 9:50 PM",
+      "weight": "bolder",
+      "spacing": "none"
+    },
+    {
+      "type": "ColumnSet",
+      "separator": true,
+      "columns": [
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Amsterdam",
+              "isSubtle": true
+            },
+            {
+              "type": "TextBlock",
+              "size": "extraLarge",
+              "color": "accent",
+              "text": "AMS",
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "&nbsp;"
+            },
+            {
+              "type": "Image",
+              "url": "http://messagecardplayground.azurewebsites.net/assets/airplane.png",
+              "size": "small",
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "right",
+              "text": "San Francisco",
+              "isSubtle": true
+            },
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "right",
+              "size": "extraLarge",
+              "color": "accent",
+              "text": "SFO",
+              "spacing": "none"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Outlook-specific Adaptive Card properties and features
@@ -109,9 +290,15 @@ Outlook introduces a set of additional Adaptive Card properties and features for
 > [!IMPORTANT]
 > Outlook-specific Adaptive Card properties and features **only work in the context of Actionable Messages**. They will NOT work in other Adaptive Card enabled applications and are therefore not documented on the [official Adaptive Cards site](http://adaptivecards.io/).
 
-### Action.Submit
+### Adaptive Card features not supported with Outlook Actionable Messages
+
+#### Action.Submit
 
 The `Action.Submit` action type is **NOT** supported with Outlook Actionable Messages. If you include an `Action.Submit` in your card, it will not be displayed.
+
+#### Input.Time
+
+The `Input.Time` element type is **NOT** supported with Outlook Actionable Messages. If you include an `Input.Time` element in your card, it will not be displayed. If you need to allow users to input a time, use an `Input.Text` instead and validate its value server-side.
 
 ### Action.Http
 
@@ -160,6 +347,8 @@ Outlook Actionable Messages use an HTTP-based action model via the `Action.Http`
 }
 ```
 
+![The Action.Http example card](images/adaptive-action-http.png)
+
 #### Input value substitution
 
 Adaptive Cards may contain inputs, and it may be necessary to pass the values of these inputs to the target endpoint via an `Action.Http` action. This is done using input value substitution. Consider the following example:
@@ -189,6 +378,8 @@ Adaptive Cards may contain inputs, and it may be necessary to pass the values of
   ]
 }
 ```
+
+![The input value substitution example card](images/adaptive-input-substitution.png)
 
 The above card defines a text input and sets it `id` property to `nameInput`. It also defines an `Action.Http` action that makes a GET call to an endpoint on domain contoso.com. With the inclusion of `?name={{nameInput.value}}` on the target URL, the value of the input with id `nameInput` will be dynamically substituted at the time the action is taken by the user. So if the user had entered the name David in the text input, the target URL after substitution would be `https://contoso.com/sayhello?name=David`
 
@@ -305,11 +496,11 @@ The `Action.ToggleVisibility` action makes it possible to show and/or hide speci
 
 The example card renders similar to the following before the button is clicked:
 
-![A screenshot of the Action.ToggleVisibility example card in a collapsed state](images/adaptive-visibility-collapsed.PNG)
+![A screenshot of the Action.ToggleVisibility example card in a collapsed state](images/adaptive-visibility-collapsed.png)
 
 The example card renders similar to the following after the button is clicked:
 
-![A screenshot of the Action.ToggleVisibility example card in an expanded state](images/adaptive-visibility-expanded.PNG)
+![A screenshot of the Action.ToggleVisibility example card in an expanded state](images/adaptive-visibility-expanded.png)
 
 ### ActionSet element
 
@@ -358,9 +549,9 @@ Aside from the fact that `ActionSet` can be placed anywhere in the card, it beha
 }
 ```
 
-![A screenshot of the ActionSet example card](images/adaptive-action-set.PNG)
+![A screenshot of the ActionSet example card](images/adaptive-action-set.png)
 
-### Additional properties on all Adaptive Card elements
+### Additional properties on all Adaptive Card element types
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
@@ -386,6 +577,8 @@ The following additional properties can be specified on a [Column object](http:/
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
 | `pixelWidth` | Number | No | The `pixelWidth` property specifies the width of the column, in pixels. `pixelWidth` is particularly useful to achieve table like layouts. |
+| `verticalContentAlignment` | String. Valid values are `top`, `center` and `bottom`. | No. Defaults to `top`. | The `verticalContentAlignment` property makes it possible to vertically position the content of the column (e.g. all its elements.) This is particularly useful for table-like layouts. |
+| `backgroundImage` | String | No | The `backgroundImage` property represents the URL to an image that is to be used as the background of the `Column`. The background image covers the entirety of the `Column`'s surface and is scaled so as to preserve its original aspect ratio. |
 
 #### pixelWidth example
 
@@ -403,7 +596,7 @@ The following additional properties can be specified on a [Column object](http:/
           "items": [
             {
               "type": "Image",
-              "url": "http://3.bp.blogspot.com/-Xo0EuTNYNQg/UEI1zqGDUTI/AAAAAAAAAYE/PLYx5H4J4-k/s1600/smiley+face+super+happy.jpg",
+              "url": "http://adaptivecards.io/content/cats/1.png",
               "size": "stretch"
             }
           ]
@@ -444,7 +637,18 @@ The following additional properties can be specified on a [Column object](http:/
 }
 ```
 
-![A screenshot of the pixelWidth example card](images/adaptive-column-pixel-width.PNG)
+![A screenshot of the pixelWidth example card](images/adaptive-column-pixel-width.png)
+
+### Additional properties on the Container type
+
+The following additional properties can be specified on a [Container object](http://adaptivecards.io/explorer/Container.html) in the context of Outlook Actionable Messages:
+
+| Property name | Type | Required | Description |
+|---------------|------|----------|-------------|
+| `verticalContentAlignment` | String. Valid values are `top`, `center` and `bottom`. | No. Defaults to `top`. | The `verticalContentAlignment` property makes it possible to vertically position the content of the column (e.g. all its elements.) This is particularly useful for table-like layouts. |
+| `backgroundImage` | String | No | The `backgroundImage` property represents the URL to an image that is to be used as the background of the `Container`. The background image covers the entirety of the `Container`'s surface and is scaled so as to preserve its original aspect ratio. |
+
+These properties behave exactly like their counterpart on the `Column` type. Please refer to the above example.
 
 ### Additional properties on the Image type
 
@@ -485,4 +689,4 @@ The following additional properties can be specified on an [Image object](http:/
 }
 ```
 
-![A screenshot of the Image properties example card](images/adaptive-image-properties.PNG)
+![A screenshot of the Image properties example card](images/adaptive-image-properties.png)
