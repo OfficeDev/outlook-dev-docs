@@ -15,8 +15,8 @@
     href: security-requirements.md
   - name: Invoke an Outlook add-in
     href: invoke-add-in-from-actionable-message.md
-- name: Adaptive Card Reference
-  href: adaptive-card-reference.md
+- name: Adaptive Cards
+  href: adaptive-card.md
 - name: Actionable Email Developer Dashboard
   href: actionable-email-dev-dashboard.md
 - name: Connectors Developer Dashboard
