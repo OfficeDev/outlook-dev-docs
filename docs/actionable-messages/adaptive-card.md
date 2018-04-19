@@ -412,6 +412,48 @@ Input value substitution also works in the body property of an `Action.Http` act
 }
 ```
 
+#### Reporting Action.Http execution success or failure
+
+`Action.Http` actions can include the `CARD-ACTION-STATUS` HTTP header in their response. This header is meant to contain text that indicates the outcome of the action's execution, whether it has succeeded or failed.
+
+The value of the header will be displayed in a consistent way in a reserved area of the card. It is also saved with the card so it can be displayed later on, so users can be reminded of the actions that have already been executed on a given card.
+
+> [!TIP]
+> Follow these guidelines when returning a response to `Action.Http` actions.
+>
+> - **Do** return the `CARD-ACTION-STATUS` header in your responses.
+> - **Do** make the message in that header as informative and meaningful as possible. For instance, for an "approve" action on an expense report:
+>   - In case of success, don't return "The action was successful", instead return "The expense was approved"
+>   - In case of failure, don't return "The action failed", instead return "The expense couldn't be approved at this time. Please try again later"
+> - **Don't** mention either the name of the person taking the action nor the time the action is being taken in your `CARD-ACTION-STATUS` header. Both these pieces of information will be automatically added for you and displayed in a consistent way.
+
+#### Refresh cards
+
+Refresh cards are a very powerful mechanism that allow `Action.Http` actions to fully update the card on the fly as the action successfully completes. There are many scenarios that benefit from refresh cards:
+
+- Approval scenario (e.g. expense report)
+  - Once the request is approved or rejected, the card is refreshed to remove the approve/decline actions and update its content so it reflects the fact that it's been approved or declined.
+- Task status
+  - When an action is taken on a task, such as setting its due date, the card refreshes to include the updated due date in its facts.
+- Survey
+  - Once the question has been answered, the card is refreshed so:
+    - It no longer allows the user to respond.
+    - It shows updated status, like "Thanks for responding to this survey" alongside the user's actual response.
+    - Potentially include a new `Action.OpenUrl` action that allows the user to consult the survey online.
+
+To refresh a card as a result of an `Action.Http` action, a service needs to do the following:
+
+- Include the JSON payload of the new card in the body of the response to the HTTP POST request it received.
+- Add the `CARD-UPDATE-IN-BODY: true` HTTP header to the response, in order to let the receiving client know that it should parse the response body and extract a new card (this is to avoid unnecessary processing when no refresh card is included.)
+
+> [!TIP]
+> Follow these guidelines when returning refresh cards.
+>
+> - **Do** use refresh cards with actions that can only be taken a single time. In those cases, the refresh card would not include any action that cannot be taken anymore.
+> - **Do** use refresh cards with actions that change the state of the entity they are performed on. In those cases, the refresh card should include updated information about the entity, and MAY change the set of actions that can be performed.
+> - **Don't** use refresh cards to lead a conversation with the user. For instance, don't use refresh cards for a multi-step "wizard".
+> - **Do** include at least an `Action.OpenUrl` action to view the entity in the external app it comes from.
+
 ### Action.InvokeAddInCommand
 
 The `Action.InvokeAddInCommand` action opens an Outlook add-in task pane. If the add-in is not installed, the user is prompted to install the add-in with a single click.
