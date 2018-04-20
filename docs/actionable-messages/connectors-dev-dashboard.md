@@ -25,7 +25,7 @@ Building an Office 365 Connector for your application is easy. All you need to d
 
 1. To enable your connector with actionable message, you can provide one or more target URLs. This is one or more domains corresponding to URLs that will process the actions. Your target URL can correspond to the top level domain or the subdomain of the TLD. They need to be **https** enabled URLs. Example: `https://api.myservice.com`.
 
-1. Choose whether your Connector needs to work with Office 365 Groups, Inbox or both. Make sure your users will benefit from those Connectors in those communication spaces.
+1. Your connector can work on Office 365 Groups and Inbox. Make sure your users will benefit from those Connectors in those communication spaces.
 
 1. Once you save the connector information, the html code snippet for the **Connect to Office 365** button is generated. The name, logo, description, company website & events you shared are displayed to a user when he tries to add a new configuration or view an existing one.
 
