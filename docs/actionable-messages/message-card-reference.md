@@ -11,7 +11,7 @@ ms.author: jasonjoh
 # Legacy actionable message card reference
 
 > [!NOTE]
-> This document describes the original JSON format for the actionable message card format. This has been replaced with the [Adaptive Card format](adaptive-card-reference.md). Microsoft recommends that new actionable message integrations use the Adaptive Card format, and existing integrations consider updating to Adaptive Card format.
+> This document describes the original JSON format for the actionable message card format. This has been replaced with the [Adaptive Card format](adaptive-card.md). Microsoft recommends that new actionable message integrations use the Adaptive Card format, and existing integrations consider updating to Adaptive Card format.
 
 Cards are meant to provide easy to read, at-a-glance information that users can very quickly decipher and act upon when appropriate. As such, the guiding principle for designing great card is "content over chrome," which means cards are straight to the point and minimize the use of anything that would be distracting such as icons or custom colors.
 

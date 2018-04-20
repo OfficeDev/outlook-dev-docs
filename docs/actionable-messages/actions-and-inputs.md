@@ -14,7 +14,7 @@ Outlook Actionable Messages support two types of actions: calling an external se
 
 ## Calling an external service
 
-The [`Action.Http`](adaptive-card-reference.md#actionhttp) action type calls an external service. It supports collecting input from the user and including that in the call.
+The [`Action.Http`](adaptive-card.md#actionhttp) action type calls an external service. It supports collecting input from the user and including that in the call.
 
 ### Actions without input
 
@@ -34,4 +34,4 @@ The [`Action.OpenUrl`](/adaptive-cards/create/cardschema.md#schema-action.openur
 
 ## Next steps
 
-To learn more about designing cards and actions, see the [Designing Outlook actionable message cards with the Adaptive Card format](adaptive-card-reference.md).
+To learn more about designing cards and actions, see the [Designing Outlook actionable message cards with the Adaptive Card format](adaptive-card.md).

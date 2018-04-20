@@ -57,7 +57,7 @@ Go to the Card Playground and paste in the following JSON:
 }
 ```
 
-Feel free to experiment with this simple example in the playground. You can see the [adaptive card reference](adaptive-card-reference.md) for details on the available fields. Once you have a card you're happy with, you can move on to sending it.
+Feel free to experiment with this simple example in the playground. You can see the [adaptive card reference](adaptive-card.md) for details on the available fields. Once you have a card you're happy with, you can move on to sending it.
 
 ## Sending actionable messages via email
 

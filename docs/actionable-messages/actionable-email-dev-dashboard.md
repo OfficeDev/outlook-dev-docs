@@ -124,7 +124,7 @@ There are some things you need to keep in mind when you submit your solution for
 - Label of the button needs to reflect clear action to be taken.
 - `Action.OpenUrl` action must deep link into the specific page associated with the entity/information presented in the actionable message.
 - Low failure rate and fast response for services handling action requests.
-- Please see [Designing Outlook actionable message cards with the Adaptive Card format](adaptive-card-reference.md) for additional guidelines on designing actionable messages.
+- Please see [Designing Outlook actionable message cards with the Adaptive Card format](adaptive-card.md) for additional guidelines on designing actionable messages.
 
 ## Approval of your submission
 
