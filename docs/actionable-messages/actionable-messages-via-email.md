@@ -109,10 +109,13 @@ To embed an actionable message card in an email message, we need to wrap the car
     }
     ```
 
-1. Wrap the resulting JSON in a `<script>` tag of type `application/ld+json`.
+1. Wrap the resulting JSON in a `<script>` tag of type `application/adaptivecard+json`.
+
+    > [!NOTE]
+    > If you are using the [legacy message card format](message-card-reference.md) rather than the Adaptive card format, the `<script>` tag type MUST be `application/ld+json`.
 
     ```html
-    <script type="application/ld+json">{
+    <script type="application/adaptivecard+json">{
       "type": "AdaptiveCard",
       "version": "1.0",
       "hideOriginalBody": true,
@@ -156,7 +159,7 @@ To embed an actionable message card in an email message, we need to wrap the car
     <html>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <script type="application/ld+json">{
+      <script type="application/adaptivecard+json">{
         "type": "AdaptiveCard",
         "version": "1.0",
         "hideOriginalBody": true,
