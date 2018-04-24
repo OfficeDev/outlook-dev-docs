@@ -808,3 +808,20 @@ When your webhook receives a POST, you should do the following:
     }
 }
 ```
+
+## Securing your webhooks
+
+All action requests from Microsoft have a bearer token in the HTTP `Authorization` header. This token is a [JSON Web Token](https://jwt.io/) (JWT) token signed by Microsoft, and it includes important claims that we strongly recommend should be verified by the service handling the associated request.
+
+| Claim name | Value |
+|------------|-------|
+| `aud` | The merchant ID of the target webhook. This should match the merchant ID you obtained from the [Payments in Outlook Partner Dashboard](https://outlook.office.com/connectors/opay/partnerportal/). |
+| `sub` | The email address of the user of the user who took the action. |
+| `sender` | The identity of the sender of the payment request message. This should match the email address you sent the payment message from. |
+
+Typically, a service will perform the following verifications.
+
+1. The token is signed by Microsoft.
+1. The `aud` claim corresponds to your merchant ID.
+
+With all the above verifications done, the service can trust the `sender` and `sub` claims to be the identity of the sender and the user taking the action. A service can optionally validate that the `sender` and `sub` claims match the sender and user it is expecting.
