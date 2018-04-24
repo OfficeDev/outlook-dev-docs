@@ -15,6 +15,8 @@
     href: security-requirements.md
   - name: Invoke an Outlook add-in
     href: invoke-add-in-from-actionable-message.md
+  - name: Send from dynamic addresses
+    href: send-actionable-email-from-dynamic-addresses.md
 - name: Card Reference
   href: card-reference.md
 - name: Actionable Email Developer Dashboard

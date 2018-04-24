@@ -241,6 +241,9 @@
       - name: Invoke an Outlook add-in
         tocHref: /outlook/actionable-messages/invoke-add-in-from-actionable-message
         topicHref: /outlook/actionable-messages/invoke-add-in-from-actionable-message
+      - name: Dynamic Senders
+        tocHref: /outlook/actionable-messages/send-actionable-email-from-dynamic-addresses
+        topicHref: /outlook/actionable-messages/send-actionable-email-from-dynamic-addresses
       - name: Card Reference
         tocHref: /outlook/actionable-messages/card-reference
         topicHref: /outlook/actionable-messages/card-reference
