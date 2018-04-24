@@ -3,8 +3,6 @@
 - name: Get Started
   href: get-started.md
   items:
-  - name: Action and Input Types
-    href: actions-and-inputs.md
   - name: Actionable Messages via Email
     href: actionable-messages-via-email.md
   - name: Actionable Messages via Connectors
