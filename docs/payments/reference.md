@@ -704,6 +704,21 @@ Contains more detailed error information for failed payment complete requests.
 | `details`| Array of Object | Optional. Contains an array of objects with `code` and `message` properties. Represents distinct related errors that occurred during the request. |
 | `innererror` | `PaymentCompleteError` | Provides a more specific error. |
 
+The following values are supported in the `code` field.
+
+| Value | Description |
+|-------|-------------|
+| `invalid_number` | The card number is not a valid credit card number. |
+| `invalid_expiry_month` | The card's expiration month is invalid. |
+| `invalid_expiry_year` | The card's expiration year is invalid. |
+| `invalid_cvc` | The card's security code is invalid. |
+| `incorrect_number` | The card number is incorrect. |
+| `expired_card` | The card has expired. |
+| `incorrect_cvc` | The card's security code is incorrect. |
+| `incorrect_zip` | The card's ZIP or postal code failed validation. |
+| `card_declined` | The card was declined. |
+| `processing_error` | A generic error. An error occurred while processing the card. |
+
 ### Handling payment complete webhook POSTs
 
 When your webhook receives a POST, you should do the following:
