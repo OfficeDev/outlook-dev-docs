@@ -11,10 +11,10 @@
     href: actionable-messages-via-connectors.md
 - name: Concepts
   items:
-  - name: Security Requirements
-    href: security-requirements.md
   - name: Invoke an Outlook add-in
     href: invoke-add-in-from-actionable-message.md
+- name: Security Requirements
+  href: security-requirements.md
 - name: Adaptive Cards
   href: adaptive-card.md
 - name: Actionable Email Developer Dashboard

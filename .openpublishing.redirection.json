@@ -19,6 +19,11 @@
       "source_path": "docs/actionable-messages/card-reference.md",
       "redirect_url": "/outlook/actionable-messages/message-card-reference",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/actionable-messages/actions-and-inputs.md",
+      "redirect_url": "/outlook/actionable-messages/adaptive-card",
+      "redirect_document_id": false
     }
   ]
 }
