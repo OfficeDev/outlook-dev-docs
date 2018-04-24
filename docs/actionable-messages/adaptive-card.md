@@ -40,6 +40,7 @@ All `TextBlock` elements in a card can be formatted using Markdown. Outlook supp
 | Headings (level 1 through 6) | `# Heading` through `###### Heading` |
 | Bulleted list | `* List item` or `- List item` |
 
+> [!TIP]
 > - **Do** use Markdown to format text.
 > - **Don't** use HTML markup in your cards. HTML is ignored and treated as plain text.
 
