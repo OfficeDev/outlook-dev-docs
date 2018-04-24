@@ -10,7 +10,7 @@ ms.author: jasonjoh
 ---
 # Register your service with the Payments in Outlook partner dashboard
 
-The [Payments in Outlook Partner Dashboard](https://outlook.office.com/connectors/opay/partnerportal/) is the single place to register your Payments in Outlook service. Registering involves two steps: on-boarding to [Microsoft Pay](https://www.microsoft.com/en-us/payments), then on-boarding to Payments in Outlook. Both steps are handled in the dashboard.
+The [Payments in Outlook Partner Dashboard](https://outlook.office.com/connectors/opay/partnerportal/) is the single place to register your Payments in Outlook service. Registering involves two steps: on-boarding to [Microsoft Pay](https://www.microsoft.com/payments), then on-boarding to Payments in Outlook. Both steps are handled in the dashboard.
 
 ## On-boarding to Microsoft Pay
 
@@ -39,5 +39,5 @@ Now that you're service is registered, you can test your webhooks by sending the
 > ![IMPORTANT]
 > For testing purposes, you should send the payload from your Microsoft Account to yourself. The ability to send actionable messages to other users requires registration with the [actionable email developer dashboard](../actionable-messages/actionable-email-dev-dashboard.md).
 
-- Use the [Message Card Playground](https://messagecardplayground.azurewebsites.net/)- - [Send via the Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using the [Microsoft Graph](https://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/message_send).
+- Use the [Message Card Playground](https://messagecardplayground.azurewebsites.net/)- - [Send via the Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_sendmail).
 - [Send via SMTP](https://gist.github.com/jasonjoh/3ec367594c3fa662ee983a617bdc7deb): A sample Python script that sends an actionable message using the Office 365 SMTP server.
