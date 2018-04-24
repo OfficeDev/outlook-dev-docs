@@ -419,18 +419,14 @@ Input value substitution also works in the body property of an `Action.Http` act
 
 #### Reporting Action.Http execution success or failure
 
-`Action.Http` actions can include the `CARD-ACTION-STATUS` HTTP header in their response. This header is meant to contain text that indicates the outcome of the action's execution, whether it has succeeded or failed.
-
-The value of the header will be displayed in a consistent way in a reserved area of the card. It is also saved with the card so it can be displayed later on, so users can be reminded of the actions that have already been executed on a given card.
+Your service should return an HTTP 200 status code when it successfully executes an `Action.Http` action. If the action execution fails, your service should return an HTTP 4xx status code, and it should also include the `CARD-ACTION-STATUS` HTTP header in its response to specify a custom error message. The value of that header will be displayed to the end-user in case the `Action.Http` fails to execute.
 
 > [!TIP]
 > Follow these guidelines when returning a response to `Action.Http` actions.
 >
-> - **Do** return the `CARD-ACTION-STATUS` header in your responses.
-> - **Do** make the message in that header as informative and meaningful as possible. For instance, for an "approve" action on an expense report:
->   - In case of success, don't return "The action was successful", instead return "The expense was approved"
->   - In case of failure, don't return "The action failed", instead return "The expense couldn't be approved at this time. Please try again later"
-> - **Don't** mention either the name of the person taking the action nor the time the action is being taken in your `CARD-ACTION-STATUS` header. Both these pieces of information will be automatically added for you and displayed in a consistent way.
+> - **Do** return the `CARD-ACTION-STATUS` header in your error responses.
+> - **Do** make the message in that header as informative and meaningful as possible.
+> - **Don't** mention either the name of the person taking the action nor the time the action is being taken in your `CARD-ACTION-STATUS` header.
 
 #### Refresh cards
 
