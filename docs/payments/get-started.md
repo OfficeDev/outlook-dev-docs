@@ -22,8 +22,8 @@ The purpose of this guide is to walk through the process of setting up one of ou
 
 Choose on of the following sample services to get up and running quickly. Refer to the README file in your project of choice for specifics on building and running the sample.
 
-- [ASP.NET C# Web API](https://github.com/...)
-- [Node.js server](https://github.com/...)
+- [ASP.NET C# Web API](https://github.com/officedev/outlook-payments-csharp-sample)
+- [Node.js server](https://github.com/officedev/outlook-payments-nodejs-sample)
 
 ## Register your service
 
