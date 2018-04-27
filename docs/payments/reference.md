@@ -44,7 +44,7 @@ The `methodData` object contains information relevant to the payment request.
 |-------|-----|-------------|
 | `supportedNetworks` | Array of String | An array indicating the payment networks you accept. Valid values are `visa`, `mastercard`, `amex`, `discover`, `diners`, and `jcb`. |
 | `supportedTypes` | Array of String | An array indicating the types of payments you accept. Valid values are `credit`, `debit`, and `prepaid`. |
-| `productContext` | Object | A free-form object defined by the developer. The `productContext` can be used to store any contextual information needed for the payment process. |
+| `productContext` | Object | A free-form object defined by the developer. The `productContext` is used to store contextual information needed for the payment process. |
 | `event` | String | Indicates the event that triggered the current POST to the webhook. Valid values are `loadentity`, `shippingaddresschange`, and `shippingoptionchange`. |
 | `entity` | For invoicing - Schema.org [Invoice](http://schema.org/Invoice) | Represents the invoice. |
 | `mode` | String | If present and set to `TEST`, enables test mode. In this mode, the recipient has access to pre-configured test cards in the payment experience. Payment tokens in test mode are test tokens as defined in [Stripe Test Cards and numbers](https://stripe.com/docs/testing#cards). In production, this property SHOULD be omitted. |
@@ -89,7 +89,7 @@ The `methodData` object contains information relevant to the payment request.
 
 When your webhook receives a POST, you should do the following:
 
-1. Validate the bearer token in the `Authorization` header to ensure that the request is coming from Microsoft.
+1. Validate the bearer token in the `Authorization` header to ensure that the request is coming from Microsoft. See [Securing your webhooks](#securing-your-webhooks) for details.
 1. Check the `event` property of the [Data](#data) object to determine what UI event triggered the POST.
     1. If `event` is set to `loadentity`, follow the steps in [Load the invoice](#load-the-invoice).
     1. If `event` is set to `shippingaddresschange`, follow the steps in [Handle shipping address change](#handle-shipping-address-change).
@@ -98,7 +98,7 @@ When your webhook receives a POST, you should do the following:
 
 #### Load the invoice
 
-When the `event` property in the incoming request is set to `loadentity` your webhook should load the invoice to provide details about the charges on the invoice to the Payments service. Your webhook will also indicate what information is required by your service regarding the payer.
+When the `event` property in the incoming request is set to `loadentity` your webhook should load the invoice to provide details about the charges on the invoice to the Payments service. Your webhook will also indicate what information is required by your service regarding the payer. This event is triggered when the user clicks the **Review and Pay** button in Outlook.
 
 The following is an example of the incoming request sent by the Payments service.
 
@@ -206,7 +206,7 @@ The following is an example of a response to a `loadentity` event.
 
 #### Handle shipping address change
 
-When the `event` property in the incoming request is set to `shippingaddresschange` your webhook should check the shipping address selected and return any applicable shipping options.
+When the `event` property in the incoming request is set to `shippingaddresschange` your webhook should check the shipping address selected and return any applicable shipping options. This event is triggered when the user selects or changes a shipping address in Outlook.
 
 > [!NOTE]
 > Your webhook will only receive this event if you set the `requestShipping` property in the `PaymentOptions` object to `true` in your response to the `loadentity` event for this invoice.
@@ -434,7 +434,7 @@ The following is an example of a response to a `shippingaddresschange` event. In
 
 #### Handle shipping option change
 
-When the `event` property in the incoming request is set to `shippingoptionchange` your webhook should check which shipping option was selected by the user and update the invoice accordingly.
+When the `event` property in the incoming request is set to `shippingoptionchange` your webhook should check which shipping option was selected by the user and update the invoice accordingly. This event is triggered when the user selects or changes the shipping option in Outlook.
 
 > [!NOTE]
 > Your webhook will only receive this event if you set the `requestShipping` property in the `PaymentOptions` object to `true` in your response to the `loadentity` event for this invoice.
@@ -655,14 +655,14 @@ The payment complete webhook is called when the user finalizes the payment. The 
 
 The format of the payload sent to your webhook and the payload you must send back in the response is specified in the following sections.
 
-### Payment request webhook incoming payload
+### Payment complete webhook incoming payload
 
 The Payment services sends a payload to your webhook in the following format.
 
 | Field | Type| Description |
 |-------|-----|-------------|
 | `requestId` | String | The request ID that corresponds to this payment. This value matches the value of `id` in the `PaymentDetailsInit` object you sent back to the `loadentity` event in your payment request webhook. |
-| `methodName` | String | MUST be set to `https://pay.microsoft.com/microsoftpay`. |
+| `methodName` | String | Will be set to `https://pay.microsoft.com/microsoftpay`. |
 | `details` | [PaymentCompleteDetails](#paymentcompletedetails) | Contains original `productContext`, payment token, and information about the amount. |
 | `shippingAddress` | `AddressInit` | The selected shipping address. (If shipping information was requested in `loadentity` response) |
 | `shippingOption` | String | The selected shipping option. (If shipping information was requested in `loadentity` response) |
@@ -676,7 +676,7 @@ Contains details about the completed payment.
 
 | Field | Type| Description |
 |-------|-----|-------------|
-| `productContext` | Object | A free-form object defined by the developer. The `productContext` can be used to store any contextual information needed for the payment process. This value is equal to the `productContext` sent to the payment request webhook for this payment. |
+| `productContext` | Object | A free-form object defined by the developer. The `productContext` is used to store contextual information needed for the payment process. This value is equal to the `productContext` sent to the payment request webhook for this payment. |
 | `paymentToken` | String | A JSON Web Token containing payment information. |
 | `amount` | `PaymentCurrencyAmount` | The amount of the payment. |
 
@@ -704,7 +704,7 @@ Contains more detailed error information for failed payment complete requests.
 | `details`| Array of Object | Optional. Contains an array of objects with `code` and `message` properties. Represents distinct related errors that occurred during the request. |
 | `innererror` | `PaymentCompleteError` | Provides a more specific error. |
 
-The following values are supported in the `code` field.
+The following values are supported in the `code` field when using Stripe as a payment processor.
 
 | Value | Description |
 |-------|-------------|
@@ -804,21 +804,13 @@ When your webhook receives a POST, you should do the following:
     "requestId": "12345",
     "result": "fail",
     "details": "We were unable to charge your credit card.",
-    "entity": {
-        "@type": "Invoice",
-        "@context": "http://schema.org",
-        "identifier": "12345",
-        "url": "https://contoso.com/invoice",
-        "broker": {
-            "@type": "LocalBusiness",
-            "name": "Contoso"
-        },
-        "paymentDueDate": "2019-01-31T00:00:00",
-        "paymentStatus": "PaymentDue",
-        "totalPaymentDue": {
-            "@type": "PriceSpecification",
-            "price": 10,
-            "priceCurrency": "USD"
+    "error": {
+        "code": "card_error",
+        "message:": "Card cannot be processed.",
+        "target": "stripeToken",
+        "innererror": {
+            "code": "card_declined",
+            "message": "Your credit card was declined."
         }
     }
 }
@@ -836,7 +828,7 @@ All action requests from Microsoft have a bearer token in the HTTP `Authorizatio
 
 Typically, a service will perform the following verifications.
 
-1. The token is signed by Microsoft.
+1. The token is signed by Microsoft and not expired.
 1. The `aud` claim corresponds to your merchant ID.
 
 With all the above verifications done, the service can trust the `sender` and `sub` claims to be the identity of the sender and the user taking the action. A service can optionally validate that the `sender` and `sub` claims match the sender and user it is expecting.

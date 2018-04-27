@@ -420,11 +420,10 @@ Initiates an Outlook Pay scenario. For more information see [Link to overview do
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String | The `name` property defines the text that will be displayed on screen for the action.<br><br>**Do** use verbs. For instance, use "Pay invoice" instead of "Invoice". |
-| `isPrimaryAction` | Boolean | NEED EXPLANATION |
+| `isPrimaryAction` | Boolean | Indicates that the action should be highlighted as the primary action if multiple actions are present. It is recommended to set this to `true` for when including multiple actions. |
 | `merchantId` | UUID | Your merchant ID provided by registering with the [Payments in Outlook partner dashboard](../payments/partner-dashboard.md). |
 | `displayId` | UUID | Your display ID provided by registering with the [Payments in Outlook partner dashboard](../payments/partner-dashboard.md). |
-| `productContext` | Object | Optional. Developers may specify any valid JSON object in this field. The value is included in the payloads sent to your payment request and payment complete webhooks. |
-| `environment` | String | NEED EXPLANATION and valid values |
+| `productContext` | Object | Required. Developers may specify any valid JSON object in this field. The value is included in the payloads sent to your payment request and payment complete webhooks. |
 
 #### Example Transaction
 

@@ -10,15 +10,15 @@ ms.author: jasonjoh
 ---
 # Register your service with the Payments in Outlook partner dashboard
 
-The [Payments in Outlook Partner Dashboard](https://outlook.office.com/connectors/opay/partnerportal/) is the single place to register your Payments in Outlook service. Registering involves two steps: on-boarding to [Microsoft Pay](https://www.microsoft.com/payments), then on-boarding to Payments in Outlook. Both steps are handled in the dashboard.
+The [Payments in Outlook Partner Dashboard](https://outlook.office.com/connectors/opay/partnerportal/) is the single place to register your Payments in Outlook service. Registering involves two steps: on-boarding to [Microsoft Pay](https://www.microsoft.com/en-us/payments), then on-boarding to Payments in Outlook. Both steps are handled in the dashboard.
 
 ## On-boarding to Microsoft Pay
 
 The first step is to on-board to Microsoft Pay. This identifies you as a merchant, and links to your payment service provider accounts such as Stripe or PayPal.
 
 1. Browse to the [dashboard](https://outlook.office.com/connectors/opay/partnerportal/). Sign in with an account from your Office 365 subscription.
-1. Choose **Add/Update Processor Information** to open a new pop-up window to the MMX portal.
-1. Choose **Add Stripe account**. Login to your Stripe account and authorize access. You should be redirected to the Microsoft Pay Merchant Management window and see **Account status: Active** next to the Stripe option. Close the MMX portal pop-up window or choose the **Go back to Outlook** link on the top right.
+1. Choose **Add/Update Processor Information** to open a new pop-up window to the Microsoft Pay merchant management experience.
+1. Choose **Add Stripe account**. Login to your Stripe account and authorize access. You should be redirected to the Microsoft Pay Merchant Management window and see **Account status: Active** next to the Stripe option. Close the Microsoft Pay pop-up window or choose the **Go back to Outlook** link on the top right.
 
 Once you've linked at least one payment service provider account, you're ready to move on to the next step.
 
