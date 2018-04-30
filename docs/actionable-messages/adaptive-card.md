@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 04/16/2018
+ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
 # Designing Outlook Actionable Message cards with the Adaptive Card format

@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: get-started-article
 ms.technology: o365-connectors
-ms.date: 04/16/2018
+ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
 # Send an actionable message via email in Office 365
