@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: get-started-article
 ms.technology: o365-connectors
-ms.date: 03/20/2018
+ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
 # Get started with Payments in Outlook

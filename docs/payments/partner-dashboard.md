@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 04/12/2018
+ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
 # Register your service with the Payments in Outlook partner dashboard

@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: reference
 ms.technology: o365-connectors
-ms.date: 04/05/2018
+ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
 # Actionable message card reference
