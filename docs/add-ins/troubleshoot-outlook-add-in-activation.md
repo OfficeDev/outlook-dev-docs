@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 10/03/2017
+ms.date: 05/02/2018
 ms.author: jasonjoh
 ---
 
@@ -56,15 +56,7 @@ Use one of the following approaches to verify whether an add-in is disabled:
 
 ## Does the tested item support Outlook add-ins? Is the selected item delivered by a version of Exchange Server that is at least Exchange 2013?
 
-If your Outlook add-in is a read add-in and is supposed to be activated when the user is viewing a message (including email messages, meeting requests, responses, and cancellations) or appointment, even though these items generally support add-ins, there are exceptions if the selected item is one of the following:
-
-- Protected by Information Rights Management (IRM).
-- In S/MIME format or encrypted in other ways for protection.
-- A draft (does not have a sender assigned to it), or is in the Outlook Drafts folder.
-- A delivery report or notification that has the message class IPM.Report.*, including delivery and Non-Delivery Report (NDR) reports, and read, non-read, and delay notifications.
-- A .msg file that is attached to another message or was opened from the file system.
-- In a shared mailbox, in another user's mailbox, in an archive mailbox, or in a public folder.
-- Uses a [custom form](https://support.office.com/en-us/article/Overview-of-forms-in-Outlook-CC2D2F5B-635F-4E60-95CA-6B8D91639214).
+If your Outlook add-in is a read add-in and is supposed to be activated when the user is viewing a message (including email messages, meeting requests, responses, and cancellations) or appointment, even though these items generally support add-ins, there are exceptions. Check if the selected item is one of those [listed where Outlook add-ins do not activate](index.md#mailbox-items-available-to-add-ins).
 
 Also, because appointments are always saved in Rich Text Format, an [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rule that specifies a **PropertyName** value of **BodyAsHTML** would not activate an add-in on an appointment or message that is saved in plain text or Rich Text Format.
 
