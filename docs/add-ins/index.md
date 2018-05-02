@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 10/03/2017
+ms.date: 05/02/2018
 ms.author: jasonjoh
 ---
 
