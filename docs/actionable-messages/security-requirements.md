@@ -36,7 +36,7 @@ Typically, a service will perform the following verifications.
 1. The token is signed by Microsoft.
 1. The `aud` claim corresponds to the service's base URL.
 
-With all the above verifications done, the service can trust the `sender` and `sub` claims to be the identity of the sender and the user taking the action. A service can optionally validate that the `sender` and `sub` claims match the sender and user it is expecting.
+With all the above verifications done, the service can trust the `sender` and `sub` claims to be the identity of the sender and the user taking the action. The service can validate that the `sender` and `sub` claims match the sender and user it is expecting.
 
 Please refer to the Microsoft code samples provided below, which show how to do these validations on the JWT token.
 
@@ -53,6 +53,6 @@ Limited purpose tokens can be used to correlate service URLs with specific messa
 https://contoso.com/approve?requestId=abc&limitedPurposeToken=a1b2c3d4e5...
 ```
 
-Limited-purpose tokens act as correlation IDs (for e.g. a hashed token using the userID, requestID, and salt). This allows the service provider to keep track of the action URLs it generates and sends out and match it with action requests coming in. In addition to correlation, the service provider may use the limited purpose token to protect itself from replay attacks. For example, the service provider may choose to reject the request, if the action was already performed previously with the same token. 
+Limited-purpose tokens act as correlation IDs (for e.g. a hashed token using the userID, requestID, and salt). This allows the service provider to keep track of the action URLs it generates and sends out and match it with action requests coming in. In addition to correlation, the service provider may use the limited purpose token to protect itself from replay attacks. For example, the service provider may choose to reject the request, if the action was already performed previously with the same token.
 
 Microsoft does not prescribe how the limited-access tokens should be designed or used by the service. This token is opaque to Microsoft, and is simply echoed back to the service.
