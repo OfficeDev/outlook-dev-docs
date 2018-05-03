@@ -415,7 +415,7 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
 
 ### Transaction action
 
-Initiates an Outlook Pay scenario. For more information see [Link to overview doc for Outlook Pay](../payments/index.md).
+Initiates an Outlook Pay scenario. For more information see [Payments in Outlook](../payments/index.md).
 
 | Field | Type | Description |
 |-------|------|-------------|
