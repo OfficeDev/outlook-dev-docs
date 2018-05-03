@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 08/09/2017
+ms.date: 05/02/2018
 ms.author: jasonjoh
 ---
 
@@ -51,4 +51,4 @@ Compose add-ins are implemented as [Add-in commands for Outlook](add-in-commands
 
 ## Additional resources
 
-- [Get Started with Outlook add-ins for Office 365](addin-tutorial.md)
+- [Get Started with Outlook add-ins for Office 365](quick-start.md)

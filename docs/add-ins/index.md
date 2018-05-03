@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 10/03/2017
+ms.date: 05/02/2018
 ms.author: jasonjoh
 ---
 
@@ -48,14 +48,17 @@ Extension points are the ways that add-ins integrate with Outlook. The following
 
 Outlook add-ins are available on messages or appointments while composing or reading, but not other item types. Outlook does not activate add-ins if the current message item, in a compose or read form, is one of the following:
 
-
 - Protected by Information Rights Management (IRM), in S/MIME format or encrypted in other ways for protection. A digitally signed message is an example since digital signing relies on one of these mechanisms.
     
 - A delivery report or notification that has the message class IPM.Report.*, including delivery and Non-Delivery Report (NDR) reports, and read, non-read, and delay notifications.
+
+- A draft (does not have a sender assigned to it), or in the Outlook Drafts folder.
     
-- A .msg file which is an attachment to another message.
+- A .msg or .eml file which is an attachment to another message.
     
-- A .msg file opened from the file system.
+- A .msg or .eml file opened from the file system.
+
+- In a shared mailbox, in another user's mailbox, in an archive mailbox, or in a public folder.
 
 - Using a [custom form](https://support.office.com/en-us/article/Overview-of-forms-in-Outlook-CC2D2F5B-635F-4E60-95CA-6B8D91639214).
     
