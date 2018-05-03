@@ -64,7 +64,7 @@ Here is how this card is crafted:
           "items": [
             {
               "type": "Image",
-              "pixelWidth": 48,
+              "width": 48,
               "url": "http://lh3.googleusercontent.com/ik5VKcUE5U7qGSpU3XWwAwe_zeOnHU5x_79o-VXf-C_EGrFPHp4-NcKRCtblrJM5iO61=w300"
             }
           ]
@@ -260,7 +260,7 @@ When designing your Adaptive Cards, you need to make sure your images will look 
 
 > [!TIP]
 > - **Do** design your images assuming they will be displayed on a high DPI screen. An image designed for a low (96) DPI screen will be blown up when displayed on a higher DPI screen and will therefore look pixelated. An image designed for a high DPI screen will be shrunk on a lower DPI screen which usually yields good results. In other words, it is better to design a 100x100 pixels image and display it at 50x50 pixels than to design a 50x50 pixels image and display it at 100x100 pixels.
-> - **Do** use the `pixelWidth` and `pixelHeight` properties of the **Image** element if you need to precisely control the actual size of the images in your card.
+> - **Do** use the `width` and `height` properties of the **Image** element if you need to precisely control the actual size of the images in your card.
 > - **Don't** design your images with a fixed background color, like white, unless that background color is supposed to be visible to the user. In Outlook, your Adaptive Cards will not necessarily be displayed on top of a white background, and your images should be able to superimpose themselves on top of any background color. For that reason, **do** make the background of your images transparent.
 > - **Don't** craft your images with built-in paddings. Such paddings usually interfere with the overall layout by introducing undesirable spacing on the side of your image.
 
@@ -285,7 +285,7 @@ Use `ColumnSet` only when you need to align several elements on a single horizon
 >   - Use `"size": "auto"` for a `Column` to use as much width as is necessary to fit its content.
 >   - Use `"size": "stretch"` for a `Column` to use the remaining width in the `ColumnSet`. When multiple `Columns` have `"size": "stretch"`, they all equally share the remaining width.
 >   - Use `"size": <number>` for a `Column` to use a proportion of the available width in the `ColumnSet`. If you have three columns with their `size` property set to `1`, `4` and `5` respectively, they will end up using 10%, 40% and 50% of the available width, respectively.
->   - Use `pixelWidth` instead os `size` for a `Column` to have a specific pixel width. This is particularly useful (and necessary) when creating table layouts.
+>   - Use `width` instead of `size` for a `Column` to have a specific pixel width. This is particularly useful (and necessary) when creating table layouts.
 > - **Don't** use `ColumnSet` if all you need is stack elements vertically.
 
 ## Outlook-specific Adaptive Card properties and features
@@ -619,11 +619,22 @@ The following additional properties can be specified on a [Column object](http:/
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
-| `pixelWidth` | Number | No | The `pixelWidth` property specifies the width of the column, in pixels. `pixelWidth` is particularly useful to achieve table like layouts. |
+| `width` | Number or String | No (defaults to `auto`) | This property allows for precise control of the width of a `Column` within its `ColumnSet`. See [Column width values](#column-width-vaules) for details. |
 | `verticalContentAlignment` | String. Valid values are `top`, `center` and `bottom`. | No. Defaults to `top`. | The `verticalContentAlignment` property makes it possible to vertically position the content of the column (e.g. all its elements.) This is particularly useful for table-like layouts. |
 | `backgroundImage` | String | No | The `backgroundImage` property represents the URL to an image that is to be used as the background of the `Column`. The background image covers the entirety of the `Column`'s surface and is scaled so as to preserve its original aspect ratio. |
 
-#### pixelWidth example
+#### Column width values
+
+If `width` is expressed as a number, it represents the relative weight of the `Column` within its `ColumnSet`. For a weighted `Column` to really be useful, there should be at least one more weighted `Column` in the set. For example, if column A has its `width` set to `1` and column B has its `width` set to `2`, then column A will use a third of the available space in the set, while column B will use the remaining two-thirds.
+
+If `width` is expressed as a string, it can have the following values:
+
+- `auto`: The `Column` will use as much of the available space as is required to fit its content.
+- `stretch`: The `Column` will use whatever space remains in the set. If multiple columns have their `width` property set to `stretch`, they all share the remaining space equally.
+- `<number>px` (ex. `50px`): The column will spread across the specified number of pixels.
+- `<number>*`, (ex. `1*`): This is equivalent to specifying `width` as a number.
+
+#### Column example
 
 ```json
 {
@@ -635,7 +646,7 @@ The following additional properties can be specified on a [Column object](http:/
       "type": "ColumnSet",
       "columns": [
         {
-          "pixelWidth": 50,
+          "width": 50,
           "items": [
             {
               "type": "Image",
@@ -661,7 +672,7 @@ The following additional properties can be specified on a [Column object](http:/
       "type": "ColumnSet",
       "columns": [
         {
-          "pixelWidth": 50
+          "width": 50
         },
         {
           "width": "stretch",
@@ -680,7 +691,7 @@ The following additional properties can be specified on a [Column object](http:/
 }
 ```
 
-![A screenshot of the pixelWidth example card](images/adaptive-column-pixel-width.png)
+![A screenshot of the width example card](images/adaptive-column-pixel-width.png)
 
 ### Additional properties on the Container type
 
@@ -699,8 +710,8 @@ The following additional properties can be specified on an [Image object](http:/
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
-| `pixelWidth` | Number | No | The `pixelWidth` property specifies the width of the image, in pixels. When `pixelWidth` is specified, the `size` property is ignored. If `pixelWidth` is specified but `pixelHeight` isn't, the height of the image is automatically computed so as to respect its aspect ratio. |
-| `pixelHeight` | Number | No | The `pixelHeight` property specifies the height of the image, in pixels. When `pixelHeight` is specified, the `size` property is ignored. If `pixelHeight` is specified but `pixelWidth` isn't, the width of the image is automatically computed so as to respect its aspect ratio. |
+| `width` | String | No | This property allows for precise control over the width of an image, in pixels. The allowed format is `<number>px` where `<number>` is an integer. When `width` is specified, the `size` property is ignored. If `width` is specified but `height` isn't, the height of the image is automatically computed so as to respect its aspect ratio. |
+| `height` | String | No | This property allows for precise control over the height of an image, in pixels. The allowed format is `<number>px` where `<number>` is an integer. When `height` is specified, the `size` property is ignored. If `height` is specified but `width` isn't, the width of the image is automatically computed so as to respect its aspect ratio. |
 | `backgroundColor` | String | No | The `backgroundColor` property specifies the color the image should be rendered on top of. `backgroundColor` is particularly useful in cases where a single image should be used on top of a variety of background colors, as it removes the need to craft multiple versions of a single image. The format of the `backgroundColor` property is `#RRGGBB` where `RR`, `GG` and `BB` are the hexadecimal values of the red, green and blue components of the color, respectively. |
 
 #### Image properties example
@@ -717,14 +728,14 @@ The following additional properties can be specified on an [Image object](http:/
     },
     {
       "type": "Image",
-      "pixelWidth": 64,
+      "width": 64,
       "url": "http://messagecardplayground.azurewebsites.net/assets/circleontransparentbackground.png",
       "backgroundColor": "#FF0000"
     },
     {
       "type": "Image",
       "style": "person",
-      "pixelWidth": 64,
+      "width": 64,
       "url": "http://messagecardplayground.azurewebsites.net/assets/circleontransparentbackground.png",
       "backgroundColor": "#0000FF"
     }
