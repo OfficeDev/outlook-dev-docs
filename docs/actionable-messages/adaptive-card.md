@@ -64,7 +64,7 @@ Here is how this card is crafted:
           "items": [
             {
               "type": "Image",
-              "width": 48,
+              "width": "48px",
               "url": "http://lh3.googleusercontent.com/ik5VKcUE5U7qGSpU3XWwAwe_zeOnHU5x_79o-VXf-C_EGrFPHp4-NcKRCtblrJM5iO61=w300"
             }
           ]
@@ -646,7 +646,7 @@ If `width` is expressed as a string, it can have the following values:
       "type": "ColumnSet",
       "columns": [
         {
-          "width": 50,
+          "width": "50px",
           "items": [
             {
               "type": "Image",
@@ -672,7 +672,7 @@ If `width` is expressed as a string, it can have the following values:
       "type": "ColumnSet",
       "columns": [
         {
-          "width": 50
+          "width": "50px"
         },
         {
           "width": "stretch",
@@ -728,14 +728,14 @@ The following additional properties can be specified on an [Image object](http:/
     },
     {
       "type": "Image",
-      "width": 64,
+      "width": "64px",
       "url": "http://messagecardplayground.azurewebsites.net/assets/circleontransparentbackground.png",
       "backgroundColor": "#FF0000"
     },
     {
       "type": "Image",
       "style": "person",
-      "width": 64,
+      "width": "64px",
       "url": "http://messagecardplayground.azurewebsites.net/assets/circleontransparentbackground.png",
       "backgroundColor": "#0000FF"
     }
