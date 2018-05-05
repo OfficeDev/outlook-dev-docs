@@ -98,9 +98,9 @@ When your webhook receives a POST, you should do the following:
 
 #### Load the invoice
 
-When the `event` property in the incoming request is set to `loadentity` your webhook should load the invoice to provide details about the charges on the invoice to the Payments service. Your webhook will also indicate what information is required by your service regarding the payer. This event is triggered when the user clicks the **Review and Pay** button in Outlook.
+When the `event` property in the incoming request is set to `loadentity` your webhook should load the invoice to provide details about the charges on the invoice to the payments service. Your webhook will also indicate what information is required by your service regarding the payer. This event is triggered when the user clicks the **Review and Pay** button in Outlook.
 
-The following is an example of the incoming request sent by the Payments service.
+The following is an example of the incoming request sent by the payments service.
 
 ```json
 {
@@ -123,7 +123,7 @@ The information in the `productContext` property corresponds to the `productCont
 After loading the invoice, your webhook should send the following response payload:
 
 - Include the `data` property with information about accepted payment types and networks and an Invoice entity.
-- Include the `options` property to indicate what information you need about the payer and if you want the Payments service to ask for a shipping address and option.
+- Include the `options` property to indicate what information you need about the payer and if you want the payments service to ask for a shipping address and option.
 - Include the `details` property to provide display details about the invoice.
 
 The following is an example of a response to a `loadentity` event.
@@ -216,7 +216,7 @@ The payload of the incoming request corresponds to the response sent by your web
 - The `event` property is set to `shippingaddresschange`.
 - The `shippingAddress` property contains the address provided by the recipient.
 
-The following is an example of the incoming request sent by the Payments service.
+The following is an example of the incoming request sent by the payments service.
 
 ```json
 {
@@ -444,7 +444,7 @@ The payload of the incoming request corresponds to the response sent by your web
 - The `event` property is set to `shippingoptionchange`.
 - The `shippingOption` property contains the `id` of the shipping option the recipient selected.
 
-The following is an example of the incoming request sent by the Payments service. From the previous example response, the available shipping options were regular (`norush`) and priority (`priority`). In this example, the user selected priority shipping.
+The following is an example of the incoming request sent by the payments service. From the previous example response, the available shipping options were regular (`norush`) and priority (`priority`). In this example, the user selected priority shipping.
 
 ```json
 {
@@ -651,13 +651,13 @@ The following is an example of a response to a `shippingoptionchange` event.
 
 ## PaymentComplete webhook
 
-The payment complete webhook is called when the user finalizes the payment. The Payment service processes the payment and calls your webhook with the result.
+The payment complete webhook is called when the user finalizes the payment. The payment service processes the payment and calls your webhook with the result.
 
 The format of the payload sent to your webhook and the payload you must send back in the response is specified in the following sections.
 
 ### Payment complete webhook incoming payload
 
-The Payment services sends a payload to your webhook in the following format.
+The payment service sends a payload to your webhook in the following format.
 
 | Field | Type| Description |
 |-------|-----|-------------|
@@ -822,7 +822,7 @@ All action requests from Microsoft have a bearer token in the HTTP `Authorizatio
 
 | Claim name | Value |
 |------------|-------|
-| `aud` | The merchant ID of the target webhook. This should match the merchant ID you obtained from the [Payments in Outlook Partner Dashboard](https://outlook.office.com/connectors/opay/partnerportal/). |
+| `aud` | The merchant ID of the target webhook. This should match the merchant ID you obtained from the [partner dashboard for payments in Outlook](https://outlook.office.com/connectors/opay/partnerportal/). |
 | `sub` | The email address of the user of the user who took the action. |
 | `sender` | The identity of the sender of the payment request message. This should match the email address you sent the payment message from. |
 
