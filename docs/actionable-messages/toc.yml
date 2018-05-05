@@ -11,6 +11,8 @@
   items:
   - name: Invoke an Outlook add-in
     href: invoke-add-in-from-actionable-message.md
+  - name: Send from dynamic addresses
+    href: send-actionable-email-from-dynamic-addresses.md
 - name: Security Requirements
   href: security-requirements.md
 - name: Adaptive Cards
