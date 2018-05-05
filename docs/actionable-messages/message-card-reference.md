@@ -418,14 +418,14 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
 
 ### Transaction action
 
-Initiates an Outlook Pay scenario. For more information see [Payments in Outlook](../payments/index.md).
+Initiates an payments in Outlook scenario. For more information see [Payments in Outlook](../payments/index.md).
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String | The `name` property defines the text that will be displayed on screen for the action.<br><br>**Do** use verbs. For instance, use "Pay invoice" instead of "Invoice". |
 | `isPrimaryAction` | Boolean | Indicates that the action should be highlighted as the primary action if multiple actions are present. It is recommended to set this to `true` for when including multiple actions. |
-| `merchantId` | UUID | Your merchant ID provided by registering with the [Payments in Outlook partner dashboard](../payments/partner-dashboard.md). |
-| `displayId` | UUID | Your display ID provided by registering with the [Payments in Outlook partner dashboard](../payments/partner-dashboard.md). |
+| `merchantId` | UUID | Your merchant ID provided by registering with the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md). |
+| `displayId` | UUID | Your display ID provided by registering with the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md). |
 | `productContext` | Object | Required. Developers may specify any valid JSON object in this field. The value is included in the payloads sent to your payment request and payment complete webhooks. |
 
 #### Example Transaction

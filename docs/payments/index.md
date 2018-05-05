@@ -1,6 +1,6 @@
 ---
 title: Payments in Outlook Overview | Microsoft Docs
-description: Learn about Payments in Outlook
+description: Learn about payments in Outlook
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
