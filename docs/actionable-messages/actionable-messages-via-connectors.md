@@ -8,7 +8,6 @@ ms.technology: o365-connectors
 ms.date: 05/09/2017
 ms.author: jasonjoh
 ---
-
 # Post an actionable message card to an Office 365 group
 
 ## Create an actionable message card
@@ -56,7 +55,7 @@ Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and pa
 }
 ```
 
-Feel free to experiment with this simple example in the playground. You can see the [card reference](card-reference.md) for details on the available fields. Once you have a card you're happy with, you can move on to sending it.
+Feel free to experiment with this simple example in the playground. You can see the [message card reference](message-card-reference.md) for details on the available fields. Once you have a card you're happy with, you can move on to sending it.
 
 ## Sending actionable messages via Office 365 Connectors
 
@@ -67,22 +66,22 @@ You'll need an Office 365 subscription to proceed. If you do not have an Office 
 ### Get a connector webhook URL for your Inbox
 
 1. Log on to the Office 365 Mail app at [https://outlook.office.com](https://outlook.office.com). Click the gear icon in the upper-right-hand corner of the page, and select **Manage Integrations**.
-  
+
 1. Choose **Connectors** in the popup.
 
 1. Locate the **Incoming Webhook** connector in the list of available connectors, and choose **Add**.
 
     ![A screenshot of the Incoming Webhook item in the available connectors list](images/get-started/incoming-webhook.png)
-  
+
 1. Enter a name for this connector and choose **Create**.
 
     ![A screenshot of the Incoming Webhook creation page](images/get-started/create-webhook.png)
-  
+
 1. Copy the webhook URL that is displayed and save it. Choose **Done**.
 
     ![A screenshot of the Incoming Webhook URL](images/get-started/webhook-url.png)
-  
-The webhook URL should look simliar to the following:
+
+The webhook URL should look similar to the following:
 
     https://outlook.office365.com/webhook/a1269812-6d10-44b1-abc5-b84f93580ba0@9e7b80c7-d1eb-4b52-8582-76f921e416d9/IncomingWebhook/3fdd6767bae44ac58e5995547d66a4e4/f332c8d9-3397-4ac5-957b-b8e3fc465a8c
 
@@ -96,8 +95,8 @@ Use [Postman](https://www.getpostman.com/) to post an actionable message payload
 - Click **Text** and change to **JSON (application/json)**.
 - Enter the message card JSON in the text area below.
 
-The Postman window should look like this when you are done: 
+The Postman window should look like this when you are done:
 
-![The Postman request window configured to post a sample actionable message to a webhook URL](images/get-started/postman-setup.PNG) 
+![The Postman request window configured to post a sample actionable message to a webhook URL](images/get-started/postman-setup.PNG)
 
 Click **Send** to post the message.
