@@ -550,15 +550,15 @@ The example card renders similar to the following after the button is clicked:
 The `Action.Transaction` action triggers the [payments in Outlook](../payments/index.md) experience. When the user invokes the action, Outlook retrieves the latest invoice details from the merchant. This information is displayed in a pane in Outlook, allowing the user to click through the Microsoft Pay experience to pay the invoice. See [Get started with payments in Outlook](../payments/get-started.md) for more information.
 
 > [!NOTE]
-> Before you can use the `Action.Transaction` type, you must register in the [partner dashboard for payments in Outlook](../payments/partner-dashboard) to receive a merchant ID and display ID.
+> Before you can use the `Action.Transaction` type, you must register in the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md) to receive a merchant ID and display ID.
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
 | `type` | String | Yes | Must be set to `Action.Transaction`. |
 | `title` | String | No | The title of the action as it will appear on screen on a button control, for instance. |
 | `initializationContext` | Object | Yes | Contains required information for the payments in Outlook experience. |
-| `initializationContext.merchantId` | GUID | Yes | Your merchant ID obtained by registering in the [partner dashboard for payments in Outlook](../payments/partner-dashboard). |
-| `initializationContext.displayId` | GUID | Yes | Your display ID obtained by registering in the [partner dashboard for payments in Outlook](../payments/partner-dashboard). |
+| `initializationContext.merchantId` | GUID | Yes | Your merchant ID obtained by registering in the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md). |
+| `initializationContext.displayId` | GUID | Yes | Your display ID obtained by registering in the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md). |
 | `initializationContext.productContext` | Object | Yes | Developers may specify any valid JSON object in this field. The value is included in the payloads sent to your payment request and payment complete webhooks. |
 
 #### Action.Transaction example
