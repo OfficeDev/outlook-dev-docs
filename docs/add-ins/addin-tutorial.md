@@ -713,7 +713,7 @@ Now click the **Insert Default Gist** button again. This time you should see the
 
 Now we can work on the **Insert Gist** button. For this button we'll open a task pane and display all of the user's gists. The user can pick one and insert it. If the user has not yet configured the add-in, it will display a message asking them to do so.
 
-Create a folder in the root of the project called `msg-compose`. In this folder, create `insert-gist.hml` and add the following markup.
+Create a folder in the root of the project called `msg-compose`. In this folder, create `insert-gist.html` and add the following markup.
 
 > [!NOTE]
 > The markup for the taskpane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://dev.office.com/docs/add-ins/design/ux-design-patterns).
