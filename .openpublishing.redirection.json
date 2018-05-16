@@ -24,6 +24,11 @@
       "source_path": "docs/actionable-messages/actions-and-inputs.md",
       "redirect_url": "/outlook/actionable-messages/adaptive-card",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/recurrence-rules.md",
+      "redirect_url": "https://developer.microsoft.com/graph/docs/concepts/outlook-schedule-recurring-events",
+      "redirect_document_id": false
     }
   ]
 }
