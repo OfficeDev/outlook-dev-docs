@@ -9,14 +9,13 @@ ms.devlang: nodejs
 ms.date: 02/23/2018
 ms.author: jasonjoh
 ---
-
 # Write a Node.js app to get Outlook mail, calendar, and contacts
 
 The purpose of this guide is to walk through the process of creating a simple Node.js app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/node-tutorial) is what you should end up with if you follow the steps outlined here.
 
 This guide will use the [Microsoft Graph](https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/node-tutorial/tree/outlook-api).
 
-This guide assumes that you already have Node.js installed and working on your development machine. 
+This guide assumes that you already have Node.js installed and working on your development machine.
 
 ## Create the app
 
@@ -25,6 +24,7 @@ Let's dive right in! The first  step is to install the [Express generator](http:
 ```Shell
 npm install -g express-generator
 ```
+
 Now run the following command to create an Express app that uses [Handlebars](http://handlebarsjs.com/) as the rendering engine:
 
 ```Shell
@@ -113,7 +113,7 @@ Let's begin by adding some basic styling to the app with [Bootstrap](http://getb
         </div>
       {{/if}}
     </main>
-    
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -156,10 +156,10 @@ The sign-in button doesn't do anything yet, so let's move on to changing that.
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret. 
+Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret.
 
 1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `node-tutorial` for the name and click **Create application**. 
+1. Click the **Add an app** button. Enter `node-tutorial` for the name and click **Create application**.
 1. Locate the **Application Secrets** section, and click the **Generate New Password** button. Copy the password now and save it to a safe place. Once you've copied the password, click **Ok**.
 1. Locate the **Platforms** section, and click **Add Platform**. Choose **Web**, then enter `http://localhost:3000/authorize` under **Redirect URIs**.
 1. Click **Save** to complete the registration. Copy the **Application Id** and save it along with the password you copied earlier. We'll need those values soon.
@@ -210,7 +210,7 @@ const credentials = {
   }
 };
 const oauth2 = require('simple-oauth2').create(credentials);
-    
+
 function getAuthUrl() {
   const returnVal = oauth2.authorizationCode.authorizeURL({
     redirect_uri: process.env.REDIRECT_URI,
@@ -347,7 +347,7 @@ router.get('/', async function(req, res, next) {
     } catch (error) {
       res.render('error', { title: 'Error', message: 'Error exchanging code for token', error: error });
     }
-    
+
     res.render('index', { title: 'Home', debug: `Access token: ${token}` });
   } else {
     // Otherwise complain
@@ -364,7 +364,13 @@ Now let's change our code to store the token in a session cookie instead of disp
 npm install jsonwebtoken --save
 ```
 
-First let's update the `getTokenFromCode` method so that it will save the token and user name in the session. To do that we need access to the cookies, so update the method to take an additional parameter, the Express Response object.
+Add the following line to the top of `./helpers/auth.js`:
+
+```js
+const jwt = require('jsonwebtoken');
+```
+
+Now let's update the `getTokenFromCode` method so that it will save the token and user name in the session. To do that we need access to the cookies, so update the method to take an additional parameter, the Express Response object.
 
 #### Updated `getTokenFromCode` in `./helpers/auth.js`
 
@@ -401,7 +407,7 @@ function saveValuesToCookie(token, res) {
 }
 ```
 
-Now update the route in `./routes/authorize.js` to redirect back to the home page.
+Now update the route in `./routes/authorize.js` to pass the Express response object to `getTokenFromCode` and redirect back to the home page.
 
 #### Updated route in `./routes/authorize.js`
 
@@ -415,7 +421,7 @@ router.get('/', async function(req, res, next) {
     let token;
 
     try {
-      token = await authHelper.getTokenFromCode(code);
+      token = await authHelper.getTokenFromCode(code, res);
     } catch (error) {
       res.render('error', { title: 'Error', message: 'Error exchanging code for token', error: error });
     }
@@ -509,7 +515,7 @@ function saveValuesToCookie(token, res) {
   res.cookie('graph_user_name', user.name, {maxAge: 3600000, httpOnly: true});
   // Save the refresh token in a cookie
   res.cookie('graph_refresh_token', token.token.refresh_token, {maxAge: 7200000, httpOnly: true});
-  // Save the token expiration tiem in a cookie
+  // Save the token expiration time in a cookie
   res.cookie('graph_token_expires', token.token.expires_at.getTime(), {maxAge: 3600000, httpOnly: true});
 }
 ```
@@ -530,7 +536,7 @@ function clearCookies(res) {
 
 Now let's add a helper function in `./helpers/auth.js` to retrieve the cached token, check if it is expired, and refresh it if so.
 
-#### `getAccessToken` in `./helpers/auth.js` ####
+#### `getAccessToken` in `./helpers/auth.js`
 
 ```js
 async function getAccessToken(cookies, res) {
@@ -548,7 +554,7 @@ async function getAccessToken(cookies, res) {
     }
   }
 
-  // Either no token or it's expired, do we have a 
+  // Either no token or it's expired, do we have a
   // refresh token?
   const refresh_token = cookies.graph_refresh_token;
   if (refresh_token) {
@@ -560,11 +566,13 @@ async function getAccessToken(cookies, res) {
   // Nothing in the cookies that helps, return empty
   return null;
 }
+
+exports.getAccessToken = getAccessToken;
 ```
 
 Finally, let's update the route in `./routes/index.js` to use this function.
 
-#### Updated route in `./routes/index.js`####
+#### Updated route in `./routes/index.js`
 
 ```js
 router.get('/', async function(req, res, next) {
@@ -585,7 +593,7 @@ router.get('/', async function(req, res, next) {
 });
 ```
 
-## Using the Mail API ##
+## Using the Mail API
 
 Now that we can get an access token, we're in a good position to do something with the Mail API.
 
@@ -638,7 +646,7 @@ router.get('/', async function(req, res, next) {
       parms.debug = JSON.stringify(err.body, null, 2);
       res.render('error', parms);
     }
-    
+
   } else {
     // Redirect to home
     res.redirect('/');
@@ -654,9 +662,9 @@ To summarize the new code:
 
 - It creates a Graph client object and initializes it to use the access token.
 - It calls the `/me/mailfolders/inbox/messages` API to get inbox messages, and uses other methods to control the request:
-    - It uses the `top` method with a value of `10` to limit the results to the first 10.
-    - It uses the `select` method to only request the `subject`, `from`, `receivedDateTime`, and `isRead` properties.
-    - It uses the `orderby` method with a value of `receivedDateTime DESC` to get the newest messages first.
+  - It uses the `top` method with a value of `10` to limit the results to the first 10.
+  - It uses the `select` method to only request the `subject`, `from`, `receivedDateTime`, and `isRead` properties.
+  - It uses the `orderby` method with a value of `receivedDateTime DESC` to get the newest messages first.
 
 Now let's add this new route to the app. Open the `./app.js` file and make the following changes:
 
@@ -727,7 +735,7 @@ router.get('/', async function(req, res, next) {
       parms.debug = JSON.stringify(err.body, null, 2);
       res.render('error', parms);
     }
-    
+
   } else {
     // Redirect to home
     res.redirect('/');
@@ -803,7 +811,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
         const start = new Date(new Date().setHours(0,0,0));
         // Set end of the calendar view to 7 days from start
         const end = new Date(new Date(start).setDate(start.getDate() + 7));
-        
+
         try {
           // Get the first 10 events for the coming week
           const result = await client
@@ -821,7 +829,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
           parms.debug = JSON.stringify(err.body, null, 2);
           res.render('error', parms);
         }
-        
+
       } else {
         // Redirect to home
         res.redirect('/');
@@ -936,7 +944,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
           parms.debug = JSON.stringify(err.body, null, 2);
           res.render('error', parms);
         }
-        
+
       } else {
         // Redirect to home
         res.redirect('/');
