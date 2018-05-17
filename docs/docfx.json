@@ -41,7 +41,11 @@
       "feedback_github_repo": "OfficeDev/outlook-dev-docs",
       "feedback_product_url": "https://officespdev.uservoice.com/"
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "feedback_system": {
+        "rest/terms-of-use.md": "None"
+      }
+    },
     "template": [],
     "dest": "outlook"
   }
