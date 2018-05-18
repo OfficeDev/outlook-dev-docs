@@ -45,6 +45,13 @@ Please refer to the Microsoft code samples provided below, which show how to do 
 - [Java Sample](https://github.com/OfficeDev/outlook-actionable-messages-java-token-validation)
 - [Python Sample](https://github.com/OfficeDev/outlook-actionable-messages-python-token-validation)
 
+### Action-Authorization header
+The use of `Authorization` header by Actionable messages may interfere with existing authentication/authorization mechanism for the target endpoint.
+
+In this case, developers can set `Authorization` header to `null` or an empty string in `headers` property of `Action.Http`. Actionable messages will then send the same bearer token via `Action-Authorization` header instead of using `Authorization` header.
+
+> Azure Logic App service returns HTTP 401 Unauthorized if `Authorization` header contains the bearer token set by Actionable messages. 
+
 ## Limited-Purpose Tokens
 
 Limited purpose tokens can be used to correlate service URLs with specific messages and users. Microsoft recommends that service providers use "limited-purpose tokens" as part of the action target URL, or in the body of the request coming back to the service. For example:
