@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: reference
 ms.technology: o365-connectors
-ms.date: 05/07/2018
+ms.date: 05/22/2018
 ms.author: jasonjoh
 ---
 # Payments in Outlook webhook reference
@@ -704,7 +704,17 @@ Contains more detailed error information for failed payment complete requests.
 | `details`| Array of Object | Optional. Contains an array of objects with `code` and `message` properties. Represents distinct related errors that occurred during the request. |
 | `innererror` | `PaymentCompleteError` | Provides a more specific error. |
 
-The following values are supported in the `code` field when using Stripe as a payment processor.
+##### Top-level error codes
+
+The following values are supported in the `code` field for a top-level `PaymentCompleteError` (the `error` field in your webhook's response payload).
+
+| Value | Description |
+|-------|-------------|
+| `card_error` | The provided card could not be charged. Use the `innererror` to provide more details. |
+
+##### Inner error codes
+
+The following values are supported in the `code` field for an `innererror` when using Stripe as a payment processor.
 
 | Value | Description |
 |-------|-------------|
@@ -718,6 +728,16 @@ The following values are supported in the `code` field when using Stripe as a pa
 | `incorrect_zip` | The card's ZIP or postal code failed validation. |
 | `card_declined` | The card was declined. |
 | `processing_error` | A generic error. An error occurred while processing the card. |
+
+##### Reporting payment complete errors
+
+If your webhook returns an error in response to a payment request, it is important to format the error correctly to provide the best experience to the user. Format errors using the following guidelines.
+
+- Set the `result` field of the response payload to `fail`.
+- Set the `error.code` field to one of the supported [top-level error codes](#top-level-error-codes).
+- Set the `error.innererror.code` field to one of the supported [inner error codes](#inner-error-codes) appropriate to your error case.
+
+See the [example failure response](#example-failure-response) for an example.
 
 ### Handling payment complete webhook POSTs
 
