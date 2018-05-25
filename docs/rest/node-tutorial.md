@@ -839,7 +839,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     module.exports = router;
     ```
 
-1. Add a `calendar.hbs` file in the `./routes/` folder and add the following code.
+1. Add a `calendar.hbs` file in the `./views/` folder and add the following code.
 
     ```html
     <h2>Calendar</h2>
@@ -954,7 +954,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     module.exports = router;
     ```
 
-1. Add a `contacts.hbs` file in the `./routes/` folder and add the following code.
+1. Add a `contacts.hbs` file in the `./views/` folder and add the following code.
 
     ```html
     <h2>Contacts</h2>
