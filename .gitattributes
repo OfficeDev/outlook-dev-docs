@@ -1,0 +1,10 @@
+# Set behaviour for all files, in case developers don't have core.autocrlf set.
+*       text=auto
+
+# These files are text and should be normalized (convert crlf => lf)
+*.md    text
+*.yml   text
+*.ps1   text
+*.cmd   text
+*.json  text
+*.xml   text
