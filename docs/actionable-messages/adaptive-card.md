@@ -19,6 +19,10 @@ Outlook Actionable Messages cards are designed using the Adaptive Card format. T
 
 Our [Card Playground tool](http://messagecardplayground.azurewebsites.net) has been updated to support the Adaptive Card format. There you will find Adaptive Card samples (including the one below) that can help you get started crafting your own cards and also allows you to send those cards to your own Office 365 email account to see how they look in Outlook.
 
+## Adaptive Cards Designer (preview)
+
+The [Adaptive Cards Designer](https://acdesignerbeta.azurewebsites.net/) provides a drag-and-drop experience to quickly build and tweak adaptive cards.
+
 ## A simple Adaptive Card example
 
 ![A sample Adaptive Card](images/adaptive-card-example.png)

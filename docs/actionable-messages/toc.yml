@@ -21,5 +21,7 @@
   href: connectors-dev-dashboard.md
 - name: Card Playground
   href: https://messagecardplayground.azurewebsites.net/
+- name: Adaptive Card Designer (preview)
+  href: https://acdesignerbeta.azurewebsites.net
 - name: MessageCard Reference (Legacy)
   href: message-card-reference.md
