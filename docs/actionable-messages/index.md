@@ -99,17 +99,17 @@ For information on admin controls, look at the FAQ section of this <a target="_b
 
 Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Office 365 ProPlus](https://support.office.com/en-us/article/Overview-of-update-channels-for-Office-365-ProPlus-9ccf0f13-28ff-4975-9bd2-7e4ea2fefef4).
 
-| Client | Actionable messages supported? | Minimum Version |
-|---------|--------------------------------|-----------------|
-| Outlook on the web for Office 365| Yes | Available to all Office 365 users |
-| Office 365 ProPlus Monthly Channel | Yes | Version 1705, Build 8201 |
-| Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes | Version 1708, Build 8431 |
-| Office 365 ProPlus Semi-Annual Channel | Yes | Version 1708, Build 8431.2153 |
-| Outlook 2016 for Mac | No | Coming Soon |
-| Outlook for iOS | No | Coming Soon |
-| Outlook for Android | No | Coming Soon |
-| Office Professional Plus 2016 | No | Actionable Messages are available for Office 365 only |
-| Exchange 2016 On-Premises Outlook on the web | No | Actionable Messages are available for Office 365 only |
+| Client | Actionable messages supported? | Adaptive card supported? |
+|--------|--------------------------------|--------------------------|
+| Outlook on the web for Office 365| Yes | Yes |
+| Office 365 ProPlus Monthly Channel | Yes, in version 1705, Build 8201 | Yes, in version 1805, Build 9330 |
+| Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes, in version 1708, Build 8431 | Coming Soon |
+| Office 365 ProPlus Semi-Annual Channel | Yes, in version 1708, Build 8431.2153 | Coming Soon |
+| Outlook 2016 for Mac | Coming Soon | Coming Soon |
+| Outlook for iOS | Coming Soon | Coming Soon |
+| Outlook for Android | Coming Soon | Coming Soon |
+| Office Professional Plus 2016 | Actionable Messages are available for Office 365 only | No |
+| Exchange 2016 On-Premises Outlook on the web | Actionable Messages are available for Office 365 only | No |
 
 ## Submit feedback
 
