@@ -20,6 +20,7 @@
   - name: Ruby
     href: ruby-tutorial.md
 - name: Concepts
+  href: concepts.md
   items:
   - name: Compare Graph and Outlook
     href: compare-graph-outlook.md
