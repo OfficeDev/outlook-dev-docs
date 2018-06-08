@@ -21,7 +21,7 @@ To send attachment information to the remote service, you use the following prop
 
 ## Using the attachments API
 
-To use the attachments API to get attachments from an Exchange mailbox, perform the following steps: 
+To use the attachments API to get attachments from an Exchange mailbox, perform the following steps:
 
 1. Show the add-in when the user is viewing a message or appointment that contains an attachment.
 1. Get the callback token from the Exchange server.
@@ -266,7 +266,7 @@ private AttachmentSampleServiceResponse GetAttachmentsFromExchangeServerUsingEWS
 
       var responseEnvelope = XElement.Load(responseStream);
 
-      // After creating a memory stream containing the contents of the 
+      // After creating a memory stream containing the contents of the
       // attachment, this method writes the XML document to the trace output.
       // Your service would perform it's processing here.
       if (responseEnvelope != null)
@@ -281,7 +281,7 @@ private AttachmentSampleServiceResponse GetAttachmentsFromExchangeServerUsingEWS
       webResponse.Close();
 
     }
-    // If the response is not OK, return an error message for the 
+    // If the response is not OK, return an error message for the
     // attachment.
     else
     {
@@ -332,7 +332,7 @@ private string ProcessXmlResponse(XElement responseEnvelope)
     var fileContent = fileAttachment.Element("{http://schemas.microsoft.com/exchange/services/2006/types}Content");
     var fileData = System.Convert.FromBase64String(fileContent.Value);
     var s = new MemoryStream(fileData);
-    // Process the file attachment here. 
+    // Process the file attachment here.
   }
 
   // Second, get and process item attachments.
@@ -390,7 +390,7 @@ private string ProcessXmlResponse(XElement responseEnvelope)
       break;
     }
   }
-  
+
   return string.Empty;
 }
 ```
@@ -398,6 +398,6 @@ private string ProcessXmlResponse(XElement responseEnvelope)
 ## Additional resources
 
 - [Create Outlook add-ins for read forms](read-scenario.md)
-- [Explore the EWS Managed API, EWS, and web services in Exchange](http://msdn.microsoft.com/library/0bc6f81d-cc10-42b0-ba5d-6f22ff55d51c%28Office.15%29.aspx)
-- [Get started with EWS Managed API client applications](http://msdn.microsoft.com/library/c2267733-6f4f-49e5-9614-1e4a24c3af1a%28Office.15%29.aspx)
-- [Outlook-Power-Hour_Code-Samples](https://github.com/OfficeDev/Outlook-Power-Hour-Code-Samples):  `MyAttachments` and `AttachmentsDemo`
+- [Explore the EWS Managed API, EWS, and web services in Exchange](/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange)
+- [Get started with EWS Managed API client applications](/exchange/client-developer/exchange-web-services/get-started-with-ews-managed-api-client-applications)
+- [AttachmentsDemo Sample Outlook Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo)
