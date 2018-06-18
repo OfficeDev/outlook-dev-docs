@@ -21,13 +21,11 @@ Outlook Add-ins are different from COM or VSTO add-ins, which are older integrat
 The Outlook items that support mail add-ins include email messages, meeting requests, responses and cancellations, and appointments. Each mail add-in defines the context in which it is available, including the types of items and if the user is reading or composing an item.
 
 > [!NOTE]
-> When you build your add-in, if you plan to [publish](https://dev.office.com/docs/add-ins/publish/publish?product=outlook) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://msdn.microsoft.com/en-us/library/jj220035.aspx). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://msdn.microsoft.com/en-us/library/jj220035.aspx#Anchor_3) and the [Office Add-in host and availability page](https://dev.office.com/add-in-availability)).
+> When you build your add-in, if you plan to [publish](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/publish?product=outlook) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://docs.microsoft.com/en-us/office/dev/store/validation-policies). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://docs.microsoft.com/en-us/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably) and the [Office Add-in host and availability page](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-availability)).
 
 ## Extension points
 
-
 Extension points are the ways that add-ins integrate with Outlook. The following are the ways this can be done:
-
 
 - Add-ins can declare buttons that appear in command surfaces across messages and appointments. For more information, see [Add-in commands for Outlook](add-in-commands-for-outlook.md).
     
@@ -43,7 +41,6 @@ Extension points are the ways that add-ins integrate with Outlook. The following
 
 
 ## Mailbox items available to add-ins
-
 
 Outlook Add-ins are available on messages or appointments while composing or reading, but not other item types. Outlook does not activate add-ins if the current message item, in a compose or read form, is one of the following:
 
@@ -66,20 +63,18 @@ In general, Outlook can activate add-ins in read form for items in the Sent Item
 
 ## Supported hosts
 
-
-Outlook Add-ins are supported in Outlook 2013 and later versions, Outlook 2016 for Mac, Outlook Web App for Exchange 2013 on-premises, and Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all clients at the same time. Please refer to individual topics and API references, to see which hosts they are/are not supported in.
+Outlook Add-ins are supported in Outlook 2013 and later versions, Outlook 2016 for Mac, Outlook Web App for Exchange 2013 on-premises, and Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all clients at the same time. Please refer to individual topics and API references to see which hosts they are/are not supported in.
 
 
 ## Get started building Outlook Add-ins
-
 
 To get started building Outlook Add-ins, see [Get Started with Outlook Add-ins for Office 365](addin-tutorial.md).
 
 
 ## See also
 
-- [Best practices for developing Office Add-ins](https://dev.office.com/docs/add-ins/overview/add-in-development-best-practices?product=outlook)
-- [Design guidelines for Office Add-ins](https://dev.office.com/docs/add-ins/design/add-in-design?product=outlook)
-- [License your Office and SharePoint Add-ins](http://msdn.microsoft.com/library/3e0e8ff6-66d6-44ff-b0c2-59108ebd9181%28Office.15%29.aspx)
-- [Publish your Office Add-in](https://dev.office.com/docs/add-ins/publish/publish?product=outlook)
-- [Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store](http://msdn.microsoft.com/library/ff075782-1303-4517-91cc-b3d730e9b9ae%28Office.15%29.aspx)
+- [Best practices for developing Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/concepts/add-in-development-best-practices?product=outlook)
+- [Design guidelines for Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-design?product=outlook)
+- [License your Office and SharePoint Add-ins](https://docs.microsoft.com/en-us/office/dev/store/license-your-add-ins)
+- [Publish your Office Add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/publish?product=outlook)
+- [Make your solutions available in AppSource and within Office](https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)

@@ -2,7 +2,6 @@
 title: Build an Outlook Add-in | Microsoft Docs
 description: Learn how to build a simple Outlook Add-in and test it locally
 author: jasonjoh
-
 ms.topic: get-started-article
 ms.technology: office-add-ins
 ms.devlang: javascript
@@ -178,6 +177,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 ### Create the add-in project
 
 1. Create a folder on your local drive and name it `my-outlook-addin`. This is where you'll create the files for your add-in.
+
 1. Navigate to your new folder.
 
     ```Shell
@@ -204,6 +204,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 ### Update the code
 
 1. In your code editor, open **index.html** in the root of the project. This files contains the HTML that will be rendered in the add-in's task pane.
+
 1. Replace the `<header>` and `<main>` elements inside the `<body>` element with the following markup and save the file.
 
     ```HTML
@@ -279,8 +280,11 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 ### Update the manifest
 
 1. Open the **my-office-add-in-manifest.xml** file.
+
 1. The `ProviderName` element has a placeholder value. Replace it with your name.
+
 1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `My First Outlook Add-in`.
+
 1. The `DefaultValue` attribute of the `SupportUrl` element has a placeholder. Replace it with `https://localhost:3000` and save the file.
 
     ```xml
