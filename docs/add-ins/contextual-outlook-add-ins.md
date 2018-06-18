@@ -2,7 +2,6 @@
 title: Contexutal Outlook Add-ins | Microsoft Docs
 description: Learn about the features of Outlook contextual add-ins.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 01/12/2018
@@ -80,7 +79,7 @@ The following contextual add-ins are installed by default for users with Outlook
 
 ## See also
 
-- [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) - A sample contextual add-in that activates based on a regular expression match.
+- [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) (sample contextual add-in that activates based on a regular expression match)
 - [Write your first Outlook Add-in](quick-start.md)
 - [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
 - [Entities object](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5)

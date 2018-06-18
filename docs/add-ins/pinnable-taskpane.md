@@ -2,7 +2,6 @@
 title: Implement a pinnable taskpane in an Outlook Add-in | Microsoft Docs
 description: Learn how to implement a pinnable taskpane in an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017

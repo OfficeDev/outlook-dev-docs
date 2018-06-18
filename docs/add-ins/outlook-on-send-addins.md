@@ -2,7 +2,6 @@
 title: On send feature for Outlook Add-ins | Microsoft Docs
 description: Learn about handling the on send event in Outlook Add-ins.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 04/12/2018
@@ -43,6 +42,10 @@ The following screenshot shows an information bar that notifies the sender to ad
 
 ![Screenshot showing an error message prompting the user to enter a missing subject line](images/block-on-send-subject-cc-inforbar.png) 
 
+<br/>
+
+<br/>
+
 The following screenshot shows an information bar that notifies the sender that blocked words were found.
 
 ![Screenshot showing an error message telling the user that blocked words were found](images/block-on-send-body.png)
@@ -51,9 +54,9 @@ The following screenshot shows an information bar that notifies the sender that 
 
 The on send feature currently has the following limitations:
 
-- **Office Store** - You can't publish Outlook Add-ins that use the on send feature to the Office Store. Add-ins that use the on send event will fail Office Store validation.    
-- **Manifest** - Only one **ItemSend** event is supported per add-in. If you have two or more **ItemSend** events in a manifest, the manifest will fail validation. 
-- **Performance** - Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple email message-based operations.
+- **Office Store** &ndash; You can't publish Outlook Add-ins that use the on send feature to the Office Store. Add-ins that use the on send event will fail Office Store validation.    
+- **Manifest** &ndash; Only one **ItemSend** event is supported per add-in. If you have two or more **ItemSend** events in a manifest, the manifest will fail validation. 
+- **Performance** &ndash; Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple email message-based operations.
 
 ### Mailbox type limitations
 
@@ -84,10 +87,11 @@ The on send feature in Outlook on the web requires that add-ins are configured f
 
 To install a new add-in, run the following Exchange Online PowerShell cmdlets. 
 
-```
+```powershell
 $Data=Get-Content -Path '.\Contoso Message Body Checker.xml' -Encoding Byte –ReadCount 0 
 ```
-```
+
+```powershell
 New-App -OrganizationApp -FileData $Data -DefaultStateForUser Enabled
 ```
 
@@ -102,24 +106,24 @@ To enable on send add-ins for all users:
 
 1. Create a new Outlook on the web mailbox policy.
 
-    ```
+   ```powershell
     New-OWAMailboxPolicy OWAOnSendAddinAllUserPolicy
-    ```
+   ```
 
     > [!NOTE]
     > Administrators can use an existing policy, but on send functionality is only supported on certain mailbox types. Unsupported mailboxes will be blocked from sending by default in Outlook on the web.
 
 2. Enable the on send feature.
 
-    ```
+   ```powershell
     Get-OWAMailboxPolicy OWAOnSendAddinAllUserPolicy | Set-OWAMailboxPolicy –OnSendAddinsEnabled:$true
-    ```
+   ```
 
 3. Assign the policy to users.
 
-    ```
+   ```powershell
     Get-User -Filter {RecipientTypeDetails -eq 'UserMailbox'}|Set-CASMailbox -OwaMailboxPolicy OWAOnSendAddinAllUserPolicy
-    ```
+   ```
 
 ### Enabling the on send feature for a group of users
 
@@ -127,25 +131,25 @@ To enable the on send feature for a specific group of users the steps are as fol
 
 1. Create a new Outlook on the web mailbox policy for the group.
 
-    ```
+   ```powershell
     New-OWAMailboxPolicy FinanceOWAPolicy
-    ```
+   ```
 
-    > [!NOTE]
-    > Administrators can use an existing policy, but on send functionality is only supported on certain mailbox types (see **Mailbox type limitations** earlier in this article for more information). Unsupported mailboxes will be blocked from sending by default in Outlook on the web.
+   > [!NOTE]
+   > Administrators can use an existing policy, but on send functionality is only supported on certain mailbox types (see **Mailbox type limitations** earlier in this article for more information). Unsupported mailboxes will be blocked from sending by default in Outlook on the web.
 
 2. Enable the on send feature.
 
-    ```
+   ```powershell
     Get-OWAMailboxPolicy FinanceOWAPolicy | Set-OWAMailboxPolicy –OnSendAddinsEnabled:$true
-    ```
+   ```
 
 3. Assign the policy to users.
 
-    ```
+   ```powershell
     $targetUsers = Get-Group 'Finance'|select -ExpandProperty members
     $targetUsers | Get-User -Filter {RecipientTypeDetails -eq 'UserMailbox'}|Set-CASMailbox -OwaMailboxPolicy FinanceOWAPolicy
-    ```
+   ```
 
 > [!NOTE]
 > Wait up to 60 minutes for the policy to take effect, or restart Internet Information Services (IIS). When the policy takes effect, the on send feature will be enabled for the group.
@@ -154,7 +158,7 @@ To enable the on send feature for a specific group of users the steps are as fol
 
 To disable the on send feature for a user or assign an Outlook on the web mailbox policy that does not have the flag enabled, run the following cmdlets. In this example, the mailbox policy is *ContosoCorpOWAPolicy*.
 
-```
+```powershell
 Get-CASMailbox joe@contoso.com | Set-CASMailbox –OWAMailboxPolicy "ContosoCorpOWAPolicy"
 ```
 
@@ -163,7 +167,7 @@ Get-CASMailbox joe@contoso.com | Set-CASMailbox –OWAMailboxPolicy "ContosoCorp
 
 To disable the on send feature for all users that have a specific Outlook on the web mailbox policy assigned, run the following cmdlets. 
 
-```
+```powershell
 Get-OWAMailboxPolicy OWAOnSendAddinAllUserPolicy | Set-OWAMailboxPolicy –OnSendAddinsEnabled:$false
 ```
 
@@ -181,6 +185,8 @@ Add-ins will run during the send event, which will then either allow or block th
 
 #### Mailbox delegation, where mailbox 1 has full access permissions to mailbox 2
 
+<br/>
+
 |**Scenario**|**Mailbox 1 on send feature**|**Mailbox 2 on send feature**|**Outlook on the web session**|**Result**|**Supported?**|
 |:------------|:------------|:--------------------------|:---------|:-------------|:-------------|
 |1|Enabled|Enabled|New session|Mailbox 1 cannot send an email from mailbox 2.|Not currently supported.As a workaround, use scenario 3.|
@@ -190,6 +196,8 @@ Add-ins will run during the send event, which will then either allow or block th
 
 
 #### Group 1 is a modern group mailbox and user mailbox 1 is a member of Group 1
+
+<br/>
 
 |**Scenario**|**Mailbox 1 on send feature**|**On send add-ins enabled?**|**Mailbox 1 action**|**Result**|**Supported?**|
 |:------------|:-------------------------|:-------------------|:---------|:----------|:-------------|
@@ -208,12 +216,12 @@ The following code examples show you how to create a simple on send add-in. To d
 
 The [Outlook-Add-in-On-Send](https://github.com/OfficeDev/Outlook-Add-in-On-Send) code sample includes two manifests:
 
-- `Contoso Message Body Checker.xml` -- Shows how to check the body of a message for restricted words or sensitive information on send.  
-- `Contoso Subject and CC Checker.xml` -- Shows how to add a recipient to the CC line and verify that the message includes a subject line on send.  
+- `Contoso Message Body Checker.xml` &ndash; Shows how to check the body of a message for restricted words or sensitive information on send.  
+- `Contoso Subject and CC Checker.xml` &ndash; Shows how to add a recipient to the CC line and verify that the message includes a subject line on send.  
 
 In the `Contoso Message Body Checker.xml` manifest file, you include the function file and function name that should be called on the **ItemSend** event. The operation runs synchronously.
 
-```
+```xml
 <Hosts>
         <Host xsi:type="MailHost">
           <DesktopFormFactor>
@@ -230,7 +238,7 @@ In the `Contoso Message Body Checker.xml` manifest file, you include the functio
 
 For the `Contoso Subject and CC Checker.xml` manifest file, the function file and function name to call on message send event is shown in the following example.
 
-```
+```xml
 <Hosts>
         <Host xsi:type="MailHost">
           <DesktopFormFactor>
@@ -249,22 +257,23 @@ For the `Contoso Subject and CC Checker.xml` manifest file, the function file an
 
 The on send API requires **VersionOverrides v1_1**. The following shows you how to add the VersionOverrides node in your manifest.
 
-```
+```xml
  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
     <!-- On Send requires VersionOverridesV1_1 -->
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
 ```
 
- > [!NOTE]
- > For more information, see the following:
- >- [Outlook Add-in manifests](manifests.md)
- >- [VersionOverrides](https://dev.office.com/docs/add-ins/develop/define-add-in-commands#versionoverrides)
- >- [Office Add-ins XML manifest](https://dev.office.com/docs/add-ins/overview/add-in-manifests)
+
+> [!NOTE]
+> For more information, see the following:
+> - [Outlook Add-in manifests](manifests.md)
+> - [VersionOverrides](https://dev.office.com/docs/add-ins/develop/define-add-in-commands#versionoverrides)
+> - [Office Add-ins XML manifest](https://dev.office.com/docs/add-ins/overview/add-in-manifests)
 
 
 ### Event, item, body getAsync, and setAsync methods
 
-To access the currently selected message (in this example, the newly composed  message), use the **Office.context.mailbox.item** namespace. The **ItemSend** event is automatically passed by the on send feature to the function specified in the manifest - in this example, the `validateBody`function.
+To access the currently selected message (in this example, the newly composed  message), use the **Office.context.mailbox.item** namespace. The **ItemSend** event is automatically passed by the on send feature to the function specified in the manifest&mdash;in this example, the `validateBody`function.
 
 ```js
  var mailboxItem;
@@ -315,9 +324,9 @@ The `checkBodyOnlyOnSendCallBack` function uses a regular expression to determin
 
 The following are the parameters for the **addAsync** method:
 
-- *NoSend* - A string that is a developer-specified key to reference a notification message. You can use it to modify this message later. The key can’t be longer than 32 characters. 
-- *type* - One of the properties of the  JSON object parameter. Represents the type of a message; the types correspond to the values of the [Office.MailboxEnums.ItemNotificationMessageType](https://dev.office.com/reference/add-ins/outlook/1.5/Office.MailboxEnums?product=outlook&version=v1.5) enumeration. Possible values are progress indicator, information message, or error message. In this example, *type* is an error message.  
-- *message* - One of the properties of the JSON object parameter. In this example, *message* is the text of the notification message. 
+- *NoSend* &ndash; A string that is a developer-specified key to reference a notification message. You can use it to modify this message later. The key can’t be longer than 32 characters. 
+- *type* &ndash; One of the properties of the  JSON object parameter. Represents the type of a message; the types correspond to the values of the [Office.MailboxEnums.ItemNotificationMessageType](https://dev.office.com/reference/add-ins/outlook/1.5/Office.MailboxEnums?product=outlook&version=v1.5) enumeration. Possible values are progress indicator, information message, or error message. In this example, *type* is an error message.  
+- *message* &ndash; One of the properties of the JSON object parameter. In this example, *message* is the text of the notification message. 
 
 To signal that the add-in has finished processing the **ItemSend** event triggered by the send operation, call the **event.completed({allowEvent:Boolean}** method. The **allowEvent** property is a Boolean. If set to **true**, send is allowed. If set to **false**, the email message is blocked from sending.
 
@@ -409,7 +418,6 @@ To learn more about how to add a recipient to the CC line and verify that the em
 
 ## See also
 
-- [Overview of Outlook Add-ins architecture and features](index.md)
-    
+- [Overview of Outlook Add-ins architecture and features](index.md)    
 - [Add-in Command Demo Outlook Add-in](https://github.com/OfficeDev/outlook-add-in-command-demo)
     
