@@ -1,6 +1,6 @@
 ---
-title: Use Exchange Web Services from an Outlook add-in | Microsoft Docs
-description: Learn how to use Exchange Web Services from an Outlook add-in.
+title: Use Exchange Web Services from an Outlook Add-in | Microsoft Docs
+description: Learn how to use Exchange Web Services from an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -9,14 +9,14 @@ ms.date: 06/13/2017
 ms.author: jasonjoh
 ---
 
-# Call web services from an Outlook add-in
+# Call web services from an Outlook Add-in
 
-Your add-in can use Exchange Web Services (EWS) from a computer that is running Exchange Server 2013, a web service that is available on the server that provides the source location for the add-in's UI, or a web service that is available on the Internet. This article provides an example that shows how an Outlook add-in can request information from EWS.
+Your add-in can use Exchange Web Services (EWS) from a computer that is running Exchange Server 2013, a web service that is available on the server that provides the source location for the add-in's UI, or a web service that is available on the Internet. This article provides an example that shows how an Outlook Add-in can request information from EWS.
 
 The way that you call a web service varies based on where the web service is located. Table 1 lists the different ways that you can call a web service based on location.
 
 
-**Table 1. Ways to call web services from an Outlook add-in**
+**Table 1. Ways to call web services from an Outlook Add-in**
 
 
 |**Web service location**|**Way to call the web service**|
@@ -160,7 +160,7 @@ function callback(asyncResult)  {
 ## EWS operations that add-ins support
 
 
-Outlook add-ins can access a subset of operations that are available in EWS via the  **makeEwsRequestAsync** method. If you are unfamiliar with EWS operations and how to use the **makeEwsRequestAsync** method to access an operation, start with a SOAP request example to customize your _data_ argument. The following describes how you can use the **makeEwsRequestAsync** method:
+Outlook Add-ins can access a subset of operations that are available in EWS via the  **makeEwsRequestAsync** method. If you are unfamiliar with EWS operations and how to use the **makeEwsRequestAsync** method to access an operation, start with a SOAP request example to customize your _data_ argument. The following describes how you can use the **makeEwsRequestAsync** method:
 
 
 1. In the XML, substitute any item IDs and relevant EWS operation attributes with appropriate values.
@@ -207,7 +207,7 @@ When you use the  **makeEwsRequestAsync** method, the request is authenticated b
  > [!NOTE]
  > The server administrator must use the [New-WebServicesVirtualDirectory](http://technet.microsoft.com/en-us/library/bb125176.aspx) or the [Set-WebServicesVirtualDirectory](http://technet.microsoft.com/en-us/library/aa997233.aspx) cmldet to set the _OAuthAuthentication_ parameter to **true** on the Client Access server EWS directory in order to enable the **makeEwsRequestAsync** method to make EWS requests.
 
-Your add-in must specify the  **ReadWriteMailbox** permission in its add-in manifest to use the **makeEwsRequestAsync** method. For information about using the **ReadWriteMailbox** permission, see the section [ReadWriteMailbox permission](understanding-outlook-add-in-permissions.md#readwritemailbox-permission) in [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md).
+Your add-in must specify the  **ReadWriteMailbox** permission in its add-in manifest to use the **makeEwsRequestAsync** method. For information about using the **ReadWriteMailbox** permission, see the section [ReadWriteMailbox permission](understanding-outlook-add-in-permissions.md#readwritemailbox-permission) in [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md).
 
 
 ## See also

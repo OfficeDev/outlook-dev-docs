@@ -1,6 +1,6 @@
 ---
-title: Inside the Exchange identity token in an Outlook add-in | Microsoft Docs
-description: Learn about the contents of an Exchange user identity token generated from an Outlook add-in.
+title: Inside the Exchange identity token in an Outlook Add-in | Microsoft Docs
+description: Learn about the contents of an Exchange user identity token generated from an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article

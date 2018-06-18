@@ -1,6 +1,6 @@
 ---
-title: Get or set the subject in an Outlook add-in | Microsoft Docs
-description: Learn how to get or set the subject of a message or appointment in an Outlook add-in.
+title: Get or set the subject in an Outlook Add-in | Microsoft Docs
+description: Learn how to get or set the subject of a message or appointment in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -150,7 +150,7 @@ function write(message){
     
 - [Get and set Outlook item data in read or compose forms](item-data.md)
     
-- [Create Outlook add-ins for compose forms](compose-scenario.md)
+- [Create Outlook Add-ins for compose forms](compose-scenario.md)
     
 - [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook)
     

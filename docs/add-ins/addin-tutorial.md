@@ -1,6 +1,6 @@
 ---
-title: Advanced Outlook add-in tutorial | Microsoft Docs
-description: Follow along to create an Outlook add-in that inserts GitHub Gists into the body of new email messages
+title: Advanced Outlook Add-in tutorial | Microsoft Docs
+description: Follow along to create an Outlook Add-in that inserts GitHub Gists into the body of new email messages
 author: jasonjoh
 
 ms.topic: get-started-article
@@ -10,15 +10,15 @@ ms.date: 10/03/2017
 ms.author: jasonjoh
 ---
 
-# Advanced Outlook add-in tutorial: Git the Gist
+# Advanced Outlook Add-in tutorial: Git the Gist
 
-The purpose of this guide is to walk through the process of creating an Outlook add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outline here.
+The purpose of this guide is to walk through the process of creating an Outlook Add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outline here.
 
 This tutorial will use the [Microsoft Office Add-in Project Generator](https://github.com/officedev/generator-office) to generate an add-in project.
 
 ## Prerequisites
 
-Outlook add-ins are comprised of HTML, CSS, and JavaScript files, so technically the only absolute prerequisite is some sort of web server to host the files. However, in this guide we're going to use some tools to make it easier to get up and running quickly. To follow along with this guide, you'll need the following:
+Outlook Add-ins are comprised of HTML, CSS, and JavaScript files, so technically the only absolute prerequisite is some sort of web server to host the files. However, in this guide we're going to use some tools to make it easier to get up and running quickly. To follow along with this guide, you'll need the following:
 
 - [Node.js](https://nodejs.org)
 - [Yeoman](https://yeoman.io/)

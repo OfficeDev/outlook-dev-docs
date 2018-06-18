@@ -1,6 +1,6 @@
 ---
-title: Get or set appointment time in an Outlook add-in | Microsoft Docs
-description: Learn how to get or set the start and end time of an appointment in an Outlook add-in.
+title: Get or set appointment time in an Outlook Add-in | Microsoft Docs
+description: Learn how to get or set the start and end time of an appointment in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -11,7 +11,7 @@ ms.author: jasonjoh
 
 # Get or set the time when composing an appointment in Outlook
 
-The JavaScript API for Office provides asynchronous methods ([Time.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5) and [Time.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5)) to get and set the start or end time of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described in [Create Outlook add-ins for compose forms](compose-scenario.md).
+The JavaScript API for Office provides asynchronous methods ([Time.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5) and [Time.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5)) to get and set the start or end time of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described in [Create Outlook Add-ins for compose forms](compose-scenario.md).
 
 The [start](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) and [end](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) properties are available for appointments in both compose and read forms. In a read form, you can access the properties directly from the parent object, as in:
 
@@ -163,7 +163,7 @@ function write(message){
     
 - [Get and set Outlook item data in read or compose forms](item-data.md)
     
-- [Create Outlook add-ins for compose forms](compose-scenario.md)
+- [Create Outlook Add-ins for compose forms](compose-scenario.md)
     
 - [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook)
     

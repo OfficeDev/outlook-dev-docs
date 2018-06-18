@@ -1,6 +1,6 @@
 ---
-title: Outlook add-in reference documentation | Microsoft Docs
-description: Learn where to find Outlook add-in reference documentation.
+title: Outlook Add-in reference documentation | Microsoft Docs
+description: Learn where to find Outlook Add-in reference documentation.
 author: jasonjoh
 
 ms.topic: article
@@ -9,9 +9,9 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Outlook add-in reference documentation
+# Outlook Add-in reference documentation
 
-Outlook add-in reference documentation is hosted on dev.office.com.
+Outlook Add-in reference documentation is hosted on dev.office.com.
 
 - <a href="https://dev.office.com/reference/add-ins/outlook/1.6/index?product=outlook&version=v1.6" target="_blank">Requirement set 1.6 (Link opens in a new window)</a>
 - <a href="https://dev.office.com/reference/add-ins/outlook/1.5/index?product=outlook&version=v1.5" target="_blank">Requirement set 1.5 (Link opens in a new window)</a>

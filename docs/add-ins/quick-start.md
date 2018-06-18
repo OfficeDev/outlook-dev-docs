@@ -1,6 +1,6 @@
 ---
-title: Build an Outlook add-in | Microsoft Docs
-description: Learn how to build a simple Outlook add-in and test it locally
+title: Build an Outlook Add-in | Microsoft Docs
+description: Learn how to build a simple Outlook Add-in and test it locally
 author: jasonjoh
 
 ms.topic: get-started-article
@@ -10,9 +10,9 @@ ms.date: 01/08/2018
 ms.author: jasonjoh
 ---
 
-# Build your first Outlook add-in
+# Build your first Outlook Add-in
 
-In this article, you'll walk through the process of building an Outlook add-in by using jQuery and the Office JS API.
+In this article, you'll walk through the process of building an Outlook Add-in by using jQuery and the Office JS API.
 
 ## Create the add-in 
 
@@ -151,7 +151,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Try it out
 
-1. Using Visual Studio, test the newly created Outlook add-in by pressing F5 or choosing the **Start** button to launch Outlook on the web. The add-in will be hosted locally on IIS.
+1. Using Visual Studio, test the newly created Outlook Add-in by pressing F5 or choosing the **Start** button to launch Outlook on the web. The add-in will be hosted locally on IIS.
 
 1. In Outlook on the web, select or open a message.
 
@@ -184,7 +184,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     cd my-outlook-addin
     ```
 
-1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
+1. Use the Yeoman generator to create an Outlook Add-in project. Run the following command and then answer the prompts as follows:
 
     ```Shell
     yo office
@@ -309,7 +309,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     > [!NOTE]
     > Chrome (web browser) may continue to indicate the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). You can disregard this warning in Chrome and can verify that the certificate is trusted by navigating to `https://localhost:3000` in either Internet Explorer or Microsoft Edge. 
 
-1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **my-office-add-in-manifest.xml** file.
+1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook Add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **my-office-add-in-manifest.xml** file.
 
 ### Try it out
 
@@ -327,7 +327,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ## Next steps
 
-Congratulations, you've successfully created your first Outlook add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with the Advanced Outlook add-in tutorial.
+Congratulations, you've successfully created your first Outlook Add-in! Next, learn more about the capabilities of an Outlook Add-in and build a more complex add-in by following along with the Advanced Outlook Add-in tutorial.
 
 > [!div class="nextstepaction"]
-> [Advanced Outlook add-in tutorial](addin-tutorial.md)
+> [Advanced Outlook Add-in tutorial](addin-tutorial.md)

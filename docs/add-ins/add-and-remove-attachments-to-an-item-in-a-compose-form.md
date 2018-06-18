@@ -1,6 +1,6 @@
 ---
-title: Add and remove attachments in an Outlook add-in | Microsoft Docs
-description: Learn how to add or remove attachments from items in an Outlook add-in.
+title: Add and remove attachments in an Outlook Add-in | Microsoft Docs
+description: Learn how to add or remove attachments from items in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -138,5 +138,5 @@ function removeAttachment(attachmentId) {
 
 ## See also
 
-- [Create Outlook add-ins for compose forms](compose-scenario.md)
+- [Create Outlook Add-ins for compose forms](compose-scenario.md)
 - [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins)

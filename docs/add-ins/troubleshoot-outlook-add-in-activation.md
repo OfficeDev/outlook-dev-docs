@@ -9,7 +9,7 @@ ms.date: 05/02/2018
 ms.author: jasonjoh
 ---
 
-# Troubleshoot Outlook add-in activation
+# Troubleshoot Outlook Add-in activation
 
 Outlook cotextual add-in activation is based on the activation rules in the add-in manifest. When conditions for the currently selected item satisfy the activation rules for the add-in, the host application activates and displays the add-in button in the Outlook UI (add-in selection pane for compose add-ins, add-in bar for read add-ins). However, if your add-in doesn't activate as you expect, you should look into the following areas for possible reasons.
 
@@ -54,9 +54,9 @@ Use one of the following approaches to verify whether an add-in is disabled:
 - In Outlook, go to the Backstage view and choose  **Manage add-ins**. Sign in to the Exchange Admin Center to verify whether the add-in is enabled.
 - In Outlook for Mac, choose  **Manage add-ins** in the add-in bar. Sign in to the Exchange Admin Center to verify whether the add-in is enabled.
 
-## Does the tested item support Outlook add-ins? Is the selected item delivered by a version of Exchange Server that is at least Exchange 2013?
+## Does the tested item support Outlook Add-ins? Is the selected item delivered by a version of Exchange Server that is at least Exchange 2013?
 
-If your Outlook add-in is a read add-in and is supposed to be activated when the user is viewing a message (including email messages, meeting requests, responses, and cancellations) or appointment, even though these items generally support add-ins, there are exceptions. Check if the selected item is one of those [listed where Outlook add-ins do not activate](index.md#mailbox-items-available-to-add-ins).
+If your Outlook Add-in is a read add-in and is supposed to be activated when the user is viewing a message (including email messages, meeting requests, responses, and cancellations) or appointment, even though these items generally support add-ins, there are exceptions. Check if the selected item is one of those [listed where Outlook Add-ins do not activate](index.md#mailbox-items-available-to-add-ins).
 
 Also, because appointments are always saved in Rich Text Format, an [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rule that specifies a **PropertyName** value of **BodyAsHTML** would not activate an add-in on an appointment or message that is saved in plain text or Rich Text Format.
 
@@ -66,7 +66,7 @@ If your add-in is a compose add-in and is supposed to be activated when the user
 
 ## Is the add-in manifest installed properly, and does Outlook have a cached copy?
 
-This scenario applies to only Outlook for Windows. Normally, when you install an Outlook add-in for a mailbox, the Exchange Server copies the add-in manifest from the location you indicate to the mailbox on that Exchange Server. Every time the Outlook starts, it reads all the manifests installed for that mailbox into a temporary cache at the following location: 
+This scenario applies to only Outlook for Windows. Normally, when you install an Outlook Add-in for a mailbox, the Exchange Server copies the add-in manifest from the location you indicate to the mailbox on that Exchange Server. Every time the Outlook starts, it reads all the manifests installed for that mailbox into a temporary cache at the following location: 
 
 ```
 %LocalAppData%\Microsoft\Office\15.0\WEF 
@@ -132,7 +132,7 @@ See [Validate and troubleshoot issues with your manifest](https://dev.office.com
 
 ## Are you using the appropriate activation rules?
 
-Starting in version 1.1 of the Office Add-ins manifests schema, you can create add-ins that are activated when the user is in a compose form (compose add-ins) or in a read form (read add-ins). Make sure you specify the appropriate activation rules for each type of form that your add-in is supposed to activate in. For example, you can activate compose add-ins using only [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemis-rule) rules with the **FormType** attribute set to **Edit** or **ReadOrEdit**, and you cannot use any of the other types of rules, such as [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) and [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rules for compose add-ins. For more information, see [Activation rules for Outlook add-ins](activation-rules.md).
+Starting in version 1.1 of the Office Add-ins manifests schema, you can create add-ins that are activated when the user is in a compose form (compose add-ins) or in a read form (read add-ins). Make sure you specify the appropriate activation rules for each type of form that your add-in is supposed to activate in. For example, you can activate compose add-ins using only [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemis-rule) rules with the **FormType** attribute set to **Edit** or **ReadOrEdit**, and you cannot use any of the other types of rules, such as [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) and [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rules for compose add-ins. For more information, see [Activation rules for Outlook Add-ins](activation-rules.md).
 
 ## If you use a regular expression, is it properly specified?
 
@@ -203,9 +203,9 @@ After verifying the property value, you can then use a regular expression evalua
 
 This section applies to all activation rules that use regular expressions -- particularly those that are applied to the item body, which may be large in size and take longer to evaluate for matches. You should be aware that even if the item property that an activation rule depends on has the value you expect, the host application may not be able to evaluate all the regular expressions on the entire value of the item property. To provide reasonable performance and to control excessive resource usage by a read add-in, Outlook, Outlook on the web and OWA for Devices observe the following limits on processing regular expressions in activation rules at run time:
 
-- The size of the item body evaluated -- There are limits to the portion of an item body on which the host application evaluates a regular expression. These limits depend on the host application, form factor, and format of the item body. See the details in Table 2 in [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
+- The size of the item body evaluated -- There are limits to the portion of an item body on which the host application evaluates a regular expression. These limits depend on the host application, form factor, and format of the item body. See the details in Table 2 in [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
 - Number of regular expression matches -- The Outlook rich clients, Outlook on the web and OWA for Devices each returns a maximum of 50 regular expression matches. These matches are unique, and duplicate matches do not count against this limit. Do not assume any order to the returned matches, and do not assume the order in an Outlook rich client is the same as that in Outlook on the web and OWA for Devices. If you expect many matches to regular expressions in your activation rules, and you're missing a match, you may be exceeding this limit.
-- Length of a regular expression match -- There are limits to the length of a regular expression match that the host application would return. The host application does not include any match above the limit and does not display any warning message. You can run your regular expression using other regex evaluation tools or a stand-alone C++ test program to verify whether you have a match that exceeds such limits. Table 3 summarizes the limits. For more information, see Table 3 in [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
+- Length of a regular expression match -- There are limits to the length of a regular expression match that the host application would return. The host application does not include any match above the limit and does not display any warning message. You can run your regular expression using other regex evaluation tools or a stand-alone C++ test program to verify whether you have a match that exceeds such limits. Table 3 summarizes the limits. For more information, see Table 3 in [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md).
 
 **Table 3. Length limits for a regular expression match**
 
@@ -221,9 +221,9 @@ This section applies to all activation rules that use regular expressions -- par
 
 ## See also
 
-- [Deploy and install Outlook add-ins for testing](testing-and-tips.md)
-- [Activation rules for Outlook add-ins](activation-rules.md)
-- [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
-- [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
+- [Deploy and install Outlook Add-ins for testing](testing-and-tips.md)
+- [Activation rules for Outlook Add-ins](activation-rules.md)
+- [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
+- [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
 - [Open Event Viewer](http://windows.microsoft.com/en-US/windows7/Open-Event-Viewer)
 - [Validate and troubleshoot issues with your manifest](https://dev.office.com/docs/add-ins/testing/troubleshoot-manifest)

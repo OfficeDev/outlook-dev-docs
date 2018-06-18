@@ -1,5 +1,5 @@
 ---
-title: Contexutal Outlook add-ins | Microsoft Docs
+title: Contexutal Outlook Add-ins | Microsoft Docs
 description: Learn about the features of Outlook contextual add-ins.
 author: jasonjoh
 
@@ -9,9 +9,9 @@ ms.date: 01/12/2018
 ms.author: jasonjoh
 ---
 
-# Contextual Outlook add-ins
+# Contextual Outlook Add-ins
 
-Contextual add-ins are Outlook add-ins that activate based on text in a message or appointment. By using contextual add-ins, a user can initiate tasks related to a message without leaving the message itself, which results in an easier and richer user experience.
+Contextual add-ins are Outlook Add-ins that activate based on text in a message or appointment. By using contextual add-ins, a user can initiate tasks related to a message without leaving the message itself, which results in an easier and richer user experience.
 
 The following are examples of contextual add-ins:
 
@@ -34,7 +34,7 @@ A contextual add-in's manifest must include an [ExtensionPoint](https://dev.offi
 </ExtensionPoint>
 ```
 
-After a contextual add-in is associated with an account, it will automatically start when the user clicks a highlighted entity or regular expression. For more information on regular expressions for Outlook add-ins, see [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md).
+After a contextual add-in is associated with an account, it will automatically start when the user clicks a highlighted entity or regular expression. For more information on regular expressions for Outlook Add-ins, see [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md).
 
 There are several restrictions on contextual add-ins:
 
@@ -73,7 +73,7 @@ To close the card and the add-in, a user clicks anywhere outside of the card.
 
 ## Current contextual add-ins
 
-The following contextual add-ins are installed by default for users with Outlook add-ins:
+The following contextual add-ins are installed by default for users with Outlook Add-ins:
 
 - Bing Maps 
 - Suggested Meetings
@@ -81,6 +81,6 @@ The following contextual add-ins are installed by default for users with Outlook
 ## See also
 
 - [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) - A sample contextual add-in that activates based on a regular expression match.
-- [Write your first Outlook add-in](quick-start.md)
-- [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
+- [Write your first Outlook Add-in](quick-start.md)
+- [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
 - [Entities object](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5)
