@@ -2,11 +2,11 @@
 title: Recurrence rules in Outlook REST APIs | Microsoft Docs
 description: Learn how to use recurrence patterns and ranges in the Outlook REST APIs to create recurring appointments and meetings.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: ms-graph
 ms.date: 09/13/2017
 ms.author: jasonjoh
+redirect_url: https://developer.microsoft.com/graph/docs/concepts/outlook-schedule-recurring-events
 ---
 
 # Working with recurrence rules in the Outlook REST APIs

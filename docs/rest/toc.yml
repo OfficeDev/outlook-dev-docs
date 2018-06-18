@@ -27,7 +27,7 @@
   - name: Webhooks and Notifications
     href: webhooks.md
   - name: Recurrence rules
-    href: recurrence-rules.md
+    href: https://developer.microsoft.com/graph/docs/concepts/outlook-schedule-recurring-events
 - name: Reference
   href: reference.md
 - name: Terms of Use
