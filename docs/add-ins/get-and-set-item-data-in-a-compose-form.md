@@ -2,7 +2,6 @@
 title: Get and set item data in a compose form in Outlook | Microsoft Docs
 description: Learn what data is available in an Outlook compose form add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 08/09/2017
@@ -10,6 +9,7 @@ ms.author: jasonjoh
 ---
 
 # Get and set item data in a compose form in Outlook
+
 Learn how to get or set various properties of an item in an Outlook Add-in in a compose scenario, including its recipients, subject, body, and appointment location and time.
 
 ## Getting and setting item properties for a compose add-in
@@ -18,7 +18,9 @@ In a compose form, you can get most of the properties that are exposed on the sa
 
 For most of these properties, because it's possible that an Outlook Add-in and the user can be modifying the same property in the user interface at the same time, the methods to get and set them are asynchronous. Table 1 lists the item-level properties and corresponding asynchronous methods to get and set them in a compose form. The  [item.itemType](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) and [item.conversationId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) properties are exceptions because users cannot modify them. You can programmatically get them the same way in a compose form as in a read form, directly from the parent object.
 
-Other than accessing item properties in the JavaScript API for Office, you can access item-level properties using Exchange Web Services (EWS). With the **ReadWriteMailbox** permission, you can use the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method to access EWS operations, [GetItem](http://msdn.microsoft.com/en-us/library/e3590b8b-c2a7-4dad-a014-6360197b68e4%28Office.15%29.aspx) and [UpdateItem](http://msdn.microsoft.com/en-us/library/5d027523-e0bc-4da2-b60b-0cb9fc1fdfe4%28Office.15%29.aspx), to get and set more properties of an item or items in the user's mailbox. The `makeEwsRequestAsync` function is available in both compose and read forms. For more information about the **ReadWriteMailbox** permission, and accessing EWS through the Office Add-ins platform, see [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md) and [Call web services from an Outlook Add-in](web-services.md).
+Other than accessing item properties in the JavaScript API for Office, you can access item-level properties using Exchange Web Services (EWS). With the **ReadWriteMailbox** permission, you can use the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method to access EWS operations, [GetItem](http://msdn.microsoft.com/en-us/library/e3590b8b-c2a7-4dad-a014-6360197b68e4%28Office.15%29.aspx) and [UpdateItem](http://msdn.microsoft.com/en-us/library/5d027523-e0bc-4da2-b60b-0cb9fc1fdfe4%28Office.15%29.aspx), to get and set more properties of an item or items in the user's mailbox. 
+
+The `makeEwsRequestAsync` function is available in both compose and read forms. For more information about the **ReadWriteMailbox** permission, and accessing EWS through the Office Add-ins platform, see [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md) and [Call web services from an Outlook Add-in](web-services.md).
 
 **Table 1. Asynchronous methods to get or set item properties in a compose form**
 

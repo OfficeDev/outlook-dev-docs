@@ -18,7 +18,7 @@ Outlook Add-in commands provide ways to initiate specific add-in actions from th
 > Support for add-in commands in Outlook 2013 requires three updates: 
 > - [March 8, 2016 security update for Outlook](https://support.microsoft.com/en-us/kb/3114829)
 > - [March 8, 2016 security update for Office (KB3114816)](https://support.microsoft.com/en-us/help/3114816/march-8,-2016,-update-for-office-2013-kb3114816)
-> - [March 8, 2016 security update for Office (KB3114828)](https://support.microsoft.com/en-us/help/3114828/march-8,-2016,-update-for-office-2013-kb3114828). 
+> - [March 8, 2016 security update for Office (KB3114828)](https://support.microsoft.com/en-us/help/3114828/march-8,-2016,-update-for-office-2013-kb3114828)
 > 
 > Support for add-in commands in Exchange 2016 requires [Cumulative Update 5](https://support.microsoft.com/en-us/help/4012106/cumulative-update-5-for-exchange-server-2016).
 

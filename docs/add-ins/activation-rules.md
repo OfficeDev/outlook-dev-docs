@@ -2,7 +2,6 @@
 title: Outlook Add-in activation rules | Microsoft Docs
 description: Learn about activation rules for Outlook contextual add-ins.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 04/12/2018
@@ -28,7 +27,12 @@ To have Outlook activate an add-in for specific conditions, specify activation r
     
 
  > [!NOTE]
- > The **Rule** element that you use to specify an individual rule is of the abstract [Rule](https://dev.office.com/reference/add-ins/manifest/rule) complex type. Each of the following types of rules extends this abstract **Rule** complex type. So when you specify an individual rule in a manifest, you must use the [xsi:type](http://www.w3.org/TR/xmlschema-1/) attribute to further define one of the following types of rules. For example, the following rule defines an [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) rule: `<Rule xsi:type="ItemIs" ItemType="Message" />` The  **FormType** attribute applies to activation rules in the manifest v1.1 but is not defined in **VersionOverrides** v1.0. So it can't be used when [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) is used in the **VersionOverrides** node.
+ > The **Rule** element that you use to specify an individual rule is of the abstract [Rule](https://dev.office.com/reference/add-ins/manifest/rule) complex type. Each of the following types of rules extends this abstract **Rule** complex type. So when you specify an individual rule in a manifest, you must use the [xsi:type](http://www.w3.org/TR/xmlschema-1/) attribute to further define one of the following types of rules. 
+ > 
+ > For example, the following rule defines an [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) rule: 
+ > `<Rule xsi:type="ItemIs" ItemType="Message" />` 
+ > 
+ > The  **FormType** attribute applies to activation rules in the manifest v1.1 but is not defined in **VersionOverrides** v1.0. So it can't be used when [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) is used in the **VersionOverrides** node.
 
 The following table lists the types of rules that are available. You can find more information following the table and in the specified articles under [Create Outlook Add-ins for read forms](read-scenario.md).
 

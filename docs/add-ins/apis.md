@@ -2,7 +2,6 @@
 title: Outlook Add-in APIs | Microsoft Docs
 description: Learn how to reference the Outlook Add-in APIs and declare permissions in your Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 07/14/2017
@@ -55,7 +54,7 @@ The `<Methods>` element doesn't apply to Outlook Add-ins, so you can't declare s
 
 Your add-in requires the appropriate permissions to use the APIs that it needs. There are four levels of permissions. For more details, see [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md).
 
-|**Permission level**|**Description**|
+|Permission level|Description|
 |:-----|:-----|
 | **Restricted** | Allows use of entities but not regular expressions. |
 | **Read item** | In addition to what is allowed in **Restricted**, it allows:<ul><li>regular expressions</li><li>Outlook Add-in API read access</li><li>getting the item properties and the callback token</li></ul> |

@@ -2,7 +2,6 @@
 title: Get and set metadata in an Outlook Add-in | Microsoft Docs
 description: Learn how an Outlook Add-in can get and save metadata.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017
@@ -13,24 +12,23 @@ ms.author: jasonjoh
 
 You can manage custom data in your Outlook Add-in by using either of the following:
 
-- Roaming settings, which manage custom data for a user's mailbox.
-    
+- Roaming settings, which manage custom data for a user's mailbox.   
 - Custom properties, which manage custom data for an item in a user's mailbox.
     
 Both of these give access to custom data that is only accessible by your Outlook Add-in, but each method stores the data separately from the other. That is, the data stored through roaming settings is not accessible by custom properties, and vice versa. The data is stored on the server for that mailbox, and is accessible in subsequent Outlook sessions on all the form factors that the add-in supports. 
 
 ## Custom data per mailbox: roaming settings
 
-
 You can specify data specific to a user's Exchange mailbox using the [RoamingSettings](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) object. Examples of such data include the user's personal data and preferences. Your mail add-in can access roaming settings when it roams on any device it's designed to run on (desktop, tablet, or smartphone).
 
- Changes to this data are stored on an in-memory copy of those settings for the current Outlook session. You should explicitly save all the roaming settings after updating them so that they will be available the next time the user opens your add-in, on the same or any other supported device.
+Changes to this data are stored on an in-memory copy of those settings for the current Outlook session. You should explicitly save all the roaming settings after updating them so that they will be available the next time the user opens your add-in, on the same or any other supported device.
 
 
 ### Roaming settings format
 
+The data in a  **RoamingSettings** object is stored as a serialized JavaScript Object Notation (JSON) string. 
 
-The data in a  **RoamingSettings** object is stored as a serialized JavaScript Object Notation (JSON) string. The following is an example of the structure, assuming there are three defined roaming settings named `add-in_setting_name_0`,  `add-in_setting_name_1`, and  `add-in_setting_name_2`.
+The following is an example of the structure, assuming there are three defined roaming settings named `add-in_setting_name_0`,  `add-in_setting_name_1`, and  `add-in_setting_name_2`.
 
 
 ```json
@@ -44,8 +42,7 @@ The data in a  **RoamingSettings** object is stored as a serialized JavaScript O
 
 ### Loading roaming settings
 
-
-A mail add-in typically loads roaming settings in the [Office.initialize](https://dev.office.com/reference/add-ins/shared/office.initialize?product=outlook&version=v1.5) event handler. The following JavaScript code example shows how to load existing roaming settings and get the values of 2 settings, "customerName" and "customerBalance":
+A mail add-in typically loads roaming settings in the [Office.initialize](https://dev.office.com/reference/add-ins/shared/office.initialize?product=outlook&version=v1.5) event handler. The following JavaScript code example shows how to load existing roaming settings and get the values of 2 settings, **customerName** and **customerBalance**:
 
 
 ```js
@@ -68,9 +65,9 @@ Office.initialize = function () {
 
 ### Creating or assigning a roaming setting
 
+Continuing with the preceding example, the following JavaScript function,  `setAddInSetting`, shows how to use the [RoamingSettings.set](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method to set a setting named `cookie` with today's date, and persist the data by using the [RoamingSettings.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method to save all the roaming settings back to the server. 
 
-Continuing with the preceding example, the following JavaScript function,  `setAddInSetting`, shows how to use the [RoamingSettings.set](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method to set a setting named `cookie` with today's date, and persist the data by using the [RoamingSettings.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method to save all the roaming settings back to the server. The **set** method creates the setting if the setting does not already exist, and assigns the setting to the specified value. The **saveAsync** method saves roaming settings asynchronously. This code sample passes a callback method, `saveMyAddInSettingsCallback`, to  **saveAsync**. When the asynchronous call finishes,  `saveMyAddInSettingsCallback` is called by using one parameter, _asyncResult_. This parameter is an [AsyncResult](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object that contains the result of and any details about the asynchronous call. You can use the optional _userContext_ parameter to pass any state information from the asynchronous call to the callback function.
-
+The **set** method creates the setting if the setting does not already exist, and assigns the setting to the specified value. The **saveAsync** method saves roaming settings asynchronously. This code sample passes a callback method, `saveMyAddInSettingsCallback`, to  **saveAsync**. When the asynchronous call finishes,  `saveMyAddInSettingsCallback` is called by using one parameter, _asyncResult_. This parameter is an [AsyncResult](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object that contains the result of and any details about the asynchronous call. You can use the optional _userContext_ parameter to pass any state information from the asynchronous call to the callback function.
 
 ```js
 // Set a roaming setting.
@@ -92,7 +89,6 @@ function saveMyAddInSettingsCallback(asyncResult) {
 
 
 ### Removing a roaming setting
-
 
 Also extending the preceding examples, the following JavaScript function,  `removeAddInSetting`, shows how to use the [RoamingSettings.remove](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method to remove the `cookie` setting and save all the roaming settings back to the Exchange Server.
 
@@ -205,15 +201,10 @@ function saveCallback() {
 
 ## See also
 
-    
-- [MAPI Property Overview](http://msdn.microsoft.com/library/02e5b23f-1bdb-4fbf-a27d-e3301a359573%28Office.15%29.aspx)
-    
-- [Outlook Properties Overview](http://msdn.microsoft.com/library/242c9e89-a0c5-ff89-0d2a-410bd42a3461%28Office.15%29.aspx)
-    
-- [Call web services from an Outlook Add-in](web-services.md)
-    
-- [Properties and extended properties in EWS in Exchange](http://msdn.microsoft.com/library/68623048-060e-4602-b3fa-62617a94cf72%28Office.15%29.aspx)
-    
+- [MAPI Property Overview](http://msdn.microsoft.com/library/02e5b23f-1bdb-4fbf-a27d-e3301a359573%28Office.15%29.aspx)   
+- [Outlook Properties Overview](http://msdn.microsoft.com/library/242c9e89-a0c5-ff89-0d2a-410bd42a3461%28Office.15%29.aspx)    
+- [Call web services from an Outlook Add-in](web-services.md)    
+- [Properties and extended properties in EWS in Exchange](http://msdn.microsoft.com/library/68623048-060e-4602-b3fa-62617a94cf72%28Office.15%29.aspx)    
 - [Property sets and response shapes in EWS in Exchange](http://msdn.microsoft.com/library/04a29804-6067-48e7-9f5c-534e253a230e%28Office.15%29.aspx)
     
 

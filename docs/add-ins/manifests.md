@@ -2,7 +2,6 @@
 title: Outlook Add-in manifests | Microsoft Docs
 description: Learn about the structure of an Outlook Add-in manifest.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017
@@ -272,7 +271,7 @@ If the add-in's requested permissions change, users will be prompted to upgrade 
 
 ## VersionOverrides
 
-The  **VersionOverrides** element is the location of information for add-in commands. For more information on this element, see [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands).
+The  **VersionOverrides** element is the location of information for add-in commands. For more information about this element, see [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands).
 
 This element is also where add-ins define support for [mobile add-ins](add-mobile-support.md).
 
@@ -418,21 +417,13 @@ Add-ins can optionally add support for Outlook mobile. Outlook mobile supports a
 
 ## See also
 
-- [Localization for Office Add-ins](https://dev.office.com/docs/add-ins/develop/localization?product=outlook)
-    
-- [Privacy, permissions, and security for Outlook Add-ins](privacy-and-security.md)
-    
-- [Outlook Add-in APIs](apis.md)
-    
-- [Office Add-ins XML manifest](https://dev.office.com/docs/add-ins/overview/add-in-manifests?product=outlook)
-    
-- [Schema reference for Office Add-ins manifests (v1.1)](https://dev.office.com/docs/add-ins/overview/add-in-manifests?product=outlook)
-    
-- [Design guidelines for Office Add-ins](https://dev.office.com/docs/add-ins/design/add-in-design-guidelines?product=outlook)
-    
-- [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md)
-    
-- [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
-    
+- [Localization for Office Add-ins](https://dev.office.com/docs/add-ins/develop/localization?product=outlook)   
+- [Privacy, permissions, and security for Outlook Add-ins](privacy-and-security.md)   
+- [Outlook Add-in APIs](apis.md)   
+- [Office Add-ins XML manifest](https://dev.office.com/docs/add-ins/overview/add-in-manifests?product=outlook)    
+- [Schema reference for Office Add-ins manifests (v1.1)](https://dev.office.com/docs/add-ins/overview/add-in-manifests?product=outlook)    
+- [Design guidelines for Office Add-ins](https://dev.office.com/docs/add-ins/design/add-in-design-guidelines?product=outlook)    
+- [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md)    
+- [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
   
