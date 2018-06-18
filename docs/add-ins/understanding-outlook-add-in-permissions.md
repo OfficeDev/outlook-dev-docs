@@ -158,7 +158,7 @@ Through **mailbox.makeEWSRequestAsync**, you can access the following EWS operat
 
 Attempting to use an unsupported operation will result in an error response.
 
-## Additional resources
+## See also
 
 - [Privacy, permissions, and security for Outlook add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)

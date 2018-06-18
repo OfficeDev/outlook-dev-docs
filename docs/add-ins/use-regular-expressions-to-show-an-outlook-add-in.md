@@ -175,7 +175,7 @@ The following code example uses `getFilteredEntitiesByName` on the current item 
 var suggestions = Office.context.mailbox.item.getFilteredEntitiesByName("CampSuggestion");
 ```
 
-## Additional resources
+## See also
 
 - [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) - A sample contextual add-in that activates based on a regular expression match.
 - [Create Outlook add-ins for read forms](read-scenario.md)

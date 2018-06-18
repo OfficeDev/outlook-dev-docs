@@ -168,7 +168,7 @@ In addition, the following applies if you use an [ItemHasKnownEntity](https://de
 3. You cannot use an  **ItemHasKnownEntity** rule to activate an add-in for items in the Sent Items folder.
     
 
-## Additional resources
+## See also
 
 
 

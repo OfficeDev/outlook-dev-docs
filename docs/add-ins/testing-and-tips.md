@@ -80,6 +80,6 @@ Deciding what versions of the Outlook client to test depends on your development
 > [!NOTE]
 > If your add-in does not support one of the above clients due to [requesting an API requirement set](apis.md) that the client does not support, that client would be removed from the list of reqiured clients.
 
-## Additional resources
+## See also
 
 - [Troubleshoot user errors with Office Add-ins](https://dev.office.com/docs/add-ins/testing/testing-and-troubleshooting?product=outlook)

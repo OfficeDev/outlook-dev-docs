@@ -65,7 +65,7 @@ Your add-in requires the appropriate permissions to use the APIs that it needs. 
 In general, you should specify the minimum permission needed for your add-in. Permissions are declared in the `<Permissions>` element in the manifest. For more information, see [Outlook add-in manifests](manifests.md). For information about security issues, see [Privacy, permissions, and security for Office add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook).
 
 
-## Additional resources
+## See also
 
 - [Outlook add-in manifests](manifests.md)
 - [Understanding Outlook API requirement sets](https://dev.office.com/reference/add-ins/outlook/tutorial-api-requirement-sets?product=outlook&version=v1.5)

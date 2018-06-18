@@ -80,6 +80,6 @@ Office.initialize = function (reason) {
 };
 ```
 
-## Additional Resources
+## See also
 
 For an example add-in that implements a pinnable taskpane, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.

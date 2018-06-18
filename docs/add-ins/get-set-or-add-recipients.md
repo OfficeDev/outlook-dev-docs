@@ -310,7 +310,7 @@ function addAttendees() {
 ```
 
 
-## Additional resources
+## See also
 
 
 

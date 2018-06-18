@@ -112,7 +112,7 @@ function write(message){
 }
 ```
 
-## Additional resources
+## See also
 
 - [Write your first Outlook add-in](addin-tutorial.md)
 - [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins)

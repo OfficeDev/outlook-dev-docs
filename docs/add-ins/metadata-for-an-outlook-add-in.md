@@ -203,7 +203,7 @@ function saveCallback() {
 ```
 
 
-## Additional resources
+## See also
 
     
 - [MAPI Property Overview](http://msdn.microsoft.com/library/02e5b23f-1bdb-4fbf-a27d-e3301a359573%28Office.15%29.aspx)

@@ -395,7 +395,7 @@ private string ProcessXmlResponse(XElement responseEnvelope)
 }
 ```
 
-## Additional resources
+## See also
 
 - [Create Outlook add-ins for read forms](read-scenario.md)
 - [Explore the EWS Managed API, EWS, and web services in Exchange](/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange)

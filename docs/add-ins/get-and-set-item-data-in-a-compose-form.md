@@ -35,7 +35,7 @@ Other than accessing item properties in the JavaScript API for Office, you can a
 |[subject](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5)|[Subject](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5)|[Subject.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5)|[Subject.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5)|
 |[to](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5)|Recipients|Recipients.getAsync|Recipients.addAsync Recipients.setAsync|
 
-## Additional resources
+## See also
 
 - [Create Outlook add-ins for compose forms](compose-scenario.md)
 - [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md)

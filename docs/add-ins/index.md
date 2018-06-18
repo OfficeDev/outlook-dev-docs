@@ -2,7 +2,6 @@
 title: Outlook add-ins overview | Microsoft Docs
 description: Learn about Outlook add-ins
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 05/02/2018
@@ -77,7 +76,7 @@ Outlook add-ins are supported in Outlook 2013 and later versions, Outlook 2016 f
 To get started building Outlook add-ins, see [Get Started with Outlook add-ins for Office 365](addin-tutorial.md).
 
 
-## Additional Resources
+## See also
 
 - [Best practices for developing Office Add-ins](https://dev.office.com/docs/add-ins/overview/add-in-development-best-practices?product=outlook)
 - [Design guidelines for Office Add-ins](https://dev.office.com/docs/add-ins/design/add-in-design?product=outlook)

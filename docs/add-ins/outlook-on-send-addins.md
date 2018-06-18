@@ -407,7 +407,7 @@ The following code example shows you how to add a recipient to the CC line and v
 To learn more about how to add a recipient to the CC line and verify that the email message includes a subject line on send, and to see the APIs you can use, see the [Outlook-Add-in-On-Send sample](https://github.com/OfficeDev/Outlook-Add-in-On-Send). The code is well commented.   
 
 
-## Additional resources
+## See also
 
 - [Overview of Outlook add-ins architecture and features](index.md)
     

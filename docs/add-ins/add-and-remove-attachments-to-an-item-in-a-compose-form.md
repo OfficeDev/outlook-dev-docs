@@ -136,7 +136,7 @@ function removeAttachment(attachmentId) {
 }
 ```
 
-## Additional resources
+## See also
 
 - [Create Outlook add-ins for compose forms](compose-scenario.md)
 - [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins)

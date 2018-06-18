@@ -109,6 +109,6 @@ function getCurrentItem(accessToken) {
 }
 ```
 
-## Additional resources
+## See also
 
 For an example that calls the REST APIs from an Outlook add-in, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.

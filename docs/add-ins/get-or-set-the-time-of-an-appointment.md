@@ -155,7 +155,7 @@ function write(message){
 ```
 
 
-## Additional resources
+## See also
 
 
 

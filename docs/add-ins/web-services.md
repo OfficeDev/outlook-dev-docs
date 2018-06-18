@@ -210,7 +210,7 @@ When you use the  **makeEwsRequestAsync** method, the request is authenticated b
 Your add-in must specify the  **ReadWriteMailbox** permission in its add-in manifest to use the **makeEwsRequestAsync** method. For information about using the **ReadWriteMailbox** permission, see the section [ReadWriteMailbox permission](understanding-outlook-add-in-permissions.md#readwritemailbox-permission) in [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md).
 
 
-## Additional resources
+## See also
 
 - [Privacy and security for Office Add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)
     

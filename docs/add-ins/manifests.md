@@ -416,7 +416,7 @@ For an example add-in that defines add-in commands, see [command-demo](https://g
 
 Add-ins can optionally add support for Outlook mobile. Outlook mobile supports add-in commands in a similar fashion to Outlook on Windows and Mac. For more information, see [Add support for add-in commands for Outlook Mobile](add-mobile-support.md).
 
-## Additional resources
+## See also
 
 - [Localization for Office Add-ins](https://dev.office.com/docs/add-ins/develop/localization?product=outlook)
     

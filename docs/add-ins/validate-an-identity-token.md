@@ -206,7 +206,7 @@ AppIdentityToken ValidateIdentityToken(string rawToken, string expectedAudience)
 }
 ```
 
-## Additional resources
+## See also
 
 - [Outlook-Add-In-Token-Viewer](https://github.com/OfficeDev/Outlook-Add-In-Token-Viewer)
 - [Outlook-Add-in-JavaScript-ValidateIdentityToken](https://github.com/OfficeDev/Outlook-Add-in-JavaScript-ValidateIdentityToken)

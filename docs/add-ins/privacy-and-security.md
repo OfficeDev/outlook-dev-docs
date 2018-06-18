@@ -191,7 +191,7 @@ The security model provides the following rights and responsibilities to adminis
     
 
 
-## Additional resources
+## See also
 
 - [Privacy and security for Office Add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)
     

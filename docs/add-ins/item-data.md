@@ -57,7 +57,7 @@ If your Outlook add-in is activated in read forms, you can get an Exchange callb
 You can also use the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method to access the Exchange Web Services (EWS) operations [GetItem](http://msdn.microsoft.com/en-us/library/e3590b8b-c2a7-4dad-a014-6360197b68e4%28Office.15%29.aspx) and [UpdateItem](http://msdn.microsoft.com/en-us/library/5d027523-e0bc-4da2-b60b-0cb9fc1fdfe4%28Office.15%29.aspx) directly from the add-in. You can use these operations to get and set many properties of a specified item. This method is available to Outlook add-ins regardless of whether the add-in has been activated in a read or compose form, as long as you specify the **ReadWriteMailbox** permission in the add-in manifest. For more information in using **makeEwsRequestAsync** to access EWS operations, see [Call web services from an Outlook add-in](web-services.md).
 
 
-## Additional resources
+## See also
 
 - [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md)
     

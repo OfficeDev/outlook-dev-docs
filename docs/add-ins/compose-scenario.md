@@ -49,6 +49,6 @@ Compose add-ins are implemented as [Add-in commands for Outlook](add-in-commands
 - [Get or set the time when composing an appointment in Outlook](get-or-set-the-time-of-an-appointment.md)
 - [Outlook-Power-Hour_Code-Samples](https://github.com/OfficeDev/Outlook-Power-Hour-Code-Samples): `ComposeAppDemo`
 
-## Additional resources
+## See also
 
 - [Get Started with Outlook add-ins for Office 365](quick-start.md)

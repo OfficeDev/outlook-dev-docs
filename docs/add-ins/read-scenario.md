@@ -57,6 +57,6 @@ Read add-ins can be any combination of the following types.
 - [Get attachments of an Outlook item from the server](get-attachments-of-an-outlook-item.md)
     
 
-## Additional resources
+## See also
 
 - [Write your first Outlook add-in](quick-start.md)

@@ -142,7 +142,7 @@ The following is a section of a manifest file that defines a module extension.
 </VersionOverrides>
 ```
 
-## Additional resources
+## See also
 
 - [Outlook add-in manifests](manifests.md)
 - [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands)

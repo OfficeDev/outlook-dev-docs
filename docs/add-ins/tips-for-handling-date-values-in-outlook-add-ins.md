@@ -121,7 +121,7 @@ Note that  **convertToUtcClientTime** takes care of the difference between an Ou
 - If  **convertToUtcClientTime** detects the current host is Outlook on the web or OWA for Devices, the method converts the dictionary format of the date and time values expressed in the EAC time zone to a **Date** object. This **Date** object is UTC-correct, as expected by **displayNewAppointmentForm**.
     
 
-## Additional resources
+## See also
 
 
 

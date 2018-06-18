@@ -78,7 +78,7 @@ The following contextual add-ins are installed by default for users with Outlook
 - Bing Maps 
 - Suggested Meetings
 
-## Additional Resources
+## See also
 
 - [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) - A sample contextual add-in that activates based on a regular expression match.
 - [Write your first Outlook add-in](quick-start.md)

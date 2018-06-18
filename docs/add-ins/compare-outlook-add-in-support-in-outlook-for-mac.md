@@ -24,6 +24,6 @@ You can create and run an Outlook add-in the same way in Outlook for Mac as in t
 | String representing the time zone in the `dateTimeCreated` and `dateTimeModified` properties |As an example: `Thu Mar 13 2014 14:09:11 GMT+0800 (China Standard Time)` | As an example: `Thu Mar 13 2014 14:09:11 GMT+0800 (CST)` |
 | Time accuracy of `dateTimeCreated` and `dateTimeModified` | If an add-in uses the following code, the accuracy is up to a millisecond.<br/>`JSON.stringify(Office.context.mailbox.item, null, 4);`| The accuracy is up to only a second. |
 
-## Additional resources
+## See also
 
 - [Deploy and install Outlook add-ins for testing](testing-and-tips.md)

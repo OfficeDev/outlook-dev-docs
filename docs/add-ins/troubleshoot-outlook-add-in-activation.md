@@ -219,7 +219,7 @@ This section applies to all activation rules that use regular expressions -- par
     > [!NOTE]
     > If the Outlook rich client disables a read add-in, the read add-in is not available for use for the same mailbox on the Outlook rich client, Outlook on the web and OWA for Devices.
 
-## Additional resources
+## See also
 
 - [Deploy and install Outlook add-ins for testing](testing-and-tips.md)
 - [Activation rules for Outlook add-ins](activation-rules.md)
