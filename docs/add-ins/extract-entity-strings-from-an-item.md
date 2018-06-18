@@ -2,7 +2,6 @@
 title: Extract entity strings from an Outlook item | Microsoft Docs
 description: Learn how to extract entity strings from an Outlook item in an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 04/12/2018
@@ -11,21 +10,23 @@ ms.author: jasonjoh
 
 # Extract entity strings from an Outlook item
 
-This article describes how to create a  **Display entities** Outlook Add-in that extracts string instances of supported well-known entities in the subject and body of the selected Outlook item. This item can be an appointment, email message, or meeting request, response, or cancellation. The supported entities include:
+This article describes how to create a **Display entities** Outlook Add-in that extracts string instances of supported well-known entities in the subject and body of the selected Outlook item. This item can be an appointment, email message, or meeting request, response, or cancellation. 
 
-- Address: A United States postal address, that has at least a subset of the elements of a street number, street name, city, state, and zip code.
+The supported entities include:
+
+- **Address**: A United States postal address, that has at least a subset of the elements of a street number, street name, city, state, and zip code.
     
-- Contact: A person's contact information, in the context of other entities such as an address or business name.
+- **Contact**: A person's contact information, in the context of other entities such as an address or business name.
     
-- Email address: An SMTP email address.
+- **Email address**: An SMTP email address.
     
-- Meeting suggestion: A meeting suggestion, such as a reference to an event. Note that only messages but not appointments support extracting meeting suggestions.
+- **Meeting suggestion**: A meeting suggestion, such as a reference to an event. Note that only messages but not appointments support extracting meeting suggestions.
     
-- Phone number: A North American phone number.
+- **Phone number**: A North American phone number.
     
-- Task suggestion: A task suggestion, typically expressed in an actionable phrase.
+- **Task suggestion**: A task suggestion, typically expressed in an actionable phrase.
     
-- URL.
+- **URL**
     
 Most of these entities rely on natural language recognition, which is based on machine learning of large amounts of data. This recognition is nondeterministic and sometimes depends on the context in the Outlook item.
 
@@ -35,9 +36,7 @@ The add-in provides buttons for the user to choose a type of entity. When the us
 
 ## XML manifest
 
-
 The entities add-in has two activation rules joined by a logical OR operation. 
-
 
 ```xml
 <!-- Activate the add-in if the current item in Outlook is an email or appointment item. -->
@@ -50,9 +49,6 @@ The entities add-in has two activation rules joined by a logical OR operation.
 These rules specify that Outlook should activate this add-in when the currently selected item in the Reading Pane or read inspector is an appointment or message (including an email message, or meeting request, response, or cancellation).
 
 The following is the manifest of the entities add-in. It uses version 1.1 of the schema for Office Add-ins manifests.
-
-
-
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -98,7 +94,6 @@ xsi:type="MailApp">
 
 
 ## HTML implementation
-
 
 The HTML file of the entities add-in specifies buttons for the user to select each type of entity, and another button to clear displayed instances of an entity. It includes a JavaScript file, default_entities.js, which is described in the next section under [JavaScript implementation](#javascript-implementation). The JavaScript file includes the event handlers for each of the buttons.
 
@@ -204,12 +199,9 @@ div#meeting_suggestions
 
 ## JavaScript implementation
 
-
 The remaining sections describe how this sample (default_entities.js file) extracts well-known entities from the subject and body of the message or appointment that the user is viewing. 
 
-
 ## Extracting entities upon initialization
-
 
 Upon the [Office.initialize](https://dev.office.com/reference/add-ins/shared/office.initialize?product=outlook&version=v1.5) event, the entities add-in calls the [getEntities](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method of the current item. The **getEntities** method returns the global variable `_MyEntities` an array of instances of supported entities. The following is the related JavaScript code.
 
@@ -240,7 +232,7 @@ Office.initialize = function () {
 ## Extracting addresses
 
 
-When the user clicks the  **Get Addresses** button, the `myGetAddresses` event handler obtains an array of addresses from the [addresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any address was extracted. Each extracted address is stored as a string in the array. `myGetAddresses` forms a local HTML string in `htmlText` to display the list of extracted addresses. The following is the related JavaScript code.
+When the user clicks the **Get Addresses** button, the `myGetAddresses` event handler obtains an array of addresses from the [addresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any address was extracted. Each extracted address is stored as a string in the array. `myGetAddresses` forms a local HTML string in `htmlText` to display the list of extracted addresses. The following is the related JavaScript code.
 
 
 ```js
@@ -264,7 +256,7 @@ function myGetAddresses()
 ## Extracting contact information
 
 
-When the user clicks the  **Get Contact Information** button, the `myGetContacts` event handler obtains an array of contacts together with their information from the [contacts](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted contact is stored as a [Contact](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetContacts` obtains further data about each contact. Note that the context determines whether Outlook can extract a contact from an item - a signature at the end of an email message, or at least some of the following information would have to exist in the vicinity of the contact:
+When the user clicks the **Get Contact Information** button, the `myGetContacts` event handler obtains an array of contacts together with their information from the [contacts](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted contact is stored as a [Contact](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetContacts` obtains further data about each contact. Note that the context determines whether Outlook can extract a contact from an item&mdash;a signature at the end of an email message, or at least some of the following information would have to exist in the vicinity of the contact:
 
 
 - The string representing the contact's name from the [Contact.personName](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
@@ -273,7 +265,7 @@ When the user clicks the  **Get Contact Information** button, the `myGetContacts
     
 - The array of telephone numbers associated with the contact from the [Contact.phoneNumbers](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each telephone number is represented by a [PhoneNumber](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object.
     
-- For each  **PhoneNumber** member in the telephone numbers array, the string representing the telephone number from the [PhoneNumber.phoneString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
+- For each **PhoneNumber** member in the telephone numbers array, the string representing the telephone number from the [PhoneNumber.phoneString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
     
 - The array of URLs associated with the contact from the [Contact.urls](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each URL is represented as a string in an array member.
     
@@ -352,7 +344,7 @@ function myGetContacts()
 ## Extracting email addresses
 
 
-When the user clicks the  **Get Email Addresses** button, the `myGetEmailAddresses` event handler obtains an array of SMTP email addresses from the [emailAddresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted email address is stored as a string in the array. `myGetEmailAddresses` forms a local HTML string in `htmlText` to display the list of extracted email addresses. The following is the related JavaScript code.
+When the user clicks the **Get Email Addresses** button, the `myGetEmailAddresses` event handler obtains an array of SMTP email addresses from the [emailAddresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted email address is stored as a string in the array. `myGetEmailAddresses` forms a local HTML string in `htmlText` to display the list of extracted email addresses. The following is the related JavaScript code.
 
 
 ```js
@@ -375,11 +367,11 @@ function myGetEmailAddresses() {
 ## Extracting meeting suggestions
 
 
-When the user clicks the  **Get Meeting Suggestions** button, the `myGetMeetingSuggestions` event handler obtains an array of meeting suggestions from the [meetingSuggestions](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted.
+When the user clicks the **Get Meeting Suggestions** button, the `myGetMeetingSuggestions` event handler obtains an array of meeting suggestions from the [meetingSuggestions](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted.
 
 
  > [!NOTE]
- > Only messages but not appointments support the  **MeetingSuggestion** entity type.
+ > Only messages but not appointments support the **MeetingSuggestion** entity type.
 
 Each extracted meeting suggestion is stored as a [MeetingSuggestion](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetMeetingSuggestions` obtains further data about each meeting suggestion:
 
@@ -461,7 +453,7 @@ function myGetMeetingSuggestions() {
 ## Extracting phone numbers
 
 
-When the user clicks the  **Get Phone Numbers** button, the `myGetPhoneNumbers` event handler obtains an array of phone numbers from the [phoneNumbers](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted phone number is stored as a [PhoneNumber](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetPhoneNumbers` obtains further data about each phone number:
+When the user clicks the **Get Phone Numbers** button, the `myGetPhoneNumbers` event handler obtains an array of phone numbers from the [phoneNumbers](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted phone number is stored as a [PhoneNumber](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetPhoneNumbers` obtains further data about each phone number:
 
 
 - The string representing the kind of phone number, for example, home phone number, from the [PhoneNumber.type](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
@@ -512,7 +504,7 @@ function myGetPhoneNumbers()
 ## Extracting task suggestions
 
 
-When the user clicks the  **Get Task Suggestions** button, the `myGetTaskSuggestions` event handler obtains an array of task suggestions from the [taskSuggestions](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted task suggestion is stored as a [TaskSuggestion](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetTaskSuggestions` obtains further data about each task suggestion:
+When the user clicks the **Get Task Suggestions** button, the `myGetTaskSuggestions` event handler obtains an array of task suggestions from the [taskSuggestions](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted task suggestion is stored as a [TaskSuggestion](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetTaskSuggestions` obtains further data about each task suggestion:
 
 
 - The string that was originally identified a task suggestion from the [TaskSuggestion.taskString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
@@ -577,7 +569,7 @@ function myGetTaskSuggestions()
 ## Extracting URLs
 
 
-When the user clicks the  **Get URLs** button, the `myGetUrls` event handler obtains an array of URLs from the [urls](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted URL is stored as a string in the array. `myGetUrls` forms a local HTML string in `htmlText` to display the list of extracted URLs.
+When the user clicks the **Get URLs** button, the `myGetUrls` event handler obtains an array of URLs from the [urls](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted URL is stored as a string in the array. `myGetUrls` forms a local HTML string in `htmlText` to display the list of extracted URLs.
 
 
 ```js
@@ -834,11 +826,7 @@ function myGetUrls()
 
 ## See also
 
-
-
-- [Create Outlook Add-ins for read forms](read-scenario.md)
-    
-- [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
-    
+- [Create Outlook Add-ins for read forms](read-scenario.md)    
+- [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)    
 - [item.getEntities method](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5)
     

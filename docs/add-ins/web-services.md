@@ -186,7 +186,7 @@ The following table lists the EWS operations that add-ins support. To see exampl
  > 
  > As an alternative, you may use the [EWS Managed API](https://msdn.microsoft.com/en-us/library/dn567668.aspx) to update these items from a Windows client or a server application. Caution is recommended because internal, service-type data structures are subject to change and could break your solution.
 
-## Authentication and permission considerations for the makeEwsRequestAsync method
+## Authentication and permission considerations for makeEwsRequestAsync method
 
 When you use the **makeEwsRequestAsync** method, the request is authenticated by using the email account credentials of the current user. The **makeEwsRequestAsync** method manages the credentials for you so that you do not have to provide authentication credentials with your request.
 
