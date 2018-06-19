@@ -23,18 +23,23 @@ You can verify the version of Exchange 2013 by using one of the following approa
 - If you are testing the add-in on Outlook on the web or OWA for Devices, in a script debugger (for example, the JScript Debugger that comes with Internet Explorer), look for the  **src** attribute of the **script** tag that specifies the location from which scripts are loaded. The path should contain a substring **owa/15.0.516.x/owa2/...**, where  **15.0.516.x** represents the version of the Exchange Server, such as **15.0.516.2**.
 - Alternatively, you can use the [Office.context.mailbox.diagnostics.hostVersion](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.diagnostics?product=outlook&version=v1.5) property to verify the version. On Outlook on the web and OWA for Devices, this property returns the version of the Exchange Server.
 - If you can test the add-in on Outlook, you can use the following simple debugging technique that uses the Outlook object model and Visual Basic Editor:
+
     1. First, verify that macros are enabled for Outlook. Choose  **File**,  **Options**,  **Trust Center**,  **Trust Center Settings**,  **Macro Settings**. Ensure that  **Notifications for all macros** is selected in the Trust Center. You should have also selected **Enable Macros** during Outlook startup.
+
     1. On the  **Developer** tab of the ribbon, choose **Visual Basic**.
         > [!NOTE]
-        > Not seeing the  **Developer** tab? See [How to: Show the Developer Tab on the Ribbon](http://msdn.microsoft.com/en-us/library/ce7cb641-44f2-4a40-867e-a7d88f8e98a9%28Office.15%29.aspx) to turn it on.
+        > Not seeing the  **Developer** tab? See [How to: Show the Developer Tab on the Ribbon](https://docs.microsoft.com/en-us/visualstudio/vsto/how-to-show-the-developer-tab-on-the-ribbon) to turn it on.
 
     1. In the Visual Basic Editor, choose  **View**,  **Immediate Window**.
+
     1. Type the following in the Immediate window to display the version of the Exchange Server. The major version of the returned value must be equal to or greater than 15.
+
         - If there is only one Exchange account in the user's profile:
 
         ```vb
         ?Session.ExchangeMailboxServerVersion
         ```
+
         - If there are multiple Exchange accounts in the same user profile (`emailAddress` represents a string that contains the user's primary STMP address):
 
         ```vb
@@ -192,10 +197,10 @@ If the  **ItemHasRegularExpressionMatch** activation rule specifies **Subject** 
 
 |Type of rule|Verify this MAPI property|
 |:-----|:-----|
-|**ItemHasRegularExpressionMatch** rule with **Subject**|[PidTagSubject](http://msdn.microsoft.com/en-us/library/aa7ba4d9-c5e0-4ce7-a34e-65f675223bc9%28Office.15%29.aspx)|
-|**ItemHasRegularExpressionMatch** rule with **SenderSMTPAddress**|[PidTagSenderSmtpAddress](http://msdn.microsoft.com/en-us/library/321cde5a-05db-498b-a9b8-cb54c8a14e34%28Office.15%29.aspx) and [PidTagSentRepresentingSmtpAddress](http://msdn.microsoft.com/en-us/library/5ed122a2-0967-4de3-a2ee-69f81ae77b16%28Office.15%29.aspx)|
-|**ItemIs**|[PidTagMessageClass](http://msdn.microsoft.com/en-us/library/1e704023-1992-4b43-857e-0a7da7bc8e87%28Office.15%29.aspx)|
-|**ItemHasAttachment**|[PidTagHasAttachments](http://msdn.microsoft.com/en-us/library/fd236d74-2868-46a8-bb3d-17f8365931b6%28Office.15%29.aspx)|
+|**ItemHasRegularExpressionMatch** rule with **Subject**|[PidTagSubject](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtagsubject-canonical-property)|
+|**ItemHasRegularExpressionMatch** rule with **SenderSMTPAddress**|[PidTagSenderSmtpAddress](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtagsendersmtpaddress-canonical-property) and [PidTagSentRepresentingSmtpAddress](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtagsentrepresentingsmtpaddress-canonical-property)|
+|**ItemIs**|[PidTagMessageClass](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtagmessageclass-canonical-property)|
+|**ItemHasAttachment**|[PidTagHasAttachments](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtaghasattachments-canonical-property)|
 
 After verifying the property value, you can then use a regular expression evaluation tool to test whether the regular expression finds a match in that value.
 

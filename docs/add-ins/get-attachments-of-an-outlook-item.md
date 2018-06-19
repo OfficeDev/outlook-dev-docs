@@ -14,7 +14,7 @@ An Outlook Add-in cannot pass the attachments of a selected item directly to the
 
 To send attachment information to the remote service, you use the following properties and function:
 
-- [Office.context.mailbox.ewsUrl](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) property &ndash; Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](http://msdn.microsoft.com/en-us/library/office/dn600509%28v=exchg.80%29.aspx)[EWS Managed API](http://msdn.microsoft.com/library/c2267733-6f4f-49e5-9614-1e4a24c3af1a%28Office.15%29.aspx) method or the [GetAttachment](http://msdn.microsoft.com/en-us/library/24d10a15-b942-415e-9024-a6375708f326%28Office.15%29.aspx) EWS operation.
+- [Office.context.mailbox.ewsUrl](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) property &ndash; Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, or the [GetAttachment](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation.
 
 - [Office.context.mailbox.item.attachments](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property &ndash; Gets an array of [AttachmentDetails](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) objects, one for each attachment to the item.
 
@@ -113,7 +113,7 @@ function makeServiceRequest() {
 
 ## Get the attachments from the Exchange server
 
-Your remote service can use either the [GetAttachments](http://msdn.microsoft.com/en-us/library/office/dn600509%28v=exchg.80%29.aspx) EWS Managed API method or the [GetAttachment](http://msdn.microsoft.com/library/24d10a15-b942-415e-9024-a6375708f326%28Office.15%29.aspx) EWS operation to retrieve attachments from the server. The service application needs two objects to deserialize the JSON string into .NET Framework objects that can be used on the server. The following code shows the definitions of the deserialization objects.
+Your remote service can use either the [GetAttachments](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) EWS Managed API method or the [GetAttachment](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation to retrieve attachments from the server. The service application needs two objects to deserialize the JSON string into .NET Framework objects that can be used on the server. The following code shows the definitions of the deserialization objects.
 
 ```cs
 namespace AttachmentsSample
@@ -140,7 +140,7 @@ namespace AttachmentsSample
 
 ### Use the EWS Managed API to get the attachments
 
-If you use the [EWS Managed API](http://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](http://msdn.microsoft.com/en-us/library/office/dn600509%28v=exchg.80%29.aspx) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
+If you use the [EWS Managed API](http://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
 
 ```cs
 private AttachmentSampleServiceResponse GetAtttachmentsFromExchangeServerUsingEWSManagedApi(AttachmentSampleServiceRequest request)
@@ -206,7 +206,7 @@ private AttachmentSampleServiceResponse GetAtttachmentsFromExchangeServerUsingEW
 
 ### Use EWS to get the attachments
 
-If you use EWS in your remote service, you need to construct a [GetAttachment](http://msdn.microsoft.com/library/24d10a15-b942-415e-9024-a6375708f326%28Office.15%29.aspx) SOAP request to get the attachments from the Exchange server. The following code returns a string that provides the SOAP request. The remote service uses the `String.Format` method to insert the attachment ID for an attachment into the string.
+If you use EWS in your remote service, you need to construct a [GetAttachment](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getattachment-operation) SOAP request to get the attachments from the Exchange server. The following code returns a string that provides the SOAP request. The remote service uses the `String.Format` method to insert the attachment ID for an attachment into the string.
 
 
 ```cs

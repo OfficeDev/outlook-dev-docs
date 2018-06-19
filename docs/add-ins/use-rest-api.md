@@ -2,7 +2,6 @@
 title: Use the Outlook REST APIs from an Outlook Add-in | Microsoft Docs
 description: Learn how to use the Outlook REST APIs from an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/08/2018
@@ -45,7 +44,7 @@ Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function(result){
 
 ## Get the item ID
 
-In order to retrieve the current item via REST, your add-in will need the item's ID, properly formatted for REST. This is obtained from the [Office.context.mailbox.item.itemId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property, but some checks should be made to ensure that it is a REST-formatted ID.
+To retrieve the current item via REST, your add-in will need the item's ID, properly formatted for REST. This is obtained from the [Office.context.mailbox.item.itemId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property, but some checks should be made to ensure that it is a REST-formatted ID.
 
 - In Outlook Mobile, the value returned by `Office.context.mailbox.item.itemId` is a REST-formatted ID and can be used as-is.
 - In other Outlook clients, the value returned by `Office.context.mailbox.item.itemId` is an EWS-formatted ID, and must be converted using the [Office.context.mailbox.convertToRestId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method.
@@ -82,7 +81,7 @@ var restHost = Office.context.mailbox.restUrl;
 
 ## Call the API
 
-Once your add-in has the access token, item ID, and REST API URL, it can either pass that information to a back-end service which calls the REST API, or it can call it directly using AJAX. The following example calls the Outlook Mail REST API to get the current message.
+After your add-in has the access token, item ID, and REST API URL, it can either pass that information to a back-end service which calls the REST API, or it can call it directly using AJAX. The following example calls the Outlook Mail REST API to get the current message.
 
 ```js
 function getCurrentItem(accessToken) {

@@ -68,7 +68,7 @@ After an add-in is activated, you can use the [mailbox.item](https://dev.office.
 
 You can optionally use the  **ItemClass** attribute to specify the message class of the item, and the **IncludeSubClasses** attribute to specify whether the rule should be **true** when the item is a subclass of the specified class.
 
-For more information about message classes, see [Item Types and Message Classes](http://msdn.microsoft.com/library/15b709cc-7486-b6c7-88a3-4a4d8e0ab292%28Office.15%29.aspx).
+For more information about message classes, see [Item Types and Message Classes](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/item-types-and-message-classes).
 
 The following example is an  **ItemIs** rule that lets users see the add-in in the Outlook Add-in bar when the user is reading a message:
 
@@ -193,7 +193,6 @@ To provide a satisfactory experience with Outlook Add-ins, you should adhere to 
 
 - [Create Outlook Add-ins for compose forms](compose-scenario.md)
 - [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
-- [Item Types and Message Classes](http://msdn.microsoft.com/library/15b709cc-7486-b6c7-88a3-4a4d8e0ab292%28Office.15%29.aspx)
 - [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
     

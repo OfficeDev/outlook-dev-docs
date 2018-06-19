@@ -183,4 +183,4 @@ var suggestions = Office.context.mailbox.item.getFilteredEntitiesByName("CampSug
 - [Activation rules for Outlook Add-ins](activation-rules.md)
 - [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
-- [Best Practices for Regular Expressions in the .NET Framework](http://msdn.microsoft.com/en-us/library/618e5afb-3a97-440d-831a-70e4c526a51c%28Office.15%29.aspx)
+- [Best Practices for Regular Expressions in the .NET Framework](https://docs.microsoft.com/en-us/dotnet/standard/base-types/best-practices)
