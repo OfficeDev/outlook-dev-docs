@@ -36,5 +36,5 @@ Now that you're service is registered, you can test your webhooks by sending the
 > For testing purposes, you should send the payload from your Microsoft Account to yourself. The ability to send actionable messages to other users requires registration with the [actionable email developer dashboard](../actionable-messages/actionable-email-dev-dashboard.md).
 
 - Use the [Message Card Playground](https://messagecardplayground.azurewebsites.net/)
-- [Send via the Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_sendmail).
+- [Send via Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_sendmail).
 - [Send via SMTP](https://gist.github.com/jasonjoh/3ec367594c3fa662ee983a617bdc7deb): A sample Python script that sends an actionable message using the Office 365 SMTP server.

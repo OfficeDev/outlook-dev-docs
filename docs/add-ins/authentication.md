@@ -19,7 +19,7 @@ Single sign-on access tokens provide a seamless way for your add-in to authentic
 
 - Is used primarily by Office 365 users
 - Needs access to:
-    - Microsoft services that are exposed as part of the Microsoft Graph
+    - Microsoft services that are exposed as part of Microsoft Graph
     - A non-Microsoft service that you control
 
 The SSO authentication method uses the [OAuth2 On-Behalf-Of flow provided by Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of). It requires that the add-in register in the [Application Registration Portal](https://apps.dev.microsoft.com/) and specify any required Microsoft Graph scopes in its manifest.
