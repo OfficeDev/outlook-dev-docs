@@ -20,13 +20,10 @@
   - name: Ruby
     href: ruby-tutorial.md
 - name: Concepts
+  href: concepts.md
   items:
   - name: Compare Graph and Outlook
     href: compare-graph-outlook.md
-  - name: Webhooks and Notifications
-    href: webhooks.md
-  - name: Recurrence rules
-    href: recurrence-rules.md
 - name: Reference
   href: reference.md
 - name: Terms of Use
