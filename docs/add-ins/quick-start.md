@@ -199,7 +199,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
     
-    Once you complete the wizard, the generator will create the project and install supporting Node components.
+    After you complete the wizard, the generator will create the project and install supporting Node components.
 
 ### Update the code
 
