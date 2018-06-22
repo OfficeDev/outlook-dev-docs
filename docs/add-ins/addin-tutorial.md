@@ -35,18 +35,14 @@ You will also need Outlook 2016 connected to an Office 365 account, Outlook.com 
 
 Open your command prompt/shell in an empty directory. Enter `yo office` and follow the prompts.
 
-- **Would you like to create a new subfolder for your project?:** `No`
-- **What would you want to name your add-in?:** `Git the Gist`
+- **Choose a project type:** `Jquery`
+- **Choose a script type:** `Javascript`
+- **What do you want to name your add-in?:** `My Office Add-in`
 - **Which Office client application would you like to support?:** `Outlook`
-- **Would you like to create a new project?:** `Yes, I need to create a new web app and manifest file for my add-in`
-- **Would you like to use TypeScript?:** `No`
-- **Choose a framework:** `Jquery`
-
-The generator will then ask you if you want to open resource.html. It isn't necessary to open it for this tutorial, but feel free to open it if you're curious! Choose yes or no to complete the wizard and allow the generator to do its work.
 
 ![A screenshot of the Microsoft Office Project Generator prompts](images/addin-tutorial/yeoman-prompts.PNG)
 
-The generator will create the project and install supporting Node components.
+Once you complete the wizard, the generator will create the project and install supporting Node components.
 
 ### Test the generated add-in
 
