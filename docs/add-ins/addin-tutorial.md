@@ -37,7 +37,7 @@ Open your command prompt/shell in an empty directory. Enter `yo office` and foll
 
 - **Choose a project type:** `Jquery`
 - **Choose a script type:** `Javascript`
-- **What do you want to name your add-in?:** `My Office Add-in`
+- **What do you want to name your add-in?:** `Git the Gist`
 - **Which Office client application would you like to support?:** `Outlook`
 
 ![A screenshot of the Microsoft Office Project Generator prompts](images/addin-tutorial/yeoman-prompts.PNG)
