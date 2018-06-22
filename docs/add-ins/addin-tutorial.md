@@ -42,7 +42,7 @@ Open your command prompt/shell in an empty directory. Enter `yo office` and foll
 
 ![A screenshot of the Microsoft Office Project Generator prompts](images/addin-tutorial/yeoman-prompts.PNG)
 
-Once you complete the wizard, the generator will create the project and install supporting Node components.
+After you complete the wizard, the generator will create the project and install supporting Node components.
 
 ### Test the generated add-in
 
