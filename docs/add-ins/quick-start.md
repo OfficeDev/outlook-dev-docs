@@ -195,8 +195,6 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     - **What do you want to name your add-in?:** `My Office Add-in`
     - **Which Office client application would you like to support?:** `Outlook`
     
-
-
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
     
     After you complete the wizard, the generator will create the project and install supporting Node components.
@@ -221,7 +219,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     </div>
     ```
 
-1. Open **app.js** in the root of the project, replace the entire contents with the following code, and save the file.
+1. Open **index.js** in the root of the project, replace the entire contents with the following code, and save the file.
 
     ```js
     'use strict';
