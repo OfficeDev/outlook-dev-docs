@@ -23,7 +23,10 @@ However, there are some features that are either only available on the Outlook e
 
 | Feature | Description |
 |---------|-------------|
-| [Outlook Tasks](https://msdn.microsoft.com/en-us/office/office365/api/task-rest-operations) | The Outlook API provides acccess to user's tasks. This feature is currently only available in beta on the Microsoft Graph endpoint. |
+| [Outlook Tasks](https://msdn.microsoft.com/office/office365/api/task-rest-operations) | The Outlook API provides access to user's tasks. This feature is currently only available in beta on the Microsoft Graph endpoint. |
+| Attachments over 4MB in size | Microsoft Graph cannot create attachments over 4MB in size. Attempts to create an attachment larger than 4MB results in a `413 Request Entity Too Large` error. |
+| [Rich notifications](https://msdn.microsoft.com/office/office365/api/notify-rest-operations#RichNotificationsV2) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph does not support this feature. |
+| [Streaming notifications](https://msdn.microsoft.com/office/office365/api/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature. |
 
 ## Translating between Graph and Outlook
 
