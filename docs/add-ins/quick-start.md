@@ -190,16 +190,14 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     yo office
     ```
 
-    - **Would you like to create a new subfolder for your project?:** `No`
+    - **Choose a project type:** `Jquery`
+    - **Choose a script type:** `Javascript`
     - **What do you want to name your add-in?:** `My Office Add-in`
     - **Which Office client application would you like to support?:** `Outlook`
-    - **Would you like to create a new add-in?:** `Yes`
-    - **Would you like to use TypeScript?:** `No`
-    - **Choose a framework:** `Jquery`
-
-    The generator will then ask you if you want to open resource.html. It isn't necessary to open it for this tutorial, but feel free to open it if you're curious! Choose yes or no to complete the wizard and allow the generator to do its work.
-
+    
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
+    
+    After you complete the wizard, the generator will create the project and install supporting Node components.
 
 ### Update the code
 
@@ -222,7 +220,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     </div>
     ```
 
-1. Open **app.js** in the root of the project, replace the entire contents with the following code, and save the file.
+1. Open **index.js** in the root of the project, replace the entire contents with the following code, and save the file.
 
     ```js
     'use strict';
@@ -334,4 +332,5 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 Congratulations, you've successfully created your first Outlook Add-in! Next, learn more about the capabilities of an Outlook Add-in and build a more complex add-in by following along with the Advanced Outlook Add-in tutorial.
 
 > [!div class="nextstepaction"]
-> [Advanced Outlook Add-in tutorial](addin-tutorial.md)
+> [Advanced Outlook add-in tutorial](addin-tutorial.md)
+

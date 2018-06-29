@@ -4,7 +4,7 @@ description: Learn how to use Exchange Web Services from an Outlook Add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 06/20/2018
 ms.author: jasonjoh
 ---
 
@@ -89,8 +89,7 @@ When parsing a SOAP response from an EWS operation, note the following browser-d
 
 ## Example
 
-The following example calls  **makeEwsRequestAsync** to use the [GetItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getitem-operation) operation to get the subject of an item. This example includes the following three functions:
-
+The following example calls **makeEwsRequestAsync** to use the [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation to get the subject of an item. This example includes the following three functions:
 
 -  `getSubjectRequest` &ndash; Takes an item ID as input, and returns the XML for the SOAP request to call **GetItem** for the specified item.
     
@@ -159,32 +158,33 @@ The following describes how you can use the **makeEwsRequestAsync** method:
     
 5. Use the results of the EWS operation according to your needs.
     
-The following table lists the EWS operations that add-ins support. To see examples of SOAP requests and responses, choose the link for each operation. For more information about EWS operations, see [EWS operations in Exchange](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/ews-operations-in-exchange).
-
+The following table lists the EWS operations that add-ins support. To see examples of SOAP requests and responses, choose the link for each operation. For more information about EWS operations, see [EWS operations in Exchange](https://docs.microsoft.com/exchange/client-developer/web-service-reference/ews-operations-in-exchange).
 
 **Table 2. Supported EWS operations**
 
 |**EWS operation**|**Description**|
 |:-----|:-----|
-|[CopyItem operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/copyitem-operation)|Copies the specified items and puts the new items in a designated folder in the Exchange store.|
-|[CreateFolder operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/createfolder-operation)|Creates folders in the specified location in the Exchange store.|
-|[CreateItem operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/createitem-operation)|Creates the specified items in the Exchange store.|
-|[FindConversation operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/findconversation-operation)|Enumerates a list of conversations in the specified folder in the Exchange store.|
-|[FindFolder operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/findfolder-operation)|Finds subfolders of an identified folder and returns a set of properties that describe the set of subfolders.|
-|[FindItem operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/finditem-operation)|Identifies items that are located in a specified folder in the Exchange store.|
-|[GetConversationItems operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getconversationitems-operation)|Gets one or more sets of items that are organized in nodes in a conversation.|
-|[GetFolder operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getfolder-operation)|Gets the specified properties and contents of folders from the Exchange store.|
-|[GetItem operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getitem-operation)|Gets the specified properties and contents of items from the Exchange store.|
-|[MarkAsJunk operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/markasjunk-operation)|Moves email messages to the Junk Email folder, and adds or removes senders of the messages from the blocked senders list accordingly.|
-|[MoveItem operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/moveitem-operation)|Moves items to a single destination folder in the Exchange store.|
-|[SendItem operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/senditem-operation)|Sends email messages that are located in the Exchange store.|
-|[UpdateFolder operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/updatefolder-operation)|Modifies the properties of existing folders in the Exchange store.|
-|[UpdateItem operation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/updateitem-operation)|Modifies the properties of existing items in the Exchange store.|
+|[CopyItem operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/copyitem-operation)|Copies the specified items and puts the new items in a designated folder in the Exchange store.|
+|[CreateFolder operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/createfolder-operation)|Creates folders in the specified location in the Exchange store.|
+|[CreateItem operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/createitem-operation)|Creates the specified items in the Exchange store.|
+|[ExpandDL operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/expanddl-operation)|Displays the full membership of distribution lists.|
+|[FindConversation operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/findconversation-operation)|Enumerates a list of conversations in the specified folder in the Exchange store.|
+|[FindFolder operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/findfolder-operation)|Finds subfolders of an identified folder and returns a set of properties that describe the set of subfolders.|
+|[FindItem operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/finditem-operation)|Identifies items that are located in a specified folder in the Exchange store.|
+|[GetConversationItems operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getconversationitems-operation)|Gets one or more sets of items that are organized in nodes in a conversation.|
+|[GetFolder operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getfolder-operation)|Gets the specified properties and contents of folders from the Exchange store.|
+|[GetItem operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation)|Gets the specified properties and contents of items from the Exchange store.|
+|[GetUserAvailability operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getuseravailability-operation)|Provides detailed information about the availability of a set of users, rooms, and resources within a specified time period.|
+|[MarkAsJunk operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/markasjunk-operation)|Moves email messages to the Junk Email folder, and adds or removes senders of the messages from the blocked senders list accordingly.|
+|[MoveItem operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/moveitem-operation)|Moves items to a single destination folder in the Exchange store.|
+|[ResolveNames operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/resolvenames-operation)|Resolves ambiguous email addresses and display names.|
+|[SendItem operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/senditem-operation)|Sends email messages that are located in the Exchange store.|
+|[UpdateFolder operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/updatefolder-operation)|Modifies the properties of existing folders in the Exchange store.|
+|[UpdateItem operation](https://docs.microsoft.com/exchange/client-developer/web-service-reference/updateitem-operation)|Modifies the properties of existing items in the Exchange store.|
 
  > [!NOTE]
- > FAI (Folder Associated Information) items cannot be updated (or created) from an add-in. These hidden messages are stored in a folder and are used to store a variety of settings and auxiliary data.  Attempting to use the UpdateItem operation will throw an ErrorAccessDenied error: `Office extension is not allowed to update this type of item`. 
- > 
- > As an alternative, you may use the [EWS Managed API](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/get-started-with-ews-managed-api-client-applications) to update these items from a Windows client or a server application. Caution is recommended because internal, service-type data structures are subject to change and could break your solution.
+ > FAI (Folder Associated Information) items cannot be updated (or created) from an add-in. These hidden messages are stored in a folder and are used to store a variety of settings and auxiliary data.  Attempting to use the UpdateItem operation will throw an ErrorAccessDenied error: "Office extension is not allowed to update this type of item". As an alternative, you may use the [EWS Managed API](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/get-started-with-ews-managed-api-client-applications) to update these items from a Windows client or a server application. Caution is recommended as internal, service-type data structures are subject to change and could break your solution.
+
 
 ## Authentication and permission considerations for makeEwsRequestAsync method
 
@@ -194,6 +194,10 @@ When you use the **makeEwsRequestAsync** method, the request is authenticated by
 > The server administrator must use the [New-WebServicesVirtualDirectory](http://technet.microsoft.com/en-us/library/bb125176.aspx) or the [Set-WebServicesVirtualDirectory](http://technet.microsoft.com/en-us/library/aa997233.aspx) cmldet to set the _OAuthAuthentication_ parameter to **true** on the Client Access server EWS directory in order to enable the **makeEwsRequestAsync** method to make EWS requests.
 
 Your add-in must specify the **ReadWriteMailbox** permission in its add-in manifest to use the **makeEwsRequestAsync** method. For information about using the **ReadWriteMailbox** permission, see the section [ReadWriteMailbox permission](understanding-outlook-add-in-permissions.md#readwritemailbox-permission) in [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md).
+
+> [!NOTE]
+> The server administrator must use the [New-WebServicesVirtualDirectory](https://docs.microsoft.com/powershell/module/exchange/client-access-servers/New-WebServicesVirtualDirectory?view=exchange-ps) or the [Set-WebServicesVirtualDirectory](https://docs.microsoft.com/powershell/module/exchange/client-access-servers/Set-WebServicesVirtualDirectory?view=exchange-ps) cmldet to set the _OAuthAuthentication_ parameter to **true** on the Client Access server EWS directory in order to enable the **makeEwsRequestAsync** method to make EWS requests.
+
 
 
 ## See also

@@ -18,6 +18,10 @@ The following are examples of contextual add-ins:
 - Choosing a string that opens a meeting suggestion add-in.
 - Choosing a phone number to add to your contacts.
 
+
+> [!NOTE]
+> Contextual add-ins are not currently available in Outlook for Android and Outlook for iOS. This functionality will be made available in the future. 
+
 ## How to make a contextual add-in
 
 A contextual add-in's manifest must include an [ExtensionPoint](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the add-in specifies the entities or regular expression that can activate it. If an entity is specified, the entity can be any of the properties in the [Entities](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object. 
