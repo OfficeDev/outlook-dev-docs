@@ -1,8 +1,7 @@
 ---
-title: Advanced Outlook add-in tutorial | Microsoft Docs
-description: Follow along to create an Outlook add-in that inserts GitHub Gists into the body of new email messages
+title: Advanced Outlook Add-in tutorial | Microsoft Docs
+description: Follow along to create an Outlook Add-in that inserts GitHub Gists into the body of new email messages
 author: jasonjoh
-
 ms.topic: get-started-article
 ms.technology: office-add-ins
 ms.devlang: javascript
@@ -10,15 +9,15 @@ ms.date: 06/11/2018
 ms.author: jasonjoh
 ---
 
-# Advanced Outlook add-in tutorial: Git the Gist
+# Advanced Outlook Add-in tutorial: Git the Gist
 
-The purpose of this guide is to walk through the process of creating an Outlook add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outline here.
+The purpose of this guide is to walk through the process of creating an Outlook Add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outlined here.
 
 This tutorial will use the [Microsoft Office Add-in Project Generator](https://github.com/officedev/generator-office) to generate an add-in project.
 
 ## Prerequisites
 
-Outlook add-ins are comprised of HTML, CSS, and JavaScript files, so technically the only absolute prerequisite is some sort of web server to host the files. However, in this guide we're going to use some tools to make it easier to get up and running quickly. To follow along with this guide, you'll need the following:
+Outlook Add-ins are comprised of HTML, CSS, and JavaScript files, so technically the only absolute prerequisite is some sort of web server to host the files. However, in this guide we're going to use some tools to make it easier to get up and running quickly. To follow along with this guide, you'll need the following:
 
 - [Node.js](https://nodejs.org)
 - [Yeoman](https://yeoman.io/)
@@ -27,7 +26,8 @@ Outlook add-ins are comprised of HTML, CSS, and JavaScript files, so technically
 > [!TIP]
 > Once you have Node.js installed, you can install all of the other prerequisites via NPM:
 >
->     npm install -g yo generator-office
+> npm install -g yo generator-office
+
 
 You will also need Outlook 2016 connected to an Office 365 account, Outlook.com account, or a Microsoft Exchange Server and a GitHub account to test all of the features of the add-in we're going to create.
 
@@ -67,7 +67,7 @@ Open the `git-the-gist-manifest.xml` and locate the `SupportUrl` element. Remove
 1. Sideload the add-in using the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md). When browsing for the manifest file, select `git-the-gist-manifest.xml` in the project root.
 1. You should now see a new button on the ribbon labeled **Display all properties**. Click this button to open the taskpane. You should see the add-in's welcome page.
 
-![A screenshot of the button and taskpane added by the sample](images/addin-tutorial/button-and-pane.PNG)
+    ![A screenshot of the button and taskpane added by the sample](images/addin-tutorial/button-and-pane.PNG)
 
 ## Write the code
 
@@ -80,13 +80,15 @@ The manifest for an add-in controls how it appears in Outlook. It defines the wa
 Let's start by updating some properties of the add-in itself.
 
 1. Open the `git-the-gist-manifest.xml` file. Locate the `ProviderName` element in the XML and replace the default value with your company name.
-    ```xml
+
+   ```xml
     <ProviderName>Contoso</ProviderName>
     ```
 1. Update the `Description` with a description of the add-in.
+
     ```xml
     <Description DefaultValue="Allows users to access their Gists on GitHub"/>
-    ```
+   ```
 
 Now we'll change the buttons defined by the add-in. For our add-in, we'll implement two buttons: **Insert Gist** and **Insert Default Gist** on the compose message window. However, the current manifest only adds buttons to the read message window. We'll have to add the message compose command surface extension point.
 
@@ -138,26 +140,30 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this li
 Now let's look at exactly what that does.
 
 - The `ExtensionPoint` with `xsi:type="MessageComposeCommandSurface"` indicates that we're defining buttons to add to the message compose window.
+
 - By using an `OfficeTab` element with `id="TabDefault"`, we're indicating we want to add our buttons to the default tab on the ribbon.
+
 - The `Group` element defines the grouping for our buttons, with a label set by the `groupLabel` resource.
+
 - The first `Control` element contains an `Action` element with `xsi:type="ShowTaskPane"`, so this button will open a task pane.
+
 - The second `Control` element contains an `Action` element with `xsi:type="ExecuteFunction"`, so this button will invoke a JavaScript function contained in the function file.
 
 Finally we'll update our resources. The code above referenced labels, tool-tips, and URLs that we need to define before our manifest will be valid.
 
 1. Add the following as a child of the `bt:Urls` element:
 
-    ```xml
+   ```xml
     <bt:Url id="insertGistPaneUrl" DefaultValue="https://localhost:3000/msg-compose/insert-gist.html"/>
-    ```
+   ```
 1. Change the `DefaultValue` attribute of the `bt:String` element with `id="groupLabel"` to `Git the Gist`.
 
-    ```xml
+   ```xml
     <bt:String id="groupLabel" DefaultValue="Git the Gist"/>
-    ```
+   ```
 1. Add the following elements as children of the `bt:ShortStrings` element.
 
-    ```xml
+   ```xml
     <bt:String id="insertGistLabel" DefaultValue="Insert Gist">
       <bt:Override Locale="es-ES" Value="Inserte el Gist"/>
     </bt:String>
@@ -170,17 +176,17 @@ Finally we'll update our resources. The code above referenced labels, tool-tips,
     <bt:String id="insertDefaultGistTitle" DefaultValue="Insert Default Gist">
       <bt:Override Locale="es-ES" Value="Inserte el Gist predeterminado"/>
     </bt:String>
-    ```
+   ```
 1. Add the following elements as children of the `bt:LongStrings` element.
 
-    ```xml
+   ```xml
     <bt:String id="insertGistDesc" DefaultValue="Displays a list of your Gists and allows you to insert their contents into the current message">
       <bt:Override Locale="es-ES" Value="Muestra una lista de sus Gists y permite insertar su contenido en el mensaje actual"/>
     </bt:String>
     <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the contents of the Gist you mark as default into the current message">
       <bt:Override Locale="es-ES" Value="Inserta el contenido de lo Gist que marca como predeterminado en el mensaje actual"/>
     </bt:String>
-    ```
+   ```
 
 This defines the string values that will be used for the add-in. It also localizes the strings into Spanish by providing a `bt:Override` element for each string. Additional languages can be added as additional `bt:Override` elements. The `DefaultValue` is used for clients that use the locale specified in the `DefaultLocale` element in the manifest.
 

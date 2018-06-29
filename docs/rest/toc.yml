@@ -24,6 +24,10 @@
   items:
   - name: Compare Graph and Outlook
     href: compare-graph-outlook.md
+  - name: Webhooks and Notifications
+    href: webhooks.md
+  - name: Recurrence rules
+    href: https://developer.microsoft.com/graph/docs/concepts/outlook-schedule-recurring-events
 - name: Reference
   href: reference.md
 - name: Terms of Use

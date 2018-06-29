@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Python web app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/python_tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/python_tutorial/tree/outlook-api).
+This guide will use [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/python_tutorial/tree/outlook-api).
 
 This guide assumes that you already have [Python](https://www.python.org/) and [Django](https://www.djangoproject.com/) installed and working on your development machine. This sample was created using Python version 3.6.3 and Django 2.0.2.
 
@@ -359,7 +359,7 @@ def get_token_from_code(auth_code, redirect_uri):
 
 ### Getting the user ###
 
-Our first use of the access token will be to get the user's display name from the Microsoft Graph, just to make sure that our access token works. 
+Our first use of the access token will be to get the user's display name from Microsoft Graph, just to make sure that our access token works. 
 
 Create a new file in the `tutorial` directory called `outlookservice.py`. We'll implement all of our Outlook API functions in this file. We'll start by creating a generic method for sending API requests called `make_api_call`.
 

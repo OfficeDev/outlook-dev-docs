@@ -11,7 +11,7 @@ ms.author: jasonjoh
 
 # Outlook API Reference
 
-The Outlook REST APIs are a part of the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/). Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook API endpoints directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For more information on the differences between Graph and the Outlook endpoints, see [Compare the Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).
+The Outlook REST APIs are a part of [Microsoft Graph](https://developer.microsoft.com/en-us/graph/). Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook API endpoints directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For more information on the differences between Graph and the Outlook endpoints, see [Compare Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).
 
 ## Released APIs
 

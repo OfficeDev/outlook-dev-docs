@@ -1,6 +1,6 @@
 ---
-title: Limits for activation and API usage in Outlook add-ins | Microsoft Docs
-description: Learn about activation limits and API usage limits in Outlook add-ins.
+title: Limits for activation and API usage in Outlook Add-ins | Microsoft Docs
+description: Learn about activation limits and API usage limits in Outlook Add-ins.
 author: jasonjoh
 
 ms.topic: article
@@ -9,9 +9,9 @@ ms.date: 07/28/2017
 ms.author: jasonjoh
 ---
 
-# Limits for activation and JavaScript API for Outlook add-ins
+# Limits for activation and JavaScript API for Outlook Add-ins
 
-To provide a satisfactory experience for users of Outlook add-ins, you should be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits. These guidelines exist so that an individual add-in cannot require Exchange Server or Outlook to spend an unusually long period of time to process its activation rules or calls to the JavaScript API for Office, affecting the overall user experience for Outlook and other add-ins. These limits apply to designing activation rules in the add-in manifest, and using custom properties, roaming settings, recipients, Exchange Web Services (EWS) requests and responses, and asynchronous calls.
+To provide a satisfactory experience for users of Outlook Add-ins, you should be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits. These guidelines exist so that an individual add-in cannot require Exchange Server or Outlook to spend an unusually long period of time to process its activation rules or calls to the JavaScript API for Office, affecting the overall user experience for Outlook and other add-ins. These limits apply to designing activation rules in the add-in manifest, and using custom properties, roaming settings, recipients, Exchange Web Services (EWS) requests and responses, and asynchronous calls.
 
 > [!NOTE]
 > If your add-in runs on an Outlook rich client, you must also verify that the add-in performs within certain run-time resource usage limits.
@@ -22,9 +22,9 @@ Add-ins are designed to activate in the user's main mailbox only. Add-ins do not
 
 ## Limits for activation rules
 
-Follow these guidelines when designing activation rules for Outlook add-ins:
+Follow these guidelines when designing activation rules for Outlook Add-ins:
 
-- Limit the size of the manifest to 256 KB. You cannot install the Outlook add-in for an Exchange mailbox if you exceed that limit.
+- Limit the size of the manifest to 256 KB. You cannot install the Outlook Add-in for an Exchange mailbox if you exceed that limit.
 - Specify up to 15 activation rules for the add-in. You cannot install the add-in if you exceed that limit.
 - If you use an [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) rule on the body of the selected item, expect an Outlook rich client to apply the rule against only the first 1 MB of the body and not to the rest of the body over that limit. Your add-in would not be activated if matches exist only after the first MB of the body. If you expect that to be a likely scenario, re-design your conditions for activation.
 - If you use regular expressions in  **ItemHasKnownEntity** or [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rules, be aware of the following limits and guidelines that generally apply to any Outlook host, and those described in tables 1, 2 and 3 that differ depending on the host:
@@ -88,7 +88,7 @@ Aside from the preceding guidelines for activation rules, each of the Outlook ho
 |Attachment ID|100 characters|[item.addItemAttachmentAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method<br/><br/> [item.removeAttachmentAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method|Limit for the length of the ID of the attachment to be added to or removed from an item.|
 |Asynchronous calls|3 calls|**item.addFileAttachmentAsync** method<br/><br/>**item.addItemAttachmentAsync** method<br/><br/><br/>**item.removeAttachmentAsync** method<br/><br/> [Body.getTypeAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5) method<br/><br/>**Body.prependAsync** method<br/><br/>**Body.setSelectedDataAsync** method<br/><br/> [CustomProperties.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/CustomProperties?product=outlook&version=v1.5) method<br/><br/><br/> [item.LoadCustomPropertiesAysnc](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method<br/><br/><br/> [Location.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5) method<br/><br/>**Location.setAsync** method<br/><br/> [mailbox.getCallbackTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [mailbox.getUserIdentityTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/> [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method<br/><br/>**Recipients.addAsync** method<br/><br/> [Recipients.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5) method<br/><br/>**Recipients.setAsync** method<br/><br/> [RoamingSettings.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method<br/><br/> [Subject.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5) method<br/><br/>**Subject.setAsync** method<br/><br/> [Time.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5) method<br/><br/> [Time.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Time?product=outlook&version=v1.5) method|For Outlook on the web or OWA for Devices: limit of the number of simultaneous asynchronous calls at any one time, as browsers allow only a limited number of asynchronous calls to servers. |
 
-## Additional resources
+## See also
 
-- [Deploy and install Outlook add-ins for testing](testing-and-tips.md)
-- [Privacy, permissions, and security for Outlook add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security)
+- [Deploy and install Outlook Add-ins for testing](testing-and-tips.md)
+- [Privacy, permissions, and security for Outlook Add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security)

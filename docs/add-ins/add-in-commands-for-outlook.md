@@ -1,8 +1,7 @@
 ---
-title: Outlook add-in commands | Microsoft Docs
-description: Learn about add-in commands for Outlook add-ins.
+title: Outlook Add-in commands | Microsoft Docs
+description: Learn about add-in commands for Outlook Add-ins.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 07/14/2017
@@ -11,10 +10,17 @@ ms.author: jasonjoh
 
 # Add-in commands for Outlook
 
-Outlook add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. This lets users access add-ins in a simple, intuitive, and unobtrusive way. Because they offer increased functionality in a seamless manner, you can use add-in commands to create more engaging solutions.
+Outlook Add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. This lets users access add-ins in a simple, intuitive, and unobtrusive way. Because they offer increased functionality in a seamless manner, you can use add-in commands to create more engaging solutions.
 
 > [!NOTE]
-> Add-in commands are available only in Outlook 2016 and Outlook 2013 for Windows, Outlook 2016 for Mac,  Outlook for iPhone, Outlook for Android, Outlook on the web for Exchange 2016, and Outlook on the web for Office 365 and Outlook.com. Support for add-in commands in Outlook 2013 requires three updates: [March 8, 2016 security update for Outlook](https://support.microsoft.com/en-us/kb/3114829), [March 8, 2016 security update for Office (KB3114816)](https://support.microsoft.com/en-us/help/3114816/march-8,-2016,-update-for-office-2013-kb3114816), and [March 8, 2016 security update for Office (KB3114828)](https://support.microsoft.com/en-us/help/3114828/march-8,-2016,-update-for-office-2013-kb3114828). Support for add-in commands in Exchange 2016 requires [Cumulative Update 5](https://support.microsoft.com/en-us/help/4012106/cumulative-update-5-for-exchange-server-2016).
+> Add-in commands are available only in Outlook 2016 and Outlook 2013 for Windows, Outlook 2016 for Mac,  Outlook for iPhone, Outlook for Android, Outlook on the web for Exchange 2016, and Outlook on the web for Office 365 and Outlook.com. 
+> 
+> Support for add-in commands in Outlook 2013 requires three updates: 
+> - [March 8, 2016 security update for Outlook](https://support.microsoft.com/en-us/kb/3114829)
+> - [March 8, 2016 security update for Office (KB3114816)](https://support.microsoft.com/en-us/help/3114816/march-8,-2016,-update-for-office-2013-kb3114816)
+> - [March 8, 2016 security update for Office (KB3114828)](https://support.microsoft.com/en-us/help/3114828/march-8,-2016,-update-for-office-2013-kb3114828)
+> 
+> Support for add-in commands in Exchange 2016 requires [Cumulative Update 5](https://support.microsoft.com/en-us/help/4012106/cumulative-update-5-for-exchange-server-2016).
 
 Add-in commands are only available for add-ins that do not use [ItemHasAttachment, ItemHasKnownEntity, or ItemHasRegularExpressionMatch rules](activation-rules.md) to limit the types of items they activate on. However, contextual add-ins can present different commands depending on whether the currently selected item is a message or appointment, and can choose to appear in read or compose scenarios. Using add-in commands if possible is a [best practice](https://dev.office.com/docs/add-ins/overview/add-in-development-best-practices).
 
@@ -97,7 +103,7 @@ When viewing a meeting as an attendee, add-in commands added to the default tab 
 
 When using a module extension, add-in commands appear on the extension's custom tab.
 
-## Additional resources
+## See also
 
 - [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands)
 - [Add-in Command Demo Outlook Add-in](https://github.com/officedev/outlook-add-in-command-demo)

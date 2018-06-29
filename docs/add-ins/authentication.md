@@ -1,6 +1,6 @@
 ---
-title: Authentication options in Outlook add-ins | Microsoft Docs
-description: Learn about the ways to authenticate a user in an Outlook add-in.
+title: Authentication options in Outlook Add-ins | Microsoft Docs
+description: Learn about the ways to authenticate a user in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -9,9 +9,9 @@ ms.date: 09/13/2017
 ms.author: jasonjoh
 ---
 
-# Authentication options in Outlook add-ins
+# Authentication options in Outlook Add-ins
 
-Your Outlook add-in can access information from anywhere on the internet, whether from the server that hosts the add-in, from your internal network, or from somewhere else in the cloud. If that information is protected, your add-in needs a way to authenticate your user. Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
+Your Outlook Add-in can access information from anywhere on the internet, whether from the server that hosts the add-in, from your internal network, or from somewhere else in the cloud. If that information is protected, your add-in needs a way to authenticate your user. Outlook Add-ins provide a number of different methods to authenticate, depending on your specific scenario.
 
 ## Single sign-on access token
 
@@ -19,7 +19,7 @@ Single sign-on access tokens provide a seamless way for your add-in to authentic
 
 - Is used primarily by Office 365 users
 - Needs access to:
-    - Microsoft services that are exposed as part of the Microsoft Graph
+    - Microsoft services that are exposed as part of Microsoft Graph
     - A non-Microsoft service that you control
 
 The SSO authentication method uses the [OAuth2 On-Behalf-Of flow provided by Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of). It requires that the add-in register in the [Application Registration Portal](https://apps.dev.microsoft.com/) and specify any required Microsoft Graph scopes in its manifest.
@@ -31,7 +31,7 @@ Using this method, your add-in can obtain an access token scoped to your server 
 
 For a more detailed overview, see the [full overview of the SSO authentication method](https://dev.office.com/docs/add-ins/develop/sso-in-office-add-ins).
 
-For details on using the SSO token in an Outlook add-in, see [Authenticate a user with an single-sign-on token in an Outlook add-in](authenticate-a-user-with-an-sso-token.md).
+For details on using the SSO token in an Outlook Add-in, see [Authenticate a user with an single-sign-on token in an Outlook Add-in](authenticate-a-user-with-an-sso-token.md).
 
 For a sample add-in that uses the SSO token, see [AttachmentsDemo Sample Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo).
 
@@ -52,7 +52,7 @@ Using this method, your add-in prompts the user to sign-in to the service either
 
 ## Callback tokens
 
-Callback tokens provide access to the user's mailbox from your server back-end, either using [Exchange Web Services (EWS)](https://msdn.microsoft.com/en-us/library/office/dd877012(v=exchg.150).aspx), or the [Outlook REST API](https://msdn.microsoft.com/en-us/office/office365/api/use-outlook-rest-api). Consider using callback tokens if your add-in:
+Callback tokens provide access to the user's mailbox from your server back-end, either using [Exchange Web Services (EWS)](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange), or the [Outlook REST API](https://msdn.microsoft.com/en-us/office/office365/api/use-outlook-rest-api). Consider using callback tokens if your add-in:
 
 - Needs access to the user's mailbox from your server back-end.
 
