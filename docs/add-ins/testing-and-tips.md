@@ -1,6 +1,6 @@
 ---
-title: Deploy and install Outlook add-ins for testing | Microsoft Docs
-description: Learn how to test an Outlook add-in during development.
+title: Deploy and install Outlook Add-ins for testing | Microsoft Docs
+description: Learn how to test an Outlook Add-in during development.
 author: jasonjoh
 
 ms.topic: article
@@ -9,9 +9,9 @@ ms.date: 07/28/2017
 ms.author: jasonjoh
 ---
 
-# Deploy and install Outlook add-ins for testing
+# Deploy and install Outlook Add-ins for testing
 
-As part of the process of developing an Outlook add-in, you will probably find yourself iteratively deploying and installing the add-in for testing, which involves the following steps:
+As part of the process of developing an Outlook Add-in, you will probably find yourself iteratively deploying and installing the add-in for testing, which involves the following steps:
 
 1. Creating a manifest file that describes the add-in.
 1. Deploying the add-in UI file(s) to a web server.
@@ -20,7 +20,7 @@ As part of the process of developing an Outlook add-in, you will probably find y
 
 ## Creating a manifest file for the add-in
 
-Each add-in is described by an XML manifest, a document that gives the server information about the add-in, provides descriptive information about the add-in for the user, and identifies the location of the add-in UI HTML file. You can store the manifest in a local folder or server, as long as the location is accessible by the Exchange server of the mailbox that you are testing with. We'll assume that you store your manifest in a local folder. For information about how to create a manifest file, see [Outlook add-in manifests](manifests.md).
+Each add-in is described by an XML manifest, a document that gives the server information about the add-in, provides descriptive information about the add-in for the user, and identifies the location of the add-in UI HTML file. You can store the manifest in a local folder or server, as long as the location is accessible by the Exchange server of the mailbox that you are testing with. We'll assume that you store your manifest in a local folder. For information about how to create a manifest file, see [Outlook Add-in manifests](manifests.md).
 
 ## Deploying an add-in to a web server
 
@@ -52,7 +52,7 @@ Using Office 365 or Visual Studio to develop add-ins assigns you the organizatio
 
 ### Installing an add-in by using remote PowerShell
 
-After you create a remote Windows PowerShell session on your Exchange server, you can install an Outlook add-in by using the `New-App` cmdlet with the following PowerShell command.
+After you create a remote Windows PowerShell session on your Exchange server, you can install an Outlook Add-in by using the `New-App` cmdlet with the following PowerShell command.
 
 ```Shell
 New-App -URL:"http://<fully-qualified URL">
@@ -80,6 +80,6 @@ Deciding what versions of the Outlook client to test depends on your development
 > [!NOTE]
 > If your add-in does not support one of the above clients due to [requesting an API requirement set](apis.md) that the client does not support, that client would be removed from the list of reqiured clients.
 
-## Additional resources
+## See also
 
 - [Troubleshoot user errors with Office Add-ins](https://dev.office.com/docs/add-ins/testing/testing-and-troubleshooting?product=outlook)

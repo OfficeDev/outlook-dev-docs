@@ -1,15 +1,14 @@
 ---
-title: Use the Outlook REST APIs from an Outlook add-in | Microsoft Docs
-description: Learn how to use the Outlook REST APIs from an Outlook add-in.
+title: Use the Outlook REST APIs from an Outlook Add-in | Microsoft Docs
+description: Learn how to use the Outlook REST APIs from an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/08/2018
 ms.author: jasonjoh
 ---
 
-# Use the Outlook REST APIs from an Outlook add-in
+# Use the Outlook REST APIs from an Outlook Add-in
 
 The [Office.context.mailbox.item](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) namespace provides access to many of the common fields of messages and appointments. However, in some scenarios an add-in may need to access data that is not exposed by the namespace. For example, the add-in may rely on custom properties set by an outside app, or it needs to search the user's mailbox for messages from the same sender. In these scenarios, the [Outlook REST APIs](../rest/index.md) is the recommended method to retrieve the information.
 
@@ -45,7 +44,7 @@ Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function(result){
 
 ## Get the item ID
 
-In order to retrieve the current item via REST, your add-in will need the item's ID, properly formatted for REST. This is obtained from the [Office.context.mailbox.item.itemId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property, but some checks should be made to ensure that it is a REST-formatted ID.
+To retrieve the current item via REST, your add-in will need the item's ID, properly formatted for REST. This is obtained from the [Office.context.mailbox.item.itemId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property, but some checks should be made to ensure that it is a REST-formatted ID.
 
 - In Outlook Mobile, the value returned by `Office.context.mailbox.item.itemId` is a REST-formatted ID and can be used as-is.
 - In other Outlook clients, the value returned by `Office.context.mailbox.item.itemId` is an EWS-formatted ID, and must be converted using the [Office.context.mailbox.convertToRestId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method.
@@ -82,7 +81,7 @@ var restHost = Office.context.mailbox.restUrl;
 
 ## Call the API
 
-Once your add-in has the access token, item ID, and REST API URL, it can either pass that information to a back-end service which calls the REST API, or it can call it directly using AJAX. The following example calls the Outlook Mail REST API to get the current message.
+After your add-in has the access token, item ID, and REST API URL, it can either pass that information to a back-end service which calls the REST API, or it can call it directly using AJAX. The following example calls the Outlook Mail REST API to get the current message.
 
 ```js
 function getCurrentItem(accessToken) {
@@ -109,6 +108,6 @@ function getCurrentItem(accessToken) {
 }
 ```
 
-## Additional resources
+## See also
 
-For an example that calls the REST APIs from an Outlook add-in, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.
+For an example that calls the REST APIs from an Outlook Add-in, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.

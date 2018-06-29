@@ -1,8 +1,7 @@
 ---
-title: Get attachments in an Outlook add-in | Microsoft Docs
-description: Learn how to get attachments from an Outlook item in an Outlook add-in.
+title: Get attachments in an Outlook Add-in | Microsoft Docs
+description: Learn how to get attachments from an Outlook item in an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 04/12/2018
@@ -11,21 +10,26 @@ ms.author: jasonjoh
 
 # Get attachments of an Outlook item from the server
 
-An Outlook add-in cannot pass the attachments of a selected item directly to the remote service that runs on your server. Instead, the add-in can use the attachments API to send information about the attachments to the remote service. The service can then contact the Exchange server directly to retrieve the attachments.
+An Outlook Add-in cannot pass the attachments of a selected item directly to the remote service that runs on your server. Instead, the add-in can use the attachments API to send information about the attachments to the remote service. The service can then contact the Exchange server directly to retrieve the attachments.
 
 To send attachment information to the remote service, you use the following properties and function:
 
-- [Office.context.mailbox.ewsUrl](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) property -- Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](http://msdn.microsoft.com/en-us/library/office/dn600509%28v=exchg.80%29.aspx)[EWS Managed API](http://msdn.microsoft.com/library/c2267733-6f4f-49e5-9614-1e4a24c3af1a%28Office.15%29.aspx) method or the [GetAttachment](http://msdn.microsoft.com/en-us/library/24d10a15-b942-415e-9024-a6375708f326%28Office.15%29.aspx) EWS operation.
-- [Office.context.mailbox.item.attachments](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property -- Gets an array of [AttachmentDetails](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) objects, one for each attachment to the item.
-- [Office.context.mailbox.getCallbackTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) function -- Makes an asynchronous call to the Exchange server that hosts the mailbox to get a callback token that the server sends back to the Exchange server to authenticate a request for an attachment.
+- [Office.context.mailbox.ewsUrl](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) property &ndash; Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, or the [GetAttachment](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation.
+
+- [Office.context.mailbox.item.attachments](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property &ndash; Gets an array of [AttachmentDetails](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) objects, one for each attachment to the item.
+
+- [Office.context.mailbox.getCallbackTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) function &ndash; Makes an asynchronous call to the Exchange server that hosts the mailbox to get a callback token that the server sends back to the Exchange server to authenticate a request for an attachment.
 
 ## Using the attachments API
 
 To use the attachments API to get attachments from an Exchange mailbox, perform the following steps:
 
 1. Show the add-in when the user is viewing a message or appointment that contains an attachment.
+
 1. Get the callback token from the Exchange server.
+
 1. Send the callback token and attachment information to the remote service.
+
 1. Get the attachments from the Exchange server by using the `ExchangeService.GetAttachments` method or the `GetAttachment` operation.
 
 Each of these steps is covered in detail in the following sections using code from the [Outlook-Add-in-JavaScript-GetAttachments](https://github.com/OfficeDev/Outlook-Add-in-JavaScript-GetAttachments) sample.
@@ -33,7 +37,7 @@ Each of these steps is covered in detail in the following sections using code fr
 > [!NOTE]
 > The code in these examples has been shortened to emphasize the attachment information. The sample contains additional code for authenticating the add-in with the remote server and managing the state of the request.
 
-### Get a callback token
+## Get a callback token
 
 The [Office.context.mailbox](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) object provides the `getCallbackTokenAsync` function to get a token that the remote server can use to authenticate with the Exchange server. The following code shows a function in an add-in that starts the asynchronous request to get the callback token, and the callback function that gets the response. The callback token is stored in the service request object that is defined in the next section.
 
@@ -56,7 +60,7 @@ function attachmentTokenCallback(asyncResult, userContext) {
 }
 ```
 
-### Send attachment information to the remote service
+## Send attachment information to the remote service
 
 The remote service that your add-in calls defines the specifics of how you should send the attachment information to the service. In this example, the remote service is a Web API application created by using Visual Studio 2013. The remote service expects the attachment information in a JSON object. The following code initializes an object that contains the attachment information.
 
@@ -107,11 +111,11 @@ function makeServiceRequest() {
 }
 ```
 
-### Get the attachments from the Exchange server
+## Get the attachments from the Exchange server
 
-Your remote service can use either the [GetAttachments](http://msdn.microsoft.com/en-us/library/office/dn600509%28v=exchg.80%29.aspx) EWS Managed API method or the [GetAttachment](http://msdn.microsoft.com/library/24d10a15-b942-415e-9024-a6375708f326%28Office.15%29.aspx) EWS operation to retrieve attachments from the server. The service application needs two objects to deserialize the JSON string into .NET Framework objects that can be used on the server. The following code shows the definitions of the deserialization objects.
+Your remote service can use either the [GetAttachments](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) EWS Managed API method or the [GetAttachment](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation to retrieve attachments from the server. The service application needs two objects to deserialize the JSON string into .NET Framework objects that can be used on the server. The following code shows the definitions of the deserialization objects.
 
-```C#
+```cs
 namespace AttachmentsSample
 {
   public class AttachmentSampleServiceRequest
@@ -134,11 +138,11 @@ namespace AttachmentsSample
 }
 ```
 
-#### Use the EWS Managed API to get the attachments
+### Use the EWS Managed API to get the attachments
 
-If you use the [EWS Managed API](http://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](http://msdn.microsoft.com/en-us/library/office/dn600509%28v=exchg.80%29.aspx) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
+If you use the [EWS Managed API](http://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
 
-```C#
+```cs
 private AttachmentSampleServiceResponse GetAtttachmentsFromExchangeServerUsingEWSManagedApi(AttachmentSampleServiceRequest request)
 {
   var attachmentsProcessedCount = 0;
@@ -200,12 +204,12 @@ private AttachmentSampleServiceResponse GetAtttachmentsFromExchangeServerUsingEW
 }
 ```
 
-#### Use EWS to get the attachments
+### Use EWS to get the attachments
 
-If you use EWS in your remote service, you need to construct a [GetAttachment](http://msdn.microsoft.com/library/24d10a15-b942-415e-9024-a6375708f326%28Office.15%29.aspx) SOAP request to get the attachments from the Exchange server. The following code returns a string that provides the SOAP request. The remote service uses the `String.Format` method to insert the attachment ID for an attachment into the string.
+If you use EWS in your remote service, you need to construct a [GetAttachment](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getattachment-operation) SOAP request to get the attachments from the Exchange server. The following code returns a string that provides the SOAP request. The remote service uses the `String.Format` method to insert the attachment ID for an attachment into the string.
 
 
-```C#
+```cs
 private const string GetAttachmentSoapRequest =
 @"<?xml version=""1.0"" encoding=""utf-8""?>
 <soap:Envelope xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
@@ -229,7 +233,7 @@ xmlns:t=""http://schemas.microsoft.com/exchange/services/2006/types"">
 
 Finally, the following method does the work of using an EWS `GetAttachment` request to get the attachments from the Exchange server. This implementation makes an individual request for each attachment, and returns the count of attachments processed. Each response is processed in a separate `ProcessXmlResponse` method, defined next.
 
-```C#
+```cs
 private AttachmentSampleServiceResponse GetAttachmentsFromExchangeServerUsingEWS(AttachmentSampleServiceRequest request)
 {
   var attachmentsProcessedCount = 0;
@@ -304,7 +308,7 @@ private AttachmentSampleServiceResponse GetAttachmentsFromExchangeServerUsingEWS
 
 Each response from the `GetAttachment` operation is sent to the `ProcessXmlResponse` method. This method checks the response for errors. If it doesn't find any errors, it processes file attachments and item attachments. The `ProcessXmlResponse` method performs the bulk of the work to process the attachment.
 
-```C#
+```cs
 // This method processes the response from the Exchange server.
 // In your application the bulk of the processing occurs here.
 private string ProcessXmlResponse(XElement responseEnvelope)
@@ -395,9 +399,9 @@ private string ProcessXmlResponse(XElement responseEnvelope)
 }
 ```
 
-## Additional resources
+## See also
 
-- [Create Outlook add-ins for read forms](read-scenario.md)
+- [Create Outlook Add-ins for read forms](read-scenario.md)
 - [Explore the EWS Managed API, EWS, and web services in Exchange](/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange)
 - [Get started with EWS Managed API client applications](/exchange/client-developer/exchange-web-services/get-started-with-ews-managed-api-client-applications)
 - [AttachmentsDemo Sample Outlook Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo)

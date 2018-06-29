@@ -1,6 +1,6 @@
 ---
-title: Create Outlook add-ins for compose forms | Microsoft Docs
-description: Learn about scenarios and capabilities of Outlook add-ins for compose forms.
+title: Create Outlook Add-ins for compose forms | Microsoft Docs
+description: Learn about scenarios and capabilities of Outlook Add-ins for compose forms.
 author: jasonjoh
 
 ms.topic: article
@@ -9,9 +9,9 @@ ms.date: 05/02/2018
 ms.author: jasonjoh
 ---
 
-# Create Outlook add-ins for compose forms
+# Create Outlook Add-ins for compose forms
 
-Starting with version 1.1 of the schema for Office Add-ins manifests and v1.1 of Office.js, you can create compose add-ins, which are Outlook add-ins activated in compose forms. In contrast with read add-ins (Outlook add-ins that are activated in read mode when a user is viewing a message or appointment), compose add-ins are available in the following user scenarios:
+Starting with version 1.1 of the schema for Office Add-ins manifests and v1.1 of Office.js, you can create compose add-ins, which are Outlook Add-ins activated in compose forms. In contrast with read add-ins (Outlook Add-ins that are activated in read mode when a user is viewing a message or appointment), compose add-ins are available in the following user scenarios:
 
 - Composing a new message, meeting request, or appointment in a compose form.
 - Viewing or editing an existing appointment, or meeting item in which the user is the organizer.
@@ -49,6 +49,6 @@ Compose add-ins are implemented as [Add-in commands for Outlook](add-in-commands
 - [Get or set the time when composing an appointment in Outlook](get-or-set-the-time-of-an-appointment.md)
 - [Outlook-Power-Hour_Code-Samples](https://github.com/OfficeDev/Outlook-Power-Hour-Code-Samples): `ComposeAppDemo`
 
-## Additional resources
+## See also
 
-- [Get Started with Outlook add-ins for Office 365](quick-start.md)
+- [Get Started with Outlook Add-ins for Office 365](quick-start.md)

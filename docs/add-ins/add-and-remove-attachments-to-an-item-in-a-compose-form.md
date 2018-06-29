@@ -1,6 +1,6 @@
 ---
-title: Add and remove attachments in an Outlook add-in | Microsoft Docs
-description: Learn how to add or remove attachments from items in an Outlook add-in.
+title: Add and remove attachments in an Outlook Add-in | Microsoft Docs
+description: Learn how to add or remove attachments from items in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -69,7 +69,7 @@ function write(message){
 
 ## Attaching an Outlook item
 
-You can attach an Outlook item (for example, email, calendar, or contact item) to a message or appointment in a compose form by specifying the Exchange Web Services (EWS) ID of the item and using the `addItemAttachmentAsync` method. You can get the EWS ID of an email, calendar, contact or task item in the user's mailbox by using the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method and accessing the EWS operation [FindItem](http://msdn.microsoft.com/en-us/library/ebad6aae-16e7-44de-ae63-a95b24539729%28Office.15%29.aspx). The [item.itemId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property also provides the EWS ID of an existing item in a read form.
+You can attach an Outlook item (for example, email, calendar, or contact item) to a message or appointment in a compose form by specifying the Exchange Web Services (EWS) ID of the item and using the `addItemAttachmentAsync` method. You can get the EWS ID of an email, calendar, contact or task item in the user's mailbox by using the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method and accessing the EWS operation [FindItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/finditem-operation). The [item.itemId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property also provides the EWS ID of an existing item in a read form.
 
 The following JavaScript function, `addItemAttachment`, extends the first example above, and adds an item as an attachment to the email or appointment that is being composed. The function takes as an argument the EWS ID of the item that is to be attached. If the attaching succeeds, it gets the attachment ID for further processing, including removing that attachment in the same session.
 
@@ -136,7 +136,7 @@ function removeAttachment(attachmentId) {
 }
 ```
 
-## Additional resources
+## See also
 
-- [Create Outlook add-ins for compose forms](compose-scenario.md)
+- [Create Outlook Add-ins for compose forms](compose-scenario.md)
 - [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins)

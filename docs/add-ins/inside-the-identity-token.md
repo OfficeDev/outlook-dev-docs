@@ -1,6 +1,6 @@
 ---
-title: Inside the Exchange identity token in an Outlook add-in | Microsoft Docs
-description: Learn about the contents of an Exchange user identity token generated from an Outlook add-in.
+title: Inside the Exchange identity token in an Outlook Add-in | Microsoft Docs
+description: Learn about the contents of an Exchange user identity token generated from an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -83,6 +83,6 @@ The information in the appctx claim provides you with the unique identifier for 
 
 The signature is created by hashing the header and payload sections with the algorithm specified in the header and using the self-signed X509 certificate located on the server at the location specified in the payload. Your web service can validate this signature to help make sure that the identity token comes from the server that you expect to send it.
 
-## Additional resources
+## See also
 
 For an example that parses the Exchange user identity token, see [Outlook-Add-In-Token-Viewer](https://github.com/OfficeDev/Outlook-Add-In-Token-Viewer).

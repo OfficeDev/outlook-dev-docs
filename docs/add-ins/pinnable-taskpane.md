@@ -1,8 +1,7 @@
 ---
-title: Implement a pinnable taskpane in an Outlook add-in | Microsoft Docs
-description: Learn how to implement a pinnable taskpane in an Outlook add-in.
+title: Implement a pinnable taskpane in an Outlook Add-in | Microsoft Docs
+description: Learn how to implement a pinnable taskpane in an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017
@@ -25,7 +24,7 @@ The first step is to add pinning support, which is done in the add-in [manifest]
 The `SupportsPinning` element is defined in the VersionOverrides v1.1 schema, so you will need to include a [VersionOverrides](https://dev.office.com/reference/add-ins/manifest/versionoverrides?product=outlook&version=v1.5) element both for v1.0 and v1.1.
 
 > [!NOTE]
-> If you plan to [publish](https://dev.office.com/docs/add-ins/publish/publish?product=outlook) your Outlook add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [Office Store validation](https://msdn.microsoft.com/en-us/library/jj220035.aspx), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
+> If you plan to [publish](https://dev.office.com/docs/add-ins/publish/publish?product=outlook) your Outlook Add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [AppSource (Office Store) validation](https://docs.microsoft.com/en-us/office/dev/store/validation-policies), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
 
 ```xml
 <!-- Task pane button -->
@@ -80,6 +79,6 @@ Office.initialize = function (reason) {
 };
 ```
 
-## Additional Resources
+## See also
 
 For an example add-in that implements a pinnable taskpane, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.

@@ -1,6 +1,6 @@
 ---
-title: Authenticate a user with an identity token in an Outlook add-in | Microsoft Docs
-description: Learn about using the identity token provided by an Outlook add-in to implement SSO with your service.
+title: Authenticate a user with an identity token in an Outlook Add-in | Microsoft Docs
+description: Learn about using the identity token provided by an Outlook Add-in to implement SSO with your service.
 author: jasonjoh
 
 ms.topic: article
@@ -11,7 +11,7 @@ ms.author: jasonjoh
 
 # Authenticate a user with an identity token for Exchange
 
-Exchange user identity tokens provide a way for your add-in to uniquely identify an add-in user. By establishing the user's identity, you can implement a single sign-on (SSO) authentication scheme for your back-end service that enables customers who are using Outlook add-ins to connect to your service without logging in. In this article, we'll take a look at a simplistic method of using the Exchange identity token to authenticate a user to your back-end.
+Exchange user identity tokens provide a way for your add-in to uniquely identify an add-in user. By establishing the user's identity, you can implement a single sign-on (SSO) authentication scheme for your back-end service that enables customers who are using Outlook Add-ins to connect to your service without logging in. In this article, we'll take a look at a simplistic method of using the Exchange identity token to authenticate a user to your back-end.
 
 > [!IMPORTANT]
 > This is just a simple example of an SSO implementation. As always, when you're dealing with identity and authentication, you have to make sure that your code meets the security requirements of your organization.

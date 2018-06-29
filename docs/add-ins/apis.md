@@ -1,21 +1,20 @@
 ---
-title: Outlook add-in APIs | Microsoft Docs
-description: Learn how to reference the Outlook add-in APIs and declare permissions in your Outlook add-in.
+title: Outlook Add-in APIs | Microsoft Docs
+description: Learn how to reference the Outlook Add-in APIs and declare permissions in your Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 07/14/2017
 ms.author: jasonjoh
 ---
 
-# Outlook add-in APIs
+# Outlook Add-in APIs
 
-To use APIs in your Outlook add-in, you must specify the location of the Office.js library, the requirement set, the schema, and the permissions.
+To use APIs in your Outlook Add-in, you must specify the location of the Office.js library, the requirement set, the schema, and the permissions.
 
 ## Office.js library
 
-To interact with the Outlook add-in API, you need to use the JavaScript APIs in Office.js. The CDN for the library is `https://appsforoffice.microsoft.com/lib/1/hosted/Office.js`. Add-ins submitted to the Office Store must reference Office.js by this CDN; they can't use a local reference.
+To interact with the Outlook Add-in API, you need to use the JavaScript APIs in Office.js. The CDN for the library is `https://appsforoffice.microsoft.com/lib/1/hosted/Office.js`. Add-ins submitted to the Office Store must reference Office.js by this CDN; they can't use a local reference.
 
 Reference the CDN in a `<script>` tag in the `<head>` tag of the web page (.html, .aspx, or .php file) that implements the UI of your add-in.
 
@@ -46,27 +45,27 @@ if (item.somePropertyOrFunction) {
 > [!NOTE]
 > These checks are not needed for any APIs that are in the requirement set version specified in the manifest.
 
-Specify the minimum requirement set that supports the critical set of APIs for your scenario, without which features of your add-in won't work. You specify the requirement set in the manifest in the `<Requirements>` element. For more information, see [Outlook add-in manifests](manifests.md) and 
+Specify the minimum requirement set that supports the critical set of APIs for your scenario, without which features of your add-in won't work. You specify the requirement set in the manifest in the `<Requirements>` element. For more information, see [Outlook Add-in manifests](manifests.md) and 
 [Understanding Outlook API requirement sets](https://dev.office.com/reference/add-ins/outlook/tutorial-api-requirement-sets?product=outlook&version=v1.5).
 
-The `<Methods>` element doesn't apply to Outlook add-ins, so you can't declare support for specific methods.
+The `<Methods>` element doesn't apply to Outlook Add-ins, so you can't declare support for specific methods.
 
 ## Permissions
 
-Your add-in requires the appropriate permissions to use the APIs that it needs. There are four levels of permissions. For more details, see [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md).
+Your add-in requires the appropriate permissions to use the APIs that it needs. There are four levels of permissions. For more details, see [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md).
 
-|**Permission level**|**Description**|
+|Permission level|Description|
 |:-----|:-----|
 | **Restricted** | Allows use of entities but not regular expressions. |
-| **Read item** | In addition to what is allowed in **Restricted**, it allows:<ul><li>regular expressions</li><li>Outlook add-in API read access</li><li>getting the item properties and the callback token</li></ul> |
-| **Read/write** | In addition to what is allowed in **Read item**, it allows:<ul><li>full Outlook add-in API access except `makeEwsRequestAsync`</li><li>setting the item properties</li></ul> |
+| **Read item** | In addition to what is allowed in **Restricted**, it allows:<ul><li>regular expressions</li><li>Outlook Add-in API read access</li><li>getting the item properties and the callback token</li></ul> |
+| **Read/write** | In addition to what is allowed in **Read item**, it allows:<ul><li>full Outlook Add-in API access except `makeEwsRequestAsync`</li><li>setting the item properties</li></ul> |
 | **Read/write mailbox** | In addition to what is allowed in **Read/write**, it allows:<ul><li>creating, reading, writing items and folders</li><li>sending items</li><li>calling [makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5#makeewsrequestasyncdata-callback-usercontext)</li></ul> |
 
-In general, you should specify the minimum permission needed for your add-in. Permissions are declared in the `<Permissions>` element in the manifest. For more information, see [Outlook add-in manifests](manifests.md). For information about security issues, see [Privacy, permissions, and security for Office add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook).
+In general, you should specify the minimum permission needed for your add-in. Permissions are declared in the `<Permissions>` element in the manifest. For more information, see [Outlook Add-in manifests](manifests.md). For information about security issues, see [Privacy, permissions, and security for Office add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook).
 
 
-## Additional resources
+## See also
 
-- [Outlook add-in manifests](manifests.md)
+- [Outlook Add-in manifests](manifests.md)
 - [Understanding Outlook API requirement sets](https://dev.office.com/reference/add-ins/outlook/tutorial-api-requirement-sets?product=outlook&version=v1.5)
 - [Privacy, permissions, and security for Office add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)

@@ -1,6 +1,6 @@
 ---
 title: Outlook REST API Overview | Microsoft Docs
-description: Learn about the benefits of the Outlook APIs in the Microsoft Graph.
+description: Learn about the benefits of the Outlook APIs in Microsoft Graph.
 author: jasonjoh
 
 ms.topic: overview
@@ -60,4 +60,4 @@ to make all Outlook REST API calls in the following APIs:
 - [Outlook Notifications REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/webhooks)
 - [Outlook Photo REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/profilephoto)
 
-For more information and a comparison between the Graph endpoints and the Outlook API endpoints, see [Compare the Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).
+For more information and a comparison between the Graph endpoints and the Outlook API endpoints, see [Compare Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).
