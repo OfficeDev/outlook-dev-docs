@@ -1,5 +1,7 @@
 - name: Overview
   href: index.md
+- name: Office add-ins platform overview
+  href: /office/dev/add-ins/overview/office-add-ins?context=outlook/context
 - name: Get started
   items:
   - name: Build your first Outlook Add-in
