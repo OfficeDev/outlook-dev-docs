@@ -22,6 +22,6 @@ Outlook Add-in reference documentation is hosted on dev.office.com.
 - <a href="https://dev.office.com/reference/add-ins/outlook/preview/index?product=outlook&version=preview" target="_blank">Preview Requirement set (Link opens in a new window)</a>
 
 
-Reference documentation shared with other Office hosts.
+Office API reference documentation shared with other Office hosts.
 
 - <a href="https://dev.office.com/reference/add-ins/javascript-api-for-office" target="_blank">JavaScript API for Office (Link opens in a new window)</a>
