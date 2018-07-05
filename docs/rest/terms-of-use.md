@@ -1,5 +1,5 @@
 ---
-title: Outlook REST APIs terms of use | Microsoft Docs
+title: Microsoft API terms of use | Microsoft Docs
 description: Review the terms of use for the Outlook REST APIs.
 author: jasonjoh
 
@@ -9,7 +9,7 @@ ms.devlang: rest-api
 ms.date: 07/05/2018
 ms.author: jasonjoh
 ---
-# Outlook REST APIs terms of use
+# Microsoft API terms of use
 
 Thank you for developing with Microsoft!
 
