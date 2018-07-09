@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: get-started-article
 ms.technology: o365-connectors
-ms.date: 05/07/2018
+ms.date: 07/09/2018
 ms.author: jasonjoh
 ---
 # Send an actionable message via email in Office 365
@@ -215,4 +215,4 @@ For examples of sending messages, see the following.
 
 For examples of performing actions, see the following.
 
-- [Hello Actionable Messages](https://github.com/OfficeDev/HelloActionableMessages): A sample project with one-click button Azure deployment, that allows developers to have end-to-end actionable message working within 10 minutes and serving as reference of building production action endpoint
+- [Hello Actionable Messages](https://github.com/OfficeDev/HelloActionableMessages): A sample project with one-click button Azure deployment. This sample is a simple end-to-end actionable message solution that can be up and working within 10 minutes, and serves as a reference for building a production action endpoint.
