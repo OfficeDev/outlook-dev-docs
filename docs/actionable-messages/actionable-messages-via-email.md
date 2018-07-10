@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: get-started-article
 ms.technology: o365-connectors
-ms.date: 05/07/2018
+ms.date: 07/09/2018
 ms.author: jasonjoh
 ---
 # Send an actionable message via email in Office 365
@@ -210,3 +210,9 @@ For examples of sending messages, see the following.
 
 - [Send Actionable Message via Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using [Microsoft Graph](https://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/message_send).
 - [Send Actionable Message via SMTP](https://gist.github.com/jasonjoh/3ec367594c3fa662ee983a617bdc7deb): A sample Python script that sends an actionable message using the Office 365 SMTP server.
+
+### Perform actions
+
+For examples of performing actions, see the following.
+
+- [Hello Actionable Messages](https://github.com/OfficeDev/HelloActionableMessages): A sample project with one-click button Azure deployment. This sample is a simple end-to-end actionable message solution that can be up and working within 10 minutes, and serves as a reference for building a production action endpoint.
