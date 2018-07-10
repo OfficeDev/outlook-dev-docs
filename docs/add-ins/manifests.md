@@ -271,7 +271,7 @@ If the add-in's requested permissions change, users will be prompted to upgrade 
 
 ## VersionOverrides
 
-The  **VersionOverrides** element is the location of information for add-in commands. For more information about this element, see [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands).
+The  **VersionOverrides** element is the location of information for add-in commands. For more information about this element, see [Define add-in commands in your manifest](https://docs.microsoft.com/office/dev/add-ins/develop/define-add-in-commands).
 
 This element is also where add-ins define support for [mobile add-ins](add-mobile-support.md).
 
@@ -321,7 +321,7 @@ Outlook Add-ins specify the  **Hosts** element like the followiing.
 </OfficeApp>
 ```
 
-This is separate from the  **Hosts** element inside the **VersionOverrides** element, which is discussed in [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands).
+This is separate from the  **Hosts** element inside the **VersionOverrides** element, which is discussed in [Define add-in commands in your manifest](https://docs.microsoft.com/office/dev/add-ins/develop/define-add-in-commands).
 
 ## Requirements
 
@@ -349,7 +349,7 @@ The  **FormSettings** element is used by older Outlook clients, which only suppo
 
 These settings are directly related to the activation rules in the  **Rule** element. For example, if an add-in specifies that it should appear on a message in compose mode, an **ItemEdit** form must be specified.
 
-For more details, please refer to the [Schema reference for Office Add-ins manifests (v1.1)](https://dev.office.com/docs/add-ins/overview/add-in-manifests?product=outlook)
+For more details, please refer to the [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests)
 
 ## App domains
 
@@ -407,7 +407,7 @@ For details and samples of activation rules, see [Activation rules for Outlook A
 
 ## Next steps: Add-in commands
 
-After defining a basic manifest, [define add-in commands for your add-in](https://dev.office.com/docs/add-ins/develop/define-add-in-commands?product=outlook). Add-in commands present a button in the ribbon so users can activate your add-in in a simple, intuitive way. For more information, see [Add-in commands for Outlook](add-in-commands-for-outlook.md).
+After defining a basic manifest, [define add-in commands for your add-in](https://docs.microsoft.com/office/dev/add-ins/develop/define-add-in-commands). Add-in commands present a button in the ribbon so users can activate your add-in in a simple, intuitive way. For more information, see [Add-in commands for Outlook](add-in-commands-for-outlook.md).
 
 For an example add-in that defines add-in commands, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo).
 
@@ -417,12 +417,12 @@ Add-ins can optionally add support for Outlook mobile. Outlook mobile supports a
 
 ## See also
 
-- [Localization for Office Add-ins](https://dev.office.com/docs/add-ins/develop/localization?product=outlook)   
+- [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization)   
 - [Privacy, permissions, and security for Outlook Add-ins](privacy-and-security.md)   
 - [Outlook Add-in APIs](apis.md)   
-- [Office Add-ins XML manifest](https://dev.office.com/docs/add-ins/overview/add-in-manifests?product=outlook)    
-- [Schema reference for Office Add-ins manifests (v1.1)](https://dev.office.com/docs/add-ins/overview/add-in-manifests?product=outlook)    
-- [Design guidelines for Office Add-ins](https://dev.office.com/docs/add-ins/design/add-in-design-guidelines?product=outlook)    
+- [Office Add-ins XML manifest](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)    
+- [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)
+- [Design guidelines for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/add-in-design)    
 - [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md)    
 - [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)

@@ -21,7 +21,7 @@ The way that you call a web service varies based on where the web service is loc
 |:-----|:-----|
 |The Exchange server that hosts the client mailbox|Use the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method to call EWS operations that add-ins support. The Exchange server that hosts the mailbox also exposes EWS.|
 |The web server that provides the source location for the add-in UI|Call the web service by using standard JavaScript techniques. The JavaScript code in the UI frame runs in the context of the web server that provides the UI. Therefore, it can call web services on that server without causing a cross-site scripting error.|
-|All other locations|Create a proxy for the web service on the web server that provides the source location for the UI. If you do not provide a proxy, cross-site scripting errors will prevent your add-in from running. One way to provide a proxy is by using JSON/P. For more information, see [Privacy and security for Office Add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook).|
+|All other locations|Create a proxy for the web service on the web server that provides the source location for the UI. If you do not provide a proxy, cross-site scripting errors will prevent your add-in from running. One way to provide a proxy is by using JSON/P. For more information, see [Privacy and security for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security).|
 
 ## Using the makeEwsRequestAsync method to access EWS operations
 
@@ -202,8 +202,8 @@ Your add-in must specify the **ReadWriteMailbox** permission in its add-in manif
 
 ## See also
 
-- [Privacy and security for Office Add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)    
-- [Addressing same-origin policy limitations in Office Add-ins](https://dev.office.com/docs/add-ins/develop/addressing-same-origin-policy-limitations?product=outlook)   
+- [Privacy and security for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)    
+- [Addressing same-origin policy limitations in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/addressing-same-origin-policy-limitations)   
 - [EWS reference for Exchange](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/ews-reference-for-exchange)   
 - [Mail apps for Outlook and EWS in Exchange](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/mail-apps-for-outlook-and-ews-in-exchange)
    

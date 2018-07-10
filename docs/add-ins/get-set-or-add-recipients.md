@@ -34,7 +34,7 @@ item.cc.getAsync
 
 These properties are available for write access in only compose forms and not read forms.
 
-As with most asynchronous methods in the JavaScript API for Office,  **getAsync**,  **setAsync**, and  **addAsync** take optional input parameters. For more information about specifying these optional input parameters, see [passing optional parameters to asynchronous methods](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook#passing-optional-parameters-inline) in [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook).
+As with most asynchronous methods in the JavaScript API for Office,  **getAsync**,  **setAsync**, and  **addAsync** take optional input parameters. For more information about specifying these optional input parameters, see [passing optional parameters to asynchronous methods](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins#passing-optional-parameters-inline) in [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
 
 
 ## To get recipients
@@ -320,7 +320,7 @@ function addAttendees() {
     
 - [Create Outlook Add-ins for compose forms](compose-scenario.md)
     
-- [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook)
+- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)
     
 - [Get or set the subject when composing an appointment or message in Outlook](get-or-set-the-subject.md)
     
