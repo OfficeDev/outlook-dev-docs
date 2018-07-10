@@ -29,7 +29,7 @@ item.location.getAsync(function(result){
 
 The `location` property is available for write access in only compose forms of appointments, but not in read forms.
 
-As with most asynchronous methods in the JavaScript API for Office, `getAsync` and `setAsync` take optional input parameters. For more information about specifying these optional input parameters, see [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins).
+As with most asynchronous methods in the JavaScript API for Office, `getAsync` and `setAsync` take optional input parameters. For more information about specifying these optional input parameters, see [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
 
 ## To get the location
 
@@ -115,4 +115,4 @@ function write(message){
 ## See also
 
 - [Write your first Outlook Add-in](addin-tutorial.md)
-- [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins)
+- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)

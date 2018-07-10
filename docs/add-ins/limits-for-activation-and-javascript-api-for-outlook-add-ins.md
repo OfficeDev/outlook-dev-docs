@@ -91,4 +91,4 @@ Aside from the preceding guidelines for activation rules, each of the Outlook ho
 ## See also
 
 - [Deploy and install Outlook Add-ins for testing](testing-and-tips.md)
-- [Privacy, permissions, and security for Outlook Add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security)
+- [Privacy, permissions, and security for Outlook Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)

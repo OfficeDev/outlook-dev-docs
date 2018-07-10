@@ -22,7 +22,7 @@ Outlook Add-in commands provide ways to initiate specific add-in actions from th
 > 
 > Support for add-in commands in Exchange 2016 requires [Cumulative Update 5](https://support.microsoft.com/en-us/help/4012106/cumulative-update-5-for-exchange-server-2016).
 
-Add-in commands are only available for add-ins that do not use [ItemHasAttachment, ItemHasKnownEntity, or ItemHasRegularExpressionMatch rules](activation-rules.md) to limit the types of items they activate on. However, contextual add-ins can present different commands depending on whether the currently selected item is a message or appointment, and can choose to appear in read or compose scenarios. Using add-in commands if possible is a [best practice](https://dev.office.com/docs/add-ins/overview/add-in-development-best-practices).
+Add-in commands are only available for add-ins that do not use [ItemHasAttachment, ItemHasKnownEntity, or ItemHasRegularExpressionMatch rules](activation-rules.md) to limit the types of items they activate on. However, contextual add-ins can present different commands depending on whether the currently selected item is a message or appointment, and can choose to appear in read or compose scenarios. Using add-in commands if possible is a [best practice](https://docs.microsoft.com/office/dev/add-ins/concepts/add-in-development-best-practices).
 
 ## Creating the add-in command
 
@@ -105,5 +105,5 @@ When using a module extension, add-in commands appear on the extension's custom 
 
 ## See also
 
-- [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands)
+- [Define add-in commands in your manifest](https://docs.microsoft.com/office/dev/add-ins/develop/create-addin-commands)
 - [Add-in Command Demo Outlook Add-in](https://github.com/officedev/outlook-add-in-command-demo)
