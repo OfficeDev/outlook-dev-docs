@@ -422,7 +422,7 @@ Add-ins can optionally add support for Outlook mobile. Outlook mobile supports a
 - [Outlook Add-in APIs](apis.md)   
 - [Office Add-ins XML manifest](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)    
 - [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)
-- [Design guidelines for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/add-in-design)    
+- [Design your Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/add-in-design)    
 - [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md)    
 - [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
