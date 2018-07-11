@@ -209,7 +209,7 @@ To embed an actionable message card in an email message, we need to wrap the car
 For examples of sending messages, see the following.
 
 - [Send Actionable Message via Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using [Microsoft Graph](https://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/message_send).
-- [Send Actionable Message via SMTP](https://gist.github.com/jasonjoh/3ec367594c3fa662ee983a617bdc7deb): A sample Python script that sends an actionable message using the Office 365 SMTP server.
+- [Send Actionable Message via SMTP](https://github.com/tony-zhu/SendActionableMessage): A sample Python script that sends an actionable message using the Office 365 SMTP server. It also includes a sample HTML payload for the actioable message email body.
 
 ### Perform actions
 
