@@ -16,6 +16,8 @@ You can specify a regular expression as part of an [ItemHasRegularExpressionMatc
 
 Outlook evaluates regular expressions based on the rules for the JavaScript interpreter used by the browser on the client computer. Outlook supports the same list of special characters that all XML processors also support. The following table lists these special characters. You can use these characters in a regular expression by specifying the escaped sequence for the corresponding character, as described in the following table.
 
+<br/>
+
 |Character|Description|Escape sequence to use|
 |:-----|:-----|:-----|
 |`"`|Double quotation mark|`&quot;`|
@@ -28,11 +30,13 @@ Outlook evaluates regular expressions based on the rules for the JavaScript inte
 
 An  `ItemHasRegularExpressionMatch` rule is useful in controlling activation of an add-in based on specific values of a supported property. The `ItemHasRegularExpressionMatch` rule has the following attributes.
 
+<br/>
+
 |Attribute name|Description|
 |:-----|:-----|
 |`RegExName`|Specifies the name of the regular expression so that you can refer to the expression in the code for your add-in.|
 |`RegExValue`|Specifies the regular expression that will be evaluated to determine whether the add-in should be shown.|
-|`PropertyName`|Specifies the name of the property that the regular expression will be evaluated against. The allowed values are `BodyAsHTML`, `BodyAsPlaintext`, `SenderSMTPAddress`, and `Subject`. If you specify `BodyAsHTML`, Outlook applies the regular expression only if the item body is HTML, and otherwise Outlook returns no matches for that regular expression. If you specify  `BodyAsPlaintext`, Outlook always applies the regular expression on the item body.|
+|`PropertyName`|Specifies the name of the property that the regular expression will be evaluated against. The allowed values are `BodyAsHTML`, `BodyAsPlaintext`, `SenderSMTPAddress`, and `Subject`.<br/><br/>If you specify `BodyAsHTML`, Outlook applies the regular expression only if the item body is HTML, and otherwise Outlook returns no matches for that regular expression.<br/><br/>If you specify  `BodyAsPlaintext`, Outlook always applies the regular expression on the item body.|
 |`IgnoreCase`|Specifies whether to ignore case when matching the regular expression specified by `RegExName`.|
 
 ### Best practices for using regular expressions in rules
@@ -59,6 +63,9 @@ The following `ItemHasRegularExpressionMatch` rule activates the add-in whenever
     PropertyName="SenderSMTPAddress"
 />
 ```
+
+<br/>
+
 The following is another way to specify the same regular expression using the  `IgnoreCase` attribute.
 
 ```XML
@@ -69,6 +76,9 @@ The following is another way to specify the same regular expression using the  `
     IgnoreCase="true"
 />
 ```
+
+<br/>
+
 The following `ItemHasRegularExpressionMatch` rule activates the add-in whenever a stock symbol is included in the body of the current item.
 
 ```XML
@@ -87,6 +97,8 @@ An `ItemHasKnownEntity` rule activates an add-in based on the existence of an en
 > Outlook can only extract entity strings in English regardless of the default locale specified in the manifest. Only messages support the `MeetingSuggestion` entity type; appointments do not. You cannot extract entities from items in the **Sent Items** folder, nor can you use an `ItemHasKnownEntity` rule to activate an add-in for items in the **Sent Items** folder.
 
 The `ItemHasKnownEntity` rule supports the attributes in the following table. Note that while specifying a regular expression is optional in an `ItemHasKnownEntity` rule, if you choose to use a regular expression as an entity filter, you must specify both the `RegExFilter` and `FilterName` attributes.
+
+<br/>
 
 |Attribute name|Description|
 |:-----|:-----|
@@ -133,11 +145,15 @@ The following is an example of a rule collection that contains an  `ItemHasRegul
 </Rule>
 ```
 
+<br/>
+
 The following example uses `getRegExMatches` of the current item to set a variable `videos` to the results of the preceding `ItemHasRegularExpressionMatch` rule.
 
 ```js
 var videos = Office.context.mailbox.item.getRegExMatches().videoURL;
 ```
+
+<br/>
 
 Multiple matches are stored as array elements in that object. The following code example shows how to iterate over the matches for a regular expression named  `reg1` to build a string to display as HTML.
 
@@ -160,6 +176,8 @@ function initDialer()
 }
 ```
 
+<br/>
+
 The following is an example of an `ItemHasKnownEntity` rule that specifies the `MeetingSuggestion` entity and a regular expression named `CampSuggestion`. Outlook activates the add-in if it detects that the currently selected item contains a meeting suggestion, and the subject or body contains the term `WonderCamp`.
 
 ```XML
@@ -169,6 +187,8 @@ The following is an example of an `ItemHasKnownEntity` rule that specifies the `
     FilterName="CampSuggestion"
     IgnoreCase="false"/>
 ```
+
+<br/>
 
 The following code example uses `getFilteredEntitiesByName` on the current item to set a variable `suggestions` to an array of detected meeting suggestions for the preceding `ItemHasKnownEntity` rule.
 

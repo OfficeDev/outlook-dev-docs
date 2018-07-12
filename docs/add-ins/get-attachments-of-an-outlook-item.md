@@ -75,6 +75,8 @@ The remote service that your add-in calls defines the specifics of how you shoul
  };
 ```
 
+<br/>
+
 The `Office.context.mailbox.item.attachments` property contains a collection of `AttachmentDetails` objects, one for each attachment to the item. In most cases, the add-in can pass just the attachment ID property of an `AttachmentDetails` object to the remote service. If the remote service needs more details about the attachment, you can pass all or part of the `AttachmentDetails` object. The following code defines a method that puts the entire `AttachmentDetails` array in the `serviceRequest` object and sends a request to the remote service.
 
 ```js
@@ -231,6 +233,8 @@ xmlns:t=""http://schemas.microsoft.com/exchange/services/2006/types"">
 </soap:Envelope>";
 ```
 
+<br/>
+
 Finally, the following method does the work of using an EWS `GetAttachment` request to get the attachments from the Exchange server. This implementation makes an individual request for each attachment, and returns the count of attachments processed. Each response is processed in a separate `ProcessXmlResponse` method, defined next.
 
 ```cs
@@ -305,6 +309,8 @@ private AttachmentSampleServiceResponse GetAttachmentsFromExchangeServerUsingEWS
   return response;
 }
 ```
+
+<br/>
 
 Each response from the `GetAttachment` operation is sent to the `ProcessXmlResponse` method. This method checks the response for errors. If it doesn't find any errors, it processes file attachments and item attachments. The `ProcessXmlResponse` method performs the bulk of the work to process the attachment.
 

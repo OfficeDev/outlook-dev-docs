@@ -2,7 +2,6 @@
 title: Inside the Exchange identity token in an Outlook Add-in | Microsoft Docs
 description: Learn about the contents of an Exchange user identity token generated from an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/22/2017
@@ -13,13 +12,11 @@ ms.author: jasonjoh
 
 The Exchange user identity token returned by the [getUserIdentityTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook) method provides a way for your add-in code to include the user's identity with calls to your back-end service. This article will discuss the format and contents of the token.
 
-## What is an identity token?
-
 An Exchange user identity token is a base-64 URL-encoded string that is signed by the Exchange server that sent it. The token is not encrypted, and the public key that you use to validate the signature is stored on the Exchange server that issued the token. The token has three parts: a header, a payload, and a signature. In the token string, the parts are separated by a period character (`.`) to make it easy for you to split the token.
 
 Exchange uses a the JSON Web Token (JWT) format for the identity token. For information about JWT tokens, see [RFC 7519 JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519.txt).
 
-### Identity token header
+## Identity token header
 
 The header provides information about the format and signature information of the token. The following example shows what the header of the token looks like.
 
@@ -31,6 +28,8 @@ The header provides information about the format and signature information of th
 }
 ```
 
+<br/>
+ 
 The following table describes the parts of the token header.
 
 | Claim | Value | Description |
@@ -39,7 +38,7 @@ The following table describes the parts of the token header.
 | `alg` | `RS256` | The hashing algorithm that is used to create the signature. All tokens provided by Exchange server use the RSASSA-PKCS1-v1_5 with SHA-256 hash algorithm. |
 | `x5t` | Certificate thumbprint | The X.509 thumbprint of the token. |
 
-### Identity token payload
+## Identity token payload
 
 The payload contains the authentication claims that identify the email account and identify the Exchange server that sent the token. The following example shows what the payload section looks like.
 
@@ -59,6 +58,8 @@ The payload contains the authentication claims that identify the email account a
 }
 ```
 
+<br/>
+ 
 The following table lists the parts of the identity token payload.
 
 | Claim | Description |
@@ -77,9 +78,9 @@ The information in the appctx claim provides you with the unique identifier for 
 |:-----|:-----|
 | `msexchuid` | A unique identifier associated with the email account and the Exchange server. |
 | `version` | The version number of the token. For all tokens provided by Exchange, the value is `ExIdTok.V1`. |
-| `amurl` | The URL of the authentication metadata document that contains the public key of the X.509 certificate that was used to sign the token. For more information about how to use the authentication metadata document, see [Validate an Exchange identity token](validate-an-identity-token.md). |
+| `amurl` | The URL of the authentication metadata document that contains the public key of the X.509 certificate that was used to sign the token.<br/><br/>For more information about how to use the authentication metadata document, see [Validate an Exchange identity token](validate-an-identity-token.md). |
 
-### Identity token signature
+## Identity token signature
 
 The signature is created by hashing the header and payload sections with the algorithm specified in the header and using the self-signed X509 certificate located on the server at the location specified in the payload. Your web service can validate this signature to help make sure that the identity token comes from the server that you expect to send it.
 

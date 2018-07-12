@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Create Outlook Add-ins for read forms
 
-Read add-ins are Outlook Add-ins that are activated in the Reading Pane or read inspector in Outlook. Unlike compose add-ins (Outlook Add-ins that are activated when a user is creating a message or appointment), read add-ins are available when users:
+Read add-ins are Outlook Add-ins that are activated in the Reading Pane or read inspector in Outlook. Unlike compose add-ins (Outlook Add-ins that are activated when a user is creating a message or appointment), read add-ins are available when users: 
 
 - View an email message, meeting request, meeting response, or meeting cancellation.
 

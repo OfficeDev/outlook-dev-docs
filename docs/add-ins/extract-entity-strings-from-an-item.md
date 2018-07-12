@@ -145,7 +145,7 @@ Note that all Outlook Add-ins must include office.js. The HTML file that follows
 The entities add-in uses an optional CSS file, default_entities.css, to specify the layout of the output. The following is a listing of the CSS file.
 
 
-```css
+```CSS
 *
 {
     color: #FFFFFF;

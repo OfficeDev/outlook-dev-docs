@@ -24,6 +24,8 @@ The `makeEwsRequestAsync` function is available in both compose and read forms. 
 
 **Table 1. Asynchronous methods to get or set item properties in a compose form**
 
+<br/>
+
 | Property | Property type | Asynchronous method to get | Asynchronous method(s) to set |
 |:-----|:-----|:-----|:-----|
 |[bcc](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5)|[Recipients](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5)|[Recipients.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5)|[Recipients.addAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5), [Recipients.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5)|

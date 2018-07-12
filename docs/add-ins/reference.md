@@ -2,7 +2,6 @@
 title: Outlook Add-in reference documentation | Microsoft Docs
 description: Learn where to find Outlook Add-in reference documentation.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 07/02/2018

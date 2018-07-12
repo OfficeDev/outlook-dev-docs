@@ -36,7 +36,7 @@ Developers should define icons for all required sizes so that the add-in command
 
 ## How do add-in commands appear?
 
-An add-in command appears on the ribbon as a button. When a user installs an add-in, its commands appear in the UI as a group of buttons labeled with the add-in name. This can either be on the ribbon's default tab or on a custom tab. For messages, the default is either the  **Home** or **Message** tab. For the calendar, the default is the **Meeting**,  **Meeting Occurrence**,  **Meeting Series**, or  **Appointment** tab. For module extensions,
+An add-in command appears on the ribbon as a button. When a user installs an add-in, its commands appear in the UI as a group of buttons labeled with the add-in name. This can either be on the ribbon's default tab or on a custom tab. For messages, the default is either the **Home** or **Message** tab. For the calendar, the default is the **Meeting**, **Meeting Occurrence**, **Meeting Series**, or **Appointment** tab. For module extensions,
 the default is a custom tab. On the default tab, each add-in can have one ribbon group with up to 6 commands. On custom tabs, the add-in can have up to 10 groups, each with 6 commands. Add-ins are limited to only one custom tab.
 
 As the ribbon gets more crowded, the add-in commands will adjust (collapse) in an orderly way. In all cases, the add-in commands for an add-in will be grouped together.
@@ -69,6 +69,8 @@ The default width of the vertical task pane is 300 px. The vertical task pane ca
 
 ![A button that opens a task pane on the Outlook ribbon.](images/commands-taskpane-button.png)
 
+<br/>
+
 This screenshot shows an example of a vertical task pane. The pane opens with the name of the add-in command in the top left corner. Users can use the **X** button in the upper-right corner of the pane to close the add-in when they are finished using it. By default, this pane will not persist across messages. Add-ins can [support pinning](pinnable-taskpane.md) for the taskpane and receive events when a new message is selected. All UI elements rendered in the task pane, aside from the add-in name and the close button, are provided by the add-in.
 
 If a user chooses another add-in command that opens a task pane, the task pane is replaced with the recently used command. If a user chooses an add-in command button that executes a function, or drop-down menu while the task pane is open, the action will be completed and the task pane will remain open.
@@ -89,15 +91,15 @@ When the user is reading a message in the reading pane or in the **Message** tab
 
 ### Composing a message
 
-When the user is composing a message, add-in commands added to the default tab appear on the  **Message** tab.
+When the user is composing a message, add-in commands added to the default tab appear on the **Message** tab.
 
 ### Creating or viewing an appointment or meeting as the organizer
 
-When creating or viewing an appointment or meeting as the organizer, add-in commands added to the default tab appear on the  **Meeting**,  **Meeting Occurrence**,  **Meeting Series**, or  **Appointment** tabs on pop-out forms. However, if the user selects an item in the calendar but doesn't open the pop-out, the add-in's ribbon group won't be visible in the ribbon.
+When creating or viewing an appointment or meeting as the organizer, add-in commands added to the default tab appear on the **Meeting**, **Meeting Occurrence**, **Meeting Series**, or **Appointment** tabs on pop-out forms. However, if the user selects an item in the calendar but doesn't open the pop-out, the add-in's ribbon group won't be visible in the ribbon.
 
 ### Viewing a meeting as an attendee
 
-When viewing a meeting as an attendee, add-in commands added to the default tab appear on the  **Meeting**,  **Meeting Occurrence**, or  **Meeting Series** tabs on pop-out forms. However, if a user selects an item in the calendar but doesn't open the pop-out, the add-in's ribbon group won't be visible in the ribbon
+When viewing a meeting as an attendee, add-in commands added to the default tab appear on the **Meeting**, **Meeting Occurrence**, or **Meeting Series** tabs on pop-out forms. However, if a user selects an item in the calendar but doesn't open the pop-out, the add-in's ribbon group won't be visible in the ribbon
 
 ### Using a module extension
 
