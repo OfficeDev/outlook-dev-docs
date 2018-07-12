@@ -209,10 +209,14 @@ To embed an actionable message card in an email message, we need to wrap the car
 For examples of sending messages, see the following.
 
 - [Send Actionable Message via Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using [Microsoft Graph](https://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/message_send).
-- [Send Actionable Message via SMTP](https://gist.github.com/jasonjoh/3ec367594c3fa662ee983a617bdc7deb): A sample Python script that sends an actionable message using the Office 365 SMTP server.
+- [Send Actionable Message via SMTP](https://github.com/tony-zhu/SendActionableMessage): A sample Python script that sends an actionable message using the Office 365 SMTP server. It also includes a sample HTML payload for the actioable message email body.
 
 ### Perform actions
 
 For examples of performing actions, see the following.
 
 - [Hello Actionable Messages](https://github.com/OfficeDev/HelloActionableMessages): A sample project with one-click button Azure deployment. This sample is a simple end-to-end actionable message solution that can be up and working within 10 minutes, and serves as a reference for building a production action endpoint.
+
+## Debug actionable messages
+
+The [Actionable Messages Debugger](https://store.office.com/app.aspx?assetid=WA104381686) is an Outlook add-in that allows developers to inspect the card payload in their actionable messages and identify why the card is not rendering. 

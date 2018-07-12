@@ -267,8 +267,8 @@ The on send API requires **VersionOverrides v1_1**. The following shows you how 
 > [!NOTE]
 > For more information, see the following:
 > - [Outlook Add-in manifests](manifests.md)
-> - [VersionOverrides](https://dev.office.com/docs/add-ins/develop/define-add-in-commands#versionoverrides)
-> - [Office Add-ins XML manifest](https://dev.office.com/docs/add-ins/overview/add-in-manifests)
+> - [VersionOverrides](https://docs.microsoft.com/office/dev/add-ins/develop/define-add-in-commands#versionoverrides)
+> - [Office Add-ins XML manifest](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests)
 
 
 ### Event, item, body getAsync, and setAsync methods

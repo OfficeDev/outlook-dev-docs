@@ -24,7 +24,7 @@ The first step is to add pinning support, which is done in the add-in [manifest]
 The `SupportsPinning` element is defined in the VersionOverrides v1.1 schema, so you will need to include a [VersionOverrides](https://dev.office.com/reference/add-ins/manifest/versionoverrides?product=outlook&version=v1.5) element both for v1.0 and v1.1.
 
 > [!NOTE]
-> If you plan to [publish](https://dev.office.com/docs/add-ins/publish/publish?product=outlook) your Outlook Add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [AppSource (Office Store) validation](https://docs.microsoft.com/en-us/office/dev/store/validation-policies), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
+> If you plan to [publish](https://docs.microsoft.com/office/dev/add-ins/publish/publish) your Outlook Add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [AppSource (Office Store) validation](https://docs.microsoft.com/en-us/office/dev/store/validation-policies), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
 
 ```xml
 <!-- Task pane button -->

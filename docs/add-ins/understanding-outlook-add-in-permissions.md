@@ -159,5 +159,5 @@ Attempting to use an unsupported operation will result in an error response.
 
 ## See also
 
-- [Privacy, permissions, and security for Outlook Add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)
+- [Privacy, permissions, and security for Outlook Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)

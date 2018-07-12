@@ -145,5 +145,5 @@ The following is a section of a manifest file that defines a module extension.
 ## See also
 
 - [Outlook Add-in manifests](manifests.md)
-- [Define add-in commands in your manifest](https://dev.office.com/docs/add-ins/develop/define-add-in-commands)
+- [Define add-in commands in your manifest](https://docs.microsoft.com/office/dev/add-ins/develop/define-add-in-commands)
 - [Outlook module extensions Billable hours sample](https://github.com/OfficeDev/Outlook-Add-in-JavaScript-ModuleExtension)

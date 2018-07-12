@@ -133,7 +133,7 @@ Figure 1 shows a summary of the steps to verify whether Outlook has a valid vers
 
 ## Is the add-in manifest valid?
 
-See [Validate and troubleshoot issues with your manifest](https://dev.office.com/docs/add-ins/testing/troubleshoot-manifest) to debug add-in manifest issues.
+See [Validate and troubleshoot issues with your manifest](https://docs.microsoft.com/office/dev/add-ins/testing/troubleshoot-manifest) to debug add-in manifest issues.
 
 ## Are you using the appropriate activation rules?
 
@@ -231,4 +231,4 @@ This section applies to all activation rules that use regular expressions -- par
 - [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
 - [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
 - [Open Event Viewer](http://windows.microsoft.com/en-US/windows7/Open-Event-Viewer)
-- [Validate and troubleshoot issues with your manifest](https://dev.office.com/docs/add-ins/testing/troubleshoot-manifest)
+- [Validate and troubleshoot issues with your manifest](https://docs.microsoft.com/office/dev/add-ins/testing/troubleshoot-manifest)

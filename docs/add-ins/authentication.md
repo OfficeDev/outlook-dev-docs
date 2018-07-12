@@ -29,7 +29,7 @@ Using this method, your add-in can obtain an access token scoped to your server 
 - Complete the On-Behalf-Of flow to obtain an access token scoped to the Microsoft Graph API
 - Use the identity information in the token to establish the user's identity and authenticate to your own back-end services
 
-For a more detailed overview, see the [full overview of the SSO authentication method](https://dev.office.com/docs/add-ins/develop/sso-in-office-add-ins).
+For a more detailed overview, see the [full overview of the SSO authentication method](https://docs.microsoft.com/office/dev/add-ins/develop/sso-in-office-add-ins).
 
 For details on using the SSO token in an Outlook Add-in, see [Authenticate a user with an single-sign-on token in an Outlook Add-in](authenticate-a-user-with-an-sso-token.md).
 

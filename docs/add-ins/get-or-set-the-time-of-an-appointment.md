@@ -49,7 +49,7 @@ and:
 item.end.getAsync
 ```
 
-As with most asynchronous methods in the JavaScript API for Office,  **getAsync** and **setAsync** take optional input parameters. For more information about specifying these optional input parameters, see [passing optional parameters to asynchronous methods](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook#passing-optional-parameters-inline) in [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook).
+As with most asynchronous methods in the JavaScript API for Office,  **getAsync** and **setAsync** take optional input parameters. For more information about specifying these optional input parameters, see [passing optional parameters to asynchronous methods](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins#passing-optional-parameters-inline) in [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook).
 
 
 ## To get the start or end time
@@ -165,7 +165,7 @@ function write(message){
     
 - [Create Outlook Add-ins for compose forms](compose-scenario.md)
     
-- [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook)
+- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)
     
 - [Get, set, or add recipients when composing an appointment or message in Outlook](get-set-or-add-recipients.md)
     
