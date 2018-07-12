@@ -1,6 +1,6 @@
 ---
 title: Module extension Outlook Add-ins | Microsoft Docs
-description: Learn about modeul extension Outlook Add-ins.
+description: Learn about module extension Outlook Add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
