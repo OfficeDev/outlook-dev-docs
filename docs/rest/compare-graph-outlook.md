@@ -17,6 +17,8 @@ The Outlook REST APIs are available in both the [Microsoft Graph](https://develo
 
 Use Microsoft Graph whenever possible. The Microsoft Graph endpoint lets you access Outlook and many more [services and features](https://developer.microsoft.com/graph/docs/concepts/overview-major-services), including other Office 365 services, Enterprise Mobility + Security, and Windows 10. Choosing the Microsoft Graph endpoint allows your app to get an access token that can provide access to both Outlook data and other resources, without having to make multiple token requests.
 
+The two endpoints have some [API differences](#api-differences) and [feature differences](#feature-differences) to be aware of when choosing an endpoint.
+
 ## API differences
 
 The APIs are very similar on the Microsoft Graph endpoint and the Outlook endpoint. However, there are some differences to be aware of, especially if you are migrating to Microsoft Graph or using both endpoints in the same application.
@@ -91,7 +93,7 @@ The server returns the following response:
       "from": {
         "emailAddress": {
           "name": "user0TestUser",
-          "address": "user0@a830edad9050849NDA1.onmicrosoft.com"
+          "address": "user0@contoso.com"
         }
       }
     }
@@ -131,7 +133,7 @@ The server returns the following response:
       "From": {
         "EmailAddress": {
           "Name": "user0TestUser",
-          "Address": "user0@a830edad9050849NDA1.onmicrosoft.com"
+          "Address": "user0@contoso.com"
         }
       }
     }
@@ -141,7 +143,9 @@ The server returns the following response:
 
 ## Feature differences
 
-There are some features that are either only available on the Outlook endpoint, or are only in beta in Microsoft Graph. If your app needs these features, you should access them via the Outlook endpoint.
+There are some features that are currently either only available on the Outlook endpoint, or are only in beta in Microsoft Graph. If your app needs these features, you should access them via the Outlook endpoint.
+
+> **Note:** We are constantly working to incorporate all of the features currently available on the Outlook endpoint into Microsoft Graph. Be sure to check back periodically as this list is updated.
 
 | Feature | Difference between endpoints |
 |---------|-------------|
