@@ -1,6 +1,6 @@
 ---
-title: Get or modify recipients in an Outlook add-in | Microsoft Docs
-description: Learn how to get, set, or add recipients of a message or appointment in an Outlook add-in.
+title: Get or modify recipients in an Outlook Add-in | Microsoft Docs
+description: Learn how to get, set, or add recipients of a message or appointment in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -12,7 +12,7 @@ ms.author: jasonjoh
 # Get, set, or add recipients when composing an appointment or message in Outlook
 
 
-The JavaScript API for Office provides asynchronous methods ([Recipients.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5), [Recipients.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5), or [Recipients.addAysnc](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5)) to respectively get, set, or add recipients in a compose form of an appointment or message. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described in [Create Outlook add-ins for compose forms](compose-scenario.md).
+The JavaScript API for Office provides asynchronous methods ([Recipients.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5), [Recipients.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5), or [Recipients.addAysnc](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5)) to respectively get, set, or add recipients in a compose form of an appointment or message. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described in [Create Outlook Add-ins for compose forms](compose-scenario.md).
 
 Some of the properties that represent recipients in an appointment or message are available for read access in a compose form and in a read form. These properties include  [optionalAttendees](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) and [requiredAttendees](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) for appointments, and [cc](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5), and  [to](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) for messages. In a read form, you can access the property directly from the parent object, such as:
 
@@ -34,7 +34,7 @@ item.cc.getAsync
 
 These properties are available for write access in only compose forms and not read forms.
 
-As with most asynchronous methods in the JavaScript API for Office,  **getAsync**,  **setAsync**, and  **addAsync** take optional input parameters. For more information about specifying these optional input parameters, see [passing optional parameters to asynchronous methods](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook#passing-optional-parameters-inline) in [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook).
+As with most asynchronous methods in the JavaScript API for Office,  **getAsync**,  **setAsync**, and  **addAsync** take optional input parameters. For more information about specifying these optional input parameters, see [passing optional parameters to asynchronous methods](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins#passing-optional-parameters-inline) in [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
 
 
 ## To get recipients
@@ -310,7 +310,7 @@ function addAttendees() {
 ```
 
 
-## Additional resources
+## See also
 
 
 
@@ -318,9 +318,9 @@ function addAttendees() {
     
 - [Get and set Outlook item data in read or compose forms](item-data.md)
     
-- [Create Outlook add-ins for compose forms](compose-scenario.md)
+- [Create Outlook Add-ins for compose forms](compose-scenario.md)
     
-- [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook)
+- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)
     
 - [Get or set the subject when composing an appointment or message in Outlook](get-or-set-the-subject.md)
     

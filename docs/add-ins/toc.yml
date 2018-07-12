@@ -1,14 +1,16 @@
 - name: Overview
   href: index.md
-- name: Get Started
+- name: Office add-ins platform overview
+  href: /office/dev/add-ins/overview/office-add-ins?context=outlook/context
+- name: Get started
   items:
-  - name: Build your first Outlook add-in
+  - name: Build your first Outlook Add-in
     href: quick-start.md
-  - name: Advanced Tutorial
+  - name: Advanced tutorial
     href: addin-tutorial.md
 - name: Concepts
   items:
-  - name: Outlook add-in design guidelines
+  - name: Outlook Add-in design guidelines
     href: outlook-addin-design.md
   - name: Add-in commands
     href: add-in-commands-for-outlook.md

@@ -1,17 +1,16 @@
 ---
-title: Use regular expression activation rules to show an Outlook add-in | Microsoft Docs
+title: Use regular expression activation rules to show an Outlook Add-in | Microsoft Docs
 description: Learn how to use regualr expression activation rules for Outlook contextual add-ins.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
-# Use regular expression activation rules to show an Outlook add-in
+# Use regular expression activation rules to show an Outlook Add-in
 
-You can specify regular expression rules to have a [contextual add-in](contextual-outlook-add-ins.md) activated when a match is found in specific fields of the message. Contextual add-ins activate only in read mode, Outlook does not activate contextual add-ins when the user is composing an item. There are also other scenarios where Outlook does not activate add-ins, for example, items protected by Information Rights Management (IRM). For more information, see [Activation rules for Outlook add-ins](activation-rules.md).
+You can specify regular expression rules to have a [contextual add-in](contextual-outlook-add-ins.md) activated when a match is found in specific fields of the message. Contextual add-ins activate only in read mode, Outlook does not activate contextual add-ins when the user is composing an item. There are also other scenarios where Outlook does not activate add-ins, for example, items protected by Information Rights Management (IRM). For more information, see [Activation rules for Outlook Add-ins](activation-rules.md).
 
 You can specify a regular expression as part of an [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rule or [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) rule in the add-in XML manifest. The rules are specified in a [DetectedEntity](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5#detectedentity) extension point.
 
@@ -47,7 +46,7 @@ Pay special attention to the following when you use regular expressions:
     
 - The HTML body of an item is slightly different between an Outlook rich client, and Outlook on the web or Outlook mobile. Define your regular expressions carefully.
 
-- Depending on the host application, type of device, or property that a regular expression is being applied on, there are other best practices and limits for each of the hosts that you should be aware of when designing regular expressions as activation rules. See [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) for details.
+- Depending on the host application, type of device, or property that a regular expression is being applied on, there are other best practices and limits for each of the hosts that you should be aware of when designing regular expressions as activation rules. See [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) for details.
 
 ### Examples
 
@@ -113,7 +112,9 @@ The following `ItemHasKnownEntity` rule activates the add-in whenever there is a
 You can obtain matches to a regular expression by using the following methods on the current item:
 
 - [getRegExMatches](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) returns matches in the current item for all regular expressions specified in `ItemHasRegularExpressionMatch` and `ItemHasKnownEntity` rules of the add-in.
+
 - [getRegExMatchesByName](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) returns matches in the current item for the identified regular expression specified in an `ItemHasRegularExpressionMatch` rule of the add-in.
+
 - [getFilteredEntitiesByName](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) returns entire instances of entities that contain matches for the identified regular expression specified in an `ItemHasKnownEntity` rule of the add-in.
 
 When the regular expressions are evaluated, the matches are returned to your add-in in an array object. For `getRegExMatches`, that object has the identifier of the name of the regular expression. 
@@ -175,11 +176,11 @@ The following code example uses `getFilteredEntitiesByName` on the current item 
 var suggestions = Office.context.mailbox.item.getFilteredEntitiesByName("CampSuggestion");
 ```
 
-## Additional resources
+## See also
 
 - [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) - A sample contextual add-in that activates based on a regular expression match.
-- [Create Outlook add-ins for read forms](read-scenario.md)
-- [Activation rules for Outlook add-ins](activation-rules.md)
-- [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
+- [Create Outlook Add-ins for read forms](read-scenario.md)
+- [Activation rules for Outlook Add-ins](activation-rules.md)
+- [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
-- [Best Practices for Regular Expressions in the .NET Framework](http://msdn.microsoft.com/en-us/library/618e5afb-3a97-440d-831a-70e4c526a51c%28Office.15%29.aspx)
+- [Best Practices for Regular Expressions in the .NET Framework](https://docs.microsoft.com/en-us/dotnet/standard/base-types/best-practices)

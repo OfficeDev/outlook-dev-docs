@@ -1,6 +1,6 @@
 ---
-title: Get or set the subject in an Outlook add-in | Microsoft Docs
-description: Learn how to get or set the subject of a message or appointment in an Outlook add-in.
+title: Get or set the subject in an Outlook Add-in | Microsoft Docs
+description: Learn how to get or set the subject of a message or appointment in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -33,7 +33,7 @@ item.subject.getAsync
 
 The  **subject** property is available for write access in only compose forms and not in read forms.
 
-As with most asynchronous methods in the JavaScript API for Office,  **getAsync** and **setAsync** take optional input parameters. For more information about specifying these optional input parameters, see "Passing optional parameters to asynchronous methods" in [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook).
+As with most asynchronous methods in the JavaScript API for Office,  **getAsync** and **setAsync** take optional input parameters. For more information about specifying these optional input parameters, see "Passing optional parameters to asynchronous methods" in [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
 
 
 ## To get the subject
@@ -142,7 +142,7 @@ function write(message){
 ```
 
 
-## Additional resources
+## See also
 
 
 
@@ -150,9 +150,9 @@ function write(message){
     
 - [Get and set Outlook item data in read or compose forms](item-data.md)
     
-- [Create Outlook add-ins for compose forms](compose-scenario.md)
+- [Create Outlook Add-ins for compose forms](compose-scenario.md)
     
-- [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook)
+- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)
     
 - [Get, set, or add recipients when composing an appointment or message in Outlook](get-set-or-add-recipients.md)
     

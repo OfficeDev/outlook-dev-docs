@@ -1,17 +1,16 @@
 ---
-title: Understanding Outlook add-in permissions | Microsoft Docs
-description: Learn about the permissions model for Outlook add-ins.
+title: Understanding Outlook Add-in permissions | Microsoft Docs
+description: Learn about the permissions model for Outlook Add-ins.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017
 ms.author: jasonjoh
 ---
 
-# Understanding Outlook add-in permissions
+# Understanding Outlook Add-in permissions
 
-Outlook add-ins specify the required permission level in their manifest. The available levels are **Restricted**, **ReadItem**, **ReadWriteItem**, or **ReadWriteMailbox**. These levels of permissions are cumulative: **Restricted** is the lowest level, and each higher level includes the permissions of all the lower levels. **ReadWriteMailbox** includes all the supported permissions.
+Outlook Add-ins specify the required permission level in their manifest. The available levels are **Restricted**, **ReadItem**, **ReadWriteItem**, or **ReadWriteMailbox**. These levels of permissions are cumulative: **Restricted** is the lowest level, and each higher level includes the permissions of all the lower levels. **ReadWriteMailbox** includes all the supported permissions.
 
 You can see the permissions requested by a mail add-in before installing it from the Office Store. You can also see the required permissions of installed add-ins in the Exchange Admin Center.
 
@@ -141,24 +140,24 @@ In addition to what the **ReadWriteItem** permission supports, the token provide
 
 Through **mailbox.makeEWSRequestAsync**, you can access the following EWS operations:
 
-- [CopyItem](http://msdn.microsoft.com/en-us/library/bcc68f9e-d511-4c29-bba6-ed535524624a%28Office.15%29.aspx)
-- [CreateFolder](http://msdn.microsoft.com/en-us/library/6f6c334c-b190-4e55-8f0a-38f2a018d1b3%28Office.15%29.aspx)
-- [CreateItem](http://msdn.microsoft.com/en-us/library/78a52120-f1d0-4ed7-8748-436e554f75b6%28Office.15%29.aspx)
-- [FindConversation](http://msdn.microsoft.com/en-us/library/2384908a-c203-45b6-98aa-efd6a4c23aac%28Office.15%29.aspx)
-- [FindFolder](http://msdn.microsoft.com/en-us/library/7a9855aa-06cc-45ba-ad2a-645c15b7d031%28Office.15%29.aspx)
-- [FindItem](http://msdn.microsoft.com/en-us/library/ebad6aae-16e7-44de-ae63-a95b24539729%28Office.15%29.aspx)
-- [GetConversationItems](http://msdn.microsoft.com/en-us/library/8ae00a99-b37b-4194-829c-fe300db6ab99%28Office.15%29.aspx)
-- [GetFolder](http://msdn.microsoft.com/en-us/library/355bcf93-dc71-4493-b177-622afac5fdb9%28Office.15%29.aspx)
-- [GetItem](http://msdn.microsoft.com/en-us/library/e3590b8b-c2a7-4dad-a014-6360197b68e4%28Office.15%29.aspx)
-- [MarkAsJunk](http://msdn.microsoft.com/en-us/library/1f71f04d-56a9-4fee-a4e7-d1034438329e%28Office.15%29.aspx)
-- [MoveItem](http://msdn.microsoft.com/en-us/library/dcf40fa7-7796-4a5c-bf5b-7a509a18d208%28Office.15%29.aspx)
-- [SendItem](http://msdn.microsoft.com/en-us/library/337b89ef-e1b7-45ed-92f3-8abe4200e4c7%28Office.15%29.aspx)
-- [UpdateFolder](http://msdn.microsoft.com/en-us/library/3494c996-b834-4813-b1ca-d99642d8b4e7%28Office.15%29.aspx)
-- [UpdateItem](http://msdn.microsoft.com/en-us/library/5d027523-e0bc-4da2-b60b-0cb9fc1fdfe4%28Office.15%29.aspx)
+- [CopyItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/copyitem-operation)
+- [CreateFolder](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/createfolder-operation)
+- [CreateItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/createitem-operation)
+- [FindConversation](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/findconversation-operation)
+- [FindFolder](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/findfolder-operation)
+- [FindItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/finditem-operation)
+- [GetConversationItems](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getconversationitems-operation)
+- [GetFolder](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getfolder-operation)
+- [GetItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getitem-operation)
+- [MarkAsJunk](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/markasjunk-operation)
+- [MoveItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/moveitem-operation)
+- [SendItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/senditem-operation)
+- [UpdateFolder](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/updatefolder-operation)
+- [UpdateItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/updateitem-operation)
 
 Attempting to use an unsupported operation will result in an error response.
 
-## Additional resources
+## See also
 
-- [Privacy, permissions, and security for Outlook add-ins](https://dev.office.com/docs/add-ins/develop/privacy-and-security?product=outlook)
+- [Privacy, permissions, and security for Outlook Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)

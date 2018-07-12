@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Swift app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/swift-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use the [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using the Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints.
+This guide will use [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints.
 
 This guide assumes that you already have Xcode installed and working on your development machine, along with [CocoaPods](https://cocoapods.org) version 1.2 or later.
 

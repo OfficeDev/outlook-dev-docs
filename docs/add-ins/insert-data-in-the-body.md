@@ -1,6 +1,6 @@
 ---
-title: Insert data in the body in an Outlook add-in | Microsoft Docs
-description: Learn how to insert data into the body of a message or appointment in an Outlook add-in.
+title: Insert data in the body in an Outlook Add-in | Microsoft Docs
+description: Learn how to insert data into the body of a message or appointment in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -11,7 +11,7 @@ ms.author: jasonjoh
 
 # Insert data in the body when composing an appointment or message in Outlook
 
-You can use the asynchronous methods ([Body.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5), [Body.getTypeAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5), [Body.prependAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5), [Body.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5) and [Body.setSelectedDataAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5)) to get the body type and insert data in the body of an appointment or message item that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately so that Outlook activates your add-in in compose forms, as described in [Create Outlook add-ins for compose forms](compose-scenario.md).
+You can use the asynchronous methods ([Body.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5), [Body.getTypeAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5), [Body.prependAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5), [Body.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5) and [Body.setSelectedDataAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Body?product=outlook&version=v1.5)) to get the body type and insert data in the body of an appointment or message item that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately so that Outlook activates your add-in in compose forms, as described in [Create Outlook Add-ins for compose forms](compose-scenario.md).
 
 In Outlook, a user can create a message in text, HTML, or Rich Text Format (RTF), and can create an appointment in HTML format. Before inserting, you should always first verify the supported item format by calling  **getTypeAsync**, as you may need to take additional steps. The value that  **getTypeAsync** returns depends on the original item format, as well as the support of the device operating system and host to editing in HTML format (1). Then set the  _coercionType_ parameter of **prependAsync** or **setSelectedDataAsync** accordingly (2) to insert the data, as shown in the following table. If you don't specify an argument, **prependAsync** and **setSelectedDataAsync** assume the data to insert is in text format.
 
@@ -28,7 +28,7 @@ In Outlook, a user can create a message in text, HTML, or Rich Text Format (RTF)
 
 2.  If your data to insert is HTML and  **getTypeAsync** returns a text type for that item, reorganize your data as text and insert it with **Office.MailboxEnums.BodyType.Text** as _coercionType_. If you simply insert the HTML data with a text coercion type, the host would display the HTML tags as text. If you attempt to insert the HTML data with  **Office.MailboxEnums.BodyType.Html** as _coercionType_, you will get an error.
 
-In addition to  _coercionType_, as with most asynchronous methods in the JavaScript API for Office,  **getTypeAsync**,  **prependAsync** and **setSelectedDataAsync** take other optional input parameters. For more information about specifying these optional input parameters, see [passing optional parameters to asynchronous methods](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook#passing-optional-parameters-inline) in [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook).
+In addition to  _coercionType_, as with most asynchronous methods in the JavaScript API for Office,  **getTypeAsync**,  **prependAsync** and **setSelectedDataAsync** take other optional input parameters. For more information about specifying these optional input parameters, see [passing optional parameters to asynchronous methods](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins#passing-optional-parameters-inline) in [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
 
 
 ## To insert data at the current cursor position
@@ -225,7 +225,7 @@ function write(message){
 ```
 
 
-## Additional resources
+## See also
 
 
 
@@ -233,9 +233,9 @@ function write(message){
     
 - [Get and set Outlook item data in read or compose forms](item-data.md)
     
-- [Create Outlook add-ins for compose forms](compose-scenario.md)
+- [Create Outlook Add-ins for compose forms](compose-scenario.md)
     
-- [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins?product=outlook)
+- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)
     
 - [Get, set, or add recipients when composing an appointment or message in Outlook](get-set-or-add-recipients.md)
     

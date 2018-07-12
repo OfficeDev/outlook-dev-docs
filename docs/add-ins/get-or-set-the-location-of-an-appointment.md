@@ -1,6 +1,6 @@
 ---
-title: Get or set the location of an appointment in an Outlook add-in | Microsoft Docs
-description: Learn how to get or set the location of an appointment in an Outlook add-in.
+title: Get or set the location of an appointment in an Outlook Add-in | Microsoft Docs
+description: Learn how to get or set the location of an appointment in an Outlook Add-in.
 author: jasonjoh
 
 ms.topic: article
@@ -11,7 +11,7 @@ ms.author: jasonjoh
 
 # Get or set the location when composing an appointment in Outlook
 
-The JavaScript API for Office provides asynchronous methods ([getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5) and [setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5)) to get and set the location of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described [Create Outlook add-ins for compose forms](compose-scenario.md).
+The JavaScript API for Office provides asynchronous methods ([getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5) and [setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5)) to get and set the location of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described [Create Outlook Add-ins for compose forms](compose-scenario.md).
 
 The [location](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property is available for read access in both compose and read forms of appointments. In a read form, you can access the property directly from the parent object, as in:
 
@@ -29,7 +29,7 @@ item.location.getAsync(function(result){
 
 The `location` property is available for write access in only compose forms of appointments, but not in read forms.
 
-As with most asynchronous methods in the JavaScript API for Office, `getAsync` and `setAsync` take optional input parameters. For more information about specifying these optional input parameters, see [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins).
+As with most asynchronous methods in the JavaScript API for Office, `getAsync` and `setAsync` take optional input parameters. For more information about specifying these optional input parameters, see [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
 
 ## To get the location
 
@@ -112,7 +112,7 @@ function write(message){
 }
 ```
 
-## Additional resources
+## See also
 
-- [Write your first Outlook add-in](addin-tutorial.md)
-- [Asynchronous programming in Office Add-ins](https://dev.office.com/docs/add-ins/develop/asynchronous-programming-in-office-add-ins)
+- [Write your first Outlook Add-in](addin-tutorial.md)
+- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)
