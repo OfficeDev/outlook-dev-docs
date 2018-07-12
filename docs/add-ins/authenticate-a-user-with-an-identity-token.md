@@ -2,7 +2,6 @@
 title: Authenticate a user with an identity token in an Outlook Add-in | Microsoft Docs
 description: Learn about using the identity token provided by an Outlook Add-in to implement SSO with your service.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/18/2017
@@ -46,13 +45,14 @@ Once validated and decoded, the payload of the token looks something like the fo
 
 Your back-end service can calculate a unique user ID from the token and map it to a user in your internal user system. For example, if you use a database to store users, you could add this unique ID to the user's record in your database.
 
-### Generating a unique ID
+### Generate a unique ID
 
 We recommend that you use a combination of the `msexchuid` and `amurl` properties. For example, you could concatenate the two values together and generate a base 64-encoded string. This value can be reliably generated from the token every time, so you can map an Exchange user identity token back to the user in your system.
 
-### Checking the user
+### Check the user
 
 With the unique ID generated, the next step is to check for a user in your system with that associated ID.
 
 - If the user is found, the back-end treats the request as authenticated, and allows the request to proceed.
+
 - If the user is not found, then the back-end returns an error indicating that the user needs to sign in. The add-in then prompts the user to sign in to the back-end using your existing authentication method. Once the user is authenticated, the Exchange user identity token is submitted with the user authentication details. The back-end can then update the user's record in your system with the unique ID.

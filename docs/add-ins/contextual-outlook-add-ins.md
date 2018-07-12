@@ -20,7 +20,7 @@ The following are examples of contextual add-ins:
 
 
 > [!NOTE]
-> Contextual add-ins are not currently available in Outlook for Android and Outlook for iOS. This functionality will be made available in the future. 
+> Contextual add-ins are not currently available in Outlook for Android and Outlook for iOS. This functionality will be made available in the future.
 
 ## How to make a contextual add-in
 

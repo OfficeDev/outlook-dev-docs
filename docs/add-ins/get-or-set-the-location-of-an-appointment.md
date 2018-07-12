@@ -2,7 +2,6 @@
 title: Get or set the location of an appointment in an Outlook Add-in | Microsoft Docs
 description: Learn how to get or set the location of an appointment in an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 08/09/2017
@@ -31,7 +30,7 @@ The `location` property is available for write access in only compose forms of a
 
 As with most asynchronous methods in the JavaScript API for Office, `getAsync` and `setAsync` take optional input parameters. For more information about specifying these optional input parameters, see [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
 
-## To get the location
+## Get the location
 
 This section shows a code sample that gets the location of the appointment that the user is composing, and displays the location.
 
@@ -70,7 +69,7 @@ function write(message){
 }
 ```
 
-## To set the location
+## Set the location
 
 This section shows a code sample that sets the location of the appointment that the user is composing.
 

@@ -2,7 +2,6 @@
 title: Outlook Add-ins for Outlook Mobile | Microsoft Docs
 description: Learn about add-in support on Outlook Mobile.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017

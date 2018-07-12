@@ -32,10 +32,11 @@ To have Outlook activate an add-in for specific conditions, specify activation r
  > For example, the following rule defines an [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) rule: 
  > `<Rule xsi:type="ItemIs" ItemType="Message" />` 
  > 
- > The  **FormType** attribute applies to activation rules in the manifest v1.1 but is not defined in **VersionOverrides** v1.0. So it can't be used when [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) is used in the **VersionOverrides** node.
+ > The **FormType** attribute applies to activation rules in the manifest v1.1 but is not defined in **VersionOverrides** v1.0. So it can't be used when [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule#itemis-rule) is used in the **VersionOverrides** node.
 
 The following table lists the types of rules that are available. You can find more information following the table and in the specified articles under [Create Outlook Add-ins for read forms](read-scenario.md).
 
+<br/>
 
 |**Rule name**|**Applicable forms**|**Description**|
 |:-----|:-----|:-----|
@@ -47,18 +48,18 @@ The following table lists the types of rules that are available. You can find mo
 
 ## ItemIs rule
 
+The **ItemIs** complex type defines a rule that evaluates to **true** if the current item matches the item type, and optionally the item message class if it's stated in the rule.
 
-The  **ItemIs** complex type defines a rule that evaluates to **true** if the current item matches the item type, and optionally the item message class if it's stated in the rule.
+Specify one of the following item types in the **ItemType** attribute of an **ItemIs** rule. You can specify more than one **ItemIs** rule in a manifest. The ItemType simpleType defines the types of Outlook items that support Outlook Add-ins.
 
-Specify one of the following item types in the  **ItemType** attribute of an **ItemIs** rule. You can specify more than one **ItemIs** rule in a manifest. The ItemType simpleType defines the types of Outlook items that support Outlook Add-ins.
-
-
+<br/>
 
 |**Value**|**Description**|
 |:-----|:-----|
 |**Appointment**|Specifies an item in an Outlook calendar. This includes a meeting item that has been responded to and has an organizer and attendees, or an appointment that does not have an organizer or attendee and is simply an item on the calendar.This corresponds to the IPM.Appointment message class in Outlook.|
 |**Message**|Specifies one of the following items received in typically the Inbox: <ul><li><p>An email message. This corresponds to the IPM.Note message class in Outlook.</p></li><li><p>A meeting request, response, or cancellation. This corresponds to the following  message classes in Outlook:</p><p>IPM.Schedule.Meeting.Request</p><p>IPM.Schedule.Meeting.Neg</p><p>IPM.Schedule.Meeting.Pos</p><p>IPM.Schedule.Meeting.Tent</p><p>IPM.Schedule.Meeting.Canceled</p></li></ul>|
-The  **FormType** attribute is used to specify the mode (read or compose) in which the add-in should activate.
+
+The **FormType** attribute is used to specify the mode (read or compose) in which the add-in should activate.
 
 
  > [!NOTE]
@@ -66,17 +67,17 @@ The  **FormType** attribute is used to specify the mode (read or compose) in whi
 
 After an add-in is activated, you can use the [mailbox.item](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property to obtain the currently selected item in Outlook, and the [item.itemType](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property to obtain the type of the current item.
 
-You can optionally use the  **ItemClass** attribute to specify the message class of the item, and the **IncludeSubClasses** attribute to specify whether the rule should be **true** when the item is a subclass of the specified class.
+You can optionally use the **ItemClass** attribute to specify the message class of the item, and the **IncludeSubClasses** attribute to specify whether the rule should be **true** when the item is a subclass of the specified class.
 
 For more information about message classes, see [Item Types and Message Classes](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/item-types-and-message-classes).
 
-The following example is an  **ItemIs** rule that lets users see the add-in in the Outlook Add-in bar when the user is reading a message:
+The following example is an **ItemIs** rule that lets users see the add-in in the Outlook Add-in bar when the user is reading a message:
 
 ```xml
 <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
 ```
 
-The following example is an  **ItemIs** rule that lets users see the add-in in the Outlook Add-in bar when the user is reading a message or appointment.
+The following example is an **ItemIs** rule that lets users see the add-in in the Outlook Add-in bar when the user is reading a message or appointment.
 
 ```xml
 <Rule xsi:type="RuleCollection" Mode="Or">
@@ -89,7 +90,7 @@ The following example is an  **ItemIs** rule that lets users see the add-in in t
 ## ItemHasAttachment rule
 
 
-The  **ItemHasAttachment** complex type defines a rule that checks if the selected item contains an attachment.
+The **ItemHasAttachment** complex type defines a rule that checks if the selected item contains an attachment.
 
 ```xml
 <Rule xsi:type="ItemHasAttachment" />
@@ -98,9 +99,10 @@ The  **ItemHasAttachment** complex type defines a rule that checks if the select
 
 ## ItemHasKnownEntity rule
 
-Before an item is made available to an add-in, the server examines it to determine whether the subject and body contain any text that is likely to be one of the known entities. If any of these entities are found, it is placed in a collection of known entities that you access by using the  **getEntities** or **getEntitiesByType** method of that item.
+Before an item is made available to an add-in, the server examines it to determine whether the subject and body contain any text that is likely to be one of the known entities. If any of these entities are found, it is placed in a collection of known entities that you access by using the **getEntities** or **getEntitiesByType** method of that item.
 
 You can specify a rule by using **ItemHasKnownEntity** that shows your add-in when an entity of the specified type is present in the item. You can specify the following known entities in the **EntityType** attribute of an **ItemHasKnownEntity** rule:
+
 -  Address
 -  Contact
 -  EmailAddress
@@ -109,9 +111,9 @@ You can specify a rule by using **ItemHasKnownEntity** that shows your add-in wh
 -  TaskSuggestion
 -  URL
     
-You can optionally include a regular expression in the  **RegularExpression** attribute so that your add-in is only shown when an entity that matches the regular expression in present. To obtain matches to regular expressions specified in **ItemHasKnownEntity** rules, you can use the **getRegExMatches** or **getFilteredEntitiesByName** method for the currently selected Outlook item.
+You can optionally include a regular expression in the **RegularExpression** attribute so that your add-in is only shown when an entity that matches the regular expression in present. To obtain matches to regular expressions specified in **ItemHasKnownEntity** rules, you can use the **getRegExMatches** or **getFilteredEntitiesByName** method for the currently selected Outlook item.
 
-The following example shows a collection of  **Rule** elements that show the add-in when one of the specified well-known entities is present in the message.
+The following example shows a collection of **Rule** elements that show the add-in when one of the specified well-known entities is present in the message.
 
 ```xml
 <Rule xsi:type="RuleCollection" Mode="Or">
@@ -121,7 +123,7 @@ The following example shows a collection of  **Rule** elements that show the add
 </Rule>
 ```
 
-The following example shows an  **ItemHasKnownEntity** rule with a **RegularExpression** attribute that activates the add-in when a URL that contains the word "contoso" is present in a message.
+The following example shows an **ItemHasKnownEntity** rule with a **RegularExpression** attribute that activates the add-in when a URL that contains the word "contoso" is present in a message.
 
 
 ```xml
@@ -133,26 +135,25 @@ For more information about entities in activation rules, see [Match strings in a
 
 ## ItemHasRegularExpressionMatch rule
 
+The **ItemHasRegularExpressionMatch** complex type defines a rule that uses a regular expression to match the contents of the specified property of an item. If text that matches the regular expression is found in the specified property of the item, Outlook activates the add-in bar and displays the add-in. You can use the **getRegExMatches** or **getRegExMatchesByName** method of the object that represents the currently selected item to obtain matches for the specified regular expression.
 
-The  **ItemHasRegularExpressionMatch** complex type defines a rule that uses a regular expression to match the contents of the specified property of an item. If text that matches the regular expression is found in the specified property of the item, Outlook activates the add-in bar and displays the add-in. You can use the **getRegExMatches** or **getRegExMatchesByName** method of the object that represents the currently selected item to obtain matches for the specified regular expression.
-
-The following example shows an  **ItemHasRegularExpressionMatch** that activates the add-in when the body of the selected item contains "apple", "banana", or "coconut", ignoring case.
+The following example shows an **ItemHasRegularExpressionMatch** that activates the add-in when the body of the selected item contains "apple", "banana", or "coconut", ignoring case.
 
 ```xml
 <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="fruits" RegExValue="apple|banana|coconut" pPropertyName="BodyAsPlaintext" IgnoreCase="true" />
 ```
 
-For more information about using the  **ItemHasRegularExpressionMatch** rule, see [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md).
+For more information about using the **ItemHasRegularExpressionMatch** rule, see [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md).
 
 
 ## RuleCollection rule
 
 
-The  **RuleCollection** complex type combines multiple rules into a single rule. You can specify whether the rules in the collection should be combined with a logical OR or a logical AND by using the **Mode** attribute.
+The **RuleCollection** complex type combines multiple rules into a single rule. You can specify whether the rules in the collection should be combined with a logical OR or a logical AND by using the **Mode** attribute.
 
 When a logical AND is specified, an item must match all the specified rules in the collection to show the add-in. When a logical OR is specified, an item that matches any of the specified rules in the collection will show the add-in.
 
-You can combine  **RuleCollection** rules to form complex rules. The following example activates the add-in when the user is viewing an appointment or message item and the subject or body of the item contains an address.
+You can combine **RuleCollection** rules to form complex rules. The following example activates the add-in when the user is viewing an appointment or message item and the subject or body of the item contains an address.
 
 ```xml
 <Rule xsi:type="RuleCollection" Mode="And">
@@ -181,6 +182,8 @@ The following example activates the add-in when the user is composing a message,
 
 
 To provide a satisfactory experience with Outlook Add-ins, you should adhere to the activation and API usage guidelines. The following table shows general limits for regular expressions and rules but there are specific rules for different hosts. For more information, see [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) and [Troubleshoot Outlook Add-in activation](troubleshoot-outlook-add-in-activation.md).
+
+<br/>
 
 |**Add-in element**|**Guidelines**|
 |:-----|:-----|

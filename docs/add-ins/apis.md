@@ -54,6 +54,8 @@ The `<Methods>` element doesn't apply to Outlook Add-ins, so you can't declare s
 
 Your add-in requires the appropriate permissions to use the APIs that it needs. There are four levels of permissions. For more details, see [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md).
 
+<br/>
+
 |Permission level|Description|
 |:-----|:-----|
 | **Restricted** | Allows use of entities but not regular expressions. |

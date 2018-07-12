@@ -17,6 +17,8 @@ The way that you call a web service varies based on where the web service is loc
 
 **Table 1. Ways to call web services from an Outlook Add-in**
 
+<br/>
+
 |**Web service location**|**Way to call the web service**|
 |:-----|:-----|
 |The Exchange server that hosts the client mailbox|Use the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method to call EWS operations that add-ins support. The Exchange server that hosts the mailbox also exposes EWS.|
@@ -29,7 +31,7 @@ You can use the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/a
 
 EWS supports different operations on an Exchange server; for example, item-level operations to copy, find, update, or send an item, and folder-level operations to create, get, or update a folder. To perform an EWS operation, create an XML SOAP request for that operation. When the operation finishes, you get an XML SOAP response that contains data that is relevant to the operation. EWS SOAP requests and responses follow the schema defined in the Messages.xsd file. Like other EWS schema files, the Message.xsd file is located in the IIS virtual directory that hosts EWS. 
 
-To use the  **makeEwsRequestAsync** method to initiate an EWS operation, provide the following:
+To use the **makeEwsRequestAsync** method to initiate an EWS operation, provide the following:
 
 - The XML for the SOAP request for that EWS operation, as an argument to the  _data_ parameter
     
@@ -45,9 +47,9 @@ When the EWS SOAP request is complete, Outlook calls the callback method with on
 When parsing a SOAP response from an EWS operation, note the following browser-dependent issues:
 
 
-- Specify the prefix for a tag name when using the DOM method  **getElementsByTagName**, to include support for Internet Explorer.
+- Specify the prefix for a tag name when using the DOM method **getElementsByTagName**, to include support for Internet Explorer.
     
-   **getElementsByTagName** behaves differently depending on browser type. For example, an EWS response can contain the following XML (formatted and abbreviated for display purposes):
+  **getElementsByTagName** behaves differently depending on browser type. For example, an EWS response can contain the following XML (formatted and abbreviated for display purposes):
     
    ```XML
         <t:ExtendedProperty><t:ExtendedFieldURI PropertySetId="00000000-0000-0000-0000-000000000000" 
@@ -78,7 +80,7 @@ When parsing a SOAP response from an EWS operation, note the following browser-d
             });
    ```
 
-- Use the DOM property  **textContent** to get the contents of a tag in an EWS response, as shown below:
+- Use the DOM property **textContent** to get the contents of a tag in an EWS response, as shown below:
     
    ```js
       content = $.parseJSON(value.textContent);
@@ -93,7 +95,7 @@ The following example calls **makeEwsRequestAsync** to use the [GetItem](https:/
 
 -  `getSubjectRequest` &ndash; Takes an item ID as input, and returns the XML for the SOAP request to call **GetItem** for the specified item.
     
--  `sendRequest` &ndash; Calls  `getSubjectRequest` to get the SOAP request for the selected item, then passes the SOAP request and the callback method, `callback`, to  **makeEwsRequestAsync** to get the subject of the specified item.
+-  `sendRequest` &ndash; Calls  `getSubjectRequest` to get the SOAP request for the selected item, then passes the SOAP request and the callback method, `callback`, to **makeEwsRequestAsync** to get the subject of the specified item.
     
 -  `callback` &ndash; Processes the SOAP response which includes any subject and other information about the specified item.
     
@@ -144,7 +146,7 @@ function callback(asyncResult)  {
 
 ## EWS operations that add-ins support
 
-Outlook Add-ins can access a subset of operations that are available in EWS via the  **makeEwsRequestAsync** method. If you are unfamiliar with EWS operations and how to use the **makeEwsRequestAsync** method to access an operation, start with a SOAP request example to customize your _data_ argument. 
+Outlook Add-ins can access a subset of operations that are available in EWS via the **makeEwsRequestAsync** method. If you are unfamiliar with EWS operations and how to use the **makeEwsRequestAsync** method to access an operation, start with a SOAP request example to customize your _data_ argument. 
 
 The following describes how you can use the **makeEwsRequestAsync** method:
 
@@ -152,7 +154,7 @@ The following describes how you can use the **makeEwsRequestAsync** method:
     
 2. Include the SOAP request as an argument for the  _data_ parameter of **makeEwsRequestAsync**.
     
-3. Specify a callback method and call  **makeEwsRequestAsync**.
+3. Specify a callback method and call **makeEwsRequestAsync**.
     
 4. In the callback method, verify the results of the operation in the SOAP response.
     
@@ -161,6 +163,8 @@ The following describes how you can use the **makeEwsRequestAsync** method:
 The following table lists the EWS operations that add-ins support. To see examples of SOAP requests and responses, choose the link for each operation. For more information about EWS operations, see [EWS operations in Exchange](https://docs.microsoft.com/exchange/client-developer/web-service-reference/ews-operations-in-exchange).
 
 **Table 2. Supported EWS operations**
+
+<br/>
 
 |**EWS operation**|**Description**|
 |:-----|:-----|
@@ -186,7 +190,7 @@ The following table lists the EWS operations that add-ins support. To see exampl
  > FAI (Folder Associated Information) items cannot be updated (or created) from an add-in. These hidden messages are stored in a folder and are used to store a variety of settings and auxiliary data.  Attempting to use the UpdateItem operation will throw an ErrorAccessDenied error: "Office extension is not allowed to update this type of item". As an alternative, you may use the [EWS Managed API](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/get-started-with-ews-managed-api-client-applications) to update these items from a Windows client or a server application. Caution is recommended as internal, service-type data structures are subject to change and could break your solution.
 
 
-## Authentication and permission considerations for makeEwsRequestAsync method
+## Authentication and permission considerations for makeEwsRequestAsync
 
 When you use the **makeEwsRequestAsync** method, the request is authenticated by using the email account credentials of the current user. The **makeEwsRequestAsync** method manages the credentials for you so that you do not have to provide authentication credentials with your request.
 

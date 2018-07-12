@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Use the Outlook REST APIs from an Outlook Add-in
 
-The [Office.context.mailbox.item](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) namespace provides access to many of the common fields of messages and appointments. However, in some scenarios an add-in may need to access data that is not exposed by the namespace. For example, the add-in may rely on custom properties set by an outside app, or it needs to search the user's mailbox for messages from the same sender. In these scenarios, the [Outlook REST APIs](../rest/index.md) is the recommended method to retrieve the information.
+The [Office.context.mailbox.item](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) namespace provides access to many of the common fields of messages and appointments. However, in some scenarios an add-in may need to access data that is not exposed by the namespace. For example, the add-in may rely on custom properties set by an outside app, or it needs to search the user's mailbox for messages from the same sender. In these scenarios, the [Outlook REST APIs](../rest/index.md) is the recommended method to retrieve the information. 
 
 > [!NOTE]
 > You can also access [Outlook REST APIs via Microsoft Graph](../rest/index.md#outlook-rest-api-via-microsoft-graph) but there are some key differences. For more details, please [Compare Microsoft Graph and Outlook](../rest/compare-graph-outlook.md).

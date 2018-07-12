@@ -40,6 +40,8 @@ Validation is done on the client side in Outlook on the web, on trigger of the s
 
 The following screenshot shows an information bar that notifies the sender to add a subject.
 
+<br/>
+
 ![Screenshot showing an error message prompting the user to enter a missing subject line](images/block-on-send-subject-cc-inforbar.png) 
 
 <br/>
@@ -47,6 +49,8 @@ The following screenshot shows an information bar that notifies the sender to ad
 <br/>
 
 The following screenshot shows an information bar that notifies the sender that blocked words were found.
+
+<br/>
 
 ![Screenshot showing an error message telling the user that blocked words were found](images/block-on-send-body.png)
 
@@ -217,6 +221,7 @@ The following code examples show you how to create a simple on send add-in. To d
 The [Outlook-Add-in-On-Send](https://github.com/OfficeDev/Outlook-Add-in-On-Send) code sample includes two manifests:
 
 - `Contoso Message Body Checker.xml` &ndash; Shows how to check the body of a message for restricted words or sensitive information on send.  
+
 - `Contoso Subject and CC Checker.xml` &ndash; Shows how to add a recipient to the CC line and verify that the message includes a subject line on send.  
 
 In the `Contoso Message Body Checker.xml` manifest file, you include the function file and function name that should be called on the **ItemSend** event. The operation runs synchronously.
@@ -236,6 +241,8 @@ In the `Contoso Message Body Checker.xml` manifest file, you include the functio
       </Hosts>
 ```
 
+<br/>
+
 For the `Contoso Subject and CC Checker.xml` manifest file, the function file and function name to call on message send event is shown in the following example.
 
 ```xml
@@ -253,7 +260,7 @@ For the `Contoso Subject and CC Checker.xml` manifest file, the function file an
       </Hosts>
 ```
 
-
+<br/>
 
 The on send API requires **VersionOverrides v1_1**. The following shows you how to add the VersionOverrides node in your manifest.
 

@@ -2,7 +2,6 @@
 title: Create Outlook Add-ins for compose forms | Microsoft Docs
 description: Learn about scenarios and capabilities of Outlook Add-ins for compose forms.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 05/02/2018
@@ -14,13 +13,18 @@ ms.author: jasonjoh
 Starting with version 1.1 of the schema for Office Add-ins manifests and v1.1 of Office.js, you can create compose add-ins, which are Outlook Add-ins activated in compose forms. In contrast with read add-ins (Outlook Add-ins that are activated in read mode when a user is viewing a message or appointment), compose add-ins are available in the following user scenarios:
 
 - Composing a new message, meeting request, or appointment in a compose form.
+
 - Viewing or editing an existing appointment, or meeting item in which the user is the organizer.
     
-    > [!NOTE]
-    > If the user is on the RTM release of Outlook 2013 and Exchange 2013 and is viewing a meeting item organized by the user, the user can find read add-ins available. Starting in the Office 2013 SP1 release, there's a change such that in the same scenario, only compose add-ins can activate and be available.
+   > [!NOTE]
+   > If the user is on the RTM release of Outlook 2013 and Exchange 2013 and is viewing a meeting item organized by the user, the user can find read add-ins available. Starting in the Office 2013 SP1 release, there's a change such that in the same scenario, only compose add-ins can activate and be available.
+
 - Composing an inline response message or replying to a message in a separate compose form.
+
 - Editing a response (**Accept**, **Tentative**, or **Decline**) to a meeting request or meeting item.
+
 - Proposing a new time for a meeting item.
+
 - Forwarding or replying to a meeting request or meeting item.
 
 In each of these compose scenarios, any add-in command buttons defined by the add-in are shown. For older add-ins that do not implement add-in commands, users can choose **Office Add-ins** in the ribbon to open the add-in selection pane, and then choose and start a compose add-in. The following figure shows add-in commands in a compose form.
