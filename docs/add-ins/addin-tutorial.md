@@ -725,7 +725,7 @@ Now we can work on the **Insert Gist** button. For this button we'll open a task
 Create a folder in the root of the project called `msg-compose`. In this folder, create `insert-gist.html` and add the following markup.
 
 > [!NOTE]
--> The markup for the taskpane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://dev.office.com/docs/add-ins/design/ux-design-patterns).	+> The markup for the taskpane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/ux-design-pattern-templates).
+-> The markup for the taskpane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://dev.office.com/docs/add-ins/design/ux-design-patterns).
 
 ```html
 <!DOCTYPE html>
