@@ -40,6 +40,9 @@ Extension points are the ways that add-ins integrate with Outlook. The following
     ![Shows a contextual app in a card](images/contextual-window.png)
 
 
+> [!NOTE]
+> [Custom panes have been deprecated](https://developer.microsoft.com/en-us/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using a supported extension point.
+
 ## Mailbox items available to add-ins
 
 Outlook Add-ins are available on messages or appointments while composing or reading, but not other item types. Outlook does not activate add-ins if the current message item, in a compose or read form, is one of the following:
