@@ -1,5 +1,5 @@
 ---
-title: Contexutal Outlook Add-ins | Microsoft Docs
+title: Contextual Outlook Add-ins | Microsoft Docs
 description: Learn about the features of Outlook contextual add-ins.
 author: jasonjoh
 ms.topic: article
