@@ -217,6 +217,6 @@ For examples of performing actions, see the following.
 
 - [Hello Actionable Messages](https://github.com/OfficeDev/HelloActionableMessages): A sample project with one-click button Azure deployment. This sample is a simple end-to-end actionable message solution that can be up and working within 10 minutes, and serves as a reference for building a production action endpoint.
 
-## Debug actionable messages
+## Troubleshooting tools
 
-The [Actionable Messages Debugger](https://store.office.com/app.aspx?assetid=WA104381686) is an Outlook add-in that allows developers to inspect the card payload in their actionable messages and identify why the card is not rendering. 
+- [Actionable Messages Debugger](https://appsource.microsoft.com/product/office/WA104381686): an Outlook add-in that allows developers to inspect the card payload in their actionable messages and identify why the card is not rendering. 
