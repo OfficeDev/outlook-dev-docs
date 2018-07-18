@@ -17,6 +17,9 @@ As part of the process of developing an Outlook Add-in, you will probably find y
 1. Installing the add-in in your mailbox.
 1. Testing the add-in, making appropriate changes to the UI or manifest files, and repeating steps 2 and 3 to test the changes.
 
+> [!NOTE]
+> [Custom panes have been deprecated](https://developer.microsoft.com/en-us/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using [a supported add-in extension point](https://docs.microsoft.com/outlook/add-ins/#extension-points).
+
 ## Create a manifest file for the add-in
 
 Each add-in is described by an XML manifest, a document that gives the server information about the add-in, provides descriptive information about the add-in for the user, and identifies the location of the add-in UI HTML file. You can store the manifest in a local folder or server, as long as the location is accessible by the Exchange server of the mailbox that you are testing with. We'll assume that you store your manifest in a local folder. For information about how to create a manifest file, see [Outlook Add-in manifests](manifests.md).
