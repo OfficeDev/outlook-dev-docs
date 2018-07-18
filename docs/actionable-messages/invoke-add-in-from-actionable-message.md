@@ -29,7 +29,7 @@ The following example shows the prompt users see if the add-in is not installed.
 
 Actionable messages invoke add-ins by specifying an [Action.InvokeAddInCommand action](adaptive-card.md#actioninvokeaddincommand) in the message. This action specifies the add-in to invoke, along with the identifier of the add-in button that opens the appropriate task pane.
 
-The required information is found in the [add-in's manifest](/docs/add-ins/manifests.md). First, you'll need the add-in's identifier, which is specified in the [Id element](https://dev.office.com/reference/add-ins/manifest/id?product=outlook).
+The required information is found in the [add-in's manifest](../add-ins/manifests.md). First, you'll need the add-in's identifier, which is specified in the [Id element](https://dev.office.com/reference/add-ins/manifest/id?product=outlook).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
