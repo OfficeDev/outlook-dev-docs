@@ -18,7 +18,7 @@ Outlook Add-ins are integrations built by third parties into Outlook by using th
 
 Outlook Add-ins are different from COM or VSTO add-ins, which are older integrations specific to Outlook running on Windows. Unlike COM add-ins, Outlook Add-ins don't have any code physically installed on the user's device or Outlook client. For an Outlook Add-in, Outlook reads the manifest and hooks up the specified controls in the UI, and then loads the JavaScript and HTML. This all executes in the context of a browser in a sandbox.
 
-The Outlook items that support mail add-ins include email messages, meeting requests, responses and cancellations, and appointments. Each mail add-in defines the context in which it is available, including the types of items and if the user is reading or composing an item.
+The Outlook items that support mail add-ins include email messages, meeting requests, responses and cancellations, and appointments. Each mail add-in defines the context in which it is available, including the types of items and if the user is reading or composing an item. 
 
 > [!NOTE]
 > When you build your add-in, if you plan to [publish](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/publish?product=outlook) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://docs.microsoft.com/en-us/office/dev/store/validation-policies). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://docs.microsoft.com/en-us/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably) and the [Office Add-in host and availability page](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-availability)).
@@ -39,6 +39,9 @@ Extension points are the ways that add-ins integrate with Outlook. The following
 
     ![Shows a contextual app in a card](images/contextual-window.png)
 
+
+> [!NOTE]
+> [Custom panes have been deprecated](https://developer.microsoft.com/en-us/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using a supported extension point.
 
 ## Mailbox items available to add-ins
 

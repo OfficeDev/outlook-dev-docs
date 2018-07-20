@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Outlook Add-in requirements
 
-For Outlook Add-ins to load and function properly, there are a number of requirements for both the servers and the clients.
+For Outlook Add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
 
 ## Client requirements
 

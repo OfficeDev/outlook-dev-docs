@@ -1,5 +1,5 @@
 ---
-title: Contexutal Outlook Add-ins | Microsoft Docs
+title: Contextual Outlook Add-ins | Microsoft Docs
 description: Learn about the features of Outlook contextual add-ins.
 author: jasonjoh
 ms.topic: article
@@ -20,7 +20,7 @@ The following are examples of contextual add-ins:
 
 
 > [!NOTE]
-> Contextual add-ins are not currently available in Outlook for Android and Outlook for iOS. This functionality will be made available in the future. 
+> Contextual add-ins are not currently available in Outlook for Android and Outlook for iOS. This functionality will be made available in the future.
 
 ## How to make a contextual add-in
 

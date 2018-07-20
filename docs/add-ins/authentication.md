@@ -2,7 +2,6 @@
 title: Authentication options in Outlook Add-ins | Microsoft Docs
 description: Learn about the ways to authenticate a user in an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/13/2017

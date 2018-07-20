@@ -2,7 +2,6 @@
 title: Get or set the subject in an Outlook Add-in | Microsoft Docs
 description: Learn how to get or set the subject of a message or appointment in an Outlook Add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017
@@ -13,31 +12,24 @@ ms.author: jasonjoh
 
 The JavaScript API for Office provides asynchronous methods ([subject.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5) and [subject.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Subject?product=outlook&version=v1.5)) to get and set the subject of an appointment or message that the user is composing. These asynchronous methods are available only to compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms.
 
-The  **subject** property is available for read access in both compose and read forms of appointments and messages. In a read form, you can access the property directly from the parent object, as in:
-
-
-
+The **subject** property is available for read access in both compose and read forms of appointments and messages. In a read form, you can access the property directly from the parent object, as in:
 
 ```js
 item.subject
 ```
 
-But in a compose form, because both the user and your add-in can be inserting or changing the subject at the same time, you must use the asynchronous method  **getAsync** to get the subject, as shown below:
-
-
-
+But in a compose form, because both the user and your add-in can be inserting or changing the subject at the same time, you must use the asynchronous method **getAsync** to get the subject, as shown below:
 
 ```js
 item.subject.getAsync
 ```
 
-The  **subject** property is available for write access in only compose forms and not in read forms.
+The **subject** property is available for write access in only compose forms and not in read forms.
 
-As with most asynchronous methods in the JavaScript API for Office,  **getAsync** and **setAsync** take optional input parameters. For more information about specifying these optional input parameters, see "Passing optional parameters to asynchronous methods" in [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
+As with most asynchronous methods in the JavaScript API for Office, **getAsync** and **setAsync** take optional input parameters. For more information about specifying these optional input parameters, see "Passing optional parameters to asynchronous methods" in [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins).
 
 
-## To get the subject
-
+## Get the subject
 
 This section shows a code sample that gets the subject of the appointment or message that the user is composing, and displays the subject. This code sample assumes a rule in the add-in manifest that activates the add-in in a compose form for an appointment or message, as shown below.
 
@@ -50,9 +42,7 @@ This section shows a code sample that gets the subject of the appointment or mes
 
 ```
 
-To use  **item.subject.getAsync**, provide a callback method that checks for the status and result of the asynchronous call. You can provide any necessary arguments to the callback method through the  _asyncContext_ optional parameter. You can obtain status, results and any error using the output parameter _asyncResult_ of the callback. If the asynchronous call is successful, you can get the subject as a plain text string using the [AsyncResult.value](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-
-
+To use **item.subject.getAsync**, provide a callback method that checks for the status and result of the asynchronous call. You can provide any necessary arguments to the callback method through the  _asyncContext_ optional parameter. You can obtain status, results and any error using the output parameter _asyncResult_ of the callback. If the asynchronous call is successful, you can get the subject as a plain text string using the [AsyncResult.value](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
 
 
 ```js
@@ -89,15 +79,12 @@ function write(message){
 ```
 
 
-## To set the subject
+## Set the subject
 
 
 This section shows a code sample that sets the subject of the appointment or message that the user is composing. Similar to the previous example, this code sample assumes a rule in the add-in manifest that activates the add-in in a compose form for an appointment or message.
 
-To use  **item.subject.setAsync**, specify a string of up to 255 characters in the data parameter. Optionally, you can provide a callback method and any arguments for the callback method in the  _asyncContext_ parameter. You should check the status, result and any error message in the _asyncResult_ output parameter of the callback. If the asynchronous call is successful, **setAsync** inserts the specified subject string as plain text, overwriting any existing subject for that item.
-
-
-
+To use **item.subject.setAsync**, specify a string of up to 255 characters in the data parameter. Optionally, you can provide a callback method and any arguments for the callback method in the  _asyncContext_ parameter. You should check the status, result and any error message in the _asyncResult_ output parameter of the callback. If the asynchronous call is successful, **setAsync** inserts the specified subject string as plain text, overwriting any existing subject for that item.
 
 ```js
 var item;
@@ -144,21 +131,12 @@ function write(message){
 
 ## See also
 
-
-
-- [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md)
-    
-- [Get and set Outlook item data in read or compose forms](item-data.md)
-    
-- [Create Outlook Add-ins for compose forms](compose-scenario.md)
-    
-- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)
-    
-- [Get, set, or add recipients when composing an appointment or message in Outlook](get-set-or-add-recipients.md)
-    
-- [Insert data in the body when composing an appointment or message in Outlook](insert-data-in-the-body.md)
-    
-- [Get or set the location when composing an appointment in Outlook](get-or-set-the-location-of-an-appointment.md)
-    
+- [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md)   
+- [Get and set Outlook item data in read or compose forms](item-data.md)    
+- [Create Outlook Add-ins for compose forms](compose-scenario.md)    
+- [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)    
+- [Get, set, or add recipients when composing an appointment or message in Outlook](get-set-or-add-recipients.md)  
+- [Insert data in the body when composing an appointment or message in Outlook](insert-data-in-the-body.md)   
+- [Get or set the location when composing an appointment in Outlook](get-or-set-the-location-of-an-appointment.md) 
 - [Get or set the time when composing an appointment in Outlook](get-or-set-the-time-of-an-appointment.md)
     

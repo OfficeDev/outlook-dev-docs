@@ -35,10 +35,13 @@ You will also need Outlook 2016 connected to an Office 365 account, Outlook.com 
 
 Open your command prompt/shell in an empty directory. Enter `yo office` and follow the prompts.
 
-- **Choose a project type:** `Jquery`
-- **Choose a script type:** `Javascript`
-- **What do you want to name your add-in?:** `Git the Gist`
-- **Which Office client application would you like to support?:** `Outlook`
+- **Choose a project type** - `Jquery`
+
+- **Choose a script type** - `Javascript`
+
+- **What do you want to name your add-in?** - `Git the Gist`
+
+- **Which Office client application would you like to support?** - `Outlook`
 
 ![A screenshot of the Microsoft Office Project Generator prompts](images/addin-tutorial/yeoman-prompts.PNG)
 
@@ -64,7 +67,7 @@ Open the `git-the-gist-manifest.xml` and locate the `SupportUrl` element. Remove
 1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
     - If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
     - If the browser does not indicate a problem with the certificate, proceed to the next step.
-1. Sideload the add-in using the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md). When browsing for the manifest file, select `git-the-gist-manifest.xml` in the project root.
+1. Sideload the add-in using the instructions in [Sideload Outlook Add-ins for testing](sideload-outlook-add-ins-for-testing.md). When browsing for the manifest file, select `git-the-gist-manifest.xml` in the project root.
 1. You should now see a new button on the ribbon labeled **Display all properties**. Click this button to open the taskpane. You should see the add-in's welcome page.
 
     ![A screenshot of the button and taskpane added by the sample](images/addin-tutorial/button-and-pane.PNG)
@@ -193,10 +196,15 @@ This defines the string values that will be used for the add-in. It also localiz
 Save your changes to the manifest. Since we installed the add-in from a file, we need to reinstall it in order for the changes to take effect.
 
 1. Open Outlook 2016. On the **Home** tab in the ribbon, click the **Store** button.
+
 1. Click the **My add-ins** link on the left side.
+
 1. Click the **...** button next to the **Git the Gist** entry, then choose **Remove**.
+
 1. Close the Store window.
+
 1. The custom button should disappear from the ribbon momentarily.
+
 1. Reinstall the add-in using the new manifest.
 
 Now when you compose a new message in Outlook, you should see two buttons on the ribbon: **Insert Gist** and **Insert Default Gist**. Now we can work on implementing the add-in functionality.
@@ -285,7 +293,7 @@ This is a very basic form with a text input for a GitHub username and an empty l
 
 Now add `dialog.css` in the same folder, and add the following code.
 
-```css
+```CSS
 section {
   margin: 10px 20px;
 }
@@ -531,7 +539,7 @@ Let's start by creating our function file. Any functions that are invoked by a U
 
 Notice that one of the script tags references [Showdown](https://github.com/showdownjs/showdown), which we'll use later to convert Markdown to HTML. Another tag references [URI.js](https://github.com/medialize/URI.js), which we use to build relative URLs. We need to install these libraries. Open your command prompt/shell to the root of the project and run the following command.
 
-```shell
+```powershell
 npm install showdown urijs --save
 ```
 
@@ -555,7 +563,7 @@ function setConfig(config, callback) {
 }
 ```
 
-This makes use of the [`RoamingSettings` object](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook) to get or set the configuration values.
+This makes use of the [RoamingSettings object](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook) to get or set the configuration values.
 
 Now open the `function-file.js` file in the `function-file` folder, and replace the contents with the following code:
 
@@ -716,6 +724,8 @@ Now we can work on the **Insert Gist** button. For this button we'll open a task
 
 Create a folder in the root of the project called `msg-compose`. In this folder, create `insert-gist.html` and add the following markup.
 
+> [!NOTE]
+-> The markup for the taskpane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://dev.office.com/docs/add-ins/design/ux-design-patterns).
 
 ```html
 <!DOCTYPE html>
@@ -778,7 +788,7 @@ Create a folder in the root of the project called `msg-compose`. In this folder,
 
 Create a file called `insert-gist.css` in the `msg-compose` folder and add the following code.
 
-```css
+```CSS
 /* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
 html, body {
   width: 100%;

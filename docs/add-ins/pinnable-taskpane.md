@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Implement a pinnable taskpane in Outlook
 
-The [taskpane](add-in-commands-for-outlook.md#launching-a-task-pane) UX shape for add-in commands opens a vertical taskpane to the right of an open message or appointment, allowing the add-in to provide UI for more detailed interactions (filling in multiple fields, etc.). This taskpane can be shown in the Reading Pane when viewing a list of messages, allowing for quick processing of a message.
+The [taskpane](add-in-commands-for-outlook.md#launching-a-task-pane) UX shape for add-in commands opens a vertical taskpane to the right of an open message or appointment, allowing the add-in to provide UI for more detailed interactions (filling in multiple fields, etc.). This taskpane can be shown in the Reading Pane when viewing a list of messages, allowing for quick processing of a message. 
 
 However, by default, if a user has an add-in taskpane open for a message in the Reading Pane, and then selects a new message, the task pane is automatically closed. For a heavily-used add-in, the user may prefer to keep that pane open, eliminating the need to reactivate the add-in on each message. With pinnable taskpanes, your add-in can give the user that option.
 

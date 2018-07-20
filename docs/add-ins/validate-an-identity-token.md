@@ -2,7 +2,6 @@
 title: Validate an Outlook Add-in identity token | Microsoft Docs
 description: Learn how to validate an Outlook Add-in identity token.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/20/2017
@@ -19,15 +18,15 @@ We suggest that you use a four-step process to validate the identity token and o
 
 The token returned from [getUserIdentityTokenAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook) is an encoded string representation of the token. In this form, per RFC 7519, all JWT's have three parts, separated by a period. The format is as follows.
 
-```
+```json
 {header}.{payload}.{signature}
 ```
 
 The header and payload should be base64-decoded to obtain a JSON representation of each part. The signature should be base64-decoded to obtain a byte array containing the binary signature.
 
-For more details on the contents of the token, see [Inside the Exchange identity token](inside-the-identity-token.md).
+For more information about the contents of the token, see [Inside the Exchange identity token](inside-the-identity-token.md).
 
-Once you have the three decoded components, you can proceed with validating the content of the token.
+After you have the three decoded components, you can proceed with validating the content of the token.
 
 ## Validate token contents
 
@@ -37,6 +36,7 @@ To validate the token contents, you should check the following.
     - The `typ` claim is set to `JWT`.
     - The `alg` claim is set to `RS256`.
     - The `x5t` claim is present.
+
 - Check the payload and verify that:
     - Check that the current time is between the times specified in the `nbf` and `exp` claims. The `nbf` claim specifies the earliest time that the token is considered valid, and the `exp` claim specifies the expiration time for the token. It is recommended to allow for some variation in clock settings between servers.
     - Check that the `aud` claim is the expected URL for your add-in.
@@ -88,9 +88,9 @@ The authentication metadata document uses the following format.
 
 The available signing keys are in the `keys` array. Select the correct key by ensuring that the `x5t` value in the `keyinfo` property matches the `x5t` value in the header of the token. The public key is inside the `value` property in the `keyvalue` property, stored as a base64-encoded byte array.
 
-Once you have the correct public key, verify the signature. The signed data is the first two parts of the encoded token, separated by a period:
+After you have the correct public key, verify the signature. The signed data is the first two parts of the encoded token, separated by a period:
 
-```
+```json
 {header}.{payload}
 ```
 
@@ -106,7 +106,7 @@ There are a number of libraries that can do general JWT parsing and validation. 
 
 The [System.IdentityModels.Tokens.Jwt](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) library can parse the token and also perform the validation, though you will need to parse the `appctx` claim yourself and retrieve the public signing key.
 
-```csharp
+```cs
 // Load the encoded token
 string encodedToken = "...";
 JwtSecurityToken jwt = new JwtSecurityToken(encodedToken);
@@ -151,9 +151,11 @@ catch (SecurityTokenValidationException ex)
 }
 ```
 
+<br/>
+
 The `ExchangeAppContext` class is defined as follows:
 
-```csharp
+```cs
 using Newtonsoft.Json;
 
 /// <summary>
@@ -186,7 +188,7 @@ For an example that uses this library to validate Exchange tokens and has an imp
 
 The [Exchange Web Services Managed API](https://www.nuget.org/packages/Microsoft.Exchange.WebServices/) can also validate Exchange user identity tokens. Because it is Exchange-specific, it implements all of the necessary logic to parse the `appctx` claim and verify the token version.
 
-```csharp
+```cs
 using Microsoft.Exchange.WebServices.Auth.Validation;
 
 AppIdentityToken ValidateIdentityToken(string rawToken, string expectedAudience)

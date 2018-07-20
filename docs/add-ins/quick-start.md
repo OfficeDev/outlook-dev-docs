@@ -33,9 +33,9 @@ You can create an Office Add-in by using Visual Studio or any other editor. Tell
 
 ### Create the add-in project
 
-1. On the Visual Studio menu bar, choose  **File** > **New** > **Project**.
+1. On the Visual Studio menu bar, choose **File** > **New** > **Project**.
     
-1. In the list of project types under **Visual C#** or **Visual Basic**, expand  **Office/SharePoint**, choose **Add-ins**, and then choose **Outlook Web Add-in** as the project type. 
+1. In the list of project types under **Visual C#** or **Visual Basic**, expand **Office/SharePoint**, choose **Add-ins**, and then choose **Outlook Web Add-in** as the project type. 
 
 1. Name the project, and then choose **OK**.
 
@@ -170,7 +170,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 - Install the latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
 
-    ```Shell
+    ```powershell
     npm install -g yo generator-office
     ```
 
@@ -180,20 +180,23 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. Navigate to your new folder.
 
-    ```Shell
+    ```powershell
     cd my-outlook-addin
     ```
 
 1. Use the Yeoman generator to create an Outlook Add-in project. Run the following command and then answer the prompts as follows:
 
-    ```Shell
+    ```powershell
     yo office
     ```
 
-    - **Choose a project type:** `Jquery`
-    - **Choose a script type:** `Javascript`
-    - **What do you want to name your add-in?:** `My Office Add-in`
-    - **Which Office client application would you like to support?:** `Outlook`
+    - **Choose a project type** - `Jquery`
+
+    - **Choose a script type** - `Javascript`
+
+    - **What do you want to name your add-in?** - `My Office Add-in`
+
+    - **Which Office client application would you like to support?** - `Outlook`
     
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
     
@@ -332,5 +335,5 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 Congratulations, you've successfully created your first Outlook Add-in! Next, learn more about the capabilities of an Outlook Add-in and build a more complex add-in by following along with the Advanced Outlook Add-in tutorial.
 
 > [!div class="nextstepaction"]
-> [Advanced Outlook add-in tutorial](addin-tutorial.md)
+> [Advanced Outlook Add-in tutorial](addin-tutorial.md)
 

@@ -2,7 +2,6 @@
 title: Sideload Outlook Add-ins for testing | Microsoft Docs
 description: Learn how to sideload Outlook Add-ins for testing.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 01/24/2018
@@ -18,15 +17,15 @@ You can use sideloading to install an Outlook Add-in for testing without having 
 
 1. Go to [Outlook in Office 365](https://outlook.office.com).
 
-1. Choose the gear icon in the top-right section and select  **Manage add-ins**.
+1. Choose the gear icon in the top-right section and select **Manage add-ins**.
 
     ![Outlook on the web screenshot pointing to Manage add-ins option](images/outlook-sideload-web-manage-integrations.PNG)
 
-1. On the  **Manage add-ins** page, select **Add-Ins**, then select **My add-ins**.
+1. On the **Manage add-ins** page, select **Add-Ins**, and then select **My add-ins**.
 
     ![Outlook on the web store dialog with My add-ins selected](images/outlook-sideload-store-select-add-ins.png)
 
-1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file...**.
+1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file**.
 
     ![Store screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.PNG)
 
@@ -40,11 +39,11 @@ You can use sideloading to install an Outlook Add-in for testing without having 
 
     ![Outlook 2016 ribbon pointing to Store button](images/outlook-sideload-desktop-store.PNG)
 
-1. On the **Store** page, select **Add-Ins**, then select **My add-ins**.
+1. On the **Store** page, select **Add-Ins**, and then select **My add-ins**.
 
     ![Outlook 2016 store dialog with My add-ins selected](images/outlook-sideload-store-select-add-ins.png)
 
-1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file...**.
+1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file**.
 
     ![Store screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.PNG)
 

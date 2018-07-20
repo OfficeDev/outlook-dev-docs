@@ -2,7 +2,6 @@
 title: Add mobile support to an Outlook Add-in | Microsoft Docs
 description: Learn how to support add-in command in Outlook Mobile add-ins.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017
@@ -77,7 +76,7 @@ Mailbox requirement set 1.5 introduces a new version of [Office.context.mailbox.
 
 By default users can use the "pinch zoom" gesture to zoom in on taskpanes. If this does not make sense for your scenario, be sure to disable pinch zoom in your HTML.
 
-### Closing taskpanes
+### Close taskpanes
 
 In Outlook Mobile, taskpanes take up the entire screen and by default require the user to close them to return to the message. Consider using the [Office.context.ui.closeContainer](https://dev.office.com/reference/add-ins/shared/officeui.closecontainer?product=outlook&version=v1.5) method to close the taskpane when your scenario is complete.
 

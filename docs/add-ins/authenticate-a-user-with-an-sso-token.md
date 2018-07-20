@@ -2,7 +2,6 @@
 title: Authenticate a user with an single-sign-on token in an Outlook Add-in | Microsoft Docs
 description: Learn about using the single-sign-on token provided by an Outlook Add-in to implement SSO with your service.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/13/2017
@@ -20,32 +19,32 @@ Using this method, your add-in can obtain an access token scoped to your server 
 
 For an overview of SSO in Office add-ins, see [Enable single sign-on for Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/sso-in-office-add-ins) and [Authorize to Microsoft Graph in your Office Add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/authorize-to-microsoft-graph). 
 
-## Enabling modern authentication in your Office 365 tenancy
+## Enable modern authentication in your Office 365 tenancy
 
 To use SSO with an Outlook Add-in, you must enable Modern Authentication for the Office 365 tenancy. For information about how to do this, see [Exchange Online: How to enable your tenant for modern authentication](https://social.technet.microsoft.com/wiki/contents/articles/32711.exchange-online-how-to-enable-your-tenant-for-modern-authentication.aspx).
 
-## Registering your add-in
+## Register your add-in
 
-To use SSO, your Outlook Add-in will need to have a server-side web API that is registered with Azure Active Directory (AAD) v2.0. Details are at: [Register an Office Add-in that uses SSO with the Azure AD v2.0 endpoint](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/register-sso-add-in-aad-v2).
+To use SSO, your Outlook Add-in will need to have a server-side web API that is registered with Azure Active Directory (AAD) v2.0. For more information, see [Register an Office Add-in that uses SSO with the Azure AD v2.0 endpoint](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/register-sso-add-in-aad-v2).
 
-### Providing consent when sideloading an add-in
+### Provide consent when sideloading an add-in
 
-When an add-in that uses SSO is acquired from the Office Store, the store UI handles prompting the user for consent to the requested Graph permissions. However, when you are developing an add-in, you have to provide consent in advance. Details are at: [Grant administrator consent to the add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/grant-admin-consent-to-an-add-in)
+When an add-in that uses SSO is acquired from the Office Store, the store UI handles prompting the user for consent to the requested Graph permissions. However, when you are developing an add-in, you have to provide consent in advance. For more information, see [Grant administrator consent to the add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/grant-admin-consent-to-an-add-in)
 
-## Updating the add-in manifest
+## Update the add-in manifest
 
-The next step to enable SSO in the add-in is to add a `WebApplicationInfo` element at the end of the `VersionOverridesV1_1` [VersionOverrides](https://dev.office.com/reference/add-ins/manifest/versionoverrides?product=outlook) element. For more details, see [Configure the add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/sso-in-office-add-ins#configure-the-add-in). 
+The next step to enable SSO in the add-in is to add a `WebApplicationInfo` element at the end of the `VersionOverridesV1_1` [VersionOverrides](https://dev.office.com/reference/add-ins/manifest/versionoverrides?product=outlook) element. For more information, see [Configure the add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/sso-in-office-add-ins#configure-the-add-in). 
 
-## Getting the SSO token
+## Get the SSO token
 
 The add-in gets an SSO token with client-side script. For more information, see [Add client-side code](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/sso-in-office-add-ins#add-client-side-code).
 
-## Using the SSO token at the back-end
+## Use the SSO token at the back-end
 
 In most scenarios, there would be little point to obtaining the access token, if your add-in does not pass it on to a server-side and use it there. For details on what your server-side could and should do, see [Add server-side code](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/sso-in-office-add-ins#add-server-side-code).
 
 > [!IMPORTANT]
-> When using the SSO token as an identity in an *Outlook* add-in, we recommend that you also [use the Exchange identity token](authenticate-a-user-with-an-identity-token.md) as an alternate identity. Users of your add-in may use multiple clients, and some may not support providing an SSO token. By using the Exchange identity token as an alternate, you can avoid having to prompt these users for credentials multiple times. For more details, see [Scenario: Implement single sign-on to your service in an Outlook Add-in](implement-sso-in-outlook-add-in.md).
+> When using the SSO token as an identity in an *Outlook* add-in, we recommend that you also [use the Exchange identity token](authenticate-a-user-with-an-identity-token.md) as an alternate identity. Users of your add-in may use multiple clients, and some may not support providing an SSO token. By using the Exchange identity token as an alternate, you can avoid having to prompt these users for credentials multiple times. For more information, see[Scenario: Implement single sign-on to your service in an Outlook Add-in](implement-sso-in-outlook-add-in.md).
 
 ## Resources
 

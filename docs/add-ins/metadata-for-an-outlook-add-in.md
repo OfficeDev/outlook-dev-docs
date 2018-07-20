@@ -12,7 +12,7 @@ ms.author: jasonjoh
 
 You can manage custom data in your Outlook Add-in by using either of the following:
 
-- Roaming settings, which manage custom data for a user's mailbox.   
+- Roaming settings, which manage custom data for a user's mailbox.    
 - Custom properties, which manage custom data for an item in a user's mailbox.
     
 Both of these give access to custom data that is only accessible by your Outlook Add-in, but each method stores the data separately from the other. That is, the data stored through roaming settings is not accessible by custom properties, and vice versa. The data is stored on the server for that mailbox, and is accessible in subsequent Outlook sessions on all the form factors that the add-in supports. 
@@ -26,7 +26,7 @@ Changes to this data are stored on an in-memory copy of those settings for the c
 
 ### Roaming settings format
 
-The data in a  **RoamingSettings** object is stored as a serialized JavaScript Object Notation (JSON) string. 
+The data in a **RoamingSettings** object is stored as a serialized JavaScript Object Notation (JSON) string. 
 
 The following is an example of the structure, assuming there are three defined roaming settings named `add-in_setting_name_0`,  `add-in_setting_name_1`, and  `add-in_setting_name_2`.
 
@@ -67,7 +67,7 @@ Office.initialize = function () {
 
 Continuing with the preceding example, the following JavaScript function,  `setAddInSetting`, shows how to use the [RoamingSettings.set](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method to set a setting named `cookie` with today's date, and persist the data by using the [RoamingSettings.saveAsync](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook&version=v1.5) method to save all the roaming settings back to the server. 
 
-The **set** method creates the setting if the setting does not already exist, and assigns the setting to the specified value. The **saveAsync** method saves roaming settings asynchronously. This code sample passes a callback method, `saveMyAddInSettingsCallback`, to  **saveAsync**. When the asynchronous call finishes,  `saveMyAddInSettingsCallback` is called by using one parameter, _asyncResult_. This parameter is an [AsyncResult](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object that contains the result of and any details about the asynchronous call. You can use the optional _userContext_ parameter to pass any state information from the asynchronous call to the callback function.
+The **set** method creates the setting if the setting does not already exist, and assigns the setting to the specified value. The **saveAsync** method saves roaming settings asynchronously. This code sample passes a callback method, `saveMyAddInSettingsCallback`, to **saveAsync**. When the asynchronous call finishes,  `saveMyAddInSettingsCallback` is called by using one parameter, _asyncResult_. This parameter is an [AsyncResult](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object that contains the result of and any details about the asynchronous call. You can use the optional _userContext_ parameter to pass any state information from the asynchronous call to the callback function.
 
 ```js
 // Set a roaming setting.
@@ -112,7 +112,7 @@ You can specify data specific to an item in the user's mailbox using the [Custom
 
 Similar to roaming settings, changes to custom properties are stored on in-memory copies of the properties for the current Outlook session. To make sure these custom properties will be available in the next session, save all the custom properties to the server.
 
-These add-in-specific, item-specific custom properties can only be accessed by using the  **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/userproperties-object-outlook) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot access **CustomProperties** by using the Outlook object model or EWS.
+These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/userproperties-object-outlook) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot access **CustomProperties** by using the Outlook object model or EWS.
 
 However, a mail add-in can get MAPI-based extended properties by using the EWS [GetItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method. In the **GetItem** request, specify the custom extended properties you need in a property set. A mail add-in can also use **makeEwsRequestAsync** and EWS [CreateItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/createitem-operation) and [UpdateItem](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/updateitem-operation) operations to create and modify extended properties.
 
@@ -136,11 +136,11 @@ This example includes the following methods:
 
 - [Office.initialize](https://dev.office.com/reference/add-ins/shared/office.initialize?product=outlook&version=v1.5) -- Initializes the add-in and loads the custom property bag from the Exchange server.
     
--  **customPropsCallback** -- Gets the custom property bag that is returned from the server and saves it for later use.
+- **customPropsCallback** -- Gets the custom property bag that is returned from the server and saves it for later use.
     
--  **updateProperty** -- Sets or updates a specific property, and then saves the change to the server.
+- **updateProperty** -- Sets or updates a specific property, and then saves the change to the server.
     
--  **removeProperty** -- Removes a specific property from the property bag, and then saves the removal to the server.
+- **removeProperty** -- Removes a specific property from the property bag, and then saves the removal to the server.
     
 
 
