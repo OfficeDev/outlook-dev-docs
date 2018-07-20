@@ -17,9 +17,20 @@ The Outlook REST APIs are available in both [Microsoft Graph](https://developer.
 
 Use Microsoft Graph whenever possible. The Microsoft Graph endpoint lets you access Outlook and many more [services and features](https://developer.microsoft.com/graph/docs/concepts/overview-major-services), including other Office 365 services, Enterprise Mobility + Security, and Windows 10. Choosing the Microsoft Graph endpoint allows your app to get an access token that can provide access to both Outlook data and other resources, without having to make multiple token requests.
 
-The two endpoints have some [API differences](#api-differences) and [feature differences](#feature-differences) to be aware of when choosing an endpoint.
+## Feature differences
 
-## API differences
+There are some features that are currently either only available on the Outlook endpoint, or are only in beta in Microsoft Graph. If your app needs these features, you should access them via the Outlook endpoint.
+
+> **Note:** We are constantly working to incorporate all of the features currently available on the Outlook endpoint into Microsoft Graph. Be sure to check back periodically as this list is updated.
+
+| Feature | Difference between endpoints |
+|---------|-------------|
+| [Outlook tasks](/previous-versions/office/office-365-api/api/version-2.0/task-rest-operations) | The Outlook API provides access to user's tasks. This feature is currently only available in beta in Microsoft Graph. |
+| Attachments over 4MB in size | Microsoft Graph cannot create attachments over 4MB in size. Attempts to create an attachment larger than 4MB results in a `413 Request Entity Too Large` error. |
+| [Rich notifications](/previous-versions/office/office-365-api/api/version-2.0/notify-rest-operations#get-instance-properties-by-subscribing-to-rich-notifications) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph does not support this feature. |
+| [Streaming notifications](/previous-versions/office/office-365-api/api/beta/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature. |
+
+## Moving from Outlook endpoint to Microsoft Graph
 
 The APIs are very similar on the Microsoft Graph endpoint and the Outlook endpoint. However, there are some differences to be aware of, especially if you are migrating to Microsoft Graph or using both endpoints in the same application.
 
@@ -156,16 +167,3 @@ The server returns the following response:
   ]
 }
 ```
-
-## Feature differences
-
-There are some features that are currently either only available on the Outlook endpoint, or are only in beta in Microsoft Graph. If your app needs these features, you should access them via the Outlook endpoint.
-
-> **Note:** We are constantly working to incorporate all of the features currently available on the Outlook endpoint into Microsoft Graph. Be sure to check back periodically as this list is updated.
-
-| Feature | Difference between endpoints |
-|---------|-------------|
-| [Outlook tasks](/previous-versions/office/office-365-api/api/version-2.0/task-rest-operations) | The Outlook API provides access to user's tasks. This feature is currently only available in beta in Microsoft Graph. |
-| Attachments over 4MB in size | Microsoft Graph cannot create attachments over 4MB in size. Attempts to create an attachment larger than 4MB results in a `413 Request Entity Too Large` error. |
-| [Rich notifications](/previous-versions/office/office-365-api/api/version-2.0/notify-rest-operations#get-instance-properties-by-subscribing-to-rich-notifications) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph does not support this feature. |
-| [Streaming notifications](/previous-versions/office/office-365-api/api/beta/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature. |
