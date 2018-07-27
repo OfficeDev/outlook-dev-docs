@@ -4,7 +4,7 @@ description: Learn about the permissions model for Outlook Add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 07/26/2018
 ms.author: jasonjoh
 ---
 
@@ -97,7 +97,9 @@ The **ReadItem** permission is the next level of permission in the permissions m
 
 ### Can't do
 
-- Use the token provided by **mailbox.getCallbackTokenAsync** to update or delete the current item using the Outlook REST API or access any other items in the user's mailbox.
+- Use the token provided by **mailbox.getCallbackTokenAsync** to:
+    - Update or delete the current item using the Outlook REST API or access any other items in the user's mailbox.
+    - Get the current calendar event item using the Outlook REST API.
 
 - Use any of the following APIs:
     - [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5)
@@ -124,7 +126,7 @@ The **ReadItem** permission is the next level of permission in the permissions m
 
 ## ReadWriteItem permission
 
-Specify **ReadWriteItem** in the **Permissions** element in the manifest to request this permission. Mail add-ins activated in compose forms that use write methods ( **Message.to.addAsync** or **Message.to.setAsync**) must use at least this level of permission.
+Specify **ReadWriteItem** in the **Permissions** element in the manifest to request this permission. Mail add-ins activated in compose forms that use write methods (**Message.to.addAsync** or **Message.to.setAsync**) must use at least this level of permission.
 
 ### Can do
 
@@ -136,7 +138,9 @@ Specify **ReadWriteItem** in the **Permissions** element in the manifest to requ
 
 ### Can't do
 
-- Use the token provided by **mailbox.getCallbackTokenAsync** to update or delete the current item using the Outlook REST API or access any other items in the user's mailbox.
+- Use the token provided by **mailbox.getCallbackTokenAsync** to:
+    - Update or delete the current item using the Outlook REST API or access any other items in the user's mailbox.
+    - Get the current calendar event item using the Outlook REST API.
 
 - Use **mailbox.makeEWSRequestAsync**.
 
