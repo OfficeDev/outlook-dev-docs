@@ -17,9 +17,20 @@ The Outlook REST APIs are available in both [Microsoft Graph](https://developer.
 
 Use Microsoft Graph whenever possible. The Microsoft Graph endpoint lets you access Outlook and many more [services and features](https://developer.microsoft.com/graph/docs/concepts/overview-major-services), including other Office 365 services, Enterprise Mobility + Security, and Windows 10. Choosing the Microsoft Graph endpoint allows your app to get an access token that can provide access to both Outlook data and other resources, without having to make multiple token requests.
 
-The two endpoints have some [API differences](#api-differences) and [feature differences](#feature-differences) to be aware of when choosing an endpoint.
+## Feature differences
 
-## API differences
+There are some features that are currently either only available on the Outlook endpoint, or are only in beta in Microsoft Graph. If your app needs these features, you should access them via the Outlook endpoint.
+
+> **Note:** We are constantly working to incorporate all of the features currently available on the Outlook endpoint into Microsoft Graph. Be sure to check back periodically as this list is updated.
+
+| Feature | Difference between endpoints |
+|---------|-------------|
+| [Outlook tasks](/previous-versions/office/office-365-api/api/version-2.0/task-rest-operations) | The Outlook API provides access to user's tasks. This feature is currently only available in beta in Microsoft Graph. |
+| Attachments over 4MB in size | Microsoft Graph cannot create attachments over 4MB in size. Attempts to create an attachment larger than 4MB results in a `413 Request Entity Too Large` error. |
+| [Rich notifications](/previous-versions/office/office-365-api/api/version-2.0/notify-rest-operations#get-instance-properties-by-subscribing-to-rich-notifications) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph does not support this feature. |
+| [Streaming notifications](/previous-versions/office/office-365-api/api/beta/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature. |
+
+## Moving from Outlook endpoint to Microsoft Graph
 
 The APIs are very similar on the Microsoft Graph endpoint and the Outlook endpoint. However, there are some differences to be aware of, especially if you are migrating to Microsoft Graph or using both endpoints in the same application.
 
@@ -55,7 +66,23 @@ Apps that use the [Azure AD v1.0 endpoint](https://docs.microsoft.com/azure/acti
 
 The resources are the same between Microsoft Graph and Outlook. However, the two endpoints handle casing of the property names differently. Microsoft Graph uses camelCase for property names, while Outlook uses PascalCase. Translating between the two simply requires converting the case.
 
-For example, Microsoft Graph [message resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/message) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
+For example, the Microsoft Graph [message resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/message) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
+
+### Tracking changes (synchronization)
+
+Both endpoints support querying collections for changes relative to a synchronization state. While the functionality is the same, the methods are slightly different.
+
+On the Microsoft Graph endpoint, changes are queried by using [delta queries](https://developer.microsoft.com/graph/docs/concepts/delta_query_overview). This is implemented as a `delta` function on the collection.
+
+On the Outlook endpoint, changes are queried by [adding a header](/previous-versions/office/office-365-api/api/version-2.0/mail-rest-operations#synchronize-messages) to normal resource collection queries.
+
+### Batching
+
+Both endpoints support batching up to 20 separate requests into one HTTP request.
+
+[Microsoft Graph batching](https://developer.microsoft.com/graph/docs/concepts/json_batching) encodes multiple API requests into a JSON body with a content type of `application/json`.
+
+In addition to the JSON body format, [Outlook endpoint batching](/previous-versions/office/office-365-api/api/version-2.0/batch-outlook-rest-requests) also supports a multi-part body format with a content type of `multipart/mixed`.
 
 ### Example: retrieving a message
 
@@ -86,7 +113,7 @@ The server returns the following response:
   "value": [
     {
       "@odata.etag": "W/\"CwAAABYAAACd9nJ/tVysQos2hTfspaWRAAD8ujHV\"",
-      "id": "AAMkAGI2NGVhZTVlLTI1OGMtNDI4My1iZmE5LTA5OGJiZGEzMTc0YQBGAAAAAADUuTJK1K9aTpCdqXop_4NaBwCd9nJ-tVysQos2hTfspaWRAAAAAAEMAACd9nJ-tVysQos2hTfspaWRAAD8tDzlAAA=",
+      "id": "AAMkAGI2...",
       "receivedDateTime": "2015-11-03T03:21:04Z",
       "subject": "Scrum",
       "isRead": false,
@@ -126,7 +153,7 @@ The server returns the following response:
   "value": [
     {
       "@odata.etag": "W/\"CwAAABYAAACd9nJ/tVysQos2hTfspaWRAAD8ujHV\"",
-      "Id": "AAMkAGI2NGVhZTVlLTI1OGMtNDI4My1iZmE5LTA5OGJiZGEzMTc0YQBGAAAAAADUuTJK1K9aTpCdqXop_4NaBwCd9nJ-tVysQos2hTfspaWRAAAAAAEMAACd9nJ-tVysQos2hTfspaWRAAD8tDzlAAA=",
+      "Id": "AAMkAGI2...",
       "ReceivedDateTime": "2015-11-03T03:21:04Z",
       "Subject": "Scrum",
       "IsRead": false,
@@ -140,16 +167,3 @@ The server returns the following response:
   ]
 }
 ```
-
-## Feature differences
-
-There are some features that are currently either only available on the Outlook endpoint, or are only in beta in Microsoft Graph. If your app needs these features, you should access them via the Outlook endpoint.
-
-> **Note:** We are constantly working to incorporate all of the features currently available on the Outlook endpoint into Microsoft Graph. Be sure to check back periodically as this list is updated.
-
-| Feature | Difference between endpoints |
-|---------|-------------|
-| [Outlook tasks](https://msdn.microsoft.com/office/office365/api/task-rest-operations) | The Outlook API provides access to user's tasks. This feature is currently only available in beta in Microsoft Graph. |
-| Attachments over 4MB in size | Microsoft Graph cannot create attachments over 4MB in size. Attempts to create an attachment larger than 4MB results in a `413 Request Entity Too Large` error. |
-| [Rich notifications](https://msdn.microsoft.com/office/office365/api/notify-rest-operations#RichNotificationsV2) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph does not support this feature. |
-| [Streaming notifications](https://msdn.microsoft.com/office/office365/api/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature. |
