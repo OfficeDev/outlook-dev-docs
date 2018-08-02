@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 12/06/2017
+ms.date: 08/02/2018
 ms.author: jasonjoh
 nodes_to_expand: get-started
 ---

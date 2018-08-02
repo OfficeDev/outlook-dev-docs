@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 10/03/2017
+ms.date: 08/02/2018
 ms.author: jasonjoh
 ---
 
@@ -17,7 +17,7 @@ Building an Office 365 Connector for your application is easy. All you need to d
 
 ### Registering your Connector
 
-Visit the [Connector Developer Portal](http://aka.ms/connectorsdashboard) and login with your Office 365 credentials. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://developer.microsoft.com/office/dev-program) under the Office 365 Developer Program.
+Visit the [Connector Developer Portal](https://aka.ms/connectorsdashboard) and login with your Office 365 credentials. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://developer.microsoft.com/office/dev-program) under the Office 365 Developer Program.
 
 Choose **New Connector** and fill out the form. Once you choose **Save**, new options appear on the page.
 
@@ -29,6 +29,9 @@ Choose **New Connector** and fill out the form. Once you choose **Save**, new op
 An integrated configuration experience allows the user to configure your connector without leaving Outlook. Your application exposes the configuration as a web page that utilizes the Microsoft Teams JavaScript library to communicate configuration status back to Outlook.
 
 For details, see [Integrating the configuration experience](/microsoftteams/platform/concepts/connectors/connectors-creating#integrating-the-configuration-experience).
+
+> [!NOTE]
+> The [Integrating the configuration experience](/microsoftteams/platform/concepts/connectors/connectors-creating#integrating-the-configuration-experience) document is Microsoft Teams-specific, but the documented methods work the same way in Outlook.
 
 #### Outlook-specific configuration requirements
 
