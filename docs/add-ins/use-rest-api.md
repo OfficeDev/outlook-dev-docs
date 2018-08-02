@@ -48,6 +48,7 @@ To retrieve the current item via REST, your add-in will need the item's ID, prop
 
 - In Outlook Mobile, the value returned by `Office.context.mailbox.item.itemId` is a REST-formatted ID and can be used as-is.
 - In other Outlook clients, the value returned by `Office.context.mailbox.item.itemId` is an EWS-formatted ID, and must be converted using the [Office.context.mailbox.convertToRestId](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method.
+- Note you must also convert Attachement ID to a REST-formatted ID in order to use it. The reason the IDs must be converted is that EWS IDs can contain non-URL safe values which will cause problems for REST.
 
 Your add-in can determine which Outlook client it is loaded in by checking the [Office.context.mailbox.diagnostics.hostName](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.diagnostics?product=outlook&version=v1.5) property.
 
