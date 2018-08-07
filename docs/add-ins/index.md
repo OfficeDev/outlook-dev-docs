@@ -47,7 +47,7 @@ Extension points are the ways that add-ins integrate with Outlook. The following
 
 Outlook Add-ins are available on messages or appointments while composing or reading, but not other item types. Outlook does not activate add-ins if the current message item, in a compose or read form, is one of the following:
 
-- Protected by Information Rights Management (IRM), in S/MIME format or encrypted in other ways for protection. A digitally signed message is an example since digital signing relies on one of these mechanisms.
+- Protected by Information Rights Management (IRM) or encrypted in other ways for protection. A digitally signed message is an example since digital signing relies on one of these mechanisms.
     
 - A delivery report or notification that has the message class IPM.Report.*, including delivery and Non-Delivery Report (NDR) reports, and read, non-read, and delay notifications.
 
