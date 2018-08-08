@@ -1,19 +1,22 @@
 ---
 title: What are actionable messages in Office 365? | Microsoft Docs
-description: Learn about actionable messages in Outlook email and connectors for Groups and Teams.
+description: Learn about actionable messages in Outlook email and Office 365 Groups.
 author: jasonjoh
 
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 12/06/2017
+ms.date: 08/02/2018
 ms.author: jasonjoh
 nodes_to_expand: get-started
 ---
-# Actionable messages in Outlook, Office 365 Groups, and Microsoft Teams
+# Actionable messages in Outlook and Office 365 Groups
 
-Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook and Teams. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity.
+Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity.
 
 Office 365 provides two solutions to enhance productivity with Outlook Actionable Messages: actionable messages via email, and actionable messages via Office 365 Connectors.
+
+> [!NOTE]
+> Actionable messages are also available in Microsoft Teams. See [Office 365 Connectors for Teams](/microsoftteams/platform/concepts/connectors/connectors) for more information.
 
 ## User Experience
 
@@ -47,51 +50,45 @@ Adele has a few notes she recently took on a piece of paper with important thing
 
 Adele then clicks the **Save** button, and the notes are immediately saved to the Trello card. A confirmation appears at the bottom of the message:
 
-![The ](images/trello-card-infobar.png)
+![The confirmation message](images/trello-card-infobar.png)
 
-## Office 365 Connectors for Groups, Microsoft Teams and Yammer
+## Office 365 Connectors
 
-Office 365 Connectors are a great way to get useful information and content into your Office 365 Groups in Outlook, Microsoft Teams and Yammer. Any user can connect their group or team to services like Trello, Bing News, Twitter, etc., and get notified of activity from that service. From tracking a team's progress in Trello, to following important hashtags in Twitter, Office 365 Connectors make it easier for an Office 365 group in Outlook, Microsoft Teams, or Yammer to stay in sync and get more done. Office 365 Connectors currently have over 80 connectors with dozen or more to be added each month.
-
-Office 365 Connectors for Groups is broadly available in Outlook 2016, Outlook on the web and the Groups mobile app for iOS and Android. It is also available in Microsoft Teams on web, desktop, iOS and Android; and Yammer on web, desktop, iOS and Android.
-
-Office 365 Connectors also provide a compelling extensibility solution for developers. Developers can build connectors through incoming webhooks to generate rich connector cards. Additionally, with the new "Connect to Office 365" button, developers can embed the button on their site and enable users to connect to Office 365 groups. Try them today as part of our general availability!
+Office 365 Connectors are a great way to get useful information and content into your Office 365 Groups in Outlook or Microsoft Teams. Any user can connect their group or team to services like Trello, Bing News, Twitter, etc., and get notified of activity from that service. From tracking a team's progress in Trello, to following important hashtags in Twitter, Office 365 Connectors make it easier for an Office 365 group in Outlook, Microsoft Teams, or Yammer to stay in sync and get more done.
 
 ## Accessing Office 365 Connectors from Outlook
 
-Office 365 Connectors for Groups are available to any Office 365 Mail user. They are available by default when you navigate to any Group from Outlook on the web. To access Outlook on the web, simply connect to [https://outlook.office.com/owa](https://outlook.office.com/owa) from your favorite browser.
+Office 365 Connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web or Outlook 2016 for Windows.
 
-Once you are in the Office 365 Mail app, navigate to any Group or create a new Group first and then select **Connectors** as shown in the screenshot.
+### Accessing connectors in Outlook on the web
 
-![A screenshot of the menu on a Group in the Office 365 Mail app](images/group-menu.png)
+#### Inbox connectors
 
-![A screenshot of the Connectors menu on a Group in the Office 365 Mail app](images/group-connectors-menu.png)
+Users access inbox connectors from the **Settings** menu, accessed from the gear icon in the top-right corner.
 
-Check out our end-user documentation to learn more on how to <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">connect apps to your groups</a>.
+![A screenshot of the Settings menu in Outlook on the web](images/web-inbox-connector-menu.png)
 
-## Accessing Office 365 Connectors from Microsoft Teams
+#### Groups connectors
 
-From Microsoft Teams, you can easily add and configure connectors for any channel, either from the channel context menu or in the channel header.
+Users access group connectors from the **Group settings** menu, accessed from the gear icon in the group title bar.
 
-![A screenshot of the channel context menu in Microsoft Teams](images/teams-context-menu.PNG)
+![A screenshot of the Group settings icon in Outlook on the web](images/web-group-settings-icon.png)
 
-The following is an example of an actionable message generated by the StackOverflow connector rendered in Microsoft Teams. Using the StackOverflow connector, you can subscribe to the tagged areas of interest and get notified in Outlook or Teams. Your team can stay on top of all the questions posted on StackOverflow and answer them inline in Teams (or Outlook)!
+![A screenshot of the Group settings menu in Outlook on the web](images/web-group-connector-menu.png)
 
-![A screenshot of an actionable message in Microsoft Teams](images/teams-actionable-message.PNG)
+#### Accessing connectors in Outlook 2016 on Windows
 
-## Accessing Office 365 Connectors from Yammer
+Users access both inbox and group connectors from the **Store** button. The Store button loads connectors for the inbox if Outlook is currently displaying a mail folder in the user's mailbox, and loads connectors for the currently selected group if displaying a group.
 
-From Yammer, you can easily add and configure connectors for any O365 connected Yammer group by clicking the **Add or Remove Apps** link.
+![A screenshot of the Store button in Outlook 2016 on Windows](images/win-store-icon.png)
 
-![A Yammer group page with the "Add or Remove Apps" link highlighted](images/yammer_connected_group.jpg)
+In the inbox case, the Store dialog displays the **Add-ins** tab by default. Connectors are available in the **Connectors** tab.
 
-Configured connectors post cards directly in the group feed.
-
-![A Yammer group page with a Bing News card posted in the feed](images/yammer_card.jpg)
+![A screenshot of the Connectors tab in the Store dialog in Outlook 2016 on Windows](images/win-store-connectors-tab.png)
 
 ## Release Notes
 
-Currently, you can only configure connectors from Office 365 Outlook, Microsoft Teams and Yammer on the web, but you can view information posted by Connectors to your Group or Team by multiple clients such as Outlook on the web, Outlook 2016 and the Office365 Groups Mobile app; Microsoft Teams web, desktop, and iOS and Android apps; and Yammer web, desktop, iOS and Android apps.
+Currently, you can only configure connectors from Outlook on the web or Outlook 2016 on Windows, but you can view information posted by Connectors to your Group or inbox in multiple clients such as Outlook on the web, Outlook 2016 and the Office365 Groups Mobile app.
 
 For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">support article</a>.
 
