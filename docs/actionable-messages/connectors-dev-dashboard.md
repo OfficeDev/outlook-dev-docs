@@ -35,7 +35,7 @@ For details, see [Integrating the configuration experience](/microsoftteams/plat
 
 #### Outlook-specific configuration requirements
 
-If your configuration experience requires authentication, there are additional requirements to enable the [authentication flow](/microsoftteams/platform/concepts/authentication/auth-flow-tab.md) in Outlook on Windows.
+If your configuration experience requires authentication, there are additional requirements to enable the [authentication flow](/microsoftteams/platform/concepts/authentication/auth-flow-tab) in Outlook on Windows.
 
 Outlook on Windows passes an additional query parameter to your connectors authentication start page.
 

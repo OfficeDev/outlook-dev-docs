@@ -15,7 +15,7 @@ Whether you are filling out a survey, approving an expense report, or updating a
 
 Office 365 provides two solutions to enhance productivity with Outlook Actionable Messages: actionable messages via email, and actionable messages via Office 365 Connectors.
 
-> ![NOTE]
+> [!NOTE]
 > Actionable messages are also available in Microsoft Teams. See [Office 365 Connectors for Teams](/microsoftteams/platform/concepts/connectors/connectors) for more information.
 
 ## User Experience
