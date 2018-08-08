@@ -289,7 +289,7 @@ Let's start by creating the HTML for the dialog itself. Create a new folder in t
 </html>
 ```
 
-This is a very basic form with a text input for a GitHub username and an empty list for Gists that we'll populate via JavaScript. Note that we're using [Office Fabric](https://dev.office.com/fabric#/get-started) for fonts and styles.
+This is a very basic form with a text input for a GitHub username and an empty list for Gists that we'll populate via JavaScript. Note that we're using [Office Fabric](https://developer.microsoft.com/en-us/fabric#/get-started) for fonts and styles.
 
 Now add `dialog.css` in the same folder, and add the following code.
 
@@ -725,7 +725,7 @@ Now we can work on the **Insert Gist** button. For this button we'll open a task
 Create a folder in the root of the project called `msg-compose`. In this folder, create `insert-gist.html` and add the following markup.
 
 > [!NOTE]
--> The markup for the taskpane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://dev.office.com/docs/add-ins/design/ux-design-patterns).
+> The markup for the taskpane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/ux-design-pattern-templates).
 
 ```html
 <!DOCTYPE html>
