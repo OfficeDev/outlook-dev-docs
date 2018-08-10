@@ -284,7 +284,7 @@ Our first step is to generate the authentication link. Open the `outlook-demo.js
 var authEndpoint = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize?';
 var redirectUri = 'http://localhost:8080';
 var appId = 'YOUR APP ID HERE';
-var scopes = 'openid profile User.Read Mail.Read';
+var scopes = 'openid profile https://outlook.office.com/User.Read https://outlook.office.com/Mail.Read';
 ```
 
 Replace the `YOUR APP ID HERE` value with the application ID you generated as part of the app registration process.
