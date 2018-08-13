@@ -223,7 +223,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     </div>
     ```
 
-1. Open **index.js** in the root of the project, replace the entire contents with the following code, and save the file.
+1. Open the file **src/index.js** to specify the script for the add-in. Replace the entire contents with the following code and save the file.
 
     ```js
     'use strict';
