@@ -19,6 +19,9 @@ Using this method, your add-in can obtain an access token scoped to your server 
 
 For an overview of SSO in Office add-ins, see [Enable single sign-on for Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/sso-in-office-add-ins) and [Authorize to Microsoft Graph in your Office Add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/authorize-to-microsoft-graph). 
 
+> [!NOTE]
+> To use SSO, you must load the beta version of the Office JavaScript Library from https://appsforoffice.microsoft.com/lib/beta/hosted/office.js in the startup HTML page of the add-in.
+
 ## Enable modern authentication in your Office 365 tenancy
 
 To use SSO with an Outlook Add-in, you must enable Modern Authentication for the Office 365 tenancy. For information about how to do this, see [Exchange Online: How to enable your tenant for modern authentication](https://social.technet.microsoft.com/wiki/contents/articles/32711.exchange-online-how-to-enable-your-tenant-for-modern-authentication.aspx).
