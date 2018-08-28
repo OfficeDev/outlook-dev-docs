@@ -24,7 +24,7 @@ The following are examples of contextual add-ins:
 
 ## How to make a contextual add-in
 
-A contextual add-in's manifest must include an [ExtensionPoint](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the add-in specifies the entities or regular expression that can activate it. If an entity is specified, the entity can be any of the properties in the [Entities](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object. 
+A contextual add-in's manifest must include an [ExtensionPoint](https://docs.microsoft.com/javascript/office/manifest/extensionpoint) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the add-in specifies the entities or regular expression that can activate it. If an entity is specified, the entity can be any of the properties in the [Entities](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities) object.
 
 Thus, the add-in manifest must contain a rule of type **ItemHasKnownEntity** or **ItemHasRegularExpressionMatch**. The following example shows how to specify that an add-in should activate on messages with a detected entity that is a phone number:
 
@@ -88,4 +88,4 @@ The following contextual add-ins are installed by default for users with Outlook
 - [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) (sample contextual add-in that activates based on a regular expression match)
 - [Write your first Outlook Add-in](quick-start.md)
 - [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
-- [Entities object](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5)
+- [Entities object](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities)

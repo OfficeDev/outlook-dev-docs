@@ -10,9 +10,9 @@ ms.author: jasonjoh
 
 # Get or set the location when composing an appointment in Outlook
 
-The JavaScript API for Office provides asynchronous methods ([getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5) and [setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Location?product=outlook&version=v1.5)) to get and set the location of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described [Create Outlook Add-ins for compose forms](compose-scenario.md).
+The JavaScript API for Office provides asynchronous methods ([getAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Location#getasync-options--callback-) and [setAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Location#setasync-location--options--callback-)) to get and set the location of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described [Create Outlook Add-ins for compose forms](compose-scenario.md).
 
-The [location](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property is available for read access in both compose and read forms of appointments. In a read form, you can access the property directly from the parent object, as in:
+The [location](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#location-stringlocationjavascriptapioutlook15officelocation) property is available for read access in both compose and read forms of appointments. In a read form, you can access the property directly from the parent object, as in:
 
 ```js
 item.location
@@ -34,7 +34,7 @@ As with most asynchronous methods in the JavaScript API for Office, `getAsync` a
 
 This section shows a code sample that gets the location of the appointment that the user is composing, and displays the location.
 
-To use `item.location.getAsync`, provide a callback method that checks for the status and result of the asynchronous call. You can provide any necessary arguments to the callback method through the `asyncContext` optional parameter. You can obtain status, results and any error using the output parameter `asyncResult` of the callback. If the asynchronous call is successful, you can get the location as a string using the [AsyncResult.value](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
+To use `item.location.getAsync`, provide a callback method that checks for the status and result of the asynchronous call. You can provide any necessary arguments to the callback method through the `asyncContext` optional parameter. You can obtain status, results and any error using the output parameter `asyncResult` of the callback. If the asynchronous call is successful, you can get the location as a string using the [AsyncResult.value](https://docs.microsoft.com/javascript/api/office/office.asyncresult#value) property.
 
 ```js
 var item;
