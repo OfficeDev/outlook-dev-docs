@@ -29,7 +29,7 @@ Outlook Add-ins are comprised of HTML, CSS, and JavaScript files, so technically
 > npm install -g yo generator-office
 
 
-You will also need Outlook 2016 connected to an Office 365 account, Outlook.com account, or a Microsoft Exchange Server and a GitHub account to test all of the features of the add-in we're going to create.
+You will also need Outlook connected to an Office 365 account, Outlook.com account, or a Microsoft Exchange Server and a GitHub account to test all of the features of the add-in we're going to create.
 
 ## Create the add-in
 
@@ -195,7 +195,7 @@ This defines the string values that will be used for the add-in. It also localiz
 
 Save your changes to the manifest. Since we installed the add-in from a file, we need to reinstall it in order for the changes to take effect.
 
-1. Open Outlook 2016. On the **Home** tab in the ribbon, click the **Store** button.
+1. Open Outlook. On the **Home** tab in the ribbon, click the **Store** button.
 
 1. Click the **My add-ins** link on the left side.
 
