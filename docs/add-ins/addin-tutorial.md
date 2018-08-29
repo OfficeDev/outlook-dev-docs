@@ -5,7 +5,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: office-add-ins
 ms.devlang: javascript
-ms.date: 06/11/2018
+ms.date: 08/29/2018
 ms.author: jasonjoh
 ---
 
@@ -22,6 +22,7 @@ Outlook Add-ins are comprised of HTML, CSS, and JavaScript files, so technically
 - [Node.js](https://nodejs.org)
 - [Yeoman](https://yeoman.io/)
 - [Microsoft Office Add-in Project Generator](https://github.com/officedev/generator-office)
+- Internet Explorer version 11 or later
 
 > [!TIP]
 > Once you have Node.js installed, you can install all of the other prerequisites via NPM:
