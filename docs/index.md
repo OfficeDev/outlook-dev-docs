@@ -16,7 +16,7 @@ Outlook provides integrations that allow you to both access Outlook data from yo
 
 ### REST APIs
 
-You can access Outlook data in Office 365 or Outlook.com via OData and REST by using OAuth2 and [Microsoft Graph](https://developer.microsoft.com/en-us/graph). These APIs empower your app to perform actions like search email, post events to user's calendars, synchronize contacts, and much more. Check our [Get Started](rest/get-started.md) section for guided walkthroughs on a number of popular platforms.
+You can access Outlook data in Office 365 or Outlook.com via OData and REST by using OAuth2 and [Microsoft Graph](https://developer.microsoft.com/graph). These APIs empower your app to perform actions like search email, post events to user's calendars, synchronize contacts, and much more. Check our [Get Started](rest/get-started.md) section for guided walkthroughs on a number of popular platforms.
 
 ![The Do.com app loaded on a tablet](images/restapis.png)
 

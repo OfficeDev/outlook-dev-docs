@@ -21,25 +21,25 @@ The way that you call a web service varies based on where the web service is loc
 
 |**Web service location**|**Way to call the web service**|
 |:-----|:-----|
-|The Exchange server that hosts the client mailbox|Use the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method to call EWS operations that add-ins support. The Exchange server that hosts the mailbox also exposes EWS.|
+|The Exchange server that hosts the client mailbox|Use the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method to call EWS operations that add-ins support. The Exchange server that hosts the mailbox also exposes EWS.|
 |The web server that provides the source location for the add-in UI|Call the web service by using standard JavaScript techniques. The JavaScript code in the UI frame runs in the context of the web server that provides the UI. Therefore, it can call web services on that server without causing a cross-site scripting error.|
 |All other locations|Create a proxy for the web service on the web server that provides the source location for the UI. If you do not provide a proxy, cross-site scripting errors will prevent your add-in from running. One way to provide a proxy is by using JSON/P. For more information, see [Privacy and security for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security).|
 
 ## Using the makeEwsRequestAsync method to access EWS operations
 
-You can use the [mailbox.makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method to make an EWS request to the Exchange server that hosts the user's mailbox.
+You can use the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method to make an EWS request to the Exchange server that hosts the user's mailbox.
 
-EWS supports different operations on an Exchange server; for example, item-level operations to copy, find, update, or send an item, and folder-level operations to create, get, or update a folder. To perform an EWS operation, create an XML SOAP request for that operation. When the operation finishes, you get an XML SOAP response that contains data that is relevant to the operation. EWS SOAP requests and responses follow the schema defined in the Messages.xsd file. Like other EWS schema files, the Message.xsd file is located in the IIS virtual directory that hosts EWS. 
+EWS supports different operations on an Exchange server; for example, item-level operations to copy, find, update, or send an item, and folder-level operations to create, get, or update a folder. To perform an EWS operation, create an XML SOAP request for that operation. When the operation finishes, you get an XML SOAP response that contains data that is relevant to the operation. EWS SOAP requests and responses follow the schema defined in the Messages.xsd file. Like other EWS schema files, the Message.xsd file is located in the IIS virtual directory that hosts EWS.
 
 To use the **makeEwsRequestAsync** method to initiate an EWS operation, provide the following:
 
 - The XML for the SOAP request for that EWS operation, as an argument to the  _data_ parameter
-    
+
 - A callback method (as the  _callback_ argument)
-    
+
 - Any optional input data for that callback method (as the  _userContext_ argument)
-    
-When the EWS SOAP request is complete, Outlook calls the callback method with one argument, which is an [AsyncResult](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object. The callback method can access two properties of the **AsyncResult** object: the **value** property, which contains the XML SOAP response of the EWS operation, and optionally, the **asyncContext** property, which contains any data passed as the **userContext** parameter. Typically, the callback method then parses the XML in the SOAP response to get any relevant information, and processes that information accordingly.
+
+When the EWS SOAP request is complete, Outlook calls the callback method with one argument, which is an [AsyncResult](https://docs.microsoft.com/javascript/api/office/office.asyncresult) object. The callback method can access two properties of the **AsyncResult** object: the **value** property, which contains the XML SOAP response of the EWS operation, and optionally, the **asyncContext** property, which contains any data passed as the **userContext** parameter. Typically, the callback method then parses the XML in the SOAP response to get any relevant information, and processes that information accordingly.
 
 
 ## Tips for parsing EWS responses
@@ -48,9 +48,9 @@ When parsing a SOAP response from an EWS operation, note the following browser-d
 
 
 - Specify the prefix for a tag name when using the DOM method **getElementsByTagName**, to include support for Internet Explorer.
-    
+
   **getElementsByTagName** behaves differently depending on browser type. For example, an EWS response can contain the following XML (formatted and abbreviated for display purposes):
-    
+
    ```XML
         <t:ExtendedProperty><t:ExtendedFieldURI PropertySetId="00000000-0000-0000-0000-000000000000" 
         PropertyName="MyProperty" 
@@ -208,8 +208,8 @@ Your add-in must specify the **ReadWriteMailbox** permission in its add-in manif
 
 - [Privacy and security for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)    
 - [Addressing same-origin policy limitations in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/addressing-same-origin-policy-limitations)   
-- [EWS reference for Exchange](https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/ews-reference-for-exchange)   
-- [Mail apps for Outlook and EWS in Exchange](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/mail-apps-for-outlook-and-ews-in-exchange)
+- [EWS reference for Exchange](https://docs.microsoft.com/exchange/client-developer/web-service-reference/ews-reference-for-exchange)   
+- [Mail apps for Outlook and EWS in Exchange](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/mail-apps-for-outlook-and-ews-in-exchange)
    
 See the following for creating backend services for add-ins using ASP.NET Web API:
 

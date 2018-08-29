@@ -91,9 +91,9 @@ The security model addresses security, privacy, and performance concerns of end 
   - CPU usage  
 
   Governance deters denial-of-service attacks and maintains add-in performance at a reasonable level. The Business Bar alerts end users about Outlook Add-ins that the Outlook rich client has disabled based on such governance control.
-    
+
 - At any time, end users can verify the permissions requested by installed Outlook Add-ins, and disable or subsequently enable any Outlook Add-in in the Exchange Admin Center.
-    
+
 
 ## Developers: permission choices and resource usage limits
 
@@ -104,14 +104,14 @@ The security model provides developers granular levels of permissions to choose 
 Developers should follow the tiered permissions model to provide transparency and alleviate users' concern about what add-ins can do to their data and mailbox, indirectly promoting add-in adoption:
 
 - Developers request an appropriate level of permission for an Outlook Add-in, based on how the Outlook Add-in should be activated, and its need to read or write certain properties of an item, or to create and send an item.
-    
-- Developers request permission by using the [Permissions](https://dev.office.com/reference/add-ins/manifest/permissions?product=outlook&version=v1.5) element in the manifest of the Outlook Add-in, by assigning a value of **Restricted**, **ReadItem**, **ReadWriteItem** or **ReadWriteMailbox**, as appropriate. 
-    
+
+- Developers request permission by using the [Permissions](https://docs.microsoft.com/javascript/office/manifest/permissions) element in the manifest of the Outlook Add-in, by assigning a value of **Restricted**, **ReadItem**, **ReadWriteItem** or **ReadWriteMailbox**, as appropriate.
+
   > [!NOTE]
   > Note that the **ReadWriteItem** permission is available starting in manifest schema v1.1.
 
   The following example requests the **read item** permission.
-    
+
   ```XML
     <Permissions>ReadItem</Permissions>
   ```
@@ -131,15 +131,15 @@ Developers should follow the tiered permissions model to provide transparency an
   ```
 
 - Developers should request the **read item** permission if the Outlook Add-in needs to read properties of the current item other than the default extracted entities, or write custom properties set by the add-in on the current item, but does not require reading or writing to other items, or creating or sending a message in the user's mailbox. For example, a developer should request **read item** permission if an Outlook Add-in needs to look for an entity like a meeting suggestion, task suggestion, email address, or contact name in the item's subject or body, or uses a regular expression to activate.
-    
+
 - Developers should request the **read/write item** permission if the Outlook Add-in needs to write to properties of the composed item, such as recipient names, email addresses, body, and subject, or needs to add or remove item attachments.
-    
-- Developers request the **read/write mailbox** permission only if the Outlook Add-in needs to do one or more of the following actions by using the [mailbox.makeEWSRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) method:
-    
+
+- Developers request the **read/write mailbox** permission only if the Outlook Add-in needs to do one or more of the following actions by using the [mailbox.makeEWSRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method:
+
   - Read or write to properties of items in the mailbox.
   - Create, read, write, or send items in the mailbox.
   - Create, read, or write to folders in the mailbox.
-    
+
 
 ### Resource usage tuning
 

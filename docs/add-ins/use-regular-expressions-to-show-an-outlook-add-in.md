@@ -12,7 +12,7 @@ ms.author: jasonjoh
 
 You can specify regular expression rules to have a [contextual add-in](contextual-outlook-add-ins.md) activated when a match is found in specific fields of the message. Contextual add-ins activate only in read mode, Outlook does not activate contextual add-ins when the user is composing an item. There are also other scenarios where Outlook does not activate add-ins, for example, items protected by Information Rights Management (IRM). For more information, see [Activation rules for Outlook Add-ins](activation-rules.md).
 
-You can specify a regular expression as part of an [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rule or [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) rule in the add-in XML manifest. The rules are specified in a [DetectedEntity](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5#detectedentity) extension point.
+You can specify a regular expression as part of an [ItemHasRegularExpressionMatch](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasregularexpressionmatch-rule) rule or [ItemHasKnownEntity](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasknownentity-rule) rule in the add-in XML manifest. The rules are specified in a [DetectedEntity](https://docs.microsoft.com/javascript/office/manifest/extensionpoint#detectedentity) extension point.
 
 Outlook evaluates regular expressions based on the rules for the JavaScript interpreter used by the browser on the client computer. Outlook supports the same list of special characters that all XML processors also support. The following table lists these special characters. You can use these characters in a regular expression by specifying the escaped sequence for the corresponding character, as described in the following table.
 
@@ -91,7 +91,7 @@ The following `ItemHasRegularExpressionMatch` rule activates the add-in whenever
 
 ## ItemHasKnownEntity rule
 
-An `ItemHasKnownEntity` rule activates an add-in based on the existence of an entity in the subject or body of the selected item. The [KnownEntityType](https://dev.office.com/reference/add-ins/outlook/1.5/Office.MailboxEnums?product=outlook&version=v1.5) type defines the supported entities. Applying a regular expression on an `ItemHasKnownEntity` rule provides the convenience where activation is based on a subset of values for an entity (for example, a specific set of URLs, or telephone numbers with a certain area code).
+An `ItemHasKnownEntity` rule activates an add-in based on the existence of an entity in the subject or body of the selected item. The [EntityType](https://docs.microsoft.com/javascript/api/outlook_1_5/office.mailboxenums.entitytype) type defines the supported entities. Applying a regular expression on an `ItemHasKnownEntity` rule provides the convenience where activation is based on a subset of values for an entity (for example, a specific set of URLs, or telephone numbers with a certain area code).
 
 > [!NOTE]
 > Outlook can only extract entity strings in English regardless of the default locale specified in the manifest. Only messages support the `MeetingSuggestion` entity type; appointments do not. You cannot extract entities from items in the **Sent Items** folder, nor can you use an `ItemHasKnownEntity` rule to activate an add-in for items in the **Sent Items** folder.
@@ -112,7 +112,7 @@ The `ItemHasKnownEntity` rule supports the attributes in the following table. No
 The following `ItemHasKnownEntity` rule activates the add-in whenever there is a URL in the subject or body of the current item, and the URL contains the string `youtube`, regardless of the case of the string.
 
 ```XML
-<Rule xsi:type="ItemHasKnownEntity" 
+<Rule xsi:type="ItemHasKnownEntity"
     EntityType="Url" 
     RegExFilter="youtube"
     FilterName="youtube"
@@ -123,13 +123,13 @@ The following `ItemHasKnownEntity` rule activates the add-in whenever there is a
 
 You can obtain matches to a regular expression by using the following methods on the current item:
 
-- [getRegExMatches](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) returns matches in the current item for all regular expressions specified in `ItemHasRegularExpressionMatch` and `ItemHasKnownEntity` rules of the add-in.
+- [getRegExMatches](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatches--object) returns matches in the current item for all regular expressions specified in `ItemHasRegularExpressionMatch` and `ItemHasKnownEntity` rules of the add-in.
 
-- [getRegExMatchesByName](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) returns matches in the current item for the identified regular expression specified in an `ItemHasRegularExpressionMatch` rule of the add-in.
+- [getRegExMatchesByName](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-) returns matches in the current item for the identified regular expression specified in an `ItemHasRegularExpressionMatch` rule of the add-in.
 
-- [getFilteredEntitiesByName](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) returns entire instances of entities that contain matches for the identified regular expression specified in an `ItemHasKnownEntity` rule of the add-in.
+- [getFilteredEntitiesByName](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactjavascriptapioutlook15officecontactmeetingsuggestionjavascriptapioutlook15officemeetingsuggestionphonenumberjavascriptapioutlook15officephonenumbertasksuggestionjavascriptapioutlook15officetasksuggestion) returns entire instances of entities that contain matches for the identified regular expression specified in an `ItemHasKnownEntity` rule of the add-in.
 
-When the regular expressions are evaluated, the matches are returned to your add-in in an array object. For `getRegExMatches`, that object has the identifier of the name of the regular expression. 
+When the regular expressions are evaluated, the matches are returned to your add-in in an array object. For `getRegExMatches`, that object has the identifier of the name of the regular expression.
 
 > [!NOTE]
 > Outlook does not return matches in any particular order in the array. Also, you should not assume that matches are returned in the same order in this array even when you run the same add-in on each of these clients on the same item in the same mailbox.
@@ -203,4 +203,4 @@ var suggestions = Office.context.mailbox.item.getFilteredEntitiesByName("CampSug
 - [Activation rules for Outlook Add-ins](activation-rules.md)
 - [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
-- [Best Practices for Regular Expressions in the .NET Framework](https://docs.microsoft.com/en-us/dotnet/standard/base-types/best-practices)
+- [Best Practices for Regular Expressions in the .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/best-practices)

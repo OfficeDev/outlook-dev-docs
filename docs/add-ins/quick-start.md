@@ -24,7 +24,7 @@ You can create an Office Add-in by using Visual Studio or any other editor. Tell
 - [Visual Studio 2017](https://www.visualstudio.com/vs/) with the **Office/SharePoint development** workload installed
 
     > [!NOTE]
-    > If you've previously installed Visual Studio 2017, [use the Visual Studio Installer](https://docs.microsoft.com/en-us/visualstudio/install/modify-visual-studio) to ensure that the **Office/SharePoint development** workload is installed. 
+    > If you've previously installed Visual Studio 2017, [use the Visual Studio Installer](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) to ensure that the **Office/SharePoint development** workload is installed. 
 
 - Office 365
     
@@ -223,7 +223,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     </div>
     ```
 
-1. Open **index.js** in the root of the project, replace the entire contents with the following code, and save the file.
+1. Open the file **src/index.js** to specify the script for the add-in. Replace the entire contents with the following code and save the file.
 
     ```js
     'use strict';
