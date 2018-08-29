@@ -24,19 +24,19 @@ Outlook Mobile Add-ins are supported on all Office 365 Commercial accounts, Outl
 
 ![A screenshot of a taskpane in Outlook for Android](images/outlook-mobile-addin-taskpane-android.png)
 
-## What's different on mobile? 
+## What's different on mobile?
 
 - The small size and quick interactions make designing for mobile a challenge. To ensure quality experiences for our customers, we are setting strict validation criteria that must be met by an add-in declaring mobile support, in order to be approved in the Office Store.
     - The add-in **MUST** adhere to the [UI guidelines](outlook-addin-design.md).
     - The scenario for the add-in **MUST** [make sense on mobile](#what-makes-a-good-scenario-for-mobile-add-ins).
 
-- Only mail read is supported at this time. That means `MobileMessageReadCommandSurface` is the only [ExtensionPoint](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook&version=v1.5) you should declare in the mobile section of your manifest.
+- Only mail read is supported at this time. That means `MobileMessageReadCommandSurface` is the only [ExtensionPoint](https://docs.microsoft.com/javascript/office/manifest/extensionpoint) you should declare in the mobile section of your manifest.
 
-- The [makeEwsRequestAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox?product=outlook&version=v1.5) API is not supported on mobile since the mobile app uses REST APIs to communicate with the server. If your app backend needs to connect to the Exchange server, you can use the callback token to make REST API calls. For details, see [Use the Outlook REST APIs from an Outlook Add-in](use-rest-api.md).
+- The [makeEwsRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) API is not supported on mobile since the mobile app uses REST APIs to communicate with the server. If your app backend needs to connect to the Exchange server, you can use the callback token to make REST API calls. For details, see [Use the Outlook REST APIs from an Outlook Add-in](use-rest-api.md).
 
-- When you submit your add-in to the store with [MobileFormFactor](https://dev.office.com/reference/add-ins/manifest/mobileformfactor?product=outlook&version=v1.5) in the manifest, you'll need to agree to our developer addendum for add-ins on iOS, and you must submit your Apple Developer ID for verification.
+- When you submit your add-in to the store with [MobileFormFactor](https://docs.microsoft.com/javascript/office/manifest/mobileformfactor) in the manifest, you'll need to agree to our developer addendum for add-ins on iOS, and you must submit your Apple Developer ID for verification.
 
-- Finally, your manifest will need to declare `MobileFormFactor`, and have the correct types of [controls](https://dev.office.com/reference/add-ins/manifest/control?product=outlook&version=v1.5) and [icon sizes](https://dev.office.com/reference/add-ins/manifest/icon?product=outlook&version=v1.5) included.
+- Finally, your manifest will need to declare `MobileFormFactor`, and have the correct types of [controls](https://docs.microsoft.com/javascript/office/manifest/control) and [icon sizes](https://docs.microsoft.com/javascript/office/manifest/icon) included.
 
 ## What makes a good scenario for mobile add-ins?
 

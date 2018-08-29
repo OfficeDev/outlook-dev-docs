@@ -289,7 +289,7 @@ Let's start by creating the HTML for the dialog itself. Create a new folder in t
 </html>
 ```
 
-This is a very basic form with a text input for a GitHub username and an empty list for Gists that we'll populate via JavaScript. Note that we're using [Office Fabric](https://developer.microsoft.com/en-us/fabric#/get-started) for fonts and styles.
+This is a very basic form with a text input for a GitHub username and an empty list for Gists that we'll populate via JavaScript. Note that we're using [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
 
 Now add `dialog.css` in the same folder, and add the following code.
 
@@ -563,7 +563,7 @@ function setConfig(config, callback) {
 }
 ```
 
-This makes use of the [RoamingSettings object](https://dev.office.com/reference/add-ins/outlook/1.5/RoamingSettings?product=outlook) to get or set the configuration values.
+This makes use of the [RoamingSettings object](https://docs.microsoft.com/javascript/api/outlook_1_5/office.RoamingSettings) to get or set the configuration values.
 
 Now open the `function-file.js` file in the `function-file` folder, and replace the contents with the following code:
 

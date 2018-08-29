@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple PHP app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/php-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use Microsoft Graph(https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/php-tutorial/tree/outlook-api).
+This guide will use Microsoft Graph(https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/php-tutorial/tree/outlook-api).
 
 This guide assumes that you already have PHP installed and working on your development machine. The tutorial was created using PHP 5.6.30.
 
@@ -111,7 +111,7 @@ Now we'll modify the existing home page to use this layout. Open the `./php-tuto
 @section('content')
 <div class="jumbotron">
   <h1>PHP Outlook Sample</h1>
-  <p>This example shows how to get an OAuth token from Azure using the <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-code" target="_blank">authorization code grant flow</a> and to use that token to make calls to the Outlook APIs in the <a href="https://developer.microsoft.com/en-us/graph/" target="_blank">Microsoft Graph</a>.</p>
+  <p>This example shows how to get an OAuth token from Azure using the <a href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code" target="_blank">authorization code grant flow</a> and to use that token to make calls to the Outlook APIs in the <a href="https://developer.microsoft.com/graph/" target="_blank">Microsoft Graph</a>.</p>
   <p>
     <a class="btn btn-lg btn-primary" href="/signin" role="button" id="connect-button">Connect to Outlook</a>
   </p>
@@ -139,7 +139,7 @@ Here's what the details of your app registration should look like when you are d
 
 ## Implementing OAuth2
 
-Our goal in this section is to make the button on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-code).
+Our goal in this section is to make the button on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code).
 
 We'll use the [League OAuth 2 Client](https://github.com/thephpleague/oauth2-client) to handle our authorization and token requests. Let's install that before proceeding.
 

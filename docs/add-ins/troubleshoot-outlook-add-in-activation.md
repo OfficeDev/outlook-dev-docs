@@ -22,7 +22,7 @@ You can verify the version of Exchange 2013 by using one of the following approa
 
 - If you are testing the add-in on Outlook on the web or OWA for Devices, in a script debugger (for example, the JScript Debugger that comes with Internet Explorer), look for the **src** attribute of the **script** tag that specifies the location from which scripts are loaded. The path should contain a substring **owa/15.0.516.x/owa2/...**, where **15.0.516.x** represents the version of the Exchange Server, such as **15.0.516.2**.
 
-- Alternatively, you can use the [Office.context.mailbox.diagnostics.hostVersion](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.diagnostics?product=outlook&version=v1.5) property to verify the version. On Outlook on the web and OWA for Devices, this property returns the version of the Exchange Server.
+- Alternatively, you can use the [Office.context.mailbox.diagnostics.hostVersion](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.diagnostics#hostversion-string) property to verify the version. On Outlook on the web and OWA for Devices, this property returns the version of the Exchange Server.
 
 - If you can test the add-in on Outlook, you can use the following simple debugging technique that uses the Outlook object model and Visual Basic Editor:
 
@@ -31,7 +31,7 @@ You can verify the version of Exchange 2013 by using one of the following approa
     1. On the **Developer** tab of the ribbon, choose **Visual Basic**.
         
        > [!NOTE]
-       > Not seeing the **Developer** tab? See [How to: Show the Developer Tab on the Ribbon](https://docs.microsoft.com/en-us/visualstudio/vsto/how-to-show-the-developer-tab-on-the-ribbon) to turn it on.
+       > Not seeing the **Developer** tab? See [How to: Show the Developer Tab on the Ribbon](https://docs.microsoft.com/visualstudio/vsto/how-to-show-the-developer-tab-on-the-ribbon) to turn it on.
 
     1. In the Visual Basic Editor, choose **View**, **Immediate Window**.
 
@@ -68,7 +68,7 @@ Use one of the following approaches to verify whether an add-in is disabled:
 
 If your Outlook Add-in is a read add-in and is supposed to be activated when the user is viewing a message (including email messages, meeting requests, responses, and cancellations) or appointment, even though these items generally support add-ins, there are exceptions. Check if the selected item is one of those [listed where Outlook Add-ins do not activate](index.md#mailbox-items-available-to-add-ins).
 
-Also, because appointments are always saved in Rich Text Format, an [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rule that specifies a **PropertyName** value of **BodyAsHTML** would not activate an add-in on an appointment or message that is saved in plain text or Rich Text Format.
+Also, because appointments are always saved in Rich Text Format, an [ItemHasRegularExpressionMatch](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasregularexpressionmatch-rule) rule that specifies a **PropertyName** value of **BodyAsHTML** would not activate an add-in on an appointment or message that is saved in plain text or Rich Text Format.
 
 Even if a mail item is not one of the above types, if the item was not delivered by a version of Exchange Server that is at least Exchange 2013, known entities and properties such as sender's SMTP address would not be identified on the item. Any activation rules that rely on these entities or properties would not be satisfied, and the add-in would not be activated.
 
@@ -149,7 +149,7 @@ See [Validate and troubleshoot issues with your manifest](https://docs.microsoft
 
 ## Are you using the appropriate activation rules?
 
-Starting in version 1.1 of the Office Add-ins manifests schema, you can create add-ins that are activated when the user is in a compose form (compose add-ins) or in a read form (read add-ins). Make sure you specify the appropriate activation rules for each type of form that your add-in is supposed to activate in. For example, you can activate compose add-ins using only [ItemIs](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemis-rule) rules with the **FormType** attribute set to **Edit** or **ReadOrEdit**, and you cannot use any of the other types of rules, such as [ItemHasKnownEntity](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasknownentity-rule) and [ItemHasRegularExpressionMatch](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5#itemhasregularexpressionmatch-rule) rules for compose add-ins. For more information, see [Activation rules for Outlook Add-ins](activation-rules.md).
+Starting in version 1.1 of the Office Add-ins manifests schema, you can create add-ins that are activated when the user is in a compose form (compose add-ins) or in a read form (read add-ins). Make sure you specify the appropriate activation rules for each type of form that your add-in is supposed to activate in. For example, you can activate compose add-ins using only [ItemIs](https://docs.microsoft.com/javascript/office/manifest/rule#itemis-rule) rules with the **FormType** attribute set to **Edit** or **ReadOrEdit**, and you cannot use any of the other types of rules, such as [ItemHasKnownEntity](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasknownentity-rule) and [ItemHasRegularExpressionMatch](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasregularexpressionmatch-rule) rules for compose add-ins. For more information, see [Activation rules for Outlook Add-ins](activation-rules.md).
 
 ## If you use a regular expression, is it properly specified?
 
@@ -214,10 +214,10 @@ If the **ItemHasRegularExpressionMatch** activation rule specifies **Subject** o
 
 |Type of rule|Verify this MAPI property|
 |:-----|:-----|
-|**ItemHasRegularExpressionMatch** rule with **Subject**|[PidTagSubject](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtagsubject-canonical-property)|
-|**ItemHasRegularExpressionMatch** rule with **SenderSMTPAddress**|[PidTagSenderSmtpAddress](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtagsendersmtpaddress-canonical-property) and [PidTagSentRepresentingSmtpAddress](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtagsentrepresentingsmtpaddress-canonical-property)|
-|**ItemIs**|[PidTagMessageClass](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtagmessageclass-canonical-property)|
-|**ItemHasAttachment**|[PidTagHasAttachments](https://docs.microsoft.com/en-us/office/client-developer/outlook/mapi/pidtaghasattachments-canonical-property)|
+|**ItemHasRegularExpressionMatch** rule with **Subject**|[PidTagSubject](https://docs.microsoft.com/office/client-developer/outlook/mapi/pidtagsubject-canonical-property)|
+|**ItemHasRegularExpressionMatch** rule with **SenderSMTPAddress**|[PidTagSenderSmtpAddress](https://docs.microsoft.com/office/client-developer/outlook/mapi/pidtagsendersmtpaddress-canonical-property) and [PidTagSentRepresentingSmtpAddress](https://docs.microsoft.com/office/client-developer/outlook/mapi/pidtagsentrepresentingsmtpaddress-canonical-property)|
+|**ItemIs**|[PidTagMessageClass](https://docs.microsoft.com/office/client-developer/outlook/mapi/pidtagmessageclass-canonical-property)|
+|**ItemHasAttachment**|[PidTagHasAttachments](https://docs.microsoft.com/office/client-developer/outlook/mapi/pidtaghasattachments-canonical-property)|
 
 After verifying the property value, you can then use a regular expression evaluation tool to test whether the regular expression finds a match in that value.
 
