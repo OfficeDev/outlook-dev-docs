@@ -1,7 +1,7 @@
 - name: Overview
   href: index.md
 - name: Office add-ins platform overview
-  href: /office/dev/add-ins/overview/office-add-ins?context=outlook/context
+  href: /office/dev/add-ins/overview/office-add-ins?context=outlook%2Fcontext
 - name: Get started
   items:
   - name: Build your first Outlook Add-in
@@ -103,31 +103,31 @@
     - name: Troubleshoot add-in activation
       href: troubleshoot-outlook-add-in-activation.md
   - name: Publish
-    href: /office/dev/add-ins/publish/publish?context=outlook/context
+    href: /office/dev/add-ins/publish/publish?context=outlook%2Fcontext
     items:
     - name: Host an Office add-in on Microsoft Azure
-      href: /office/dev/add-ins/publish/host-an-office-add-in-on-microsoft-azure?context=outlook/context
+      href: /office/dev/add-ins/publish/host-an-office-add-in-on-microsoft-azure?context=outlook%2Fcontext
     - name: Package your add-in using Visual Studio
-      href: /office/dev/add-ins/publish/package-your-add-in-using-visual-studio?context=outlook/context
+      href: /office/dev/add-ins/publish/package-your-add-in-using-visual-studio?context=outlook%2Fcontext
     - name: Publish add-ins to AppSource
-      href: /office/dev/store/submit-to-the-office-store?context=outlook/context
+      href: /office/dev/store/submit-to-the-office-store?context=outlook%2Fcontext
     - name: AppSource validation policies
-      href: /office/dev/store/validation-policies?context=outlook/context
+      href: /office/dev/store/validation-policies?context=outlook%2Fcontext
 - name: Reference
   items:
   - name: Requirement set 1.6
-    href: /javascript/office/objectmodel/requirement-set-1.6/outlook-requirement-set-1.6?context=outlook/context
+    href: /javascript/office/objectmodel/requirement-set-1.6/outlook-requirement-set-1.6?context=outlook%2Fcontext
   - name: Requirement set 1.5
-    href: /javascript/office/objectmodel/requirement-set-1.5/outlook-requirement-set-1.5?context=outlook/context
+    href: /javascript/office/objectmodel/requirement-set-1.5/outlook-requirement-set-1.5?context=outlook%2Fcontext
   - name: Requirement set 1.4
-    href: /javascript/office/objectmodel/requirement-set-1.4/outlook-requirement-set-1.4?context=outlook/context
+    href: /javascript/office/objectmodel/requirement-set-1.4/outlook-requirement-set-1.4?context=outlook%2Fcontext
   - name: Requirement set 1.3
-    href: /javascript/office/objectmodel/requirement-set-1.3/outlook-requirement-set-1.3?context=outlook/context
+    href: /javascript/office/objectmodel/requirement-set-1.3/outlook-requirement-set-1.3?context=outlook%2Fcontext
   - name: Requirement set 1.2
-    href: /javascript/office/objectmodel/requirement-set-1.2/outlook-requirement-set-1.2?context=outlook/context
+    href: /javascript/office/objectmodel/requirement-set-1.2/outlook-requirement-set-1.2?context=outlook%2Fcontext
   - name: Requirement set 1.1
-    href: /javascript/office/objectmodel/requirement-set-1.1/outlook-requirement-set-1.1?context=outlook/context
+    href: /javascript/office/objectmodel/requirement-set-1.1/outlook-requirement-set-1.1?context=outlook%2Fcontext
   - name: Preview requirement set
-    href: /javascript/office/objectmodel/preview-requirement-set/outlook-requirement-set-preview?context=outlook/context
+    href: /javascript/office/objectmodel/preview-requirement-set/outlook-requirement-set-preview?context=outlook%2Fcontext
   - name: JavaScript API for Office
-    href: /javascript/office/javascript-api-for-office?context=outlook/context
+    href: /javascript/office/javascript-api-for-office?context=outlook%2Fcontext
