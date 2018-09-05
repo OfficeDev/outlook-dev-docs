@@ -196,16 +196,16 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     yo office
     ```
 
-    - **Choose a project type** - `Jquery`
+    - **Choose a project type** - `Office Add-in project using Jquery framework`
 
     - **Choose a script type** - `Javascript`
 
     - **What do you want to name your add-in?** - `My Office Add-in`
 
     - **Which Office client application would you like to support?** - `Outlook`
-    
+
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
-    
+
     After you complete the wizard, the generator will create the project and install supporting Node components.
 
 ### Update the code
