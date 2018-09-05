@@ -29,7 +29,7 @@ You can create an Office add-in by using Visual Studio or any other editor. Tell
 - Office 365
 
     > [!NOTE]
-    > If you do not have an Office 365 subscription, you can get a free Office 365 subscription by signing up for the [Office 365 developer program](https://developer.microsoft.com/office/dev-program).
+    > If you do not have an Office 365 subscription, you can get a free one by signing up for the [Office 365 developer program](https://developer.microsoft.com/office/dev-program).
 
 ### Create the add-in project
 
