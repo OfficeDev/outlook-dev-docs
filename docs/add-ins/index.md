@@ -21,7 +21,7 @@ Outlook Add-ins are different from COM or VSTO add-ins, which are older integrat
 The Outlook items that support mail add-ins include email messages, meeting requests, responses and cancellations, and appointments. Each mail add-in defines the context in which it is available, including the types of items and if the user is reading or composing an item. 
 
 > [!NOTE]
-> When you build your add-in, if you plan to [publish](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/publish?product=outlook) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://docs.microsoft.com/en-us/office/dev/store/validation-policies). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://docs.microsoft.com/en-us/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably) and the [Office Add-in host and availability page](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-availability)).
+> When you build your add-in, if you plan to [publish](https://docs.microsoft.com/office/dev/add-ins/publish/publish?product=outlook) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://docs.microsoft.com/office/dev/store/validation-policies). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://docs.microsoft.com/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably) and the [Office Add-in host and availability page](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-in-availability)).
 
 ## Extension points
 
@@ -41,7 +41,7 @@ Extension points are the ways that add-ins integrate with Outlook. The following
 
 
 > [!NOTE]
-> [Custom panes have been deprecated](https://developer.microsoft.com/en-us/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using a supported extension point.
+> [Custom panes have been deprecated](https://developer.microsoft.com/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using a supported extension point.
 
 ## Mailbox items available to add-ins
 
@@ -76,8 +76,8 @@ To get started building Outlook Add-ins, see [Get Started with Outlook Add-ins f
 
 ## See also
 
-- [Best practices for developing Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/concepts/add-in-development-best-practices?product=outlook)
-- [Design guidelines for Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-design?product=outlook)
-- [License your Office and SharePoint Add-ins](https://docs.microsoft.com/en-us/office/dev/store/license-your-add-ins)
-- [Publish your Office Add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/publish?product=outlook)
-- [Make your solutions available in AppSource and within Office](https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)
+- [Best practices for developing Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/concepts/add-in-development-best-practices?product=outlook)
+- [Design guidelines for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/add-in-design?product=outlook)
+- [License your Office and SharePoint Add-ins](https://docs.microsoft.com/office/dev/store/license-your-add-ins)
+- [Publish your Office Add-in](https://docs.microsoft.com/office/dev/add-ins/publish/publish?product=outlook)
+- [Make your solutions available in AppSource and within Office](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)

@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple single-page app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/javascript-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use Microsoft Graph(https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/javascript-tutorial/tree/outlook-api).
+This guide will use Microsoft Graph(https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/javascript-tutorial/tree/outlook-api).
 
 > [!NOTE]
 > This guide uses [http-server](https://www.npmjs.com/package/http-server) to provide a simple command-line HTTP server for development purposes. The `http-server` package requires Node.js and NPM to install and run. However, using `http-server` is not required, you can use any HTTP server for this tutorial.

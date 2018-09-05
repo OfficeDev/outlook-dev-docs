@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Java Spring MVC app that retrieves messages in Office 365 or Outlook.com. The source code in this <a href="https://github.com/jasonjoh/java-tutorial">repository</a> is what you should end up with if you follow the steps outlined here.
 
-This guide will use [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/java-tutorial/tree/outlook-api).
+This guide will use [Microsoft Graph](https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/java-tutorial/tree/outlook-api).
 
 ### Before you begin
 
@@ -1129,7 +1129,7 @@ Now that we can retrive the access token, we're ready to call the Mail API.
 
 ## Using the Mail API
 
-Let's start by creating a class that represents a [User entity](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/user). We'll use this to get the email address associated with the user's mailbox.
+Let's start by creating a class that represents a [User entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/user). We'll use this to get the email address associated with the user's mailbox.
 
 Right-click the **src/main/java** folder and choose **New**, then **Package**. Name the package `com.outlook.dev.service` and click **Finish**. Right-click the **com.outlook.dev.service** package and choose **New**, then **Class**. Name the class `OutlookUser` and click **Finish**. Replace the entire contents of the `OutlookUser.java` file with the following code:
 
@@ -1166,7 +1166,7 @@ public class OutlookUser {
 }
 ```
 
-Next let's create a class that represents a [Message entity](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/message). Our class won't cover every field present on a message, just the ones we will use in the app.
+Next let's create a class that represents a [Message entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message). Our class won't cover every field present on a message, just the ones we will use in the app.
 
 Right-click the **com.outlook.dev.service** package and choose **New**, then **Class**. Name the class `Message` and click **Finish**. Replace the entire contents of the `Message.java` file with the following code:
 
@@ -1225,7 +1225,7 @@ public class Message {
 }
 ```
 
-We defined the `from` property as type `Recipient`, which isn't defined yet. Let's create the `Recipient` class in the `com.outlook.dev.service` package, to represent the [Recipient entity](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/recipient).
+We defined the `from` property as type `Recipient`, which isn't defined yet. Let's create the `Recipient` class in the `com.outlook.dev.service` package, to represent the [Recipient entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/recipient).
 
 ```java
 package com.outlook.dev.service;
@@ -1246,7 +1246,7 @@ public class Recipient {
 }
 ```
 
-That class has just one property, of type `EmailAddress`, which we will now define as a new class in the `com.outlook.dev.service` package. We'll use this to represent the [EmailAddress type](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/emailaddress).
+That class has just one property, of type `EmailAddress`, which we will now define as a new class in the `com.outlook.dev.service` package. We'll use this to represent the [EmailAddress type](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/emailaddress).
 
 ```java
 package com.outlook.dev.service;
@@ -1556,7 +1556,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     };
     ```
 
-1. Create a class in the `com.outlook.dev.service` package for the [Event entity](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/event).
+1. Create a class in the `com.outlook.dev.service` package for the [Event entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/event).
 
     ```java
     package com.outlook.dev.service;
@@ -1605,7 +1605,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     }
     ```
 
-1. Create a class in the `com.outlook.dev.service` package for the [DateTimeTimeZone type](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/datetimetimezone).
+1. Create a class in the `com.outlook.dev.service` package for the [DateTimeTimeZone type](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/datetimetimezone).
 
     ```java
     package com.outlook.dev.service;
@@ -1780,7 +1780,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     };
     ```
 
-1. Create a class in the `com.outlook.dev.service` package for the [Contact entity](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/contact).
+1. Create a class in the `com.outlook.dev.service` package for the [Contact entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/contact).
 
     ```java
     package com.outlook.dev.service;

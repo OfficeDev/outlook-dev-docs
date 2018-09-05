@@ -61,7 +61,7 @@ The add-in includes either the SSO access token (if it is available) or the Exch
    - If no entry exists, create a new entry. Set `ssoId` to the unique identifier generated from the SSO token (if available), and set `exchangeId` to the unique identifier generated from the Exchange identity token.
 
 1. Check for a valid refresh token in the user's `graphRefreshToken` value.
-   - If the value is missing or invalid and an SSO token was provided, use the [OAuth2 On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of) to obtain an access token and refresh token for Graph. Save the refresh token in the `graphRefreshToken` value for the user.
+   - If the value is missing or invalid and an SSO token was provided, use the [OAuth2 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of) to obtain an access token and refresh token for Graph. Save the refresh token in the `graphRefreshToken` value for the user.
 
 1. Check for valid refresh tokens in both `graphRefreshToken` and `contosoRefreshToken`.
    - If both values are valid, respond to the add-in to indicate that the user is already registered and configured.
@@ -79,7 +79,7 @@ Based on the response from the backend Web API, the add-in may need to authorize
 
 1. The add-in notifies the user that it needs them to authorize their use of the API and asks them to click a link or button to start the process.
 
-1. The add-in uses the [Dialog API](https://dev.office.com/reference/add-ins/shared/officeui.displaydialogasync?product=outlook) or the [office-js-helpers library](https://github.com/OfficeDev/office-js-helpers) to start the [OAuth2 Authorization Code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code) for the API.
+1. The add-in uses the [Dialog API](https://docs.microsoft.com/javascript/api/office/office.ui#displaydialogasync-startaddress--options--callback-) or the [office-js-helpers library](https://github.com/OfficeDev/office-js-helpers) to start the [OAuth2 Authorization Code flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) for the API.
 
 1. Once the flow completes, the add-in sends the refresh token to the backend Web API and includes the SSO token (if available) or the Exchange identity token.
 
