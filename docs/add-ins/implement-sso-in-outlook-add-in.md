@@ -12,6 +12,13 @@ ms.author: jasonjoh
 
 In this article we'll explore a recommended method of using the [single sign-on access token](authenticate-a-user-with-an-sso-token.md) and the [Exchange identity token](authenticate-a-user-with-an-identity-token.md) together to provide a single-sign on implementation to your own backend service. By using both tokens together, you can take advantage of the benefits of the SSO access token when it is available, while ensuring that your add-in will work when it is not, such as when the user switches to a client that does not support them, or if the user's mailbox is on an on-premises Exchange server.
 
+
+> [!NOTE]
+> The Single Sign-on API is currently supported in preview for Word, Excel, Outlook, and PowerPoint. For more information about where the Single Sign-on API is currently supported, see [IdentityAPI requirement sets](https://dev.office.com/reference/add-ins/requirement-sets/identity-api-requirement-sets).
+> To use SSO, you must load the beta version of the Office JavaScript Library from https://appsforoffice.microsoft.com/lib/beta/hosted/office.js in the startup HTML page of the add-in.
+> If you are working with an Outlook add-in, be sure to enable Modern Authentication for the Office 365 tenancy. For information about how to do this, see [Exchange Online: How to enable your tenant for modern authentication](https://social.technet.microsoft.com/wiki/contents/articles/32711.exchange-online-how-to-enable-your-tenant-for-modern-authentication.aspx).
+
+
 ## Why use the SSO access token?
 
 The Exchange identity token is available in all requirement sets of the add-in APIs, so it may be tempting to just rely on this token and ignore the SSO token altogether. However, the SSO token offers some advantages over the Exchange identity token which make it the recommended method to use when it is available.
