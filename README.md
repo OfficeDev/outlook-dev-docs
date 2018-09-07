@@ -1,6 +1,6 @@
 # Outlook Developer Documentation
 
-Welcome to the Outlook developer documentation. For the best experience, we recommend you view this content on the [Microsoft Docs site](https://docs.microsoft.com/en-us/outlook).
+Welcome to the Outlook developer documentation. For the best experience, we recommend you view this content on the [Microsoft Docs site](https://docs.microsoft.com/outlook).
 
 ## Give us your feedback
 

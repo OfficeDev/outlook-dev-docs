@@ -11,7 +11,7 @@ ms.author: jasonjoh
 
 # Compare Microsoft Graph and Outlook REST API endpoints
 
-The Outlook REST APIs are available in both [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) and the Outlook API endpoint (`https://outlook.office.com/api`). The APIs generally provide the same functionality and use the same resource types.
+The Outlook REST APIs are available in both [Microsoft Graph](https://developer.microsoft.com/graph/) and the Outlook API endpoint (`https://outlook.office.com/api`). The APIs generally provide the same functionality and use the same resource types.
 
 ## Which endpoint should I use?
 
@@ -66,7 +66,7 @@ Apps that use the [Azure AD v1.0 endpoint](https://docs.microsoft.com/azure/acti
 
 The resources are the same between Microsoft Graph and Outlook. However, the two endpoints handle casing of the property names differently. Microsoft Graph uses camelCase for property names, while Outlook uses PascalCase. Translating between the two simply requires converting the case.
 
-For example, the Microsoft Graph [message resource](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/message) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
+For example, the Microsoft Graph [message resource](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
 
 ### Tracking changes (synchronization)
 
