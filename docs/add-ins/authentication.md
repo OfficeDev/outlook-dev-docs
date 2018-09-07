@@ -23,6 +23,7 @@ Single sign-on access tokens provide a seamless way for your add-in to authentic
 
 Consider using SSO access tokens if your add-in:
 
+
 - Is used primarily by Office 365 users
 - Needs access to:
     - Microsoft services that are exposed as part of Microsoft Graph
@@ -58,8 +59,8 @@ Using this method, your add-in prompts the user to sign-in to the service either
 
 ## Callback tokens
 
-Callback tokens provide access to the user's mailbox from your server back-end, either using [Exchange Web Services (EWS)](https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange), or the [Outlook REST API](https://msdn.microsoft.com/en-us/office/office365/api/use-outlook-rest-api). Consider using callback tokens if your add-in:
+Callback tokens provide access to the user's mailbox from your server back-end, either using [Exchange Web Services (EWS)](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange), or the [Outlook REST API](https://msdn.microsoft.com/en-us/office/office365/api/use-outlook-rest-api). Consider using callback tokens if your add-in:
 
 - Needs access to the user's mailbox from your server back-end.
 
-Add-ins obtain callback tokens using the [getCallbackTokenAsync method](https://docs.microsoft.com/javascript/api/outlook_1_5/office.mailbox#getcallbacktokenasync-options--callback-). The level of access is controlled by the permissions specified in the add-in manifest.
+Add-ins obtain callback tokens using one of the [getCallbackTokenAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#getcallbacktokenasyncoptions-callback) methods. The level of access is controlled by the permissions specified in the add-in manifest.
