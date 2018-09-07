@@ -161,12 +161,12 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     ![A screenshot of a message window in Outlook on the web with the add-in button highlighted](images/quick-start-button-owa.png)
 
-1. Click the button to open the add-in's taskpane.
+1. Click the button to open the add-in's task pane.
 
-    ![A screenshot of the add-in's taskpane in Outlook on the web displaying message properties](images/quick-start-task-pane-owa.png)
+    ![A screenshot of the add-in's task pane in Outlook on the web displaying message properties](images/quick-start-task-pane-owa.png)
 
     > [!NOTE]
-    > If the taskpane doesn't load, try to verify by opening it in a browser on the same machine.
+    > If the task pane doesn't load, try to verify by opening it in a browser on the same machine.
 
 # [Any editor](#tab/visual-studio-code)
 
@@ -330,9 +330,9 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button.PNG)
 
-1. Click the button to open the add-in's taskpane.
+1. Click the button to open the add-in's task pane.
 
-    ![A screenshot of the add-in's taskpane displaying message properties](images/quick-start-task-pane.PNG)
+    ![A screenshot of the add-in's task pane displaying message properties](images/quick-start-task-pane.PNG)
 
 ---
 
