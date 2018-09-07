@@ -1,21 +1,21 @@
 ---
-title: Build an Outlook Add-in | Microsoft Docs
-description: Learn how to build a simple Outlook Add-in and test it locally
+title: Build an Outlook add-in | Microsoft Docs
+description: Learn how to build a simple Outlook add-in and test it locally
 author: jasonjoh
 ms.topic: get-started-article
 ms.technology: office-add-ins
 ms.devlang: javascript
-ms.date: 01/08/2018
+ms.date: 09/05/2018
 ms.author: jasonjoh
 ---
 
-# Build your first Outlook Add-in
+# Build your first Outlook add-in
 
-In this article, you'll walk through the process of building an Outlook Add-in by using jQuery and the Office JS API.
+In this article, you'll walk through the process of building an Outlook add-in by using jQuery and the Office JS API.
 
-## Create the add-in 
+## Create the add-in
 
-You can create an Office Add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs:
+You can create an Office add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs:
 
 # [Visual Studio](#tab/visual-studio)
 
@@ -24,23 +24,23 @@ You can create an Office Add-in by using Visual Studio or any other editor. Tell
 - [Visual Studio 2017](https://www.visualstudio.com/vs/) with the **Office/SharePoint development** workload installed
 
     > [!NOTE]
-    > If you've previously installed Visual Studio 2017, [use the Visual Studio Installer](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) to ensure that the **Office/SharePoint development** workload is installed. 
+    > If you've previously installed Visual Studio 2017, [use the Visual Studio Installer](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) to ensure that the **Office/SharePoint development** workload is installed.
 
 - Office 365
-    
+
     > [!NOTE]
-    > If you don't already have Office 365, you can [register for a free 1-month trial](http://office.microsoft.com/en-us/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786).
+    > If you do not have an Office 365 subscription, you can get a free one by signing up for the [Office 365 developer program](https://developer.microsoft.com/office/dev-program).
 
 ### Create the add-in project
 
 1. On the Visual Studio menu bar, choose **File** > **New** > **Project**.
-    
-1. In the list of project types under **Visual C#** or **Visual Basic**, expand **Office/SharePoint**, choose **Add-ins**, and then choose **Outlook Web Add-in** as the project type. 
+
+1. In the list of project types under **Visual C#** or **Visual Basic**, expand **Office/SharePoint**, choose **Add-ins**, and then choose **Outlook Web Add-in** as the project type.
 
 1. Name the project, and then choose **OK**.
 
 1. Visual Studio creates a solution and its two projects appear in **Solution Explorer**. The **MessageRead.html** file opens in Visual Studio.
-    
+
 ### Explore the Visual Studio solution
 
 When you've completed the wizard, Visual Studio creates a solution that contains two projects.
@@ -71,7 +71,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     </body>
     ```
 
-1. Open the file **MessageRead.js** in the root of the web application project. This file specifies the script for the add-in. Replace the entire contents with the following code and save the file. 
+1. Open the file **MessageRead.js** in the root of the web application project. This file specifies the script for the add-in. Replace the entire contents with the following code and save the file.
 
     ```js
     'use strict';
@@ -106,7 +106,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     })();
     ```
 
-1. Open the file **MessageRead.css** in the root of the web application project. This file specifies the custom styles for the add-in. Replace the entire contents with the following code and save the file. 
+1. Open the file **MessageRead.css** in the root of the web application project. This file specifies the custom styles for the add-in. Replace the entire contents with the following code and save the file.
 
     ```CSS
     html,
@@ -150,7 +150,10 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Try it out
 
-1. Using Visual Studio, test the newly created Outlook Add-in by pressing F5 or choosing the **Start** button to launch Outlook on the web. The add-in will be hosted locally on IIS.
+1. Using Visual Studio, test the newly created Outlook add-in by pressing F5 or choosing the **Start** button to launch Outlook on the web. The add-in will be hosted locally on IIS.
+
+    > [!NOTE]
+    > If you're asked to log in repeatedly then Basic Auth may be disabled for accounts on your Office 365 tenant. Try [sideloading the manifest](https://docs.microsoft.com/outlook/add-ins/sideload-outlook-add-ins-for-testing).
 
 1. In Outlook on the web, select or open a message.
 
@@ -158,9 +161,12 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     ![A screenshot of a message window in Outlook on the web with the add-in button highlighted](images/quick-start-button-owa.png)
 
-1. Click the button to open the add-in's taskpane.
+1. Click the button to open the add-in's task pane.
 
-    ![A screenshot of the add-in's taskpane in Outlook on the web displaying message properties](images/quick-start-task-pane-owa.png)
+    ![A screenshot of the add-in's task pane in Outlook on the web displaying message properties](images/quick-start-task-pane-owa.png)
+
+    > [!NOTE]
+    > If the task pane doesn't load, try to verify by opening it in a browser on the same machine.
 
 # [Any editor](#tab/visual-studio-code)
 
@@ -184,22 +190,22 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     cd my-outlook-addin
     ```
 
-1. Use the Yeoman generator to create an Outlook Add-in project. Run the following command and then answer the prompts as follows:
+1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
 
     ```powershell
     yo office
     ```
 
-    - **Choose a project type** - `Jquery`
+    - **Choose a project type** - `Office Add-in project using Jquery framework`
 
     - **Choose a script type** - `Javascript`
 
     - **What do you want to name your add-in?** - `My Office Add-in`
 
     - **Which Office client application would you like to support?** - `Outlook`
-    
+
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
-    
+
     After you complete the wizard, the generator will create the project and install supporting Node components.
 
 ### Update the code
@@ -324,16 +330,15 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button.PNG)
 
-1. Click the button to open the add-in's taskpane.
+1. Click the button to open the add-in's task pane.
 
-    ![A screenshot of the add-in's taskpane displaying message properties](images/quick-start-task-pane.PNG)
+    ![A screenshot of the add-in's task pane displaying message properties](images/quick-start-task-pane.PNG)
 
 ---
 
 ## Next steps
 
-Congratulations, you've successfully created your first Outlook Add-in! Next, learn more about the capabilities of an Outlook Add-in and build a more complex add-in by following along with the Advanced Outlook Add-in tutorial.
+Congratulations, you've successfully created your first Outlook add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with the Advanced Outlook add-in tutorial.
 
 > [!div class="nextstepaction"]
 > [Advanced Outlook Add-in tutorial](addin-tutorial.md)
-
