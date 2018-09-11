@@ -59,7 +59,7 @@ Using this method, your add-in prompts the user to sign-in to the service either
 
 ## Callback tokens
 
-Callback tokens provide access to the user's mailbox from your server back-end, either using [Exchange Web Services (EWS)](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange), or the [Outlook REST API](https://msdn.microsoft.com/en-us/office/office365/api/use-outlook-rest-api). Consider using callback tokens if your add-in:
+Callback tokens provide access to the user's mailbox from your server back-end, either using [Exchange Web Services (EWS)](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange), or the [Outlook REST API](https://docs.microsoft.com/previous-versions/office/office-365-api/api/version-2.0/use-outlook-rest-api). Consider using callback tokens if your add-in:
 
 - Needs access to the user's mailbox from your server back-end.
 

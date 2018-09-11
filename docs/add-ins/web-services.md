@@ -213,6 +213,6 @@ Your add-in must specify the **ReadWriteMailbox** permission in its add-in manif
    
 See the following for creating backend services for add-ins using ASP.NET Web API:
 
-- [Create a web service for an Office Add-in using the ASP.NET Web API](http://blogs.msdn.com/b/officeapps/archive/2013/06/10/create-a-web-service-for-an-app-for-office-using-the-asp-net-web-api.aspx)    
+- [Create a web service for an Office Add-in using the ASP.NET Web API](https://blogs.msdn.microsoft.com/officeapps/2013/06/10/create-a-web-service-for-an-app-for-office-using-the-asp-net-web-api/)    
 - [The basics of building an HTTP service using ASP.NET Web API](http://www.asp.net/web-api)
     

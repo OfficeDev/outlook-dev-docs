@@ -69,7 +69,7 @@ After an add-in is activated, you can use the [mailbox.item](https://docs.micros
 
 You can optionally use the **ItemClass** attribute to specify the message class of the item, and the **IncludeSubClasses** attribute to specify whether the rule should be **true** when the item is a subclass of the specified class.
 
-For more information about message classes, see [Item Types and Message Classes](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/item-types-and-message-classes).
+For more information about message classes, see [Item Types and Message Classes](https://docs.microsoft.com/office/vba/outlook/Concepts/Forms/item-types-and-message-classes).
 
 The following example is an **ItemIs** rule that lets users see the add-in in the Outlook add-in bar when the user is reading a message:
 

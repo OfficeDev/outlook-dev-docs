@@ -112,7 +112,7 @@ You can specify data specific to an item in the user's mailbox using the [Custom
 
 Similar to roaming settings, changes to custom properties are stored on in-memory copies of the properties for the current Outlook session. To make sure these custom properties will be available in the next session, save all the custom properties to the server.
 
-These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/userproperties-object-outlook) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot access **CustomProperties** by using the Outlook object model or EWS.
+These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://docs.microsoft.com/office/vba/api/Outlook.UserProperties) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot access **CustomProperties** by using the Outlook object model or EWS.
 
 However, a mail add-in can get MAPI-based extended properties by using the EWS [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method. In the **GetItem** request, specify the custom extended properties you need in a property set. A mail add-in can also use **makeEwsRequestAsync** and EWS [CreateItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/createitem-operation) and [UpdateItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/updateitem-operation) operations to create and modify extended properties.
 
@@ -198,7 +198,7 @@ function saveCallback() {
 ## See also
 
 - [MAPI Property Overview](https://docs.microsoft.com/office/client-developer/outlook/mapi/mapi-property-overview)   
-- [Outlook Properties Overview](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/properties-overview)  
+- [Outlook Properties Overview](https://docs.microsoft.com/office/vba/outlook/How-to/Navigation/properties-overview)  
 - [Call web services from an Outlook add-in](web-services.md)    
 - [Properties and extended properties in EWS in Exchange](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/properties-and-extended-properties-in-ews-in-exchange)    
 - [Property sets and response shapes in EWS in Exchange](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/property-sets-and-response-shapes-in-ews-in-exchange)
