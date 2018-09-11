@@ -1,6 +1,6 @@
 ---
-title: Understanding Outlook Add-in permissions | Microsoft Docs
-description: Learn about the permissions model for Outlook Add-ins.
+title: Understanding Outlook add-in permissions | Microsoft Docs
+description: Learn about the permissions model for Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 07/26/2018
 ms.author: jasonjoh
 ---
 
-# Understanding Outlook Add-in permissions
+# Understanding Outlook add-in permissions
 
-Outlook Add-ins specify the required permission level in their manifest. The available levels are **Restricted**, **ReadItem**, **ReadWriteItem**, or **ReadWriteMailbox**. These levels of permissions are cumulative: **Restricted** is the lowest level, and each higher level includes the permissions of all the lower levels. **ReadWriteMailbox** includes all the supported permissions.
+Outlook add-ins specify the required permission level in their manifest. The available levels are **Restricted**, **ReadItem**, **ReadWriteItem**, or **ReadWriteMailbox**. These levels of permissions are cumulative: **Restricted** is the lowest level, and each higher level includes the permissions of all the lower levels. **ReadWriteMailbox** includes all the supported permissions.
 
 You can see the permissions requested by a mail add-in before installing it from the Office Store. You can also see the required permissions of installed add-ins in the Exchange Admin Center.
 
@@ -174,5 +174,5 @@ Attempting to use an unsupported operation will result in an error response.
 
 ## See also
 
-- [Privacy, permissions, and security for Outlook Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)
+- [Privacy, permissions, and security for Outlook add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)

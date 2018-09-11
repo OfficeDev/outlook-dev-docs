@@ -1,6 +1,6 @@
 ---
-title: Outlook Add-in design | Microsoft Docs
-description: Learn about Outlook-specific guidelines for designing Outlook Add-ins.
+title: Outlook add-in design | Microsoft Docs
+description: Learn about Outlook-specific guidelines for designing Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 03/21/2018
 ms.author: jasonjoh
 ---
 
-# Outlook Add-in design guidelines
+# Outlook add-in design guidelines
 
-Add-ins are a great way for partners to extend the functionality of Outlook beyond our core feature set. Add-ins enable users to access third-party experiences, tasks, and content without needing to leave their inbox. Once installed, Outlook Add-ins are available on every platform and device.  
+Add-ins are a great way for partners to extend the functionality of Outlook beyond our core feature set. Add-ins enable users to access third-party experiences, tasks, and content without needing to leave their inbox. Once installed, Outlook add-ins are available on every platform and device.  
 
 The following high-level guidelines will help you design and build a compelling add-in, which brings the best of your app right into Outlook&mdash;on Windows, Web, iOS, Mac, and Android.
 

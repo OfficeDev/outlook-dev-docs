@@ -1,6 +1,6 @@
 ---
-title: Get attachments in an Outlook Add-in | Microsoft Docs
-description: Learn how to get attachments from an Outlook item in an Outlook Add-in.
+title: Get attachments in an Outlook add-in | Microsoft Docs
+description: Learn how to get attachments from an Outlook item in an Outlook add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Get attachments of an Outlook item from the server
 
-An Outlook Add-in cannot pass the attachments of a selected item directly to the remote service that runs on your server. Instead, the add-in can use the attachments API to send information about the attachments to the remote service. The service can then contact the Exchange server directly to retrieve the attachments.
+An Outlook add-in cannot pass the attachments of a selected item directly to the remote service that runs on your server. Instead, the add-in can use the attachments API to send information about the attachments to the remote service. The service can then contact the Exchange server directly to retrieve the attachments.
 
 To send attachment information to the remote service, you use the following properties and function:
 
@@ -407,7 +407,7 @@ private string ProcessXmlResponse(XElement responseEnvelope)
 
 ## See also
 
-- [Create Outlook Add-ins for read forms](read-scenario.md)
+- [Create Outlook add-ins for read forms](read-scenario.md)
 - [Explore the EWS Managed API, EWS, and web services in Exchange](/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange)
 - [Get started with EWS Managed API client applications](/exchange/client-developer/exchange-web-services/get-started-with-ews-managed-api-client-applications)
-- [AttachmentsDemo Sample Outlook Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo)
+- [AttachmentsDemo Sample Outlook add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo)

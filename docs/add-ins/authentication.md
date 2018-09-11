@@ -1,6 +1,6 @@
 ---
-title: Authentication options in Outlook Add-ins | Microsoft Docs
-description: Learn about the ways to authenticate a user in an Outlook Add-in.
+title: Authentication options in Outlook add-ins | Microsoft Docs
+description: Learn about the ways to authenticate a user in an Outlook add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 09/13/2017
 ms.author: jasonjoh
 ---
 
-# Authentication options in Outlook Add-ins
+# Authentication options in Outlook add-ins
 
-Your Outlook Add-in can access information from anywhere on the internet, whether from the server that hosts the add-in, from your internal network, or from somewhere else in the cloud. If that information is protected, your add-in needs a way to authenticate your user. Outlook Add-ins provide a number of different methods to authenticate, depending on your specific scenario.
+Your Outlook add-in can access information from anywhere on the internet, whether from the server that hosts the add-in, from your internal network, or from somewhere else in the cloud. If that information is protected, your add-in needs a way to authenticate your user. Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
 
 ## Single sign-on access token
 
@@ -38,7 +38,7 @@ Using this method, your add-in can obtain an access token scoped to your server 
 
 For a more detailed overview, see the [full overview of the SSO authentication method](https://docs.microsoft.com/office/dev/add-ins/develop/sso-in-office-add-ins).
 
-For details on using the SSO token in an Outlook Add-in, see [Authenticate a user with an single-sign-on token in an Outlook Add-in](authenticate-a-user-with-an-sso-token.md).
+For details on using the SSO token in an Outlook add-in, see [Authenticate a user with an single-sign-on token in an Outlook add-in](authenticate-a-user-with-an-sso-token.md).
 
 For a sample add-in that uses the SSO token, see [AttachmentsDemo Sample Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo).
 

@@ -1,6 +1,6 @@
 ---
-title: Use the Outlook REST APIs from an Outlook Add-in | Microsoft Docs
-description: Learn how to use the Outlook REST APIs from an Outlook Add-in.
+title: Use the Outlook REST APIs from an Outlook add-in | Microsoft Docs
+description: Learn how to use the Outlook REST APIs from an Outlook add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,7 +8,7 @@ ms.date: 06/08/2018
 ms.author: jasonjoh
 ---
 
-# Use the Outlook REST APIs from an Outlook Add-in
+# Use the Outlook REST APIs from an Outlook add-in
 
 The [Office.context.mailbox.item](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item) namespace provides access to many of the common fields of messages and appointments. However, in some scenarios an add-in may need to access data that is not exposed by the namespace. For example, the add-in may rely on custom properties set by an outside app, or it needs to search the user's mailbox for messages from the same sender. In these scenarios, the [Outlook REST APIs](../rest/index.md) is the recommended method to retrieve the information.
 
@@ -111,4 +111,4 @@ function getCurrentItem(accessToken) {
 
 ## See also
 
-For an example that calls the REST APIs from an Outlook Add-in, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.
+For an example that calls the REST APIs from an Outlook add-in, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.

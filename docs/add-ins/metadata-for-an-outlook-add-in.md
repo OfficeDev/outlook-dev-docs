@@ -1,6 +1,6 @@
 ---
-title: Get and set metadata in an Outlook Add-in | Microsoft Docs
-description: Learn how an Outlook Add-in can get and save metadata.
+title: Get and set metadata in an Outlook add-in | Microsoft Docs
+description: Learn how an Outlook add-in can get and save metadata.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,14 +8,14 @@ ms.date: 06/13/2017
 ms.author: jasonjoh
 ---
 
-# Get and set add-in metadata for an Outlook Add-in
+# Get and set add-in metadata for an Outlook add-in
 
-You can manage custom data in your Outlook Add-in by using either of the following:
+You can manage custom data in your Outlook add-in by using either of the following:
 
 - Roaming settings, which manage custom data for a user's mailbox.
 - Custom properties, which manage custom data for an item in a user's mailbox.
 
-Both of these give access to custom data that is only accessible by your Outlook Add-in, but each method stores the data separately from the other. That is, the data stored through roaming settings is not accessible by custom properties, and vice versa. The data is stored on the server for that mailbox, and is accessible in subsequent Outlook sessions on all the form factors that the add-in supports.
+Both of these give access to custom data that is only accessible by your Outlook add-in, but each method stores the data separately from the other. That is, the data stored through roaming settings is not accessible by custom properties, and vice versa. The data is stored on the server for that mailbox, and is accessible in subsequent Outlook sessions on all the form factors that the add-in supports.
 
 ## Custom data per mailbox: roaming settings
 
@@ -129,7 +129,7 @@ Before you can use custom properties, you must load them by calling the [loadCus
 ### Custom properties example
 
 
-The following example shows a simplified set of methods for an Outlook Add-in that uses custom properties. You can use this example as a starting point for your add-in that uses custom properties.
+The following example shows a simplified set of methods for an Outlook add-in that uses custom properties. You can use this example as a starting point for your add-in that uses custom properties.
 
 This example includes the following methods:
 
@@ -199,7 +199,7 @@ function saveCallback() {
 
 - [MAPI Property Overview](https://docs.microsoft.com/office/client-developer/outlook/mapi/mapi-property-overview)   
 - [Outlook Properties Overview](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/properties-overview)  
-- [Call web services from an Outlook Add-in](web-services.md)    
+- [Call web services from an Outlook add-in](web-services.md)    
 - [Properties and extended properties in EWS in Exchange](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/properties-and-extended-properties-in-ews-in-exchange)    
 - [Property sets and response shapes in EWS in Exchange](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/property-sets-and-response-shapes-in-ews-in-exchange)
     

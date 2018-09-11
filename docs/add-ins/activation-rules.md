@@ -1,5 +1,5 @@
 ---
-title: Outlook Add-in activation rules | Microsoft Docs
+title: Outlook add-in activation rules | Microsoft Docs
 description: Learn about activation rules for Outlook contextual add-ins.
 author: jasonjoh
 ms.topic: article
@@ -8,11 +8,11 @@ ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
-# Activation rules for contextual Outlook Add-ins
+# Activation rules for contextual Outlook add-ins
 
 Outlook activates some types of add-ins if the message or appointment that the user is reading or composing satisfies the activation rules of the add-in. This is true for all add-ins that use the 1.1 manifest schema. The user can then choose the add-in from the Outlook UI to start it for the current item.
 
-The following figure shows Outlook Add-ins activated in the add-in bar for the message in the Reading Pane. 
+The following figure shows Outlook add-ins activated in the add-in bar for the message in the Reading Pane. 
 
 ![App bar showing activated read mail apps](images/read-form-app-bar.png)
 
@@ -34,7 +34,7 @@ To have Outlook activate an add-in for specific conditions, specify activation r
  > 
  > The **FormType** attribute applies to activation rules in the manifest v1.1 but is not defined in **VersionOverrides** v1.0. So it can't be used when [ItemIs](https://docs.microsoft.com/javascript/office/manifest/rule#itemis-rule) is used in the **VersionOverrides** node.
 
-The following table lists the types of rules that are available. You can find more information following the table and in the specified articles under [Create Outlook Add-ins for read forms](read-scenario.md).
+The following table lists the types of rules that are available. You can find more information following the table and in the specified articles under [Create Outlook add-ins for read forms](read-scenario.md).
 
 <br/>
 
@@ -43,14 +43,14 @@ The following table lists the types of rules that are available. You can find mo
 |[ItemIs](#itemis-rule)|Read, Compose|Checks to see whether the current item is of the specified type (message or appointment). Can also check the item class and form type.and optionally, item message class.|
 |[ItemHasAttachment](#itemhasattachment-rule)|Read|Checks to see whether the selected item contains an attachment.|
 |[ItemHasKnownEntity](#itemhasknownentity-rule)|Read|Checks to see whether the selected item contains one or more well-known entities. More information: [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md).|
-|[ItemHasRegularExpressionMatch](#itemhasregularexpressionmatch-rule)|Read|Checks to see whether the sender's email address, the subject, and/or the body of the selected item contains a match to a regular expression.More information: [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md).|
+|[ItemHasRegularExpressionMatch](#itemhasregularexpressionmatch-rule)|Read|Checks to see whether the sender's email address, the subject, and/or the body of the selected item contains a match to a regular expression.More information: [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md).|
 |[RuleCollection](#rulecollection-rule)|Read, Compose|Combines a set of rules so that you can form more complex rules.|
 
 ## ItemIs rule
 
 The **ItemIs** complex type defines a rule that evaluates to **true** if the current item matches the item type, and optionally the item message class if it's stated in the rule.
 
-Specify one of the following item types in the **ItemType** attribute of an **ItemIs** rule. You can specify more than one **ItemIs** rule in a manifest. The ItemType simpleType defines the types of Outlook items that support Outlook Add-ins.
+Specify one of the following item types in the **ItemType** attribute of an **ItemIs** rule. You can specify more than one **ItemIs** rule in a manifest. The ItemType simpleType defines the types of Outlook items that support Outlook add-ins.
 
 <br/>
 
@@ -71,13 +71,13 @@ You can optionally use the **ItemClass** attribute to specify the message class 
 
 For more information about message classes, see [Item Types and Message Classes](https://msdn.microsoft.com/en-us/VBA/Outlook-VBA/articles/item-types-and-message-classes).
 
-The following example is an **ItemIs** rule that lets users see the add-in in the Outlook Add-in bar when the user is reading a message:
+The following example is an **ItemIs** rule that lets users see the add-in in the Outlook add-in bar when the user is reading a message:
 
 ```xml
 <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
 ```
 
-The following example is an **ItemIs** rule that lets users see the add-in in the Outlook Add-in bar when the user is reading a message or appointment.
+The following example is an **ItemIs** rule that lets users see the add-in in the Outlook add-in bar when the user is reading a message or appointment.
 
 ```xml
 <Rule xsi:type="RuleCollection" Mode="Or">
@@ -143,7 +143,7 @@ The following example shows an **ItemHasRegularExpressionMatch** that activates 
 <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="fruits" RegExValue="apple|banana|coconut" pPropertyName="BodyAsPlaintext" IgnoreCase="true" />
 ```
 
-For more information about using the **ItemHasRegularExpressionMatch** rule, see [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md).
+For more information about using the **ItemHasRegularExpressionMatch** rule, see [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md).
 
 
 ## RuleCollection rule
@@ -181,7 +181,7 @@ The following example activates the add-in when the user is composing a message,
 ## Limits for rules and regular expressions
 
 
-To provide a satisfactory experience with Outlook Add-ins, you should adhere to the activation and API usage guidelines. The following table shows general limits for regular expressions and rules but there are specific rules for different hosts. For more information, see [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) and [Troubleshoot Outlook Add-in activation](troubleshoot-outlook-add-in-activation.md).
+To provide a satisfactory experience with Outlook add-ins, you should adhere to the activation and API usage guidelines. The following table shows general limits for regular expressions and rules but there are specific rules for different hosts. For more information, see [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) and [Troubleshoot Outlook add-in activation](troubleshoot-outlook-add-in-activation.md).
 
 <br/>
 
@@ -190,12 +190,12 @@ To provide a satisfactory experience with Outlook Add-ins, you should adhere to 
 |Manifest Size|No larger than 256 KB.|
 |Rules|No more than 15 rules.|
 |ItemHasKnownEntity|An Outlook rich client will apply the rule against the first 1 MB of the body, and not to the rest of the body.|
-|Regular Expressions|For ItemHasKnownEntity or ItemHasRegularExpressionMatch rules for all Outlook hosts:<br><ul><li>Specify no more than 5 regular expressions in activation rules for an Outlook Add-in. You cannot install an add-in if you exceed the that limit.</li><li>Specify regular expressions whose anticipated results are returned by the <b>getRegExMatches</b> method call within the first 50 matches. </li><li>Specify look-ahead assertions in regular expressions, but not look-behind, `(?<=text)`, and negative look-behind `(?<!text)`.</li><li>Specify regular expressions whose match does not exceed the limits in the table below.<br/><br/><table><tr><th>Limit on length of a regex match</th><th>Outlook rich clients</th><th>Outlook Web App for Devices</th></tr><tr><td>Item body is plain text</td><td>1.5 KB</td><td>3 KB</td></tr><tr><td>Item body it HTML</td><td>3 KB</td><td>3 KB</td></tr></table>|
+|Regular Expressions|For ItemHasKnownEntity or ItemHasRegularExpressionMatch rules for all Outlook hosts:<br><ul><li>Specify no more than 5 regular expressions in activation rules for an Outlook add-in. You cannot install an add-in if you exceed the that limit.</li><li>Specify regular expressions whose anticipated results are returned by the <b>getRegExMatches</b> method call within the first 50 matches. </li><li>Specify look-ahead assertions in regular expressions, but not look-behind, `(?<=text)`, and negative look-behind `(?<!text)`.</li><li>Specify regular expressions whose match does not exceed the limits in the table below.<br/><br/><table><tr><th>Limit on length of a regex match</th><th>Outlook rich clients</th><th>Outlook Web App for Devices</th></tr><tr><td>Item body is plain text</td><td>1.5 KB</td><td>3 KB</td></tr><tr><td>Item body it HTML</td><td>3 KB</td><td>3 KB</td></tr></table>|
 
 ## See also
 
-- [Create Outlook Add-ins for compose forms](compose-scenario.md)
-- [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
-- [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
+- [Create Outlook add-ins for compose forms](compose-scenario.md)
+- [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
+- [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
     

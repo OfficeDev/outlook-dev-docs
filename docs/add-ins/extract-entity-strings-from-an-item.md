@@ -1,6 +1,6 @@
 ---
 title: Extract entity strings from an Outlook item | Microsoft Docs
-description: Learn how to extract entity strings from an Outlook item in an Outlook Add-in.
+description: Learn how to extract entity strings from an Outlook item in an Outlook add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Extract entity strings from an Outlook item
 
-This article describes how to create a **Display entities** Outlook Add-in that extracts string instances of supported well-known entities in the subject and body of the selected Outlook item. This item can be an appointment, email message, or meeting request, response, or cancellation. 
+This article describes how to create a **Display entities** Outlook add-in that extracts string instances of supported well-known entities in the subject and body of the selected Outlook item. This item can be an appointment, email message, or meeting request, response, or cancellation. 
 
 The supported entities include:
 
@@ -97,7 +97,7 @@ xsi:type="MailApp">
 
 The HTML file of the entities add-in specifies buttons for the user to select each type of entity, and another button to clear displayed instances of an entity. It includes a JavaScript file, default_entities.js, which is described in the next section under [JavaScript implementation](#javascript-implementation). The JavaScript file includes the event handlers for each of the buttons.
 
-Note that all Outlook Add-ins must include office.js. The HTML file that follows includes version 1.1 of office.js on the CDN. 
+Note that all Outlook add-ins must include office.js. The HTML file that follows includes version 1.1 of office.js on the CDN. 
 
 ```html
 <!DOCTYPE html>
@@ -826,6 +826,6 @@ function myGetUrls()
 
 ## See also
 
-- [Create Outlook Add-ins for read forms](read-scenario.md)
+- [Create Outlook add-ins for read forms](read-scenario.md)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
 - [item.getEntities method](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getentities--entitiesjavascriptapioutlook15officeentities)

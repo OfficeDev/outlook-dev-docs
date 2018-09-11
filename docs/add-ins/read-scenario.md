@@ -1,6 +1,6 @@
 ---
-title: Create Outlook Add-ins for read forms | Microsoft Docs
-description: Learn about the capabilities of Outlook Add-ins in read forms.
+title: Create Outlook add-ins for read forms | Microsoft Docs
+description: Learn about the capabilities of Outlook add-ins in read forms.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
-# Create Outlook Add-ins for read forms
+# Create Outlook add-ins for read forms
 
-Read add-ins are Outlook Add-ins that are activated in the Reading Pane or read inspector in Outlook. Unlike compose add-ins (Outlook Add-ins that are activated when a user is creating a message or appointment), read add-ins are available when users: 
+Read add-ins are Outlook add-ins that are activated in the Reading Pane or read inspector in Outlook. Unlike compose add-ins (Outlook add-ins that are activated when a user is creating a message or appointment), read add-ins are available when users: 
 
 - View an email message, meeting request, meeting response, or meeting cancellation.
 
@@ -38,13 +38,13 @@ In each of these read scenarios, Outlook activates add-ins when their activation
 Read add-ins can be any combination of the following types.
 
 - [Add-in commands for Outlook](add-in-commands-for-outlook.md)   
-- [Contextual Outlook Add-ins](contextual-outlook-add-ins.md)
+- [Contextual Outlook add-ins](contextual-outlook-add-ins.md)
     
 
 ## API features available to read add-ins
 
 - For activating add-ins in read forms: see Table 1 in [Specify activation rules in a manifest](activation-rules.md#specify-activation-rules-in-a-manifest).    
-- [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
+- [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)    
 - [Extract entity strings from an Outlook item](extract-entity-strings-from-an-item.md)   
 - [Get attachments of an Outlook item from the server](get-attachments-of-an-outlook-item.md)
@@ -52,4 +52,4 @@ Read add-ins can be any combination of the following types.
 
 ## See also
 
-- [Write your first Outlook Add-in](quick-start.md)
+- [Write your first Outlook add-in](quick-start.md)

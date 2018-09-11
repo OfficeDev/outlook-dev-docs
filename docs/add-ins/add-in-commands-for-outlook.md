@@ -1,6 +1,6 @@
 ---
-title: Outlook Add-in commands | Microsoft Docs
-description: Learn about add-in commands for Outlook Add-ins.
+title: Outlook add-in commands | Microsoft Docs
+description: Learn about add-in commands for Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Add-in commands for Outlook
 
-Outlook Add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. This lets users access add-ins in a simple, intuitive, and unobtrusive way. Because they offer increased functionality in a seamless manner, you can use add-in commands to create more engaging solutions.
+Outlook add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. This lets users access add-ins in a simple, intuitive, and unobtrusive way. Because they offer increased functionality in a seamless manner, you can use add-in commands to create more engaging solutions.
 
 > [!NOTE]
 > Add-in commands are available only in Outlook 2016 and Outlook 2013 for Windows, Outlook 2016 for Mac,  Outlook for iPhone, Outlook for Android, Outlook on the web for Exchange 2016, and Outlook on the web for Office 365 and Outlook.com. 
@@ -108,4 +108,4 @@ When using a module extension, add-in commands appear on the extension's custom 
 ## See also
 
 - [Define add-in commands in your manifest](https://docs.microsoft.com/office/dev/add-ins/develop/create-addin-commands)
-- [Add-in Command Demo Outlook Add-in](https://github.com/officedev/outlook-add-in-command-demo)
+- [Add-in command demo Outlook add-in](https://github.com/officedev/outlook-add-in-command-demo)

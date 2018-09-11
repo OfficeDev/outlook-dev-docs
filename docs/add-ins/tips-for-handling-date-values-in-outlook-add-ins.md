@@ -1,6 +1,6 @@
 ---
-title: Handling date values in Outlook Add-ins | Microsoft Docs
-description: Learn how to handle date and time values in an Outlook Add-in.
+title: Handling date values in Outlook add-ins | Microsoft Docs
+description: Learn how to handle date and time values in an Outlook add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,7 +8,7 @@ ms.date: 06/13/2017
 ms.author: jasonjoh
 ---
 
-# Tips for handling date values in Outlook Add-ins
+# Tips for handling date values in Outlook add-ins
 
 The JavaScript API for Office uses the JavaScript [Date](http://www.w3schools.com/jsref/jsref_obj_date.asp) object for most of the storage and retrieval of dates and times. 
 
@@ -34,9 +34,9 @@ document.write ("The current UTC time is " +
 While you can use the JavaScript **Date** object to get a date or time value based on UTC or the client computer time zone, the **Date** object is limited in one respect - it does not provide methods to return a date or time value for any other specific time zone. For example, if your client computer is set to be on Eastern Standard Time (EST), there is no **Date** method that allows you to get the hour value other than in EST or UTC, such as Pacific Standard Time (PST).
 
 
-## Date-related features for Outlook Add-ins
+## Date-related features for Outlook add-ins
 
-The afore-mentioned JavaScript limitation has an implication for you, when you use the JavaScript API for Office to handle date or time values in Outlook Add-ins that run in an Outlook rich client, and in Outlook on the web or OWA for Devices.
+The afore-mentioned JavaScript limitation has an implication for you, when you use the JavaScript API for Office to handle date or time values in Outlook add-ins that run in an Outlook rich client, and in Outlook on the web or OWA for Devices.
 
 
 ### Time zones for Outlook clients
@@ -48,7 +48,7 @@ For clarity, let's define the time zones in question.
 |Client computer time zone|This is set on the operating system of the client computer. Most browsers use the client computer time zone to display date or time values of the JavaScript **Date** object.<br/><br/>An Outlook rich client uses this time zone to display date or time values in the user interface. <br/><br/>For example, on a client computer running Windows, Outlook uses the time zone set on Windows as the local time zone. On the Mac, if the user changes the time zone on the client computer, Outlook for Mac would prompt the user to update the time zone in Outlook as well.|
 |Exchange Admin Center (EAC) time zone|The user sets this time zone value (and the preferred language) when he or she logs on to Outlook on the web or OWA for Devices the first time. <br/><br/>Outlook on the web and OWA for Devices use this time zone to display date or time values in the user interface.|
 
-Because an Outlook rich client uses the client computer time zone, and the user interface of Outlook on the web and OWA for Devices uses the EAC time zone, the local time for the same add-in installed for the same mailbox can be different when running in an Outlook rich client and in Outlook on the web or OWA for Devices. As an Outlook Add-in developer, you should appropriately input and output date values so that those values are always consistent with the time zone that the user expects on the corresponding client.
+Because an Outlook rich client uses the client computer time zone, and the user interface of Outlook on the web and OWA for Devices uses the EAC time zone, the local time for the same add-in installed for the same mailbox can be different when running in an Outlook rich client and in Outlook on the web or OWA for Devices. As an Outlook add-in developer, you should appropriately input and output date values so that those values are always consistent with the time zone that the user expects on the corresponding client.
 
 
 ### Date-related API
@@ -123,7 +123,7 @@ Note that **convertToUtcClientTime** takes care of the difference between an Out
 
 ## See also
 
-- [Deploy and install Outlook Add-ins for testing](testing-and-tips.md)
+- [Deploy and install Outlook add-ins for testing](testing-and-tips.md)
     
 
 

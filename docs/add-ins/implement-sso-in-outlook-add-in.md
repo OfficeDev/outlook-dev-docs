@@ -1,6 +1,6 @@
 ---
-title: Scenario - Implement single sign-on to your service in an Outlook Add-in | Microsoft Docs
-description: Learn about using the single-sign-on token and Exchange identity token provided by an Outlook Add-in to implement SSO with your service.
+title: Scenario - Implement single sign-on to your service in an Outlook add-in | Microsoft Docs
+description: Learn about using the single-sign-on token and Exchange identity token provided by an Outlook add-in to implement SSO with your service.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,7 +8,7 @@ ms.date: 10/4/2017
 ms.author: jasonjoh
 ---
 
-# Scenario: Implement single sign-on to your service in an Outlook Add-in
+# Scenario: Implement single sign-on to your service in an Outlook add-in
 
 In this article we'll explore a recommended method of using the [single sign-on access token](authenticate-a-user-with-an-sso-token.md) and the [Exchange identity token](authenticate-a-user-with-an-identity-token.md) together to provide a single-sign on implementation to your own backend service. By using both tokens together, you can take advantage of the benefits of the SSO access token when it is available, while ensuring that your add-in will work when it is not, such as when the user switches to a client that does not support them, or if the user's mailbox is on an on-premises Exchange server.
 
@@ -49,7 +49,7 @@ The add-in includes either the SSO access token (if it is available) or the Exch
 
 1. When the add-in starts, it sends a request to the backend Web API to determine if the user is registered (i.e. has an associated record in the user database) and that the API has refresh tokens for both Graph and Contoso. In this call, the add-in includes both the SSO token (if available) and the identity token.
 
-1. The Web API uses the methods in [Authenticate a user with an single-sign-on token in an Outlook Add-in](authenticate-a-user-with-an-sso-token.md) and [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md) to validate and generate a unique identifier from both tokens.
+1. The Web API uses the methods in [Authenticate a user with an single-sign-on token in an Outlook add-in](authenticate-a-user-with-an-sso-token.md) and [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md) to validate and generate a unique identifier from both tokens.
 
 1. If an SSO token was provided, the Web API then queries the user database for an entry that has an `ssoId` value that matches the unique identifier generated from the SSO token.
    - If an entry did not exist, continue to the next step.

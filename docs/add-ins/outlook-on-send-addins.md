@@ -1,6 +1,6 @@
 ---
-title: On send feature for Outlook Add-ins | Microsoft Docs
-description: Learn about handling the on send event in Outlook Add-ins.
+title: On send feature for Outlook add-ins | Microsoft Docs
+description: Learn about handling the on send event in Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
-# On send feature for Outlook Add-ins
+# On send feature for Outlook add-ins
 
-The on send feature for Outlook Add-ins provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send. For example, you can use the on send feature to:
+The on send feature for Outlook add-ins provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send. For example, you can use the on send feature to:
 
 - Prevent a user from sending sensitive information or leaving the subject line blank.  
 - Add a specific recipient to the CC line.
@@ -18,7 +18,7 @@ The on send feature for Outlook Add-ins provides a way to handle email or block 
 > [!NOTE]
 > The on send feature is currently supported for Outlook on the web in Office 365 only. Support for other platforms is coming soon. Add-ins that use the on send feature aren't allowed in the Office Store.
 
-The on send feature is triggered by events. Currently, the feature supports the **ItemSend** event type. Events in Outlook Add-ins enable you to handle, check, or block user actions when something of interest occurs. For example, events provide ways to:
+The on send feature is triggered by events. Currently, the feature supports the **ItemSend** event type. Events in Outlook add-ins enable you to handle, check, or block user actions when something of interest occurs. For example, events provide ways to:
 
 - Control user actions
 - Handle changes
@@ -30,7 +30,7 @@ For information about limitations related to the on send feature, see [Limitatio
 
 ## How does the on send feature work?
 
-You can use the on send feature to build an Outlook Add-in that integrates the **ItemSend** synchronous event. This event detects that the user is pressing the **Send** button and can be used to block the email from sending if the message validation fails. For example, when a user triggers a message send event, an Outlook Add-in that uses the on send feature can:
+You can use the on send feature to build an Outlook add-in that integrates the **ItemSend** synchronous event. This event detects that the user is pressing the **Send** button and can be used to block the email from sending if the message validation fails. For example, when a user triggers a message send event, an Outlook add-in that uses the on send feature can:
 
 - Read and validate the email message contents
 - Verify that the message includes a subject line
@@ -58,7 +58,7 @@ The following screenshot shows an information bar that notifies the sender that 
 
 The on send feature currently has the following limitations:
 
-- **Office Store** &ndash; You can't publish Outlook Add-ins that use the on send feature to the Office Store. Add-ins that use the on send event will fail Office Store validation.    
+- **Office Store** &ndash; You can't publish Outlook add-ins that use the on send feature to the Office Store. Add-ins that use the on send event will fail Office Store validation.    
 - **Manifest** &ndash; Only one **ItemSend** event is supported per add-in. If you have two or more **ItemSend** events in a manifest, the manifest will fail validation. 
 - **Performance** &ndash; Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple email message-based operations.
 
@@ -78,14 +78,14 @@ If more than one on send add-in is installed, the add-ins will run in the order 
 
 For example, Add-in1 and Add-in2 both use the on send feature. Add-in1 is installed first, and Add-in2 is installed second. Add-in1 verifies that the word Fabrikam appears in the message as a condition for the add-in to allow send.  However, Add-in2 removes any occurrences of the word Fabrikam. The message will send with all instances of Fabrikam removed (due to the order of installation of Add-in1 and Add-in2).
 
-## Deploying Outlook Add-ins that use on send 
+## Deploying Outlook add-ins that use on send 
 
-We recommend that administrators deploy Outlook Add-ins that use the on send feature. Administrators have to ensure that the on send add-in:
+We recommend that administrators deploy Outlook add-ins that use the on send feature. Administrators have to ensure that the on send add-in:
 
 - Is always present any time a compose item is opened (for email, new, reply, or forward).
 - Can't be closed or disabled by the user.
 
-## Installing Outlook Add-ins that use on send
+## Installing Outlook add-ins that use on send
 
 The on send feature in Outlook on the web requires that add-ins are configured for the send event types. Add-ins for Outlook on the web that use the on send feature will run for users who are assigned an Outlook on the web mailbox policy that has the *OnSendAddinsEnabled* flag set to **true**.
 
@@ -273,7 +273,7 @@ The on send API requires **VersionOverrides v1_1**. The following shows you how 
 
 > [!NOTE]
 > For more information, see the following:
-> - [Outlook Add-in manifests](manifests.md)
+> - [Outlook add-in manifests](manifests.md)
 > - [VersionOverrides](https://docs.microsoft.com/office/dev/add-ins/develop/create-addin-commands#step-3-add-versionoverrides-element)
 > - [Office Add-ins XML manifest](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests)
 
@@ -425,6 +425,6 @@ To learn more about how to add a recipient to the CC line and verify that the em
 
 ## See also
 
-- [Overview of Outlook Add-ins architecture and features](index.md)    
-- [Add-in Command Demo Outlook Add-in](https://github.com/OfficeDev/outlook-add-in-command-demo)
+- [Overview of Outlook add-ins architecture and features](index.md)    
+- [Add-in Command Demo Outlook add-in](https://github.com/OfficeDev/outlook-add-in-command-demo)
     

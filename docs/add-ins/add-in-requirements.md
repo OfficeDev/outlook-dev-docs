@@ -1,6 +1,6 @@
 ---
-title: Outlook Add-in requirements | Microsoft Docs
-description: Learn about the client and server requirements to use Outlook Add-ins.
+title: Outlook add-in requirements | Microsoft Docs
+description: Learn about the client and server requirements to use Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,13 +8,13 @@ ms.date: 08/08/2017
 ms.author: jasonjoh
 ---
 
-# Outlook Add-in requirements
+# Outlook add-in requirements
 
-For Outlook Add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
+For Outlook add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
 
 ## Client requirements
 
-- The client must be one of the supported hosts for Outlook Add-ins. The following clients support add-ins:
+- The client must be one of the supported hosts for Outlook add-ins. The following clients support add-ins:
 
    - Outlook 2013 and 2016 for Windows
    - Outlook 2016 for Mac
