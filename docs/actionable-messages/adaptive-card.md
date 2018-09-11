@@ -291,7 +291,7 @@ Use `ColumnSet` only when you need to align several elements on a single horizon
 >   - Use `"width": "auto"` for a `Column` to use as much width as is necessary to fit its content.
 >   - Use `"width": "stretch"` for a `Column` to use the remaining width in the `ColumnSet`. When multiple `Columns` have `"width": "stretch"`, they all equally share the remaining width.
 >   - Use `"width": <number>` for a `Column` to use a proportion of the available width in the `ColumnSet`. If you have three columns with their `width` property set to `1`, `4` and `5` respectively, they will end up using 10%, 40% and 50% of the available width, respectively.
->   - Use `"width": <number>px` to have a specific pixel width. This is particularly useful (and necessary) when creating table layouts.
+>   - Use `"width": "<number>px"` to have a specific pixel width. This is particularly useful (and necessary) when creating table layouts.
 > - **Don't** use `ColumnSet` if all you need is stack elements vertically.
 
 ## Outlook-specific Adaptive Card properties and features
