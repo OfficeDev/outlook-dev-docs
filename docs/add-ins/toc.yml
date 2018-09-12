@@ -1,6 +1,6 @@
 - name: Overview
   href: index.md
-- name: Office add-ins platform overview
+- name: Office Add-ins platform overview
   href: /office/dev/add-ins/overview/office-add-ins?context=outlook/context
 - name: Get started
   items:
@@ -105,7 +105,7 @@
   - name: Publish
     href: /office/dev/add-ins/publish/publish?context=outlook/context
     items:
-    - name: Host an Office add-in on Microsoft Azure
+    - name: Host an Office Add-in on Microsoft Azure
       href: /office/dev/add-ins/publish/host-an-office-add-in-on-microsoft-azure?context=outlook/context
     - name: Package your add-in using Visual Studio
       href: /office/dev/add-ins/publish/package-your-add-in-using-visual-studio?context=outlook/context

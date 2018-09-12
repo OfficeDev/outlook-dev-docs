@@ -15,7 +15,7 @@ In this article, you'll walk through the process of building an Outlook add-in b
 
 ## Create the add-in
 
-You can create an Office add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs:
+You can create an Office Add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs:
 
 # [Visual Studio](#tab/visual-studio)
 

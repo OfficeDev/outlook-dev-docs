@@ -17,7 +17,7 @@ Using this method, your add-in can obtain an access token scoped to your server 
 - Complete the On-Behalf-Of flow to obtain an access token scoped to the Microsoft Graph API
 - Use the identity information in the token to establish the user's identity and authenticate to your own back-end services
 
-For an overview of SSO in Office add-ins, see [Enable single sign-on for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/sso-in-office-add-ins) and [Authorize to Microsoft Graph in your Office Add-in](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph).
+For an overview of SSO in Office Add-ins, see [Enable single sign-on for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/sso-in-office-add-ins) and [Authorize to Microsoft Graph in your Office Add-in](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph).
 
 > [!NOTE]
 > To use SSO, you must load the beta version of the Office JavaScript Library from https://appsforoffice.microsoft.com/lib/beta/hosted/office.js in the startup HTML page of the add-in.
