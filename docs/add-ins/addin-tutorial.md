@@ -1,11 +1,11 @@
 ---
-title: Advanced Outlook add-in tutorial | Microsoft Docs
+title: Advanced Outlook add-in tutorial
 description: Follow along to create an Outlook add-in that inserts GitHub Gists into the body of new email messages
 author: jasonjoh
 ms.topic: get-started-article
 ms.technology: office-add-ins
 ms.devlang: javascript
-ms.date: 08/29/2018
+ms.date: 09/13/2018
 ms.author: jasonjoh
 ---
 
@@ -36,7 +36,7 @@ You will also need Outlook 2016 connected to an Office 365 account, Outlook.com 
 
 Open your command prompt/shell in an empty directory. Enter `yo office` and follow the prompts.
 
-- **Choose a project type** - `Jquery`
+- **Choose a project type** - `Office Add-in project using Jquery framework`
 
 - **Choose a script type** - `Javascript`
 
