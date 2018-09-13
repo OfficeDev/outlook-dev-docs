@@ -1,6 +1,6 @@
 ---
-title: Create Outlook Add-ins for compose forms | Microsoft Docs
-description: Learn about scenarios and capabilities of Outlook Add-ins for compose forms.
+title: Create Outlook add-ins for compose forms | Microsoft Docs
+description: Learn about scenarios and capabilities of Outlook add-ins for compose forms.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 05/02/2018
 ms.author: jasonjoh
 ---
 
-# Create Outlook Add-ins for compose forms
+# Create Outlook add-ins for compose forms
 
-Starting with version 1.1 of the schema for Office Add-ins manifests and v1.1 of Office.js, you can create compose add-ins, which are Outlook Add-ins activated in compose forms. In contrast with read add-ins (Outlook Add-ins that are activated in read mode when a user is viewing a message or appointment), compose add-ins are available in the following user scenarios:
+Starting with version 1.1 of the schema for Office Add-ins manifests and v1.1 of Office.js, you can create compose add-ins, which are Outlook add-ins activated in compose forms. In contrast with read add-ins (Outlook add-ins that are activated in read mode when a user is viewing a message or appointment), compose add-ins are available in the following user scenarios:
 
 - Composing a new message, meeting request, or appointment in a compose form.
 
@@ -37,10 +37,10 @@ The following figure shows the add-in selection pane consisting of two compose a
 
 ## Types of add-ins available in compose mode
 
-Compose add-ins are implemented as [Add-in commands for Outlook](add-in-commands-for-outlook.md). To activate add-ins for composing email or meeting responses, add-ins include a [MessageComposeCommandSurface extension point element](https://dev.office.com/reference/add-ins/manifest/extensionpoint#messagecomposecommandsurface) in the manifest. To activate add-ins for composing or editing appointments or meetings where the user is the organizer, add-ins include a [AppointmentOrganizerCommandSurface extension point element](https://dev.office.com/reference/add-ins/manifest/extensionpoint#appointmentorganizercommandsurface).
+Compose add-ins are implemented as [Add-in commands for Outlook](add-in-commands-for-outlook.md). To activate add-ins for composing email or meeting responses, add-ins include a [MessageComposeCommandSurface extension point element](https://docs.microsoft.com/javascript/office/manifest/extensionpoint#messagecomposecommandsurface) in the manifest. To activate add-ins for composing or editing appointments or meetings where the user is the organizer, add-ins include a [AppointmentOrganizerCommandSurface extension point element](https://docs.microsoft.com/javascript/office/manifest/extensionpoint#appointmentorganizercommandsurface).
 
 > [!NOTE]
-> Add-ins developed for servers or clients that do not support add-in commands use [activation rules](activation-rules.md) in a [Rule](https://dev.office.com/reference/add-ins/manifest/rule?product=outlook&version=v1.5) element contained in the [OfficeApp](https://dev.office.com/reference/add-ins/manifest/officeapp?product=outlook&version=v1.5) element. Unless the add-in is being specifically developed for older clients and servers, new add-ins should use add-in commands.
+> Add-ins developed for servers or clients that do not support add-in commands use [activation rules](activation-rules.md) in a [Rule](https://docs.microsoft.com/javascript/office/manifest/rule) element contained in the [OfficeApp](https://docs.microsoft.com/javascript/office/manifest/officeapp) element. Unless the add-in is being specifically developed for older clients and servers, new add-ins should use add-in commands.
 
 ## API features available to compose add-ins
 
@@ -54,4 +54,4 @@ Compose add-ins are implemented as [Add-in commands for Outlook](add-in-commands
 
 ## See also
 
-- [Get Started with Outlook Add-ins for Office 365](quick-start.md)
+- [Get Started with Outlook add-ins for Office 365](quick-start.md)

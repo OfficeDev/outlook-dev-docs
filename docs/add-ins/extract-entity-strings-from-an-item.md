@@ -1,6 +1,6 @@
 ---
 title: Extract entity strings from an Outlook item | Microsoft Docs
-description: Learn how to extract entity strings from an Outlook item in an Outlook Add-in.
+description: Learn how to extract entity strings from an Outlook item in an Outlook add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Extract entity strings from an Outlook item
 
-This article describes how to create a **Display entities** Outlook Add-in that extracts string instances of supported well-known entities in the subject and body of the selected Outlook item. This item can be an appointment, email message, or meeting request, response, or cancellation. 
+This article describes how to create a **Display entities** Outlook add-in that extracts string instances of supported well-known entities in the subject and body of the selected Outlook item. This item can be an appointment, email message, or meeting request, response, or cancellation. 
 
 The supported entities include:
 
@@ -97,7 +97,7 @@ xsi:type="MailApp">
 
 The HTML file of the entities add-in specifies buttons for the user to select each type of entity, and another button to clear displayed instances of an entity. It includes a JavaScript file, default_entities.js, which is described in the next section under [JavaScript implementation](#javascript-implementation). The JavaScript file includes the event handlers for each of the buttons.
 
-Note that all Outlook Add-ins must include office.js. The HTML file that follows includes version 1.1 of office.js on the CDN. 
+Note that all Outlook add-ins must include office.js. The HTML file that follows includes version 1.1 of office.js on the CDN. 
 
 ```html
 <!DOCTYPE html>
@@ -199,11 +199,11 @@ div#meeting_suggestions
 
 ## JavaScript implementation
 
-The remaining sections describe how this sample (default_entities.js file) extracts well-known entities from the subject and body of the message or appointment that the user is viewing. 
+The remaining sections describe how this sample (default_entities.js file) extracts well-known entities from the subject and body of the message or appointment that the user is viewing.
 
 ## Extracting entities upon initialization
 
-Upon the [Office.initialize](https://dev.office.com/reference/add-ins/shared/office.initialize?product=outlook&version=v1.5) event, the entities add-in calls the [getEntities](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) method of the current item. The **getEntities** method returns the global variable `_MyEntities` an array of instances of supported entities. The following is the related JavaScript code.
+Upon the [Office.initialize](https://docs.microsoft.com/javascript/api/office#initialize-reason-) event, the entities add-in calls the [getEntities](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getentities--entitiesjavascriptapioutlook15officeentities) method of the current item. The **getEntities** method returns the global variable `_MyEntities` an array of instances of supported entities. The following is the related JavaScript code.
 
 
 ```js
@@ -232,7 +232,7 @@ Office.initialize = function () {
 ## Extracting addresses
 
 
-When the user clicks the **Get Addresses** button, the `myGetAddresses` event handler obtains an array of addresses from the [addresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any address was extracted. Each extracted address is stored as a string in the array. `myGetAddresses` forms a local HTML string in `htmlText` to display the list of extracted addresses. The following is the related JavaScript code.
+When the user clicks the **Get Addresses** button, the `myGetAddresses` event handler obtains an array of addresses from the [addresses](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities#addresses) property of the `_MyEntities` object, if any address was extracted. Each extracted address is stored as a string in the array. `myGetAddresses` forms a local HTML string in `htmlText` to display the list of extracted addresses. The following is the related JavaScript code.
 
 
 ```js
@@ -256,23 +256,23 @@ function myGetAddresses()
 ## Extracting contact information
 
 
-When the user clicks the **Get Contact Information** button, the `myGetContacts` event handler obtains an array of contacts together with their information from the [contacts](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted contact is stored as a [Contact](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetContacts` obtains further data about each contact. Note that the context determines whether Outlook can extract a contact from an item&mdash;a signature at the end of an email message, or at least some of the following information would have to exist in the vicinity of the contact:
+When the user clicks the **Get Contact Information** button, the `myGetContacts` event handler obtains an array of contacts together with their information from the [contacts](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities#contacts) property of the `_MyEntities` object, if any was extracted. Each extracted contact is stored as a [Contact](https://docs.microsoft.com/javascript/api/outlook_1_5/office.contact) object in the array. `myGetContacts` obtains further data about each contact. Note that the context determines whether Outlook can extract a contact from an item&mdash;a signature at the end of an email message, or at least some of the following information would have to exist in the vicinity of the contact:
 
 
-- The string representing the contact's name from the [Contact.personName](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The string representing the company name associated with the contact from the [Contact.businessName](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The array of telephone numbers associated with the contact from the [Contact.phoneNumbers](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each telephone number is represented by a [PhoneNumber](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object.
-    
-- For each **PhoneNumber** member in the telephone numbers array, the string representing the telephone number from the [PhoneNumber.phoneString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The array of URLs associated with the contact from the [Contact.urls](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each URL is represented as a string in an array member.
-    
-- The array of email addresses associated with the contact from the [Contact.emailAddresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each email address is represented as a string in an array member.
-    
-- The array of postal addresses associated with the contact from the [Contact.addresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each postal address is represented as a string in an array member.
-    
+- The string representing the contact's name from the [Contact.personName](https://docs.microsoft.com/javascript/api/outlook_1_5/office.contact#personname) property.
+
+- The string representing the company name associated with the contact from the [Contact.businessName](https://docs.microsoft.com/javascript/api/outlook_1_5/office.contact#businessname) property.
+
+- The array of telephone numbers associated with the contact from the [Contact.phoneNumbers](https://docs.microsoft.com/javascript/api/outlook_1_5/office.contact#phonenumbers) property. Each telephone number is represented by a [PhoneNumber](https://docs.microsoft.com/javascript/api/outlook_1_5/office.phonenumber) object.
+
+- For each **PhoneNumber** member in the telephone numbers array, the string representing the telephone number from the [PhoneNumber.phoneString](https://docs.microsoft.com/javascript/api/outlook_1_5/office.phonenumber#phonestring) property.
+
+- The array of URLs associated with the contact from the [Contact.urls](https://docs.microsoft.com/javascript/api/outlook_1_5/office.contact#urls) property. Each URL is represented as a string in an array member.
+
+- The array of email addresses associated with the contact from the [Contact.emailAddresses](https://docs.microsoft.com/javascript/api/outlook_1_5/office.contact#emailaddresses) property. Each email address is represented as a string in an array member.
+
+- The array of postal addresses associated with the contact from the [Contact.addresses](https://docs.microsoft.com/javascript/api/outlook_1_5/office.contact#addresses) property. Each postal address is represented as a string in an array member.
+
 `myGetContacts` forms a local HTML string in `htmlText` to display the data for each contact. The following is the related JavaScript code.
 
 
@@ -344,7 +344,7 @@ function myGetContacts()
 ## Extracting email addresses
 
 
-When the user clicks the **Get Email Addresses** button, the `myGetEmailAddresses` event handler obtains an array of SMTP email addresses from the [emailAddresses](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted email address is stored as a string in the array. `myGetEmailAddresses` forms a local HTML string in `htmlText` to display the list of extracted email addresses. The following is the related JavaScript code.
+When the user clicks the **Get Email Addresses** button, the `myGetEmailAddresses` event handler obtains an array of SMTP email addresses from the [emailAddresses](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities#emailaddresses) property of the `_MyEntities` object, if any was extracted. Each extracted email address is stored as a string in the array. `myGetEmailAddresses` forms a local HTML string in `htmlText` to display the list of extracted email addresses. The following is the related JavaScript code.
 
 
 ```js
@@ -367,31 +367,31 @@ function myGetEmailAddresses() {
 ## Extracting meeting suggestions
 
 
-When the user clicks the **Get Meeting Suggestions** button, the `myGetMeetingSuggestions` event handler obtains an array of meeting suggestions from the [meetingSuggestions](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted.
+When the user clicks the **Get Meeting Suggestions** button, the `myGetMeetingSuggestions` event handler obtains an array of meeting suggestions from the [meetingSuggestions](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities#meetingsuggestions) property of the `_MyEntities` object, if any was extracted.
 
 
  > [!NOTE]
  > Only messages but not appointments support the **MeetingSuggestion** entity type.
 
-Each extracted meeting suggestion is stored as a [MeetingSuggestion](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetMeetingSuggestions` obtains further data about each meeting suggestion:
+Each extracted meeting suggestion is stored as a [MeetingSuggestion](https://docs.microsoft.com/javascript/api/outlook_1_5/office.meetingsuggestion) object in the array. `myGetMeetingSuggestions` obtains further data about each meeting suggestion:
 
 
-- The string that was identified as a meeting suggestion from the [MeetingSuggestion.meetingString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The array of meeting attendees from the [MeetingSuggestion.attendees](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each attendee is represented by an [EmailUser](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object.
-    
-- For each attendee, the name from the [EmailUser.displayName](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- For each attendee, the SMTP address from the [EmailUser.emailAddress](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The string representing the location of the meeting suggestion from the [MeetingSuggestion.location](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The string representing the subject of the meeting suggestion from the [MeetingSuggestion.subject](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The string representing the start time of the meeting suggestion from the [MeetingSuggestion.start](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The string representing the end time of the meeting suggestion from the [MeetingSuggestion.end](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
+- The string that was identified as a meeting suggestion from the [MeetingSuggestion.meetingString](https://docs.microsoft.com/javascript/api/outlook_1_5/office.meetingsuggestion#meetingstring) property.
+
+- The array of meeting attendees from the [MeetingSuggestion.attendees](https://docs.microsoft.com/javascript/api/outlook_1_5/office.meetingsuggestion#attendees) property. Each attendee is represented by an [EmailUser](https://docs.microsoft.com/javascript/api/outlook_1_5/office.emailuser) object.
+
+- For each attendee, the name from the [EmailUser.displayName](https://docs.microsoft.com/javascript/api/outlook_1_5/office.emailuser#displayname) property.
+
+- For each attendee, the SMTP address from the [EmailUser.emailAddress](https://docs.microsoft.com/javascript/api/outlook_1_5/office.emailuser#emailaddress) property.
+
+- The string representing the location of the meeting suggestion from the [MeetingSuggestion.location](https://docs.microsoft.com/javascript/api/outlook_1_5/office.meetingsuggestion#location) property.
+
+- The string representing the subject of the meeting suggestion from the [MeetingSuggestion.subject](https://docs.microsoft.com/javascript/api/outlook_1_5/office.meetingsuggestion#subject) property.
+
+- The string representing the start time of the meeting suggestion from the [MeetingSuggestion.start](https://docs.microsoft.com/javascript/api/outlook_1_5/office.meetingsuggestion#start) property.
+
+- The string representing the end time of the meeting suggestion from the [MeetingSuggestion.end](https://docs.microsoft.com/javascript/api/outlook_1_5/office.meetingsuggestion#end) property.
+
 `myGetMeetingSuggestions` forms a local HTML string in `htmlText` to display the data for each of the meeting suggestions. The following is the related JavaScript code.
 
 
@@ -453,15 +453,15 @@ function myGetMeetingSuggestions() {
 ## Extracting phone numbers
 
 
-When the user clicks the **Get Phone Numbers** button, the `myGetPhoneNumbers` event handler obtains an array of phone numbers from the [phoneNumbers](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted phone number is stored as a [PhoneNumber](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetPhoneNumbers` obtains further data about each phone number:
+When the user clicks the **Get Phone Numbers** button, the `myGetPhoneNumbers` event handler obtains an array of phone numbers from the [phoneNumbers](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities#phonenumbers) property of the `_MyEntities` object, if any was extracted. Each extracted phone number is stored as a [PhoneNumber](https://docs.microsoft.com/javascript/api/outlook_1_5/office.phonenumber) object in the array. `myGetPhoneNumbers` obtains further data about each phone number:
 
 
-- The string representing the kind of phone number, for example, home phone number, from the [PhoneNumber.type](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The string representing the actual phone number from the [PhoneNumber.phoneString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The string that was originally identified as the phone number from the [PhoneNumber.originalPhoneString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
+- The string representing the kind of phone number, for example, home phone number, from the [PhoneNumber.type](https://docs.microsoft.com/javascript/api/outlook_1_5/office.phonenumber#type) property.
+
+- The string representing the actual phone number from the [PhoneNumber.phoneString](https://docs.microsoft.com/javascript/api/outlook_1_5/office.phonenumber#phonestring) property.
+
+- The string that was originally identified as the phone number from the [PhoneNumber.originalPhoneString](https://docs.microsoft.com/javascript/api/outlook_1_5/office.phonenumber#originalphonestring) property.
+
 `myGetPhoneNumbers` forms a local HTML string in `htmlText` to display the data for each of the phone numbers. The following is the related JavaScript code.
 
 
@@ -504,17 +504,17 @@ function myGetPhoneNumbers()
 ## Extracting task suggestions
 
 
-When the user clicks the **Get Task Suggestions** button, the `myGetTaskSuggestions` event handler obtains an array of task suggestions from the [taskSuggestions](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted task suggestion is stored as a [TaskSuggestion](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object in the array. `myGetTaskSuggestions` obtains further data about each task suggestion:
+When the user clicks the **Get Task Suggestions** button, the `myGetTaskSuggestions` event handler obtains an array of task suggestions from the [taskSuggestions](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities#tasksuggestions) property of the `_MyEntities` object, if any was extracted. Each extracted task suggestion is stored as a [TaskSuggestion](https://docs.microsoft.com/javascript/api/outlook_1_5/office.tasksuggestion) object in the array. `myGetTaskSuggestions` obtains further data about each task suggestion:
 
 
-- The string that was originally identified a task suggestion from the [TaskSuggestion.taskString](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- The array of task assignees from the [TaskSuggestion.assignees](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property. Each assignee is represented by an [EmailUser](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) object.
-    
-- For each assignee, the name from the [EmailUser.displayName](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
-- For each assignee, the SMTP address from the [EmailUser.emailAddress](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property.
-    
+- The string that was originally identified a task suggestion from the [TaskSuggestion.taskString](https://docs.microsoft.com/javascript/api/outlook_1_5/office.tasksuggestion#taskstring) property.
+
+- The array of task assignees from the [TaskSuggestion.assignees](https://docs.microsoft.com/javascript/api/outlook_1_5/office.tasksuggestion#assignees) property. Each assignee is represented by an [EmailUser](https://docs.microsoft.com/javascript/api/outlook_1_5/office.emailuser) object.
+
+- For each assignee, the name from the [EmailUser.displayName](https://docs.microsoft.com/javascript/api/outlook_1_5/office.emailuser#displayname) property.
+
+- For each assignee, the SMTP address from the [EmailUser.emailAddress](https://docs.microsoft.com/javascript/api/outlook_1_5/office.emailuser#emailaddress) property.
+
 `myGetTaskSuggestions` forms a local HTML string in `htmlText` to display the data for each task suggestion. The following is the related JavaScript code.
 
 
@@ -569,7 +569,7 @@ function myGetTaskSuggestions()
 ## Extracting URLs
 
 
-When the user clicks the **Get URLs** button, the `myGetUrls` event handler obtains an array of URLs from the [urls](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) property of the `_MyEntities` object, if any was extracted. Each extracted URL is stored as a string in the array. `myGetUrls` forms a local HTML string in `htmlText` to display the list of extracted URLs.
+When the user clicks the **Get URLs** button, the `myGetUrls` event handler obtains an array of URLs from the [urls](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities#urls) property of the `_MyEntities` object, if any was extracted. Each extracted URL is stored as a string in the array. `myGetUrls` forms a local HTML string in `htmlText` to display the list of extracted URLs.
 
 
 ```js
@@ -826,7 +826,6 @@ function myGetUrls()
 
 ## See also
 
-- [Create Outlook Add-ins for read forms](read-scenario.md)    
-- [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)    
-- [item.getEntities method](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5)
-    
+- [Create Outlook add-ins for read forms](read-scenario.md)
+- [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
+- [item.getEntities method](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getentities--entitiesjavascriptapioutlook15officeentities)

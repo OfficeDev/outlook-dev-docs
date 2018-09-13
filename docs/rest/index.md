@@ -54,10 +54,10 @@ https://graph.microsoft.com/{version}
 
 to make all Outlook REST API calls in the following APIs:
 
-- [Outlook Mail REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/message)
-- [Outlook Calendar REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/calendar)
-- [Outlook Contacts REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/contact)
-- [Outlook Notifications REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/webhooks)
-- [Outlook Photo REST API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/profilephoto)
+- [Outlook Mail REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message)
+- [Outlook Calendar REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/calendar)
+- [Outlook Contacts REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/contact)
+- [Outlook Notifications REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks)
+- [Outlook Photo REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/profilephoto)
 
 For more information and a comparison between the Graph endpoints and the Outlook API endpoints, see [Compare Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).

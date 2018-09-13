@@ -1,6 +1,6 @@
 ---
-title: Scenario - Implement single sign-on to your service in an Outlook Add-in | Microsoft Docs
-description: Learn about using the single-sign-on token and Exchange identity token provided by an Outlook Add-in to implement SSO with your service.
+title: Scenario - Implement single sign-on to your service in an Outlook add-in | Microsoft Docs
+description: Learn about using the single-sign-on token and Exchange identity token provided by an Outlook add-in to implement SSO with your service.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,16 @@ ms.date: 10/4/2017
 ms.author: jasonjoh
 ---
 
-# Scenario: Implement single sign-on to your service in an Outlook Add-in
+# Scenario: Implement single sign-on to your service in an Outlook add-in
 
 In this article we'll explore a recommended method of using the [single sign-on access token](authenticate-a-user-with-an-sso-token.md) and the [Exchange identity token](authenticate-a-user-with-an-identity-token.md) together to provide a single-sign on implementation to your own backend service. By using both tokens together, you can take advantage of the benefits of the SSO access token when it is available, while ensuring that your add-in will work when it is not, such as when the user switches to a client that does not support them, or if the user's mailbox is on an on-premises Exchange server.
+
+
+> [!NOTE]
+> The Single Sign-on API is currently supported in preview for Word, Excel, Outlook, and PowerPoint. For more information about where the Single Sign-on API is currently supported, see [IdentityAPI requirement sets](https://docs.microsoft.com/javascript/office/requirement-sets/identity-api-requirement-sets?view=office-js).
+> To use SSO, you must load the beta version of the Office JavaScript Library from https://appsforoffice.microsoft.com/lib/beta/hosted/office.js in the startup HTML page of the add-in.
+> If you are working with an Outlook add-in, be sure to enable Modern Authentication for the Office 365 tenancy. For information about how to do this, see [Exchange Online: How to enable your tenant for modern authentication](https://social.technet.microsoft.com/wiki/contents/articles/32711.exchange-online-how-to-enable-your-tenant-for-modern-authentication.aspx).
+
 
 ## Why use the SSO access token?
 
@@ -42,7 +49,7 @@ The add-in includes either the SSO access token (if it is available) or the Exch
 
 1. When the add-in starts, it sends a request to the backend Web API to determine if the user is registered (i.e. has an associated record in the user database) and that the API has refresh tokens for both Graph and Contoso. In this call, the add-in includes both the SSO token (if available) and the identity token.
 
-1. The Web API uses the methods in [Authenticate a user with an single-sign-on token in an Outlook Add-in](authenticate-a-user-with-an-sso-token.md) and [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md) to validate and generate a unique identifier from both tokens.
+1. The Web API uses the methods in [Authenticate a user with an single-sign-on token in an Outlook add-in](authenticate-a-user-with-an-sso-token.md) and [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md) to validate and generate a unique identifier from both tokens.
 
 1. If an SSO token was provided, the Web API then queries the user database for an entry that has an `ssoId` value that matches the unique identifier generated from the SSO token.
    - If an entry did not exist, continue to the next step.
@@ -54,7 +61,7 @@ The add-in includes either the SSO access token (if it is available) or the Exch
    - If no entry exists, create a new entry. Set `ssoId` to the unique identifier generated from the SSO token (if available), and set `exchangeId` to the unique identifier generated from the Exchange identity token.
 
 1. Check for a valid refresh token in the user's `graphRefreshToken` value.
-   - If the value is missing or invalid and an SSO token was provided, use the [OAuth2 On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of) to obtain an access token and refresh token for Graph. Save the refresh token in the `graphRefreshToken` value for the user.
+   - If the value is missing or invalid and an SSO token was provided, use the [OAuth2 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of) to obtain an access token and refresh token for Graph. Save the refresh token in the `graphRefreshToken` value for the user.
 
 1. Check for valid refresh tokens in both `graphRefreshToken` and `contosoRefreshToken`.
    - If both values are valid, respond to the add-in to indicate that the user is already registered and configured.
@@ -72,7 +79,7 @@ Based on the response from the backend Web API, the add-in may need to authorize
 
 1. The add-in notifies the user that it needs them to authorize their use of the API and asks them to click a link or button to start the process.
 
-1. The add-in uses the [Dialog API](https://dev.office.com/reference/add-ins/shared/officeui.displaydialogasync?product=outlook) or the [office-js-helpers library](https://github.com/OfficeDev/office-js-helpers) to start the [OAuth2 Authorization Code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code) for the API.
+1. The add-in uses the [Dialog API](https://docs.microsoft.com/javascript/api/office/office.ui#displaydialogasync-startaddress--options--callback-) or the [office-js-helpers library](https://github.com/OfficeDev/office-js-helpers) to start the [OAuth2 Authorization Code flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) for the API.
 
 1. Once the flow completes, the add-in sends the refresh token to the backend Web API and includes the SSO token (if available) or the Exchange identity token.
 

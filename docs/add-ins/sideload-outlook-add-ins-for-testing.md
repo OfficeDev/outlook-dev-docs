@@ -1,6 +1,6 @@
 ---
-title: Sideload Outlook Add-ins for testing | Microsoft Docs
-description: Learn how to sideload Outlook Add-ins for testing.
+title: Sideload Outlook add-ins for testing | Microsoft Docs
+description: Learn how to sideload Outlook add-ins for testing.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 01/24/2018
 ms.author: jasonjoh
 ---
 
-# Sideload Outlook Add-ins for testing
+# Sideload Outlook add-ins for testing
 
-You can use sideloading to install an Outlook Add-in for testing without having to first put it in an add-in catalog.
+You can use sideloading to install an Outlook add-in for testing without having to first put it in an add-in catalog.
 
 
 ## Sideload an add-in in Outlook in Office 365

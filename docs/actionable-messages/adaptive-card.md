@@ -13,7 +13,7 @@ ms.author: jasonjoh
 Outlook Actionable Messages cards are designed using the Adaptive Card format. The Adaptive Card format is a simple yet powerful declarative layout format that provides a lot of flexibility, allowing for visually rich cards. In this topic we'll cover the Outlook-specific features of the Adaptive Card format.
 
 > [!IMPORTANT]
-> The Adaptive Card format is only available for Actionable Messages sent via email. The MessageCard format is still supported but is now de-emphasized. Office 365 Connectors do not currently support the Adaptive Card format. If you are implementing an Office 365 Connector, please refer to the [MessageCard format reference](https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference).
+> The Adaptive Card format is only available for Actionable Messages sent via email. The MessageCard format is still supported but is now de-emphasized. Office 365 Connectors do not currently support the Adaptive Card format. If you are implementing an Office 365 Connector, please refer to the [MessageCard format reference](https://docs.microsoft.com/outlook/actionable-messages/message-card-reference).
 >
 > For information on which Outlook versions support the Adaptive Card format, see [Outlook version requirements for actionable messages](index.md#outlook-version-requirements-for-actionable-messages).
 
@@ -288,10 +288,10 @@ Use `ColumnSet` only when you need to align several elements on a single horizon
 > - **Do** use `ColumnSet` for table-like layouts in general.
 > - **Do** use `ColumnSet` if you need to, for example, display an image of the far left of the card and some text on the same line at the far right of the card.
 > - **Do** use the appropriate sizing approach for columns:
->   - Use `"size": "auto"` for a `Column` to use as much width as is necessary to fit its content.
->   - Use `"size": "stretch"` for a `Column` to use the remaining width in the `ColumnSet`. When multiple `Columns` have `"size": "stretch"`, they all equally share the remaining width.
->   - Use `"size": <number>` for a `Column` to use a proportion of the available width in the `ColumnSet`. If you have three columns with their `size` property set to `1`, `4` and `5` respectively, they will end up using 10%, 40% and 50% of the available width, respectively.
->   - Use `width` instead of `size` for a `Column` to have a specific pixel width. This is particularly useful (and necessary) when creating table layouts.
+>   - Use `"width": "auto"` for a `Column` to use as much width as is necessary to fit its content.
+>   - Use `"width": "stretch"` for a `Column` to use the remaining width in the `ColumnSet`. When multiple `Columns` have `"width": "stretch"`, they all equally share the remaining width.
+>   - Use `"width": <number>` for a `Column` to use a proportion of the available width in the `ColumnSet`. If you have three columns with their `width` property set to `1`, `4` and `5` respectively, they will end up using 10%, 40% and 50% of the available width, respectively.
+>   - Use `"width": "<number>px"` to have a specific pixel width. This is particularly useful (and necessary) when creating table layouts.
 > - **Don't** use `ColumnSet` if all you need is stack elements vertically.
 
 ## Outlook-specific Adaptive Card properties and features
@@ -473,8 +473,8 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
 |---------------|------|----------|-------------|
 | `type` | String | Yes | Must be set to `Action.InvokeAddInCommand`. |
 | `title` | String | No | The title of the action as it will appear on screen on a button control, for instance. |
-| `addInId` | String | Yes | Specifies the add-in ID of the required add-in. The add-in ID is found in the [Id element in the add-in's manifest](https://dev.office.com/reference/add-ins/manifest/id?product=outlook). |
-| `desktopCommandId` | String | Yes | Specifies the ID of the add-in command button that opens the required task pane. The command button ID is found in the `id` attribute of the [Control element](https://dev.office.com/reference/add-ins/manifest/control?product=outlook) that defines the button in the add-in's manifest. The specified `Control` element MUST be defined inside a [MessageReadCommandSurface extension point](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook), be of type `Button`, and the control's `Action` must be of type `ShowTaskPane`. |
+| `addInId` | String | Yes | Specifies the add-in ID of the required add-in. The add-in ID is found in the [Id element in the add-in's manifest](https://docs.microsoft.com/javascript/office/manifest/id). |
+| `desktopCommandId` | String | Yes | Specifies the ID of the add-in command button that opens the required task pane. The command button ID is found in the `id` attribute of the [Control element](https://docs.microsoft.com/javascript/office/manifest/control) that defines the button in the add-in's manifest. The specified `Control` element MUST be defined inside a [MessageReadCommandSurface extension point](https://docs.microsoft.com/javascript/office/manifest/extensionpoint), be of type `Button`, and the control's `Action` must be of type `ShowTaskPane`. |
 | `initializationContext` | Object | Yes | Developers may specify any valid JSON object in this field. The value is serialized into a string and made available to the add-in when the action is executed. This allows the action to pass initialization data to the add-in. |
 
 ### Action.DisplayMessageForm

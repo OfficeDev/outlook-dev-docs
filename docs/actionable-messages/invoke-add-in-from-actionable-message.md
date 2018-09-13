@@ -19,7 +19,7 @@ Actionable messages allow the user to take quick actions on an email message or 
 `Action.InvokeAddInCommand` actions can work with add-ins that are already installed by the user, or they can work with add-ins that are not installed. If the required add-in is not installed, the user is prompted to install the add-in with a single click.
 
 > [!NOTE]
-> Single-click installation of the required add-in is only supported if the add-in is published in the [Office Store](https://dev.office.com/officestore/docs/submit-to-the-office-store).
+> Single-click installation of the required add-in is only supported if the add-in is published in the [Office Store](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).
 
 The following example shows the prompt users see if the add-in is not installed.
 
@@ -29,7 +29,7 @@ The following example shows the prompt users see if the add-in is not installed.
 
 Actionable messages invoke add-ins by specifying an [Action.InvokeAddInCommand action](adaptive-card.md#actioninvokeaddincommand) in the message. This action specifies the add-in to invoke, along with the identifier of the add-in button that opens the appropriate task pane.
 
-The required information is found in the [add-in's manifest](../add-ins/manifests.md). First, you'll need the add-in's identifier, which is specified in the [Id element](https://dev.office.com/reference/add-ins/manifest/id?product=outlook).
+The required information is found in the [add-in's manifest](../add-ins/manifests.md). First, you'll need the add-in's identifier, which is specified in the [Id element](https://docs.microsoft.com/javascript/office/manifest/id).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -46,11 +46,11 @@ The required information is found in the [add-in's manifest](../add-ins/manifest
 
 For this add-in, the add-in identifier is `527104a1-f1a5-475a-9199-7a968161c870`.
 
-Next, you'll need the `id` attribute of the [Control element](https://dev.office.com/reference/add-ins/manifest/control?product=outlook) that defines the add-in button that opens the appropriate task pane. Keep in mind that the `Control` element MUST:
+Next, you'll need the `id` attribute of the [Control element](https://docs.microsoft.com/javascript/office/manifest/control) that defines the add-in button that opens the appropriate task pane. Keep in mind that the `Control` element MUST:
 
-- Be defined inside a [MessageReadCommandSurface extension point](https://dev.office.com/reference/add-ins/manifest/extensionpoint?product=outlook#messagereadcommandsurface)
+- Be defined inside a [MessageReadCommandSurface extension point](https://docs.microsoft.com/javascript/office/manifest/extensionpoint#messagereadcommandsurface)
 - Have its `xsi:type` attribute set to `Button`
-- Contain an [Action element](https://dev.office.com/reference/add-ins/manifest/action?product=outlook) of type `ShowTaskpane`
+- Contain an [Action element](https://docs.microsoft.com/javascript/office/manifest/action) of type `ShowTaskpane`
 
 ```xml
 <ExtensionPoint xsi:type="MessageReadCommandSurface">
@@ -89,7 +89,7 @@ With these two pieces of information, we can create a basic `Action.InvokeAddInC
   "body": [
     {
       "type": "TextBlock",
-      "text": "Invoking an Add-in command from an Actionable Message card",
+      "text": "Invoking an add-in command from an Actionable Message card",
       "size": "large"
     }
   ],
@@ -119,7 +119,7 @@ For example, to extend the sample action from above, we could modify the action 
   "body": [
     {
       "type": "TextBlock",
-      "text": "Invoking an Add-in command from an Actionable Message card",
+      "text": "Invoking an add-in command from an Actionable Message card",
       "size": "large"
     }
   ],
@@ -141,7 +141,7 @@ For example, to extend the sample action from above, we could modify the action 
 
 ## Receiving initialization data in the add-in
 
-If your action passes initialization data, the add-in must be prepared to receive it. Add-ins can retrieve initialization data by calling the [Office.context.mailbox.item.getInitializationContextAsync](https://dev.office.com/reference/add-ins/outlook/preview/Office.context.mailbox.item?product=outlook&version=preview) method. This should be done whenever the task pane opens or loads a new message.
+If your action passes initialization data, the add-in must be prepared to receive it. Add-ins can retrieve initialization data by calling the [Office.context.mailbox.item.getInitializationContextAsync](https://docs.microsoft.com/javascript/office/objectmodel/preview-requirement-set/Office.context.mailbox.item) method. This should be done whenever the task pane opens or loads a new message.
 
 ```js
 // Get the initialization context (if present)

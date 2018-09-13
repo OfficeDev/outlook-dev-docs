@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Swift app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/swift-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints.
+This guide will use [Microsoft Graph](https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints.
 
 This guide assumes that you already have Xcode installed and working on your development machine, along with [CocoaPods](https://cocoapods.org) version 1.2 or later.
 
@@ -743,7 +743,7 @@ Now that you've mastered getting Outlook Mail from the Graph, doing the same for
 
 #### Add a formatter for the start and end times
 
-The `start` and `end` properties on an event are of type [dateTimeTimeZone](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/datetimetimezone), which is formatted a little differently than other dates. Let's add another function to the `Formatter` class to handle this.
+The `start` and `end` properties on an event are of type [dateTimeTimeZone](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/datetimetimezone), which is formatted a little differently than other dates. Let's add another function to the `Formatter` class to handle this.
 
 1. Switch to **Formatter.swift**.
 1. Add the following function.

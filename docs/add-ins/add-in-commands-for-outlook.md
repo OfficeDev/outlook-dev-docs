@@ -1,6 +1,6 @@
 ---
-title: Outlook Add-in commands
-description: Learn about add-in commands for Outlook Add-ins.
+title: Outlook add-in commands | Microsoft Docs
+description: Learn about add-in commands for Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Add-in commands for Outlook
 
-Outlook Add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. This lets users access add-ins in a simple, intuitive, and unobtrusive way. Because they offer increased functionality in a seamless manner, you can use add-in commands to create more engaging solutions.
+Outlook add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. This lets users access add-ins in a simple, intuitive, and unobtrusive way. Because they offer increased functionality in a seamless manner, you can use add-in commands to create more engaging solutions.
 
 > [!NOTE]
 > Add-in commands are available only in Outlook 2016 and Outlook 2013 for Windows, Outlook 2016 for Mac, Outlook for iPhone, Outlook for Android, Outlook on the web for Exchange 2016, and Outlook on the web for Office 365 and Outlook.com. 
@@ -30,7 +30,7 @@ Add-in commands are declared in the add-in manifest in the `VersionOverrides` el
 
 The `VersionOverrides` manifest entries specify many things for the add-in, such as the host, types of controls to add to the ribbon, the text, the icons, and any associated functions.
 
-When an add-in needs to provide status updates, such as progress indicators or error messages, it must do so through the [notification APIs](https://dev.office.com/reference/add-ins/outlook/1.5/NotificationMessages?product=outlook&version=v1.5). The processing for the notifications must also be defined in a separate HTML file that is specified in the `FunctionFile` node of the manifest.
+When an add-in needs to provide status updates, such as progress indicators or error messages, it must do so through the [notification APIs](https://docs.microsoft.com/javascript/api/outlook_1_5/office.NotificationMessages). The processing for the notifications must also be defined in a separate HTML file that is specified in the `FunctionFile` node of the manifest.
 
 Developers should define icons for all required sizes so that the add-in commands will adjust smoothly along with the ribbon. The required icon sizes are 80 x 80 pixels, 32 x 32 pixels, and 16 x 16 pixels for desktop, and 48 x 48 pixels, 32 x 32 pixels, and 25 x 25 pixels for mobile.
 
@@ -108,4 +108,4 @@ When using a module extension, add-in commands appear on the extension's custom 
 ## See also
 
 - [Define add-in commands in your manifest](https://docs.microsoft.com/office/dev/add-ins/develop/create-addin-commands)
-- [Add-in Command Demo Outlook Add-in](https://github.com/officedev/outlook-add-in-command-demo)
+- [Add-in command demo Outlook add-in](https://github.com/officedev/outlook-add-in-command-demo)

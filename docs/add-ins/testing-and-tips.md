@@ -1,6 +1,6 @@
 ---
-title: Deploy and install Outlook Add-ins for testing | Microsoft Docs
-description: Learn how to test an Outlook Add-in during development.
+title: Deploy and install Outlook add-ins for testing | Microsoft Docs
+description: Learn how to test an Outlook add-in during development.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 07/28/2017
 ms.author: jasonjoh
 ---
 
-# Deploy and install Outlook Add-ins for testing
+# Deploy and install Outlook add-ins for testing
 
-As part of the process of developing an Outlook Add-in, you will probably find yourself iteratively deploying and installing the add-in for testing, which involves the following steps:
+As part of the process of developing an Outlook add-in, you will probably find yourself iteratively deploying and installing the add-in for testing, which involves the following steps:
 
 1. Creating a manifest file that describes the add-in.
 1. Deploying the add-in UI file(s) to a web server.
@@ -18,11 +18,11 @@ As part of the process of developing an Outlook Add-in, you will probably find y
 1. Testing the add-in, making appropriate changes to the UI or manifest files, and repeating steps 2 and 3 to test the changes.
 
 > [!NOTE]
-> [Custom panes have been deprecated](https://developer.microsoft.com/en-us/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using [a supported add-in extension point](https://docs.microsoft.com/outlook/add-ins/#extension-points).
+> [Custom panes have been deprecated](https://developer.microsoft.com/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using [a supported add-in extension point](https://docs.microsoft.com/outlook/add-ins/#extension-points).
 
 ## Create a manifest file for the add-in
 
-Each add-in is described by an XML manifest, a document that gives the server information about the add-in, provides descriptive information about the add-in for the user, and identifies the location of the add-in UI HTML file. You can store the manifest in a local folder or server, as long as the location is accessible by the Exchange server of the mailbox that you are testing with. We'll assume that you store your manifest in a local folder. For information about how to create a manifest file, see [Outlook Add-in manifests](manifests.md).
+Each add-in is described by an XML manifest, a document that gives the server information about the add-in, provides descriptive information about the add-in for the user, and identifies the location of the add-in UI HTML file. You can store the manifest in a local folder or server, as long as the location is accessible by the Exchange server of the mailbox that you are testing with. We'll assume that you store your manifest in a local folder. For information about how to create a manifest file, see [Outlook add-in manifests](manifests.md).
 
 ## Deploy an add-in to a web server
 
@@ -54,7 +54,7 @@ Using Office 365 or Visual Studio to develop add-ins assigns you the organizatio
 
 ### Install an add-in by using remote PowerShell
 
-After you create a remote Windows PowerShell session on your Exchange server, you can install an Outlook Add-in by using the `New-App` cmdlet with the following PowerShell command.
+After you create a remote Windows PowerShell session on your Exchange server, you can install an Outlook add-in by using the `New-App` cmdlet with the following PowerShell command.
 
 ```powershell
 New-App -URL:"http://<fully-qualified URL">
@@ -74,14 +74,14 @@ Deciding what versions of the Outlook client to test depends on your development
 
 - If you are developing an add-in for private use, or only for members of your organization, then it is important to test the versions of Outlook that your company uses. Keep in mind that some users may use Outlook on the web, so testing your company's standard browser versions is also important.
 
-- If you are developing an add-in to list in the Office Store, you must test the required versions as specified in the [Office Store validation policies 4.12.1](https://dev.office.com/officestore/docs/validation-policies#4-apps-and-add-ins-behave-predictably). This includes:
+- If you are developing an add-in to list in the Office Store, you must test the required versions as specified in the [Office Store validation policies 4.12.1](https://docs.microsoft.com/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably). This includes:
     - The latest version of Outlook for Windows and the version prior to the latest.
     - The latest version of Outlook for Mac.
     - The latest version of Outlook for iOS (if your add-in [supports mobile form factor](add-mobile-support.md)).
     - The browser versions specified in Office Store validation policy 4.12.1.
 
 > [!NOTE]
-> If your add-in does not support one of the above clients due to [requesting an API requirement set](apis.md) that the client does not support, that client would be removed from the list of reqiured clients.
+> If your add-in does not support one of the above clients due to [requesting an API requirement set](apis.md) that the client does not support, that client would be removed from the list of required clients.
 
 ## See also
 

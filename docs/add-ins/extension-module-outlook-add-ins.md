@@ -1,6 +1,6 @@
 ---
-title: Module extension Outlook Add-ins | Microsoft Docs
-description: Learn about module extension Outlook Add-ins.
+title: Module extension Outlook add-ins | Microsoft Docs
+description: Learn about module extension Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,7 +8,7 @@ ms.date: 08/09/2017
 ms.author: jasonjoh
 ---
 
-# Module extension Outlook Add-ins
+# Module extension Outlook add-ins
 
 Module extension add-ins appear in the Outlook navigation bar, right alongside mail, tasks, and calendars. A module extension is not limited to using mail and appointment information. You can create applications that run inside Outlook to make it easy for your users to access business information and productivity tools without ever leaving Outlook.
 
@@ -143,6 +143,6 @@ The following is a section of a manifest file that defines a module extension.
 
 ## See also
 
-- [Outlook Add-in manifests](manifests.md)
+- [Outlook add-in manifests](manifests.md)
 - [Define add-in commands in your manifest](https://docs.microsoft.com/office/dev/add-ins/develop/define-add-in-commands)
 - [Outlook module extensions Billable hours sample](https://github.com/OfficeDev/Outlook-Add-in-JavaScript-ModuleExtension)

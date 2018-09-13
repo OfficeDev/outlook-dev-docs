@@ -1,6 +1,6 @@
 ---
-title: Get or modify recipients in an Outlook Add-in | Microsoft Docs
-description: Learn how to get, set, or add recipients of a message or appointment in an Outlook Add-in.
+title: Get or modify recipients in an Outlook add-in | Microsoft Docs
+description: Learn how to get, set, or add recipients of a message or appointment in an Outlook add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -11,9 +11,9 @@ ms.author: jasonjoh
 # Get, set, or add recipients when composing an appointment or message in Outlook
 
 
-The JavaScript API for Office provides asynchronous methods ([Recipients.getAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5), [Recipients.setAsync](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5), or [Recipients.addAysnc](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5)) to respectively get, set, or add recipients in a compose form of an appointment or message. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described in [Create Outlook Add-ins for compose forms](compose-scenario.md).
+The JavaScript API for Office provides asynchronous methods ([Recipients.getAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Recipients#getasync-options--callback-), [Recipients.setAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Recipients#setasync-recipients--options--callback-), or [Recipients.addAysnc](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Recipients#addasync-recipients--options--callback-)) to respectively get, set, or add recipients in a compose form of an appointment or message. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described in [Create Outlook add-ins for compose forms](compose-scenario.md).
 
-Some of the properties that represent recipients in an appointment or message are available for read access in a compose form and in a read form. These properties include  [optionalAttendees](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) and [requiredAttendees](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) for appointments, and [cc](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5), and  [to](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) for messages. 
+Some of the properties that represent recipients in an appointment or message are available for read access in a compose form and in a read form. These properties include  [optionalAttendees](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#optionalattendees-arrayemailaddressdetailsjavascriptapioutlook15officeemailaddressdetailsrecipientsjavascriptapioutlook15officerecipients) and [requiredAttendees](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#requiredattendees-arrayemailaddressdetailsjavascriptapioutlook15officeemailaddressdetailsrecipientsjavascriptapioutlook15officerecipients) for appointments, and [cc](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#cc-arrayemailaddressdetailsjavascriptapioutlook15officeemailaddressdetailsrecipientsjavascriptapioutlook15officerecipients), and  [to](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#to-arrayemailaddressdetailsjavascriptapioutlook15officeemailaddressdetailsrecipientsjavascriptapioutlook15officerecipients) for messages.
 
 In a read form, you can access the property directly from the parent object, such as:
 
@@ -36,7 +36,7 @@ As with most asynchronous methods in the JavaScript API for Office, **getAsync**
 ## Get recipients
 
 
-This section shows a code sample that gets the recipients of the appointment or message that is being composed, and displays the email addresses of the recipients. The code sample assumes a rule in the add-in manifest that activates the add-in in a compose form for an appointment or message, as shown below. 
+This section shows a code sample that gets the recipients of the appointment or message that is being composed, and displays the email addresses of the recipients. The code sample assumes a rule in the add-in manifest that activates the add-in in a compose form for an appointment or message, as shown below.
 
 
 ```XML
@@ -46,9 +46,9 @@ This section shows a code sample that gets the recipients of the appointment or 
 </Rule>
 ```
 
-In the JavaScript API for Office, because the properties that represent the recipients of an appointment ( **optionalAttendees** and **requiredAttendees**) are different from those of a message ([bcc](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5), **cc**, and **to**), you should first use the [item.itemType](https://dev.office.com/reference/add-ins/outlook/1.5/Office.context.mailbox.item?product=outlook&version=v1.5) property to identify whether the item being composed is an appointment or message. In compose mode, all these properties of appointments and messages are [Recipients](https://dev.office.com/reference/add-ins/outlook/1.5/Recipients?product=outlook&version=v1.5) objects, so you can then apply the asynchronous method, **Recipients.getAsync**, to get the corresponding recipients. 
+In the JavaScript API for Office, because the properties that represent the recipients of an appointment ( **optionalAttendees** and **requiredAttendees**) are different from those of a message ([bcc](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#bcc-recipientsjavascriptapioutlook15officerecipients), **cc**, and **to**), you should first use the [item.itemType](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#itemtype-officemailboxenumsitemtypejavascriptapioutlook15officemailboxenumsitemtype) property to identify whether the item being composed is an appointment or message. In compose mode, all these properties of appointments and messages are [Recipients](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Recipients) objects, so you can then apply the asynchronous method, **Recipients.getAsync**, to get the corresponding recipients.
 
-To use **getAsync**, provide a callback method to check for the status, results, and any error returned by the asynchronous **getAsync** call. You can provide any arguments to the callback method using the optional _asyncContext_ parameter. The callback method returns an _asyncResult_ output parameter. You can use the **status** and **error** properties of the [AsyncResult](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) parameter object to check for status and any error messages of the asynchronous call, and the **value** property to get the actual recipients. Recipients are represented as an array of [EmailAddressDetails](https://dev.office.com/reference/add-ins/outlook/1.5/simple-types?product=outlook&version=v1.5) objects.
+To use **getAsync**, provide a callback method to check for the status, results, and any error returned by the asynchronous **getAsync** call. You can provide any arguments to the callback method using the optional _asyncContext_ parameter. The callback method returns an _asyncResult_ output parameter. You can use the **status** and **error** properties of the [AsyncResult](https://docs.microsoft.com/javascript/api/office/office.asyncresult) parameter object to check for status and any error messages of the asynchronous call, and the **value** property to get the actual recipients. Recipients are represented as an array of [EmailAddressDetails](https://docs.microsoft.com/javascript/api/outlook_1_5/office.emailaddressdetails) objects.
 
 Note that because the **getAsync** method is asynchronous, if there are subsequent actions that depend on successfully getting the recipients, you should organize your code to start such actions only in the corresponding callback method when the asynchronous call has successfully completed.
 
@@ -310,7 +310,7 @@ function addAttendees() {
 
 - [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md)    
 - [Get and set Outlook item data in read or compose forms](item-data.md)   
-- [Create Outlook Add-ins for compose forms](compose-scenario.md)    
+- [Create Outlook add-ins for compose forms](compose-scenario.md)    
 - [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)    
 - [Get or set the subject when composing an appointment or message in Outlook](get-or-set-the-subject.md)    
 - [Insert data in the body when composing an appointment or message in Outlook](insert-data-in-the-body.md)    
