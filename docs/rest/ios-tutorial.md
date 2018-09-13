@@ -217,7 +217,7 @@ Replace the value of `clientId` with the application ID you generated in the App
 
 Open **AppDelegate.swift** and add a new function to the `AppDelegate` class. This function will handle activation of the app when it is activated by the custom redirect URI during sign in.
 
-#### `application` function in `AppDelegate.swift`"
+#### `application` function in `AppDelegate.swift`
 
 ```Swift
 func application(_ app: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
