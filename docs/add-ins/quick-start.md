@@ -200,6 +200,12 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     The generator will then ask you if you want to open resource.html. It isn't necessary to open it for this tutorial, but feel free to open it if you're curious! Choose yes or no to complete the wizard and allow the generator to do its work.
 
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
+	
+1. Navigate to the root folder of the web application project.
+
+    ```bash
+    cd "My Office Add-in"
+    ```
 
 ### Update the code
 
@@ -302,7 +308,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Sideload the manifest
 
-1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
+1. In your command prompt/shell, make sure you are in the root directory of your project (**[...]/My Office Add-in**), and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
 
 1. If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
