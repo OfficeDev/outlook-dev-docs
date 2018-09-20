@@ -1,6 +1,6 @@
 ---
-title: Get or set appointment time in an Outlook Add-in | Microsoft Docs
-description: Learn how to get or set the start and end time of an appointment in an Outlook Add-in.
+title: Get or set appointment time in an Outlook add-in | Microsoft Docs
+description: Learn how to get or set the start and end time of an appointment in an Outlook add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Get or set the time when composing an appointment in Outlook
 
-The JavaScript API for Office provides asynchronous methods ([Time.getAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Time#getasync-options--callback-) and [Time.setAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Time#setasync-datetime--options--callback-)) to get and set the start or end time of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described in [Create Outlook Add-ins for compose forms](compose-scenario.md).
+The JavaScript API for Office provides asynchronous methods ([Time.getAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Time#getasync-options--callback-) and [Time.setAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Time#setasync-datetime--options--callback-)) to get and set the start or end time of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described in [Create Outlook add-ins for compose forms](compose-scenario.md).
 
 The [start](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#start-datetimejavascriptapioutlook15officetime) and [end](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#end-datetimejavascriptapioutlook15officetime) properties are available for appointments in both compose and read forms. In a read form, you can access the properties directly from the parent object, as in:
 
@@ -142,7 +142,7 @@ function write(message){
 
 - [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md)    
 - [Get and set Outlook item data in read or compose forms](item-data.md)   
-- [Create Outlook Add-ins for compose forms](compose-scenario.md)    
+- [Create Outlook add-ins for compose forms](compose-scenario.md)    
 - [Asynchronous programming in Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)    
 - [Get, set, or add recipients when composing an appointment or message in Outlook](get-set-or-add-recipients.md)  
 - [Get or set the subject when composing an appointment or message in Outlook](get-or-set-the-subject.md)   

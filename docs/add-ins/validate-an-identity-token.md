@@ -1,6 +1,6 @@
 ---
-title: Validate an Outlook Add-in identity token | Microsoft Docs
-description: Learn how to validate an Outlook Add-in identity token.
+title: Validate an Outlook add-in identity token | Microsoft Docs
+description: Learn how to validate an Outlook add-in identity token.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,9 +10,9 @@ ms.author: jasonjoh
 
 # Validate an Exchange identity token
 
-Your Outlook Add-in can send you an Exchange user identity token, but before you trust the request you must validate the token to ensure that it came from the Exchange server that you expect. Exchange user identity tokens are JSON Web Tokens (JWT). The steps required to validate a JWT are described in [RFC 7519 JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519.txt).
+Your Outlook add-in can send you an Exchange user identity token, but before you trust the request you must validate the token to ensure that it came from the Exchange server that you expect. Exchange user identity tokens are JSON Web Tokens (JWT). The steps required to validate a JWT are described in [RFC 7519 JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519.txt).
 
-We suggest that you use a four-step process to validate the identity token and obtain the user's unique identifier. First, extract the JSON Web Token (JWT) from a base64 URL-encoded string. Second, make sure that the token is well-formed, that it is for your Outlook Add-in, that it has not expired, and that you can extract a valid URL for the authentication metadata document. Next, retrieve the authentication metadata document from the Exchange server and validate the signature attached to the identity token. Finally, compute a unique identifier for the user by hashing the user's Exchange ID with the URL of the authentication metadata document.
+We suggest that you use a four-step process to validate the identity token and obtain the user's unique identifier. First, extract the JSON Web Token (JWT) from a base64 URL-encoded string. Second, make sure that the token is well-formed, that it is for your Outlook add-in, that it has not expired, and that you can extract a valid URL for the authentication metadata document. Next, retrieve the authentication metadata document from the Exchange server and validate the signature attached to the identity token. Finally, compute a unique identifier for the user by hashing the user's Exchange ID with the URL of the authentication metadata document.
 
 ## Extract the JSON Web Token
 
@@ -96,7 +96,7 @@ After you have the correct public key, verify the signature. The signed data is 
 
 ## Compute the unique ID for an Exchange account
 
-You can create a unique identifier for an Exchange account by hashing the authentication metadata document URL with the Exchange identifier for the account. When you have this unique identifier, you can use it to create a single sign-on (SSO) system for your Outlook Add-in web service. For details about using the unique identifier for SSO, see [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md).
+You can create a unique identifier for an Exchange account by hashing the authentication metadata document URL with the Exchange identifier for the account. When you have this unique identifier, you can use it to create a single sign-on (SSO) system for your Outlook add-in web service. For details about using the unique identifier for SSO, see [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md).
 
 ## Use a library to validate the token
 

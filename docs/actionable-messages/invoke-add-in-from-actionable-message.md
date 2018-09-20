@@ -89,7 +89,7 @@ With these two pieces of information, we can create a basic `Action.InvokeAddInC
   "body": [
     {
       "type": "TextBlock",
-      "text": "Invoking an Add-in command from an Actionable Message card",
+      "text": "Invoking an add-in command from an Actionable Message card",
       "size": "large"
     }
   ],
@@ -119,7 +119,7 @@ For example, to extend the sample action from above, we could modify the action 
   "body": [
     {
       "type": "TextBlock",
-      "text": "Invoking an Add-in command from an Actionable Message card",
+      "text": "Invoking an add-in command from an Actionable Message card",
       "size": "large"
     }
   ],

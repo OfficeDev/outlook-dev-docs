@@ -1,6 +1,6 @@
 ---
-title: Limits for activation and API usage in Outlook Add-ins | Microsoft Docs
-description: Learn about activation limits and API usage limits in Outlook Add-ins.
+title: Limits for activation and API usage in Outlook add-ins | Microsoft Docs
+description: Learn about activation limits and API usage limits in Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 07/28/2017
 ms.author: jasonjoh
 ---
 
-# Limits for activation and JavaScript API for Outlook Add-ins
+# Limits for activation and JavaScript API for Outlook add-ins
 
-To provide a satisfactory experience for users of Outlook Add-ins, you should be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits. These guidelines exist so that an individual add-in cannot require Exchange Server or Outlook to spend an unusually long period of time to process its activation rules or calls to the JavaScript API for Office, affecting the overall user experience for Outlook and other add-ins. These limits apply to designing activation rules in the add-in manifest, and using custom properties, roaming settings, recipients, Exchange Web Services (EWS) requests and responses, and asynchronous calls.
+To provide a satisfactory experience for users of Outlook add-ins, you should be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits. These guidelines exist so that an individual add-in cannot require Exchange Server or Outlook to spend an unusually long period of time to process its activation rules or calls to the JavaScript API for Office, affecting the overall user experience for Outlook and other add-ins. These limits apply to designing activation rules in the add-in manifest, and using custom properties, roaming settings, recipients, Exchange Web Services (EWS) requests and responses, and asynchronous calls.
 
 > [!NOTE]
 > If your add-in runs on an Outlook rich client, you must also verify that the add-in performs within certain run-time resource usage limits.
@@ -21,9 +21,9 @@ Add-ins are designed to activate in the user's main mailbox only. Add-ins do not
 
 ## Limits for activation rules
 
-Follow these guidelines when designing activation rules for Outlook Add-ins:
+Follow these guidelines when designing activation rules for Outlook add-ins:
 
-- Limit the size of the manifest to 256 KB. You cannot install the Outlook Add-in for an Exchange mailbox if you exceed that limit.
+- Limit the size of the manifest to 256 KB. You cannot install the Outlook add-in for an Exchange mailbox if you exceed that limit.
 
 - Specify up to 15 activation rules for the add-in. You cannot install the add-in if you exceed that limit.
 
@@ -92,5 +92,5 @@ Aside from the preceding guidelines for activation rules, each of the Outlook ho
 
 ## See also
 
-- [Deploy and install Outlook Add-ins for testing](testing-and-tips.md)
-- [Privacy, permissions, and security for Outlook Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)
+- [Deploy and install Outlook add-ins for testing](testing-and-tips.md)
+- [Privacy, permissions, and security for Outlook add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/privacy-and-security)

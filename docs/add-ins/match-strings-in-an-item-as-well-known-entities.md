@@ -1,6 +1,6 @@
 ---
-title: Match strings as well-known entities in an Outlook Add-in | Microsoft Docs
-description: Learn about well-known entities in Outlook Add-ins.
+title: Match strings as well-known entities in an Outlook add-in | Microsoft Docs
+description: Learn about well-known entities in Outlook add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -14,7 +14,7 @@ Before sending a message or meeting request item, Exchange Server parses the con
 
 Using the JavaScript API for Office, you can get these strings that match specific well-known entities for further processing. You can also specify a well-known entity in a rule in the add-in manifest so that Outlook can activate your add-in when the user is viewing an item that contains matches for that entity. You can then extract and take action on matches for the entity. 
 
-Being able to identify or extract such instances from a selected message or appointment is convenient. For example, you can build a reverse phone look-up service as an Outlook Add-in. The add-in can extract strings in the item subject or body that resemble a phone number, do a reverse lookup, and display the registered owner of each phone number.
+Being able to identify or extract such instances from a selected message or appointment is convenient. For example, you can build a reverse phone look-up service as an Outlook add-in. The add-in can extract strings in the item subject or body that resemble a phone number, do a reverse lookup, and display the registered owner of each phone number.
 
 This topic introduces these well-known entities, shows examples of activation rules based on well-known entities, and how to extract entity matches independently of having used entities in activation rules.
 
@@ -23,7 +23,7 @@ This topic introduces these well-known entities, shows examples of activation ru
 
 Exchange Server stamps well-known entities in a message or meeting request item after the sender sends the item and before Exchange delivers the item to the recipient. Therefore, only items that have gone through transport in Exchange are stamped, and Outlook can activate add-ins based on these stamps when the user is viewing such items. On the contrary, when the user is composing an item or viewing an item that is in the Sent Items folder, because the item has not gone through transport, Outlook cannot activate add-ins based on well-known entities. 
 
-Similarly, you cannot extract well-known entities in items that are being composed or in the Sent Items folder, as these items have not gone through transport and are not stamped. For additional information about the kinds of items that support activation, see [Activation rules for Outlook Add-ins](activation-rules.md).
+Similarly, you cannot extract well-known entities in items that are being composed or in the Sent Items folder, as these items have not gone through transport and are not stamped. For additional information about the kinds of items that support activation, see [Activation rules for Outlook add-ins](activation-rules.md).
 
 The following table lists the entities that Exchange Server and Outlook support and recognize (hence the name "well-known entities"), and the object type of an instance of each entity. The natural language recognition of a string as one of these entities is based on a learning model that has been trained on a large amount of data. Therefore, the recognition is non-deterministic. See [Tips for using well-known entities](#tips-for-using-well-known-entities) for more information about conditions for recognition.
 
@@ -156,9 +156,9 @@ In addition, the following applies if you use an [ItemHasKnownEntity](https://do
 
 ## See also
 
-- [Create Outlook Add-ins for read forms](read-scenario.md)   
+- [Create Outlook add-ins for read forms](read-scenario.md)   
 - [Extract entity strings from an Outlook item](extract-entity-strings-from-an-item.md)   
-- [Activation rules for Outlook Add-ins](activation-rules.md)   
-- [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
-- [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md)
+- [Activation rules for Outlook add-ins](activation-rules.md)   
+- [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
+- [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md)
     

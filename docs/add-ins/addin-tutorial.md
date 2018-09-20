@@ -1,23 +1,23 @@
 ---
-title: Advanced Outlook Add-in tutorial | Microsoft Docs
-description: Follow along to create an Outlook Add-in that inserts GitHub Gists into the body of new email messages
+title: Advanced Outlook add-in tutorial
+description: Follow along to create an Outlook add-in that inserts GitHub Gists into the body of new email messages
 author: jasonjoh
 ms.topic: get-started-article
 ms.technology: office-add-ins
 ms.devlang: javascript
-ms.date: 08/29/2018
+ms.date: 09/13/2018
 ms.author: jasonjoh
 ---
 
-# Advanced Outlook Add-in tutorial: Git the Gist
+# Advanced Outlook add-in tutorial: Git the Gist
 
-The purpose of this guide is to walk through the process of creating an Outlook Add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outlined here.
+The purpose of this guide is to walk through the process of creating an Outlook add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outlined here.
 
 This tutorial will use the [Microsoft Office Add-in Project Generator](https://github.com/officedev/generator-office) to generate an add-in project.
 
 ## Prerequisites
 
-Outlook Add-ins are comprised of HTML, CSS, and JavaScript files, so technically the only absolute prerequisite is some sort of web server to host the files. However, in this guide we're going to use some tools to make it easier to get up and running quickly. To follow along with this guide, you'll need the following:
+Outlook add-ins are comprised of HTML, CSS, and JavaScript files, so technically the only absolute prerequisite is some sort of web server to host the files. However, in this guide we're going to use some tools to make it easier to get up and running quickly. To follow along with this guide, you'll need the following:
 
 - [Node.js](https://nodejs.org)
 - [Yeoman](https://yeoman.io/)
@@ -36,7 +36,7 @@ You will also need Outlook 2016 connected to an Office 365 account, Outlook.com 
 
 Open your command prompt/shell in an empty directory. Enter `yo office` and follow the prompts.
 
-- **Choose a project type** - `Jquery`
+- **Choose a project type** - `Office Add-in project using Jquery framework`
 
 - **Choose a script type** - `Javascript`
 
@@ -68,7 +68,7 @@ Open the `git-the-gist-manifest.xml` and locate the `SupportUrl` element. Remove
 1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
     - If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
     - If the browser does not indicate a problem with the certificate, proceed to the next step.
-1. Sideload the add-in using the instructions in [Sideload Outlook Add-ins for testing](sideload-outlook-add-ins-for-testing.md). When browsing for the manifest file, select `git-the-gist-manifest.xml` in the project root.
+1. Sideload the add-in using the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md). When browsing for the manifest file, select `git-the-gist-manifest.xml` in the project root.
 1. You should now see a new button on the ribbon labeled **Display all properties**. Click this button to open the taskpane. You should see the add-in's welcome page.
 
     ![A screenshot of the button and taskpane added by the sample](images/addin-tutorial/button-and-pane.PNG)

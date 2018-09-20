@@ -1,5 +1,5 @@
 ---
-title: Use regular expression activation rules to show an Outlook Add-in | Microsoft Docs
+title: Use regular expression activation rules to show an Outlook add-in | Microsoft Docs
 description: Learn how to use regualr expression activation rules for Outlook contextual add-ins.
 author: jasonjoh
 ms.topic: article
@@ -8,9 +8,9 @@ ms.date: 04/12/2018
 ms.author: jasonjoh
 ---
 
-# Use regular expression activation rules to show an Outlook Add-in
+# Use regular expression activation rules to show an Outlook add-in
 
-You can specify regular expression rules to have a [contextual add-in](contextual-outlook-add-ins.md) activated when a match is found in specific fields of the message. Contextual add-ins activate only in read mode, Outlook does not activate contextual add-ins when the user is composing an item. There are also other scenarios where Outlook does not activate add-ins, for example, items protected by Information Rights Management (IRM). For more information, see [Activation rules for Outlook Add-ins](activation-rules.md).
+You can specify regular expression rules to have a [contextual add-in](contextual-outlook-add-ins.md) activated when a match is found in specific fields of the message. Contextual add-ins activate only in read mode, Outlook does not activate contextual add-ins when the user is composing an item. There are also other scenarios where Outlook does not activate add-ins, for example, items protected by Information Rights Management (IRM). For more information, see [Activation rules for Outlook add-ins](activation-rules.md).
 
 You can specify a regular expression as part of an [ItemHasRegularExpressionMatch](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasregularexpressionmatch-rule) rule or [ItemHasKnownEntity](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasknownentity-rule) rule in the add-in XML manifest. The rules are specified in a [DetectedEntity](https://docs.microsoft.com/javascript/office/manifest/extensionpoint#detectedentity) extension point.
 
@@ -50,7 +50,7 @@ Pay special attention to the following when you use regular expressions:
     
 - The HTML body of an item is slightly different between an Outlook rich client, and Outlook on the web or Outlook mobile. Define your regular expressions carefully.
 
-- Depending on the host application, type of device, or property that a regular expression is being applied on, there are other best practices and limits for each of the hosts that you should be aware of when designing regular expressions as activation rules. See [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) for details.
+- Depending on the host application, type of device, or property that a regular expression is being applied on, there are other best practices and limits for each of the hosts that you should be aware of when designing regular expressions as activation rules. See [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) for details.
 
 ### Examples
 
@@ -198,9 +198,9 @@ var suggestions = Office.context.mailbox.item.getFilteredEntitiesByName("CampSug
 
 ## See also
 
-- [Outlook Add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) - A sample contextual add-in that activates based on a regular expression match.
-- [Create Outlook Add-ins for read forms](read-scenario.md)
-- [Activation rules for Outlook Add-ins](activation-rules.md)
-- [Limits for activation and JavaScript API for Outlook Add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
+- [Outlook add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) - A sample contextual add-in that activates based on a regular expression match.
+- [Create Outlook add-ins for read forms](read-scenario.md)
+- [Activation rules for Outlook add-ins](activation-rules.md)
+- [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
 - [Best Practices for Regular Expressions in the .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/best-practices)

@@ -1,5 +1,5 @@
 ---
-title: Compare Outlook Add-in support in Outlook for Mac | Microsoft Docs
+title: Compare Outlook add-in support in Outlook for Mac | Microsoft Docs
 description: Learn how add-in support in Outlook for Mac compares with other Outlook hosts.
 author: jasonjoh
 ms.topic: article
@@ -8,9 +8,9 @@ ms.date: 08/09/2017
 ms.author: jasonjoh
 ---
 
-# Compare Outlook Add-in support in Outlook for Mac with other Outlook hosts
+# Compare Outlook add-in support in Outlook for Mac with other Outlook hosts
 
-You can create and run an Outlook Add-in the same way in Outlook for Mac as in the other hosts including Outlook for Windows, OWA for Devices, and Outlook on the web, without customizing the JavaScript for each host. The same calls from the add-in to the JavaScript API for Office generally work the same way, except for the areas described in the following table.
+You can create and run an Outlook add-in the same way in Outlook for Mac as in the other hosts including Outlook for Windows, OWA for Devices, and Outlook on the web, without customizing the JavaScript for each host. The same calls from the add-in to the JavaScript API for Office generally work the same way, except for the areas described in the following table.
 
 | Area | Outlook for Windows, OWA for Devices, Outlook on the web | Outlook for Mac |
 |:-----|:-----|:-----|
@@ -25,4 +25,4 @@ You can create and run an Outlook Add-in the same way in Outlook for Mac as in t
 
 ## See also
 
-- [Deploy and install Outlook Add-ins for testing](testing-and-tips.md)
+- [Deploy and install Outlook add-ins for testing](testing-and-tips.md)

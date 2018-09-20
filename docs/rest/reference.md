@@ -45,8 +45,8 @@ The following APIs are only available on the Outlook API endpoint.
 
 ### Released
 
-- [Tasks API](https://msdn.microsoft.com/en-us/office/office365/api/task-rest-operations)
+- [Tasks API](https://docs.microsoft.com/previous-versions/office/office-365-api/api/version-2.0/task-rest-operations)
 
 ### Beta
 
-- [Batch REST Requests](https://msdn.microsoft.com/en-us/office/office365/api/batch-outlook-rest-requests)
+- [Batch REST Requests](https://docs.microsoft.com/previous-versions/office/office-365-api/api/version-2.0/batch-outlook-rest-requests)

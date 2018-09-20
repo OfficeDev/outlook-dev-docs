@@ -61,7 +61,7 @@ Feel free to experiment with this simple example in the playground. You can see 
 
 Connectors use webhooks to create Connector Card messages within an Office 365 group. Developers can create these cards by sending an HTTP request with a simple JSON payload to an Office 365 group webhook address. Let's try posting some basic cards to a group.
 
-You'll need an Office 365 subscription to proceed. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://developer.microsoft.com/office/dev-program) under the Office 365 Developer Program.  Alternately, if you have an existing MSDN subscription, you can activate your [free Office 365 benefit](https://msdn.microsoft.com/en-us/subscriptions/manage).
+You'll need an Office 365 subscription to proceed. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://developer.microsoft.com/office/dev-program) under the Office 365 Developer Program. 
 
 ### Get a connector webhook URL for your Inbox
 

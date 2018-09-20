@@ -1,6 +1,6 @@
 ---
-title: Outlook Add-in manifests | Microsoft Docs
-description: Learn about the structure of an Outlook Add-in manifest.
+title: Outlook add-in manifests | Microsoft Docs
+description: Learn about the structure of an Outlook add-in manifest.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -8,9 +8,9 @@ ms.date: 06/13/2017
 ms.author: jasonjoh
 ---
 
-# Outlook Add-in manifests
+# Outlook add-in manifests
 
-An Outlook Add-in consists of two components: the XML add-in manifest, and a web page, supported by the JavaScript library for Office Add-ins (office.js). The manifest describes how the add-in integrates across Outlook clients. The following is an example.
+An Outlook add-in consists of two components: the XML add-in manifest, and a web page, supported by the JavaScript library for Office Add-ins (office.js). The manifest describes how the add-in integrates across Outlook clients. The following is an example.
 
  > [!NOTE]
  > All URL values in the following sample begin with "https://appdemo.contoso.com". This value is a placeholder. In an actual valid manifest, these values would contain valid https web URLs.
@@ -235,8 +235,8 @@ The current versions of the schema are:
 
 |Version|Description|
 |:-----|:-----|
-|v1.0|Supports version 1.0 of the JavaScript API for Office. For Outlook Add-ins, this supports read form. |
-|v1.1|Supports version 1.1 of the JavaScript API for Office and **VersionOverrides**. For Outlook Add-ins, this adds support for compose form.|
+|v1.0|Supports version 1.0 of the JavaScript API for Office. For Outlook add-ins, this supports read form. |
+|v1.1|Supports version 1.1 of the JavaScript API for Office and **VersionOverrides**. For Outlook add-ins, this adds support for compose form.|
 |**VersionOverrides** 1.0|Supports later versions of the JavaScript API for Office. This supports add-in commands.|
 |**VersionOverrides** 1.1|Supports later versions of the JavaScript API for Office. This supports add-in commands and adds support for newer features, such as [pinnable taskpanes](pinnable-taskpane.md) and mobile add-ins.|
 
@@ -247,7 +247,7 @@ This article will cover the requirements for a v1.1 manifest. Even if your add-i
 
 ## Root element
 
-The root element for the Outlook Add-in manifest is **OfficeApp**. This element also declares the default namespace, schema version and the type of add-in. Place all other elements in the manifest within its open and close tags. The following is an example of the root element:
+The root element for the Outlook add-in manifest is **OfficeApp**. This element also declares the default namespace, schema version and the type of add-in. Place all other elements in the manifest within its open and close tags. The following is an example of the root element:
 
 
 ```XML
@@ -309,7 +309,7 @@ The schema reference contains full information on which elements can be localize
 
 ## Hosts
 
-Outlook Add-ins specify the **Hosts** element like the followiing.
+Outlook add-ins specify the **Hosts** element like the followiing.
 
 ```XML
 <OfficeApp>
@@ -325,7 +325,7 @@ This is separate from the **Hosts** element inside the **VersionOverrides** elem
 
 ## Requirements
 
-The **Requirements** element specifies the set of APIs available to the add-in. For an Outlook Add-in, the requirement set must be Mailbox and a value of 1.1 or above. Please refer to the API reference for the latest requirement set version. Refer to the [Outlook Add-in APIs](apis.md) for more information on requirement sets.
+The **Requirements** element specifies the set of APIs available to the add-in. For an Outlook add-in, the requirement set must be Mailbox and a value of 1.1 or above. Please refer to the API reference for the latest requirement set version. Refer to the [Outlook add-in APIs](apis.md) for more information on requirement sets.
 
 The **Requirements** element can also appear in the **VersionOverrides** element, allowing the add-in to specify a different requirement when loaded in clients that support **VersionOverrides**.
 
@@ -371,7 +371,7 @@ App domains are also necessary to enable cookie sharing between the pop-out wind
 
 ## Permissions
 
-The **Permissions** element contains the required permissions for the add-in. In general, you should specify the minimum necessary permission that your add-in needs, depending on the exact methods that you plan to use. For example, a mail add-in that activates in compose forms and only reads but does not write to item properties like [item.requiredAttendees](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#requiredattendees-arrayemailaddressdetailsjavascriptapioutlook15officeemailaddressdetailsrecipientsjavascriptapioutlook15officerecipients), and does not call [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) to access any Exchange Web Services operations should specify **ReadItem** permission. For details on the available permissions, see [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md).
+The **Permissions** element contains the required permissions for the add-in. In general, you should specify the minimum necessary permission that your add-in needs, depending on the exact methods that you plan to use. For example, a mail add-in that activates in compose forms and only reads but does not write to item properties like [item.requiredAttendees](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#requiredattendees-arrayemailaddressdetailsjavascriptapioutlook15officeemailaddressdetailsrecipientsjavascriptapioutlook15officerecipients), and does not call [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) to access any Exchange Web Services operations should specify **ReadItem** permission. For details on the available permissions, see [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md).
 
 **Four-tier permissions model for mail add-ins**
 
@@ -402,7 +402,7 @@ Activation rules can be used to activate an add-in based on one or more of the f
     
 - The presence of an attachment
     
-For details and samples of activation rules, see [Activation rules for Outlook Add-ins](activation-rules.md).
+For details and samples of activation rules, see [Activation rules for Outlook add-ins](activation-rules.md).
 
 
 ## Next steps: Add-in commands
@@ -418,12 +418,12 @@ Add-ins can optionally add support for Outlook mobile. Outlook mobile supports a
 ## See also
 
 - [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization)   
-- [Privacy, permissions, and security for Outlook Add-ins](privacy-and-security.md)   
-- [Outlook Add-in APIs](apis.md)   
+- [Privacy, permissions, and security for Outlook add-ins](privacy-and-security.md)   
+- [Outlook add-in APIs](apis.md)   
 - [Office Add-ins XML manifest](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)    
 - [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)
 - [Design your Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/add-in-design)    
-- [Understanding Outlook Add-in permissions](understanding-outlook-add-in-permissions.md)    
-- [Use regular expression activation rules to show an Outlook Add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
+- [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md)    
+- [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
   

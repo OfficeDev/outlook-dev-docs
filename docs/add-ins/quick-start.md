@@ -15,7 +15,7 @@ In this article, you'll walk through the process of building an Outlook add-in b
 
 ## Create the add-in
 
-You can create an Office add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs:
+You can create an Office Add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs:
 
 # [Visual Studio](#tab/visual-studio)
 
@@ -134,7 +134,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. The `DefaultValue` attribute of the `DisplayName` element has a placeholder. Replace it with `My Office Add-in`.
 
-1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `My First Outlook Add-in`.
+1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `My First Outlook add-in`.
 
 1. Save the file.
 
@@ -144,7 +144,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     <DefaultLocale>en-US</DefaultLocale>
     <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
     <DisplayName DefaultValue="My Office Add-in" />
-    <Description DefaultValue="My First Outlook Add-in"/>
+    <Description DefaultValue="My First Outlook add-in"/>
     ...
     ```
 
@@ -205,6 +205,12 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     - **Which Office client application would you like to support?** - `Outlook`
 
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
+	
+1. Navigate to the root folder of the web application project.
+
+    ```bash
+    cd "My Office Add-in"
+    ```
 
     After you complete the wizard, the generator will create the project and install supporting Node components.
 
@@ -290,7 +296,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. The `ProviderName` element has a placeholder value. Replace it with your name.
 
-1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `My First Outlook Add-in`.
+1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `My First Outlook add-in`.
 
 1. The `DefaultValue` attribute of the `SupportUrl` element has a placeholder. Replace it with `https://localhost:3000` and save the file.
 
@@ -300,7 +306,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     <DefaultLocale>en-US</DefaultLocale>
     <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
     <DisplayName DefaultValue="My Office Add-in" />
-    <Description DefaultValue="My First Outlook Add-in"/>
+    <Description DefaultValue="My First Outlook add-in"/>
 
     <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
     <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
@@ -313,14 +319,14 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Sideload the manifest
 
-1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
+1. In your command prompt/shell, make sure you are in the root directory of your project (**[...]/My Office Add-in**), and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
 
 1. If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
     > [!NOTE]
     > Chrome (web browser) may continue to indicate the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). You can disregard this warning in Chrome and can verify that the certificate is trusted by navigating to `https://localhost:3000` in either Internet Explorer or Microsoft Edge. 
 
-1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook Add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **my-office-add-in-manifest.xml** file.
+1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **my-office-add-in-manifest.xml** file.
 
 ### Try it out
 
@@ -341,4 +347,4 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 Congratulations, you've successfully created your first Outlook add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with the Advanced Outlook add-in tutorial.
 
 > [!div class="nextstepaction"]
-> [Advanced Outlook Add-in tutorial](addin-tutorial.md)
+> [Advanced Outlook add-in tutorial](addin-tutorial.md)
