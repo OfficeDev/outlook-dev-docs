@@ -33,15 +33,15 @@ You can use sideloading to install an Outlook add-in for testing without having 
 
 ## Sideload an add-in in Outlook on the desktop
 
-1. Open Outlook 2016, Outlook 2013, or Outlook 2016 for Mac.
+1. Open Outlook or Outlook for Mac.
 
 1. Select the **Store** button on the ribbon.
 
-    ![Outlook 2016 ribbon pointing to Store button](images/outlook-sideload-desktop-store.PNG)
+    ![Outlook ribbon pointing to Store button](images/outlook-sideload-desktop-store.PNG)
 
 1. On the **Store** page, select **Add-Ins**, and then select **My add-ins**.
 
-    ![Outlook 2016 store dialog with My add-ins selected](images/outlook-sideload-store-select-add-ins.png)
+    ![Outlook store dialog with My add-ins selected](images/outlook-sideload-store-select-add-ins.png)
 
 1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file**.
 

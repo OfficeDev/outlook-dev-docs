@@ -1,14 +1,14 @@
 ---
-title: What are actionable messages in Office 365? | Microsoft Docs
+title: What are actionable messages in Office 365?
 description: Learn about actionable messages in Outlook email and Office 365 Groups.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: o365-connectors
 ms.date: 08/02/2018
 ms.author: jasonjoh
 nodes_to_expand: get-started
 ---
+
 # Actionable messages in Outlook and Office 365 Groups
 
 Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity.
@@ -18,7 +18,7 @@ Office 365 provides two solutions to enhance productivity with Outlook Actionabl
 > [!NOTE]
 > Actionable messages are also available in Microsoft Teams. See [Office 365 Connectors for Teams](/microsoftteams/platform/concepts/connectors/connectors) for more information.
 
-## User Experience
+## User experience
 
 Let's take a look at the end-to-end user experience for both an email-based and a connectors-based actionable message scenario.
 
@@ -58,7 +58,7 @@ Office 365 Connectors are a great way to get useful information and content into
 
 ## Accessing Office 365 Connectors from Outlook
 
-Office 365 Connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web or Outlook 2016 for Windows.
+Office 365 Connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web or Outlook for Windows.
 
 ### Accessing connectors in Outlook on the web
 
@@ -76,19 +76,19 @@ Users access group connectors from the **Group settings** menu, accessed from th
 
 ![A screenshot of the Group settings menu in Outlook on the web](images/web-group-connector-menu.png)
 
-#### Accessing connectors in Outlook 2016 on Windows
+#### Accessing connectors in Outlook on Windows
 
 Users access both inbox and group connectors from the **Store** button. The Store button loads connectors for the inbox if Outlook is currently displaying a mail folder in the user's mailbox, and loads connectors for the currently selected group if displaying a group.
 
-![A screenshot of the Store button in Outlook 2016 on Windows](images/win-store-icon.png)
+![A screenshot of the Store button in Outlook on Windows](images/win-store-icon.png)
 
 In the inbox case, the Store dialog displays the **Add-ins** tab by default. Connectors are available in the **Connectors** tab.
 
-![A screenshot of the Connectors tab in the Store dialog in Outlook 2016 on Windows](images/win-store-connectors-tab.png)
+![A screenshot of the Connectors tab in the Store dialog in Outlook on Windows](images/win-store-connectors-tab.png)
 
 ## Release Notes
 
-Currently, you can only configure connectors from Outlook on the web or Outlook 2016 on Windows, but you can view information posted by Connectors to your Group or inbox in multiple clients such as Outlook on the web, Outlook 2016 and the Office365 Groups Mobile app.
+Currently, you can only configure connectors from Outlook on the web or Outlook on Windows, but you can view information posted by Connectors to your Group or inbox in multiple clients such as Outlook on the web, Outlook, and the Office 365 Groups Mobile app.
 
 For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">support article</a>.
 
@@ -102,11 +102,11 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Office 365 ProPlus Monthly Channel | Yes, in version 1705, Build 8201 | Yes, in version 1805, Build 9330 |
 | Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes, in version 1708, Build 8431 | Coming Soon |
 | Office 365 ProPlus Semi-Annual Channel | Yes, in version 1708, Build 8431.2153 | Coming Soon |
-| Outlook 2016 for Mac | Coming Soon | Coming Soon |
+| Outlook for Mac | Coming Soon | Coming Soon |
 | Outlook for iOS | Coming Soon | Coming Soon |
 | Outlook for Android | Coming Soon | Coming Soon |
-| Office Professional Plus 2016 | Actionable Messages are available for Office 365 only | No |
-| Exchange 2016 On-Premises Outlook on the web | Actionable Messages are available for Office 365 only | No |
+| Office Professional Plus | Actionable Messages are available for Office 365 only | No |
+| Exchange On-Premises Outlook on the web | Actionable Messages are available for Office 365 only | No |
 
 ## Submit feedback
 

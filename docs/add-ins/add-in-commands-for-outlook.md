@@ -13,7 +13,7 @@ ms.author: jasonjoh
 Outlook add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. This lets users access add-ins in a simple, intuitive, and unobtrusive way. Because they offer increased functionality in a seamless manner, you can use add-in commands to create more engaging solutions.
 
 > [!NOTE]
-> Add-in commands are available only in Outlook 2016 and Outlook 2013 for Windows, Outlook 2016 for Mac,  Outlook for iPhone, Outlook for Android, Outlook on the web for Exchange 2016, and Outlook on the web for Office 365 and Outlook.com. 
+> Add-in commands are available only in Outlook 2016 and Outlook 2013 for Windows, Outlook 2016 for Mac, Outlook for iPhone, Outlook for Android, Outlook on the web for Exchange 2016, and Outlook on the web for Office 365 and Outlook.com. 
 > 
 > Support for add-in commands in Outlook 2013 requires three updates: 
 > - [March 8, 2016 security update for Outlook](https://support.microsoft.com/en-us/kb/3114829)

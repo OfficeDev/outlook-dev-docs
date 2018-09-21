@@ -1,13 +1,13 @@
 ---
-title: Legacy actionable message card reference | Microsoft Docs
+title: Legacy actionable message card reference
 description: Learn about the available fields for actionable message cards and design guidelines for creating an effective card.
 author: jasonjoh
-
 ms.topic: reference
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
+
 # Legacy actionable message card reference
 
 > [!NOTE]
