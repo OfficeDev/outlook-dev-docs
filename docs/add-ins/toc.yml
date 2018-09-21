@@ -117,6 +117,8 @@
   items:
   - name: Preview requirement set
     href: /javascript/office/objectmodel/preview-requirement-set/outlook-requirement-set-preview?context=outlook/context
+  - name: Requirement set 1.7
+    href: /javascript/office/objectmodel/requirement-set-1.7/outlook-requirement-set-1.7?context=outlook/context
   - name: Requirement set 1.6
     href: /javascript/office/objectmodel/requirement-set-1.6/outlook-requirement-set-1.6?context=outlook/context
   - name: Requirement set 1.5
