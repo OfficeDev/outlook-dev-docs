@@ -20,7 +20,7 @@ This guide assumes that you already have PHP installed and working on your devel
 
 ## Create the app
 
-Let's dive right in! To start, we're going to use [PHP 7.1](http://php.net/downloads.php), [Composer](http://getcomposer.org/) and [Laravel](https://laravel.com) to quickly create our PHP app. If you don't already have these tools installed, please install them before proceeding.
+Let's dive right in! To start, we're going to use [PHP 7.1](https://secure.php.net/downloads.php), [Composer](https://getcomposer.org/) and [Laravel](https://laravel.com) to quickly create our PHP app. If you don't already have these tools installed, please install them before proceeding.
 
 On your development machine, open your command prompt or shell to a directory where you want to create your new project. Enter the following command to create the project.
 
@@ -88,7 +88,7 @@ Let's begin by creating a layout. Create a new file named `layout.blade.php` in 
 </html>
 ```
 
-This just gives us a basic HTML structure and adds [Bootstrap](http://getbootstrap.com) for styling.
+This just gives us a basic HTML structure and adds [Bootstrap](https://getbootstrap.com/) for styling.
 
 Now let's remove the default CSS code from `./php-tutorial/public/css/app.css` and add some basic styling so we're just using Bootstrap's defaults. Open the file and it's entire contents with the following.
 

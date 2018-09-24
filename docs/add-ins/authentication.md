@@ -1,6 +1,6 @@
 ---
 title: Authentication options in Outlook add-ins | Microsoft Docs
-description: Learn about the ways to authenticate a user in an Outlook add-in.
+description: Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Authentication options in Outlook add-ins
 
-Your Outlook add-in can access information from anywhere on the internet, whether from the server that hosts the add-in, from your internal network, or from somewhere else in the cloud. If that information is protected, your add-in needs a way to authenticate your user. Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
+Your Outlook add-in can access information from anywhere on the Internet, whether from the server that hosts the add-in, from your internal network, or from somewhere else in the cloud. If that information is protected, your add-in needs a way to authenticate your user. Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
 
 ## Single sign-on access token
 

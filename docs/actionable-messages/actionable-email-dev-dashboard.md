@@ -1,13 +1,13 @@
 ---
 title: Actionable messages via email developer dashboard guide | Microsoft Docs
-description: Learn about the actionable message developer dashboard.
+description: The developer dashboard helps you submit and track status of your submission via the web portal.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
+
 # Register your service with the actionable email developer dashboard
 
 To test and publish actionable messages from your service, you need to provide certain information to Microsoft to enable this functionality for emails from your service. The [developer dashboard](https://aka.ms/publishoam) helps you submit and track status of your submission via the web portal.
@@ -111,8 +111,8 @@ There are some things you need to keep in mind when you submit your solution for
 - The top-level domain (TLD) of the SPF check or DKIM signature must match the TLD of your `From:` email address. For example, if you use `From: myservice@contoso.com` the DKIM or SPF must be for `contoso.com` or `-.contoso.com`.
 - Emails must come from a static email address, e.g. `myservice@contoso.com`.
 - Emails must follow the email sender guidelines.
-  - See [Sending mail to Office 365](https://technet.microsoft.com/en-us/library/mt706217(v=exchg.150).aspx) for Office 365.
-  - See [Policies, Practices, and Guidelines](https://mail.live.com/mail/policies.aspx) for Outlook.com.
+  - See [Sending mail to Office 365](https://docs.microsoft.com/office365/SecurityCompliance/sending-mail-to-office-365) for Office 365.
+  - See [Policies, Practices, and Guidelines](https://sendersupport.olc.protection.outlook.com/pm/policies.aspx) for Outlook.com.
   - See [M3AAWG Sender Best Practices](https://www.m3aawg.org/sites/default/files/document/M3AAWG_Senders_BCP_Ver3-2015-02.pdf) and [ReturnPath Sending Best Practices](https://help.returnpath.com/hc/en-us/articles/221634867-Sending-Best-Practices-PDF-) for industry guidelines.
 - Consistent history of sending a high volume of mail from your domain (order of hundred emails a day minimum to Office 365) for a few weeks at least.
 - A very low rate of spam complaints from users.

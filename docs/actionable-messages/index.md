@@ -1,14 +1,14 @@
 ---
 title: What are actionable messages in Office 365? | Microsoft Docs
-description: Learn about actionable messages in Outlook email and Office 365 Groups.
+description: Actionable Messages enable you to take quick actions right from within Outlook.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: o365-connectors
 ms.date: 08/02/2018
 ms.author: jasonjoh
 nodes_to_expand: get-started
 ---
+
 # Actionable messages in Outlook and Office 365 Groups
 
 Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity.
@@ -16,7 +16,7 @@ Whether you are filling out a survey, approving an expense report, or updating a
 Office 365 provides two solutions to enhance productivity with Outlook Actionable Messages: actionable messages via email, and actionable messages via Office 365 Connectors.
 
 > [!NOTE]
-> Actionable messages are also available in Microsoft Teams. See [Office 365 Connectors for Teams](/microsoftteams/platform/concepts/connectors/connectors) for more information.
+> Actionable messages are also available in Microsoft Teams. See [Office 365 Connectors for Teams](https://docs.microsoft.com/microsoftteams/platform/concepts/connectors/connectors) for more information.
 
 ## User Experience
 

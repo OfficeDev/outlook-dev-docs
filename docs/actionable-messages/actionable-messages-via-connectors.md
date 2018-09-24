@@ -1,13 +1,13 @@
 ---
 title: Get started with actionable messages via connectors | Microsoft Docs
-description: Learn how to create an actionable message card and send it via connectors.
+description: Learn how to create an actionable message card and send it via Office 365 connectors.
 author: jasonjoh
-
 ms.topic: get-started-article
 ms.technology: o365-connectors
 ms.date: 05/09/2017
 ms.author: jasonjoh
 ---
+
 # Post an actionable message card to an Office 365 group
 
 ## Create an actionable message card
@@ -18,7 +18,7 @@ Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and pa
 
 ```json
 {
-  "@context": "http://schema.org/extensions",
+  "@context": "https://schema.org/extensions",
   "@type": "MessageCard",
   "themeColor": "0072C6",
   "title": "Visit the Outlook Dev Portal",
@@ -83,20 +83,24 @@ You'll need an Office 365 subscription to proceed. If you do not have an Office 
 
 The webhook URL should look similar to the following:
 
-    https://outlook.office365.com/webhook/a1269812-6d10-44b1-abc5-b84f93580ba0@9e7b80c7-d1eb-4b52-8582-76f921e416d9/IncomingWebhook/3fdd6767bae44ac58e5995547d66a4e4/f332c8d9-3397-4ac5-957b-b8e3fc465a8c
+    `https://outlook.office365.com/webhook/a1269812-6d10-44b1-abc5-b84f93580ba0@9e7b80c7-d1eb-4b52-8582-76f921e416d9/IncomingWebhook/3fdd6767bae44ac58e5995547d66a4e4/f332c8d9-3397-4ac5-957b-b8e3fc465a8c`
 
 ### Send the message
 
 Use [Postman](https://www.getpostman.com/) to post an actionable message payload to the webhook URL. Open Postman. Create a new tab if needed and configure the tab as follows:
 
-- Click the **GET** and change to **POST**.
-- In the text box labeled `Enter request URL` paste the webhook URL.
-- Click **Body** underneath the URL, then select the **raw** option.
-- Click **Text** and change to **JSON (application/json)**.
-- Enter the message card JSON in the text area below.
+1. Click the **GET** and change to **POST**.
 
-The Postman window should look like this when you are done:
+2. In the text box labeled `Enter request URL` paste the webhook URL.
 
-![The Postman request window configured to post a sample actionable message to a webhook URL](images/get-started/postman-setup.PNG)
+3. Click **Body** underneath the URL, then select the **raw** option.
 
-Click **Send** to post the message.
+4. Click **Text** and change to **JSON (application/json)**.
+
+5. Enter the message card JSON in the text area below.
+
+   The Postman window should look like this when you are done:
+
+   ![The Postman request window configured to post a sample actionable message to a webhook URL](images/get-started/postman-setup.PNG)
+
+6. Click **Send** to post the message.

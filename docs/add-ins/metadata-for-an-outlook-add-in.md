@@ -1,6 +1,6 @@
 ---
 title: Get and set metadata in an Outlook add-in | Microsoft Docs
-description: Learn how an Outlook add-in can get and save metadata.
+description: Manage custom data in your Outlook add-in by using either roaming settings or custom properties.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins

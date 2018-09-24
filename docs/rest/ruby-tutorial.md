@@ -47,7 +47,7 @@ Now that we've confirmed that Ruby on Rails is working, we're ready to do some r
 
 Our app will be very simple. When a user visits the site, they will see a link to log in and view their email. Clicking that link will take them to the Azure login page where they can login with their Office 365 or Outlook.com account and grant access to our app. Finally, they will be redirected back to our app, which will display a list of the most recent email in the user's inbox.
 
-First let's modify the layout used by all pages in the app to add [Bootstrap](http://getbootstrap.com/getting-started/#examples) for basic layout and styling, and a simple nav bar. Open the `.\o365-tutorial\app\views\layouts\application.html.erb` file in your favorite editor and replace its contents with the following code.
+First let's modify the layout used by all pages in the app to add [Bootstrap](https://getbootstrap.com/docs/3.3/getting-started/) for basic layout and styling, and a simple nav bar. Open the `.\o365-tutorial\app\views\layouts\application.html.erb` file in your favorite editor and replace its contents with the following code.
 
 #### Contents of the `.\o365-tutorial\app\views\layouts\application.html.erb` file
 

@@ -1,6 +1,6 @@
 ---
 title: Contextual Outlook add-ins | Microsoft Docs
-description: Learn about the features of Outlook contextual add-ins.
+description: Initiate tasks related to a message without leaving the message itself to result in an easier and richer user experience.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins

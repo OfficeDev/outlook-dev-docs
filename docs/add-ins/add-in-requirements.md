@@ -1,6 +1,6 @@
 ---
 title: Outlook add-in requirements | Microsoft Docs
-description: Learn about the client and server requirements to use Outlook add-ins.
+description: For Outlook add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins

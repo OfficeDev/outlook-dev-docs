@@ -2,7 +2,6 @@
 title: How to use Outlook REST APIs in a JavaScript single-page app | Microsoft Docs
 description: Learn how to use Microsoft Graph in JavaScript to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
-
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: javascript
@@ -57,7 +56,7 @@ Let's begin by adding an HTML page to our app. Using your favorite editor, creat
 
 #### Contents of the `index.html` file
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,7 +127,7 @@ Save the file and refresh your browser. You should now see the very simple home 
 - Adds [Bootstrap](https://getbootstrap.com) for styling and the nav bar.
 - Adds [jQuery](https://jquery.com/) for page manipulation.
 - Adds the [jsrsasign](https://kjur.github.io/jsrsasign/) library for token validation (more on this later).
-- Adds [Handlebars](http://handlebarsjs.com/) for easy templating.
+- Adds [Handlebars](https://handlebarsjs.com/) for easy templating.
 - Adds the [Microsoft Graph JavaScript Client Library](https://github.com/microsoftgraph/msgraph-sdk-javascript) for accessing Outlook mail.
 - Adds local files `style.css` and `outlook-demo.js`.
 
@@ -347,7 +346,7 @@ $('#connect-button').attr('href', buildAuthUrl());
 
 Save your changes and browse to `http://localhost:8080`. If you hover over the **Connect to Outlook** button, it should look like:
 
-    https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token+token&client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A8080&scope=openid+profile+User.Read+Mail.Read&state=f175f48d-d277-9893-9c8d-dcc2a95ffe16&nonce=593a2b06-d77b-31c2-ae43-e74c0ebeb304&response_mode=fragment
+  `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token+token&client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A8080&scope=openid+profile+User.Read+Mail.Read&state=f175f48d-d277-9893-9c8d-dcc2a95ffe16&nonce=593a2b06-d77b-31c2-ae43-e74c0ebeb304&response_mode=fragment`
 
 The `<SOME GUID>` portion should match your client ID. Click on the link and you should be presented with a sign in page. Sign in with your Office 365 or Outlook.com account. Your browser should redirect to back to our home page, with no visible change.
 
@@ -882,7 +881,7 @@ Save your changes and refresh your browser. When you click the **Inbox** button 
 
 ### Displaying the results
 
-Let's add a [Handlebars](http://handlebarsjs.com/) template to our page to display the messages. Add the following code between the very last `</div>` and the `</body>` tags:
+Let's add a [Handlebars](https://handlebarsjs.com/) template to our page to display the messages. Add the following code between the very last `</div>` and the `</body>` tags:
 
 ```HTML
 <!-- Handlebars template for message list -->

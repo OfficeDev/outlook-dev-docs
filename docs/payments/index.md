@@ -1,12 +1,13 @@
 ---
 title: Payments in Outlook Overview | Microsoft Docs
-description: Learn about payments in Outlook
+description: Enabling payments in Outlook provides a powerful payment solution that allows you to send requests for payments via email that are immediately actionable by the recipient.
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
+
 # Enabling payments in Outlook
 
 Enabling payments in Outlook provides a powerful payment solution that allows you to send requests for payments via email that are immediately actionable by the recipient. The recipient can view their invoice, select a payment method, and approve payment, all from within Outlook.

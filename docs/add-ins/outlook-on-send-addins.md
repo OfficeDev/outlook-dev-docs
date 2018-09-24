@@ -1,6 +1,6 @@
 ---
 title: On send feature for Outlook add-ins | Microsoft Docs
-description: Learn about handling the on send event in Outlook add-ins.
+description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -100,7 +100,7 @@ New-App -OrganizationApp -FileData $Data -DefaultStateForUser Enabled
 ```
 
 > [!NOTE]
-> To learn how to use remote PowerShell to connect to Exchange Online, see [Connect to Exchange Online PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=396554).
+> To learn how to use remote PowerShell to connect to Exchange Online, see [Connect to Exchange Online PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=396554).
 
 ### Enabling the on send feature 
 

@@ -1,6 +1,6 @@
 ---
 title: Sideload Outlook add-ins for testing | Microsoft Docs
-description: Learn how to sideload Outlook add-ins for testing.
+description: Use sideloading to install an Outlook add-in for testing without having to first put it in an add-in catalog.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -27,7 +27,7 @@ You can use sideloading to install an Outlook add-in for testing without having 
 
 1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file**.
 
-    ![Store screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.PNG)
+    ![Manage add-ins screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.PNG)
 
 1. Locate the manifest file for your custom add-in and install it. Accept all prompts during the installation.
 
