@@ -1,6 +1,6 @@
 ---
 title: Outlook add-in activation rules | Microsoft Docs
-description: Learn about activation rules for Outlook contextual add-ins.
+description: Outlook activates some types of add-ins if the message or appointment that the user is reading or composing satisfies the activation rules of the add-in.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -27,7 +27,7 @@ To have Outlook activate an add-in for specific conditions, specify activation r
     
 
  > [!NOTE]
- > The **Rule** element that you use to specify an individual rule is of the abstract [Rule](https://docs.microsoft.com/javascript/office/manifest/rule) complex type. Each of the following types of rules extends this abstract **Rule** complex type. So when you specify an individual rule in a manifest, you must use the [xsi:type](http://www.w3.org/TR/xmlschema-1/) attribute to further define one of the following types of rules. 
+ > The **Rule** element that you use to specify an individual rule is of the abstract [Rule](https://docs.microsoft.com/javascript/office/manifest/rule) complex type. Each of the following types of rules extends this abstract **Rule** complex type. So when you specify an individual rule in a manifest, you must use the [xsi:type](https://www.w3.org/TR/xmlschema-1/) attribute to further define one of the following types of rules. 
  > 
  > For example, the following rule defines an [ItemIs](https://docs.microsoft.com/javascript/office/manifest/rule#itemis-rule) rule:
  > `<Rule xsi:type="ItemIs" ItemType="Message" />`

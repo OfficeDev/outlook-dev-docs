@@ -2,12 +2,12 @@
 title: Payments in Outlook webhook reference | Microsoft Docs
 description: Learn about the payload fields for requests sent to payment webhooks by Outlook
 author: jasonjoh
-
 ms.topic: reference
 ms.technology: o365-connectors
 ms.date: 05/22/2018
 ms.author: jasonjoh
 ---
+
 # Payments in Outlook webhook reference
 
 ## PaymentRequest webhook
@@ -18,15 +18,15 @@ The format of the payload sent to your webhook and the payload you must send bac
 
 ### Payment request webhook payload
 
-The payload format is based on the [W3C Payment Request API specification](http://www.w3.org/TR/payment-request).
+The payload format is based on the [W3C Payment Request API specification](https://www.w3.org/TR/payment-request).
 
 | Field | Type| Description |
 |-------|-----|-------------|
 | `id` | String | A developer-assigned identifier for this payment request. |
-| `methodData` | Array of [PaymentMethodData](http://www.w3.org/TR/payment-request/#paymentmethoddata-dictionary) (from W3C Payment Request API spec) | Specifies data relevant to the current request. |
-| `options` | [PaymentOptions](http://www.w3.org/TR/payment-request/#paymentoptions-dictionary) (from W3C Payment Request API spec) | Specifies what data your webhook needs the Payment service to provide. |
-| `details` | [PaymentDetailsInit](http://www.w3.org/TR/payment-request/#paymentdetailsinit-dictionary) or [PaymentDetailsUpdate](http://www.w3.org/TR/payment-request/#paymentdetailsinit-dictionary) (from W3C Payment Request API spec) | Specifies the details of the invoice. The information in this object controls how the invoice is displayed to the user in Outlook. |
-| `shippingAddress` | [AddressInit](http://www.w3.org/TR/payment-request/#addressinit-dictionary) (from W3C Payment Request API spec) | Specifies the shipping address provided by the user. |
+| `methodData` | Array of [PaymentMethodData](https://www.w3.org/TR/payment-request/#paymentmethoddata-dictionary) (from W3C Payment Request API spec) | Specifies data relevant to the current request. |
+| `options` | [PaymentOptions](https://www.w3.org/TR/payment-request/#paymentoptions-dictionary) (from W3C Payment Request API spec) | Specifies what data your webhook needs the Payment service to provide. |
+| `details` | [PaymentDetailsInit](https://www.w3.org/TR/payment-request/#paymentdetailsinit-dictionary) or [PaymentDetailsUpdate](https://www.w3.org/TR/payment-request/#paymentdetailsinit-dictionary) (from W3C Payment Request API spec) | Specifies the details of the invoice. The information in this object controls how the invoice is displayed to the user in Outlook. |
+| `shippingAddress` | [AddressInit](https://www.w3.org/TR/payment-request/#addressinit-dictionary) (from W3C Payment Request API spec) | Specifies the shipping address provided by the user. |
 | `shippingOption` | String | Specifies which shipping option the user selected. |
 
 #### methodData
@@ -46,7 +46,7 @@ The `methodData` object contains information relevant to the payment request.
 | `supportedTypes` | Array of String | An array indicating the types of payments you accept. Valid values are `credit`, `debit`, and `prepaid`. |
 | `productContext` | Object | A free-form object defined by the developer. The `productContext` is used to store contextual information needed for the payment process. |
 | `event` | String | Indicates the event that triggered the current POST to the webhook. Valid values are `loadentity`, `shippingaddresschange`, and `shippingoptionchange`. |
-| `entity` | For invoicing - Schema.org [Invoice](http://schema.org/Invoice) | Represents the invoice. |
+| `entity` | For invoicing - Schema.org [Invoice](https://schema.org/Invoice) | Represents the invoice. |
 | `mode` | String | If present and set to `TEST`, enables test mode. In this mode, the recipient has access to pre-configured test cards in the payment experience. Payment tokens in test mode are test tokens as defined in [Stripe Test Cards and numbers](https://stripe.com/docs/testing#cards). In production, this property SHOULD be omitted. |
 
 ###### Example

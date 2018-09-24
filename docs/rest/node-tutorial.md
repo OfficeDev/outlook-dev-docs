@@ -2,13 +2,13 @@
 title: How to use Outlook REST APIs in a Node.js app | Microsoft Docs
 description: Learn how to use Microsoft Graph in a Node.js app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
-
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: nodejs
 ms.date: 02/23/2018
 ms.author: jasonjoh
 ---
+
 # Write a Node.js app to get Outlook mail, calendar, and contacts
 
 The purpose of this guide is to walk through the process of creating a simple Node.js app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/node-tutorial) is what you should end up with if you follow the steps outlined here.
@@ -19,13 +19,13 @@ This guide assumes that you already have Node.js installed and working on your d
 
 ## Create the app
 
-Let's dive right in! The first  step is to install the [Express generator](http://expressjs.com/en/starter/generator.html). We'll use this to handle all the scaffolding for our app. Open your command prompt or shell to a directory where you'd like to create your app and run the following command:
+Let's dive right in! The first  step is to install the [Express generator](https://expressjs.com/en/starter/generator.html). We'll use this to handle all the scaffolding for our app. Open your command prompt or shell to a directory where you'd like to create your app and run the following command:
 
 ```Shell
 npm install -g express-generator
 ```
 
-Now run the following command to create an Express app that uses [Handlebars](http://handlebarsjs.com/) as the rendering engine:
+Now run the following command to create an Express app that uses [Handlebars](https://handlebarsjs.com/) as the rendering engine:
 
 ```Shell
 express --hbs node-tutorial
@@ -51,7 +51,7 @@ Now that we've confirmed that the app is working, we're ready to start making it
 
 Our app will be very simple. When a user visits the site, they will see a button to log in and view their email. Clicking that button will take them to the Azure login page where they can login with their Office 365 or Outlook.com account and grant access to our app. Finally, they will be redirected back to our app, which will display a list of the most recent email in the user's inbox.
 
-Let's begin by adding some basic styling to the app with [Bootstrap](http://getbootstrap.com/). Open the `./views/layout.hbs` file and replace the entire contents with the following.
+Let's begin by adding some basic styling to the app with [Bootstrap](https://getbootstrap.com/). Open the `./views/layout.hbs` file and replace the entire contents with the following.
 
 ```html
 <!DOCTYPE html>
@@ -246,7 +246,7 @@ module.exports = router;
 
 Save your changes and browse to `http://localhost:3000`. If you hover over the link (or look at the value in the debug box at the bottom of the page), it should look like:
 
-    https://login.microsoftonline.com/common/oauth2/authorize?redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauthorize&scope=openid+User.Read+Mail.Read&response_type=code&client_id=<SOME GUID>
+  `https://login.microsoftonline.com/common/oauth2/authorize?redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauthorize&scope=openid+User.Read+Mail.Read&response_type=code&client_id=<SOME GUID>`
 
 The `<SOME GUID>` portion should match your client ID. Click on the link and  you should be presented with a sign in page. Sign in with your Office 365 or Outlook.com account. Your browser should redirect to back to our app, and you should see a lovely error:
 

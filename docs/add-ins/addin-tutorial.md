@@ -1,6 +1,6 @@
 ---
 title: Advanced Outlook add-in tutorial
-description: Follow along to create an Outlook add-in that inserts GitHub Gists into the body of new email messages
+description: Follow along to create an Outlook add-in that inserts GitHub Gists into the body of new email messages.
 author: jasonjoh
 ms.topic: get-started-article
 ms.technology: office-add-ins

@@ -1,14 +1,14 @@
 ---
 title: Microsoft API terms of use | Microsoft Docs
-description: Review the terms of use for the Outlook REST APIs.
+description: By accessing or using a Microsoft API, you are agreeing to these terms and to comply with any accompanying documentation that applies to your use of a Microsoft API with Microsoft Corporation.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: ms-graph
 ms.devlang: rest-api
 ms.date: 07/05/2018
 ms.author: jasonjoh
 ---
+
 # Microsoft API terms of use
 
 Thank you for developing with Microsoft!

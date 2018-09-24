@@ -1,6 +1,6 @@
 ---
 title: Outlook add-in design | Microsoft Docs
-description: Learn about Outlook-specific guidelines for designing Outlook add-ins.
+description: Guidelines to help you design and build a compelling add-in, which brings the best of your app right into Outlook on Windows, Web, iOS, Mac, and Android.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -95,7 +95,7 @@ The first screen of your add-in should include your branding element. Designed f
 
 **An example of branding on Android**
 
-![Examples of brand bars on iOS](images/outlook-mobile-design-branding-android.png)
+![Examples of brand bars on Android](images/outlook-mobile-design-branding-android.png)
 
 ### Margins
 

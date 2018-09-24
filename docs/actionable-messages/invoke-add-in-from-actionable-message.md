@@ -2,12 +2,12 @@
 title: Invoke an Outlook add-in from an actionable message | Microsoft Docs
 description: Learn how to invoke an Outlook add-in from an actionable message and pass initialization data to the add-in.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
+
 # Invoke an Outlook add-in from an actionable message
 
 Actionable messages allow the user to take quick actions on an email message or connector card, and Outlook add-ins allow you to extend Outlook to add new features and interactions. Now, with the `Action.InvokeAddInCommand` action type, you can combine these two types of integrations to create more powerful and compelling experiences. For example, you could:
@@ -35,7 +35,7 @@ The required information is found in the [add-in's manifest](../add-ins/manifest
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xsi:type="MailApp">
   <Id>527104a1-f1a5-475a-9199-7a968161c870</Id>

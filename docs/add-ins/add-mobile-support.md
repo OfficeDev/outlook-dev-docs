@@ -1,6 +1,6 @@
 ---
 title: Add mobile support to an Outlook add-in | Microsoft Docs
-description: Learn how to support add-in command in Outlook Mobile add-ins.
+description: Adding support for Outlook Mobile requires updating the add-in manifest and possibly changing your code for mobile scenarios.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins

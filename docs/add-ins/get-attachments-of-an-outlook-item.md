@@ -1,6 +1,6 @@
 ---
 title: Get attachments in an Outlook add-in | Microsoft Docs
-description: Learn how to get attachments from an Outlook item in an Outlook add-in.
+description: Your add-in can use the attachments API to send information about the attachments to a remote service.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -142,7 +142,7 @@ namespace AttachmentsSample
 
 ### Use the EWS Managed API to get the attachments
 
-If you use the [EWS Managed API](http://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
+If you use the [EWS Managed API](https://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
 
 ```cs
 private AttachmentSampleServiceResponse GetAtttachmentsFromExchangeServerUsingEWSManagedApi(AttachmentSampleServiceRequest request)
@@ -214,8 +214,8 @@ If you use EWS in your remote service, you need to construct a [GetAttachment](h
 ```cs
 private const string GetAttachmentSoapRequest =
 @"<?xml version=""1.0"" encoding=""utf-8""?>
-<soap:Envelope xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
-xmlns:xsd=""http://www.w3.org/2001/XMLSchema""
+<soap:Envelope xmlns:xsi=""https://www.w3.org/2001/XMLSchema-instance""
+xmlns:xsd=""https://www.w3.org/2001/XMLSchema""
 xmlns:soap=""http://schemas.xmlsoap.org/soap/envelope/""
 xmlns:t=""http://schemas.microsoft.com/exchange/services/2006/types"">
 <soap:Header>

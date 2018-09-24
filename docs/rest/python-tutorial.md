@@ -122,7 +122,7 @@ If you save all of your changes and navigate to `http://localhost:8000` you shou
 
 Our app will be very simple. When a user visits the site, they will see a link to log in and view their email. Clicking that link will take them to the Azure login page where they can login with their Office 365 or Outlook.com account and grant access to our app. Finally, they will be redirected back to our app, which will display a list of the most recent email in the user's inbox.
 
-Let's begin by replacing the static message with something nicer. Start by creating a new subdirectory in the `tutorial` directory called `templates`. In the `templates` directory, create a new subdirectory called `tutorial`. Finally, create a new file in this directory called `layout.html`, and add the following code. This will be a layout used by all pages in the app to add [Bootstrap](http://getbootstrap.com/getting-started/#examples) for basic layout and styling, and a simple nav bar.
+Let's begin by replacing the static message with something nicer. Start by creating a new subdirectory in the `tutorial` directory called `templates`. In the `templates` directory, create a new subdirectory called `tutorial`. Finally, create a new file in this directory called `layout.html`, and add the following code. This will be a layout used by all pages in the app to add [Bootstrap](https://getbootstrap.com/docs/3.3/getting-started/) for basic layout and styling, and a simple nav bar.
 
 #### Contents of the `.\tutorial\templates\tutorial\layout.html` file
 
@@ -216,7 +216,7 @@ Here's what the details of your app registration should look like when you are d
 
 ## Implementing OAuth2
 
-Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx). To make things easier, we'll use the [Requests: HTTP for Humans](http://docs.python-requests.org/en/latest/) library to handle all of our HTTP requests. At your command prompt, enter the following command.
+Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://msdn.microsoft.com/library/azure/dn645542.aspx). To make things easier, we'll use the [Requests: HTTP for Humans](http://docs.python-requests.org/en/latest/) library to handle all of our HTTP requests. At your command prompt, enter the following command.
 
 ```Shell
 pip install requests

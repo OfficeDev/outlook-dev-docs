@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Outlook contextual add-in activation | Microsoft Docs
-description: Learn how to troubleshoot activation for Outlook contextual add-ins.
+description: If your add-in doesn't activate as you expect, you should look into the following areas for possible reasons.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -249,5 +249,4 @@ This section applies to all activation rules that use regular expressions -- par
 - [Activation rules for Outlook add-ins](activation-rules.md)
 - [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
 - [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md)
-- [Open Event Viewer](http://windows.microsoft.com/en-US/windows7/Open-Event-Viewer)
 - [Validate and troubleshoot issues with your manifest](https://docs.microsoft.com/office/dev/add-ins/testing/troubleshoot-manifest)

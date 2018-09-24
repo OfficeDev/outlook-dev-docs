@@ -36,9 +36,9 @@ Whether you are filling out a survey, approving an expense report, or updating a
 
 Connect with us on StackOverflow and join the Outlook developer community. We use the following tags for each of the integration types:
 
-- REST APIs: [StackOverflow outlook-restapi tag](http://stackoverflow.com/questions/tagged/outlook-restapi)
-- Outlook add-ins: [StackOverflow outlook-web-addins tag](http://stackoverflow.com/questions/tagged/outlook-web-addins)
-- Actionable messages: [StackOverflow office365connectors tag](http://stackoverflow.com/questions/tagged/office365connectors)
+- REST APIs: [StackOverflow outlook-restapi tag](https://stackoverflow.com/questions/tagged/outlook-restapi)
+- Outlook add-ins: [StackOverflow outlook-web-addins tag](https://stackoverflow.com/questions/tagged/outlook-web-addins)
+- Actionable messages: [StackOverflow office365connectors tag](https://stackoverflow.com/questions/tagged/office365connectors)
 
 ## Feedback
 

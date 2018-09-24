@@ -1,6 +1,6 @@
 ---
 title: Limits for activation and API usage in Outlook add-ins | Microsoft Docs
-description: Learn about activation limits and API usage limits in Outlook add-ins.
+description: Be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins

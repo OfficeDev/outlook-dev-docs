@@ -1,6 +1,6 @@
 ---
 title: Handling date values in Outlook add-ins | Microsoft Docs
-description: Learn how to handle date and time values in an Outlook add-in.
+description: The JavaScript API for Office uses the JavaScript Date object for most of the storage and retrieval of dates and times. 
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,11 +10,11 @@ ms.author: jasonjoh
 
 # Tips for handling date values in Outlook add-ins
 
-The JavaScript API for Office uses the JavaScript [Date](http://www.w3schools.com/jsref/jsref_obj_date.asp) object for most of the storage and retrieval of dates and times. 
+The JavaScript API for Office uses the JavaScript [Date](https://www.w3schools.com/jsref/jsref_obj_date.asp) object for most of the storage and retrieval of dates and times. 
 
-That **Date** object provides methods such as [getUTCDate](http://www.w3schools.com/jsref/jsref_getutcdate.asp), [getUTCHour](http://www.w3schools.com/jsref/jsref_getutchours.asp), [getUTCMinutes](http://www.w3schools.com/jsref/jsref_getutcminutes.asp), and [toUTCString](http://www.w3schools.com/jsref/jsref_toutcstring.asp), which return the requested date or time value according to Universal Coordinated Time (UTC) time.
+That **Date** object provides methods such as [getUTCDate](https://www.w3schools.com/jsref/jsref_getutcdate.asp), [getUTCHour](https://www.w3schools.com/jsref/jsref_getutchours.asp), [getUTCMinutes](https://www.w3schools.com/jsref/jsref_getutcminutes.asp), and [toUTCString](https://www.w3schools.com/jsref/jsref_toutcstring.asp), which return the requested date or time value according to Universal Coordinated Time (UTC) time.
 
-The **Date** object also provides other methods such as [getDate](http://www.w3schools.com/jsref/jsref_getutcdate.asp), [getHour](http://www.w3schools.com/jsref/jsref_getutchours.asp), [getMinutes](http://www.w3schools.com/jsref/jsref_getminutes.asp), and [toString](http://www.w3schools.com/jsref/jsref_tostring_date.asp), which return the requested date or time according to "local time".
+The **Date** object also provides other methods such as [getDate](https://www.w3schools.com/jsref/jsref_getutcdate.asp), [getHour](https://www.w3schools.com/jsref/jsref_getutchours.asp), [getMinutes](https://www.w3schools.com/jsref/jsref_getminutes.asp), and [toString](https://www.w3schools.com/jsref/jsref_tostring_date.asp), which return the requested date or time according to "local time".
 
 The concept of "local time" is largely determined by the browser and operating system on the client computer. For instance, on most browsers running on a Windows-based client computer, a JavaScript call to **getDate**, returns a date based on the time zone set in Windows on the client computer.
 
