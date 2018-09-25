@@ -1,6 +1,6 @@
 ---
 title: Use the Outlook REST APIs from an Outlook add-in | Microsoft Docs
-description: Learn how to use the Outlook REST APIs from an Outlook add-in.
+description: Learn how to use the Outlook REST APIs from an Outlook add-in to get an access token.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins

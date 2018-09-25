@@ -1,6 +1,6 @@
 ---
 title: Match strings as well-known entities in an Outlook add-in | Microsoft Docs
-description: Learn about well-known entities in Outlook add-ins.
+description: Using the JavaScript API for Office, you can get strings that match specific well-known entities for further processing.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -37,7 +37,7 @@ The following table lists the entities that Exchange Server and Outlook support 
 |**MeetingSuggestion**|A reference to an event or meeting. For example, Exchange 2013 would recognize the following text as a meeting suggestion:  _Let's meet tomorrow for lunch._|[MeetingSuggestion](https://docs.microsoft.com/javascript/api/outlook_1_5/office.meetingsuggestion) object|
 |**PhoneNumber**|United States telephone numbers; for example:  _(235) 555-0110_|[PhoneNumber](https://docs.microsoft.com/javascript/api/outlook_1_5/office.phonenumber) object|
 |**TaskSuggestion**|Actionable sentences in an email. For example:  _Please update the spreadsheet._|[TaskSuggestion](https://docs.microsoft.com/javascript/api/outlook_1_5/office.tasksuggestion) object|
-|**Url**|A web address that explicitly specifies the network location and identifier for a web resource. Exchange Server does not require the access protocol in the web address, and does not recognize URLs that are embedded in link text as instances of the **Url** entity. Exchange Server can match the following examples: _www.youtube.com/user/officevideos_ _http://www.youtube.com/user/officevideos_ |JavaScript **String** object|
+|**Url**|A web address that explicitly specifies the network location and identifier for a web resource. Exchange Server does not require the access protocol in the web address, and does not recognize URLs that are embedded in link text as instances of the **Url** entity. Exchange Server can match the following examples: _www.youtube.com/user/officevideos_ _https://www.youtube.com/user/officevideos_ |JavaScript **String** object|
 
 <br/>
 

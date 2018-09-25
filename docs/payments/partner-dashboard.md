@@ -1,16 +1,16 @@
 ---
 title: Payments in Outlook partner dashboard guide | Microsoft Docs
-description: Learn about the payments in Outlook partner dashboard.
+description: The Outlook partner dashboard for payments is the single place to register your payments in Outlook service.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
+
 # Register your service with the partner dashboard for payments in Outlook
 
-The <a href="https://outlook.office.com/connectors/opay/partnerportal/" target="_blank">partner dashboard for payments in Outlook</a> is the single place to register your payments in Outlook service. Registering involves two steps: on-boarding to [Microsoft Pay](https://www.microsoft.com/payments), then on-boarding to payments in Outlook. Both steps are handled in the dashboard.
+The <a href="https://outlook.office.com/connectors/opay/partnerportal/" target="_blank">partner dashboard for payments in Outlook</a> is the single place to register your payments in Outlook service. Registering involves two steps: on-boarding to [Microsoft Pay](https://www.microsoft.com/payments), and then on-boarding to payments in Outlook. Both steps are handled in the dashboard.
 
 ## On-boarding to Microsoft Pay
 

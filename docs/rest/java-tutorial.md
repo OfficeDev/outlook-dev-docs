@@ -2,7 +2,6 @@
 title: How to use Outlook REST APIs in a Java Spring MVC Web app | Microsoft Docs
 description: Learn how to use Microsoft Graph in a Java web app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
-
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: java
@@ -1474,9 +1473,9 @@ try {
 }
 ```
 
-Now if you save all of your changes, restart the app, then login, you should end up on a rather empty-looking mail page. If you check the **Console** window in Spring Tool Suites, you should be able to verify that the API call worked by looking for the Retrofit logging entries. You should see something like this:
+Now if you save all of your changes, restart the app, and then sign in, you should end up on a rather empty-looking mail page. If you check the **Console** window in Spring Tool Suites, you should be able to verify that the API call worked by looking for the Retrofit logging entries. You should see something like this:
 
-```
+```java
 --> GET https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages?$orderby=receivedDateTime%20DESC&$select=receivedDateTime,from,isRead,subject,bodyPreview&$top=10 http/1.1
 User-Agent: java-tutorial
 client-request-id: 3d42cd86-f74b-40d9-9dd3-031de58fec0f

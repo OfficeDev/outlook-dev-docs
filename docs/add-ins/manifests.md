@@ -1,6 +1,6 @@
 ---
 title: Outlook add-in manifests | Microsoft Docs
-description: Learn about the structure of an Outlook add-in manifest.
+description: The manifest describes how an Outlook add-in integrates across Outlook clients; includes an example.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Outlook add-in manifests
 
-An Outlook add-in consists of two components: the XML add-in manifest, and a web page, supported by the JavaScript library for Office Add-ins (office.js). The manifest describes how the add-in integrates across Outlook clients. The following is an example.
+An Outlook add-in consists of two components: the XML add-in manifest and a web page supported by the JavaScript library for Office Add-ins (office.js). The manifest describes how the add-in integrates across Outlook clients. The following is an example.
 
  > [!NOTE]
  > All URL values in the following sample begin with "https://appdemo.contoso.com". This value is a placeholder. In an actual valid manifest, these values would contain valid https web URLs.
@@ -20,7 +20,7 @@ An Outlook add-in consists of two components: the XML add-in manifest, and a web
 <!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
 <OfficeApp
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
   xsi:type="MailApp">
@@ -253,7 +253,7 @@ The root element for the Outlook add-in manifest is **OfficeApp**. This element 
 ```XML
 <OfficeApp
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
   xsi:type="MailApp">

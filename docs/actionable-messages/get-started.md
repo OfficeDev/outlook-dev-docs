@@ -2,12 +2,12 @@
 title: Get started with actionable messages | Microsoft Docs
 description: Get started with actionable messages. Learn about the available delivery mechanisms and applicable scenarios.
 author: jasonjoh
-
 ms.topic: get-started-article
 ms.technology: o365-connectors
 ms.date: 05/09/2017
 ms.author: jasonjoh
 ---
+
 # Get started with actionable messages in Office 365
 
 Actionable messages can be posted via a group or inbox connector, or can be sent directly over email. Choosing the right delivery mechanism depends on your scenario.

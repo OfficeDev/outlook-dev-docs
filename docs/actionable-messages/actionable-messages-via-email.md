@@ -1,13 +1,13 @@
 ---
 title: Get started with actionable messages via email | Microsoft Docs
-description: Learn how to create an actionable message card and send it via email.
+description: Learn how to create an actionable message card and send it via Outlook or Office 365 email.
 author: jasonjoh
-
 ms.topic: get-started-article
 ms.technology: o365-connectors
 ms.date: 07/09/2018
 ms.author: jasonjoh
 ---
+
 # Send an actionable message via email in Office 365
 
 ## Supported scenarios
@@ -215,7 +215,7 @@ To embed an actionable message card in an email message, we need to wrap the car
 
 For examples of sending messages, see the following.
 
-- [Send Actionable Message via Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using [Microsoft Graph](https://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/message_send).
+- [Send Actionable Message via Microsoft Graph](https://github.com/jasonjoh/send-actionable-message): A sample console app written in C# that sends an actionable message using [Microsoft Graph](https://developer.microsoft.com/en-us/graph).
 - [Send Actionable Message via SMTP](https://github.com/tony-zhu/SendActionableMessage): A sample Python script that sends an actionable message using the Office 365 SMTP server. It also includes a sample HTML payload for the actionable message email body.
 
 ### Perform actions

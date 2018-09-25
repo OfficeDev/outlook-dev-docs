@@ -1,6 +1,6 @@
 ---
 title: Outlook add-ins for Outlook Mobile | Microsoft Docs
-description: Learn about add-in support on Outlook Mobile.
+description: Outlook mobile add-ins are supported on all Office 365 Commercial accounts, Outlook.com accounts, and support is coming soon to gmail accounts.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -64,7 +64,7 @@ To test an add-in on Outlook Mobile, you can side-load an add-in to an O365 or O
 
 After your add-in is working, make sure to test it on different screen sizes, including phones and tablets. You should make sure it meets accessibility guidelines for contrast, font size, and color, as well as being usable with a screen reader such as VoiceOver on iOS or TalkBack on Android.
 
-Troubleshooting on mobile can be hard since you may not have the tools you're used to. One option for troubleshooting is to [use Vorlon.js](https://docs.microsoft.com/office/dev/add-ins/testing/debug-office-add-ins-on-ipad-and-mac). Or, if you've used Fiddler before, check out [this tutorial on using it with an iOS device](http://www.telerik.com/blogs/using-fiddler-with-apple-ios-devices).
+Troubleshooting on mobile can be hard since you may not have the tools you're used to. One option for troubleshooting is to [use Vorlon.js](https://docs.microsoft.com/office/dev/add-ins/testing/debug-office-add-ins-on-ipad-and-mac). Or, if you've used Fiddler before, check out [this tutorial on using it with an iOS device](https://www.telerik.com/blogs/using-fiddler-with-apple-ios-devices).
 
 ## Next steps
 

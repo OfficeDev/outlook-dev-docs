@@ -1,6 +1,6 @@
 ---
 title: Create Outlook add-ins for read forms | Microsoft Docs
-description: Learn about the capabilities of Outlook add-ins in read forms.
+description: Read add-ins are Outlook add-ins that are activated in the Reading Pane or read inspector in Outlook.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins

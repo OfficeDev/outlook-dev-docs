@@ -2,12 +2,12 @@
 title: Designing Outlook actionable message cards with the Adaptive Card format | Microsoft Docs
 description: Learn about the available fields for Outlook actionable message cards using the Adaptive Card format and design guidelines for creating an effective card.
 author: jasonjoh
-
 ms.topic: article
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
 ---
+
 # Designing Outlook Actionable Message cards with the Adaptive Card format
 
 Outlook Actionable Messages cards are designed using the Adaptive Card format. The Adaptive Card format is a simple yet powerful declarative layout format that provides a lot of flexibility, allowing for visually rich cards. In this topic we'll cover the Outlook-specific features of the Adaptive Card format.
@@ -19,7 +19,7 @@ Outlook Actionable Messages cards are designed using the Adaptive Card format. T
 
 ## Card Playground
 
-Our [Card Playground tool](http://messagecardplayground.azurewebsites.net) has been updated to support the Adaptive Card format. There you will find Adaptive Card samples (including the one below) that can help you get started crafting your own cards and also allows you to send those cards to your own Office 365 email account to see how they look in Outlook.
+Our [Card Playground tool](https://messagecardplayground.azurewebsites.net) has been updated to support the Adaptive Card format. There you will find Adaptive Card samples (including the one below) that can help you get started crafting your own cards and also allows you to send those cards to your own Office 365 email account to see how they look in Outlook.
 
 ## Adaptive Cards Designer (preview)
 
@@ -40,7 +40,7 @@ Here is how this card is crafted:
 
 ```json
 {
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
   "version": "1.0",
   "type": "AdaptiveCard",
   "speak": "<s>Your flight is confirmed for you and 3 other passengers from San Francisco to Amsterdam on Friday, October 10 8:30 AM</s>",
@@ -121,7 +121,7 @@ Here is how this card is crafted:
             },
             {
               "type": "Image",
-              "url": "http://messagecardplayground.azurewebsites.net/assets/airplane.png",
+              "url": "https://messagecardplayground.azurewebsites.net/assets/airplane.png",
               "size": "small",
               "spacing": "none"
             }
@@ -193,7 +193,7 @@ Here is how this card is crafted:
             },
             {
               "type": "Image",
-              "url": "http://messagecardplayground.azurewebsites.net/assets/airplane.png",
+              "url": "https://messagecardplayground.azurewebsites.net/assets/airplane.png",
               "size": "small",
               "spacing": "none"
             }
@@ -299,7 +299,7 @@ Use `ColumnSet` only when you need to align several elements on a single horizon
 Outlook introduces a set of additional Adaptive Card properties and features for use in the context of Actionable Messages.
 
 > [!IMPORTANT]
-> Outlook-specific Adaptive Card properties and features **only work in the context of Actionable Messages**. They will NOT work in other Adaptive Card enabled applications and are therefore not documented on the [official Adaptive Cards site](http://adaptivecards.io/).
+> Outlook-specific Adaptive Card properties and features **only work in the context of Actionable Messages**. They will NOT work in other Adaptive Card enabled applications and are therefore not documented on the [official Adaptive Cards site](https://adaptivecards.io/).
 
 ### Adaptive Card features not supported with Outlook Actionable Messages
 
@@ -663,7 +663,7 @@ Please refer to the previous example for an illustration of how to use `isVisibl
 
 ### Additional properties on the AdaptiveCard type
 
-The following additional properties can be specified on an [AdaptiveCard object](http://adaptivecards.io/explorer/AdaptiveCard.html) in the context of Outlook Actionable Messages:
+The following additional properties can be specified on an [AdaptiveCard object](https://adaptivecards.io/explorer/AdaptiveCard.html) in the context of Outlook Actionable Messages:
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
@@ -674,7 +674,7 @@ The following additional properties can be specified on an [AdaptiveCard object]
 
 ### Additional properties on the Column type
 
-The following additional properties can be specified on a [Column object](http://adaptivecards.io/explorer/Column.html) in the context of Outlook Actionable Messages:
+The following additional properties can be specified on a [Column object](https://adaptivecards.io/explorer/Column.html) in the context of Outlook Actionable Messages:
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
@@ -697,7 +697,7 @@ If `width` is expressed as a string, it can have the following values:
 
 ```json
 {
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
   "type": "AdaptiveCard",
   "version": "1.0",
   "body": [
@@ -709,7 +709,7 @@ If `width` is expressed as a string, it can have the following values:
           "items": [
             {
               "type": "Image",
-              "url": "http://adaptivecards.io/content/cats/1.png",
+              "url": "https://adaptivecards.io/content/cats/1.png",
               "size": "stretch"
             }
           ]
@@ -754,7 +754,7 @@ If `width` is expressed as a string, it can have the following values:
 
 ### Additional properties on the Container type
 
-The following additional properties can be specified on a [Container object](http://adaptivecards.io/explorer/Container.html) in the context of Outlook Actionable Messages:
+The following additional properties can be specified on a [Container object](https://adaptivecards.io/explorer/Container.html) in the context of Outlook Actionable Messages:
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
@@ -765,7 +765,7 @@ These properties behave exactly like their counterpart on the `Column` type. Ple
 
 ### Additional properties on the Image type
 
-The following additional properties can be specified on an [Image object](http://adaptivecards.io/explorer/Image.html) in the context of Outlook Actionable Messages:
+The following additional properties can be specified on an [Image object](https://adaptivecards.io/explorer/Image.html) in the context of Outlook Actionable Messages:
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
@@ -777,7 +777,7 @@ The following additional properties can be specified on an [Image object](http:/
 
 ```json
 {
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
   "type": "AdaptiveCard",
   "version": "1.0",
   "body": [
@@ -788,14 +788,14 @@ The following additional properties can be specified on an [Image object](http:/
     {
       "type": "Image",
       "width": "64px",
-      "url": "http://messagecardplayground.azurewebsites.net/assets/circleontransparentbackground.png",
+      "url": "https://messagecardplayground.azurewebsites.net/assets/circleontransparentbackground.png",
       "backgroundColor": "#FF0000"
     },
     {
       "type": "Image",
       "style": "person",
       "width": "64px",
-      "url": "http://messagecardplayground.azurewebsites.net/assets/circleontransparentbackground.png",
+      "url": "https://messagecardplayground.azurewebsites.net/assets/circleontransparentbackground.png",
       "backgroundColor": "#0000FF"
     }
   ]
@@ -804,6 +804,6 @@ The following additional properties can be specified on an [Image object](http:/
 
 ![A screenshot of the Image properties example card](images/adaptive-image-properties.png)
 
-## Additional resources
+## See also
 
-- [Adaptive Card portal](http://adaptivecards.io)
+- [Adaptive Card portal](https://adaptivecards.io)

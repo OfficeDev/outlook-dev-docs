@@ -121,7 +121,7 @@
   "properties": {
     "@context": { 
 		"type": "string",
-		"enum": ["http://schema.org/extensions"]
+		"enum": ["https://schema.org/extensions"]
     },
     "@type": { 
 		"type": "string",
