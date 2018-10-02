@@ -19,7 +19,7 @@ This guide will use [Microsoft Graph](https://developer.microsoft.com/graph/) to
 
 You need to install the [Java SE Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#javasejdk). This guide was written with JDK 8 Update 92.
 
-If you want to follow along exactly, download [Spring Tool Suite](https://spring.io/tools/sts). This guide was written with version 3.7.3.RELEASE. You can use any IDE you want, but you might have to do some steps differently.
+If you want to follow along exactly, download [Spring Tool Suite](https://spring.io/tools/). This guide was written with version 3.7.3.RELEASE. You can use any IDE you want, but you might have to do some steps differently.
 
 > [!IMPORTANT]
 > You must install the version of Spring Tool Suite (either 64-bit or 32-bit) that corresponds to the version of the JDK you installed. For example, if you install the 64-bit JDK, install the 64-bit version of Spring Tool Suite.
