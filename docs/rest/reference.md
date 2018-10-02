@@ -26,8 +26,10 @@ The following APIs are released and ready for production use in both the Graph a
 - [User Photo API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/profilephoto)
 - [Open Extensions API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/opentypeextension)
 - [Extended Properties API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/extended-properties-overview)
-- [FindMeetingTimes API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_findmeetingtimes)
+- [FindMeetingTimes API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_findmeetingtimes)
 
+<!--for the FindMeetingTimes API, you must include "en-us" in the URL or it will 404-->              
+              
 ## Transitioning APIs
 
 The following APIs are released and ready for production in the Outlook endpoint, but are in preview status in the Graph endpoint.
