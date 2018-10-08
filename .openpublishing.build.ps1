@@ -9,6 +9,8 @@ $errorActionPreference = 'Stop'
 echo "download build core script to local with source url: $buildCorePowershellUrl"
 $repositoryRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $buildCorePowershellDestination = "$repositoryRoot\.openpublishing.buildcore.ps1"
+# Use TLS 1.2
+[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
 Invoke-WebRequest $buildCorePowershellUrl -OutFile "$buildCorePowershellDestination"
 
 # Step-2: Run build core
