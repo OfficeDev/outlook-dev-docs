@@ -417,6 +417,9 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
 
 ### Transaction action
 
+> [!IMPORTANT]
+> The `Transaction` action has been deprecated. Payment request messages should be sent using the [ActionRequest format](../payments/action-request.md) instead.
+
 Initiates an payments in Outlook scenario. For more information see [Payments in Outlook](../payments/index.md).
 
 | Field | Type | Description |

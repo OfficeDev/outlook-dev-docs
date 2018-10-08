@@ -553,6 +553,9 @@ The example card renders similar to the following after the button is clicked:
 
 ### Action.Transaction
 
+> [!IMPORTANT]
+> The `Action.Transaction` action has been deprecated. Payment request messages should be sent using the [ActionRequest format](../payments/action-request.md) instead.
+
 The `Action.Transaction` action triggers the [payments in Outlook](../payments/index.md) experience. When the user invokes the action, Outlook retrieves the latest invoice details from the merchant. This information is displayed in a pane in Outlook, allowing the user to click through the Microsoft Pay experience to pay the invoice. See [Get started with payments in Outlook](../payments/get-started.md) for more information.
 
 > [!NOTE]
