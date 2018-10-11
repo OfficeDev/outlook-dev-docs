@@ -105,7 +105,7 @@ Developers should follow the tiered permissions model to provide transparency an
 
 - Developers request an appropriate level of permission for an Outlook add-in, based on how the Outlook add-in should be activated, and its need to read or write certain properties of an item, or to create and send an item.
 
-- Developers request permission by using the [Permissions](https://docs.microsoft.com/javascript/office/manifest/permissions) element in the manifest of the Outlook add-in, by assigning a value of **Restricted**, **ReadItem**, **ReadWriteItem** or **ReadWriteMailbox**, as appropriate.
+- Developers request permission by using the [Permissions](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/permissions) element in the manifest of the Outlook add-in, by assigning a value of **Restricted**, **ReadItem**, **ReadWriteItem** or **ReadWriteMailbox**, as appropriate.
 
   > [!NOTE]
   > Note that the **ReadWriteItem** permission is available starting in manifest schema v1.1.
@@ -134,7 +134,7 @@ Developers should follow the tiered permissions model to provide transparency an
 
 - Developers should request the **read/write item** permission if the Outlook add-in needs to write to properties of the composed item, such as recipient names, email addresses, body, and subject, or needs to add or remove item attachments.
 
-- Developers request the **read/write mailbox** permission only if the Outlook add-in needs to do one or more of the following actions by using the [mailbox.makeEWSRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method:
+- Developers request the **read/write mailbox** permission only if the Outlook add-in needs to do one or more of the following actions by using the [mailbox.makeEWSRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method:
 
   - Read or write to properties of items in the mailbox.
   - Create, read, write, or send items in the mailbox.
