@@ -338,7 +338,7 @@ The following are the parameters for the **addAsync** method:
 To signal that the add-in has finished processing the **ItemSend** event triggered by the send operation, call the **event.completed({allowEvent:Boolean}** method. The **allowEvent** property is a Boolean. If set to **true**, send is allowed. If set to **false**, the email message is blocked from sending.
 
 > [!NOTE]
-> For more information, see [notificationMessages](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#notificationmessages-notificationmessagesjavascriptapioutlook15officenotificationmessages) and [completed](https://docs.microsoft.com/javascript/api/office/office.addincommands.event).
+> For more information, see [notificationMessages](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#notificationmessages-notificationmessagesjavascriptapioutlook15officenotificationmessages) and [completed](https://docs.microsoft.com/javascript/api/office/office.addincommands.event).
 
 ### replaceAsync, removeAsync, and getAllAsync methods
 

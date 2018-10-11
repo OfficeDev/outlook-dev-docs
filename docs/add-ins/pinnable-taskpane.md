@@ -19,9 +19,9 @@ However, by default, if a user has an add-in taskpane open for a message in the 
 
 ## Support taskpane pinning
 
-The first step is to add pinning support, which is done in the add-in [manifest](manifests.md). This is done by adding the [SupportsPinning](https://docs.microsoft.com/javascript/office/manifest/action#supportspinning) element to the `Action` element that describes the taskpane button.
+The first step is to add pinning support, which is done in the add-in [manifest](manifests.md). This is done by adding the [SupportsPinning](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/action#supportspinning) element to the `Action` element that describes the taskpane button.
 
-The `SupportsPinning` element is defined in the VersionOverrides v1.1 schema, so you will need to include a [VersionOverrides](https://docs.microsoft.com/javascript/office/manifest/versionoverrides) element both for v1.0 and v1.1.
+The `SupportsPinning` element is defined in the VersionOverrides v1.1 schema, so you will need to include a [VersionOverrides](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/versionoverrides) element both for v1.0 and v1.1.
 
 > [!NOTE]
 > If you plan to [publish](https://docs.microsoft.com/office/dev/add-ins/publish/publish) your Outlook add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [AppSource (Office Store) validation](https://docs.microsoft.com/office/dev/store/validation-policies), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
@@ -65,7 +65,7 @@ function itemChanged(eventArgs) {
 
 ### Register the event handler
 
-Use the [Office.context.mailbox.addHandlerAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#addhandlerasynceventtype-handler-options-callback) method to register your event handler for the `Office.EventType.ItemChanged` event. This should be done in the `Office.initialize` function for your taskpane.
+Use the [Office.context.mailbox.addHandlerAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#addhandlerasynceventtype-handler-options-callback) method to register your event handler for the `Office.EventType.ItemChanged` event. This should be done in the `Office.initialize` function for your taskpane.
 
 ```js
 Office.initialize = function (reason) {

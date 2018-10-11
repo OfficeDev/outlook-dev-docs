@@ -36,7 +36,7 @@ When an add-in that uses SSO is acquired from the Office Store, the store UI han
 
 ## Update the add-in manifest
 
-The next step to enable SSO in the add-in is to add a `WebApplicationInfo` element at the end of the `VersionOverridesV1_1` [VersionOverrides](https://docs.microsoft.com/javascript/office/manifest/versionoverrides) element. For more information, see [Configure the add-in](https://docs.microsoft.com/office/dev/add-ins/develop/sso-in-office-add-ins#configure-the-add-in).
+The next step to enable SSO in the add-in is to add a `WebApplicationInfo` element at the end of the `VersionOverridesV1_1` [VersionOverrides](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/versionoverrides) element. For more information, see [Configure the add-in](https://docs.microsoft.com/office/dev/add-ins/develop/sso-in-office-add-ins#configure-the-add-in).
 
 ## Get the SSO token
 

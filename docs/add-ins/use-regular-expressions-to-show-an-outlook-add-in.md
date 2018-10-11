@@ -12,7 +12,7 @@ ms.author: jasonjoh
 
 You can specify regular expression rules to have a [contextual add-in](contextual-outlook-add-ins.md) activated when a match is found in specific fields of the message. Contextual add-ins activate only in read mode, Outlook does not activate contextual add-ins when the user is composing an item. There are also other scenarios where Outlook does not activate add-ins, for example, items protected by Information Rights Management (IRM). For more information, see [Activation rules for Outlook add-ins](activation-rules.md).
 
-You can specify a regular expression as part of an [ItemHasRegularExpressionMatch](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasregularexpressionmatch-rule) rule or [ItemHasKnownEntity](https://docs.microsoft.com/javascript/office/manifest/rule#itemhasknownentity-rule) rule in the add-in XML manifest. The rules are specified in a [DetectedEntity](https://docs.microsoft.com/javascript/office/manifest/extensionpoint#detectedentity) extension point.
+You can specify a regular expression as part of an [ItemHasRegularExpressionMatch](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/rule#itemhasregularexpressionmatch-rule) rule or [ItemHasKnownEntity](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/rule#itemhasknownentity-rule) rule in the add-in XML manifest. The rules are specified in a [DetectedEntity](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/extensionpoint#detectedentity) extension point.
 
 Outlook evaluates regular expressions based on the rules for the JavaScript interpreter used by the browser on the client computer. Outlook supports the same list of special characters that all XML processors also support. The following table lists these special characters. You can use these characters in a regular expression by specifying the escaped sequence for the corresponding character, as described in the following table.
 
@@ -123,11 +123,11 @@ The following `ItemHasKnownEntity` rule activates the add-in whenever there is a
 
 You can obtain matches to a regular expression by using the following methods on the current item:
 
-- [getRegExMatches](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatches--object) returns matches in the current item for all regular expressions specified in `ItemHasRegularExpressionMatch` and `ItemHasKnownEntity` rules of the add-in.
+- [getRegExMatches](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatches--object) returns matches in the current item for all regular expressions specified in `ItemHasRegularExpressionMatch` and `ItemHasKnownEntity` rules of the add-in.
 
-- [getRegExMatchesByName](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-) returns matches in the current item for the identified regular expression specified in an `ItemHasRegularExpressionMatch` rule of the add-in.
+- [getRegExMatchesByName](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-) returns matches in the current item for the identified regular expression specified in an `ItemHasRegularExpressionMatch` rule of the add-in.
 
-- [getFilteredEntitiesByName](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactjavascriptapioutlook15officecontactmeetingsuggestionjavascriptapioutlook15officemeetingsuggestionphonenumberjavascriptapioutlook15officephonenumbertasksuggestionjavascriptapioutlook15officetasksuggestion) returns entire instances of entities that contain matches for the identified regular expression specified in an `ItemHasKnownEntity` rule of the add-in.
+- [getFilteredEntitiesByName](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactjavascriptapioutlook15officecontactmeetingsuggestionjavascriptapioutlook15officemeetingsuggestionphonenumberjavascriptapioutlook15officephonenumbertasksuggestionjavascriptapioutlook15officetasksuggestion) returns entire instances of entities that contain matches for the identified regular expression specified in an `ItemHasKnownEntity` rule of the add-in.
 
 When the regular expressions are evaluated, the matches are returned to your add-in in an array object. For `getRegExMatches`, that object has the identifier of the name of the regular expression.
 
