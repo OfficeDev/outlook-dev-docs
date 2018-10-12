@@ -46,7 +46,7 @@ if (item.somePropertyOrFunction) {
 > These checks are not needed for any APIs that are in the requirement set version specified in the manifest.
 
 Specify the minimum requirement set that supports the critical set of APIs for your scenario, without which features of your add-in won't work. You specify the requirement set in the manifest in the `<Requirements>` element. For more information, see [Outlook add-in manifests](manifests.md) and
-[Understanding Outlook API requirement sets](https://docs.microsoft.com/javascript/office/requirement-sets/outlook-api-requirement-sets).
+[Understanding Outlook API requirement sets](https://docs.microsoft.com/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets).
 
 The `<Methods>` element doesn't apply to Outlook add-ins, so you can't declare support for specific methods.
 
@@ -61,7 +61,7 @@ Your add-in requires the appropriate permissions to use the APIs that it needs. 
 | **Restricted** | Allows use of entities but not regular expressions. |
 | **Read item** | In addition to what is allowed in **Restricted**, it allows:<ul><li>regular expressions</li><li>Outlook add-in API read access</li><li>getting the item properties and the callback token</li></ul> |
 | **Read/write** | In addition to what is allowed in **Read item**, it allows:<ul><li>full Outlook add-in API access except `makeEwsRequestAsync`</li><li>setting the item properties</li></ul> |
-| **Read/write mailbox** | In addition to what is allowed in **Read/write**, it allows:<ul><li>creating, reading, writing items and folders</li><li>sending items</li><li>calling [makeEwsRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext)</li></ul> |
+| **Read/write mailbox** | In addition to what is allowed in **Read/write**, it allows:<ul><li>creating, reading, writing items and folders</li><li>sending items</li><li>calling [makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext)</li></ul> |
 
 In general, you should specify the minimum permission needed for your add-in. Permissions are declared in the `<Permissions>` element in the manifest. For more information, see [Outlook add-in manifests](manifests.md). For information about security issues, see [Privacy, permissions, and security for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/concepts/privacy-and-security).
 
@@ -69,5 +69,5 @@ In general, you should specify the minimum permission needed for your add-in. Pe
 ## See also
 
 - [Outlook add-in manifests](manifests.md)
-- [Understanding Outlook API requirement sets](https://docs.microsoft.com/javascript/office/requirement-sets/outlook-api-requirement-sets)
+- [Understanding Outlook API requirement sets](https://docs.microsoft.com/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets)
 - [Privacy, permissions, and security for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/concepts/privacy-and-security)

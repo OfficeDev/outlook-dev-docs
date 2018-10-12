@@ -30,13 +30,13 @@ Outlook mobile add-ins are supported on all Office 365 Commercial accounts, Outl
     - The add-in **MUST** adhere to the [UI guidelines](outlook-addin-design.md).
     - The scenario for the add-in **MUST** [make sense on mobile](#what-makes-a-good-scenario-for-mobile-add-ins).
 
-- Only mail read is supported at this time. That means `MobileMessageReadCommandSurface` is the only [ExtensionPoint](https://docs.microsoft.com/javascript/office/manifest/extensionpoint) you should declare in the mobile section of your manifest.
+- Only mail read is supported at this time. That means `MobileMessageReadCommandSurface` is the only [ExtensionPoint](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/extensionpoint) you should declare in the mobile section of your manifest.
 
-- The [makeEwsRequestAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) API is not supported on mobile since the mobile app uses REST APIs to communicate with the server. If your app backend needs to connect to the Exchange server, you can use the callback token to make REST API calls. For details, see [Use the Outlook REST APIs from an Outlook add-in](use-rest-api.md).
+- The [makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) API is not supported on mobile since the mobile app uses REST APIs to communicate with the server. If your app backend needs to connect to the Exchange server, you can use the callback token to make REST API calls. For details, see [Use the Outlook REST APIs from an Outlook add-in](use-rest-api.md).
 
-- When you submit your add-in to the store with [MobileFormFactor](https://docs.microsoft.com/javascript/office/manifest/mobileformfactor) in the manifest, you'll need to agree to our developer addendum for add-ins on iOS, and you must submit your Apple Developer ID for verification.
+- When you submit your add-in to the store with [MobileFormFactor](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/mobileformfactor) in the manifest, you'll need to agree to our developer addendum for add-ins on iOS, and you must submit your Apple Developer ID for verification.
 
-- Finally, your manifest will need to declare `MobileFormFactor`, and have the correct types of [controls](https://docs.microsoft.com/javascript/office/manifest/control) and [icon sizes](https://docs.microsoft.com/javascript/office/manifest/icon) included.
+- Finally, your manifest will need to declare `MobileFormFactor`, and have the correct types of [controls](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/control) and [icon sizes](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/icon) included.
 
 ## What makes a good scenario for mobile add-ins?
 

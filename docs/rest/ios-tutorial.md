@@ -83,7 +83,7 @@ Once that command finishes, open the newly created `swift-tutorial.xcworkspace` 
 
 The app itself will be fairly simple. We'll repurpose the generated **FirstViewController** to show the user's inbox.
 
-1. In the Project navigator, expand **swift-tutorial**->**swift-tutorial**, then select **FirstViewController.swift**. Replace all instances of `FirstViewController` with `MailViewController`. 
+1. In the Project navigator, expand **swift-tutorial**->**swift-tutorial**, then select **FirstViewController.swift**. Replace all instances of `FirstViewController` with `MailViewController`.
 1. Open the **File inspector** and change the file name to `MailViewController.swift`.
 1. Select **Main.storyboard**. In the document outline, expand **First Scene**, then select **First**.
 
@@ -116,7 +116,7 @@ Then add a new method to the class:
 In **Main.storyboard**, select **Mail** in the document outline. Select the **Connections inspector** tab on the right-hand side.
 
 ![Select the Connections inspector.](images/ios-tutorial/login-button.png)
-	
+
 Under **Outlets**, you should see the `loginButton` property we added to the view controller earlier. Drag the small circle next to this property onto the button on the view.
 
 Under **Received Actions**, you should see `logInButtonTappedWithSender`. Drag the small circle next to this method onto the button on the view. In the pop up menu that appears, select **Touch Up Inside**. The **Connections inspector** section should look like this once you are done.
@@ -129,10 +129,10 @@ At this point the app should build and run. Tapping the **Log in** button should
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID. 
+Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID.
 
 1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `swift-tutorial` for the name and click **Create**. 
+1. Click the **Add an app** button. Enter `swift-tutorial` for the name and click **Create**.
 1. Locate the **Platforms** section, and click **Add Platform**. Choose **Native application**.
 1. Replace the value for **Custom Redirect URIs** with `swift-tutorial://oauth2/callback`.
 1. Click **Save** to complete the registration. Copy the **Application Id** and save it. We'll need it soon.
@@ -177,11 +177,11 @@ class OutlookService {
         oauth2 = OAuth2CodeGrant(settings: OutlookService.oauth2Settings)
         oauth2.authConfig.authorizeEmbedded = true
     }
-    
+
     class func shared() -> OutlookService {
         return sharedService
     }
-    
+
     var isLoggedIn: Bool {
         get {
             return oauth2.hasUnexpiredAccessToken() || oauth2.refreshToken != nil
@@ -212,7 +212,7 @@ class OutlookService {
     }
 }
 ```
-	
+
 Replace the value of `clientId` with the application ID you generated in the Application Registration Portal.
 
 Open **AppDelegate.swift** and add a new function to the `AppDelegate` class. This function will handle activation of the app when it is activated by the custom redirect URI during sign in.
@@ -339,7 +339,7 @@ func makeApiCall(api: String, params: [String: String]? = nil, callback: @escapi
     // Build the request URL
     var urlBuilder = URLComponents(string: "https://graph.microsoft.com")!
     urlBuilder.path = api
-    
+
     if let unwrappedParams = params {
         // Add query parameters to URL
         urlBuilder.queryItems = [URLQueryItem]()
@@ -348,19 +348,19 @@ func makeApiCall(api: String, params: [String: String]? = nil, callback: @escapi
                 URLQueryItem(name: paramName, value: paramValue))
         }
     }
-    
+
     let apiUrl = urlBuilder.url!
     NSLog("Making request to \(apiUrl)")
-    
+
     var req = oauth2.request(forURL: apiUrl)
     req.addValue("application/json", forHTTPHeaderField: "Accept")
-    
+
     let loader = OAuth2DataLoader(oauth2: oauth2)
 
-    // Uncomment this line to get verbose request/response info in 
+    // Uncomment this line to get verbose request/response info in
     // Xcode output window
     //loader.logger = OAuth2DebugLogger(.trace)
-    
+
     loader.perform(request: req) {
         response in
         do {
@@ -399,7 +399,11 @@ func getUserEmail(callback: @escaping (String?) -> Void) -> Void {
         makeApiCall(api: "/v1.0/me") {
             result in
             if let unwrappedResult = result {
-                let email = unwrappedResult["mail"].stringValue
+                var email = unwrappedResult["mail"].stringValue
+                if (email.isEmpty) {
+                    // Fallback to userPrincipalName ONLY if mail is empty
+                    email = unwrappedResult["userPrincipalName"].stringValue
+                }
                 self.userEmail = email
                 callback(email)
             } else {
@@ -481,7 +485,7 @@ func getInboxMessages(callback: @escaping (JSON?) -> Void) -> Void {
         "$orderby": "receivedDateTime DESC",
         "$top": "10"
     ]
-    
+
     makeApiCall(api: "/v1.0/me/mailfolders/inbox/messages", params: apiParams) {
         result in
         callback(result)
@@ -505,7 +509,7 @@ func loadUserData() {
         email in
         if let unwrappedEmail = email {
             NSLog("Hello \(unwrappedEmail)")
-            
+
             self.service.getInboxMessages() {
                 messages in
                 if let unwrappedMessages = messages {
@@ -539,7 +543,7 @@ In the Object library, locate **Label**. Drag **Label** onto the prototype cell 
 
 Once you have the labels added, select **Mail** in the Document outline. On the **Editor** menu, choose **Resolve Auto Layout Issues**, then **Add Missing Constraints**, followed by **Reset to Suggested Constraints**.
 
-Now, let's add a custom class for the table view cells. 
+Now, let's add a custom class for the table view cells.
 
 1. In the Project navigator, CTRL + click the `swift-tutorial` folder and choose **New File**. Select **Swift File** (under iOS/Source) and click **Next**. Enter `MessageCell` in the **Save As** field and click **Create**.
 1. Add the following code to create a simple structure to represent a message.
@@ -561,19 +565,19 @@ Now, let's add a custom class for the table view cells.
         @IBOutlet weak var fromLabel: UILabel!
         @IBOutlet weak var receivedLabel: UILabel!
         @IBOutlet weak var subjectLabel: UILabel!
-        
+
         var from: String? {
             didSet {
                 fromLabel.text = from
             }
         }
-        
+
         var received: String? {
             didSet {
                 receivedLabel.text = received
             }
         }
-        
+
         var subject: String? {
             didSet {
                 subjectLabel.text = subject
@@ -586,17 +590,17 @@ Now, let's add a custom class for the table view cells.
     ```Swift
     class MessagesDataSource: NSObject {
         let messages: [Message]
-        
+
         init(messages: [JSON]?) {
             var msgArray = [Message]()
-            
+
             if let unwrappedMessages = messages {
                 for (message) in unwrappedMessages {
                     let newMsg = Message(
                             from: message["from"]["emailAddress"]["name"].stringValue,
                             received: Formatter.dateToString(date: message["receivedDateTime"]),
                             subject: message["subject"].stringValue)
-                    
+
                     msgArray.append(newMsg)
                 }
             }
@@ -606,11 +610,11 @@ Now, let's add a custom class for the table view cells.
     }
 
     extension MessagesDataSource: UITableViewDataSource {
-        
+
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return messages.count
         }
-        
+
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MessageCell.self)) as! MessageCell
             let message = messages[indexPath.row]
@@ -636,15 +640,15 @@ That code uses a custom `Formatter` class to format the date value returned from
             if (graphDateString.isEmpty) {
                 return ""
             }
-            
+
             let toDateFormatter = DateFormatter()
             toDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            
+
             let dateObj = toDateFormatter.date(from: graphDateString)
             if (dateObj == nil) {
                 return ""
             }
-            
+
             let toStringFormatter = DateFormatter()
             toStringFormatter.dateStyle = DateFormatter.Style.medium
             toStringFormatter.timeStyle = DateFormatter.Style.short
@@ -655,7 +659,7 @@ That code uses a custom `Formatter` class to format the date value returned from
     }
     ```
 
-Now let's associate this class with the view, and connect the labels to the `IBOutlet` variables in the class. 
+Now let's associate this class with the view, and connect the labels to the `IBOutlet` variables in the class.
 
 1. Switch to **Main.storyboard** and select the prototype cell in the table view.
 1. On the **Identity inspector**, change the **Class** value to `MessageCell`.
@@ -681,7 +685,7 @@ Now let's update the `MailViewController` class to update the view.
             email in
             if let unwrappedEmail = email {
                 NSLog("Hello \(unwrappedEmail)")
-                
+
                 self.service.getInboxMessages() {
                     messages in
                     if let unwrappedMessages = messages {
@@ -733,7 +737,7 @@ Now that you've mastered getting Outlook Mail from the Graph, doing the same for
             "$orderby": "start/dateTime ASC",
             "$top": "10"
         ]
-        
+
         makeApiCall(api: "/v1.0/me/events", params: apiParams) {
             result in
             callback(result)
@@ -755,21 +759,21 @@ The `start` and `end` properties on an event are of type [dateTimeTimeZone](http
         if (graphDateString.isEmpty) {
             return ""
         }
-        
+
         let toDateFormatter = DateFormatter()
         toDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sss"
         toDateFormatter.timeZone = TimeZone(identifier: graphTimeZone)
-        
+
         let dateObj = toDateFormatter.date(from: graphDateString)
         if (dateObj == nil) {
             return ""
         }
-        
+
         let toStringFormatter = DateFormatter()
         toStringFormatter.dateStyle = DateFormatter.Style.medium
         toStringFormatter.timeStyle = DateFormatter.Style.short
         toStringFormatter.timeZone = TimeZone.current
-        
+
         return toStringFormatter.string(from: dateObj!)
     }
     ```
@@ -793,19 +797,19 @@ The `start` and `end` properties on an event are of type [dateTimeTimeZone](http
         @IBOutlet weak var subjectLabel: UILabel!
         @IBOutlet weak var startLabel: UILabel!
         @IBOutlet weak var endLabel: UILabel!
-        
+
         var subject: String? {
             didSet {
                 subjectLabel.text = subject
             }
         }
-        
+
         var start: String? {
             didSet {
                 startLabel.text = start
             }
         }
-        
+
         var end: String? {
             didSet {
                 endLabel.text = end
@@ -815,31 +819,31 @@ The `start` and `end` properties on an event are of type [dateTimeTimeZone](http
 
     class EventsDataSource: NSObject {
         let events: [Event]
-        
+
         init(events: [JSON]?) {
             var evtArray = [Event]()
-            
+
             if let unwrappedEvents = events {
                 for (event) in unwrappedEvents {
                     let newEvent = Event(
                         subject: event["subject"].stringValue,
                         start: Formatter.dateTimeTimeZoneToString(date: event["start"]),
                         end: Formatter.dateTimeTimeZoneToString(date: event["end"]))
-                    
+
                     evtArray.append(newEvent)
                 }
             }
-            
+
             self.events = evtArray
         }
     }
 
     extension EventsDataSource: UITableViewDataSource {
-        
+
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return events.count
         }
-        
+
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EventCell.self)) as! EventCell
             let event = events[indexPath.row]
@@ -861,19 +865,19 @@ The `start` and `end` properties on an event are of type [dateTimeTimeZone](http
     import UIKit
 
     class CalendarViewController: UIViewController {
-        
+
         @IBOutlet weak var tableView: UITableView!
-        
+
         var dataSource:EventsDataSource?
-        
+
         let service = OutlookService.shared()
-        
+
         func loadUserData() {
             service.getUserEmail() {
                 email in
                 if let unwrappedEmail = email {
                     NSLog("Hello \(unwrappedEmail)")
-                    
+
                     self.service.getEvents() {
                         events in
                         if let unwrappedEvents = events {
@@ -891,7 +895,7 @@ The `start` and `end` properties on an event are of type [dateTimeTimeZone](http
             // Do any additional setup after loading the view, typically from a nib.
             tableView.estimatedRowHeight = 90;
             tableView.rowHeight = UITableViewAutomaticDimension
-            
+
             if (service.isLoggedIn) {
                 loadUserData()
             }
@@ -939,7 +943,7 @@ Run the app. Be sure to logout and log back in to acquire the new scope.
             "$orderby": "givenName ASC",
             "$top": "10"
         ]
-        
+
         makeApiCall(api: "/v1.0/me/contacts", params: apiParams) {
             result in
             callback(result)
@@ -965,19 +969,19 @@ Run the app. Be sure to logout and log back in to acquire the new scope.
     class ContactCell: UITableViewCell {
         @IBOutlet weak var nameLabel: UILabel!
         @IBOutlet weak var emailLabel: UILabel!
-        
+
         var givenName: String? {
             didSet {
                 nameLabel.text = givenName! + " " + (surname ?? "")
             }
         }
-        
+
         var surname: String? {
             didSet {
                 nameLabel.text = (givenName ?? "") + " " + surname!
             }
         }
-        
+
         var email: String? {
             didSet {
                 emailLabel.text = email
@@ -987,31 +991,31 @@ Run the app. Be sure to logout and log back in to acquire the new scope.
 
     class ContactsDataSource: NSObject {
         let contacts: [Contact]
-        
+
         init(contacts: [JSON]?) {
             var ctctArray = [Contact]()
-            
+
             if let unwrappedContacts = contacts {
                 for (contact) in unwrappedContacts {
                     let newContact = Contact(
                         givenName: contact["givenName"].stringValue,
                         surname: contact["surname"].stringValue,
                         email: contact["emailAddresses"][0]["address"].stringValue)
-                    
+
                     ctctArray.append(newContact)
                 }
             }
-            
+
             self.contacts = ctctArray
         }
     }
 
     extension ContactsDataSource: UITableViewDataSource {
-        
+
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return contacts.count
         }
-        
+
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ContactCell.self)) as! ContactCell
             let contact = contacts[indexPath.row]
@@ -1033,19 +1037,19 @@ Run the app. Be sure to logout and log back in to acquire the new scope.
     import UIKit
 
     class ContactsViewController: UIViewController {
-        
+
         @IBOutlet weak var tableView: UITableView!
-        
+
         var dataSource: ContactsDataSource?
-        
+
         let service = OutlookService.shared()
-        
+
         func loadUserData() {
             service.getUserEmail() {
                 email in
                 if let unwrappedEmail = email {
                     NSLog("Hello \(unwrappedEmail)")
-                    
+
                     self.service.getContacts() {
                         contacts in
                         if let unwrappedContacts = contacts {
@@ -1057,18 +1061,18 @@ Run the app. Be sure to logout and log back in to acquire the new scope.
                 }
             }
         }
-        
+
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
             tableView.estimatedRowHeight = 90;
             tableView.rowHeight = UITableViewAutomaticDimension
-            
+
             if (service.isLoggedIn) {
                 loadUserData()
             }
         }
-        
+
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.

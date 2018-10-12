@@ -29,7 +29,7 @@ The following example shows the prompt users see if the add-in is not installed.
 
 Actionable messages invoke add-ins by specifying an [Action.InvokeAddInCommand action](adaptive-card.md#actioninvokeaddincommand) in the message. This action specifies the add-in to invoke, along with the identifier of the add-in button that opens the appropriate task pane.
 
-The required information is found in the [add-in's manifest](../add-ins/manifests.md). First, you'll need the add-in's identifier, which is specified in the [Id element](https://docs.microsoft.com/javascript/office/manifest/id).
+The required information is found in the [add-in's manifest](../add-ins/manifests.md). First, you'll need the add-in's identifier, which is specified in the [Id element](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/id).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -46,11 +46,11 @@ The required information is found in the [add-in's manifest](../add-ins/manifest
 
 For this add-in, the add-in identifier is `527104a1-f1a5-475a-9199-7a968161c870`.
 
-Next, you'll need the `id` attribute of the [Control element](https://docs.microsoft.com/javascript/office/manifest/control) that defines the add-in button that opens the appropriate task pane. Keep in mind that the `Control` element MUST:
+Next, you'll need the `id` attribute of the [Control element](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/control) that defines the add-in button that opens the appropriate task pane. Keep in mind that the `Control` element MUST:
 
-- Be defined inside a [MessageReadCommandSurface extension point](https://docs.microsoft.com/javascript/office/manifest/extensionpoint#messagereadcommandsurface)
+- Be defined inside a [MessageReadCommandSurface extension point](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/extensionpoint#messagereadcommandsurface)
 - Have its `xsi:type` attribute set to `Button`
-- Contain an [Action element](https://docs.microsoft.com/javascript/office/manifest/action) of type `ShowTaskpane`
+- Contain an [Action element](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/action) of type `ShowTaskpane`
 
 ```xml
 <ExtensionPoint xsi:type="MessageReadCommandSurface">
@@ -141,7 +141,7 @@ For example, to extend the sample action from above, we could modify the action 
 
 ## Receiving initialization data in the add-in
 
-If your action passes initialization data, the add-in must be prepared to receive it. Add-ins can retrieve initialization data by calling the [Office.context.mailbox.item.getInitializationContextAsync](https://docs.microsoft.com/javascript/office/objectmodel/preview-requirement-set/Office.context.mailbox.item) method. This should be done whenever the task pane opens or loads a new message.
+If your action passes initialization data, the add-in must be prepared to receive it. Add-ins can retrieve initialization data by calling the [Office.context.mailbox.item.getInitializationContextAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item) method. This should be done whenever the task pane opens or loads a new message.
 
 ```js
 // Get the initialization context (if present)

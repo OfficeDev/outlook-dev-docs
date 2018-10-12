@@ -17,7 +17,7 @@ Exchange user identity tokens provide a way for your add-in to uniquely identify
 
 ## Send the ID token with each request
 
-The first step is for your add-in to obtain the Exchange user identity token by calling [getUserIdentityTokenAsync](https://docs.microsoft.com/javascript/office/objectmodel/requirement-set-1.5/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext). Then the add-in sends this token with every request it makes to your back-end. This could be in a header, or as part of the request body.
+The first step is for your add-in to obtain the Exchange user identity token by calling [getUserIdentityTokenAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext). Then the add-in sends this token with every request it makes to your back-end. This could be in a header, or as part of the request body.
 
 ## Validate the token
 
