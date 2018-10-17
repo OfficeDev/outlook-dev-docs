@@ -1,107 +1,107 @@
 - name: Overview
-  href: index.md
+  href: /office/dev/add-ins/outlook/index?context=outlook/context
 - name: Office Add-ins platform overview
   href: /office/dev/add-ins/overview/office-add-ins?context=outlook/context
 - name: Get started
   items:
   - name: Build your first Outlook add-in
-    href: quick-start.md
+    href: /office/dev/add-ins/outlook/quick-start?context=outlook/context
   - name: Advanced tutorial
-    href: addin-tutorial.md
+    href: /office/dev/add-ins/outlook/addin-tutorial?context=outlook/context
 - name: Concepts
   items:
   - name: Outlook add-in design guidelines
-    href: outlook-addin-design.md
+    href: /office/dev/add-ins/outlook/outlook-addin-design?context=outlook/context
   - name: Add-in commands
-    href: add-in-commands-for-outlook.md
+    href: /office/dev/add-ins/outlook/add-in-commands-for-outlook?context=outlook/context
   - name: Contextual add-ins
-    href: contextual-outlook-add-ins.md
+    href: /office/dev/add-ins/outlook/contextual-outlook-add-ins?context=outlook/context
   - name: Module extension add-ins
-    href: extension-module-outlook-add-ins.md
+    href: /office/dev/add-ins/outlook/extension-module-outlook-add-ins?context=outlook/context
   - name: Add-ins for Outlook Mobile
-    href: outlook-mobile-addins.md
+    href: /office/dev/add-ins/outlook/outlook-mobile-addins?context=outlook/context
   - name: On send add-ins
-    href: outlook-on-send-addins.md
+    href: /office/dev/add-ins/outlook/outlook-on-send-addins?context=outlook/context
   - name: Pinnable task pane
-    href: pinnable-taskpane.md
+    href: /office/dev/add-ins/outlook/pinnable-taskpane?context=outlook/context
   - name: Manifests
-    href: manifests.md
+    href: /office/dev/add-ins/outlook/manifests?context=outlook/context
     items:
     - name: Activation rules
-      href: activation-rules.md
+      href: /office/dev/add-ins/outlook/activation-rules?context=outlook/context
     - name: Add support for Outlook Mobile
-      href: add-mobile-support.md
+      href: /office/dev/add-ins/outlook/add-mobile-support?context=outlook/context
   - name: Add-in requirements
-    href: add-in-requirements.md
+    href: /office/dev/add-ins/outlook/add-in-requirements?context=outlook/context
   - name: Add-in APIs
-    href: apis.md
+    href: /office/dev/add-ins/outlook/apis?context=outlook/context
   - name: Call Outlook REST APIs
-    href: use-rest-api.md
+    href: /office/dev/add-ins/outlook/use-rest-api?context=outlook/context
   - name: Call Exchange web services
-    href: web-services.md
+    href: /office/dev/add-ins/outlook/web-services?context=outlook/context
   - name: Get or set item data
-    href: item-data.md
+    href: /office/dev/add-ins/outlook/item-data?context=outlook/context
   - name: Get or set add-in metadata
-    href: metadata-for-an-outlook-add-in.md
+    href: /office/dev/add-ins/outlook/metadata-for-an-outlook-add-in?context=outlook/context
   - name: Read scenario
-    href: read-scenario.md
+    href: /office/dev/add-ins/outlook/read-scenario?context=outlook/context
     items:
     - name: Use regular expressions to activate contextual add-ins
-      href: use-regular-expressions-to-show-an-outlook-add-in.md
+      href: /office/dev/add-ins/outlook/use-regular-expressions-to-show-an-outlook-add-in?context=outlook/context
     - name: Match well known entities in an item
-      href: match-strings-in-an-item-as-well-known-entities.md
+      href: /office/dev/add-ins/outlook/match-strings-in-an-item-as-well-known-entities?context=outlook/context
     - name: Extract entities from an item
-      href: extract-entity-strings-from-an-item.md
+      href: /office/dev/add-ins/outlook/extract-entity-strings-from-an-item?context=outlook/context
     - name: Get attachments
-      href: get-attachments-of-an-outlook-item.md
+      href: /office/dev/add-ins/outlook/get-attachments-of-an-outlook-item?context=outlook/context
   - name: Compose scenario
-    href: compose-scenario.md
+    href: /office/dev/add-ins/outlook/compose-scenario?context=outlook/context
     items:
     - name: Add and remove attachments
-      href: add-and-remove-attachments-to-an-item-in-a-compose-form.md
+      href: /office/dev/add-ins/outlook/add-and-remove-attachments-to-an-item-in-a-compose-form?context=outlook/context
     - name: Get and set item data
-      href: get-and-set-item-data-in-a-compose-form.md
+      href: /office/dev/add-ins/outlook/get-and-set-item-data-in-a-compose-form?context=outlook/context
     - name: Get and set recipients
-      href: get-set-or-add-recipients.md
+      href: /office/dev/add-ins/outlook/get-set-or-add-recipients?context=outlook/context
     - name: Insert data in the body
-      href: insert-data-in-the-body.md
+      href: /office/dev/add-ins/outlook/insert-data-in-the-body?context=outlook/context
     - name: Get and set subject
-      href: get-or-set-the-subject.md
+      href: /office/dev/add-ins/outlook/get-or-set-the-subject?context=outlook/context
     - name: Get and set times
-      href: get-or-set-the-time-of-an-appointment.md
+      href: /office/dev/add-ins/outlook/get-or-set-the-time-of-an-appointment?context=outlook/context
     - name: Get and set location
-      href: get-or-set-the-location-of-an-appointment.md
+      href: /office/dev/add-ins/outlook/get-or-set-the-location-of-an-appointment?context=outlook/context
   - name: Privacy and security
-    href: privacy-and-security.md
+    href: /office/dev/add-ins/outlook/privacy-and-security?context=outlook/context
     items:
     - name: Understanding add-in permissions
-      href: understanding-outlook-add-in-permissions.md
+      href: /office/dev/add-ins/outlook/understanding-outlook-add-in-permissions?context=outlook/context
   - name: Authentication
-    href: authentication.md
+    href: /office/dev/add-ins/outlook/authentication?context=outlook/context
     items:
     - name: Authenticate with SSO token
-      href: authenticate-a-user-with-an-sso-token.md
+      href: /office/dev/add-ins/outlook/authenticate-a-user-with-an-sso-token?context=outlook/context
     - name: Authenticate with an identity token
-      href: authenticate-a-user-with-an-identity-token.md
+      href: /office/dev/add-ins/outlook/authenticate-a-user-with-an-identity-token?context=outlook/context
     - name: Validate an identity token
-      href: validate-an-identity-token.md
+      href: /office/dev/add-ins/outlook/validate-an-identity-token?context=outlook/context
     - name: Inside the identity token
-      href: inside-the-identity-token.md
+      href: /office/dev/add-ins/outlook/inside-the-identity-token?context=outlook/context
     - name: "Scenario: Implement single sign-on"
-      href: implement-sso-in-outlook-add-in.md
+      href: /office/dev/add-ins/outlook/implement-sso-in-outlook-add-in?context=outlook/context
   - name: Testing and tips
-    href: testing-and-tips.md
+    href: /office/dev/add-ins/outlook/testing-and-tips?context=outlook/context
     items:
     - name: Sideload an add-in for testing
-      href: sideload-outlook-add-ins-for-testing.md
+      href: /office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing?context=outlook/context
     - name: Compare add-in support in Outlook for Mac
-      href: compare-outlook-add-in-support-in-outlook-for-mac.md
+      href: /office/dev/add-ins/outlook/compare-outlook-add-in-support-in-outlook-for-mac?context=outlook/context
     - name: Tips for handling date values
-      href: tips-for-handling-date-values-in-outlook-add-ins.md
+      href: /office/dev/add-ins/outlook/tips-for-handling-date-values-in-outlook-add-ins?context=outlook/context
     - name: Limits for activation and JavaScript API
-      href: limits-for-activation-and-javascript-api-for-outlook-add-ins.md
+      href: /office/dev/add-ins/outlook/limits-for-activation-and-javascript-api-for-outlook-add-ins?context=outlook/context
     - name: Troubleshoot add-in activation
-      href: troubleshoot-outlook-add-in-activation.md
+      href: /office/dev/add-ins/outlook/troubleshoot-outlook-add-in-activation?context=outlook/context
   - name: Publish
     href: /office/dev/add-ins/publish/publish?context=outlook/context
     items:
