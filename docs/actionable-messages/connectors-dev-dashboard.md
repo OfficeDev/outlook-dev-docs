@@ -55,7 +55,7 @@ Once you have thoroughly tested your connector and it is ready to be listed in t
 ### Connector submission checklist
 
 - Ensure that your connector is fully functional and thoroughly tested before submitting it to the Store.
-- Test your connector cards in various clients where your users would use it: Outlook on the Web, Outlook 2016, and Outlook Groups mobile apps.
+- Test your connector cards in various clients where your users would use it: Outlook on the Web, Outlook 2016 or later, and Outlook Groups mobile apps.
 - Ensure that you strictly use Markdown for text decoration and not send HTML in your connector card payload.
 - Maintain a balance between adding value and generating too much noise. Ensure that the user is not bogged down with too many notifications.
 - Identify the right events to send connector cards for. Ensure that the information you send to the group is valuable to the members of the group.
