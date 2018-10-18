@@ -30,7 +30,7 @@ Outlook add-ins are comprised of HTML, CSS, and JavaScript files, so technically
 > npm install -g yo generator-office
 
 
-You will also need Outlook 2016 connected to an Office 365 account, Outlook.com account, or a Microsoft Exchange Server and a GitHub account to test all of the features of the add-in we're going to create.
+You will also need Outlook 2016 or later connected to an Office 365 account, Outlook.com account, or a Microsoft Exchange Server and a GitHub account to test all of the features of the add-in we're going to create.
 
 ## Create the add-in
 
