@@ -1,5 +1,5 @@
 ---
-title: What are actionable messages in Office 365? | Microsoft Docs
+title: What are actionable messages in Office 365?
 description: Actionable Messages enable you to take quick actions right from within Outlook.
 author: jasonjoh
 ms.topic: article
@@ -18,7 +18,7 @@ Office 365 provides two solutions to enhance productivity with Outlook Actionabl
 > [!NOTE]
 > Actionable messages are also available in Microsoft Teams. See [Office 365 Connectors for Teams](https://docs.microsoft.com/microsoftteams/platform/concepts/connectors/connectors) for more information.
 
-## User Experience
+## User experience
 
 Let's take a look at the end-to-end user experience for both an email-based and a connectors-based actionable message scenario.
 
@@ -58,7 +58,7 @@ Office 365 Connectors are a great way to get useful information and content into
 
 ## Accessing Office 365 Connectors from Outlook
 
-Office 365 Connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web or Outlook 2016 for Windows.
+Office 365 Connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web, or Outlook 2016 or later for Windows.
 
 ### Accessing connectors in Outlook on the web
 
@@ -88,7 +88,7 @@ In the inbox case, the Store dialog displays the **Add-ins** tab by default. Con
 
 ## Release Notes
 
-Currently, you can only configure connectors from Outlook on the web or Outlook 2016 on Windows, but you can view information posted by Connectors to your Group or inbox in multiple clients such as Outlook on the web, Outlook 2016 and the Office365 Groups Mobile app.
+Currently, you can only configure connectors from Outlook on the web, or Outlook 2016 or later on Windows, but you can view information posted by Connectors to your Group or inbox in multiple clients such as Outlook on the web, Outlook 2016 or later, and the Office365 Groups Mobile app.
 
 For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">support article</a>.
 

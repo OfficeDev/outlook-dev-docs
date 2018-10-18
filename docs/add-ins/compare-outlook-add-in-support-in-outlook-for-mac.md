@@ -1,5 +1,5 @@
 ---
-title: Compare Outlook add-in support in Outlook for Mac | Microsoft Docs
+title: Compare Outlook add-in support in Outlook for Mac
 description: Learn how add-in support in Outlook for Mac compares with other Outlook hosts.
 author: jasonjoh
 ms.topic: article

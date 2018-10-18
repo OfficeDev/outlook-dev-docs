@@ -1,5 +1,5 @@
 ---
-title: Match strings as well-known entities in an Outlook add-in | Microsoft Docs
+title: Match strings as well-known entities in an Outlook add-in
 description: Using the JavaScript API for Office, you can get strings that match specific well-known entities for further processing.
 author: jasonjoh
 ms.topic: article

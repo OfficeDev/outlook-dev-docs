@@ -1,5 +1,5 @@
 ---
-title: Authenticate a user with an identity token in an Outlook add-in | Microsoft Docs
+title: Authenticate a user with an identity token in an Outlook add-in
 description: Learn about using the identity token provided by an Outlook add-in to implement SSO with your service.
 author: jasonjoh
 ms.topic: article

@@ -1,5 +1,5 @@
 ---
-title: Payments in Outlook partner dashboard guide | Microsoft Docs
+title: Payments in Outlook partner dashboard guide
 description: The Outlook partner dashboard for payments is the single place to register your payments in Outlook service.
 author: jasonjoh
 ms.topic: article

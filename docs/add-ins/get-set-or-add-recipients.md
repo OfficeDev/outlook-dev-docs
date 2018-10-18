@@ -1,5 +1,5 @@
 ---
-title: Get or modify recipients in an Outlook add-in | Microsoft Docs
+title: Get or modify recipients in an Outlook add-in
 description: Learn how to get, set, or add recipients of a message or appointment in an Outlook add-in.
 author: jasonjoh
 ms.topic: article

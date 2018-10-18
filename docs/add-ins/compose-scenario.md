@@ -1,5 +1,5 @@
 ---
-title: Create Outlook add-ins for compose forms | Microsoft Docs
+title: Create Outlook add-ins for compose forms
 description: Learn about scenarios and capabilities of Outlook add-ins for compose forms.
 author: jasonjoh
 ms.topic: article
