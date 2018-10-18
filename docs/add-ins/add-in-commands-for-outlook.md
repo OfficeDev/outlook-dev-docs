@@ -1,5 +1,5 @@
 ---
-title: Outlook add-in commands | Microsoft Docs
+title: Outlook add-in commands
 description: Outlook add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. 
 author: jasonjoh
 ms.topic: article

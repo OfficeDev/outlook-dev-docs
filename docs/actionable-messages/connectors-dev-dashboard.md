@@ -1,5 +1,5 @@
 ---
-title: Connectors developer dashboard | Microsoft Docs
+title: Connectors developer dashboard
 description: Register your connector in our developer portal, add an integrated configuration experience to your application, and implement your connector.
 author: jasonjoh
 ms.topic: article
@@ -54,8 +54,8 @@ Once you have thoroughly tested your connector and it is ready to be listed in t
 
 ### Connector submission checklist
 
-- Ensure that your connector is fully functional & thoroughly tested before submitting it to the Store.
-- Test your connector cards in various clients where your users would use it: Outlook on the Web, Outlook 2016 & Outlook Groups mobile apps.
+- Ensure that your connector is fully functional and thoroughly tested before submitting it to the Store.
+- Test your connector cards in various clients where your users would use it: Outlook on the Web, Outlook 2016, and Outlook Groups mobile apps.
 - Ensure that you strictly use Markdown for text decoration and not send HTML in your connector card payload.
 - Maintain a balance between adding value and generating too much noise. Ensure that the user is not bogged down with too many notifications.
 - Identify the right events to send connector cards for. Ensure that the information you send to the group is valuable to the members of the group.
@@ -68,7 +68,7 @@ Once you have thoroughly tested your connector and it is ready to be listed in t
 - When registering your connector:
   - Ensure that the name and logo of your connector does not infringe upon a trademark or copyright of any other product or service.
   - Provide a high quality logo of type jpg, jpeg, png or gif that is under 60KB in size.
-  - Provide a short description of your application (e.g. 'Contoso Help Desk brings companies & customers together').
+  - Provide a short description of your application (e.g. 'Contoso Help Desk brings companies and customers together').
   - Provide a detailed description of your connector (e.g. 'The Contoso Help Desk connector notifies your Office 365 group about activity on your customer's tickets').
 - When publishing your connector to Store:
   - Make sure to fill out step by step instructions and share test account information to let us test your connector.

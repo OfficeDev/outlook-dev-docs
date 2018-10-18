@@ -1,5 +1,5 @@
 ---
-title: Actionable messages via email developer dashboard guide | Microsoft Docs
+title: Actionable messages via email developer dashboard guide
 description: The developer dashboard helps you submit and track status of your submission via the web portal.
 author: jasonjoh
 ms.topic: article

@@ -1,5 +1,5 @@
 ---
-title: Get or set appointment time in an Outlook add-in | Microsoft Docs
+title: Get or set appointment time in an Outlook add-in
 description: Learn how to get or set the start and end time of an appointment in an Outlook add-in.
 author: jasonjoh
 ms.topic: article

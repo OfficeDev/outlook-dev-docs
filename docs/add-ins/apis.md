@@ -1,5 +1,5 @@
 ---
-title: Outlook add-in APIs | Microsoft Docs
+title: Outlook add-in APIs
 description: Learn how to reference the Outlook add-in APIs and declare permissions in your Outlook add-in.
 author: jasonjoh
 ms.topic: article

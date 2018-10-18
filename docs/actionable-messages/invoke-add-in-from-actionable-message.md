@@ -1,5 +1,5 @@
 ---
-title: Invoke an Outlook add-in from an actionable message | Microsoft Docs
+title: Invoke an Outlook add-in from an actionable message
 description: Learn how to invoke an Outlook add-in from an actionable message and pass initialization data to the add-in.
 author: jasonjoh
 ms.topic: article

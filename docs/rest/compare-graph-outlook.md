@@ -1,5 +1,5 @@
 ---
-title: Compare Microsoft Graph and Outlook endpoints | Microsoft Docs
+title: Compare Microsoft Graph and Outlook endpoints
 description: Compare the differences between Graph and Outlook APIs. Learn which endpoint is the best fit for your scenario and how to translate between them.
 author: jasonjoh
 

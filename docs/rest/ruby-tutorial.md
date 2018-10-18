@@ -1,5 +1,5 @@
 ---
-title: How to use Outlook REST APIs in a Ruby on Rails app | Microsoft Docs
+title: How to use Outlook REST APIs in a Ruby on Rails app
 description: Learn how to use Microsoft Graph in a Ruby app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
 

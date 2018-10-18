@@ -1,5 +1,5 @@
 ---
-title: Security requirements for actionable messages | Microsoft Docs
+title: Security requirements for actionable messages
 description: Learn about security requirements for actionable messages and how to validate the bearer token sent by Office 365.
 author: jasonjoh
 ms.topic: article

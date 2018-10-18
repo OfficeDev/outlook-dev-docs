@@ -1,5 +1,5 @@
 ---
-title: Implement a pinnable taskpane in an Outlook add-in | Microsoft Docs
+title: Implement a pinnable taskpane in an Outlook add-in
 description: The taskpane UX shape for add-in commands opens a vertical taskpane to the right of an open message or appointment, allowing the add-in to provide UI for more detailed interactions.
 author: jasonjoh
 ms.topic: article

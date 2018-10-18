@@ -1,5 +1,5 @@
 ---
-title: Payments in Outlook webhook reference | Microsoft Docs
+title: Payments in Outlook webhook reference
 description: Learn about the payload fields for requests sent to payment webhooks by Outlook
 author: jasonjoh
 ms.topic: reference
