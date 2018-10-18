@@ -1,5 +1,5 @@
 ---
-title: Use regular expression activation rules to show an Outlook add-in | Microsoft Docs
+title: Use regular expression activation rules to show an Outlook add-in
 description: Learn how to use regualr expression activation rules for Outlook contextual add-ins.
 author: jasonjoh
 ms.topic: article

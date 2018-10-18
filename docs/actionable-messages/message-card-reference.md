@@ -1,5 +1,5 @@
 ---
-title: Legacy actionable message card reference | Microsoft Docs
+title: Legacy actionable message card reference
 description: Learn about the available fields for actionable message cards and design guidelines for creating an effective card.
 author: jasonjoh
 ms.topic: reference

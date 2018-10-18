@@ -1,5 +1,5 @@
 ---
-title: Microsoft API terms of use | Microsoft Docs
+title: Microsoft API terms of use
 description: By accessing or using a Microsoft API, you are agreeing to these terms and to comply with any accompanying documentation that applies to your use of a Microsoft API with Microsoft Corporation.
 author: jasonjoh
 ms.topic: article

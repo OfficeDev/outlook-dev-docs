@@ -1,5 +1,5 @@
 ---
-title: Outlook add-in requirements | Microsoft Docs
+title: Outlook add-in requirements
 description: For Outlook add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
 author: jasonjoh
 ms.topic: article

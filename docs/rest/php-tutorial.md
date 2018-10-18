@@ -1,5 +1,5 @@
 ---
-title: How to use Outlook REST APIs in a PHP app | Microsoft Docs
+title: How to use Outlook REST APIs in a PHP app
 description: Learn how to use Microsoft Graph in a PHP app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
 

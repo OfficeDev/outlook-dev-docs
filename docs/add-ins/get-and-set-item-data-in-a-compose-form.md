@@ -1,5 +1,5 @@
 ---
-title: Get and set item data in a compose form in Outlook | Microsoft Docs
+title: Get and set item data in a compose form in Outlook
 description: Get or set various properties of an item in an Outlook add-in in a compose scenario, including its recipients, subject, body, and appointment location and time.
 author: jasonjoh
 ms.topic: article

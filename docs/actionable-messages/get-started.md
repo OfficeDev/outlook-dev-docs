@@ -1,5 +1,5 @@
 ---
-title: Get started with actionable messages | Microsoft Docs
+title: Get started with actionable messages
 description: Get started with actionable messages. Learn about the available delivery mechanisms and applicable scenarios.
 author: jasonjoh
 ms.topic: get-started-article

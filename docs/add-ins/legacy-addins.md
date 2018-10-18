@@ -1,5 +1,5 @@
 ---
-title: Outlook legacy add-ins | Microsoft Docs
+title: Outlook legacy add-ins
 description: Learn about designing add-ins for previous versions of Outlook.
 author: jasonjoh
 
