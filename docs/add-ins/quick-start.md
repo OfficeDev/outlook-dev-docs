@@ -292,7 +292,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Update the manifest
 
-1. Open the **my-office-add-in-manifest.xml** file.
+1. Open the **manifest.xml** file.
 
 1. The `ProviderName` element has a placeholder value. Replace it with your name.
 
@@ -326,7 +326,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     > [!NOTE]
     > Chrome (web browser) may continue to indicate the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). You can disregard this warning in Chrome and can verify that the certificate is trusted by navigating to `https://localhost:3000` in either Internet Explorer or Microsoft Edge. 
 
-1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **my-office-add-in-manifest.xml** file.
+1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file.
 
 ### Try it out
 
