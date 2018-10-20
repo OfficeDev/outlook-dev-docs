@@ -90,7 +90,9 @@ Figure 1 shows a summary of the steps to verify whether Outlook has a valid vers
 
 **Figure 1. Flow chart of the steps to verify whether Outlook properly cached the manifest**
 
-![Flow chart to check manifest](images/troubleshoot-manifest-flow.png)The following procedure describes the details.
+![Flow chart to check manifest](images/troubleshoot-manifest-flow.png)
+
+The following procedure describes the details.
 
 1. If you have modified the manifest while Outlook is open, and you are not using Visual Studio 2012 or a later version of Visual Studio to develop the add-in, you should uninstall the add-in and reinstall it using the Exchange Admin Center. 
 

@@ -78,7 +78,8 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     (function () {
 
-      // The initialize function must be run each time a new page is loaded
+      // Initialization will fail if Office.initialize
+      // does not have a function assigned to it
       Office.initialize = function (reason) {
         $(document).ready(function () {
           loadItemProps(Office.context.mailbox.item);
@@ -153,7 +154,11 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 1. Using Visual Studio, test the newly created Outlook add-in by pressing F5 or choosing the **Start** button to launch Outlook on the web. The add-in will be hosted locally on IIS.
 
     > [!NOTE]
-    > If you're asked to log in repeatedly then Basic Auth may be disabled for accounts on your Office 365 tenant. Try [sideloading the manifest](https://docs.microsoft.com/outlook/add-ins/sideload-outlook-add-ins-for-testing).
+    > If you're asked to log in repeatedly then Basic Auth may be disabled for accounts on your Office 365 tenant. You can consider:
+    >
+    > a. hosting the add-in on a local server then [sideloading](sideload-outlook-add-ins-for-testing.md).
+    >
+    > b. using a Microsoft account instead.
 
 1. In Outlook on the web, select or open a message.
 
@@ -218,7 +223,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. In your code editor, open **index.html** in the root of the project. This files contains the HTML that will be rendered in the add-in's task pane.
 
-1. Replace the `<header>` and `<main>` elements inside the `<body>` element with the following markup and save the file.
+1. Replace the `<header>`, `<section>`, and `<main>` elements inside the `<body>` element with the following markup and save the file.
 
     ```HTML
     <div class="ms-Fabric content-main">
@@ -242,7 +247,8 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     (function () {
 
-      // The initialize function must be run each time a new page is loaded
+      // Initialization will fail if Office.initialize
+      // does not have a function assigned to it
       Office.initialize = function (reason) {
         $(document).ready(function () {
           loadItemProps(Office.context.mailbox.item);
