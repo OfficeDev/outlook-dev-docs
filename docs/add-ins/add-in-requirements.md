@@ -4,7 +4,7 @@ description: For Outlook add-ins to load and function properly, there are a numb
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: jasonjoh
 ---
 
@@ -19,7 +19,7 @@ For Outlook add-ins to load and function properly, there are a number of require
    - Outlook 2013 or later for Windows
    - Outlook 2016 or later for Mac
    - Outlook for iOS
-   - Outlook on the web for Exchange 2016 and Office 365
+   - Outlook on the web for Exchange 2016 or later and Office 365
    - Outlook Web Access for Exchange 2013
    - Outlook.com
 
