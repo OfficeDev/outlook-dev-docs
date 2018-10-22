@@ -1,6 +1,6 @@
 ---
 title: Outlook add-ins overview
-description: Outlook add-ins are integrations built by third parties into Outlook by using the new web technologies-based platform. 
+description: Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform. 
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -10,15 +10,15 @@ ms.author: jasonjoh
 
 # Outlook add-ins overview
 
-Outlook add-ins are integrations built by third parties into Outlook by using the new web technologies-based platform. Outlook add-ins have three key aspects:
+Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform. Outlook add-ins have three key aspects:
 
 - The same add-in and business logic works across desktop (Outlook for Windows and Mac), web (Office 365 and Outlook.com), and mobile.
--  Outlook add-ins consist of a manifest, which describes how the add-in integrates into Outlook (for example, a button or a task pane), and JavaScript/HTML code, which makes up the UI and business logic of the add-in.
-- Outlook add-ins can be acquired from the Office store or side-loaded by end-users or administrators.
+- Outlook add-ins consist of a manifest, which describes how the add-in integrates into Outlook (for example, a button or a task pane), and JavaScript/HTML code, which makes up the UI and business logic of the add-in.
+- Outlook add-ins can be acquired from the Office store or [side-loaded](sideload-outlook-add-ins-for-testing.md) by end-users or administrators.
 
-Outlook add-ins are different from COM or VSTO add-ins, which are older integrations specific to Outlook running on Windows. Unlike COM add-ins, Outlook add-ins don't have any code physically installed on the user's device or Outlook client. For an Outlook add-in, Outlook reads the manifest and hooks up the specified controls in the UI, and then loads the JavaScript and HTML. This all executes in the context of a browser in a sandbox.
+Outlook add-ins are different from COM or VSTO add-ins, which are older integrations specific to Outlook running on Windows. Unlike COM add-ins, Outlook add-ins don't have any code physically installed on the user's device or Outlook client. For an Outlook add-in, Outlook reads the manifest and hooks up the specified controls in the UI, and then loads the JavaScript and HTML. The web components all run in the context of a browser in a sandbox.
 
-The Outlook items that support mail add-ins include email messages, meeting requests, responses and cancellations, and appointments. Each mail add-in defines the context in which it is available, including the types of items and if the user is reading or composing an item. 
+The Outlook items that support add-ins include email messages, meeting requests, responses and cancellations, and appointments. Each Outlook add-in defines the context in which it is available, including the types of items and if the user is reading or composing an item.
 
 > [!NOTE]
 > When you build your add-in, if you plan to [publish](https://docs.microsoft.com/office/dev/add-ins/publish/publish?product=outlook) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://docs.microsoft.com/office/dev/store/validation-policies). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://docs.microsoft.com/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably) and the [Office Add-in host and availability page](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-in-availability)).
@@ -37,7 +37,7 @@ Extension points are the ways that add-ins integrate with Outlook. The following
     
     **A contextual add-in for a highlighted entity (an address)**
 
-    ![Shows a contextual app in a card](images/contextual-window.png)
+    ![Shows a contextual app in a card](images/outlook-detected-entity-card.PNG)
 
 
 > [!NOTE]
