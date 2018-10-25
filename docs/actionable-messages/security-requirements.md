@@ -104,9 +104,9 @@ Signed actionable message cards are available when sending via email. Use this f
 |-------|------|-------------|
 | `originator` | String | Required. MUST be set to the ID provided by Microsoft during onboarding. |
 | `iat` | TimeStamp (Unix epoch) | Required. The time that the payload was signed. |
-| `sender` | String | Required. The email address used to send this payment request. |
+| `sender` | String | Required. The email address used to send this actionable message. |
 | `recipientsSerialized` | String | A serialized [RecipientList](#recipentlist) containing all of the To and CC recipients of the message. |
-| `sub` | String | Required. A unique identifier in your payment system for the recipient. |
+| `sub` | String | Required. A unique identifier in your backend system for the recipient. |
 | `adaptiveCardSerialized` | String | Required if using the Adaptive card format, otherwise MUST NOT be present. The serialized content of the Adaptive card JSON. |
 | `messageCardSerialized` | String | Required if using the MessageCard format, otherwise MUST NOT be present. The serialized content of the Adaptive card JSON. |
 
