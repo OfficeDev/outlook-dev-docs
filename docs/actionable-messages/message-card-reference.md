@@ -4,7 +4,7 @@ description: Learn about the available fields for actionable message cards and d
 author: jasonjoh
 ms.topic: reference
 ms.technology: o365-connectors
-ms.date: 05/07/2018
+ms.date: 10/25/2018
 ms.author: jasonjoh
 ---
 
@@ -416,6 +416,9 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
 ```
 
 ### Transaction action
+
+> [!IMPORTANT]
+> The `Transaction` action has been deprecated. Payment request messages should be sent using the [ActionRequest format](../payments/action-request.md) instead.
 
 Initiates an payments in Outlook scenario. For more information see [Payments in Outlook](../payments/index.md).
 

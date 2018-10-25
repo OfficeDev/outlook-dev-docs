@@ -2,7 +2,9 @@
   href: index.md
 - name: Get Started
   href: get-started.md
-- name: Payload Reference
+- name: ActionRequest Reference
+  href: action-request.md
+- name: Webhook Reference
   href: reference.md
 - name: Payments Partner Dashboard
   href: partner-dashboard.md

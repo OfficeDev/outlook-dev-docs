@@ -4,7 +4,7 @@ description: Learn about the available fields for Outlook actionable message car
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 05/07/2018
+ms.date: 10/25/2018
 ms.author: jasonjoh
 ---
 
@@ -552,6 +552,9 @@ The example card renders similar to the following after the button is clicked:
 ![A screenshot of the Action.ToggleVisibility example card in an expanded state](images/adaptive-visibility-expanded.png)
 
 ### Action.Transaction
+
+> [!IMPORTANT]
+> The `Action.Transaction` action has been deprecated. Payment request messages should be sent using the [ActionRequest format](../payments/action-request.md) instead.
 
 The `Action.Transaction` action triggers the [payments in Outlook](../payments/index.md) experience. When the user invokes the action, Outlook retrieves the latest invoice details from the merchant. This information is displayed in a pane in Outlook, allowing the user to click through the Microsoft Pay experience to pay the invoice. See [Get started with payments in Outlook](../payments/get-started.md) for more information.
 
