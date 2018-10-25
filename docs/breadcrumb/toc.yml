@@ -254,7 +254,10 @@
       - name: Get Started
         tocHref: /outlook/payments/get-started
         topicHref: /outlook/payments/get-started
-      - name: Reference
+      - name: ActionRequest Reference
+        tocHref: /outlook/payments/action-request
+        topicHref: /outlook/payments/action-request
+      - name: Webhook Reference
         tocHref: /outlook/payments/reference
         topicHref: /outlook/payments/reference
       - name: Partner Dashboard
