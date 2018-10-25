@@ -71,7 +71,7 @@ Signed actionable message cards are available when sending via email. Use this f
 |-------|------|-------------|
 | `recipients` | Array of String | Required. Contains the email addresses of the To and CC recipients for the actionable message. |
 
-## Bearer Token
+## Verifying that requests come from Microsoft
 
 All action requests from Microsoft have a bearer token in the HTTP `Authorization` header. This token is a [JSON Web Token](https://jwt.io/) (JWT) token signed by Microsoft, and it includes important claims that we strongly recommend should be verified by the service handling the associated request.
 
@@ -117,14 +117,14 @@ The use of `Authorization` header by Actionable messages may interfere with exis
 }
 ```
 
-## Limited-Purpose Tokens
+## Verifying the identity of the user
 
-Limited purpose tokens can be used to correlate service URLs with specific messages and users. Microsoft recommends that service providers use "limited-purpose tokens" as part of the action target URL, or in the body of the request coming back to the service. For example:
+The bearer token included with all requests includes the Azure AD identity of the Office 365 user who took the action. If necessary, you can include your own token, specific to your service, in the URLs of your HTTP actions to represent the identity of the user in your system. Microsoft does not prescribe how the limited-access tokens should be designed or used by the service. This token is opaque to Microsoft, and is simply echoed back to the service.
+
+Service-specific tokens can be used to correlate service URLs with specific messages and users. Microsoft recommends that if you use your own service-specific token, youinclude it as part of the action target URL, or in the body of the request coming back to the service. For example:
 
 ```http
-https://contoso.com/approve?requestId=abc&limitedPurposeToken=a1b2c3d4e5...
+https://contoso.com/approve?requestId=abc&serviceToken=a1b2c3d4e5...
 ```
 
-Limited-purpose tokens act as correlation IDs (for e.g. a hashed token using the userID, requestID, and salt). This allows the service provider to keep track of the action URLs it generates and sends out and match it with action requests coming in. In addition to correlation, the service provider may use the limited purpose token to protect itself from replay attacks. For example, the service provider may choose to reject the request, if the action was already performed previously with the same token.
-
-Microsoft does not prescribe how the limited-access tokens should be designed or used by the service. This token is opaque to Microsoft, and is simply echoed back to the service.
+Service-specific tokens act as correlation IDs (for e.g. a hashed token using the userID, requestID, and salt). This allows the service provider to keep track of the action URLs it generates and sends out and match it with action requests coming in. In addition to correlation, the service provider may use the service-specific token to protect itself from replay attacks. For example, the service provider may choose to reject the request, if the action was already performed previously with the same token.
