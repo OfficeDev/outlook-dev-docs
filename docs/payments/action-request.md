@@ -4,7 +4,7 @@ description: Learn about the payload fields for requests sent to payment webhook
 author: jasonjoh
 ms.topic: reference
 ms.technology: o365-connectors
-ms.date: 10/08/2018
+ms.date: 10/25/2018
 ms.author: jasonjoh
 ---
 

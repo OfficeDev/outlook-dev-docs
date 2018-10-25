@@ -4,7 +4,7 @@ description: Learn about the available fields for Outlook actionable message car
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 05/07/2018
+ms.date: 10/25/2018
 ms.author: jasonjoh
 ---
 

@@ -4,7 +4,7 @@ description: Enabling payments in Outlook provides a powerful payment solution t
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 05/07/2018
+ms.date: 10/25/2018
 ms.author: jasonjoh
 ---
 
