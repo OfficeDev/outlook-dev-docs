@@ -77,3 +77,41 @@ https://contoso.com/approve?requestId=abc&limitedPurposeToken=a1b2c3d4e5...
 Limited-purpose tokens act as correlation IDs (for e.g. a hashed token using the userID, requestID, and salt). This allows the service provider to keep track of the action URLs it generates and sends out and match it with action requests coming in. In addition to correlation, the service provider may use the limited purpose token to protect itself from replay attacks. For example, the service provider may choose to reject the request, if the action was already performed previously with the same token.
 
 Microsoft does not prescribe how the limited-access tokens should be designed or used by the service. This token is opaque to Microsoft, and is simply echoed back to the service.
+
+## Signed card payloads
+
+Actionable messages [sent via email](actionable-messages-via-email.md) support an alternative verification method: signing the card payload with and RSA key or X509 certificate. This method is required in the following scenarios:
+
+- The sending servers do not support DKIM or SPF verification.
+- You scenario for actionable messages requires sending from multiple email accounts.
+
+Using signed card payloads requires onboarding with Microsoft. Please contact [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) for more information.
+
+### SignedCard
+
+Signed actionable message cards are available when sending via email. Use this format to include a signed card in the HTML body of an email. This payload is serialized as JSON inside of a `<script>` tag of type `application/ld+json` in the `<head>` of the HTML body.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `@type` | String | Required. MUST be set to either `SignedAdaptiveCard` when using the [Adaptive card format](adaptive-card.md), or `SignedMessageCard` when using the [MessageCard format](message-card-reference.md). |
+| `@context` | String | Required. MUST be set to `http://schema.org/extensions` |
+| `signedAdaptiveCard` | String | Required if `@type` is set to `SignedAdaptiveCard`. MUST be set to a signed [SignedCardPayload](#signedcardpayload), signed using the [JSON Web Signature (JWS)](https://tools.ietf.org/html/rfc7515) standard. |
+| `signedMessageCard` | String | Required if `@type` is set to `SignedMessageCard`. MUST be set to a signed [SignedCardPayload](#signedcardpayload), signed using the [JSON Web Signature (JWS)](https://tools.ietf.org/html/rfc7515) standard. |
+
+#### SignedCardPayload
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `originator` | String | Required. MUST be set to the ID provided by Microsoft during onboarding. |
+| `iat` | TimeStamp (Unix epoch) | Required. The time that the payload was signed. |
+| `sender` | String | Required. The email address used to send this payment request. |
+| `recipientsSerialized` | String | A serialized [RecipientList](#recipentlist) containing all of the To and CC recipients of the message. |
+| `sub` | String | Required. A unique identifier in your payment system for the recipient. |
+| `adaptiveCardSerialized` | String | Required if using the Adaptive card format, otherwise MUST NOT be present. The serialized content of the Adaptive card JSON. |
+| `messageCardSerialized` | String | Required if using the MessageCard format, otherwise MUST NOT be present. The serialized content of the Adaptive card JSON. |
+
+##### RecipientList
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `recipients` | Array of String | Required. Contains the email addresses of the To and CC recipients for the actionable message. |
