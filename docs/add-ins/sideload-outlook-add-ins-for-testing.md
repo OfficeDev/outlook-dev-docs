@@ -17,13 +17,13 @@ You can use sideloading to install an Outlook add-in for testing without having 
 
 The process for sideloading an add-in in Outlook in Office 365 will depend upon whether you are using the new Outlook on the web or classic Outlook on the web.
 
-- If your mailbox toolbar looks like the following image, see [Sideload an add-in in the new Outlook on the web](#sideload-an-add-in-in-the-new-Outlook-on-the-web).
+- If your mailbox toolbar looks like the following image, see [Sideload an add-in in the new Outlook on the web](#sideload-an-add-in-in-the-new-outlook-on-the-web).
 
     ![partial screenshot of the new Outlook on the web toolbar](images/outlook-on-the-web-new-toolbar.png)
 
 - If your mailbox toolbar looks like the following image, see [Sideload an add-in in classic Outlook on the web](#sideload-an-add-in-in-classic-outlook-on-the-web).
 
-    ![partial screenshot of the classic Outlook on the web toolbar](outlook-on-the-web-classic-toolbar.png)
+    ![partial screenshot of the classic Outlook on the web toolbar](images/outlook-on-the-web-classic-toolbar.png)
 
 > ![NOTE]
 > If your organization has included its logo in the toolbar, you might see something slightly different than shown above.
