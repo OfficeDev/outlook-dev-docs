@@ -34,7 +34,7 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 1. In Outlook on the web, create a new message or reply to an existing message.   
 
-1. Choose **...** from the bottom of the new message window and then select **Get Add-ins** from the menu that appears.
+1. Choose **...** from the bottom of the new message and then select **Get Add-ins** from the menu that appears.
 
     ![Message compose window in the new Outlook on the web with Get Add-ins option highlighted](images/outlook-on-the-web-new-get-add-ins.png)
 
