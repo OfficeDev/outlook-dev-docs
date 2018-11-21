@@ -4,7 +4,7 @@ description: Use sideloading to install an Outlook add-in for testing without ha
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 01/24/2018
+ms.date: 11/20/2018
 ms.author: jasonjoh
 ---
 
@@ -14,6 +14,39 @@ You can use sideloading to install an Outlook add-in for testing without having 
 
 
 ## Sideload an add-in in Outlook in Office 365
+
+The process for sideloading an add-in in Outlook in Office 365 will depend upon whether you are using the new Outlook on the web or classic Outlook on the web.
+
+- If your mailbox toolbar looks like the following image, see [Sideload an add-in in the new Outlook on the web](#sideload-an-add-in-in-the-new-Outlook-on-the-web).
+
+    ![partial screenshot of the new Outlook on the web toolbar](images/outlook-on-the-web-new-toolbar.png)
+
+- If your mailbox toolbar looks like the following image, see [Sideload an add-in in classic Outlook on the web](#sideload-an-add-in-in-classic-outlook-on-the-web).
+
+    ![partial screenshot of the classic Outlook on the web toolbar](outlook-on-the-web-classic-toolbar.png)
+
+> ![NOTE]
+> If your organization has included its logo in the toolbar, you might see something slightly different than shown above.
+
+### Sideload an add-in in the new Outlook on the web
+
+1. Go to [Outlook in Office 365](https://outlook.office.com).
+
+1. Choose the gear icon in the top-right section and select **Manage add-ins**.
+
+    ![Outlook on the web screenshot pointing to Manage add-ins option](images/outlook-sideload-web-manage-integrations.PNG)
+
+1. On the **Manage add-ins** page, select **Add-Ins**, and then select **My add-ins**.
+
+    ![Outlook on the web store dialog with My add-ins selected](images/outlook-sideload-store-select-add-ins.png)
+
+1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file**.
+
+    ![Manage add-ins screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.PNG)
+
+1. Locate the manifest file for your custom add-in and install it. Accept all prompts during the installation.
+
+### Sideload an add-in in classic Outlook on the web
 
 1. Go to [Outlook in Office 365](https://outlook.office.com).
 
