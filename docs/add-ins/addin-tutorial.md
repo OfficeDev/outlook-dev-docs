@@ -69,9 +69,9 @@ Open the `manifest.xml` and locate the `SupportUrl` element. Remove or comment t
     - If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
     - If the browser does not indicate a problem with the certificate, proceed to the next step.
 1. Sideload the add-in using the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md). When browsing for the manifest file, select `manifest.xml` in the project root.
-1. You should now see a new button on the ribbon labeled **Display all properties**. Click this button to open the taskpane. You should see the add-in's welcome page.
+1. You should now see a new button on the ribbon labeled **Display all properties**. Click this button to open the task pane. You should see the add-in's welcome page.
 
-    ![A screenshot of the button and taskpane added by the sample](images/addin-tutorial/button-and-pane.PNG)
+    ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.PNG)
 
 ## Write the code
 
@@ -726,7 +726,7 @@ Now we can work on the **Insert Gist** button. For this button we'll open a task
 Create a folder in the root of the project called `msg-compose`. In this folder, create `insert-gist.html` and add the following markup.
 
 > [!NOTE]
-> The markup for the taskpane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/ux-design-pattern-templates).
+> The markup for the task pane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/ux-design-pattern-templates).
 
 ```html
 <!DOCTYPE html>
@@ -1049,6 +1049,6 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
 })();
 ```
 
-Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert Gist** button, you should see a taskpane open on the right-hand side. When you select a gist and click **Insert**, the gist should get inserted into the body.
+Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert Gist** button, you should see a task pane open on the right-hand side. When you select a gist and click **Insert**, the gist should get inserted into the body.
 
-![A screenshot of the add-in taskpane](images/addin-tutorial/addin-taskpane.PNG)
+![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.PNG)

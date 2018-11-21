@@ -8,21 +8,21 @@ ms.date: 06/13/2017
 ms.author: jasonjoh
 ---
 
-# Add-ins for Outlook Mobile 
+# Add-ins for Outlook Mobile
 
 Add-ins now work on Outlook Mobile, using the same APIs available for other Outlook endpoints. If you've built an add-in for Outlook already, it's easy to get it working on Outlook Mobile.
 
 Outlook mobile add-ins are supported on all Office 365 Commercial accounts, Outlook.com accounts, and support is coming soon to Gmail accounts.
 
-**An example taskpane in Outlook for iOS**
+**An example task pane in Outlook for iOS**
 
-![A screenshot of a taskpane in Outlook for iOS](images/outlook-mobile-addin-taskpane.png)
+![A screenshot of a task pane in Outlook for iOS](images/outlook-mobile-addin-taskpane.png)
 
 <br/>
 
-**An example taskpane in Outlook for Android**
+**An example task pane in Outlook for Android**
 
-![A screenshot of a taskpane in Outlook for Android](images/outlook-mobile-addin-taskpane-android.png)
+![A screenshot of a task pane in Outlook for Android](images/outlook-mobile-addin-taskpane-android.png)
 
 ## What's different on mobile?
 

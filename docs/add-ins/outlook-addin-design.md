@@ -56,9 +56,9 @@ To help you create a well-designed add-in, we have [templates](https://github.co
 
 A typical add-in is made up of the following components.
 
-![A diagram of basic UX patterns for a taskpane on iOS](images/outlook-mobile-design-overview.png)
+![A diagram of basic UX patterns for a task pane on iOS](images/outlook-mobile-design-overview.png)
 
-![A diagram of basic UX patterns for a taskpane on Android](images/outlook-mobile-design-overview-android.jpg)
+![A diagram of basic UX patterns for a task pane on Android](images/outlook-mobile-design-overview-android.jpg)
 
 ### Loading
 

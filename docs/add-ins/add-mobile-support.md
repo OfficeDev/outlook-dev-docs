@@ -18,7 +18,7 @@ The first step to enabling add-in commands in Outlook Mobile is to define them i
 
 This element contains all of the information for loading the add-in in mobile clients. This enables you to define completely different UI elements and JavaScript files for the mobile experience.
 
-The following example shows a single taskpane button in a **MobileFormFactor** element.
+The following example shows a single task pane button in a **MobileFormFactor** element.
 
 ```xml
 <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
@@ -74,11 +74,11 @@ Mailbox requirement set 1.5 introduces a new version of [Office.context.mailbox.
 
 ### Pinch zoom
 
-By default users can use the "pinch zoom" gesture to zoom in on taskpanes. If this does not make sense for your scenario, be sure to disable pinch zoom in your HTML.
+By default users can use the "pinch zoom" gesture to zoom in on task panes. If this does not make sense for your scenario, be sure to disable pinch zoom in your HTML.
 
-### Close taskpanes
+### Close task panes
 
-In Outlook Mobile, taskpanes take up the entire screen and by default require the user to close them to return to the message. Consider using the [Office.context.ui.closeContainer](https://docs.microsoft.com/javascript/api/office/office.ui#closecontainer--) method to close the taskpane when your scenario is complete.
+In Outlook Mobile, task panes take up the entire screen and by default require the user to close them to return to the message. Consider using the [Office.context.ui.closeContainer](https://docs.microsoft.com/javascript/api/office/office.ui#closecontainer--) method to close the task pane when your scenario is complete.
 
 ### Compose mode and appointments
 
