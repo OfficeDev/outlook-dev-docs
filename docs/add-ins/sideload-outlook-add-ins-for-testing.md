@@ -26,19 +26,21 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
     ![partial screenshot of the classic Outlook on the web toolbar](images/outlook-on-the-web-classic-toolbar.png)
 
 > [!NOTE]
-> If your organization has included its logo in the toolbar, you might see something slightly different than shown in the preceding images.
+> If your organization has included its logo in the mailbox toolbar, you might see something slightly different than shown in the preceding images.
 
 ### Sideload an add-in in the new Outlook on the web
 
 1. Go to [Outlook in Office 365](https://outlook.office.com).
 
-1. Choose the gear icon in the top-right section and select **Manage add-ins**.
+1. In Outlook on the web, create a new message or reply to an existing message.   
 
-    ![Outlook on the web screenshot pointing to Manage add-ins option](images/outlook-sideload-web-manage-integrations.PNG)
+1. Choose **...** from the bottom of the new message window and then select **Get Add-ins** from the menu that appears.
 
-1. On the **Manage add-ins** page, select **Add-Ins**, and then select **My add-ins**.
+    ![Message compose window in the new Outlook on the web with Get Add-ins option highlighted](images/outlook-on-the-web-new-get-add-ins.png)
 
-    ![Outlook on the web store dialog with My add-ins selected](images/outlook-sideload-store-select-add-ins.png)
+1. In the **Add-ins for Outlook** dialog box, select **My add-ins**.
+
+    ![Add-ins for Outlook dialog box in the new Outlook on the web with My add-ins selected](images/outlook-on-the-web-new-my-add-ins.png)
 
 1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file**.
 
