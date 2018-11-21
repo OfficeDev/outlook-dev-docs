@@ -25,7 +25,7 @@ The process for sideloading an add-in in Outlook in Office 365 will depend upon 
 
     ![partial screenshot of the classic Outlook on the web toolbar](images/outlook-on-the-web-classic-toolbar.png)
 
-> ![NOTE]
+> [!NOTE]
 > If your organization has included its logo in the toolbar, you might see something slightly different than shown above.
 
 ### Sideload an add-in in the new Outlook on the web
