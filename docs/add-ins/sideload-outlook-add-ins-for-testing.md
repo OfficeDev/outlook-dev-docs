@@ -32,7 +32,7 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 1. Go to [Outlook in Office 365](https://outlook.office.com).
 
-1. In Outlook on the web, create a new message or reply to an existing message.   
+1. In Outlook on the web, create a new message.   
 
 1. Choose **...** from the bottom of the new message and then select **Get Add-ins** from the menu that appears.
 
@@ -74,7 +74,10 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
     ![Outlook 2016 ribbon pointing to Store button](images/outlook-sideload-desktop-store.PNG)
 
-1. On the **Get Add-ins** page, select **Add-Ins**, and then select **My add-ins**.
+    > [!NOTE]
+    > If you don't see the **Get Add-ins** button in your version of Outlook, select the **Store** button on the ribbon instead.
+
+1. Select **Add-Ins**, and then select **My add-ins**.
 
     ![Outlook 2016 store dialog with My add-ins selected](images/outlook-sideload-store-select-add-ins.png)
 
