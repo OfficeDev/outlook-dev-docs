@@ -70,11 +70,11 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 1. Open Outlook 2013 or later for Windows, or Outlook 2016 or later for Mac.
 
-1. Select the **Store** button on the ribbon.
+1. Select the **Get Add-ins** button on the ribbon.
 
     ![Outlook 2016 ribbon pointing to Store button](images/outlook-sideload-desktop-store.PNG)
 
-1. On the **Store** page, select **Add-Ins**, and then select **My add-ins**.
+1. On the **Get Add-ins** page, select **Add-Ins**, and then select **My add-ins**.
 
     ![Outlook 2016 store dialog with My add-ins selected](images/outlook-sideload-store-select-add-ins.png)
 
