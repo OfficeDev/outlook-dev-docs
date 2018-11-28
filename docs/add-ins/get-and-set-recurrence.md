@@ -95,7 +95,7 @@ function callback(asyncResult){
 The following is an example of the results of the `getAsync` call on a series.
 
 > [!NOTE]
-> In this example, the `seriesTimeObject` is a placeholder for the JSON representing the `seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
+> In this example, the `seriesTimeObject` is a placeholder for the JSON representing the `recurrence.seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
 
 ```js
 Recurrence = {
@@ -133,7 +133,7 @@ function outputRecurrence(item) {
 The following is an example of the `item.recurrence` property.
 
 > [!NOTE]
-> In this example, the `seriesTimeObject` is a placeholder for the JSON representing the `seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
+> In this example, the `seriesTimeObject` is a placeholder for the JSON representing the `recurrence.seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
 
 ```js
 Recurrence = {
