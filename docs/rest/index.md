@@ -59,5 +59,6 @@ https://graph.microsoft.com/{version}
 - [Outlook Contacts REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/contact)
 - [Outlook Notifications REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks)
 - [Outlook Photo REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/profilephoto)
+- [Outlook Settings REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/outlookuser)
 
 For more information and a comparison between the Graph endpoints and the Outlook API endpoints, see [Compare Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).
