@@ -114,11 +114,11 @@ Use the Yeoman generator to create an Outlook add-in project.
     cd "Git the gist"
     ```
 
-## Update the manifest
+### Update the manifest
 
 The manifest for an add-in controls how it appears in Outlook. It defines the way the add-in appears in the add-in list, the buttons that appear on the ribbon, and it sets the URLs for the HTML and JavaScript files used by the add-in. 
 
-### Specify a support page
+#### Specify a support page
 
 The manifest that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
 
@@ -148,7 +148,7 @@ The manifest that the generator creates contains a placeholder value for the `Su
   <SupportUrl DefaultValue="https://localhost:3000/support.html" />
   ```
 
-### Specify basic information
+#### Specify basic information
 
 Next, make the following updates in the **manifest.xml** file to specify some basic information about the add-in:
 
@@ -163,7 +163,7 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
     <Description DefaultValue="Allows users to access their gists on GitHub"/>
    ```
 
-### Test the generated add-in
+#### Test the generated add-in
 
 Before going any further, let's test the basic add-in that the generator created to confirm that the project is setup correctly. 
 
