@@ -23,8 +23,6 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-Outlook add-ins are comprised of HTML, CSS, and JavaScript files, so technically the only absolute prerequisite is some sort of web server to host the files. However, in this guide we're going to use some tools to make it easier to get up and running quickly. To follow along with this guide, you'll need the following:
-
 * [Node.js and npm](https://nodejs.org/en/)
 
 * The latest version of [Yeoman](http://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command via the command prompt:
@@ -36,6 +34,58 @@ Outlook add-ins are comprised of HTML, CSS, and JavaScript files, so technically
 * Outlook 2016 or later for Windows (connected to an Office 365 account) or an Outlook.com account
 
 * A [GitHub](https://www.github.com) account 
+
+## Setup
+
+The add-in that you'll create in this tutorial will read [Gists](https://gist.github.com) from the user's GitHub account and add the selected Gist(s) to the body of an email message. Complete the following steps
+
+1. [Login to GitHub](https://github.com/login).
+
+2. [Create a new Gist](https://gist.github.com). 
+
+    - In the **Git description...** field, enter **Hello World Markdown**.
+
+    - In the **Filename including extension...** field, enter **test.md**.
+
+    - Add the following markdown to the multiline textbox:
+    
+        ```markdown
+        # Hello World
+
+        This is content converted from Markdown!
+
+        Here's a JSON sample:
+
+        ```json
+        {
+          "foo": "bar"
+        }
+        ```
+        ```    
+
+3. [Create another new Gist](https://gist.github.com). 
+
+    - In the **Git description...** field, enter **Hello World Html**.
+
+    - In the **Filename including extension...** field, enter **test.html**.
+
+    - Add the following markdown to the multiline textbox:
+
+        ```HTML
+        <html>
+          <head>
+            <style>
+            h1 {
+              font-family: Calibri;
+            }
+            </style>      
+          </head>
+          <body>
+            <h1>Hello World!</h1>
+            <p>This is a test</p>
+          </body>
+        </html>
+        ```
 
 ## Create the add-in
 
