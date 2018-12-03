@@ -10,11 +10,32 @@ ms.author: elizs
 
 # Get and set recurrence
 
-Imagine that you need to schedule a meeting with your team to discuss the current status of a project. It turns out that you need the status repeatedly until the project is completed. Instead of scheduling a meeting each time, you can configure the meeting to include how often you want it to occur. Then let's say that subsequently one of the meetings is at a time where you or one of the key attendees can't make it. You can then update that particular instance or occurrence, or cancel it altogether, without affecting the remainder of the series. Note that you can also set up a recurrence for your repeat appointments.
+Sometimes you need to create and update a recurring appointment, such as a weekly status meeting for a team project or an annual checkup with your doctor. You can use the JavaScript API for Office to manage the recurrence patterns of an appointment series in your add-in.
 
-**Table 1. Available item states**
+## Available recurrence patterns
 
-|State|Editable?|Viewable?|
+To configure the recurrence pattern, you need to combine the [recurrence type](/javascript/api/outlook_1_7/office.mailboxenums.recurrencetype) and its applicable [recurrence properties](/javascript/api/outlook_1_7/office.recurrenceproperties) (if any).
+
+**Table 1. Recurrence types and their applicable properties**
+
+|Recurrence type|Valid recurrence properties|Usage|
+|---|---|---|
+|`daily`|- [`interval`][interval link]|An appointment occurs every *interval* days. Example: An appointment occurs every **_2_** days.|
+|`weekday`||An appointment occurs every weekday.|
+|`monthly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]|- An appointment occurs on day *dayOfMonth* every *interval* months. Example: An appointment occurs on day **_5_** every **_4_** months.<br/><br/>- An appointment occurs on the *weekNumber* *dayOfWeek* every *interval* months. Example: An appointment occurs on the **_third_** **_Thursday_** every **_2_** months.|
+|`weekly`|- [`interval`][interval link]<br/>- [`days`][days link]|An appointment occurs on *days* every *interval* weeks. Example: An appointment occurs on **_Tuesday_ and _Thursday_** every **_2_** weeks.|
+|`yearly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]<br/>- [`month`][month link]|- An appointment occurs on day *dayOfMonth* of *month* every *interval* years. Example: An appointment occurs on day **_7_** of **_September_** every **_4_** years.<br/><br/>- An appointment occurs on the *weekNumber* *dayOfWeek* of *month* every *interval* years. Example: An appointment occurs on the **_first_** **_Thursday_** of **_September_** every **_2_** years.|
+
+> [!NOTE]
+> If a property is not listed for a particular recurrence type, then it is not applicable for that type.
+
+## Access recurrence
+
+How you access the recurrence pattern and what you can do with it depends on if you're the appointment organizer or an attendee.
+
+**Table 2. Applicable appointment states**
+
+|Appointment state|Is recurrence editable?|Is recurrence viewable?|
 |---|---|---|
 |Appointment organizer - compose series|Yes ([`setAsync`][setAsync link])|Yes ([`getAsync`][getAsync link])|
 |Appointment organizer - compose instance|No (`setAsync` returns an error)|Yes ([`getAsync`][getAsync link])|
@@ -23,33 +44,16 @@ Imagine that you need to schedule a meeting with your team to discuss the curren
 |Meeting request - read series|No (`setAsync` not available)|Yes ([`item.recurrence`][item.recurrence link])|
 |Meeting request - read instance|No (`setAsync` not available)|Yes ([`item.recurrence`][item.recurrence link])|
 
-## Available recurrence patterns
-
-To configure the recurrence pattern, you need to combine the recurrence type and its applicable recurrence properties (if any).
-
-**Table 2. Recurrence types and their applicable properties**
-
-|[Recurrence type](/javascript/api/outlook_1_7/office.mailboxenums.recurrencetype)|Valid [recurrence properties](/javascript/api/outlook_1_7/office.recurrenceproperties)|Usage|
-|---|---|---|
-|`daily`|- [`interval`][interval link]|An appointment occurs every *interval* days. Example: An appointment occurs every **_2_** days.|
-|`weekday`||An appointment occurs every weekday.|
-|`monthly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]|1. An appointment occurs on day *dayOfMonth* every *interval* months. Example: An appointment occurs on day **_5_** every **_4_** months.<br/>2. An appointment occurs on the *weekNumber* *dayOfWeek* every *interval* months. Example: An appointment occurs on the **_third_** **_Thursday_** every **_2_** months.|
-|`weekly`|- [`interval`][interval link]<br/>- [`days`][days link]<br/>- [`firstDayOfWeek`][firstDayOfWeek link] (optional)|An appointment occurs on *days* every *interval* weeks. Example: An appointment occurs on **_Tuesday_ and _Thursday_** every **_2_** weeks.|
-|`yearly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]<br/>- [`month`][month link]|1. An appointment occurs on day *dayOfMonth* of *month* every *interval* years. Example: An appointment occurs on day **_7_** of **_September_** every **_4_** years.<br/>2. An appointment occurs on the *weekNumber* *dayOfWeek* of *month* every *interval* years. Example: An appointment occurs on the **_first_** **_Thursday_** of **_September_** every **_2_** years.|
-
-> [!NOTE]
-> If a property is not listed then it is not applicable for that type.
-
-## Set recurrence for a series as the organizer
+## Set recurrence as the organizer
 
 Along with the recurrence pattern, you also need to determine the start and end dates/times of your appointment series. The [`SeriesTime`][SeriesTime link] object is used to manage that information.
 
-The appointment organizer can set up the appointment series in compose mode only. In the following example, the appointment series is set to occur from 10:30 AM to 11:00 AM PST every Tuesday and Thursday during the period November 2, 2017 to December 2, 2017.
+The appointment organizer can specify the recurrence pattern for an appointment series in compose mode only. In the following example, the appointment series is set to occur from 10:30 AM to 11:00 AM PST every Tuesday and Thursday during the period November 2, 2019 to December 2, 2019.
 
 ```js
 var seriesTimeObject = new Office.SeriesTime();
-seriesTimeObject.setStartDate(2017,10,2);
-seriesTimeObject.setEndDate(2017,11,2);
+seriesTimeObject.setStartDate(2019,10,2);
+seriesTimeObject.setEndDate(2019,11,2);
 seriesTimeObject.setStartTime(10,30);
 seriesTimeObject.setDuration(30);
 
@@ -67,14 +71,11 @@ function callback(asyncResult)
 }
 ```
 
-> [!NOTE]
-> Only the appointment organizer can set the recurrence.
-
 ## Get recurrence
 
 ### Get recurrence as the organizer
 
-In the following example in compose mode, the appointment organizer can get the recurrence object of an appointment series given the series item or an instance of that series.
+In the following example, in compose mode, the appointment organizer can get the recurrence object of an appointment series given the series or an instance of that series.
 
 ```js
 Office.context.mailbox.item.recurrence.getAsync(callback);
@@ -92,13 +93,13 @@ function callback(asyncResult){
 }
 ```
 
-The following is an example of the results of the `getAsync` call on a series.
+The following example shows the results of the `getAsync` call that retrieves the recurrence for a series.
 
 > [!NOTE]
 > In this example, the `seriesTimeObject` is a placeholder for the JSON representing the `recurrence.seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
 
-```js
-Recurrence = {
+```json
+{
     "recurrenceType": "weekly",
     "recurrenceProperties": {
         "interval": 1,
@@ -130,13 +131,13 @@ function outputRecurrence(item) {
 }
 ```
 
-The following is an example of the `item.recurrence` property.
+The following example shows the value of the `item.recurrence` property for an appointment series.
 
 > [!NOTE]
 > In this example, the `seriesTimeObject` is a placeholder for the JSON representing the `recurrence.seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
 
-```js
-Recurrence = {
+```json
+{
     "recurrenceType": "weekly",
     "recurrenceProperties": {
         "interval": 1,
@@ -148,9 +149,9 @@ Recurrence = {
         "offset": -480}}
 ```
 
-### Access the recurrence details
+### Get the recurrence details
 
-Now that you have the recurrence object (either from the callback or `item.recurrence`), you can get the specific properties you want to work with. For example, to get the series start and end dates and times, you use the methods on the `recurrence.seriesTime` property.
+After you've retrieved the recurrence object (either from the `getAsync` callback or from `item.recurrence`), you can get specific properties of the recurrence. For example, you can get the start and end dates and times of the series by using methods on the `recurrence.seriesTime` property.
 
 ```js
 // Get series date and time info
