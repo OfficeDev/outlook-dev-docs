@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Authenticate a user with an single-sign-on token in an Outlook add-in (preview)
 
-Single sign-on (SSO) provides a seamless way for your add-in to authenticate users (and optionally to obtain access tokens to call the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/overview)).
+Single sign-on (SSO) provides a seamless way for your add-in to authenticate users (and optionally to obtain access tokens to call the [Microsoft Graph API](/graph/overview)).
 
 Using this method, your add-in can obtain an access token scoped to your server back-end API. The add-in uses this as a bearer token in the `Authorization` header to authenticate a call back to your API. Optionally, you can also have your server-side code:
 

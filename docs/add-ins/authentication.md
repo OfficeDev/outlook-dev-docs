@@ -14,7 +14,7 @@ Your Outlook add-in can access information from anywhere on the Internet, whethe
 
 ## Single sign-on access token
 
-Single sign-on access tokens provide a seamless way for your add-in to authenticate and obtain access tokens to call the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/overview). This capability reduces friction since the user is not required to enter their credentials. 
+Single sign-on access tokens provide a seamless way for your add-in to authenticate and obtain access tokens to call the [Microsoft Graph API](/graph/overview). This capability reduces friction since the user is not required to enter their credentials.
 
 > [!NOTE]
 > The Single Sign-on API is currently supported in preview for Word, Excel, Outlook, and PowerPoint. For more information about where the Single Sign-on API is currently supported, see [IdentityAPI requirement sets](https://docs.microsoft.com/office/dev/add-ins/reference/requirement-sets/identity-api-requirement-sets).
