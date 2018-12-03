@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Create a message compose Outlook add-in'
+title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build a Outlook add-in that can be used in message compose mode to insert GitHub gists into the body of a new email message.
 ms.topic: tutorial
 ms.date: 12/03/2018
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 ---
 
-# Tutorial: Create a message compose Outlook add-in
+# Tutorial: Build a message compose Outlook add-in
 
 ## Introduction
 
@@ -25,18 +25,17 @@ In this tutorial, you'll learn how to:
 
 Outlook add-ins are comprised of HTML, CSS, and JavaScript files, so technically the only absolute prerequisite is some sort of web server to host the files. However, in this guide we're going to use some tools to make it easier to get up and running quickly. To follow along with this guide, you'll need the following:
 
-- [Node.js](https://nodejs.org)
-- [Yeoman](https://yeoman.io/)
-- [Microsoft Office Add-in Project Generator](https://github.com/officedev/generator-office)
-- Internet Explorer version 11 or later
+* [Node.js and npm](https://nodejs.org/en/)
 
-> [!TIP]
-> Once you have Node.js installed, you can install all of the other prerequisites via NPM:
->
-> npm install -g yo generator-office
+* The latest version of [Yeoman](http://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command via the command prompt:
 
+    ```bash
+    npm install -g yo generator-office
+    ```
 
-You will also need Outlook 2016 or later connected to an Office 365 account, Outlook.com account, or a Microsoft Exchange Server and a GitHub account to test all of the features of the add-in we're going to create.
+* Outlook 2016 or later for Windows (connected to an Office 365 account) or an Outlook.com account
+
+* A [GitHub](https://www.github.com) account 
 
 ## Create the add-in
 
