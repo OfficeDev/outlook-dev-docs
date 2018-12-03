@@ -14,10 +14,10 @@ In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Create an Outlook add-in project
+> * Create one button that invokes a function and a second button that opens a task pane 
 > * Implement a first-run experience to collect information from the user
-> * Write a script that fetches data from an external service
-> * Implement a UI-less button that executes a function
-> * Implement a task pane that inserts content into the body of an email message
+> * Write code that fetches data from an external service
+> * Write code that inserts content into the body of an email message
 
 ## Prerequisites
 
@@ -114,7 +114,11 @@ Use the Yeoman generator to create an Outlook add-in project.
     cd "Git the gist"
     ```
 
-### Add a support page
+## Update the manifest
+
+The manifest for an add-in controls how it appears in Outlook. It defines the way the add-in appears in the add-in list, the buttons that appear on the ribbon, and it sets the URLs for the HTML and JavaScript files used by the add-in. 
+
+### Specify a support page
 
 The XML manifest file that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
 
@@ -144,6 +148,21 @@ The XML manifest file that the generator creates contains a placeholder value fo
   <SupportUrl DefaultValue="https://localhost:3000/support.html" />
   ```
 
+### Specify basic information
+
+Next, make the following updates in the **manifest.xml** fil to specify some basic information about the add-in:
+
+1. Locate the `ProviderName` element and replace the default value with your company name.
+
+   ```xml
+    <ProviderName>Contoso</ProviderName>
+    ```
+1. Locate the `Description` element, replace the default value with a description of the add-in, and save the file.
+
+    ```xml
+    <Description DefaultValue="Allows users to access their gists on GitHub"/>
+   ```
+
 ### Test the generated add-in
 
 Before going any further, let's test the basic add-in that the generator created to confirm that the project is setup correctly. 
@@ -163,26 +182,13 @@ Before going any further, let's test the basic add-in that the generator created
 
     ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.PNG)
 
-## Write the code
 
-Now that you've verified that the base add-in works, you can add customize it to add additional functionality.
 
-### Update the manifest (again)
 
-The manifest for an add-in controls how it appears in Outlook. It defines the way the add-in appears in the add-in list, the buttons that appear on the ribbon, and it sets the URLs for the HTML and JavaScript files used by the add-in.
+## TODO: define buttons
 
-Let's start by updating some properties of the add-in itself.
+Now that you've verified that the base add-in works, you can customize it to add additional functionality. 
 
-1. Open the **manifest.xml** file. Locate the `ProviderName` element in the XML and replace the default value with your company name.
-
-   ```xml
-    <ProviderName>Contoso</ProviderName>
-    ```
-1. Update the `Description` with a description of the add-in.
-
-    ```xml
-    <Description DefaultValue="Allows users to access their gists on GitHub"/>
-   ```
 
 Now we'll change the buttons defined by the add-in. For our add-in, we'll implement two buttons: **Insert gist** and **Insert default gist** on the compose message window. However, the current manifest only adds buttons to the read message window. We'll have to add the message compose command surface extension point.
 
@@ -1145,7 +1151,7 @@ Save all of your changes and run `npm start` if the server isn't already running
 
 ## Next steps
 
-In this tutorial, you've created an Outlook add-in that implements a first-run experience, fetches data from an external service, renders a UI-less button that executes a function, and renders a task pane that can be used to insert content into the body of an email message. To learn more about developing Outlook add-ins, continue to the following article: 
+In this tutorial, you've created an Outlook add-in that implements a first-run experience, fetches data from an external service, renders a button that invokes a function, and renders a task pane that can be used to insert content into the body of an email message. To learn more about developing Outlook add-ins, continue to the following article: 
 
 > [!div class="nextstepaction"]
 > [Outlook add-in APIs](apis.md)
