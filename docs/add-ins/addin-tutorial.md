@@ -14,7 +14,7 @@ In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Create an Outlook add-in project
-> * Create one button that invokes a function and a second button that opens a task pane 
+> * Define one button that invokes a function and a second button that opens a task pane 
 > * Implement a first-run experience to collect information from the user
 > * Write code that fetches data from an external service
 > * Write code that inserts content into the body of an email message
@@ -190,15 +190,15 @@ Now that you've verified the base add-in works, you can customize it to add addi
 
 - **Insert default gist**: a button that invokes a function
 
-### Add the message compose command surface extension point
+### Add a new extension point to the manifest
 
 Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this line, insert the following XML markup. Note the following about this markup:
 
-- The `ExtensionPoint` with `xsi:type="MessageComposeCommandSurface"` indicates that we're defining buttons to add to the message compose window.
+- The `ExtensionPoint` with `xsi:type="MessageComposeCommandSurface"` indicates that you're defining buttons to add to the message compose window.
 
-- By using an `OfficeTab` element with `id="TabDefault"`, we're indicating we want to add our buttons to the default tab on the ribbon.
+- By using an `OfficeTab` element with `id="TabDefault"`, you're indicating you want to add the buttons to the default tab on the ribbon.
 
-- The `Group` element defines the grouping for our buttons, with a label set by the `groupLabel` resource.
+- The `Group` element defines the grouping for the new buttons, with a label set by the `groupLabel` resource.
 
 - The first `Control` element contains an `Action` element with `xsi:type="ShowTaskPane"`, so this button will open a task pane.
 
@@ -244,7 +244,7 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this li
 </ExtensionPoint>
 ```
 
-### Update resources
+### Update resources in the manifest
 
 The code above references labels, tooltips, and URLs that you need to define before the manifest will be valid. Specify this information by making the following changes in the `Resources` section of the manifest. 
 
@@ -253,7 +253,7 @@ The code above references labels, tooltips, and URLs that you need to define bef
     ```xml
     <bt:Url id="insertGistPaneUrl" DefaultValue="https://localhost:3000/msg-compose/insert-gist.html"/>
     ```
-1. Change the `DefaultValue` attribute of the `bt:String` element with `id="groupLabel"` to `Git the gist`.
+1. Change the `DefaultValue` attribute of the `bt:String` element with `id="groupLabel"` to **Git the gist**.
 
     ```xml
     <bt:String id="groupLabel" DefaultValue="Git the gist"/>
@@ -295,6 +295,8 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 After you've completed these steps, you should the two new buttons when you compose a new message in Outlook: **Insert gist** and **Insert default gist**. 
 
 ## TODO - Implement a first-run experience
+
+Implement a first-run experience to collect information from the user
 
 In this add-in, we will ask the user to provide their GitHub URL, and then choose one of their existing gists to be the default gist. We'll implement this as a settings dialog for the add-in.
 
