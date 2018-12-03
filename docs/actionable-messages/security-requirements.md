@@ -35,7 +35,7 @@ DKIM and SPF are industry standard ways to prove a sender's identity when sendin
 
 ### Signed card payloads
 
-Actionable messages [sent via email](actionable-messages-via-email.md) support an alternative verification method: signing the card payload with and RSA key or X509 certificate. This method is required in the following scenarios:
+Actionable messages [sent via email](send-via-email.md) support an alternative verification method: signing the card payload with and RSA key or X509 certificate. This method is required in the following scenarios:
 
 - The sending servers do not support DKIM or SPF verification.
 - You scenario for actionable messages requires sending from multiple email accounts.

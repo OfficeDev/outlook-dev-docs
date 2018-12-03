@@ -13,7 +13,7 @@ ms.author: jasonjoh
 The [Office.context.mailbox.item](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item) namespace provides access to many of the common fields of messages and appointments. However, in some scenarios an add-in may need to access data that is not exposed by the namespace. For example, the add-in may rely on custom properties set by an outside app, or it needs to search the user's mailbox for messages from the same sender. In these scenarios, the [Outlook REST APIs](../rest/index.md) is the recommended method to retrieve the information.
 
 > [!NOTE]
-> You can also access [Outlook REST APIs via Microsoft Graph](../rest/index.md#outlook-rest-api-via-microsoft-graph) but there are some key differences. For more details, please [Compare Microsoft Graph and Outlook](../rest/compare-graph-outlook.md).
+> You can also access [Outlook REST APIs via Microsoft Graph](../rest/index.md#outlook-rest-api-via-microsoft-graph) but there are some key differences. For more details, please [Compare Microsoft Graph and Outlook](../rest/compare-graph.md).
 
 ## Get an access token
 
@@ -90,7 +90,7 @@ function getCurrentItem(accessToken) {
   var itemId = getItemRestId();
 
   // Construct the REST URL to the current item
-  // Details for formatting the URL can be found at 
+  // Details for formatting the URL can be found at
   // https://docs.microsoft.com/previous-versions/office/office-365-api/api/version-2.0/mail-rest-operations#get-a-message-rest
   var getMessageUrl = Office.context.mailbox.restUrl +
     '/v2.0/me/messages/' + itemId;
