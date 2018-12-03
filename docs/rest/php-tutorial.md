@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple PHP app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/php-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use Microsoft Graph(https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/php-tutorial/tree/outlook-api).
+This guide will use [Microsoft Graph](/graph/overview) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/php-tutorial/tree/outlook-api).
 
 This guide assumes that you already have PHP installed and working on your development machine. The tutorial was created using PHP 5.6.30.
 
@@ -111,7 +111,7 @@ Now we'll modify the existing home page to use this layout. Open the `./php-tuto
 @section('content')
 <div class="jumbotron">
   <h1>PHP Outlook Sample</h1>
-  <p>This example shows how to get an OAuth token from Azure using the <a href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code" target="_blank">authorization code grant flow</a> and to use that token to make calls to the Outlook APIs in the <a href="https://developer.microsoft.com/graph/" target="_blank">Microsoft Graph</a>.</p>
+  <p>This example shows how to get an OAuth token from Azure using the <a href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code" target="_blank">authorization code grant flow</a> and to use that token to make calls to the Outlook APIs in the <a href="https://docs.microsoft.com/en-us/graph/overview" target="_blank">Microsoft Graph</a>.</p>
   <p>
     <a class="btn btn-lg btn-primary" href="/signin" role="button" id="connect-button">Connect to Outlook</a>
   </p>
@@ -125,10 +125,10 @@ The **Connect to Outlook** button doesn't do anything yet, but we'll fix that so
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret. 
+Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret.
 
 1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `php-tutorial` for the name and click **Create application**. 
+1. Click the **Add an app** button. Enter `php-tutorial` for the name and click **Create application**.
 1. Locate the **Application Secrets** section, and click the **Generate New Password** button. Copy the password now and save it to a safe place. Once you've copied the password, click **Ok**.
 1. Locate the **Platforms** section, and click **Add Platform**. Choose **Web**, then enter `http://localhost:8000/authorize` under **Redirect URIs**.
 1. Click **Save** to complete the registration. Copy the **Application Id** and save it along with the password you copied earlier. We'll need those values soon.
@@ -177,7 +177,7 @@ use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
-  public function signin() 
+  public function signin()
   {
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
@@ -213,7 +213,7 @@ Now let's configure the app. We'll use environment variables to hold all of the 
 
 #### New entries in `./php-tutorial/.env`
 
-```
+```text
 OAUTH_APP_ID=YOUR_APP_ID_HERE
 OAUTH_APP_PASSWORD=YOUR_APP_PASSWORD_HERE
 OAUTH_REDIRECT_URI=http://localhost:8000/authorize
@@ -227,14 +227,14 @@ Replace `YOUR_APP_ID_HERE` and `YOUR_APP_PASSWORD_HERE` with the application ID 
 
 Save all your changes and restart the Laravel development server (`php artisan serve`). Browse to `http://localhost:8000` and click on the **Connect to Outlook** button. You should see the authorization URL printed to the page, which should look something like this.
 
-```
+```http
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?state=48b0ad0b3b443a543cf823f98db760c4&scope=openid%20profile%20offline_access%20User.Read%20Mail.Read&response_type=code&approval_prompt=auto&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Foauth&client_id=<YOUR_CLIENT_ID>
 ```
 
 Now let's update the app to actually navigate to that URL so the user can sign in and grant access to the app. We'll also add another controller method to receive the redirect back from the Azure authorization endpoint. First, replace the existing `signin` method in `./php-tutorial/app/Http/Controllers/AuthController.php` with this one.
 
 ```PHP
-public function signin() 
+public function signin()
 {
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -412,7 +412,7 @@ class TokenCache {
         ]);
 
         // Store the new values
-        $this->   storeTokens($newToken->getToken(), $newToken->getRefreshToken(), 
+        $this->   storeTokens($newToken->getToken(), $newToken->getRefreshToken(),
           $newToken->getExpires());
 
         return $newToken->getToken();
@@ -468,7 +468,7 @@ public function gettoken()
       $accessToken = $oauthClient->getAccessToken('authorization_code', [
         'code' => $_GET['code']
       ]);
-      
+
       // Save the access token and refresh tokens in session
       // This is for demo purposes only. A better method would
       // be to store the refresh token in a secured database
@@ -503,12 +503,12 @@ use App\Http\Controllers\Controller;
 
 class OutlookController extends Controller
 {
-  public function mail() 
+  public function mail()
   {
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
     }
-    
+
     $tokenCache = new \App\TokenStore\TokenCache;
 
     echo 'Token: '.$tokenCache->getAccessToken();
@@ -526,7 +526,7 @@ Route::get('/mail', 'OutlookController@mail')->name('mail');
 
 Save your changes, browse to `http://localhost:8000` and sign in again. This time, the app should redirect to `https://localhost:8000/mail` and display the token, verifying that our token cache is working across controllers. Now that we have an access token and we can refresh if needed, we're ready to use the Mail API.
 
-## Using the Mail API ##
+## Using the Mail API
 
 We're going to use the [Microsoft Graph SDK for PHP](https://github.com/microsoftgraph/msgraph-sdk-php) to make all of our Outlook API Calls, so let's start by installing it.
 
@@ -564,7 +564,7 @@ Replace the existing `mail` function with the following code.
 #### Updated `mail` function in `./php-tutorial/app/Http/Controllers/OutlookController.php`
 
 ```PHP
-public function mail() 
+public function mail()
 {
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -590,7 +590,7 @@ Now let's add code to retrieve the user's messages. Replace the existing `mail` 
 #### Updated `mail` function in `./php-tutorial/app/Http/Controllers/OutlookController.php`
 
 ```PHP
-public function mail() 
+public function mail()
 {
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -631,9 +631,9 @@ To summarize the new code in the `mail` function:
 
 - It creates a Graph client object and initializes it to use the access token passed to the function.
 - It calls the `/me/mailfolders/inbox/messages` API to get inbox messages, and uses other methods to control the request:
-    - It uses the `top` method with a value of `10` to limit the results to the first 10.
-    - It uses the `select` method to only request the `subject`, `from`, `receivedDateTime`, and `isRead` properties.
-    - It uses the `orderby` method with a value of `receivedDateTime desc` to get the newest messages first.
+  - It uses the `top` method with a value of `10` to limit the results to the first 10.
+  - It uses the `select` method to only request the `subject`, `from`, `receivedDateTime`, and `isRead` properties.
+  - It uses the `orderby` method with a value of `receivedDateTime desc` to get the newest messages first.
 - It loops over the results and prints out the subject.
 
 If you restart the app now, you should get a very rough listing of the results array. Let's add a little HTML and PHP to display the results in a nicer way.
@@ -675,7 +675,7 @@ Now update the `mail` function to return this view.
 #### Updated `mail` function in `./php-tutorial/app/Http/Controllers/OutlookController.php`
 
 ```PHP
-public function mail() 
+public function mail()
 {
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -724,19 +724,19 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 ### For Calendar API:
 
-1. Update the `OAUTH_SCOPES` value in `.\php-tutorial\.env` to include the `Calendars.Read` scope. 
+1. Update the `OAUTH_SCOPES` value in `.\php-tutorial\.env` to include the `Calendars.Read` scope.
 
     > [!NOTE]
     > Be sure to restart the development server after changing this file!
 
-    ```
+    ```text
     OAUTH_SCOPES='openid profile offline_access User.Read Mail.Read Calendars.Read'
     ```
 
 1. Add a new function `calendar` to the `OutlookController` class in `./php-tutorial/app/Http/Controllers/OutlookController.php`.
 
     ```PHP
-    public function calendar() 
+    public function calendar()
     {
       if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -816,19 +816,19 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 ### For Contacts API:
 
-1. Update the `OAUTH_SCOPES` value in `.\php-tutorial\.env` to include the `Contacts.Read` scope. 
+1. Update the `OAUTH_SCOPES` value in `.\php-tutorial\.env` to include the `Contacts.Read` scope.
 
     > [!NOTE]
     > Be sure to restart the development server after changing this file!
 
-    ```
+    ```text
     OAUTH_SCOPES='openid profile offline_access User.Read Mail.Read Contacts.Read'
     ```
 
 1. Add a new function `contacts` to the `OutlookController` class in `./php-tutorial/app/Http/Controllers/OutlookController.php`.
 
     ```PHP
-    public function contacts() 
+    public function contacts()
     {
       if (session_status() == PHP_SESSION_NONE) {
         session_start();

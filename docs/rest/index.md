@@ -28,7 +28,7 @@ Take an early look at the following services in preview status:
 
 - [Application Registration Portal](https://apps.dev.microsoft.com/)
 
-  Use a Microsoft account or Office 365 subscription account to register your app. It takes only a few steps to identify your app for Outlook.com and Office 365. 
+  Use a Microsoft account or Office 365 subscription account to register your app. It takes only a few steps to identify your app for Outlook.com and Office 365.
 
 - v2 endpoints:
 
@@ -49,16 +49,16 @@ Plan to upgrade in-production Office 365 apps after the preview period is over.
 Use one common REST endpoint...
 
 ```http
-https://graph.microsoft.com/{version} 
+https://graph.microsoft.com/{version}
 ```
 
 ...to make all Outlook REST API calls in the following APIs:
 
-- [Outlook Mail REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message)
-- [Outlook Calendar REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/calendar)
-- [Outlook Contacts REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/contact)
-- [Outlook Notifications REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks)
-- [Outlook Photo REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/profilephoto)
-- [Outlook Settings REST API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/outlookuser)
+- [Outlook Mail REST API](/graph/api/resources/message?view=graph-rest-1.0)
+- [Outlook Calendar REST API](/graph/api/resources/calendar?view=graph-rest-1.0)
+- [Outlook Contacts REST API](/graph/api/resources/contact?view=graph-rest-1.0)
+- [Outlook Notifications REST API](/graph/api/resources/webhooks?view=graph-rest-1.0)
+- [Outlook Photo REST API](/graph/api/resources/profilephoto?view=graph-rest-1.0)
+- [Outlook Settings REST API](/graph/api/resources/outlookuser?view=graph-rest-1.0)
 
-For more information and a comparison between the Graph endpoints and the Outlook API endpoints, see [Compare Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).
+For more information and a comparison between the Graph endpoints and the Outlook API endpoints, see [Compare Microsoft Graph and Outlook endpoints](compare-graph.md).

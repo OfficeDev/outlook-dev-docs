@@ -14,7 +14,7 @@ To test and publish actionable messages from your service, you need to provide c
 
 > [!NOTE]
 > You can easily try out actionable messages via email by sending email to yourself with the required markup without any intervention from Microsoft. This would typically be the first step you try out as you dip your toes into this capability.
-> Check out [these samples](actionable-messages-via-email.md#sending-the-message) to send an actionable message to your mailbox, or use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to send an actionable message to yourself.
+> Check out [these samples](send-via-email.md#sending-the-message) to send an actionable message to your mailbox, or use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to send an actionable message to yourself.
 
 If you are a developer working with actionable messages via email, you will use the portal for the following cases:
 

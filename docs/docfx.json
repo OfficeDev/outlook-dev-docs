@@ -35,7 +35,7 @@
       "uhfHeaderId": "MSDocsHeader-Outlook",
       "searchScope": [ "Outlook Developer" ],
       "ms.suite": "office365",
-      "ms.prod": "Outlook",
+      "ms.prod": "outlook",
       "breadcrumb_path": "/outlook/breadcrumb/toc.json",
       "feedback_system": "GitHub",
       "feedback_github_repo": "OfficeDev/outlook-dev-docs",
@@ -44,6 +44,9 @@
     "fileMetadata": {
       "feedback_system": {
         "rest/terms-of-use.md": "None"
+      },
+      "titleSuffix": {
+        "**/*.md": "Outlook Developer"
       }
     },
     "template": [],

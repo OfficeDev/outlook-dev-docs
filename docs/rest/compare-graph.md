@@ -11,11 +11,11 @@ ms.author: jasonjoh
 
 # Compare Microsoft Graph and Outlook REST API endpoints
 
-The Outlook REST APIs are available in both [Microsoft Graph](https://developer.microsoft.com/graph/) and the Outlook API endpoint (`https://outlook.office.com/api`). The APIs generally provide the same functionality and use the same resource types.
+The Outlook REST APIs are available in both [Microsoft Graph](/graph/overview) and the Outlook API endpoint (`https://outlook.office.com/api`). The APIs generally provide the same functionality and use the same resource types.
 
 ## Which endpoint should I use?
 
-Use Microsoft Graph whenever possible. The Microsoft Graph endpoint lets you access Outlook and many more [services and features](https://developer.microsoft.com/graph/docs/concepts/overview-major-services), including other Office 365 services, Enterprise Mobility + Security, and Windows 10. Choosing the Microsoft Graph endpoint allows your app to get an access token that can provide access to both Outlook data and other resources, without having to make multiple token requests.
+Use Microsoft Graph whenever possible. The Microsoft Graph endpoint lets you access Outlook and many more [services and features](/graph/overview-major-services), including other Office 365 services, Enterprise Mobility + Security, and Windows 10. Choosing the Microsoft Graph endpoint allows your app to get an access token that can provide access to both Outlook data and other resources, without having to make multiple token requests.
 
 ## Feature differences
 
@@ -40,7 +40,7 @@ The Microsoft Graph API offers two versions: `v1.0` and `beta`, while Outlook of
 
 ### OAuth scopes
 
-While the Microsoft Graph and Outlook endpoints both rely on Azure AD-issued tokens, and the [permissions](https://developer.microsoft.com/graph/docs/concepts/permissions_reference) used are the same, the way that your application requests those permissions is slightly different for each endpoint.
+While the Microsoft Graph and Outlook endpoints both rely on Azure AD-issued tokens, and the [permissions](/graph/permissions-reference) used are the same, the way that your application requests those permissions is slightly different for each endpoint.
 
 #### Azure v2 OAuth2 endpoint
 
@@ -66,13 +66,13 @@ Apps that use the [Azure AD v1.0 endpoint](https://docs.microsoft.com/azure/acti
 
 The resources are the same between Microsoft Graph and Outlook. However, the two endpoints handle casing of the property names differently. Microsoft Graph uses camelCase for property names, while Outlook uses PascalCase. Translating between the two simply requires converting the case.
 
-For example, the Microsoft Graph [message resource](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
+For example, the Microsoft Graph [message resource](/graph/api/resources/message?view=graph-rest-1.0) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
 
 ### Tracking changes (synchronization)
 
 Both endpoints support querying collections for changes relative to a synchronization state. While the functionality is the same, the methods are slightly different.
 
-On the Microsoft Graph endpoint, changes are queried by using [delta queries](https://developer.microsoft.com/graph/docs/concepts/delta_query_overview). This is implemented as a `delta` function on the collection.
+On the Microsoft Graph endpoint, changes are queried by using [delta queries](/graph/delta-query-overview). This is implemented as a `delta` function on the collection.
 
 On the Outlook endpoint, changes are queried by [adding a header](/previous-versions/office/office-365-api/api/version-2.0/mail-rest-operations#synchronize-messages) to normal resource collection queries.
 
@@ -80,7 +80,7 @@ On the Outlook endpoint, changes are queried by [adding a header](/previous-vers
 
 Both endpoints support batching up to 20 separate requests into one HTTP request.
 
-[Microsoft Graph batching](https://developer.microsoft.com/graph/docs/concepts/json_batching) encodes multiple API requests into a JSON body with a content type of `application/json`.
+[Microsoft Graph batching](/graph/json-batching) encodes multiple API requests into a JSON body with a content type of `application/json`.
 
 In addition to the JSON body format, [Outlook endpoint batching](/previous-versions/office/office-365-api/api/version-2.0/batch-outlook-rest-requests) also supports a multi-part body format with a content type of `multipart/mixed`.
 
