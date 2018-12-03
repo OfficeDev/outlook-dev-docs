@@ -41,7 +41,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
 2. [Create a new gist](https://gist.github.com). 
 
-    - In the **Git description...** field, enter **Hello World Markdown**.
+    - In the **Gist description...** field, enter **Hello World Markdown**.
 
     - In the **Filename including extension...** field, enter **test.md**.
 
@@ -61,9 +61,11 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
           ```
         ```    
 
+    - Choose the **Create public gist** button.
+
 3. [Create another new gist](https://gist.github.com). 
 
-    - In the **Git description...** field, enter **Hello World Html**.
+    - In the **Gist description...** field, enter **Hello World Html**.
 
     - In the **Filename including extension...** field, enter **test.html**.
 
@@ -84,6 +86,8 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
           </body>
         </html>
         ```
+
+    - Choose the **Create public gist** button.
 
 ## Create the add-in
 
