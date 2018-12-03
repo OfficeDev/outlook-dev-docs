@@ -174,7 +174,7 @@ var recurrenceType = recurrence.recurrenceType;
 
 ## See also
 
-[`RecurrenceChanged` event](/javascript/api/office/office.eventtype)
+[RecurrenceChanged event](/javascript/api/office/office.eventtype)
 
 [getAsync link]: /javascript/api/outlook_1_7/office.recurrence#getasync-options--callback-
 [item.recurrence link]: /javascript/api/outlook_1_7/office.item#recurrence
