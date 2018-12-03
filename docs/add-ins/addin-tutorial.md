@@ -120,7 +120,7 @@ The manifest for an add-in controls how it appears in Outlook. It defines the wa
 
 ### Specify a support page
 
-The XML manifest file that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
+The manifest that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
 
 1. In the root directory of the project, add a new file named **support.html**.
 
@@ -150,7 +150,7 @@ The XML manifest file that the generator creates contains a placeholder value fo
 
 ### Specify basic information
 
-Next, make the following updates in the **manifest.xml** fil to specify some basic information about the add-in:
+Next, make the following updates in the **manifest.xml** file to specify some basic information about the add-in:
 
 1. Locate the `ProviderName` element and replace the default value with your company name.
 
@@ -182,20 +182,27 @@ Before going any further, let's test the basic add-in that the generator created
 
     ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.PNG)
 
+## Define buttons
 
+Now that you've verified the base add-in works, you can customize it to add additional functionality. By default, the manifest that the generator created only defines buttons for the read message window. Let's update the manifest to define the two buttons that your add-in will render in the compose message window:
 
+- **Insert gist**: a button that opens a task pane
 
-## TODO: define buttons
+- **Insert default gist**: a button that invokes a function
 
-Now that you've verified that the base add-in works, you can customize it to add additional functionality. 
+### Add the message compose command surface extension point
 
+Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this line, insert the following XML markup. Note the following about this markup:
 
-Now we'll change the buttons defined by the add-in. For our add-in, we'll implement two buttons: **Insert gist** and **Insert default gist** on the compose message window. However, the current manifest only adds buttons to the read message window. We'll have to add the message compose command surface extension point.
+- The `ExtensionPoint` with `xsi:type="MessageComposeCommandSurface"` indicates that we're defining buttons to add to the message compose window.
 
-> [!NOTE]
-> For now we will leave the message read command surface as-is. In future parts of this series, we will revisit the message read scenario.
+- By using an `OfficeTab` element with `id="TabDefault"`, we're indicating we want to add our buttons to the default tab on the ribbon.
 
-Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this line, insert the following XML:
+- The `Group` element defines the grouping for our buttons, with a label set by the `groupLabel` resource.
+
+- The first `Control` element contains an `Action` element with `xsi:type="ShowTaskPane"`, so this button will open a task pane.
+
+- The second `Control` element contains an `Action` element with `xsi:type="ExecuteFunction"`, so this button will invoke a JavaScript function contained in the function file.
 
 ```xml
 <ExtensionPoint xsi:type="MessageComposeCommandSurface">
@@ -237,76 +244,57 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this li
 </ExtensionPoint>
 ```
 
-Now let's look at exactly what that does.
+### Update resources
 
-- The `ExtensionPoint` with `xsi:type="MessageComposeCommandSurface"` indicates that we're defining buttons to add to the message compose window.
+The code above references labels, tooltips, and URLs that you need to define before the manifest will be valid. Specify this information by making the following changes in the `Resources` section of the manifest. 
 
-- By using an `OfficeTab` element with `id="TabDefault"`, we're indicating we want to add our buttons to the default tab on the ribbon.
+1. Add the following element as a child of the `bt:Urls` element:
 
-- The `Group` element defines the grouping for our buttons, with a label set by the `groupLabel` resource.
-
-- The first `Control` element contains an `Action` element with `xsi:type="ShowTaskPane"`, so this button will open a task pane.
-
-- The second `Control` element contains an `Action` element with `xsi:type="ExecuteFunction"`, so this button will invoke a JavaScript function contained in the function file.
-
-Finally we'll update our resources. The code above referenced labels, tool-tips, and URLs that we need to define before our manifest will be valid.
-
-1. Add the following as a child of the `bt:Urls` element:
-
-   ```xml
+    ```xml
     <bt:Url id="insertGistPaneUrl" DefaultValue="https://localhost:3000/msg-compose/insert-gist.html"/>
-   ```
+    ```
 1. Change the `DefaultValue` attribute of the `bt:String` element with `id="groupLabel"` to `Git the gist`.
 
-   ```xml
+    ```xml
     <bt:String id="groupLabel" DefaultValue="Git the gist"/>
-   ```
+    ```
+
 1. Add the following elements as children of the `bt:ShortStrings` element.
 
-   ```xml
-    <bt:String id="insertGistLabel" DefaultValue="Insert gist">
-      <bt:Override Locale="es-ES" Value="Inserte el gist"/>
-    </bt:String>
-    <bt:String id="insertGistTitle" DefaultValue="Insert gist">
-      <bt:Override Locale="es-ES" Value="Inserte el gist"/>
-    </bt:String>
-    <bt:String id="insertDefaultGistLabel" DefaultValue="Insert Default gist">
-      <bt:Override Locale="es-ES" Value="Inserte el gist predeterminado"/>
-    </bt:String>
-    <bt:String id="insertDefaultGistTitle" DefaultValue="Insert Default gist">
-      <bt:Override Locale="es-ES" Value="Inserte el gist predeterminado"/>
-    </bt:String>
-   ```
+    ```xml
+    <bt:String id="insertGistLabel" DefaultValue="Insert gist"/>
+    <bt:String id="insertGistTitle" DefaultValue="Insert gist"/>
+    <bt:String id="insertDefaultGistLabel" DefaultValue="Insert default gist"/>
+    <bt:String id="insertDefaultGistTitle" DefaultValue="Insert default gist"/>
+    ```
+
 1. Add the following elements as children of the `bt:LongStrings` element.
 
-   ```xml
-    <bt:String id="insertGistDesc" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message">
-      <bt:Override Locale="es-ES" Value="Muestra una lista de sus gists y permite insertar su contenido en el mensaje actual"/>
-    </bt:String>
-    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the contents of the gist you mark as default into the current message">
-      <bt:Override Locale="es-ES" Value="Inserta el contenido de lo gist que marca como predeterminado en el mensaje actual"/>
-    </bt:String>
-   ```
+    ```xml
+    <bt:String id="insertGistDesc" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message"/>
+    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the contents of the gist you mark as default into the current message"/>
+    ```
 
-This defines the string values that will be used for the add-in. It also localizes the strings into Spanish by providing a `bt:Override` element for each string. Additional languages can be added as additional `bt:Override` elements. The `DefaultValue` is used for clients that use the locale specified in the `DefaultLocale` element in the manifest.
+1. Save your changes to the manifest. 
 
-Save your changes to the manifest. Since we installed the add-in from a file, we need to reinstall it in order for the changes to take effect.
 
-1. Open Outlook 2016. On the **Home** tab in the ribbon, click the **Store** button.
+### Reinstall the add-in
 
-1. Click the **My add-ins** link on the left side.
+Since you previously installed the add-in from a file, you must reinstall it in order for the manifest changes to take effect. 
 
-1. Click the **...** button next to the **Git the gist** entry, then choose **Remove**.
+1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to locate the **Custom add-ins** section at the bottom of the **My add-ins** dialog box. 
 
-1. Close the Store window.
+1. Choose the **...** button next to the **Git the gist** entry and then choose **Remove**.
+
+1. Close the **My add-ins** window.
 
 1. The custom button should disappear from the ribbon momentarily.
 
-1. Reinstall the add-in using the new manifest.
+1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to reinstall the add-in using the updated **manifest.xml** file.
 
-Now when you compose a new message in Outlook, you should see two buttons on the ribbon: **Insert gist** and **Insert default gist**. Now we can work on implementing the add-in functionality.
+After you've completed these steps, you should the two new buttons when you compose a new message in Outlook: **Insert gist** and **Insert default gist**. 
 
-### Implementing a first-run experience
+## TODO - Implement a first-run experience
 
 In this add-in, we will ask the user to provide their GitHub URL, and then choose one of their existing gists to be the default gist. We'll implement this as a settings dialog for the add-in.
 
@@ -460,7 +448,7 @@ That takes care of the UI for the dialog, but now we need to add code to make it
         }
       });
 
-      // When the Done button is clicked, send the
+      // When the Done button is chosen, send the
       // values back to the caller as a serialized
       // object.
       $('#settings-done').on('click', function() {
@@ -597,11 +585,11 @@ function buildFileList(files) {
 }
 ```
 
-That fully implements the settings dialog. Now the question is how do we invoke it? You may have noticed that we did not add a button to the ribbon for settings. Instead, the add-in will check that it has been configured. If it hasn't, then it will prompt the user when they invoke the add-in to configure before proceeding. Since the user could click either button first, we'll do this check in both cases.
+That fully implements the settings dialog. Now the question is how do we invoke it? You may have noticed that we did not add a button to the ribbon for settings. Instead, the add-in will check that it has been configured. If it hasn't, then it will prompt the user when they invoke the add-in to configure before proceeding. Since the user could choose either button first, we'll do this check in both cases.
 
 ### Implementing a UI-less button
 
-We'll start with the **Insert default gist** button. This button simply executes a JavaScript function in the function file rather than open a task pane. This kind of button is referred to as a UI-less button.
+We'll start with the **Insert default gist** button. This button simply invokes a JavaScript function in the function file rather than open a task pane. This kind of button is referred to as a UI-less button.
 
 The goal for this button is to check if the add-in has been configured yet. If it has, then it will load the content of the gist that the user has selected as default and insert it into the body. If it hasn't, then it will present the settings dialog. However, it's a little strange to just present the settings dialog to the user without some explanation. So in this case, we'll show the message bar included in the dialog's HTML to give the user some idea why they're seeing the dialog.
 
@@ -802,18 +790,18 @@ If the gist contains HTML, then it will be inserted as-is into the body. If the 
 
 #### Test the button
 
-The **Insert default gist** button should now work. Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert default gist** button, you should be prompted to configure the add-in.
+The **Insert default gist** button should now work. Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you choose the **Insert default gist** button, you should be prompted to configure the add-in.
 
 ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.PNG)
 
-Enter your GitHub username. Press **Tab** to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and click **Done**.
+Enter your GitHub username. Press **Tab** to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and choose **Done**.
 
 > [!NOTE]
 > If you don't have any gists on GitHub, go create some!
 
 ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.PNG)
 
-Now click the **Insert default gist** button again. This time you should see the contents of the gist inserted into the body of the email.
+Now choose the **Insert default gist** button again. This time you should see the contents of the gist inserted into the body of the email.
 
 ### Implementing a task pane
 
@@ -850,7 +838,7 @@ Create a folder in the root of the project named `msg-compose`. In this folder, 
     <section class="ms-landing-page__content ms-font-m ms-fontColor-neutralPrimary">
       <div id="not-configured" style="display: none;">
         <div class="centered ms-font-xxl ms-u-textAlignCenter">Welcome!</div>
-        <div class="ms-font-xl" id="settings-prompt">Please click the <strong>Settings</strong> icon at the bottom of this window to configure this add-in.</div>
+        <div class="ms-font-xl" id="settings-prompt">Please choose the <strong>Settings</strong> icon at the bottom of this window to configure this add-in.</div>
       </div>
       <div id="gist-list-container" style="display: none;">
         <ul id="gist-list" class="ms-List">
@@ -1058,7 +1046,7 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
         $('#not-configured').show();
       }
 
-      // When insert button is clicked, build the content
+      // When insert button is chosen, build the content
       // and insert into the body.
       $('#insert-button').on('click', function(){
         var gistId = $('.ms-ListItem.is-selected').children('.gist-id').val();
@@ -1082,7 +1070,7 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
         });
       });
 
-      // When the settings icon is clicked, open the settings dialog
+      // When the settings icon is chosen, open the settings dialog
       $('#settings-icon').on('click', function(){
         // Display settings dialog
         var url = new URI('../settings/dialog.html').absoluteTo(window.location).toString();
@@ -1145,7 +1133,7 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
 })();
 ```
 
-Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert gist** button, you should see a task pane open on the right-hand side. When you select a gist and click **Insert**, the gist should get inserted into the body.
+Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you choose the **Insert gist** button, you should see a task pane open on the right-hand side. When you select a gist and choose **Insert**, the gist should be inserted into the body.
 
 ![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.PNG)
 
