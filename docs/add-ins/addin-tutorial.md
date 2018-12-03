@@ -15,8 +15,10 @@ In this tutorial, you will:
 > [!div class="checklist"]
 > * Create an Outlook add-in project
 > * Define one button that invokes a function and a second button that opens a task pane 
-> * Implement a first-run experience to collect information from the user
-> * Write code that fetches data from an external service
+> * Implement a first-run experience that:
+>     - collects information from the user
+>     - fetches data from GitHub
+>     - saves data for later use
 > * Write code that inserts content into the body of an email message
 
 ## Prerequisites
@@ -414,11 +416,11 @@ ul {
 
 ### Create the dialog script
 
-Now that the dialog UI has been defined, you can write the code that makes it actually do something. You'll use jQuery to register events and the `messageParent` function to send the user's choices back to the caller. 
+Now that the dialog UI has been defined, you can write the code that makes it actually do something.
 
 #### dialog.js 
 
-Create a file in the **settings** folder named **dialog.js** and add the following code. 
+Create a file in the **settings** folder named **dialog.js** and add the following code. Note that this code uses jQuery to register events and uses the `messageParent` function to send the user's choices back to the caller.
 
 ```js
 (function(){
@@ -523,11 +525,11 @@ Create a file in the **settings** folder named **dialog.js** and add the followi
 
 ### Fetch data from GitHub
 
-The **dialog.js** file you just created specifies that the add-in should load gists when the `change` event fires for the GitHub username field. To do so, you'll need to use the [GitHub Gists API](https://developer.github.com/v3/gists/) to retrieve data from GitHub. 
+The **dialog.js** file you just created specifies that the add-in should load gists when the `change` event fires for the GitHub username field. To retrieve the user's gists from GitHub, you'll use the [GitHub Gists API](https://developer.github.com/v3/gists/).
 
 #### gist-api.js
 
-Create a new folder in the root folder of the project named **helpers**. Then create a file in the **helpers** folder named **gist-api.js**, and add the following code to retrieve the user's gists from GitHub and assemble the list of gists.
+Create a new folder in the root folder of the project named **helpers**. Then create a file in the **helpers** folder named **gist-api.js**, and add the following code to retrieve the user's gists from GitHub and build the list of gists.
 
 ```js
 function getUserGists(user, callback) {
