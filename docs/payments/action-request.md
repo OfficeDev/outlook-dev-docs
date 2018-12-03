@@ -1,6 +1,6 @@
 ---
 title: Payments in Outlook ActionRequest reference | Microsoft Docs
-description: Learn about the payload fields for requests sent to payment webhooks by Outlook
+description: Learn about the ActionRequest markup used to add Payments in Outlook request cards to email
 author: jasonjoh
 ms.topic: reference
 ms.technology: o365-connectors
