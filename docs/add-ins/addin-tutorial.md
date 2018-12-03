@@ -37,7 +37,7 @@ In this tutorial, you'll learn how to:
 
 ## Setup
 
-The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist(s) to the body of an email message. Complete the following steps to create two new gists in GitHub.
+The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist(s) to the body of an email message. Complete the following steps to create two new gists that you can use to test the add-in you'll build.
 
 1. [Login to GitHub](https://github.com/login).
 
