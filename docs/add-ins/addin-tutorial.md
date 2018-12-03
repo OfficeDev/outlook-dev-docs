@@ -1,19 +1,25 @@
 ---
-title: Advanced Outlook add-in tutorial
-description: Follow along to create an Outlook add-in that inserts GitHub Gists into the body of new email messages.
-author: jasonjoh
-ms.topic: get-started-article
-ms.technology: office-add-ins
-ms.devlang: javascript
-ms.date: 09/13/2018
-ms.author: jasonjoh
+title: 'Tutorial: Create a message compose Outlook add-in'
+description: In this tutorial, you'll build a Outlook add-in that can be used in message compose mode to insert GitHub gists into the body of a new email message.
+ms.topic: tutorial
+ms.date: 12/03/2018
+#Customer intent: As a developer, I want to create a message compose Outlook add-in.
 ---
 
-# Advanced Outlook add-in tutorial: Git the Gist
+# Tutorial: Create a message compose Outlook add-in
 
-The purpose of this guide is to walk through the process of creating an Outlook add-in that allows the user to access their [Gists](https://gist.github.com/) on GitHub. The source code in this [repository](https://github.com/jasonjoh/git-the-gist) is what you should end up with if you follow the steps outlined here.
+## Introduction
 
-This tutorial will use the [Microsoft Office Add-in Project Generator](https://github.com/officedev/generator-office) to generate an add-in project.
+This tutorial teaches you how to build an Outlook add-in that can be used in message compose mode to insert content into the body of an email message.
+
+In this tutorial, you'll learn how to:
+
+> [!div class="checklist"]
+> * Create an Outlook add-in project
+> * Implement a first-run experience to collect information from the user
+> * Fetch data from an external service
+> * Implement a UI-less button that executes a function
+> * Implement a task pane that inserts content into the body of an email message
 
 ## Prerequisites
 
@@ -1052,3 +1058,20 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
 Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert Gist** button, you should see a task pane open on the right-hand side. When you select a gist and click **Insert**, the gist should get inserted into the body.
 
 ![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.PNG)
+
+## Clean up resources
+
+TODO: delete gists
+```
+If you're not going to continue to use this application, delete <resources> with the following steps:
+
+1. From the left-hand menu...
+2. ...click Delete, type...and then click Delete
+```
+
+## Next steps
+
+In this tutorial, you've created an Outlook add-in that implements a first-run experience, fetches data from an external service, renders a UI-less button that executes a function, and renders a task pane that can be used to insert content into the body of an email message. To learn more about developing Outlook add-ins, continue to the following article: 
+
+> [!div class="nextstepaction"]
+> [Outlook add-in APIs](apis.md)
