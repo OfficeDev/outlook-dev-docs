@@ -91,7 +91,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
 ## Create an Outlook add-in project
 
-Complete the following steps to create an Outlook add-in project by using the Yeoman generator.
+Use the Yeoman generator to create an Outlook add-in project.
 
 1. Run the following command and then answer the prompts as follows:
 
@@ -139,7 +139,7 @@ The XML manifest file that the generator creates contains a placeholder value fo
     </html>
     ````
 
-1. Open the **manifest.xml** file, update the `SupportUrl` as follows, and save the file.
+1. Open the **manifest.xml** file, uncomment the `SupportUrl` element, update it to point to the **support.html** file that you created, and save the file.
 
   ```xml
   <SupportUrl DefaultValue="https://localhost:3000/support.html" />
@@ -147,7 +147,7 @@ The XML manifest file that the generator creates contains a placeholder value fo
 
 ### Test the generated add-in
 
-Before you start adding functionality to the add-in, let's test the basic add-in that the generator created to confirm that the project is setup correctly. 
+Before going any further, test the basic add-in that the generator created to confirm that the project is setup correctly. 
 
 1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
 
@@ -166,7 +166,7 @@ Before you start adding functionality to the add-in, let's test the basic add-in
 
 ## Write the code
 
-Now that we've verified that the base add-in works, we can customize it to do what we want. We'll start with the manifest.
+Now that you've verified that the base add-in works, you can add customize it to add additional functionality.
 
 ### Update the manifest (again)
 
