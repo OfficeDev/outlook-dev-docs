@@ -114,8 +114,6 @@ Use the Yeoman generator to create an Outlook add-in project.
     cd "Git the gist"
     ```
 
-After you complete the wizard, the generator will create the project and install supporting Node components.
-
 ### Add a support page
 
 The XML manifest file that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
