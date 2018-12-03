@@ -178,7 +178,7 @@ npm install dotenv simple-oauth2 --save
 
 Create a new file called `.env` in the `node-tutorial` folder, and add the following in the file.
 
-```
+```text
 APP_ID=YOUR APP ID HERE
 APP_PASSWORD=YOUR APP PASSWORD HERE
 APP_SCOPES=openid profile User.Read Mail.Read
@@ -496,7 +496,7 @@ Access tokens returned from Azure are valid for an hour. If you use the token af
 
 In order to do that, the app must request the `offline_access` scope. Add this scope to the `APP_SCOPES` value in `.env`.
 
-```
+```text
 APP_SCOPES=openid profile offline_access User.Read Mail.Read
 ```
 
@@ -758,7 +758,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Update the `APP_SCOPES` value in `.env` to include the `Calendars.Read` scope.
 
-    ```
+    ```text
     APP_SCOPES=openid profile offline_access User.Read Mail.Read Calendars.Read
     ```
 
@@ -877,7 +877,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Update the `APP_SCOPES` value in `.env` to include the `Contacts.Read` scope.
 
-    ```
+    ```text
     APP_SCOPES=openid profile offline_access User.Read Mail.Read Contacts.Read
     ```
 
