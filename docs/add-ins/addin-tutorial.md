@@ -108,7 +108,7 @@ Use the Yeoman generator to create an Outlook add-in project.
     
     After you complete the wizard, the generator will create the project and install supporting Node components.
 	
-1. Navigate to the root folder of the project.
+1. Navigate to the root directory of the project.
 
     ```bash
     cd "Git the gist"
@@ -118,7 +118,7 @@ Use the Yeoman generator to create an Outlook add-in project.
 
 The XML manifest file that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
 
-1. In the root directory of the **git-the-gist** project that the generator created, add a new file named **support.html**.
+1. In the root directory of the project, add a new file named **support.html**.
 
 1. Add the following markup to the **support.html** file and save the file.
 
@@ -132,12 +132,13 @@ The XML manifest file that the generator creates contains a placeholder value fo
       </head>
       <body>
         <h1>Support</h1>
-        <p>This is the support page for the <b>Git the gist</b> add-in. In a real-world scenario, this page should provide support information for the add-in.</p>
+        <p>This is the support page for the <b>Git the gist</b> add-in.</p>
+        <p>In a real-world scenario, this page should provide support information for the add-in.</p>
       </body>
     </html>
     ````
 
-1. Open the **manifest.xml** file, uncomment the `SupportUrl` element, update it to point to the **support.html** file that you created, and save the file.
+1. Open the **manifest.xml** file, update the `SupportUrl` element to point to the **support.html** file that you created, and save the file.
 
   ```xml
   <SupportUrl DefaultValue="https://localhost:3000/support.html" />
@@ -145,7 +146,7 @@ The XML manifest file that the generator creates contains a placeholder value fo
 
 ### Test the generated add-in
 
-Before going any further, test the basic add-in that the generator created to confirm that the project is setup correctly. 
+Before going any further, let's test the basic add-in that the generator created to confirm that the project is setup correctly. 
 
 1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
 
@@ -158,7 +159,7 @@ Before going any further, test the basic add-in that the generator created to co
 
 1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file that's located in the root directory of the project.
 
-1. On the **Home** tab (**Message** tab if you opened the message in a new window), choose the **Display all properties** button to open a task pane that displays the add-in's welcome page.
+1. In Outlook, open a message and choose the **Display all properties** button. If everything's been setup correctly, the task pane will open and render the add-in's welcome page.
 
     ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.PNG)
 
