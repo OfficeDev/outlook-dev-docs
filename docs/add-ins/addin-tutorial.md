@@ -37,11 +37,11 @@ In this tutorial, you'll learn how to:
 
 ## Setup
 
-The add-in that you'll create in this tutorial will read [Gists](https://gist.github.com) from the user's GitHub account and add the selected Gist(s) to the body of an email message. Complete the following steps
+The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist(s) to the body of an email message. Complete the following steps to create two new gists in GitHub.
 
 1. [Login to GitHub](https://github.com/login).
 
-2. [Create a new Gist](https://gist.github.com). 
+2. [Create a new gist](https://gist.github.com). 
 
     - In the **Git description...** field, enter **Hello World Markdown**.
 
@@ -63,7 +63,7 @@ The add-in that you'll create in this tutorial will read [Gists](https://gist.gi
         ```
         ```    
 
-3. [Create another new Gist](https://gist.github.com). 
+3. [Create another new gist](https://gist.github.com). 
 
     - In the **Git description...** field, enter **Hello World Html**.
 
@@ -95,7 +95,7 @@ Open your command prompt/shell in an empty directory. Enter `yo office` and foll
 
 - **Choose a script type** - `Javascript`
 
-- **What do you want to name your add-in?** - `Git the Gist`
+- **What do you want to name your add-in?** - `Git the gist`
 
 - **Which Office client application would you like to support?** - `Outlook`
 
@@ -146,10 +146,10 @@ Let's start by updating some properties of the add-in itself.
 1. Update the `Description` with a description of the add-in.
 
     ```xml
-    <Description DefaultValue="Allows users to access their Gists on GitHub"/>
+    <Description DefaultValue="Allows users to access their gists on GitHub"/>
    ```
 
-Now we'll change the buttons defined by the add-in. For our add-in, we'll implement two buttons: **Insert Gist** and **Insert Default Gist** on the compose message window. However, the current manifest only adds buttons to the read message window. We'll have to add the message compose command surface extension point.
+Now we'll change the buttons defined by the add-in. For our add-in, we'll implement two buttons: **Insert gist** and **Insert default gist** on the compose message window. However, the current manifest only adds buttons to the read message window. We'll have to add the message compose command surface extension point.
 
 > [!NOTE]
 > For now we will leave the message read command surface as-is. In future parts of this series, we will revisit the message read scenario.
@@ -215,35 +215,35 @@ Finally we'll update our resources. The code above referenced labels, tool-tips,
    ```xml
     <bt:Url id="insertGistPaneUrl" DefaultValue="https://localhost:3000/msg-compose/insert-gist.html"/>
    ```
-1. Change the `DefaultValue` attribute of the `bt:String` element with `id="groupLabel"` to `Git the Gist`.
+1. Change the `DefaultValue` attribute of the `bt:String` element with `id="groupLabel"` to `Git the gist`.
 
    ```xml
-    <bt:String id="groupLabel" DefaultValue="Git the Gist"/>
+    <bt:String id="groupLabel" DefaultValue="Git the gist"/>
    ```
 1. Add the following elements as children of the `bt:ShortStrings` element.
 
    ```xml
-    <bt:String id="insertGistLabel" DefaultValue="Insert Gist">
-      <bt:Override Locale="es-ES" Value="Inserte el Gist"/>
+    <bt:String id="insertGistLabel" DefaultValue="Insert gist">
+      <bt:Override Locale="es-ES" Value="Inserte el gist"/>
     </bt:String>
-    <bt:String id="insertGistTitle" DefaultValue="Insert Gist">
-      <bt:Override Locale="es-ES" Value="Inserte el Gist"/>
+    <bt:String id="insertGistTitle" DefaultValue="Insert gist">
+      <bt:Override Locale="es-ES" Value="Inserte el gist"/>
     </bt:String>
-    <bt:String id="insertDefaultGistLabel" DefaultValue="Insert Default Gist">
-      <bt:Override Locale="es-ES" Value="Inserte el Gist predeterminado"/>
+    <bt:String id="insertDefaultGistLabel" DefaultValue="Insert Default gist">
+      <bt:Override Locale="es-ES" Value="Inserte el gist predeterminado"/>
     </bt:String>
-    <bt:String id="insertDefaultGistTitle" DefaultValue="Insert Default Gist">
-      <bt:Override Locale="es-ES" Value="Inserte el Gist predeterminado"/>
+    <bt:String id="insertDefaultGistTitle" DefaultValue="Insert Default gist">
+      <bt:Override Locale="es-ES" Value="Inserte el gist predeterminado"/>
     </bt:String>
    ```
 1. Add the following elements as children of the `bt:LongStrings` element.
 
    ```xml
-    <bt:String id="insertGistDesc" DefaultValue="Displays a list of your Gists and allows you to insert their contents into the current message">
-      <bt:Override Locale="es-ES" Value="Muestra una lista de sus Gists y permite insertar su contenido en el mensaje actual"/>
+    <bt:String id="insertGistDesc" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message">
+      <bt:Override Locale="es-ES" Value="Muestra una lista de sus gists y permite insertar su contenido en el mensaje actual"/>
     </bt:String>
-    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the contents of the Gist you mark as default into the current message">
-      <bt:Override Locale="es-ES" Value="Inserta el contenido de lo Gist que marca como predeterminado en el mensaje actual"/>
+    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the contents of the gist you mark as default into the current message">
+      <bt:Override Locale="es-ES" Value="Inserta el contenido de lo gist que marca como predeterminado en el mensaje actual"/>
     </bt:String>
    ```
 
@@ -255,7 +255,7 @@ Save your changes to the manifest. Since we installed the add-in from a file, we
 
 1. Click the **My add-ins** link on the left side.
 
-1. Click the **...** button next to the **Git the Gist** entry, then choose **Remove**.
+1. Click the **...** button next to the **Git the gist** entry, then choose **Remove**.
 
 1. Close the Store window.
 
@@ -263,11 +263,11 @@ Save your changes to the manifest. Since we installed the add-in from a file, we
 
 1. Reinstall the add-in using the new manifest.
 
-Now when you compose a new message in Outlook, you should see two buttons on the ribbon: **Insert Gist** and **Insert Default Gist**. Now we can work on implementing the add-in functionality.
+Now when you compose a new message in Outlook, you should see two buttons on the ribbon: **Insert gist** and **Insert default gist**. Now we can work on implementing the add-in functionality.
 
 ### Implementing a first-run experience
 
-In this add-in, we will ask the user to provide their GitHub URL, and then choose one of their existing Gists to be the default Gist. We'll implement this as a settings dialog for the add-in.
+In this add-in, we will ask the user to provide their GitHub URL, and then choose one of their existing gists to be the default gist. We'll implement this as a settings dialog for the add-in.
 
 Let's start by creating the HTML for the dialog itself. Create a new folder in the root folder of the project called `settings`. Then create a file inside the `settings` folder called `dialog.html`, and add the following markup.
 
@@ -301,9 +301,9 @@ Let's start by creating the HTML for the dialog itself. Create a new folder in t
             <i class="ms-Icon ms-Icon--Info"></i>
           </div>
           <div class="ms-MessageBar-text">
-            Oops! It looks like you haven't configured <strong>Git the Gist</strong> yet.
-            </br>
-            Please configure your GitHub user name and select a default Gist, then try that action again!
+            Oops! It looks like you haven't configured <strong>Git the gist</strong> yet.
+            <br/>
+            Please configure your GitHub user name and select a default gist, then try that action again!
           </div>
         </div>
       </div>
@@ -320,7 +320,7 @@ Let's start by creating the HTML for the dialog itself. Create a new folder in t
           <pre><code id="error-text"></code></pre>
         </div>
         <div class="gist-list-container ms-Grid-row">
-          <div class="list-title ms-font-xl ms-fontWeight-regular">Choose Default Gist</div>
+          <div class="list-title ms-font-xl ms-fontWeight-regular">Choose default gist</div>
           <ul id="gist-list" class="ms-List">
           </ul>
         </div>
@@ -345,7 +345,7 @@ Let's start by creating the HTML for the dialog itself. Create a new folder in t
 </html>
 ```
 
-This is a very basic form with a text input for a GitHub username and an empty list for Gists that we'll populate via JavaScript. Note that we're using [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
+This is a very basic form with a text input for a GitHub username and an empty list for gists that we'll populate via JavaScript. Note that we're using [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
 
 Now add `dialog.css` in the same folder, and add the following code.
 
@@ -410,7 +410,7 @@ That takes care of the UI for the dialog, but now we need to add code to make it
       }
 
       // When the GitHub username changes,
-      // try to load Gists
+      // try to load gists
       $('#github-user').on('change', function(){
         $('#gist-list').empty();
         var ghUser = $('#github-user').val();
@@ -480,7 +480,7 @@ That takes care of the UI for the dialog, but now we need to add code to make it
 })();
 ```
 
-Notice that the `change` event for the GitHub username field is set to load the user's Gists. We need to implement the [GitHub Gists API](https://developer.github.com/v3/gists/). We'll put this into a separate file to make it easier to reuse.
+Notice that the `change` event for the GitHub username field is set to load the user's gists. We need to implement the [GitHub Gists API](https://developer.github.com/v3/gists/). We'll put this into a separate file to make it easier to reuse.
 
 Create a folder in the root of the project called `helpers`. In this folder create a file called `gist-api.js` and add the following code.
 
@@ -560,7 +560,7 @@ That fully implements the settings dialog. Now the question is how do we invoke 
 
 ### Implementing a UI-less button
 
-We'll start with the **Insert Default Gist** button. This button simply executes a JavaScript function in the function file rather than open a task pane. This kind of button is referred to as a UI-less button.
+We'll start with the **Insert default gist** button. This button simply executes a JavaScript function in the function file rather than open a task pane. This kind of button is referred to as a UI-less button.
 
 The goal for this button is to check if the add-in has been configured yet. If it has, then it will load the content of the gist that the user has selected as default and insert it into the body. If it hasn't, then it will present the settings dialog. However, it's a little strange to just present the settings dialog to the user without some explanation. So in this case, we'll show the message bar included in the dialog's HTML to give the user some idea why they're seeing the dialog.
 
@@ -647,7 +647,7 @@ function insertDefaultGist(event) {
 
   // Check if the add-in has been configured
   if (config && config.defaultGistId) {
-    // Get the default Gist content and insert
+    // Get the default gist content and insert
     try {
       getGist(config.defaultGistId, function(gist, error) {
         if (gist) {
@@ -761,7 +761,7 @@ If the gist contains HTML, then it will be inserted as-is into the body. If the 
 
 #### Test the button
 
-The **Insert Default Gist** button should now work. Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert Default Gist** button, you should be prompted to configure the add-in.
+The **Insert default gist** button should now work. Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert default gist** button, you should be prompted to configure the add-in.
 
 ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.PNG)
 
@@ -772,11 +772,11 @@ Enter your GitHub username. Press **Tab** to invoke the `change` event, which sh
 
 ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.PNG)
 
-Now click the **Insert Default Gist** button again. This time you should see the contents of the gist inserted into the body of the email.
+Now click the **Insert default gist** button again. This time you should see the contents of the gist inserted into the body of the email.
 
 ### Implementing a task pane
 
-Now we can work on the **Insert Gist** button. For this button we'll open a task pane and display all of the user's gists. The user can pick one and insert it. If the user has not yet configured the add-in, it will display a message asking them to do so.
+Now we can work on the **Insert gist** button. For this button we'll open a task pane and display all of the user's gists. The user can pick one and insert it. If the user has not yet configured the add-in, it will display a message asking them to do so.
 
 Create a folder in the root of the project called `msg-compose`. In this folder, create `insert-gist.html` and add the following markup.
 
@@ -825,7 +825,7 @@ Create a folder in the root of the project called `msg-compose`. In this folder,
   <footer class="ms-landing-page__footer ms-bgColor-themePrimary">
     <div class="ms-landing-page__footer--left">
       <img src="../assets/logo-filled.png" />
-      <h1 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-white">Git the Gist</h1>
+      <h1 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-white">Git the gist</h1>
     </div>
     <div id="settings-icon" class="ms-landing-page__footer--right">
       <i class="ms-Icon enlarge ms-Icon--Settings ms-fontColor-white"></i>
@@ -1028,7 +1028,7 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
                 Office.context.mailbox.item.body.setSelectedDataAsync(content,
                   {coercionType: Office.CoercionType.Html}, function(result) {
                     if (result.status == 'failed') {
-                      showError('Could not insert Gist: ' + result.error.message);
+                      showError('Could not insert gist: ' + result.error.message);
                     }
                 });
               } else {
@@ -1036,7 +1036,7 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
               }
             });
           } else {
-            showError('Could not retrieve Gist: ' + error);
+            showError('Could not retrieve gist: ' + error);
           }
         });
       });
@@ -1104,19 +1104,9 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
 })();
 ```
 
-Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert Gist** button, you should see a task pane open on the right-hand side. When you select a gist and click **Insert**, the gist should get inserted into the body.
+Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you click on the **Insert gist** button, you should see a task pane open on the right-hand side. When you select a gist and click **Insert**, the gist should get inserted into the body.
 
 ![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.PNG)
-
-## Clean up resources
-
-TODO: delete gists
-```
-If you're not going to continue to use this application, delete <resources> with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-```
 
 ## Next steps
 
