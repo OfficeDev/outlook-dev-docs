@@ -8,9 +8,9 @@ ms.date: 04/26/2017
 ms.author: jasonjoh
 ---
 
-# Outlook API reference
+# Outlook API reference documentation
 
-The Outlook REST APIs are a part of [Microsoft Graph](https://developer.microsoft.com/graph/). Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook API endpoints directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. 
+The Outlook REST APIs are a part of [Microsoft Graph](https://developer.microsoft.com/graph/). Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook API endpoints directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints.
 
 For more information about the differences between Graph and the Outlook endpoints, see [Compare Microsoft Graph and Outlook endpoints](compare-graph-outlook.md).
 
@@ -28,8 +28,8 @@ The following APIs are released and ready for production use in both the Graph a
 - [Extended Properties API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/extended-properties-overview)
 - [FindMeetingTimes API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_findmeetingtimes)
 
-<!--for the FindMeetingTimes API, you must include "en-us" in the URL or it will 404-->              
-              
+<!--for the FindMeetingTimes API, you must include "en-us" in the URL or it will 404-->
+
 ## Transitioning APIs
 
 The following APIs are released and ready for production in the Outlook endpoint, but are in preview status in the Graph endpoint.

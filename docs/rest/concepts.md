@@ -9,7 +9,7 @@ ms.date: 06/01/2018
 ms.author: jasonjoh
 ---
 
-# Outlook REST API concepts
+# Outlook REST API conceptual documentation
 
 The [Microsoft Graph documentation](https://developer.microsoft.com/graph/docs/concepts/overview) includes the following Outlook-related conceptual documentation.
 
