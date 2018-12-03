@@ -8,8 +8,6 @@ ms.date: 12/03/2018
 
 # Tutorial: Build a message compose Outlook add-in
 
-## Introduction
-
 This tutorial teaches you how to build an Outlook add-in that can be used in message compose mode to insert content into the body of an email message.
 
 In this tutorial, you'll learn how to:
@@ -37,7 +35,7 @@ In this tutorial, you'll learn how to:
 
 ## Setup
 
-The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist(s) to the body of an email message. Complete the following steps to create two new gists that you can use to test the add-in you'll build.
+The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist(s) to the body of an email message. Complete the following steps to create two new gists that you can use to test the add-in you're going to build.
 
 1. [Login to GitHub](https://github.com/login).
 
@@ -56,11 +54,11 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
         Here's a JSON sample:
 
-        ```json
-        {
-          "foo": "bar"
-        }
-        ```
+          ```json
+          {
+            "foo": "bar"
+          }
+          ```
         ```    
 
 3. [Create another new gist](https://gist.github.com). 
