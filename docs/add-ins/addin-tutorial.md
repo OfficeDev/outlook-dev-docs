@@ -14,12 +14,10 @@ In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Create an Outlook add-in project
-> * Define one button that invokes a function and a second button that opens a task pane 
-> * Implement a first-run experience that:
->     - collects information from the user
->     - fetches data from GitHub
->     - saves data for later use
-> * Write code that inserts content into the body of an email message
+> * Define buttons that will render in the compose message window
+> * Implement a first-run experience that collects information from the user and fetches data from an external service
+> * Implement a UI-less button that executes a function
+> * Implement a task pane that inserts content into the body of an email message
 
 ## Prerequisites
 
@@ -300,13 +298,9 @@ After you've completed these steps, you should the two new buttons when you comp
 
 This add-in needs to be able to read gists from the user's GitHub account and identify which one the user has chosen as the default gist. In order to achieve these goals, the add-in must prompt the user to provide their GitHub URL and choose a default gist from their collection of existing gists. Complete the steps in this section to implement a first-run experience that will display a dialog to collect this information from the user.
 
-### Create the dialog UI
+### Collect data from the user
 
-Let's start by creating the UI for the dialog itself. 
-
-#### dialog.html
-
-Create a new folder in the root folder of the project named **settings**. Then create a file in the **settings** folder named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. Note that this dialog uses [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
+Let's start by creating the UI for the dialog itself. Create a new folder in the root folder of the project named **settings**. Then create a file in the **settings** folder named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. Note that this dialog uses [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
 
 ```html
 <!DOCTYPE html>
@@ -382,9 +376,7 @@ Create a new folder in the root folder of the project named **settings**. Then c
 </html>
 ```
 
-#### dialog.css 
-
-Create a file in the **settings** folder named **dialog.css**, and add the following code to specify the styles that are used by **dialog.html**.
+Next, create a file in the **settings** folder named **dialog.css**, and add the following code to specify the styles that are used by **dialog.html**.
 
 ```CSS
 section {
@@ -414,13 +406,7 @@ ul {
 }
 ```
 
-### Create the dialog script
-
-Now that the dialog UI has been defined, you can write the code that makes it actually do something.
-
-#### dialog.js 
-
-Create a file in the **settings** folder named **dialog.js** and add the following code. Note that this code uses jQuery to register events and uses the `messageParent` function to send the user's choices back to the caller.
+Now that the dialog UI has been defined, you can write the code that makes it actually do something. Create a file in the **settings** folder named **dialog.js** and add the following code. Note that this code uses jQuery to register events and uses the `messageParent` function to send the user's choices back to the caller.
 
 ```js
 (function(){
@@ -527,8 +513,6 @@ Create a file in the **settings** folder named **dialog.js** and add the followi
 
 The **dialog.js** file you just created specifies that the add-in should load gists when the `change` event fires for the GitHub username field. To retrieve the user's gists from GitHub, you'll use the [GitHub Gists API](https://developer.github.com/v3/gists/).
 
-#### gist-api.js
-
 Create a new folder in the root folder of the project named **helpers**. Then create a file in the **helpers** folder named **gist-api.js**, and add the following code to retrieve the user's gists from GitHub and build the list of gists.
 
 ```js
@@ -603,11 +587,12 @@ function buildFileList(files) {
 }
 ```
 
+> [!NOTE]
+> You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured at runtime when the user invokes the add-in (by choosing either the **Insert default gist** button or the **Insert gist** button). If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
+
+## Implement a UI-less button that executes a function
+
 TODO
-That fully implements the settings dialog. Now the question is how do we invoke it? You may have noticed that we did not add a button to the ribbon for settings. Instead, the add-in will check that it has been configured. If it hasn't, then it will prompt the user when they invoke the add-in to configure before proceeding. Since the user could choose either button first, we'll do this check in both cases.
-
-### Implementing a UI-less button
-
 We'll start with the **Insert default gist** button. This button simply invokes a JavaScript function in the function file rather than open a task pane. This kind of button is referred to as a UI-less button.
 
 The goal for this button is to check if the add-in has been configured yet. If it has, then it will load the content of the gist that the user has selected as default and insert it into the body. If it hasn't, then it will present the settings dialog. However, it's a little strange to just present the settings dialog to the user without some explanation. So in this case, we'll show the message bar included in the dialog's HTML to give the user some idea why they're seeing the dialog.
@@ -807,7 +792,7 @@ function buildBodyContent(gist, callback) {
 
 If the gist contains HTML, then it will be inserted as-is into the body. If the gist is Markdown, the add-in will convert using Showdown and insert the resulting HTML. For anything else, the add-in will insert it as a code snippet.
 
-#### Test the button
+### Test the button
 
 The **Insert default gist** button should now work. Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you choose the **Insert default gist** button, you should be prompted to configure the add-in.
 
@@ -822,7 +807,7 @@ Enter your GitHub username. Press **Tab** to invoke the `change` event, which sh
 
 Now choose the **Insert default gist** button again. This time you should see the contents of the gist inserted into the body of the email.
 
-### Implementing a task pane
+## Implement a task pane
 
 Now we can work on the **Insert gist** button. For this button we'll open a task pane and display all of the user's gists. The user can pick one and insert it. If the user has not yet configured the add-in, it will display a message asking them to do so.
 
@@ -1158,7 +1143,7 @@ Save all of your changes and run `npm start` if the server isn't already running
 
 ## Next steps
 
-In this tutorial, you've created an Outlook add-in that implements a first-run experience, fetches data from an external service, renders a button that invokes a function, and renders a task pane that can be used to insert content into the body of an email message. To learn more about developing Outlook add-ins, continue to the following article: 
+In this tutorial, you've created an Outlook add-in that can be used in message compose mode to insert content into the body of an email message. To learn more about developing Outlook add-ins, continue to the following article: 
 
 > [!div class="nextstepaction"]
 > [Outlook add-in APIs](apis.md)
