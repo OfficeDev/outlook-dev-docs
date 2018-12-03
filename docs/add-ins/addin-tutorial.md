@@ -10,12 +10,12 @@ ms.date: 12/03/2018
 
 This tutorial teaches you how to build an Outlook add-in that can be used in message compose mode to insert content into the body of an email message.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Create an Outlook add-in project
 > * Implement a first-run experience to collect information from the user
-> * Fetch data from an external service
+> * Write a script that fetches data from an external service
 > * Implement a UI-less button that executes a function
 > * Implement a task pane that inserts content into the body of an email message
 
