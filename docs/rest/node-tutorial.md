@@ -13,7 +13,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Node.js app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/node-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use [Microsoft Graph](https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/node-tutorial/tree/outlook-api).
+This guide will use [Microsoft Graph](/graph/overview) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/node-tutorial/tree/outlook-api).
 
 This guide assumes that you already have Node.js installed and working on your development machine.
 
@@ -178,7 +178,7 @@ npm install dotenv simple-oauth2 --save
 
 Create a new file called `.env` in the `node-tutorial` folder, and add the following in the file.
 
-```
+```text
 APP_ID=YOUR APP ID HERE
 APP_PASSWORD=YOUR APP PASSWORD HERE
 APP_SCOPES=openid profile User.Read Mail.Read
@@ -496,7 +496,7 @@ Access tokens returned from Azure are valid for an hour. If you use the token af
 
 In order to do that, the app must request the `offline_access` scope. Add this scope to the `APP_SCOPES` value in `.env`.
 
-```
+```text
 APP_SCOPES=openid profile offline_access User.Read Mail.Read
 ```
 
@@ -758,7 +758,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Update the `APP_SCOPES` value in `.env` to include the `Calendars.Read` scope.
 
-    ```
+    ```text
     APP_SCOPES=openid profile offline_access User.Read Mail.Read Calendars.Read
     ```
 
@@ -877,7 +877,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Update the `APP_SCOPES` value in `.env` to include the `Contacts.Read` scope.
 
-    ```
+    ```text
     APP_SCOPES=openid profile offline_access User.Read Mail.Read Contacts.Read
     ```
 

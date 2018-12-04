@@ -14,7 +14,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Ruby on Rails app that accesses a user's data in Office 365 or Outlook.com. The source code in [this repository](https://github.com/jasonjoh/o365-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use [Microsoft Graph](https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/o365-tutorial/tree/outlook-api).
+This guide will use [Microsoft Graph](/graph/overview) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/o365-tutorial/tree/outlook-api).
 
 This guide assumes that you already have Ruby on Rails installed and working on your development machine.
 
@@ -144,10 +144,10 @@ Save your changes. Now browsing to `http://localhost:3000` should look like:
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret. 
+Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret.
 
 1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `o365-tutorial` for the name and click **Create application**. 
+1. Click the **Add an app** button. Enter `o365-tutorial` for the name and click **Create application**.
 1. Locate the **Application Secrets** section, and click the **Generate New Password** button. Copy the password now and save it to a safe place. Once you've copied the password, click **Ok**.
 1. Locate the **Platforms** section, and click **Add Platform**. Choose **Web**, then enter `http://localhost:3000/authorize` under **Redirect URIs**.
 1. Click **Save** to complete the registration. Copy the **Application Id** and save it along with the password you copied earlier. We'll need those values soon.
@@ -205,7 +205,7 @@ module AuthHelper
              'profile',
              'User.Read',
              'Mail.Read' ]
-  
+
   REDIRECT_URI = 'http://localhost:3000/authorize' # Temporary!
 
   # Generates the login URL for the app.
@@ -215,13 +215,13 @@ module AuthHelper
                                 :site => 'https://login.microsoftonline.com',
                                 :authorize_url => '/common/oauth2/v2.0/authorize',
                                 :token_url => '/common/oauth2/v2.0/token')
-                              
+
     login_url = client.auth_code.authorize_url(:redirect_uri => REDIRECT_URI, :scope => SCOPES.join(' '))
   end
 end
 ```
 
-The first thing we do here is define our client ID and secret, and the permission scopes our app requires. We also define a redirect URI as a hard-coded value. We'll improve on that in a bit, but it will serve our purpose for now. 
+The first thing we do here is define our client ID and secret, and the permission scopes our app requires. We also define a redirect URI as a hard-coded value. We'll improve on that in a bit, but it will serve our purpose for now.
 
 Replace the `<YOUR APP ID HERE>` and `<YOUR APP PASSWORD HERE>` placeholders with the values you generated in step 3 and save your changes.
 
@@ -232,7 +232,7 @@ Now that we've implemented the `get_login_url` function, let's put it to work. O
 ```ruby
 class HomeController < ApplicationController
   include AuthHelper
-  
+
   def index
     # Display the login link.
     @login_url = get_login_url
@@ -242,17 +242,19 @@ end
 
 Save your changes and browse to `http://localhost:3000`. If you hover over the link, it should look like:
 
-    https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauthorize&response_type=code&scope=openid+profile+User.Read+Mail.Read
+```http
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=<SOME GUID>&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauthorize&response_type=code&scope=openid+profile+User.Read+Mail.Read
+```
 
 The `<SOME GUID>` portion should match your client ID. Click on the link and you should be presented with a sign in page. Sign in with your Office 365 account. Your browser should redirect to back to our app, and you should see a lovely error:
 
-```
+```text
 No route matches [GET] "/authorize"
 ```
 
 If you scroll down on Rails' error page, you can see the request parameters, which include the authorization code.
 
-```
+```text
 Parameters:
 {"code"=>"M2ff0cb19-ec9d-db94-c5ab-4c634e319315"}
 ```
@@ -311,7 +313,7 @@ module AuthHelper
                                 :site => "https://login.microsoftonline.com",
                                 :authorize_url => "/common/oauth2/v2.0/authorize",
                                 :token_url => "/common/oauth2/v2.0/token")
-                              
+
     login_url = client.auth_code.authorize_url(:redirect_uri => authorize_url, :scope => SCOPES.join(' '))
   end
 end
@@ -384,7 +386,7 @@ SCOPES = [ 'openid',
 
 This will cause the token response from Azure to include a refresh token. Now let's add a helper method in `auth_helper.rb` to retrieve the cached token, check if it is expired, and refresh it if so.
 
-#### `get_access_token` in the `.\o365-tutorial\app\helpers\auth_helper.rb` file ####
+#### `get_access_token` in the `.\o365-tutorial\app\helpers\auth_helper.rb` file
 
 ```ruby
 # Gets the current access token
@@ -412,7 +414,7 @@ def get_access_token
 end
 ```
 
-## Using the Mail API ##
+## Using the Mail API
 
 Now that we can get an access token, we're in a good position to do something with the Mail API. Let's start by installing the [Microsoft Graph Client Library for Ruby](https://github.com/microsoftgraph/msgraph-sdk-ruby). We'll be using this gem for all of our Outlook-related requests.
 
@@ -422,7 +424,7 @@ Open up the `Gemfile` file and add this line anywhere in the file:
 gem 'microsoft_graph'
 ```
 
-Save the file, run `bundle install`, and restart the server. 
+Save the file, run `bundle install`, and restart the server.
 
 Now let's create a controller for mail operations.
 
@@ -459,7 +461,7 @@ class MailController < ApplicationController
 
     if token
       # If a token is present in the session, get messages from the inbox
-      callback = Proc.new do |r| 
+      callback = Proc.new do |r|
         r.headers['Authorization'] = "Bearer #{token}"
       end
 
@@ -481,8 +483,8 @@ To summarize the code in the `index` action:
 
 - It creates a Graph client.
 - It issues a GET request to the URL for inbox messages, with the following characteristics:
-    - It uses the `order_by` method to sort the results by `receivedDateTime`.
-    - It sets the `Authorization` header to use the access token from Azure.
+  - It uses the `order_by` method to sort the results by `receivedDateTime`.
+  - It sets the `Authorization` header to use the access token from Azure.
 - It saves the return collection to the `@messages` variable. This variable will be available to the view template.
 
 ## Displaying the results
@@ -526,7 +528,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Update the `SCOPES` array in `auth_helper.rb` to include the `Calendars.Read` scope.
 
-    ```ruby 
+    ```ruby
     # Scopes required by the app
     SCOPES = [ 'openid',
                'profile',
@@ -548,12 +550,12 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     class CalendarController < ApplicationController
 
       include AuthHelper
-      
+
       def index
         token = get_access_token
         if token
           # If a token is present in the session, get events from the calendar
-          callback = Proc.new do |r| 
+          callback = Proc.new do |r|
             r.headers['Authorization'] = "Bearer #{token}"
           end
 
@@ -595,7 +597,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Update the `SCOPES` array in `auth_helper.rb` to include the `Calendars.Read` scope.
 
-    ```ruby 
+    ```ruby
     # Scopes required by the app
     SCOPES = [ 'openid',
                'profile',
@@ -617,12 +619,12 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     class ContactsController < ApplicationController
 
       include AuthHelper
-      
+
       def index
         token = get_access_token
         if token
           # If a token is present in the session, get contacts
-          callback = Proc.new do |r| 
+          callback = Proc.new do |r|
             r.headers['Authorization'] = "Bearer #{token}"
           end
 

@@ -4,13 +4,13 @@ description: Learn about using the single-sign-on token provided by an Outlook a
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 09/13/2017
+ms.date: 11/09/2018
 ms.author: jasonjoh
 ---
 
 # Authenticate a user with an single-sign-on token in an Outlook add-in (preview)
 
-Single sign-on (SSO) provides a seamless way for your add-in to authenticate users (and optionally to obtain access tokens to call the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/overview)). 
+Single sign-on (SSO) provides a seamless way for your add-in to authenticate users (and optionally to obtain access tokens to call the [Microsoft Graph API](/graph/overview)).
 
 Using this method, your add-in can obtain an access token scoped to your server back-end API. The add-in uses this as a bearer token in the `Authorization` header to authenticate a call back to your API. Optionally, you can also have your server-side code:
 
@@ -47,8 +47,10 @@ The add-in gets an SSO token with client-side script. For more information, see 
 In most scenarios, there would be little point to obtaining the access token, if your add-in does not pass it on to a server-side and use it there. For details on what your server-side could and should do, see [Add server-side code](https://docs.microsoft.com/office/dev/add-ins/develop/sso-in-office-add-ins#add-server-side-code).
 
 > [!IMPORTANT]
-> When using the SSO token as an identity in an *Outlook* add-in, we recommend that you also [use the Exchange identity token](authenticate-a-user-with-an-identity-token.md) as an alternate identity. Users of your add-in may use multiple clients, and some may not support providing an SSO token. By using the Exchange identity token as an alternate, you can avoid having to prompt these users for credentials multiple times. For more information, see[Scenario: Implement single sign-on to your service in an Outlook add-in](implement-sso-in-outlook-add-in.md).
+> When using the SSO token as an identity in an *Outlook* add-in, we recommend that you also [use the Exchange identity token](authenticate-a-user-with-an-identity-token.md) as an alternate identity. Users of your add-in may use multiple clients, and some may not support providing an SSO token. By using the Exchange identity token as an alternate, you can avoid having to prompt these users for credentials multiple times. For more information, see [Scenario: Implement single sign-on to your service in an Outlook add-in](implement-sso-in-outlook-add-in.md).
 
-## Resources
+## See also
 
-For a sample Outlook add-in that uses the SSO token to access the Microsoft Graph API, see [AttachmentsDemo Sample Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo).
+- For a sample Outlook add-in that uses the SSO token to access the Microsoft Graph API, see [AttachmentsDemo Sample Add-in](https://github.com/OfficeDev/outlook-add-in-attachments-demo).
+- [SSO API reference](https://docs.microsoft.com/office/dev/add-ins/develop/sso-in-office-add-ins#sso-api-reference)
+- [IdentityAPI requirement set](https://docs.microsoft.com/office/dev/add-ins/reference/requirement-sets/identity-api-requirement-sets?view=office-js)

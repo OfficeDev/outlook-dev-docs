@@ -35,8 +35,8 @@
             tocHref: /outlook/rest/ruby-tutorial
             topicHref: /outlook/rest/ruby-tutorial
       - name: Compare Graph and Outlook
-        tocHref: /outlook/rest/compare-graph-outlook
-        topicHref: /outlook/rest/compare-graph-outlook
+        tocHref: /outlook/rest/compare-graph
+        topicHref: /outlook/rest/compare-graph
       - name: Webhooks and Notifications
         tocHref: /outlook/rest/webhooks
         topicHref: /outlook/rest/webhooks
@@ -227,23 +227,23 @@
         topicHref: /outlook/actionable-messages/get-started
         items:
           - name: Actionable Messages via Email
-            tocHref: /outlook/actionable-messages/actionable-messages-via-email
-            topicHref: /outlook/actionable-messages/actionable-messages-via-email
+            tocHref: /outlook/actionable-messages/send-via-email
+            topicHref: /outlook/actionable-messages/send-via-email
           - name: Actionable Messages via Connectors
-            tocHref: /outlook/actionable-messages/actionable-messages-via-connectors
-            topicHref: /outlook/actionable-messages/actionable-messages-via-connectors
+            tocHref: /outlook/actionable-messages/send-via-connectors
+            topicHref: /outlook/actionable-messages/send-via-connectors
       - name: Security Requirements
         tocHref: /outlook/actionable-messages/security-requirements
         topicHref: /outlook/actionable-messages/security-requirements
       - name: Invoke an Outlook add-in
-        tocHref: /outlook/actionable-messages/invoke-add-in-from-actionable-message
-        topicHref: /outlook/actionable-messages/invoke-add-in-from-actionable-message
+        tocHref: /outlook/actionable-messages/invoke-add-in
+        topicHref: /outlook/actionable-messages/invoke-add-in
       - name: Card Reference
         tocHref: /outlook/actionable-messages/card-reference
         topicHref: /outlook/actionable-messages/card-reference
       - name: Actionable Email Developer Dashboard
-        tocHref: /outlook/actionable-messages/actionable-email-dev-dashboard
-        topicHref: /outlook/actionable-messages/actionable-email-dev-dashboard
+        tocHref: /outlook/actionable-messages/email-dev-dashboard
+        topicHref: /outlook/actionable-messages/email-dev-dashboard
       - name: Connectors Developer Dashboard
         tocHref: /outlook/actionable-messages/connectors-dev-dashboard
         topicHref: /outlook/actionable-messages/connectors-dev-dashboard

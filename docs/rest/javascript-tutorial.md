@@ -13,7 +13,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple single-page app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/javascript-tutorial) is what you should end up with if you follow the steps outlined here.
 
-This guide will use Microsoft Graph(https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/javascript-tutorial/tree/outlook-api).
+This guide will use Microsoft Graph(/graph/overview) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/javascript-tutorial/tree/outlook-api).
 
 > [!NOTE]
 > This guide uses [http-server](https://www.npmjs.com/package/http-server) to provide a simple command-line HTTP server for development purposes. The `http-server` package requires Node.js and NPM to install and run. However, using `http-server` is not required, you can use any HTTP server for this tutorial.
@@ -28,7 +28,7 @@ Since our app will be client-side JavaScript-based, we need an HTTP server to se
 
 Before you begin you'll need to have [Node.js](https://nodejs.org/en/) installed.
 
-1. Open a command prompt and set the current directory to the `javascript-tutorial` directory. 
+1. Open a command prompt and set the current directory to the `javascript-tutorial` directory.
 
 1. Enter the following command to install `http-server`:
 
@@ -66,7 +66,7 @@ Let's begin by adding an HTML page to our app. Using your favorite editor, creat
   <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
   <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet" type="text/css" />
-  
+
   <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js"></script>
   <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"></script>
   <script src="//kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js"></script>
@@ -162,13 +162,13 @@ $(function() {
     render('#unsupportedbrowser');
     return;
   }
-  
+
   render(window.location.hash);
 
   $(window).on('hashchange', function() {
     render(window.location.hash);
   });
-  
+
   function render(hash) {
 
     var action = hash.split('=')[0];
@@ -177,9 +177,9 @@ $(function() {
     $('.main-container .page').hide();
 
     var isAuthenticated = false;
-    
+
     var pagemap = {
-      
+
       // Welcome page
       '': function() {
         renderWelcome(isAuthenticated);
@@ -198,7 +198,7 @@ $(function() {
         $('#unsupported').show();
       }
     }
-    
+
     if (pagemap[action]){
       pagemap[action]();
     } else {
@@ -211,7 +211,7 @@ $(function() {
     $('#navbar').find('li').removeClass('active');
     $(navId).addClass('active');
   }
-  
+
   function renderWelcome(isAuthed) {
     if (isAuthed) {
       $('#username').text(sessionStorage.userDisplayName);
@@ -259,10 +259,10 @@ Save the change and browse to `http://localhost:8080/#unsupportedbrowser`. You s
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID. 
+Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID.
 
 1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `javascript-tutorial` for the name and click **Create application**. 
+1. Click the **Add an app** button. Enter `javascript-tutorial` for the name and click **Create application**.
 1. Locate the **Platforms** section, and click **Add Platform**. Choose **Web**, then enter `http://localhost:8080` under **Redirect URIs**. Make sure that there is a check next to **ALlow Implicit Flow**.
 1. Click **Save** to complete the registration. Copy the **Application Id** and save it. We'll need it soon.
 
@@ -307,7 +307,7 @@ function buildAuthUrl() {
     nonce: sessionStorage.authNonce,
     response_mode: 'fragment'
   };
-  
+
   return authEndpoint + $.param(authParams);
 }
 ```
@@ -360,7 +360,7 @@ Locate the `render` function in `outlook-demo.js`. Immediately after the `// Rec
 
 ```js
 '#access_token': function() {
-  handleTokenResponse(hash);             
+  handleTokenResponse(hash);
 },
 ```
 
@@ -387,7 +387,7 @@ function handleTokenResponse(hash) {
 
   sessionStorage.authState = '';
   sessionStorage.accessToken = tokenresponse.access_token;
-  
+
   // Get the number of seconds the token is valid for,
   // Subract 5 minutes (300 sec) to account for differences in clock settings
   // Convert to milliseconds
@@ -399,7 +399,7 @@ function handleTokenResponse(hash) {
   sessionStorage.idToken = tokenresponse.id_token;
 
   // Redirect to home page
-  window.location.hash = '#';   
+  window.location.hash = '#';
 }
 ```
 
@@ -410,13 +410,13 @@ This function clears any cached tokens, then parses the token response. It check
 ```js
 function parseHashParams(hash) {
   var params = hash.slice(1).split('&');
-  
+
   var paramarray = {};
   params.forEach(function(param) {
     param = param.split('=');
     paramarray[param[0]] = param[1];
   });
-  
+
   return paramarray;
 }
 ```
@@ -556,7 +556,7 @@ First add the following after the `// Signout` line in the `render` function:
 ```js
 '#signout': function () {
   clearUserState();
-  
+
   // Redirect to home page
   window.location.hash = '#';
 },
@@ -648,7 +648,7 @@ function validateIdToken(callback) {
   // Per the docs at:
   // https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-implicit/#send-the-sign-in-request
   // Check if this is a consumer account so we can set domain_hint properly
-  sessionStorage.userDomainType = 
+  sessionStorage.userDomainType =
     payload.tid === '9188040d-6c67-4c5b-b112-36a304b66dad' ? 'consumers' : 'organizations';
 
   callback(true);
@@ -675,7 +675,7 @@ validateIdToken(function(isValid) {
   if (isValid) {
     // Re-render token to handle refresh
     renderTokens();
-    
+
     // Redirect to home page
     window.location.hash = '#';
   } else {
@@ -719,9 +719,9 @@ function makeSilentTokenRequest(callback) {
   iframe.load(function() {
     callback(sessionStorage.accessToken);
   });
-  
-  iframe.attr('src', buildAuthUrl() + '&prompt=none&domain_hint=' + 
-    sessionStorage.userDomainType + '&login_hint=' + 
+
+  iframe.attr('src', buildAuthUrl() + '&prompt=none&domain_hint=' +
+    sessionStorage.userDomainType + '&login_hint=' +
     sessionStorage.userSigninName);
 }
 ```
@@ -836,7 +836,7 @@ Add the following code after the `// Display inbox` line in the `render` functio
 ```js
 '#inbox': function () {
   if (isAuthenticated) {
-    renderInbox();  
+    renderInbox();
   } else {
     // Redirect to home page
     window.location.hash = '#';
@@ -854,7 +854,7 @@ function renderInbox() {
   $('#inbox-status').text('Loading...');
   $('#message-list').empty();
   $('#inbox').show();
-  
+
   getUserInboxMessages(function(messages, error){
     $('#inbox-status').text(JSON.stringify(messages));
   });
@@ -951,7 +951,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     // Display calendar
     '#calendar': function () {
       if (isAuthenticated) {
-        renderCalendar();  
+        renderCalendar();
       } else {
         // Redirect to home page
         window.location.hash = '#';
@@ -1070,7 +1070,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     // Display contacts
     '#contacts': function () {
       if (isAuthenticated) {
-        renderContacts();  
+        renderContacts();
       } else {
         // Redirect to home page
         window.location.hash = '#';

@@ -23,8 +23,8 @@ The two approaches may not be necessarily mutually exclusive, as you may choose 
 Once you've decided which delivery method is best for your scenario, you're ready to start trying some examples.
 
 - [Designing Actions and Inputs](actions-and-inputs.md)
-- [Actionable Messages via Email](actionable-messages-via-email.md)
-- [Actionable Messages via Connectors](actionable-messages-via-connectors.md)
+- [Actionable Messages via Email](send-via-email.md)
+- [Actionable Messages via Connectors](send-via-connectors.md)
 
 ## Questions
 

@@ -44,7 +44,7 @@ An Outlook add-in consists of two components: the XML add-in manifest and a web 
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <!-- NOTE: Just reusing the read taskpane page that is invoked by the button
+        <!-- NOTE: Just reusing the read task pane page that is invoked by the button
              on the ribbon in clients that support add-in commands. You can 
              use a completely different page if desired -->
         <SourceLocation DefaultValue="https://appdemo.contoso.com/AppRead/TaskPane/TaskPane.html"/>
@@ -238,7 +238,7 @@ The current versions of the schema are:
 |v1.0|Supports version 1.0 of the JavaScript API for Office. For Outlook add-ins, this supports read form. |
 |v1.1|Supports version 1.1 of the JavaScript API for Office and **VersionOverrides**. For Outlook add-ins, this adds support for compose form.|
 |**VersionOverrides** 1.0|Supports later versions of the JavaScript API for Office. This supports add-in commands.|
-|**VersionOverrides** 1.1|Supports later versions of the JavaScript API for Office. This supports add-in commands and adds support for newer features, such as [pinnable taskpanes](pinnable-taskpane.md) and mobile add-ins.|
+|**VersionOverrides** 1.1|Supports later versions of the JavaScript API for Office. This supports add-in commands and adds support for newer features, such as [pinnable task panes](pinnable-taskpane.md) and mobile add-ins.|
 
 This article will cover the requirements for a v1.1 manifest. Even if your add-in manifest uses the **VersionOverrides** element, it is still important to include the v1.1 manifest elements to allow your add-in to work with older clients that do not support **VersionOverrides**.
 

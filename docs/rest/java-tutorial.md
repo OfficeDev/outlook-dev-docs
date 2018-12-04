@@ -13,7 +13,7 @@ ms.author: jasonjoh
 
 The purpose of this guide is to walk through the process of creating a simple Java Spring MVC app that retrieves messages in Office 365 or Outlook.com. The source code in this <a href="https://github.com/jasonjoh/java-tutorial">repository</a> is what you should end up with if you follow the steps outlined here.
 
-This guide will use [Microsoft Graph](https://developer.microsoft.com/graph/) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/java-tutorial/tree/outlook-api).
+This guide will use [Microsoft Graph](/graph/overview) to access Outlook mail. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints. For a version of this sample that uses the Outlook APIs, see [this branch](https://github.com/jasonjoh/java-tutorial/tree/outlook-api).
 
 ### Before you begin
 
@@ -55,14 +55,14 @@ Enter `com.outlook.dev` for **Group Id**, and `java-tutorial` for **Artifact Id*
 
 In **Project Explorer**, right-click the project and choose **Properties**. Select **Java Build Path**, then select the **Libraries** tab. If the version of the **JRE System Library** does not match the version of the JDK you installed, do the following:
 
-1. Select the **JRE System Library** and click **Remove**. 
+1. Select the **JRE System Library** and click **Remove**.
 
 1. Click **Add Library**. Choose **JRE System Library** and click **Next**.
 
 1. Select **Workspace default JRE** and click **Finish**.
 
   ![The Java Build Path dialog in Spring Tool Suite](images/java-tutorial/java-build-path.PNG)
-  
+
 1. Click **OK**.
 
 Right-click the project and choose **Properties**. Select **Project Facets**. Change the version of **Dynamic Web Module** to `3.0`. Change the version of **Java** to `1.8`.
@@ -135,20 +135,20 @@ In `pom.xml`, add the following lines after the `</build>` line:
     <version>4.0.0-b01</version>
     <scope>provided</scope>
   </dependency>
-  
+
   <dependency>
     <groupId>javax.servlet.jsp</groupId>
     <artifactId>javax.servlet.jsp-api</artifactId>
     <version>2.3.2-b02</version>
     <scope>provided</scope>
   </dependency>
-  
+
   <dependency>
     <groupId>jstl</groupId>
     <artifactId>jstl</artifactId>
     <version>1.2</version>
   </dependency>
-  
+
   <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-core</artifactId>
@@ -203,7 +203,7 @@ In `pom.xml`, add the following lines after the `</build>` line:
     <groupId>org.springframework</groupId>
     <artifactId>spring-web</artifactId>
   </dependency>
-  
+
   <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-webmvc</artifactId>
@@ -213,19 +213,19 @@ In `pom.xml`, add the following lines after the `</build>` line:
     <groupId>org.springframework</groupId>
     <artifactId>spring-webmvc-portlet</artifactId>
   </dependency>
-  
+
   <dependency>
     <groupId>org.apache.tiles</groupId>
     <artifactId>tiles-core</artifactId>
     <version>${apache.tiles.version}</version>
   </dependency>
-  
+
   <dependency>
     <groupId>org.apache.tiles</groupId>
     <artifactId>tiles-jsp</artifactId>
     <version>${apache.tiles.version}</version>
   </dependency>
-  
+
   <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-log4j12</artifactId>
@@ -290,7 +290,7 @@ This tells the Spring Framework where to find the controllers for the app, enabl
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
   <definition name="common" template="/WEB-INF/layout/base.jsp" />
-  
+
   <definition name="index" extends="common">
     <put-attribute name="title" value="Java Mail API Tutorial" />
     <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
@@ -312,10 +312,10 @@ Now let's create the base layout. Right-click the **WEB-INF** folder and choose 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title><tiles:getAsString name="title"></tiles:getAsString></title>
-  
+
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-  
+
   <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
@@ -369,7 +369,7 @@ Let's create a test page for verification purposes. Right-click the **WEB-INF** 
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-  
+
 <h1>Hello World</h1>
 ```
 
@@ -427,10 +427,10 @@ Now we have a login button. It doesn't do anything yet, but that's about to chan
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret. 
+Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret.
 
 1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `java-tutorial` for the name and click **Create application**. 
+1. Click the **Add an app** button. Enter `java-tutorial` for the name and click **Create application**.
 1. Locate the **Application Secrets** section, and click the **Generate New Password** button. Copy the password now and save it to a safe place. Once you've copied the password, click **Ok**.
 1. Locate the **Platforms** section, and click **Add Platform**. Choose **Web**, then enter `http://localhost:8080/authorize.html` under **Redirect URIs**.
 1. Click **Save** to complete the registration. Copy the **Application Id** and save it along with the password you copied earlier. We'll need those values soon.
@@ -467,19 +467,19 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class AuthHelper {
   private static final String authority = "https://login.microsoftonline.com";
   private static final String authorizeUrl = authority + "/common/oauth2/v2.0/authorize";
-  
-  private static String[] scopes = { 
-    "openid", 
+
+  private static String[] scopes = {
+    "openid",
     "offline_access",
-    "profile", 
+    "profile",
     "User.Read",
     "Mail.Read"
   };
-  
+
   private static String appId = null;
   private static String appPassword = null;
   private static String redirectUrl = null;
-  
+
   private static String getAppId() {
     if (appId == null) {
       try {
@@ -500,7 +500,7 @@ public class AuthHelper {
     }
     return appPassword;
   }
-  
+
   private static String getRedirectUrl() {
     if (redirectUrl == null) {
       try {
@@ -511,7 +511,7 @@ public class AuthHelper {
     }
     return redirectUrl;
   }
-  
+
   private static String getScopes() {
     StringBuilder sb = new StringBuilder();
     for (String scope: scopes) {
@@ -519,11 +519,11 @@ public class AuthHelper {
     }
     return sb.toString().trim();
   }
-  
+
   private static void loadConfig() throws IOException {
     String authConfigFile = "auth.properties";
     InputStream authConfigStream = AuthHelper.class.getClassLoader().getResourceAsStream(authConfigFile);
-    
+
     if (authConfigStream != null) {
       Properties authProps = new Properties();
       try {
@@ -539,9 +539,9 @@ public class AuthHelper {
       throw new FileNotFoundException("Property file '" + authConfigFile + "' not found in the classpath.");
     }
   }
-  
+
   public static String getLoginUrl(UUID state, UUID nonce) {
-    
+
     UriComponentsBuilder urlBuilder = UriComponentsBuilder.fromHttpUrl(authorizeUrl);
     urlBuilder.queryParam("client_id", getAppId());
     urlBuilder.queryParam("redirect_uri", getRedirectUrl());
@@ -550,7 +550,7 @@ public class AuthHelper {
     urlBuilder.queryParam("state", state);
     urlBuilder.queryParam("nonce", nonce);
     urlBuilder.queryParam("response_mode", "form_post");
-    
+
     return urlBuilder.toUriString();
   }
 }
@@ -573,13 +573,13 @@ Replace the existing `index` function with this updated version:
 public String index(Model model, HttpServletRequest request) {
   UUID state = UUID.randomUUID();
   UUID nonce = UUID.randomUUID();
-  
+
   // Save the state and nonce in the session so we can
   // verify after the auth process redirects back
   HttpSession session = request.getSession();
   session.setAttribute("expected_state", state);
   session.setAttribute("expected_nonce", nonce);
-  
+
   String loginUrl = AuthHelper.getLoginUrl(state, nonce);
   model.addAttribute("loginUrl", loginUrl);
   // Name of a definition in WEB-INF/defs/pages.xml
@@ -607,7 +607,7 @@ public class AuthorizeController {
 
   @RequestMapping(value="/authorize", method=RequestMethod.POST)
   public String authorize(
-      @RequestParam("code") String code, 
+      @RequestParam("code") String code,
       @RequestParam("id_token") String idToken,
       @RequestParam("state") UUID state,
       HttpServletRequest request) { {
@@ -615,7 +615,7 @@ public class AuthorizeController {
     HttpSession session = request.getSession();
     UUID expectedState = (UUID) session.getAttribute("expected_state");
     UUID expectedNonce = (UUID) session.getAttribute("expected_nonce");
-    
+
     // Make sure that the state query parameter returned matches
     // the expected state
     if (state.equals(expectedState)) {
@@ -717,16 +717,16 @@ public class IdToken {
   private String preferredUsername;
   @JsonProperty("oid")
   private String objectId;
-  
+
   public static IdToken parseEncodedToken(String encodedToken, String nonce) {
     // Encoded token is in three parts, separated by '.'
     String[] tokenParts = encodedToken.split("\\.");
-    
+
     // The three parts are: header.token.signature
     String idToken = tokenParts[1];
-    
+
     byte[] decodedBytes = Base64.getUrlDecoder().decode(idToken);
-    
+
     ObjectMapper mapper = new ObjectMapper();
     IdToken newToken = null;
     try {
@@ -736,7 +736,7 @@ public class IdToken {
       }
     } catch (Exception e) {
       e.printStackTrace();
-    } 
+    }
     return newToken;
   }
 
@@ -803,34 +803,34 @@ public class IdToken {
   public void setObjectId(String objectId) {
     this.objectId = objectId;
   }
-  
+
   private Date getUnixEpochAsDate(long epoch) {
     // Epoch timestamps are in seconds,
     // but Jackson converts integers as milliseconds.
-    // Rather than create a custom deserializer, this helper will do 
+    // Rather than create a custom deserializer, this helper will do
     // the conversion.
     return new Date(epoch * 1000);
   }
-  
+
   private boolean isValid(String nonce) {
     // This method does some basic validation
     // For more information on validation of ID tokens, see
     // https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-tokens/#validating-tokens
     Date now = new Date();
-    
+
     // Check expiration and not before times
     if (now.after(this.getUnixEpochAsDate(this.expirationTime)) ||
         now.before(this.getUnixEpochAsDate(this.notBefore))) {
       // Token is not within it's valid "time"
       return false;
     }
-    
+
     // Check nonce
     if (!nonce.equals(this.getNonce())) {
       // Nonce mismatch
       return false;
     }
-    
+
     return true;
   }
 }
@@ -866,7 +866,7 @@ public class TokenResponse {
   @JsonProperty("error_codes")
   private int[] errorCodes;
   private Date expirationTime;
-  
+
   public String getTokenType() {
     return tokenType;
   }
@@ -992,22 +992,22 @@ public static TokenResponse getTokenFromAuthCode(String authCode, String tenantI
   // Create a logging interceptor to log request and responses
   HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
   interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-  
+
   OkHttpClient client = new OkHttpClient.Builder()
       .addInterceptor(interceptor).build();
-  
+
   // Create and configure the Retrofit object
   Retrofit retrofit = new Retrofit.Builder()
       .baseUrl(authority)
       .client(client)
       .addConverterFactory(JacksonConverterFactory.create())
       .build();
-  
+
   // Generate the token service
   TokenService tokenService = retrofit.create(TokenService.class);
-  
+
   try {
-    return tokenService.getAccessTokenFromAuthCode(tenantId, getAppId(), getAppPassword(), 
+    return tokenService.getAccessTokenFromAuthCode(tenantId, getAppId(), getAppPassword(),
         "authorization_code", authCode, getRedirectUrl()).execute().body();
   } catch (IOException e) {
     TokenResponse error = new TokenResponse();
@@ -1059,7 +1059,7 @@ public String logout(HttpServletRequest request) {
 }
 ```
 
-Save all of your changes, restart the app, and browse to `http://localhost:8080`. This time if you log in, you should see an access token. 
+Save all of your changes, restart the app, and browse to `http://localhost:8080`. This time if you log in, you should see an access token.
 
 ### Refreshing the access token
 
@@ -1097,22 +1097,22 @@ public static TokenResponse ensureTokens(TokenResponse tokens, String tenantId) 
     // Create a logging interceptor to log request and responses
     HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
     interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-    
+
     OkHttpClient client = new OkHttpClient.Builder()
         .addInterceptor(interceptor).build();
-    
+
     // Create and configure the Retrofit object
     Retrofit retrofit = new Retrofit.Builder()
         .baseUrl(authority)
         .client(client)
         .addConverterFactory(JacksonConverterFactory.create())
         .build();
-    
+
     // Generate the token service
     TokenService tokenService = retrofit.create(TokenService.class);
-    
+
     try {
-      return tokenService.getAccessTokenFromRefreshToken(tenantId, getAppId(), getAppPassword(), 
+      return tokenService.getAccessTokenFromRefreshToken(tenantId, getAppId(), getAppPassword(),
           "refresh_token", tokens.getRefreshToken(), getRedirectUrl()).execute().body();
     } catch (IOException e) {
       TokenResponse error = new TokenResponse();
@@ -1128,7 +1128,7 @@ Now that we can retrive the access token, we're ready to call the Mail API.
 
 ## Using the Mail API
 
-Let's start by creating a class that represents a [User entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/user). We'll use this to get the email address associated with the user's mailbox.
+Let's start by creating a class that represents a [User entity](/graph/api/resources/user?view=graph-rest-1.0). We'll use this to get the email address associated with the user's mailbox.
 
 Right-click the **src/main/java** folder and choose **New**, then **Package**. Name the package `com.outlook.dev.service` and click **Finish**. Right-click the **com.outlook.dev.service** package and choose **New**, then **Class**. Name the class `OutlookUser` and click **Finish**. Replace the entire contents of the `OutlookUser.java` file with the following code:
 
@@ -1143,7 +1143,7 @@ public class OutlookUser {
   private String id;
   private String mail;
   private String displayName;
-  
+
   public String getId() {
     return id;
   }
@@ -1165,7 +1165,7 @@ public class OutlookUser {
 }
 ```
 
-Next let's create a class that represents a [Message entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message). Our class won't cover every field present on a message, just the ones we will use in the app.
+Next let's create a class that represents a [Message entity](/graph/api/resources/message?view=graph-rest-1.0). Our class won't cover every field present on a message, just the ones we will use in the app.
 
 Right-click the **com.outlook.dev.service** package and choose **New**, then **Class**. Name the class `Message` and click **Finish**. Replace the entire contents of the `Message.java` file with the following code:
 
@@ -1184,7 +1184,7 @@ public class Message {
   private Boolean isRead;
   private String subject;
   private String bodyPreview;
-  
+
   public String getId() {
     return id;
   }
@@ -1224,7 +1224,7 @@ public class Message {
 }
 ```
 
-We defined the `from` property as type `Recipient`, which isn't defined yet. Let's create the `Recipient` class in the `com.outlook.dev.service` package, to represent the [Recipient entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/recipient).
+We defined the `from` property as type `Recipient`, which isn't defined yet. Let's create the `Recipient` class in the `com.outlook.dev.service` package, to represent the [Recipient entity](/graph/api/resources/recipient?view=graph-rest-1.0).
 
 ```java
 package com.outlook.dev.service;
@@ -1245,7 +1245,7 @@ public class Recipient {
 }
 ```
 
-That class has just one property, of type `EmailAddress`, which we will now define as a new class in the `com.outlook.dev.service` package. We'll use this to represent the [EmailAddress type](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/emailaddress).
+That class has just one property, of type `EmailAddress`, which we will now define as a new class in the `com.outlook.dev.service` package. We'll use this to represent the [EmailAddress type](/graph/api/resources/emailaddress?view=graph-rest-1.0).
 
 ```java
 package com.outlook.dev.service;
@@ -1256,7 +1256,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class EmailAddress {
   private String name;
   private String address;
-  
+
   public String getName() {
     return name;
   }
@@ -1283,7 +1283,7 @@ public class PagedResult<T> {
   @JsonProperty("@odata.nextLink")
   private String nextPageLink;
   private T[] value;
-  
+
   public String getNextPageLink() {
     return nextPageLink;
   }
@@ -1310,7 +1310,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface OutlookService {
-  
+
   @GET("/v1.0/me")
   Call<OutlookUser> getCurrentUser();
 
@@ -1368,23 +1368,23 @@ public class OutlookServiceBuilder {
         return chain.proceed(request);
       }
     };
-        
+
     // Create a logging interceptor to log request and responses
     HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
     loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-    
+
     OkHttpClient client = new OkHttpClient.Builder()
         .addInterceptor(requestInterceptor)
         .addInterceptor(loggingInterceptor)
         .build();
-    
+
     // Create and configure the Retrofit object
     Retrofit retrofit = new Retrofit.Builder()
         .baseUrl("https://graph.microsoft.com")
         .client(client)
         .addConverterFactory(JacksonConverterFactory.create())
         .build();
-    
+
     // Generate the token service
     return retrofit.create(OutlookService.class);
   }
@@ -1426,15 +1426,15 @@ public class MailController {
       redirectAttributes.addFlashAttribute("error", "Please sign in to continue.");
       return "redirect:/index.html";
     }
-    
+
     String tenantId = (String)session.getAttribute("userTenantId");
-    
+
     tokens = AuthHelper.ensureTokens(tokens, tenantId);
-    
+
     String email = (String)session.getAttribute("userEmail");
-    
+
     OutlookService outlookService = OutlookServiceBuilder.getOutlookService(tokens.getAccessToken(), email);
-    
+
     // Retrieve messages from the inbox
     String folder = "inbox";
     // Sort by time received in descending order
@@ -1443,7 +1443,7 @@ public class MailController {
 		String properties = "receivedDateTime,from,isRead,subject,bodyPreview";
     // Return at most 10 messages
     Integer maxResults = 10;
-    
+
     try {
       PagedResult<Message> messages = outlookService.getMessages(
           folder, sort, properties, maxResults)
@@ -1453,7 +1453,7 @@ public class MailController {
       redirectAttributes.addFlashAttribute("error", e.getMessage());
       return "redirect:/index.html";
     }
-    
+
     return "mail";
   }
 }
@@ -1545,17 +1545,17 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Update the `scopes` array in `AuthHelper.java` to include the `Calendars.Read` scope.
 
     ```java
-    private static String[] scopes = { 
-      "openid", 
+    private static String[] scopes = {
+      "openid",
       "offline_access",
-      "profile", 
+      "profile",
       "User.Read",
       "Mail.Read",
       "Calendars.Read"
     };
     ```
 
-1. Create a class in the `com.outlook.dev.service` package for the [Event entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/event).
+1. Create a class in the `com.outlook.dev.service` package for the [Event entity](/graph/api/resources/event?view=graph-rest-1.0).
 
     ```java
     package com.outlook.dev.service;
@@ -1604,7 +1604,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     }
     ```
 
-1. Create a class in the `com.outlook.dev.service` package for the [DateTimeTimeZone type](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/datetimetimezone).
+1. Create a class in the `com.outlook.dev.service` package for the [DateTimeTimeZone type](/graph/api/resources/datetimetimezone?view=graph-rest-1.0).
 
     ```java
     package com.outlook.dev.service;
@@ -1618,7 +1618,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
     public class DateTimeTimeZone {
       private Date dateTime;
       private String timeZone;
-      
+
       public Date getDateTime() {
         return dateTime;
       }
@@ -1680,22 +1680,22 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
           redirectAttributes.addFlashAttribute("error", "Please sign in to continue.");
           return "redirect:/index.html";
         }
-        
+
         String tenantId = (String)session.getAttribute("userTenantId");
-      
+
         tokens = AuthHelper.ensureTokens(tokens, tenantId);
-        
+
         String email = (String)session.getAttribute("userEmail");
-        
+
         OutlookService outlookService = OutlookServiceBuilder.getOutlookService(tokens.getAccessToken(), email);
-        
+
         // Sort by start time in descending order
         String sort = "start/dateTime DESC";
         // Only return the properties we care about
         String properties = "organizer,subject,start,end";
         // Return at most 10 events
         Integer maxResults = 10;
-        
+
         try {
           PagedResult<Event> events = outlookService.getEvents(
               sort, properties, maxResults)
@@ -1705,7 +1705,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
           redirectAttributes.addFlashAttribute("error", e.getMessage());
           return "redirect:/index.html";
         }
-        
+
         return "events";
       }
     }
@@ -1769,17 +1769,17 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 1. Update the `scopes` array in `AuthHelper.java` to include the `Contacts.Read` scope.
 
     ```java
-    private static String[] scopes = { 
-      "openid", 
+    private static String[] scopes = {
+      "openid",
       "offline_access",
-      "profile", 
+      "profile",
       "User.Read",
       "Mail.Read",
       "Contacts.Read"
     };
     ```
 
-1. Create a class in the `com.outlook.dev.service` package for the [Contact entity](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/contact).
+1. Create a class in the `com.outlook.dev.service` package for the [Contact entity](/graph/api/resources/contact?view=graph-rest-1.0).
 
     ```java
     package com.outlook.dev.service;
@@ -1794,7 +1794,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
       private String surname;
       private String companyName;
       private EmailAddress[] emailAddresses;
-      
+
       public String getId() {
         return id;
       }
@@ -1873,22 +1873,22 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
           redirectAttributes.addFlashAttribute("error", "Please sign in to continue.");
           return "redirect:/index.html";
         }
-        
+
         String tenantId = (String)session.getAttribute("userTenantId");
-      
+
         tokens = AuthHelper.ensureTokens(tokens, tenantId);
-        
+
         String email = (String)session.getAttribute("userEmail");
-        
+
         OutlookService outlookService = OutlookServiceBuilder.getOutlookService(tokens.getAccessToken(), email);
-        
+
         // Sort by given name in ascending order (A-Z)
         String sort = "GivenName ASC";
         // Only return the properties we care about
         String properties = "GivenName,Surname,CompanyName,EmailAddresses";
         // Return at most 10 contacts
         Integer maxResults = 10;
-        
+
         try {
           PagedResult<Contact> contacts = outlookService.getContacts(
               sort, properties, maxResults)
@@ -1898,7 +1898,7 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
           redirectAttributes.addFlashAttribute("error", e.getMessage());
           return "redirect:/index.html";
         }
-        
+
         return "contacts";
       }
     }

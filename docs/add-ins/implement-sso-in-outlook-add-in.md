@@ -29,7 +29,7 @@ The Exchange identity token is available in all requirement sets of the add-in A
 
 ## Add-in scenario
 
-For the purposes of this example, consider an add-in that consists of both the add-in UI and scripts (HTML + JavaScript) and a backend Web API that is called by the add-in. The backend Web API makes calls both to the [Microsoft Graph API](https://developer.microsoft.com/graph) and the Contoso Data API, a fictional API created by a third party. Like the Microsoft Graph API, the Contoso Data API requires OAuth authentication. The requirement is that the backend Web API should be able to call both APIs without having to prompt the user for their credentials every time an access token expires.
+For the purposes of this example, consider an add-in that consists of both the add-in UI and scripts (HTML + JavaScript) and a backend Web API that is called by the add-in. The backend Web API makes calls both to the [Microsoft Graph API](/graph/overview) and the Contoso Data API, a fictional API created by a third party. Like the Microsoft Graph API, the Contoso Data API requires OAuth authentication. The requirement is that the backend Web API should be able to call both APIs without having to prompt the user for their credentials every time an access token expires.
 
 To do this, the backend API creates a secure database of users. Each user will get an entry in the database where the backend can store long-lived refresh tokens for both the Microsoft Graph API and the Contoso Data API. The following JSON markup represents a user's entry in the database.
 
@@ -67,7 +67,7 @@ The add-in includes either the SSO access token (if it is available) or the Exch
    - If both values are valid, respond to the add-in to indicate that the user is already registered and configured.
    - If either value is invalid, respond to the add-in to indicate that user setup is required, along with which services (Graph or Contoso) need to be configured.
 
-1. The add-in checks the response. 
+1. The add-in checks the response.
    - If the user is already registered and configured, the add-in continues with normal operation.
    - If user setup is required, the add-in enters "setup" mode and prompts the user to authorize the add-in.
 
