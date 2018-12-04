@@ -29,7 +29,7 @@ In this tutorial, you will:
     npm install -g yo generator-office
     ```
 
-* Outlook 2016 or later for Windows (connected to an Office 365 account) or an Outlook.com account
+* Outlook 2016 or later for Windows (connected to an Office 365 account)
 
 * A [GitHub](https://www.github.com) account 
 
