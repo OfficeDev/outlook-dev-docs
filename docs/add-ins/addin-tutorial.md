@@ -1047,7 +1047,7 @@ ul {
 
 ### Create the JavaScript file for the task pane
 
-Create a file in the **msg-compose** folder named **insert-gist.js**, and add the following code.
+Create a file in the **msg-compose** folder named **insert-gist.js**, and add the following code to specify the script for the task pane.
 
 ```js
 (function(){
@@ -1158,7 +1158,7 @@ Create a file in the **msg-compose** folder named **insert-gist.js**, and add th
 
 ### Test the button
 
-Save all of your changes and run `npm start` if the server isn't already running. Then complete the following steps to test the **Insert default gist** button. 
+Save all of your changes and run `npm start` if the server isn't already running. Then complete the following steps to test the **Insert gist** button. 
 
 1. Open Outlook and compose a new message. 
 
