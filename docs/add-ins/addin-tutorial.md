@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Build a message compose Outlook add-in'
-description: In this tutorial, you'll build a Outlook add-in that can be used in message compose mode to insert GitHub gists into the body of a new email message.
+description: In this tutorial, you'll build a Outlook add-in that can be used in message compose mode to insert GitHub gists into the body of a new message.
 ms.topic: tutorial
 ms.date: 12/03/2018
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
@@ -8,7 +8,7 @@ ms.date: 12/03/2018
 
 # Tutorial: Build a message compose Outlook add-in
 
-This tutorial teaches you how to build an Outlook add-in that can be used in message compose mode to insert content into the body of an email message.
+This tutorial teaches you how to build an Outlook add-in that can be used in message compose mode to insert content into the body of a message.
 
 In this tutorial, you will:
 
@@ -17,7 +17,7 @@ In this tutorial, you will:
 > * Define buttons that will render in the compose message window
 > * Implement a first-run experience that collects information from the user and fetches data from an external service
 > * Implement a UI-less button that invokes a function
-> * Implement a task pane that inserts content into the body of an email message
+> * Implement a task pane that inserts content into the body of a message
 
 ## Prerequisites
 
@@ -31,9 +31,9 @@ In this tutorial, you will:
 
 * The [Showdown](https://github.com/showdownjs/showdown) library (to convert Markdown to HTML) and the [URI.js](https://github.com/medialize/URI.js) library (to build relative URLs). To install these tools, run the following command via the command prompt:
 
-```powershell
-npm install showdown urijs --save
-```
+    ```bash
+    npm install showdown urijs --save
+    ```
 
 * Outlook 2016 or later for Windows (connected to an Office 365 account) or an Outlook.com account
 
@@ -41,7 +41,7 @@ npm install showdown urijs --save
 
 ## Setup
 
-The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist(s) to the body of an email message. Complete the following steps to create two new gists that you can use to test the add-in you're going to build.
+The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist(s) to the body of a message. Complete the following steps to create two new gists that you can use to test the add-in you're going to build.
 
 1. [Login to GitHub](https://github.com/login).
 
@@ -596,23 +596,19 @@ function buildFileList(files) {
 > [!NOTE]
 > You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured when the user chooses either the **Insert default gist** button or the **Insert gist** button. If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
 
-## TODO Implement a UI-less button
+## Implement a UI-less button
 
-The **Insert default gist** button of this add-in will invoke a JavaScript function, rather than open a task pane like many add-in buttons do. This kind of button is commonly referred to as a UI-less button.
+This add-in's **Insert default gist** button is a UI-less button that will invoke a JavaScript function, rather than open a task pane like many add-in buttons do. When the user chooses the **Insert default gist** button, the corresponding JavaScript function will check whether the add-in has been configured. 
 
-When the user chooses the **Insert default gist** button, the corresponding JavaScript function will check whether the add-in has been configured. 
-
-- If the add-in has already been configured, the function will load the content of the gist that the user has selected as default and insert it into the body of the email message. 
+- If the add-in has already been configured, the function will load the content of the gist that the user has selected as default and insert it into the body of the message. 
 
 - If the add-in hasn't yet been configured, then the settings dialog will prompt the user to provide the required information. 
 
-TODO??? However, it's a little strange to just present the settings dialog to the user without some explanation. So in this case, we'll show the message bar included in the dialog's HTML to give the user some idea why they're seeing the dialog.
-
-### Create the function file
+### Update the function file (HTML)
 
 A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/function-file/function-file.html` as the function file. 
 
-Open the **./function-file/function-file.html** file, replace the entire contents with the following code, and save the file.
+Open the file **./function-file/function-file.html**, replace the entire contents with the following code, and save the file.
 
 ```html
 <!DOCTYPE html>
@@ -641,8 +637,9 @@ Open the **./function-file/function-file.html** file, replace the entire content
 </html>
 ```
 
-TODO1
-We also referenced **addin-config.js**, which doesn't exist yet. Create the file in the **helpers** folder and add the following code.
+### Create a helper file to manage configuration settings
+
+The function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **helpers** folder, add the following code, and save the file. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
 
 ```js
 function getConfig() {
@@ -662,9 +659,9 @@ function setConfig(config, callback) {
 }
 ```
 
-This makes use of the [RoamingSettings object](https://docs.microsoft.com/javascript/api/outlook_1_5/office.RoamingSettings) to get or set the configuration values.
+### Update the function file (JavaScript)
 
-Now open the **function-file.js** file in the **function-file** folder, and replace the contents with the following code:
+Open the file **./function-file/function-file.js**, replace the entire contents with the following code, and save the file. Note that if the `insertDefaultGist` function determines the add-in has not yet been configured, it adds the `?warn=1` parameter to the dialog URL. Doing so makes the settings dialog render the message bar that's defined in **./settings/dialog.html**, to tell the user why they're seeing the dialog.
 
 ```js
 var config;
@@ -748,9 +745,15 @@ function dialogClosed(message) {
 }
 ```
 
-Note the addition of the `?warn=1` parameter to the dialog URL in the `insertDefaultGist` function. Including that parameter will cause the dialog to display the message bar.
+### Add functions to existing helper file
 
-Before we test the UI-less button, we need to add a couple of functions to the **gist-api.js** file to get the contents of a gist and convert it to HTML to insert in the message body. Add the following functions.
+Next, open the **./helpers/gist-api.js** file, add the following functions, and save the file. Note the following about this code: 
+
+- If the specified gist contains HTML, the add-in will insert the HTML as-is into the body of the message. 
+
+- If the specified gist contains Markdown, the add-in will use Showdown to convert the Markdown to HTML and insert the resulting HTML into the body of the message. 
+
+- If the specified gist contains anything other than HTML or Markdown, the add-in will insert it as a code snippet.
 
 ```js
 function getGist(gistId, callback) {
@@ -799,8 +802,6 @@ function buildBodyContent(gist, callback) {
   callback(null, 'No suitable file found in the gist');
 }
 ```
-
-If the gist contains HTML, then it will be inserted as-is into the body. If the gist is Markdown, the add-in will convert using Showdown and insert the resulting HTML. For anything else, the add-in will insert it as a code snippet.
 
 ### Test the button
 
@@ -1153,7 +1154,7 @@ Save all of your changes and run `npm start` if the server isn't already running
 
 ## Next steps
 
-In this tutorial, you've created an Outlook add-in that can be used in message compose mode to insert content into the body of an email message. To learn more about developing Outlook add-ins, continue to the following article: 
+In this tutorial, you've created an Outlook add-in that can be used in message compose mode to insert content into the body of a message. To learn more about developing Outlook add-ins, continue to the following article: 
 
 > [!div class="nextstepaction"]
 > [Outlook add-in APIs](apis.md)
