@@ -361,7 +361,7 @@ Let's start by creating the UI for the dialog itself. Create a new folder in the
           <pre><code id="error-text"></code></pre>
         </div>
         <div class="gist-list-container ms-Grid-row">
-          <div class="list-title ms-font-xl ms-fontWeight-regular">Choose default gist</div>
+          <div class="list-title ms-font-xl ms-fontWeight-regular">Choose Default Gist</div>
           <ul id="gist-list" class="ms-List">
           </ul>
         </div>
@@ -612,7 +612,7 @@ This add-in's **Insert default gist** button is a UI-less button that will invok
 
 A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/function-file/function-file.html` as the function file. 
 
-Open the file **./function-file/function-file.html**, replace the entire contents with the following code, and save the file.
+Open the file **./function-file/function-file.html**, replace the entire contents with the following markup, and save the file.
 
 ```html
 <!DOCTYPE html>
@@ -807,9 +807,9 @@ function buildBodyContent(gist, callback) {
 }
 ```
 
-### TODO - Test the button
+### Test the button
 
-The **Insert default gist** button should now work. Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you choose the **Insert default gist** button, you should be prompted to configure the add-in.
+The **Insert default gist** button should now work. Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. Choose the **Insert default gist** button, and you should be prompted to configure the add-in.
 
 ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.PNG)
 
