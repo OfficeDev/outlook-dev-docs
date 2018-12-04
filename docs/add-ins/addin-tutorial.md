@@ -16,7 +16,7 @@ In this tutorial, you will:
 > * Create an Outlook add-in project
 > * Define buttons that will render in the compose message window
 > * Implement a first-run experience that collects information from the user and fetches data from an external service
-> * Implement a UI-less button that executes a function
+> * Implement a UI-less button that invokes a function
 > * Implement a task pane that inserts content into the body of an email message
 
 ## Prerequisites
@@ -590,7 +590,7 @@ function buildFileList(files) {
 > [!NOTE]
 > You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured at runtime when the user invokes the add-in (by choosing either the **Insert default gist** button or the **Insert gist** button). If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
 
-## Implement a UI-less button that executes a function
+## Implement a UI-less button that invokes a function
 
 TODO
 We'll start with the **Insert default gist** button. This button simply invokes a JavaScript function in the function file rather than open a task pane. This kind of button is referred to as a UI-less button.
