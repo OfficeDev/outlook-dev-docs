@@ -825,12 +825,11 @@ Save all of your changes and run `npm start` if the server isn't already running
 
 ## Implement a task pane
 
-Now we can work on the **Insert gist** button. For this button we'll open a task pane and display all of the user's gists. The user can pick one and insert it. If the user has not yet configured the add-in, it will display a message asking them to do so.
+This add-in's **Insert gist** button will open a task pane and display the user's gists. The user can then select one of the gists to insert it into the body of the message. If the user has not yet configured the add-in, they will be prompted to do so.
 
-Create a folder in the root of the project named **msg-compose**. In this folder, create a file named **insert-gist.html** and add the following markup.
+### Create the HTML file for the task pane
 
-> [!NOTE]
-> The markup for the task pane borrows heavily from the **Landing page** design pattern described in [UX design pattern templates for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/ux-design-pattern-templates).
+Create a folder in the root of the project named **msg-compose**. Then create a file in the **msg-compose** folder named **insert-gist.html**, and add the following markup to define the HTML for the task pane.
 
 ```html
 <!DOCTYPE html>
@@ -891,9 +890,11 @@ Create a folder in the root of the project named **msg-compose**. In this folder
 </html>
 ```
 
-Create a file named **insert-gist.css** in the **msg-compose** folder and add the following code.
+### Create the CSS file for the task pane
 
-```CSS
+Create a file in the **msg-compose** folder named **insert-gist.css**, and add the following code to define the styles used by the task pane.
+
+```css
 /* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
 html, body {
   width: 100%;
@@ -1044,7 +1045,9 @@ ul {
           background: transparent; }
 ```
 
-Now that the UI is implemented, let's add the code behind it. Create a file named **insert-gist.js** in the **msg-compose** folder and add the following code.
+### Create the JavaScript file for the task pane
+
+Create a file in the **msg-compose** folder named **insert-gist.js**, and add the following code.
 
 ```js
 (function(){
@@ -1153,7 +1156,15 @@ Now that the UI is implemented, let's add the code behind it. Create a file name
 })();
 ```
 
-Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. When you choose the **Insert gist** button, you should see a task pane open on the right-hand side. When you select a gist and choose **Insert**, the gist should be inserted into the body.
+### Test the button
+
+Save all of your changes and run `npm start` if the server isn't already running. Then complete the following steps to test the **Insert default gist** button. 
+
+1. Open Outlook and compose a new message. 
+
+1. In the compose message window, choose the **Insert gist** button. You should see a task pane open the to right of the compose form.
+
+1. In the task pane, select the **Hello World Html** gist and choose **Insert** to insert that gist into the body of the message.
 
 ![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.PNG)
 
