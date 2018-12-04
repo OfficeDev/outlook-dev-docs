@@ -190,13 +190,17 @@ Before going any further, let's test the basic add-in that the generator created
 
 ## Define buttons
 
-Now that you've verified the base add-in works, you can customize it to add additional functionality. By default, the manifest that the generator created only defines buttons for the read message window. Let's update the manifest to define two buttons for the compose message window:
+Now that you've verified the base add-in works, you can customize it to add additional functionality. By default, the manifest that the generator created only defines buttons for the read message window. Let's update the manifest to remove the buttons from the read message window and define two new buttons for the compose message window:
 
 - **Insert gist**: a button that opens a task pane
 
 - **Insert default gist**: a button that invokes a function
 
-### Add a new extension point to the manifest
+### Remove the MessageReadCommandSurface extension point
+
+Open the **manifest.xml** file and locate the `ExtensionPoint` element with type `MessageReadCommandSurface`. Delete this `ExtensionPoint` element to remove those buttons from the read message window.
+
+### Add the MessageComposeCommandSurface extension point to the manifest
 
 Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this line, insert the following XML markup. Note the following about this markup:
 
