@@ -4,7 +4,7 @@ description: Learn how to create an actionable message card and send it via Offi
 author: jasonjoh
 ms.topic: get-started-article
 ms.technology: o365-connectors
-ms.date: 05/09/2017
+ms.date: 10/30/2018
 ms.author: jasonjoh
 ---
 
@@ -65,11 +65,9 @@ You'll need an Office 365 subscription to proceed. If you do not have an Office 
 
 ### Get a connector webhook URL for your Inbox
 
-1. Log on to the Office 365 Mail app at [https://outlook.office.com](https://outlook.office.com). Click the gear icon in the upper-right-hand corner of the page, and select **Manage Integrations**.
+1. Log on to the Office 365 Mail app at [https://outlook.office.com](https://outlook.office.com). Click the gear icon in the upper-right-hand corner of the page, and select **Manage connectors**.
 
-1. Choose **Connectors** in the popup.
-
-1. Locate the **Incoming Webhook** connector in the list of available connectors, and choose **Add**.
+1. Locate and select the **Incoming Webhook** connector in the list of available connectors.
 
     ![A screenshot of the Incoming Webhook item in the available connectors list](images/get-started/incoming-webhook.png)
 
