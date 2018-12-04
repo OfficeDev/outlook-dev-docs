@@ -309,7 +309,7 @@ This add-in needs to be able to read gists from the user's GitHub account and id
 
 ### Collect data from the user
 
-Let's start by creating the UI for the dialog itself. Create a folder in the root folder of the project named **settings**. In that folder, create a file named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. Note that this dialog uses [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
+Let's start by creating the UI for the dialog itself. Create a folder in the root of the project named **settings**. In that folder, create a file named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. Note that this dialog uses [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
 
 ```html
 <!DOCTYPE html>
@@ -522,7 +522,7 @@ Now that the dialog UI has been defined, you can write the code that makes it ac
 
 The **dialog.js** file you just created specifies that the add-in should load gists when the `change` event fires for the GitHub username field. To retrieve the user's gists from GitHub, you'll use the [GitHub Gists API](https://developer.github.com/v3/gists/).
 
-Create a new folder in the root folder of the project named **helpers**. In that folder, create a file named **gist-api.js**, and add the following code to retrieve the user's gists from GitHub and build the list of gists.
+Create a folder in the root of the project named **helpers**. In that folder, create a file named **gist-api.js**, and add the following code to retrieve the user's gists from GitHub and build the list of gists.
 
 ```js
 function getUserGists(user, callback) {
