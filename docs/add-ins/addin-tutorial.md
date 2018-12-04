@@ -213,6 +213,7 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this li
 - The second `Control` element contains an `Action` element with `xsi:type="ExecuteFunction"`, so this button will invoke a JavaScript function contained in the function file.
 
 ```xml
+<!-- Message Compose -->
 <ExtensionPoint xsi:type="MessageComposeCommandSurface">
   <OfficeTab id="TabDefault">
     <Group id="msgComposeCmdGroup">
