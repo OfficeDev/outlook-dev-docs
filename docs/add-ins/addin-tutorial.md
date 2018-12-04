@@ -29,6 +29,12 @@ In this tutorial, you will:
     npm install -g yo generator-office
     ```
 
+* The [Showdown](https://github.com/showdownjs/showdown) library (to convert Markdown to HTML) and the [URI.js](https://github.com/medialize/URI.js) library (to build relative URLs). To install these tools, run the following command via the command prompt:
+
+```powershell
+npm install showdown urijs --save
+```
+
 * Outlook 2016 or later for Windows (connected to an Office 365 account) or an Outlook.com account
 
 * A [GitHub](https://www.github.com) account 
@@ -590,14 +596,23 @@ function buildFileList(files) {
 > [!NOTE]
 > You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured when the user chooses either the **Insert default gist** button or the **Insert gist** button. If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
 
-## Implement a UI-less button
+## TODO Implement a UI-less button
 
-TODO
-We'll start with the **Insert default gist** button. This button simply invokes a JavaScript function in the function file rather than open a task pane. This kind of button is referred to as a UI-less button.
+The **Insert default gist** button of this add-in will invoke a JavaScript function, rather than open a task pane like many add-in buttons do. This kind of button is commonly referred to as a UI-less button.
 
-The goal for this button is to check if the add-in has been configured yet. If it has, then it will load the content of the gist that the user has selected as default and insert it into the body. If it hasn't, then it will present the settings dialog. However, it's a little strange to just present the settings dialog to the user without some explanation. So in this case, we'll show the message bar included in the dialog's HTML to give the user some idea why they're seeing the dialog.
+When the user chooses the **Insert default gist** button, the corresponding JavaScript function will check whether the add-in has been configured. 
 
-Let's start by creating our function file. Any functions that are invoked by a UI-less button must be defined in the function file specified by the `FunctionFile` element in the manifest for the corresponding form factor. Our manifest has this defined as `https://localhost:3000/function-file/function-file.html`. Open the **./function-file/function-file.html** file and update the code inside to look like the following.
+- If the add-in has already been configured, the function will load the content of the gist that the user has selected as default and insert it into the body of the email message. 
+
+- If the add-in hasn't yet been configured, then the settings dialog will prompt the user to provide the required information. 
+
+TODO??? However, it's a little strange to just present the settings dialog to the user without some explanation. So in this case, we'll show the message bar included in the dialog's HTML to give the user some idea why they're seeing the dialog.
+
+### Create the function file
+
+A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/function-file/function-file.html` as the function file. 
+
+Open the **./function-file/function-file.html** file, replace the entire contents with the following code, and save the file.
 
 ```html
 <!DOCTYPE html>
@@ -626,12 +641,7 @@ Let's start by creating our function file. Any functions that are invoked by a U
 </html>
 ```
 
-Notice that one of the script tags references [Showdown](https://github.com/showdownjs/showdown), which we'll use later to convert Markdown to HTML. Another tag references [URI.js](https://github.com/medialize/URI.js), which we use to build relative URLs. We need to install these libraries. Open your command prompt/shell to the root of the project and run the following command.
-
-```powershell
-npm install showdown urijs --save
-```
-
+TODO1
 We also referenced **addin-config.js**, which doesn't exist yet. Create the file in the **helpers** folder and add the following code.
 
 ```js
