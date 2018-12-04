@@ -808,7 +808,7 @@ function buildBodyContent(gist, callback) {
 
 ### Test the button
 
-Save all of your changes and run `npm start` if the server isn't already running. Then complete the following steps to test the **Insert default gist** button. 
+Save all of your changes and run `npm start` via the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert default gist** button. 
 
 1. Open Outlook and compose a new message. 
 
@@ -1157,7 +1157,7 @@ Create a file in the **msg-compose** folder named **insert-gist.js**, and add th
 
 ### Test the button
 
-Save all of your changes and run `npm start` if the server isn't already running. Then complete the following steps to test the **Insert gist** button. 
+Save all of your changes and run `npm start` via the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert gist** button. 
 
 1. Open Outlook and compose a new message. 
 
