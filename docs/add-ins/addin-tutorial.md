@@ -171,7 +171,7 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 
 Before going any further, let's test the basic add-in that the generator created to confirm that the project is setup correctly. 
 
-1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
+1. At the command prompt, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
 
 1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, proceed to step 4. If your browser indicates the site's certificate is not trusted, proceed to the next step.
 
