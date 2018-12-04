@@ -93,7 +93,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
 Use the Yeoman generator to create an Outlook add-in project.
 
-1. Run the following command and then answer the prompts as follows:
+1. Run the following command via the command prompt and then answer the prompts as follows:
 
     ```bash
     yo office
