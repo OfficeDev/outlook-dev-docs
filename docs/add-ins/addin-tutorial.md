@@ -126,7 +126,7 @@ The manifest for an add-in controls how it appears in Outlook. It defines the wa
 
 #### Specify a support page
 
-The manifest that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
+The manifest the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
 
 1. In the root directory of the project, create a new file named **support.html** and add the following markup.
 
@@ -173,9 +173,9 @@ Before going any further, let's test the basic add-in that the generator created
 
 1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
 
-1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, proceed to step 4. If your browser indicates that the site's certificate is not trusted, proceed to the next step.
+1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, proceed to step 4. If your browser indicates the site's certificate is not trusted, proceed to the next step.
 
-1. Office Web Add-ins should use HTTPS, not HTTP, even when you are developing. If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
+1. Office Web Add-ins should use HTTPS, not HTTP, even when you are developing. If your browser indicates the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
     > [!NOTE]
     > Chrome (web browser) may continue to indicate the the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
@@ -188,7 +188,7 @@ Before going any further, let's test the basic add-in that the generator created
 
 ## Define buttons
 
-Now that you've verified the base add-in works, you can customize it to add additional functionality. By default, the manifest that the generator created only defines buttons for the read message window. Let's update the manifest to remove the buttons from the read message window and define two new buttons for the compose message window:
+Now that you've verified the base add-in works, you can customize it to add additional functionality. By default, the manifest the generator created only defines buttons for the read message window. Let's update the manifest to remove the buttons from the read message window and define two new buttons for the compose message window:
 
 - **Insert gist**: a button that opens a task pane
 
