@@ -29,12 +29,6 @@ In this tutorial, you will:
     npm install -g yo generator-office
     ```
 
-* The [Showdown](https://github.com/showdownjs/showdown) library (to convert Markdown to HTML) and the [URI.js](https://github.com/medialize/URI.js) library (to build relative URLs). To install these tools, run the following command via the command prompt:
-
-    ```bash
-    npm install showdown urijs --save
-    ```
-
 * Outlook 2016 or later for Windows (connected to an Office 365 account) or an Outlook.com account
 
 * A [GitHub](https://www.github.com) account 
@@ -118,6 +112,12 @@ Use the Yeoman generator to create an Outlook add-in project.
 
     ```bash
     cd "Git the gist"
+    ```
+
+1. This add-in will use the [Showdown](https://github.com/showdownjs/showdown) library to convert Markdown to HTML and the [URI.js](https://github.com/medialize/URI.js) library to build relative URLs. To install these tools for your project, run the following command in the root directory of the project:
+
+    ```bash
+    npm install showdown urijs --save
     ```
 
 ### Update the manifest
