@@ -128,9 +128,7 @@ The manifest for an add-in controls how it appears in Outlook. It defines the wa
 
 The manifest that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
 
-1. In the root directory of the project, add a new file named **support.html**.
-
-1. Add the following markup to the **support.html** file and save the file.
+1. In the root directory of the project, create a new file named **support.html** and add the following markup.
 
     ```html
     <!DOCTYPE html>
@@ -148,7 +146,7 @@ The manifest that the generator creates contains a placeholder value for the `Su
     </html>
     ````
 
-1. Open the **manifest.xml** file, update the `SupportUrl` element to point to the **support.html** file that you created, and save the file.
+1. Open the **manifest.xml** file and update the `SupportUrl` element to point to the **support.html** file that you created.
 
   ```xml
   <SupportUrl DefaultValue="https://localhost:3000/support.html" />
@@ -612,7 +610,7 @@ This add-in's **Insert default gist** button is a UI-less button that will invok
 
 A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/function-file/function-file.html` as the function file. 
 
-Open the file **./function-file/function-file.html**, replace the entire contents with the following markup, and save the file.
+Open the file **./function-file/function-file.html** and replace the entire contents with the following markup.
 
 ```html
 <!DOCTYPE html>
@@ -643,7 +641,7 @@ Open the file **./function-file/function-file.html**, replace the entire content
 
 ### Create a file to manage configuration settings
 
-The function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **helpers** folder, add the following code, and save the file. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
+The function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
 
 ```js
 function getConfig() {
@@ -665,7 +663,7 @@ function setConfig(config, callback) {
 
 ### Update the function file (JavaScript)
 
-Open the file **./function-file/function-file.js**, replace the entire contents with the following code, and save the file. Note that if the `insertDefaultGist` function determines the add-in has not yet been configured, it adds the `?warn=1` parameter to the dialog URL. Doing so makes the settings dialog render the message bar that's defined in **./settings/dialog.html**, to tell the user why they're seeing the dialog.
+Open the file **./function-file/function-file.js** and replace the entire contents with the following code. Note that if the `insertDefaultGist` function determines the add-in has not yet been configured, it adds the `?warn=1` parameter to the dialog URL. Doing so makes the settings dialog render the message bar that's defined in **./settings/dialog.html**, to tell the user why they're seeing the dialog.
 
 ```js
 var config;
@@ -751,7 +749,7 @@ function dialogClosed(message) {
 
 ### Create new functions to process gists
 
-Next, open the **./helpers/gist-api.js** file, add the following functions, and save the file. Note the following: 
+Next, open the **./helpers/gist-api.js** file and add the following functions. Note the following: 
 
 - If the gist contains HTML, the add-in will insert the HTML as-is into the body of the message. 
 
@@ -829,7 +827,7 @@ This add-in's **Insert gist** button will open a task pane and display the user'
 
 ### Create the HTML file for the task pane
 
-Create a folder in the root of the project named **msg-compose**. Then in that folder, create a file named **insert-gist.html**, and add the following markup to define the HTML for the task pane.
+Create a folder in the root of the project named **msg-compose**. Then in that folder, create a file named **insert-gist.html**, and add the following markup to define the UI for the task pane.
 
 ```html
 <!DOCTYPE html>
