@@ -42,22 +42,22 @@
     },
     {
       "source_path": "docs/actionable-messages/actionable-email-dev-dashboard.md",
-      "redirect_url": "/outlook/actionable-message/email-dev-dashboard",
+      "redirect_url": "/outlook/actionable-messages/email-dev-dashboard",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/actionable-messages/actionable-messages-via-connectors.md",
-      "redirect_url": "/outlook/actionable-message/send-via-connectors",
+      "redirect_url": "/outlook/actionable-messages/send-via-connectors",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/actionable-messages/actionable-messages-via-email.md",
-      "redirect_url": "/outlook/actionable-message/send-via-email",
+      "redirect_url": "/outlook/actionable-messages/send-via-email",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/actionable-messages/invoke-add-in-from-actionable-message.md",
-      "redirect_url": "/outlook/actionable-message/invoke-add-in",
+      "redirect_url": "/outlook/actionable-messages/invoke-add-in",
       "redirect_document_id": true
     }
   ]
