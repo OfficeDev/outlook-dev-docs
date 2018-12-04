@@ -198,9 +198,9 @@ Now that you've verified the base add-in works, you can customize it to add addi
 
 ### Remove the MessageReadCommandSurface extension point
 
-Open the **manifest.xml** file and locate the `ExtensionPoint` element with type `MessageReadCommandSurface`. Delete this `ExtensionPoint` element to remove those buttons from the read message window.
+Open the **manifest.xml** file and locate the `ExtensionPoint` element with type `MessageReadCommandSurface`. Delete this `ExtensionPoint` element to remove the buttons from the read message window.
 
-### Add the MessageComposeCommandSurface extension point to the manifest
+### Add the MessageComposeCommandSurface extension point
 
 Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this line, insert the following XML markup. Note the following about this markup:
 
@@ -641,7 +641,7 @@ Open the file **./function-file/function-file.html**, replace the entire content
 </html>
 ```
 
-### Create a helper file to manage configuration settings
+### Create a file to manage configuration settings
 
 The function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **helpers** folder, add the following code, and save the file. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
 
@@ -749,7 +749,7 @@ function dialogClosed(message) {
 }
 ```
 
-### Add functions to existing helper file
+### Create new functions to process gists
 
 Next, open the **./helpers/gist-api.js** file, add the following functions, and save the file. Note the following: 
 
