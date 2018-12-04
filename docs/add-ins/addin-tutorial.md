@@ -196,7 +196,7 @@ Now that you've verified the base add-in works, you can customize it to add addi
 
 ### Remove the MessageReadCommandSurface extension point
 
-Open the **manifest.xml** file and locate the `ExtensionPoint` element with type `MessageReadCommandSurface`. Delete this `ExtensionPoint` element to remove the buttons from the read message window.
+Open the **manifest.xml** file and locate the `ExtensionPoint` element with type `MessageReadCommandSurface`. Delete this `ExtensionPoint` element (including its closing tag) to remove the buttons from the read message window.
 
 ### Add the MessageComposeCommandSurface extension point
 
