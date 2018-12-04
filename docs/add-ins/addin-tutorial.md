@@ -809,18 +809,19 @@ function buildBodyContent(gist, callback) {
 
 ### Test the button
 
-The **Insert default gist** button should now work. Save all of your changes and run `npm start` if the server isn't already running. Open Outlook and compose a new message. Choose the **Insert default gist** button, and you should be prompted to configure the add-in.
+Save all of your changes and run `npm start` if the server isn't already running. Then complete the following steps to test the **Insert default gist** button. 
 
-![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.PNG)
+1. Open Outlook and compose a new message. 
 
-Enter your GitHub username. Press **Tab** to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and choose **Done**.
+1. In the compose message window, choose the **Insert default gist** button. You should be prompted to configure the add-in.
 
-> [!NOTE]
-> If you don't have any gists on GitHub, go create some!
+    ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.PNG)
 
-![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.PNG)
+1. In the settings dialog, enter your GitHub username and press **Tab** to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and choose **Done**.
 
-Now choose the **Insert default gist** button again. This time you should see the contents of the gist inserted into the body of the email.
+    ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.PNG)
+
+1. Choose the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
 
 ## Implement a task pane
 
