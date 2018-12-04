@@ -184,7 +184,7 @@ Before going any further, let's test the basic add-in that the generator created
 
 ## Define buttons
 
-Now that you've verified the base add-in works, you can customize it to add additional functionality. By default, the manifest that the generator created only defines buttons for the read message window. Let's update the manifest to define the two buttons that your add-in will render in the compose message window:
+Now that you've verified the base add-in works, you can customize it to add additional functionality. By default, the manifest that the generator created only defines buttons for the read message window. Let's update the manifest to define two buttons for the compose message window:
 
 - **Insert gist**: a button that opens a task pane
 
