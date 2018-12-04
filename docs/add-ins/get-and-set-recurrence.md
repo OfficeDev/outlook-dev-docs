@@ -10,7 +10,7 @@ ms.author: elizs
 
 # Get and set recurrence
 
-Sometimes you need to create and update a recurring appointment, such as a weekly status meeting for a team project or an annual checkup with your doctor. You can use the JavaScript API for Office to manage the recurrence patterns of an appointment series in your add-in.
+Sometimes you need to create and update a recurring appointment, such as a weekly status meeting for a team project or a yearly birthday reminder. You can use the JavaScript API for Office to manage the recurrence patterns of an appointment series in your add-in.
 
 ## Available recurrence patterns
 
@@ -27,7 +27,7 @@ To configure the recurrence pattern, you need to combine the [recurrence type](/
 |`yearly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]<br/>- [`month`][month link]|- An appointment occurs on day *dayOfMonth* of *month* every *interval* years. Example: An appointment occurs on day **_7_** of **_September_** every **_4_** years.<br/><br/>- An appointment occurs on the *weekNumber* *dayOfWeek* of *month* every *interval* years. Example: An appointment occurs on the **_first_** **_Thursday_** of **_September_** every **_2_** years.|
 
 > [!NOTE]
-> If a property is not listed for a particular recurrence type, then it is not applicable for that type.
+> You can also use the [`firstDayOfWeek`][firstDayOfWeek link] property with the `weekly` recurrence type. The specified day will start the list of days displayed in the recurrence dialog.
 
 ## Access recurrence
 
@@ -60,7 +60,7 @@ seriesTimeObject.setDuration(30);
 var pattern = {
     "seriesTime": seriesTimeObject,
     "recurrenceType": "weekly",
-    "recurrenceProperties": {"interval": 1, "days": ["tue", "thu"], "firstDayOfWeek": "sun"},
+    "recurrenceProperties": {"interval": 1, "days": ["tue", "thu"]},
     "recurrenceTimeZone": {"name": "Pacific Standard Time"}};
 
 Office.context.mailbox.item.recurrence.setAsync(pattern, callback);
@@ -151,7 +151,7 @@ The following example shows the value of the `item.recurrence` property for an a
 
 ### Get the recurrence details
 
-After you've retrieved the recurrence object (either from the `getAsync` callback or from `item.recurrence`), you can get specific properties of the recurrence. For example, you can get the start and end dates and times of the series by using methods on the `recurrence.seriesTime` property.
+After you've retrieved the recurrence object (either from the `getAsync` callback or from `item.recurrence`), you can get specific properties of the recurrence. For example, you can get the start and end dates and times of the series by using [methods][SeriesTime link] on the `recurrence.seriesTime` property.
 
 ```js
 // Get series date and time info
