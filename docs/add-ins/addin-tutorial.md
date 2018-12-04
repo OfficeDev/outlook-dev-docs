@@ -343,7 +343,7 @@ Let's start by creating the UI for the dialog itself. Create a folder in the roo
           <div class="ms-MessageBar-text">
             Oops! It looks like you haven't configured <strong>Git the gist</strong> yet.
             <br/>
-            Please configure your GitHub user name and select a default gist, then try that action again!
+            Please configure your GitHub username and select a default gist, then try that action again!
           </div>
         </div>
       </div>
