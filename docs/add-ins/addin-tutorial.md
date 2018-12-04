@@ -588,7 +588,7 @@ function buildFileList(files) {
 ```
 
 > [!NOTE]
-> You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured at runtime when the user invokes the add-in (by choosing either the **Insert default gist** button or the **Insert gist** button). If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
+> You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured when the user chooses either the **Insert default gist** button or the **Insert gist** button. If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
 
 ## Implement a UI-less button
 
