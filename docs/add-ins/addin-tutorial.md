@@ -200,7 +200,7 @@ Open the **manifest.xml** file and locate the `ExtensionPoint` element with type
 
 ### Add the MessageComposeCommandSurface extension point
 
-Locate the line in the manifest that reads `</DesktopFormFactor>`. Above this line, insert the following XML markup. Note the following about this markup:
+Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately before this line, insert the following XML markup. Note the following about this markup:
 
 - The `ExtensionPoint` with `xsi:type="MessageComposeCommandSurface"` indicates that you're defining buttons to add to the message compose window.
 
