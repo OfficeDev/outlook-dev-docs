@@ -23,7 +23,7 @@ In this tutorial, you will:
 
 * [Node.js and npm](https://nodejs.org)
 
-* The latest version of [Yeoman](http://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command via the command prompt:
+* The latest version of [Yeoman](http://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command from the command prompt:
 
     ```bash
     npm install -g yo generator-office
@@ -93,7 +93,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
 Use the Yeoman generator to create an Outlook add-in project.
 
-1. Run the following command via the command prompt and then answer the prompts as follows:
+1. Run the following command from the command prompt and then answer the prompts as follows:
 
     ```bash
     yo office
@@ -171,11 +171,11 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 
 Before going any further, let's test the basic add-in that the generator created to confirm that the project is set up correctly. 
 
-1. At the command prompt, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
+1. At the command prompt, make sure you're in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
 
 1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, proceed to step 4. If your browser indicates the site's certificate is not trusted, proceed to the next step.
 
-1. Office Add-ins should use HTTPS, not HTTP, even when you are developing. If your browser indicates the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
+1. Office Add-ins should use HTTPS, not HTTP, even when you're developing. If your browser indicates the site's certificate is not trusted, you'll need to add the certificate as a trusted certificate. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
     > [!NOTE]
     > Chrome (web browser) may continue to indicate the the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
@@ -208,9 +208,9 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
 
 - The `Group` element defines the grouping for the new buttons, with a label set by the `groupLabel` resource.
 
-- The first `Control` element contains an `Action` element with `xsi:type="ShowTaskPane"`, so this button will open a task pane.
+- The first `Control` element contains an `Action` element with `xsi:type="ShowTaskPane"`, so this button opens a task pane.
 
-- The second `Control` element contains an `Action` element with `xsi:type="ExecuteFunction"`, so this button will invoke a JavaScript function contained in the function file.
+- The second `Control` element contains an `Action` element with `xsi:type="ExecuteFunction"`, so this button invokes a JavaScript function contained in the function file.
 
 ```xml
 <!-- Message Compose -->
@@ -255,7 +255,7 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
 
 ### Update resources in the manifest
 
-The code above references labels, tooltips, and URLs that you need to define before the manifest will be valid. Specify this information by making the following changes in the `Resources` section of the manifest. 
+The previous code references labels, tooltips, and URLs that you need to define before the manifest will be valid. Specify this information by making the following changes in the `Resources` section of the manifest. 
 
 1. Add the following element as a child of the `bt:Urls` element:
 
@@ -415,7 +415,7 @@ ul {
 }
 ```
 
-Now that the dialog UI has been defined, you can write the code that makes it actually do something. Create a file in the **settings** folder named **dialog.js** and add the following code. Note that this code uses jQuery to register events and uses the `messageParent` function to send the user's choices back to the caller.
+Now that you've defined the dialog UI, you can write the code that makes it actually do something. Create a file in the **settings** folder named **dialog.js** and add the following code. Note that this code uses jQuery to register events and uses the `messageParent` function to send the user's choices back to the caller.
 
 ```js
 (function(){
@@ -808,7 +808,7 @@ function buildBodyContent(gist, callback) {
 
 ### Test the button
 
-Save all of your changes and run `npm start` via the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert default gist** button. 
+Save all of your changes and run `npm start` from the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert default gist** button. 
 
 1. Open Outlook and compose a new message. 
 
@@ -1157,7 +1157,7 @@ Create a file in the **msg-compose** folder named **insert-gist.js**, and add th
 
 ### Test the button
 
-Save all of your changes and run `npm start` via the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert gist** button. 
+Save all of your changes and run `npm start` from the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert gist** button. 
 
 1. Open Outlook and compose a new message. 
 
