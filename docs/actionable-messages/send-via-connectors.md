@@ -4,7 +4,7 @@ description: Learn how to create an actionable message card and send it via Offi
 author: jasonjoh
 ms.topic: get-started-article
 ms.technology: o365-connectors
-ms.date: 05/09/2017
+ms.date: 10/30/2018
 ms.author: jasonjoh
 ---
 
@@ -61,15 +61,13 @@ Feel free to experiment with this simple example in the playground. You can see 
 
 Connectors use webhooks to create Connector Card messages within an Office 365 group. Developers can create these cards by sending an HTTP request with a simple JSON payload to an Office 365 group webhook address. Let's try posting some basic cards to a group.
 
-You'll need an Office 365 subscription to proceed. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://developer.microsoft.com/office/dev-program) under the Office 365 Developer Program. 
+You'll need an Office 365 subscription to proceed. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://developer.microsoft.com/office/dev-program) under the Office 365 Developer Program.
 
 ### Get a connector webhook URL for your Inbox
 
-1. Log on to the Office 365 Mail app at [https://outlook.office.com](https://outlook.office.com). Click the gear icon in the upper-right-hand corner of the page, and select **Manage Integrations**.
+1. Log on to the Office 365 Mail app at [https://outlook.office.com](https://outlook.office.com). Click the gear icon in the upper-right-hand corner of the page, and select **Manage connectors**.
 
-1. Choose **Connectors** in the popup.
-
-1. Locate the **Incoming Webhook** connector in the list of available connectors, and choose **Add**.
+1. Locate and select the **Incoming Webhook** connector in the list of available connectors.
 
     ![A screenshot of the Incoming Webhook item in the available connectors list](images/get-started/incoming-webhook.png)
 
@@ -83,7 +81,9 @@ You'll need an Office 365 subscription to proceed. If you do not have an Office 
 
 The webhook URL should look similar to the following:
 
-    `https://outlook.office365.com/webhook/a1269812-6d10-44b1-abc5-b84f93580ba0@9e7b80c7-d1eb-4b52-8582-76f921e416d9/IncomingWebhook/3fdd6767bae44ac58e5995547d66a4e4/f332c8d9-3397-4ac5-957b-b8e3fc465a8c`
+```http
+https://outlook.office365.com/webhook/a1269812-6d10-44b1-abc5-b84f93580ba0@9e7b80c7-d1eb-4b52-8582-76f921e416d9/IncomingWebhook/3fdd6767bae44ac58e5995547d66a4e4/f332c8d9-3397-4ac5-957b-b8e3fc465a8c
+```
 
 ### Send the message
 

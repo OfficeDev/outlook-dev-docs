@@ -35,7 +35,7 @@ DKIM and SPF are industry standard ways to prove a sender's identity when sendin
 
 ### Signed card payloads
 
-Actionable messages [sent via email](actionable-messages-via-email.md) support an alternative verification method: signing the card payload with and RSA key or X509 certificate. This method is required in the following scenarios:
+Actionable messages [sent via email](send-via-email.md) support an alternative verification method: signing the card payload with and RSA key or X509 certificate. This method is required in the following scenarios:
 
 - The sending servers do not support DKIM or SPF verification.
 - You scenario for actionable messages requires sending from multiple email accounts.
@@ -60,7 +60,7 @@ Signed actionable message cards are available when sending via email. Use this f
 | `originator` | String | Required. MUST be set to the ID provided by Microsoft during onboarding. |
 | `iat` | TimeStamp (Unix epoch) | Required. The time that the payload was signed. |
 | `sender` | String | Required. The email address used to send this actionable message. |
-| `recipientsSerialized` | String | A serialized [RecipientList](#recipentlist) containing all of the To and CC recipients of the message. |
+| `recipientsSerialized` | String | A serialized [RecipientList](#recipientlist) containing all of the To and CC recipients of the message. |
 | `sub` | String | Required. A unique identifier in your backend system for the recipient. |
 | `adaptiveCardSerialized` | String | Required if using the Adaptive card format, otherwise MUST NOT be present. The serialized content of the Adaptive card JSON. |
 | `messageCardSerialized` | String | Required if using the MessageCard format, otherwise MUST NOT be present. The serialized content of the Adaptive card JSON. |

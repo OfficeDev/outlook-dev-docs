@@ -27,13 +27,38 @@
     },
     {
       "source_path": "docs/rest/recurrence-rules.md",
-      "redirect_url": "https://developer.microsoft.com/graph/docs/concepts/outlook-schedule-recurring-events",
+      "redirect_url": "/graph/outlook-schedule-recurring-events",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/rest/webhooks.md",
-      "redirect_url": "https://developer.microsoft.com/graph/docs/concepts/webhooks",
+      "redirect_url": "/graph/webhooks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/compare-graph-outlook.md",
+      "redirect_url": "/outlook/rest/compare-graph",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/actionable-messages/actionable-email-dev-dashboard.md",
+      "redirect_url": "/outlook/actionable-messages/email-dev-dashboard",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/actionable-messages/actionable-messages-via-connectors.md",
+      "redirect_url": "/outlook/actionable-messages/send-via-connectors",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/actionable-messages/actionable-messages-via-email.md",
+      "redirect_url": "/outlook/actionable-messages/send-via-email",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/actionable-messages/invoke-add-in-from-actionable-message.md",
+      "redirect_url": "/outlook/actionable-messages/invoke-add-in",
+      "redirect_document_id": true
     }
   ]
 }

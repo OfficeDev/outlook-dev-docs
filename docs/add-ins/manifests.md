@@ -4,7 +4,7 @@ description: The manifest describes how an Outlook add-in integrates across Outl
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 12/04/2018
 ms.author: jasonjoh
 ---
 
@@ -31,7 +31,7 @@ An Outlook add-in consists of two components: the XML add-in manifest and a web 
   <DisplayName DefaultValue="Add-in Command Demo" />
   <Description DefaultValue="Adds command buttons to the ribbon in Outlook"/>
   <IconUrl DefaultValue="https://appdemo.contoso.com/images/blue-64.png" />
-  <HighResolutionIconUrl DefaultValue="https://appdemo.contoso.com/images/blue-80.png" />
+  <HighResolutionIconUrl DefaultValue="https://appdemo.contoso.com/images/blue-128.png" />
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
@@ -65,7 +65,7 @@ An Outlook add-in consists of two components: the XML add-in manifest and a web 
         <bt:Set Name="Mailbox" />
       </bt:Sets>
     </Requirements>
-   
+
     <Hosts>
       <Host xsi:type="MailHost">
         <DesktopFormFactor>
@@ -309,7 +309,7 @@ The schema reference contains full information on which elements can be localize
 
 ## Hosts
 
-Outlook add-ins specify the **Hosts** element like the followiing.
+Outlook add-ins specify the **Hosts** element like the following.
 
 ```XML
 <OfficeApp>
@@ -392,16 +392,16 @@ Activation rules are specified in the **Rule** element. The **Rule** element can
 Activation rules can be used to activate an add-in based on one or more of the following conditions on the currently selected item.
 
 > [!NOTE]
-> Activation rules only apply to clients that do not support the **VersionOverrides** element. 
+> Activation rules only apply to clients that do not support the **VersionOverrides** element.
 
 - The item type and/or message class
-    
+
 - The presence of a specific type of known entity, such as an address or phone number
-    
+
 - A regular expression match in the body, subject, or sender email address
-    
+
 - The presence of an attachment
-    
+
 For details and samples of activation rules, see [Activation rules for Outlook add-ins](activation-rules.md).
 
 
@@ -417,13 +417,12 @@ Add-ins can optionally add support for Outlook mobile. Outlook mobile supports a
 
 ## See also
 
-- [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization)   
-- [Privacy, permissions, and security for Outlook add-ins](privacy-and-security.md)   
-- [Outlook add-in APIs](apis.md)   
-- [Office Add-ins XML manifest](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)    
+- [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization)
+- [Privacy, permissions, and security for Outlook add-ins](privacy-and-security.md)
+- [Outlook add-in APIs](apis.md)
+- [Office Add-ins XML manifest](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)
 - [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/develop/add-in-manifests)
-- [Design your Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/add-in-design)    
-- [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md)    
-- [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)    
+- [Design your Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/design/add-in-design)
+- [Understanding Outlook add-in permissions](understanding-outlook-add-in-permissions.md)
+- [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
 - [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md)
-  
