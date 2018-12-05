@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Build a message compose Outlook add-in'
-description: In this tutorial, you'll build a Outlook add-in that can be used in message compose mode to insert GitHub gists into the body of a new message.
+description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
 ms.date: 12/03/2018
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
@@ -21,7 +21,7 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-* [Node.js and npm](https://nodejs.org/en/)
+* [Node.js and npm](https://nodejs.org)
 
 * The latest version of [Yeoman](http://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command via the command prompt:
 
@@ -35,7 +35,7 @@ In this tutorial, you will:
 
 ## Setup
 
-The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist(s) to the body of a message. Complete the following steps to create two new gists that you can use to test the add-in you're going to build.
+The add-in that you'll create in this tutorial will read [gists](https://gist.github.com) from the user's GitHub account and add the selected gist to the body of a message. Complete the following steps to create two new gists that you can use to test the add-in you're going to build.
 
 1. [Login to GitHub](https://github.com/login).
 
@@ -61,7 +61,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
           ```
         ```
 
-    - Choose the **Create public gist** button.
+    - Select the **Create public gist** button.
 
 1. [Create another new gist](https://gist.github.com). 
 
@@ -87,7 +87,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
         </html>
         ```
 
-    - Choose the **Create public gist** button.
+    - Select the **Create public gist** button.
 
 ## Create an Outlook add-in project
 
@@ -122,7 +122,7 @@ Use the Yeoman generator to create an Outlook add-in project.
 
 ### Update the manifest
 
-The manifest for an add-in controls how it appears in Outlook. It defines the way the add-in appears in the add-in list, the buttons that appear on the ribbon, and it sets the URLs for the HTML and JavaScript files used by the add-in. 
+The manifest for an add-in controls how it appears in Outlook. It defines the way the add-in appears in the add-in list and the buttons that appear on the ribbon, and it sets the URLs for the HTML and JavaScript files used by the add-in. 
 
 #### Specify a support page
 
@@ -169,26 +169,26 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 
 #### Test the generated add-in
 
-Before going any further, let's test the basic add-in that the generator created to confirm that the project is setup correctly. 
+Before going any further, let's test the basic add-in that the generator created to confirm that the project is set up correctly. 
 
 1. At the command prompt, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
 
 1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, proceed to step 4. If your browser indicates the site's certificate is not trusted, proceed to the next step.
 
-1. Office Web Add-ins should use HTTPS, not HTTP, even when you are developing. If your browser indicates the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
+1. Office Add-ins should use HTTPS, not HTTP, even when you are developing. If your browser indicates the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
     > [!NOTE]
     > Chrome (web browser) may continue to indicate the the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
 
 1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file that's located in the root directory of the project.
 
-1. In Outlook, open a message and choose the **Display all properties** button. If everything's been setup correctly, the task pane will open and render the add-in's welcome page.
+1. In Outlook, open an existing message and select the **Display all properties** button. If everything's been set up correctly, the task pane will open and render the add-in's welcome page.
 
     ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.PNG)
 
 ## Define buttons
 
-Now that you've verified the base add-in works, you can customize it to add additional functionality. By default, the manifest the generator created only defines buttons for the read message window. Let's update the manifest to remove the buttons from the read message window and define two new buttons for the compose message window:
+Now that you've verified the base add-in works, you can customize it to add more functionality. By default, the manifest the generator created only defines buttons for the read message window. Let's update the manifest to remove the buttons from the read message window and define two new buttons for the compose message window:
 
 - **Insert gist**: a button that opens a task pane
 
@@ -293,7 +293,7 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to locate the **Custom add-ins** section at the bottom of the **My add-ins** dialog box. 
 
-1. Choose the **...** button next to the **Git the gist** entry and then choose **Remove**.
+1. Select the **...** button next to the **Git the gist** entry and then choose **Remove**.
 
 1. Close the **My add-ins** window.
 
@@ -301,7 +301,7 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to reinstall the add-in using the updated **manifest.xml** file.
 
-After you've completed these steps, you should the two new buttons when you compose a new message in Outlook: **Insert gist** and **Insert default gist**. 
+After you've completed these steps, you should see two new buttons in the ribbon of the message compose window: **Insert gist** and **Insert default gist**. 
 
 ## Implement a first-run experience
 
@@ -457,7 +457,7 @@ Now that the dialog UI has been defined, you can write the code that makes it ac
         }
       });
 
-      // When the Done button is chosen, send the
+      // When the Done button is selected, send the
       // values back to the caller as a serialized
       // object.
       $('#settings-done').on('click', function() {
@@ -597,13 +597,13 @@ function buildFileList(files) {
 ```
 
 > [!NOTE]
-> You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured when the user chooses either the **Insert default gist** button or the **Insert gist** button. If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
+> You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured when the user selects either the **Insert default gist** button or the **Insert gist** button. If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
 
 ## Implement a UI-less button
 
-This add-in's **Insert default gist** button is a UI-less button that will invoke a JavaScript function, rather than open a task pane like many add-in buttons do. When the user chooses the **Insert default gist** button, the corresponding JavaScript function will check whether the add-in has been configured. 
+This add-in's **Insert default gist** button is a UI-less button that will invoke a JavaScript function, rather than open a task pane like many add-in buttons do. When the user selects the **Insert default gist** button, the corresponding JavaScript function will check whether the add-in has been configured. 
 
-- If the add-in has already been configured, the function will load the content of the gist that the user has selected as default and insert it into the body of the message. 
+- If the add-in has already been configured, the function will load the content of the gist that the user has selected as the default and insert it into the body of the message. 
 
 - If the add-in hasn't yet been configured, then the settings dialog will prompt the user to provide the required information. 
 
@@ -812,19 +812,19 @@ Save all of your changes and run `npm start` via the command prompt, if the serv
 
 1. Open Outlook and compose a new message. 
 
-1. In the compose message window, choose the **Insert default gist** button. You should be prompted to configure the add-in.
+1. In the compose message window, select the **Insert default gist** button. You should be prompted to configure the add-in.
 
     ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.PNG)
 
-1. In the settings dialog, enter your GitHub username and press **Tab** to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and choose **Done**.
+1. In the settings dialog, enter your GitHub username and press **Tab** to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and select **Done**.
 
     ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.PNG)
 
-1. Choose the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
+1. Select the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
 
 ## Implement a task pane
 
-This add-in's **Insert gist** button will open a task pane and display the user's gists. The user can then select one of the gists to insert it into the body of the message. If the user has not yet configured the add-in, they will be prompted to do so.
+This add-in's **Insert gist** button will open a task pane and display the user's gists. The user can then select one of the gists to insert into the body of the message. If the user has not yet configured the add-in, they will be prompted to do so.
 
 ### Create the HTML file for the task pane
 
@@ -1068,7 +1068,7 @@ Create a file in the **msg-compose** folder named **insert-gist.js**, and add th
         $('#not-configured').show();
       }
 
-      // When insert button is chosen, build the content
+      // When insert button is selected, build the content
       // and insert into the body.
       $('#insert-button').on('click', function(){
         var gistId = $('.ms-ListItem.is-selected').children('.gist-id').val();
@@ -1092,7 +1092,7 @@ Create a file in the **msg-compose** folder named **insert-gist.js**, and add th
         });
       });
 
-      // When the settings icon is chosen, open the settings dialog
+      // When the settings icon is selected, open the settings dialog
       $('#settings-icon').on('click', function(){
         // Display settings dialog
         var url = new URI('../settings/dialog.html').absoluteTo(window.location).toString();
@@ -1161,9 +1161,9 @@ Save all of your changes and run `npm start` via the command prompt, if the serv
 
 1. Open Outlook and compose a new message. 
 
-1. In the compose message window, choose the **Insert gist** button. You should see a task pane open the to right of the compose form.
+1. In the compose message window, select the **Insert gist** button. You should see a task pane open to the right of the compose form.
 
-1. In the task pane, select the **Hello World Html** gist and choose **Insert** to insert that gist into the body of the message.
+1. In the task pane, select the **Hello World Html** gist and select **Insert** to insert that gist into the body of the message.
 
 ![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.PNG)
 
