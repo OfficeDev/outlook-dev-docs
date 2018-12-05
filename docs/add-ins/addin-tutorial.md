@@ -100,8 +100,11 @@ Use the Yeoman generator to create an Outlook add-in project.
     ```
 
     - **Choose a project type** - `Office Add-in project using Jquery framework`
+
     - **Choose a script type** - `Javascript`
+
     - **What do you want to name your add-in?** - `Git the gist`
+
     - **Which Office client application would you like to support?** - `Outlook`
 
     ![A screenshot of the prompts and answers for the Yeoman generator](images/addin-tutorial/yeoman-prompts.PNG)
@@ -173,7 +176,7 @@ Before going any further, let's test the basic add-in that the generator created
 
 1. At the command prompt, make sure you're in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
 
-1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, proceed to step 4. If your browser indicates the site's certificate is not trusted, proceed to the next step.
+1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, you can close the browser and proceed to step 4. If your browser indicates the site's certificate is not trusted, proceed to the next step.
 
 1. Office Add-ins should use HTTPS, not HTTP, even when you're developing. If your browser indicates the site's certificate is not trusted, you'll need to add the certificate as a trusted certificate. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
@@ -188,7 +191,7 @@ Before going any further, let's test the basic add-in that the generator created
 
 ## Define buttons
 
-Now that you've verified the base add-in works, you can customize it to add more functionality. By default, the manifest the generator created only defines buttons for the read message window. Let's update the manifest to remove the buttons from the read message window and define two new buttons for the compose message window:
+Now that you've verified the base add-in works, you can customize it to add more functionality. By default, the manifest only defines buttons for the read message window. Let's update the manifest to remove the buttons from the read message window and define two new buttons for the compose message window:
 
 - **Insert gist**: a button that opens a task pane
 
@@ -640,28 +643,6 @@ Open the file **./function-file/function-file.html** and replace the entire cont
 </html>
 ```
 
-### Create a file to manage configuration settings
-
-The function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
-
-```js
-function getConfig() {
-  var config = {};
-
-  config.gitHubUserName = Office.context.roamingSettings.get('gitHubUserName');
-  config.defaultGistId = Office.context.roamingSettings.get('defaultGistId');
-
-  return config;
-}
-
-function setConfig(config, callback) {
-  Office.context.roamingSettings.set('gitHubUserName', config.gitHubUserName);
-  Office.context.roamingSettings.set('defaultGistId', config.defaultGistId);
-
-  Office.context.roamingSettings.saveAsync(callback);
-}
-```
-
 ### Update the function file (JavaScript)
 
 Open the file **./function-file/function-file.js** and replace the entire contents with the following code. Note that if the `insertDefaultGist` function determines the add-in has not yet been configured, it adds the `?warn=1` parameter to the dialog URL. Doing so makes the settings dialog render the message bar that's defined in **./settings/dialog.html**, to tell the user why they're seeing the dialog.
@@ -748,6 +729,28 @@ function dialogClosed(message) {
 }
 ```
 
+### Create a file to manage configuration settings
+
+The function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
+
+```js
+function getConfig() {
+  var config = {};
+
+  config.gitHubUserName = Office.context.roamingSettings.get('gitHubUserName');
+  config.defaultGistId = Office.context.roamingSettings.get('defaultGistId');
+
+  return config;
+}
+
+function setConfig(config, callback) {
+  Office.context.roamingSettings.set('gitHubUserName', config.gitHubUserName);
+  Office.context.roamingSettings.set('defaultGistId', config.defaultGistId);
+
+  Office.context.roamingSettings.saveAsync(callback);
+}
+```
+
 ### Create new functions to process gists
 
 Next, open the **./helpers/gist-api.js** file and add the following functions. Note the following: 
@@ -816,7 +819,7 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
     ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.PNG)
 
-1. In the settings dialog, enter your GitHub username and press **Tab** to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and select **Done**.
+1. In the settings dialog, enter your GitHub username and then either **Tab** or click elsewhere in the dialog to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and select **Done**.
 
     ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.PNG)
 
