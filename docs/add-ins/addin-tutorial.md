@@ -262,7 +262,7 @@ The previous code references labels, tooltips, and URLs that you need to define 
     ```xml
     <bt:Url id="insertGistPaneUrl" DefaultValue="https://localhost:3000/msg-compose/insert-gist.html"/>
     ```
-1. Change the `DefaultValue` attribute of the `bt:String` element with `id="groupLabel"` to **Git the gist**.
+1. Within the collection of child elements under the `bt:ShortStrings` element, locate the child element with `id="groupLabel"`.  Change the `DefaultValue` attribute of the this element to **Git the gist**.
 
     ```xml
     <bt:String id="groupLabel" DefaultValue="Git the gist"/>
