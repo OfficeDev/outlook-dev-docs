@@ -46,7 +46,7 @@ How you access the recurrence pattern and what you can do with it depends on if 
 
 ## Set recurrence as the organizer
 
-Along with the recurrence pattern, you also need to determine the start and end dates/times of your appointment series. The [`SeriesTime`][SeriesTime link] object is used to manage that information.
+Along with the recurrence pattern, you also need to determine the start and end dates and times of your appointment series. The [`SeriesTime`][SeriesTime link] object is used to manage that information.
 
 The appointment organizer can specify the recurrence pattern for an appointment series in compose mode only. In the following example, the appointment series is set to occur from 10:30 AM to 11:00 AM PST every Tuesday and Thursday during the period November 2, 2019 to December 2, 2019.
 
@@ -96,7 +96,7 @@ function callback(asyncResult){
 The following example shows the results of the `getAsync` call that retrieves the recurrence for a series.
 
 > [!NOTE]
-> In this example, the `seriesTimeObject` is a placeholder for the JSON representing the `recurrence.seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
+> In this example, `seriesTimeObject` is a placeholder for the JSON representing the `recurrence.seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
 
 ```json
 {
@@ -134,7 +134,7 @@ function outputRecurrence(item) {
 The following example shows the value of the `item.recurrence` property for an appointment series.
 
 > [!NOTE]
-> In this example, the `seriesTimeObject` is a placeholder for the JSON representing the `recurrence.seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
+> In this example, `seriesTimeObject` is a placeholder for the JSON representing the `recurrence.seriesTime` property. You should use the [`SeriesTime`][SeriesTime link] methods to get the recurrence date and time properties.
 
 ```json
 {
