@@ -4,7 +4,7 @@ description: Get and set various recurrence properties of an item in an Outlook 
 author: elizs
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: elizs
 ---
 
