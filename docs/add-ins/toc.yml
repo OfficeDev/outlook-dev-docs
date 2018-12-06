@@ -1,4 +1,4 @@
-- name: Overview
+- name: Overview 
   href: index.md
 - name: Office Add-ins platform overview
   href: /office/dev/add-ins/overview/office-add-ins?context=outlook/context
