@@ -29,7 +29,7 @@ In this tutorial, you will:
     npm install -g yo generator-office
     ```
 
-* Outlook 2016 or later for Windows (connected to an Office 365 account)
+* Outlook 2016 or later for Windows (connected to an Office 365 account) or Outlook on the web
 
 * A [GitHub](https://www.github.com) account 
 
@@ -167,7 +167,7 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 1. Locate the `Description` element, replace the default value with a description of the add-in, and save the file.
 
     ```xml
-    <Description DefaultValue="Allows users to access their gists on GitHub"/>
+    <Description DefaultValue="Allows users to access their GitHub gists"/>
    ```
 
 #### Test the generated add-in
@@ -284,7 +284,7 @@ The previous code references labels, tooltips, and URLs that you need to define 
 
     ```xml
     <bt:String id="insertGistDesc" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message"/>
-    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the contents of the gist you mark as default into the current message"/>
+    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
     ```
 
 1. Save your changes to the manifest. 
@@ -304,7 +304,15 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to reinstall the add-in using the updated **manifest.xml** file.
 
-After you've completed these steps, you should see two new buttons in the ribbon of the message compose window: **Insert gist** and **Insert default gist**. 
+After you've reinstalled the add-in, you can verify that it installed successfully by checking for the commands **Insert gist** and **Insert default gist** in the message compose window. Note that nothing will happen if you select either of these items, because you haven't yet finished building this add-in.
+
+- If you're running this add-in in Outlook 2016 or later for Windows, you should see two new buttons in the ribbon of the message compose window: **Insert gist** and **Insert default gist**. 
+
+    ![A screenshot of the ribbon in Outlook for Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-windows.png)
+
+- If you're running this add-in in Outlook on the web, you should see a new button at the bottom of the message compose window. Select that button to see the options **Insert gist** and **Insert default gist**.
+
+    ![A screenshot of the message compose form in Outlook for the web with the add-in button and pop-up menu highlighted](images/addin-tutorial/add-in-buttons-owa.png)
 
 ## Implement a first-run experience
 
@@ -653,7 +661,6 @@ var btnEvent;
 
 // The initialize function must be run each time a new page is loaded
 Office.initialize = function (reason) {
-  config = getConfig();
 };
 
 // Add any ui-less function here
@@ -668,6 +675,8 @@ function showError(error) {
 var settingsDialog;
 
 function insertDefaultGist(event) {
+
+  config = getConfig();
 
   // Check if the add-in has been configured
   if (config && config.defaultGistId) {
@@ -1059,9 +1068,11 @@ Create a file in the **msg-compose** folder named **insert-gist.js**, and add th
   var settingsDialog;
 
   Office.initialize = function(reason){
-    config = getConfig();
 
     jQuery(document).ready(function(){
+
+      config = getConfig();
+
       // Check if add-in is configured
       if (config && config.gitHubUserName) {
         // If configured load the gist list
