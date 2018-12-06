@@ -304,7 +304,7 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to reinstall the add-in using the updated **manifest.xml** file.
 
-After you've completed these steps:
+After you've reinstalled the add-in:
 
 - If you're running this add-in in Outlook 2016 or later for Windows, you should see two new buttons in the ribbon of the message compose window: **Insert gist** and **Insert default gist**. 
 
