@@ -167,7 +167,7 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 1. Locate the `Description` element, replace the default value with a description of the add-in, and save the file.
 
     ```xml
-    <Description DefaultValue="Allows users to access their gists on GitHub"/>
+    <Description DefaultValue="Allows users to access their GitHub gists"/>
    ```
 
 #### Test the generated add-in
@@ -284,7 +284,7 @@ The previous code references labels, tooltips, and URLs that you need to define 
 
     ```xml
     <bt:String id="insertGistDesc" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message"/>
-    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the contents of the gist you mark as default into the current message"/>
+    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
     ```
 
 1. Save your changes to the manifest. 
@@ -653,7 +653,6 @@ var btnEvent;
 
 // The initialize function must be run each time a new page is loaded
 Office.initialize = function (reason) {
-  config = getConfig();
 };
 
 // Add any ui-less function here
@@ -668,6 +667,8 @@ function showError(error) {
 var settingsDialog;
 
 function insertDefaultGist(event) {
+
+  config = getConfig();
 
   // Check if the add-in has been configured
   if (config && config.defaultGistId) {
@@ -1059,9 +1060,11 @@ Create a file in the **msg-compose** folder named **insert-gist.js**, and add th
   var settingsDialog;
 
   Office.initialize = function(reason){
-    config = getConfig();
 
     jQuery(document).ready(function(){
+
+      config = getConfig();
+
       // Check if add-in is configured
       if (config && config.gitHubUserName) {
         // If configured load the gist list
