@@ -29,7 +29,7 @@ In this tutorial, you will:
     npm install -g yo generator-office
     ```
 
-* Outlook 2016 or later for Windows (connected to an Office 365 account)
+* Outlook 2016 or later for Windows (connected to an Office 365 account) or Outlook on the web
 
 * A [GitHub](https://www.github.com) account 
 
@@ -304,7 +304,13 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to reinstall the add-in using the updated **manifest.xml** file.
 
-After you've completed these steps, you should see two new buttons in the ribbon of the message compose window: **Insert gist** and **Insert default gist**. 
+After you've completed these steps, you should see two new buttons in the ribbon of the message compose window on Outlook 2016 or later for Windows: **Insert gist** and **Insert default gist**. 
+
+    ![A screenshot of the ribbon in Outlook for Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-windows.png)
+
+If you're running this add-in in Outlook on the web, you'll see a new button at the bottom of the message compose window. You can select that button to see the options **Insert gist** and **Insert default gist**.
+
+    ![A screenshot of the message compose form in Outlook for the web with the add-in button and pop-up menu highlighted](images/addin-tutorial/add-in-buttons-owa.png)
 
 ## Implement a first-run experience
 
