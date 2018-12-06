@@ -310,7 +310,7 @@ After you've completed these steps:
 
     ![A screenshot of the ribbon in Outlook for Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-windows.png)
 
-- If you're running this add-in in Outlook on the web, you should see a new button at the bottom of the message compose window. You can select that button to see the options **Insert gist** and **Insert default gist**.
+- If you're running this add-in in Outlook on the web, you should see a new button at the bottom of the message compose window. Select that button to see the options **Insert gist** and **Insert default gist**.
 
     ![A screenshot of the message compose form in Outlook for the web with the add-in button and pop-up menu highlighted](images/addin-tutorial/add-in-buttons-owa.png)
 
