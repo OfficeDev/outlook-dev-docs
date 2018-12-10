@@ -1,10 +1,10 @@
 ---
 title: Get and set recurrence in an Outlook add-in
-description: Get and set various recurrence properties of an item in an Outlook add-in.
+description: This topic shows you how to use the Office JavaScript API to get and set various recurrence properties of an item in an Outlook add-in.
 author: elizs
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 12/05/2018
+ms.date: 12/10/2018
 ms.author: elizs
 ---
 
@@ -75,7 +75,7 @@ function callback(asyncResult)
 
 ### Get recurrence as the organizer
 
-In the following example, in compose mode, the appointment organizer can get the recurrence object of an appointment series given the series or an instance of that series.
+In the following example, in compose mode, the appointment organizer gets the recurrence object of an appointment series given the series or an instance of that series.
 
 ```js
 Office.context.mailbox.item.recurrence.getAsync(callback);
