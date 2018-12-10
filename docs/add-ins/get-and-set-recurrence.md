@@ -21,7 +21,7 @@ To configure the recurrence pattern, you need to combine the [recurrence type](/
 |Recurrence type|Valid recurrence properties|Usage|
 |---|---|---|
 |`daily`|- [`interval`][interval link]|An appointment occurs every *interval* days. Example: An appointment occurs every **_2_** days.|
-|`weekday`||An appointment occurs every weekday.|
+|`weekday`|None.|An appointment occurs every weekday.|
 |`monthly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]|- An appointment occurs on day *dayOfMonth* every *interval* months. Example: An appointment occurs on day **_5_** every **_4_** months.<br/><br/>- An appointment occurs on the *weekNumber* *dayOfWeek* every *interval* months. Example: An appointment occurs on the **_third_** **_Thursday_** every **_2_** months.|
 |`weekly`|- [`interval`][interval link]<br/>- [`days`][days link]|An appointment occurs on *days* every *interval* weeks. Example: An appointment occurs on **_Tuesday_ and _Thursday_** every **_2_** weeks.|
 |`yearly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]<br/>- [`month`][month link]|- An appointment occurs on day *dayOfMonth* of *month* every *interval* years. Example: An appointment occurs on day **_7_** of **_September_** every **_4_** years.<br/><br/>- An appointment occurs on the *weekNumber* *dayOfWeek* of *month* every *interval* years. Example: An appointment occurs on the **_first_** **_Thursday_** of **_September_** every **_2_** years.|
