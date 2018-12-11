@@ -1,10 +1,10 @@
 ---
 title: Get and set recurrence in an Outlook add-in
-description: Get and set various recurrence properties of an item in an Outlook add-in.
+description: This topic shows you how to use the Office JavaScript API to get and set various recurrence properties of an item in an Outlook add-in.
 author: elizs
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 12/05/2018
+ms.date: 12/10/2018
 ms.author: elizs
 ---
 
@@ -21,7 +21,7 @@ To configure the recurrence pattern, you need to combine the [recurrence type](/
 |Recurrence type|Valid recurrence properties|Usage|
 |---|---|---|
 |`daily`|- [`interval`][interval link]|An appointment occurs every *interval* days. Example: An appointment occurs every **_2_** days.|
-|`weekday`||An appointment occurs every weekday.|
+|`weekday`|None.|An appointment occurs every weekday.|
 |`monthly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]|- An appointment occurs on day *dayOfMonth* every *interval* months. Example: An appointment occurs on day **_5_** every **_4_** months.<br/><br/>- An appointment occurs on the *weekNumber* *dayOfWeek* every *interval* months. Example: An appointment occurs on the **_third_** **_Thursday_** every **_2_** months.|
 |`weekly`|- [`interval`][interval link]<br/>- [`days`][days link]|An appointment occurs on *days* every *interval* weeks. Example: An appointment occurs on **_Tuesday_ and _Thursday_** every **_2_** weeks.|
 |`yearly`|- [`interval`][interval link]<br/>- [`dayOfMonth`][dayOfMonth link]<br/>- [`dayOfWeek`][dayOfWeek link]<br/>- [`weekNumber`][weekNumber link]<br/>- [`month`][month link]|- An appointment occurs on day *dayOfMonth* of *month* every *interval* years. Example: An appointment occurs on day **_7_** of **_September_** every **_4_** years.<br/><br/>- An appointment occurs on the *weekNumber* *dayOfWeek* of *month* every *interval* years. Example: An appointment occurs on the **_first_** **_Thursday_** of **_September_** every **_2_** years.|
@@ -75,7 +75,7 @@ function callback(asyncResult)
 
 ### Get recurrence as the organizer
 
-In the following example, in compose mode, the appointment organizer can get the recurrence object of an appointment series given the series or an instance of that series.
+In the following example, in compose mode, the appointment organizer gets the recurrence object of an appointment series given the series or an instance of that series.
 
 ```js
 Office.context.mailbox.item.recurrence.getAsync(callback);
