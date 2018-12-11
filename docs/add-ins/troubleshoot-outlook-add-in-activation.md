@@ -10,7 +10,7 @@ ms.author: jasonjoh
 
 # Troubleshoot Outlook add-in activation
 
-Outlook cotextual add-in activation is based on the activation rules in the add-in manifest. When conditions for the currently selected item satisfy the activation rules for the add-in, the host application activates and displays the add-in button in the Outlook UI (add-in selection pane for compose add-ins, add-in bar for read add-ins). However, if your add-in doesn't activate as you expect, you should look into the following areas for possible reasons.
+Outlook contextual add-in activation is based on the activation rules in the add-in manifest. When conditions for the currently selected item satisfy the activation rules for the add-in, the host application activates and displays the add-in button in the Outlook UI (add-in selection pane for compose add-ins, add-in bar for read add-ins). However, if your add-in doesn't activate as you expect, you should look into the following areas for possible reasons.
 
 ## Is user mailbox on a version of Exchange Server that is at least Exchange 2013?
 
@@ -29,7 +29,7 @@ You can verify the version of Exchange 2013 by using one of the following approa
     1. First, verify that macros are enabled for Outlook. Choose **File**, **Options**, **Trust Center**, **Trust Center Settings**, **Macro Settings**. Ensure that **Notifications for all macros** is selected in the Trust Center. You should have also selected **Enable Macros** during Outlook startup.
 
     1. On the **Developer** tab of the ribbon, choose **Visual Basic**.
-        
+
        > [!NOTE]
        > Not seeing the **Developer** tab? See [How to: Show the Developer Tab on the Ribbon](https://docs.microsoft.com/visualstudio/vsto/how-to-show-the-developer-tab-on-the-ribbon) to turn it on.
 
@@ -43,7 +43,7 @@ You can verify the version of Exchange 2013 by using one of the following approa
         ?Session.ExchangeMailboxServerVersion
        ```
 
-       - If there are multiple Exchange accounts in the same user profile (`emailAddress` represents a string that contains the user's primary STMP address):
+       - If there are multiple Exchange accounts in the same user profile (`emailAddress` represents a string that contains the user's primary SMTP address):
 
        ```vb
         ?Session.Accounts.Item(emailAddress).ExchangeMailboxServerVersion
@@ -51,12 +51,12 @@ You can verify the version of Exchange 2013 by using one of the following approa
 
 ## Is the add-in disabled?
 
-Any one of the Outlook rich clients can disable an add-in for performance reasons, including exceeding usage thresholds for CPU core or memory, tolerance for crashes, and length of time to process all the regular expressions for an add-in. When this happens, the Outlook rich client displays a notification that it is disabling the add-in. 
+Any one of the Outlook rich clients can disable an add-in for performance reasons, including exceeding usage thresholds for CPU core or memory, tolerance for crashes, and length of time to process all the regular expressions for an add-in. When this happens, the Outlook rich client displays a notification that it is disabling the add-in.
 
 > [!NOTE]
 > Only Outlook rich clients monitor resource usage, but disabling an add-in in an Outlook rich client also disables the add-in in Outlook on the web and OWA for Devices.
 
-Use one of the following approaches to verify whether an add-in is disabled: 
+Use one of the following approaches to verify whether an add-in is disabled:
 
 - In Outlook on the web, sign in directly to the email account, choose the Settings icon, and then choose **Manage add-ins** to go to the Exchange Admin Center, where you can verify whether the add-in is enabled.
 
@@ -76,17 +76,17 @@ If your add-in is a compose add-in and is supposed to be activated when the user
 
 ## Is the add-in manifest installed properly, and does Outlook have a cached copy?
 
-This scenario applies to only Outlook for Windows. Normally, when you install an Outlook add-in for a mailbox, the Exchange Server copies the add-in manifest from the location you indicate to the mailbox on that Exchange Server. Every time the Outlook starts, it reads all the manifests installed for that mailbox into a temporary cache at the following location: 
+This scenario applies to only Outlook for Windows. Normally, when you install an Outlook add-in for a mailbox, the Exchange Server copies the add-in manifest from the location you indicate to the mailbox on that Exchange Server. Every time the Outlook starts, it reads all the manifests installed for that mailbox into a temporary cache at the following location:
 
 ```text
-%LocalAppData%\Microsoft\Office\15.0\WEF 
+%LocalAppData%\Microsoft\Office\15.0\WEF
 ```
 
 For example, for the user John, the cache might be at C:\Users\john\AppData\Local\Microsoft\Office\15.0\WEF.
 
 If an add-in does not activate for any items, the manifest might not have been installed properly on the Exchange Server, or Outlook has not read the manifest properly on startup. Using the Exchange Admin Center, ensure that the add-in is installed and enabled for your mailbox, and reboot the Exchange Server, if necessary.
 
-Figure 1 shows a summary of the steps to verify whether Outlook has a valid version of the manifest. 
+Figure 1 shows a summary of the steps to verify whether Outlook has a valid version of the manifest.
 
 **Figure 1. Flow chart of the steps to verify whether Outlook properly cached the manifest**
 
@@ -94,7 +94,7 @@ Figure 1 shows a summary of the steps to verify whether Outlook has a valid vers
 
 The following procedure describes the details.
 
-1. If you have modified the manifest while Outlook is open, and you are not using Visual Studio 2012 or a later version of Visual Studio to develop the add-in, you should uninstall the add-in and reinstall it using the Exchange Admin Center. 
+1. If you have modified the manifest while Outlook is open, and you are not using Visual Studio 2012 or a later version of Visual Studio to develop the add-in, you should uninstall the add-in and reinstall it using the Exchange Admin Center.
 
 1. Restart Outlook and test whether Outlook now activates the add-in.
 
@@ -109,7 +109,7 @@ The following procedure describes the details.
     ```text
     \<insert your guid>\<insert base 64 hash>\Manifests\<ManifestID>_<ManifestVersion>
     ```
-    
+
     > [!NOTE]
     > The following is an example of a path to a manifest installed for a mailbox for the user John:
     >
@@ -124,9 +124,9 @@ The following procedure describes the details.
 1. If the manifest is not in the cache, check whether Outlook indeed successfully read the manifest from the Exchange Server. To do that, use the Windows Event Viewer:
 
     1. Under **Windows Logs**, choose **Application**.
-    
+
     1. Look for a reasonably recent event for which the Event ID equals 63, which represents Outlook downloading a manifest from an Exchange Server.
-    
+
     1. If Outlook successfully read a manifest, the logged event should have the following description:
 
         ```text
@@ -155,7 +155,7 @@ Starting in version 1.1 of the Office Add-ins manifests schema, you can create a
 
 ## If you use a regular expression, is it properly specified?
 
-Because regular expressions in activation rules are part of the XML manifest file for a read add-in, if a regular expression uses certain characters, be sure to follow the corresponding escape sequence that XML processors support. Table 1 lists these special characters. 
+Because regular expressions in activation rules are part of the XML manifest file for a read add-in, if a regular expression uses certain characters, be sure to follow the corresponding escape sequence that XML processors support. Table 1 lists these special characters.
 
 **Table 1. Escape sequences for regular expressions**
 
@@ -169,7 +169,7 @@ Because regular expressions in activation rules are part of the XML manifest fil
 
 ## If you use a regular expression, is the read add-in activating in Outlook on the web or OWA for Devices, but not in any of the Outlook rich clients?
 
-Outlook rich clients use a regular expression engine that's different from the one used by Outlook on the web and OWA for Devices. Outlook rich clients use the C++ regular expression engine provided as part of the Visual Studio standard template library. This engine complies with ECMAScript 5 standards. Outlook on the web and OWA for Devices use regular expression evaluation that is part of JavaScript, is provided by the browser, and supports a superset of ECMAScript 5. 
+Outlook rich clients use a regular expression engine that's different from the one used by Outlook on the web and OWA for Devices. Outlook rich clients use the C++ regular expression engine provided as part of the Visual Studio standard template library. This engine complies with ECMAScript 5 standards. Outlook on the web and OWA for Devices use regular expression evaluation that is part of JavaScript, is provided by the browser, and supports a superset of ECMAScript 5.
 
 While in most cases, these host applications find the same matches for the same regular expression in an activation rule, there are exceptions. For instance, if the regex includes a custom character class based on predefined character classes, an Outlook rich client may return results different from Outlook on the web and OWA for Devices. As an example, character classes that contain shorthand character classes  `[\d\w]` within them would return different results. In this case, to avoid different results on different hosts, use `(\d|\w)` instead.
 
@@ -187,7 +187,7 @@ If you use an **ItemHasRegularExpressionMatch** activation rule, verify whether 
 
     1. In the Visual Basic Editor, choose **View**, **Immediate Window**.
 
-    1. Type the following to display various properties depending on the scenario. 
+    1. Type the following to display various properties depending on the scenario.
 
         - The HTML body of the message or appointment item selected in the Outlook explorer:
 
