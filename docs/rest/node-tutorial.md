@@ -170,7 +170,7 @@ Here's what the details of your app registration should look like when you are d
 
 ## Implementing OAuth2
 
-Our goal in this section is to make the button on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code). We'll use the [simple-oauth2 library](https://github.com/andreareginato/simple-oauth2) to handle our OAuth requests, and the [dotenv library](https://github.com/motdotla/dotenv) to load our app ID and secret from an ENV file. At your command prompt, enter the following command.
+Our goal in this section is to make the button on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](/azure/active-directory/develop/active-directory-v2-protocols-oauth-code). We'll use the [simple-oauth2 library](https://github.com/andreareginato/simple-oauth2) to handle our OAuth requests, and the [dotenv library](https://github.com/motdotla/dotenv) to load our app ID and secret from an ENV file. At your command prompt, enter the following command.
 
 ```Shell
 npm install dotenv simple-oauth2 --save

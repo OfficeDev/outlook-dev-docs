@@ -158,7 +158,7 @@ Here's what the details of your app registration should look like when you are d
 
 ## Implementing OAuth2
 
-Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx). To make things easier, we'll use the [oauth2 gem](https://github.com/intridea/oauth2) to handle our OAuth requests. We'll also use the [activerecord-session_store gem](https://github.com/rails/activerecord-session_store) to store our sessions in a database. Open the `./o365-tutorial/GemFile` and add the following lines anywhere in that file:
+Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](/azure/active-directory/develop/v2-oauth2-auth-code-flow). To make things easier, we'll use the [oauth2 gem](https://github.com/intridea/oauth2) to handle our OAuth requests. We'll also use the [activerecord-session_store gem](https://github.com/rails/activerecord-session_store) to store our sessions in a database. Open the `./o365-tutorial/GemFile` and add the following lines anywhere in that file:
 
 ```ruby
 gem 'oauth2'
