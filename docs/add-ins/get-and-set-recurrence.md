@@ -4,7 +4,7 @@ description: This topic shows you how to use the Office JavaScript API to get an
 author: elizs
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 12/10/2018
+ms.date: 12/12/2018
 ms.author: elizs
 ---
 
@@ -86,10 +86,9 @@ function callback(asyncResult){
 
     if (recurrence == null) {
         console.log("Non-recurring meeting");
-        return;
+    } else {
+        console.log(JSON.stringify(recurrence));
     }
-
-    console.log(JSON.stringify(recurrence));
 }
 ```
 
@@ -124,10 +123,9 @@ function outputRecurrence(item) {
 
     if (recurrence == null) {
         console.log("Non-recurring item");
-        return;
+    } else {
+        console.log(JSON.stringify(recurrence));
     }
-
-    console.log(JSON.stringify(recurrence));
 }
 ```
 
