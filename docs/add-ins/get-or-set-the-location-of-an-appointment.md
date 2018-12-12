@@ -1,5 +1,5 @@
 ---
-title: Get or set the location of an appointment in an Outlook add-in
+title: Get or set the location of an appointment in an add-in
 description: Learn how to get or set the location of an appointment in an Outlook add-in.
 author: jasonjoh
 ms.topic: article
@@ -107,7 +107,7 @@ function setLocation() {
 
 // Write to a div with id='message' on the page.
 function write(message){
-    document.getElementById('message').innerText += message; 
+    document.getElementById('message').innerText += message;
 }
 ```
 
