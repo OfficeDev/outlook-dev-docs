@@ -44,7 +44,7 @@ While the Microsoft Graph and Outlook endpoints both rely on Azure AD-issued tok
 
 #### Azure v2 OAuth2 endpoint
 
-Apps that use the [Azure AD v2.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) for OAuth2 request permission scopes in the `scope` parameter in an authentication or token request.
+Apps that use the [Azure AD v2.0 endpoint](/azure/active-directory/develop/active-directory-appmodel-v2-overview) for OAuth2 request permission scopes in the `scope` parameter in an authentication or token request.
 
 - For Microsoft Graph, apps specify permissions prefixed with `https://graph.microsoft.com/`. For example, an app can request the `Mail.Read` permission by including `https://graph.microsoft.com/Mail.Read` in the `scope` parameter.
 - For the Outlook endpoint, apps specify permissions prefixed with `https://outlook.office.com/`. For example, an app can request the `Mail.Read` permission by including `https://outlook.office.com/Mail.Read` in the `scope` parameter.
@@ -53,11 +53,11 @@ Apps that use the [Azure AD v2.0 endpoint](https://docs.microsoft.com/azure/acti
 
 Tokens issued for one endpoint are not valid for the other. Additionally, you cannot mix permissions for one endpoint with permissions for the other in a single request.
 
-The Azure AD v2.0 endpoint only supports the [client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds) for the Microsoft Graph endpoint. Apps that need to use an app-only token with the Outlook endpoint must use the Azure AD v1.0 endpoint.
+The Azure AD v2.0 endpoint only supports the [client credentials flow](/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds) for the Microsoft Graph endpoint. Apps that need to use an app-only token with the Outlook endpoint must use the Azure AD v1.0 endpoint.
 
 #### Azure v1 OAuth2 endpoint
 
-Apps that use the [Azure AD v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) specify their required permissions during app registration in the Azure Portal.
+Apps that use the [Azure AD v1.0 endpoint](/azure/active-directory/develop/active-directory-developers-guide) specify their required permissions during app registration in the Azure Portal.
 
 - For Microsoft Graph, choose the **Microsoft Graph** API when adding required permissions.
 - For the Outlook endpoint, choose the **Office 365 Exchange Online** API when adding required permissions.
