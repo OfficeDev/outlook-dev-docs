@@ -1,5 +1,5 @@
 ---
-title: Designing Outlook actionable message cards with the Adaptive Card format
+title: Design actionable message cards using Adaptive Card format
 description: Learn about the available fields for Outlook actionable message cards using the Adaptive Card format and design guidelines for creating an effective card.
 author: jasonjoh
 ms.topic: article
