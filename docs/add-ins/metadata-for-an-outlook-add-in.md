@@ -4,7 +4,7 @@ description: Manage custom data in your Outlook add-in by using either roaming s
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/13/2017
+ms.date: 12/17/2018
 ms.author: jasonjoh
 ---
 
@@ -108,18 +108,15 @@ function removeAddInSetting()
 
 ## Custom data per item in a mailbox: custom properties
 
-You can specify data specific to an item in the user's mailbox using the [CustomProperties](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties) object. For example, your mail add-in could categorize certain messages and note the category using a custom property `messageCategory`. Or, if your mail add-in creates appointments from meeting suggestions in a message, you can use a custom property to track each of these appointments. This ensures that if the user opens the message again, your mail add-in does not offer to create the appointment a second time.
+You can specify data specific to an item in the user's mailbox using the [CustomProperties](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties) object. For example, your mail add-in could categorize certain messages and note the category using a custom property `messageCategory`. Or, if your mail add-in creates appointments from meeting suggestions in a message, you can use a custom property to track each of these appointments. This ensures that if the user opens the message again, your mail add-in doesn't offer to create the appointment a second time.
 
 Similar to roaming settings, changes to custom properties are stored on in-memory copies of the properties for the current Outlook session. To make sure these custom properties will be available in the next session, save all the custom properties to the server.
 
-These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://docs.microsoft.com/office/vba/api/Outlook.UserProperties) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot access **CustomProperties** by using the Outlook object model or EWS.
-
-However, a mail add-in can get MAPI-based extended properties by using the EWS [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method. In the **GetItem** request, specify the custom extended properties you need in a property set. A mail add-in can also use **makeEwsRequestAsync** and EWS [CreateItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/createitem-operation) and [UpdateItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/updateitem-operation) operations to create and modify extended properties.
-
+These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://docs.microsoft.com/office/vba/api/Outlook.UserProperties) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot directly access **CustomProperties** by using the Outlook object model, EWS, or REST. To learn how to access **CustomProperties** using EWS or REST, please see the section [Get custom properties using EWS or REST](#get-custom-properties-using-ews-or-rest).
 
 ### Using custom properties
 
-Before you can use custom properties, you must load them by calling the [loadCustomPropertiesAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#loadcustompropertiesasynccallback-usercontext) method. If any custom properties are already set for the current item, they are loaded from the Exchanger server at this point. After you have created the property bag, you can use the [set](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties#set-name--value-) and [get](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties) methods to add and retrieve custom properties. To save any changes that you make to the property bag, you must use the [saveAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties#saveasync-callback--asynccontext-) method to persist the changes on the Exchange server.
+Before you can use custom properties, you must load them by calling the [loadCustomPropertiesAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#loadcustompropertiesasynccallback-usercontext) method. If any custom properties are already set for the current item, they are loaded from the Exchange server at this point. After you have created the property bag, you can use the [set](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties#set-name--value-) and [get](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties) methods to add and retrieve custom properties. To save any changes that you make to the property bag, you must use the [saveAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties#saveasync-callback--asynccontext-) method to persist the changes on the Exchange server.
 
 
  > [!NOTE]
@@ -135,14 +132,12 @@ This example includes the following methods:
 
 
 - [Office.initialize](https://docs.microsoft.com/javascript/api/office#initialize-reason-) -- Initializes the add-in and loads the custom property bag from the Exchange server.
-    
-- **customPropsCallback** -- Gets the custom property bag that is returned from the server and saves it for later use.
-    
-- **updateProperty** -- Sets or updates a specific property, and then saves the change to the server.
-    
-- **removeProperty** -- Removes a specific property from the property bag, and then saves the removal to the server.
-    
 
+- **customPropsCallback** -- Gets the custom property bag that is returned from the server and saves it for later use.
+
+- **updateProperty** -- Sets or updates a specific property, and then saves the change to the server.
+
+- **removeProperty** -- Removes a specific property from the property bag, and then saves the removal to the server.
 
 
 ```js
@@ -169,7 +164,7 @@ function customPropsCallback(asyncResult) {
 
 // Get individual custom property.
 function getProperty() {
-  var myProp = customProps.get("myProp");
+  var myProp = _customProps.get("myProp");
 }
 
 // Set individual custom property.
@@ -194,14 +189,33 @@ function saveCallback() {
 }
 ```
 
+### Get custom properties using EWS or REST
+
+A mail add-in can get MAPI-based extended properties by using the EWS [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method. In the **GetItem** request, specify the custom extended properties you need in a property set. A mail add-in can also use **makeEwsRequestAsync** and EWS [CreateItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/createitem-operation) and [UpdateItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/updateitem-operation) operations to create and modify extended properties.
+
+Essentially what the add-in APIs do is take all of your **CustomProperties**, serialize them as a JSON payload, then save them in a single MAPI-based extended property whose name is `cecp=<some-guid>` (where `<some-guid>` is your add-in's ID) and property set GUID is `PS_PUBLIC_STRINGS {00020329-0000-0000-C000-000000000046}`. (For more information about this object, please see [MS-OXCEXT 2.2.5 Mail App Custom Properties](https://msdn.microsoft.com/library/hh968549(v=exchg.80).aspx).) You can then use EWS or REST to get this MAPI-based property.
+
+### Custom properties REST example
+
+The following example shows how to get all events that have any custom properties set by your add-in and ensure that the response includes the value of the property so you can apply further filtering logic.
+
+> [!IMPORTANT]
+> Replace `<some-guid>` with your add-in's ID.
+
+```rest
+https://outlook.office.com/api/v2.0/Me/Events?$filter=SingleValueExtendedProperties/Any
+  (ep: ep/PropertyId eq 'String {00020329-0000-0000-C000-000000000046}
+  Name cecp--<some-guid>' and ep/Value ne null)
+  &$expand=SingleValueExtendedProperties($filter=PropertyId eq 'String
+  {00020329-0000-0000-C000-000000000046} Name cecp--<some-guid>')
+```
+
 
 ## See also
 
-- [MAPI Property Overview](https://docs.microsoft.com/office/client-developer/outlook/mapi/mapi-property-overview)   
+- [MAPI Property Overview](https://docs.microsoft.com/office/client-developer/outlook/mapi/mapi-property-overview)
 - [Outlook Properties Overview](https://docs.microsoft.com/office/vba/outlook/How-to/Navigation/properties-overview)  
-- [Call web services from an Outlook add-in](web-services.md)    
-- [Properties and extended properties in EWS in Exchange](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/properties-and-extended-properties-in-ews-in-exchange)    
+- [Call Outlook REST APIs from an Outlook add-in](use-rest-api.md)
+- [Call web services from an Outlook add-in](web-services.md)
+- [Properties and extended properties in EWS in Exchange](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/properties-and-extended-properties-in-ews-in-exchange)
 - [Property sets and response shapes in EWS in Exchange](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/property-sets-and-response-shapes-in-ews-in-exchange)
-    
-
-
