@@ -199,7 +199,7 @@ Custom properties set by an add-in are not equivalent to normal MAPI-based prope
 
 #### Get custom properties using EWS
 
-Your mail add-in can get MAPI-based extended properties by using the EWS [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method. In the **GetItem** request, specify the custom extended properties you need in a property set. A mail add-in can also use **makeEwsRequestAsync** and EWS [CreateItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/createitem-operation) and [UpdateItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/updateitem-operation) operations to create and modify extended properties.
+Your mail add-in can get the **CustomProperties** MAPI-based extended property by using the EWS [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method. In the **GetItem** request, specify the custom extended properties you need in a property set.
 
 #### Get custom properties using REST
 
@@ -218,7 +218,7 @@ https://outlook.office.com/api/v2.0/Me/Events?$filter=SingleValueExtendedPropert
   {00020329-0000-0000-C000-000000000046} Name cecp--<some-guid>')
 ```
 
-For other examples that use REST to get MAPI-based extended properties, see [Get singleValueExtendedProperty](/graph/api/singlevaluelegacyextendedproperty-get?view=graph-rest-1.0).
+For other examples that use REST to get single-value MAPI-based extended properties, see [Get singleValueExtendedProperty](/graph/api/singlevaluelegacyextendedproperty-get?view=graph-rest-1.0).
 
 
 ## See also
