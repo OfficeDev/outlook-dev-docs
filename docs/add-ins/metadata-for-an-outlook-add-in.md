@@ -203,7 +203,7 @@ Your mail add-in can get the **CustomProperties** MAPI-based extended property b
 
 #### Get custom properties using REST
 
-In your add-in, you can construct your REST query against messages, events, and other items to get the ones that already have custom properties. In your query, you should include the **CustomProperties** MAPI-based property and its property set using the details provided in the section [How custom properties are stored on an item](#how-custom-properties-are-stored-on-an-item).
+In your add-in, you can construct your REST query against messages and events to get the ones that already have custom properties. In your query, you should include the **CustomProperties** MAPI-based property and its property set using the details provided in the section [How custom properties are stored on an item](#how-custom-properties-are-stored-on-an-item).
 
 The following example shows how to get all events that have any custom properties set by your add-in and ensure that the response includes the value of the property so you can apply further filtering logic.
 
