@@ -208,7 +208,7 @@ In your add-in, you can construct your REST query against messages, events, and 
 The following example shows how to get all events that have any custom properties set by your add-in and ensure that the response includes the value of the property so you can apply further filtering logic.
 
 > [!IMPORTANT]
-> Replace `<some-guid>` with your add-in's ID.
+> In the following example, replace `<some-guid>` with your add-in's ID.
 
 ```rest
 https://outlook.office.com/api/v2.0/Me/Events?$filter=SingleValueExtendedProperties/Any
