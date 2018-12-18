@@ -211,7 +211,7 @@ The following example shows how to get all events that have any custom propertie
 > In the following example, replace `<some-guid>` with your add-in's ID.
 
 ```rest
-https://outlook.office.com/api/v2.0/Me/Events?$filter=SingleValueExtendedProperties/Any
+GET https://outlook.office.com/api/v2.0/Me/Events?$filter=SingleValueExtendedProperties/Any
   (ep: ep/PropertyId eq 'String {00020329-0000-0000-C000-000000000046}
   Name cecp--<some-guid>' and ep/Value ne null)
   &$expand=SingleValueExtendedProperties($filter=PropertyId eq 'String
