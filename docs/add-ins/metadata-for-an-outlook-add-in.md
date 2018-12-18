@@ -191,31 +191,31 @@ function saveCallback() {
 
 ### Get custom properties using EWS or REST
 
-To get **CustomProperties** using EWS or REST, you should first determine the name of its MAPI-based extended property. You can then access that property in the same way you would get any MAPI-based extended property.
+To get **CustomProperties** using EWS or REST, you should first determine the name of its MAPI-based extended property. You can then get that property in the same way you would get any MAPI-based extended property.
 
 #### How custom properties are stored on an item
 
-Custom properties set by an add-in are not equivalent to normal MAPI-based properties. Essentially what the add-in APIs do is take all of your **CustomProperties**, serialize them as a JSON payload, then save them in a single MAPI-based extended property whose name is `cecp=<some-guid>` (where `<some-guid>` is your add-in's ID) and property set GUID is `PS_PUBLIC_STRINGS {00020329-0000-0000-C000-000000000046}`. (For more information about this object, please see [MS-OXCEXT 2.2.5 Mail App Custom Properties](https://msdn.microsoft.com/library/hh968549(v=exchg.80).aspx).) You can then use EWS or REST to get this MAPI-based property.
+Custom properties set by an add-in are not equivalent to normal MAPI-based properties. Essentially the add-in APIs take all of your add-in's **CustomProperties**, serialize them as a JSON payload, then save them in a single MAPI-based extended property whose name is `cecp-<app-guid>` (`<app-guid>` is your add-in's ID) and property set GUID is `{00020329-0000-0000-C000-000000000046}`. (For more information about this object, please see [MS-OXCEXT 2.2.5 Mail App Custom Properties](https://msdn.microsoft.com/library/hh968549(v=exchg.80).aspx).) You can then use EWS or REST to get this MAPI-based property.
 
 #### Get custom properties using EWS
 
-Your mail add-in can get the **CustomProperties** MAPI-based extended property by using the EWS [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method. In the **GetItem** request, specify the custom extended properties you need in a property set.
+Your mail add-in can get the **CustomProperties** MAPI-based extended property by using the EWS [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method. In the **GetItem** request, specify the **CustomProperties** MAPI-based property in its property set using the details provided in the preceding section [How custom properties are stored on an item](#how-custom-properties-are-stored-on-an-item).
 
 #### Get custom properties using REST
 
-In your add-in, you can construct your REST query against messages, events, and other items to get the ones that already have custom properties.
+In your add-in, you can construct your REST query against messages, events, and other items to get the ones that already have custom properties. In your query, you should include the **CustomProperties** MAPI-based property and its property set using the details provided in the section [How custom properties are stored on an item](#how-custom-properties-are-stored-on-an-item).
 
 The following example shows how to get all events that have any custom properties set by your add-in and ensure that the response includes the value of the property so you can apply further filtering logic.
 
 > [!IMPORTANT]
-> In the following example, replace `<some-guid>` with your add-in's ID.
+> In the following example, replace `<app-guid>` with your add-in's ID.
 
 ```rest
 GET https://outlook.office.com/api/v2.0/Me/Events?$filter=SingleValueExtendedProperties/Any
   (ep: ep/PropertyId eq 'String {00020329-0000-0000-C000-000000000046}
-  Name cecp--<some-guid>' and ep/Value ne null)
+  Name cecp-<app-guid>' and ep/Value ne null)
   &$expand=SingleValueExtendedProperties($filter=PropertyId eq 'String
-  {00020329-0000-0000-C000-000000000046} Name cecp--<some-guid>')
+  {00020329-0000-0000-C000-000000000046} Name cecp-<app-guid>')
 ```
 
 For other examples that use REST to get single-value MAPI-based extended properties, see [Get singleValueExtendedProperty](/graph/api/singlevaluelegacyextendedproperty-get?view=graph-rest-1.0).
