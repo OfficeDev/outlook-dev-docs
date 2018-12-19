@@ -1,6 +1,6 @@
 ---
-title: Use regular expression activation rules to show an Outlook add-in
-description: Learn how to use regualr expression activation rules for Outlook contextual add-ins.
+title: Use regular expression activation rules to show an add-in
+description: Learn how to use regular expression activation rules for Outlook contextual add-ins.
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
@@ -47,7 +47,7 @@ Pay special attention to the following when you use regular expressions:
 - The plain text body returned on one browser can be different in subtle ways on another. If you use an `ItemHasRegularExpressionMatch` rule with `BodyAsPlaintext` as the `PropertyName` attribute, test your regular expression on all the browsers that your add-in supports.
 
     Because different browsers use different ways to obtain the text body of a selected item, you should make sure that your regular expression supports the subtle differences that can be returned as part of the body text. For example, some browsers such as Internet Explorer 9 uses the `innerText` property of the DOM, and others such as Firefox uses the `.textContent()` method to obtain the text body of an item. Also, different browsers may return line breaks differently: a line break is `\r\n` on Internet Explorer, and `\n` on Firefox and Chrome. For more information, se [W3C DOM Compatibility - HTML](https://quirksmode.org/dom/html/).
-    
+
 - The HTML body of an item is slightly different between an Outlook rich client, and Outlook on the web or Outlook mobile. Define your regular expressions carefully.
 
 - Depending on the host application, type of device, or property that a regular expression is being applied on, there are other best practices and limits for each of the hosts that you should be aware of when designing regular expressions as activation rules. See [Limits for activation and JavaScript API for Outlook add-ins](limits-for-activation-and-javascript-api-for-outlook-add-ins.md) for details.
@@ -57,9 +57,9 @@ Pay special attention to the following when you use regular expressions:
 The following `ItemHasRegularExpressionMatch` rule activates the add-in whenever the sender's SMTP email address matches `@contoso`, regardless of uppercase or lowercase characters.
 
 ```XML
-<Rule xsi:type="ItemHasRegularExpressionMatch" 
-    RegExName="addressMatches" 
-    RegExValue="@[cC][oO][nN][tT][oO][sS][oO]" 
+<Rule xsi:type="ItemHasRegularExpressionMatch"
+    RegExName="addressMatches"
+    RegExValue="@[cC][oO][nN][tT][oO][sS][oO]"
     PropertyName="SenderSMTPAddress"
 />
 ```
@@ -69,9 +69,9 @@ The following `ItemHasRegularExpressionMatch` rule activates the add-in whenever
 The following is another way to specify the same regular expression using the  `IgnoreCase` attribute.
 
 ```XML
-<Rule xsi:type="ItemHasRegularExpressionMatch" 
-    RegExName="addressMatches" 
-    RegExValue="@contoso" 
+<Rule xsi:type="ItemHasRegularExpressionMatch"
+    RegExName="addressMatches"
+    RegExValue="@contoso"
     PropertyName="SenderSMTPAddress"
     IgnoreCase="true"
 />
@@ -82,9 +82,9 @@ The following is another way to specify the same regular expression using the  `
 The following `ItemHasRegularExpressionMatch` rule activates the add-in whenever a stock symbol is included in the body of the current item.
 
 ```XML
-<Rule xsi:type="ItemHasRegularExpressionMatch" 
-    PropertyName="BodyAsPlaintext" 
-    RegExName="TickerSymbols" 
+<Rule xsi:type="ItemHasRegularExpressionMatch"
+    PropertyName="BodyAsPlaintext"
+    RegExName="TickerSymbols"
     RegExValue="\b(NYSE|NASDAQ|AMEX):\s*[A-Za-z]+\b"/>
 
 ```
@@ -113,7 +113,7 @@ The following `ItemHasKnownEntity` rule activates the add-in whenever there is a
 
 ```XML
 <Rule xsi:type="ItemHasKnownEntity"
-    EntityType="Url" 
+    EntityType="Url"
     RegExFilter="youtube"
     FilterName="youtube"
     IgnoreCase="true"/>
@@ -158,7 +158,7 @@ var videos = Office.context.mailbox.item.getRegExMatches().videoURL;
 Multiple matches are stored as array elements in that object. The following code example shows how to iterate over the matches for a regular expression named  `reg1` to build a string to display as HTML.
 
 ```js
-function initDialer() 
+function initDialer()
 {
     var myEntities;
     var myString;
@@ -181,7 +181,7 @@ function initDialer()
 The following is an example of an `ItemHasKnownEntity` rule that specifies the `MeetingSuggestion` entity and a regular expression named `CampSuggestion`. Outlook activates the add-in if it detects that the currently selected item contains a meeting suggestion, and the subject or body contains the term `WonderCamp`.
 
 ```XML
-<Rule xsi:type="ItemHasKnownEntity" 
+<Rule xsi:type="ItemHasKnownEntity"
     EntityType="MeetingSuggestion"
     RegExFilter="WonderCamp"
     FilterName="CampSuggestion"

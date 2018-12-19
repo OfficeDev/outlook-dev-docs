@@ -1,5 +1,5 @@
 ---
-title: Authenticate a user with an single-sign-on token in an Outlook add-in
+title: Authenticate a user with a single-sign-on token
 description: Learn about using the single-sign-on token provided by an Outlook add-in to implement SSO with your service.
 author: jasonjoh
 ms.topic: article

@@ -98,10 +98,10 @@ public ActionResult Error(string message, string debug)
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret. 
+Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret.
 
 1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `dotnet-tutorial` for the name and click **Create application**. 
+1. Click the **Add an app** button. Enter `dotnet-tutorial` for the name and click **Create application**.
 1. Locate the **Application Secrets** section, and click the **Generate New Password** button. Copy the password now and save it to a safe place. Once you've copied the password, click **Ok**.
 1. Locate the **Platforms** section, and click **Add Platform**. Choose **Web**, then enter `http://localhost:<PORT>`, replacing `<PORT>` with the port number your project is using under **Redirect URIs**.
 
@@ -115,7 +115,7 @@ Here's what the details of your app registration should look like when you are d
 
 ## Implementing OAuth2 ##
 
-Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx). To make things easier, we'll use the [Microsoft Authentication Library (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client) to handle our OAuth requests.
+Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](/azure/active-directory/develop/v2-oauth2-auth-code-flow). To make things easier, we'll use the [Microsoft Authentication Library (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client) to handle our OAuth requests.
 
 First, let's create a separate config file to hold the OAuth settings for the app. Right-click the **dotnet-tutorial** solution in **Solution Explorer**, choose **Add**, then **New Item...**. Select **Web Configuration File**, then enter `AzureOauth.config` in the **Name** field. Click **Add**.
 
@@ -193,7 +193,7 @@ namespace dotnet_tutorial.App_Start
         public static string redirectUri = ConfigurationManager.AppSettings["ida:RedirectUri"];
         public static string[] scopes = ConfigurationManager.AppSettings["ida:AppScopes"]
           .Replace(' ', ',').Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-          
+
         public void Configuration(IAppBuilder app)
         {
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -407,7 +407,7 @@ namespace dotnet_tutorial.TokenStorage
         {
             sessionLock.EnterReadLock();
 
-            // Optimistically set HasStateChanged to false. 
+            // Optimistically set HasStateChanged to false.
             // We need to do it early to avoid losing changes made by a concurrent thread.
             tokenCache.HasStateChanged = false;
 
@@ -415,10 +415,10 @@ namespace dotnet_tutorial.TokenStorage
             sessionLock.ExitReadLock();
         }
 
-        // Triggered right before ADAL needs to access the cache. 
+        // Triggered right before ADAL needs to access the cache.
         private void BeforeAccessNotification(TokenCacheNotificationArgs args)
         {
-            // Reload the cache from the persistent store in case it changed since the last access. 
+            // Reload the cache from the persistent store in case it changed since the last access.
             Load();
         }
 
@@ -435,7 +435,7 @@ namespace dotnet_tutorial.TokenStorage
 }
 ```
 
-Now let's update the `OnAuthorizationCodeReceived` function to use our new cache. 
+Now let's update the `OnAuthorizationCodeReceived` function to use our new cache.
 
 Add the following lines to the top of the `Startup.cs` file:
 
@@ -452,7 +452,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 {
     // Get the signed in user's id and create a token cache
     string signedInUserId = notification.AuthenticationTicket.Identity.FindFirst(ClaimTypes.NameIdentifier).Value;
-    SessionTokenCache tokenCache = new SessionTokenCache(signedInUserId, 
+    SessionTokenCache tokenCache = new SessionTokenCache(signedInUserId,
         notification.OwinContext.Environment["System.Web.HttpContextBase"] as HttpContextBase);
 
     ConfidentialClientApplication cca = new ConfidentialClientApplication(
@@ -496,7 +496,7 @@ public void SignOut()
             tokenCache.Clear();
         }
     }
-    // Send an OpenID Connect sign-out request. 
+    // Send an OpenID Connect sign-out request.
     HttpContext.GetOwinContext().Authentication.SignOut(
         CookieAuthenticationDefaults.AuthenticationType);
     Response.Redirect("/");
