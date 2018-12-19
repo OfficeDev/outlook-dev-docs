@@ -4,7 +4,7 @@ description: Manage custom data in your Outlook add-in by using either roaming s
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 12/17/2018
+ms.date: 12/19/2018
 ms.author: jasonjoh
 ---
 
@@ -112,11 +112,11 @@ You can specify data specific to an item in the user's mailbox using the [Custom
 
 Similar to roaming settings, changes to custom properties are stored on in-memory copies of the properties for the current Outlook session. To make sure these custom properties will be available in the next session, use [CustomProperties.saveAsync](/javascript/api/outlook_1_5/office.CustomProperties#saveasync-callback--asynccontext-).
 
-These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://docs.microsoft.com/office/vba/api/Outlook.UserProperties) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot directly access **CustomProperties** by using the Outlook object model, EWS, or REST. To learn how to access **CustomProperties** using EWS or REST, please see the section [Get custom properties using EWS or REST](#get-custom-properties-using-ews-or-rest).
+These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://docs.microsoft.com/office/vba/api/Outlook.UserProperties) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot directly access **CustomProperties** by using the Outlook object model, EWS, or REST. To learn how to access **CustomProperties** using EWS or REST, see the section [Get custom properties using EWS or REST](#get-custom-properties-using-ews-or-rest).
 
 ### Using custom properties
 
-Before you can use custom properties, you must load them by calling the [loadCustomPropertiesAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#loadcustompropertiesasynccallback-usercontext) method. After you have created the property bag, you can use the [set](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties#set-name--value-) and [get](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties) methods to add and retrieve custom properties. To save any changes that you make to the property bag, you must use the [saveAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties#saveasync-callback--asynccontext-) method to persist the changes.
+Before you can use custom properties, you must load them by calling the [loadCustomPropertiesAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#loadcustompropertiesasynccallback-usercontext) method. After you have created the property bag, you can use the [set](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties#set-name--value-) and [get](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties) methods to add and retrieve custom properties. You must use the [saveAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.CustomProperties#saveasync-callback--asynccontext-) method to save any changes that you make to the property bag.
 
 
  > [!NOTE]
@@ -195,7 +195,7 @@ To get **CustomProperties** using EWS or REST, you should first determine the na
 
 #### How custom properties are stored on an item
 
-Custom properties set by an add-in are not equivalent to normal MAPI-based properties. Essentially the add-in APIs take all of your add-in's **CustomProperties**, serialize them as a JSON payload, then save them in a single MAPI-based extended property whose name is `cecp-<app-guid>` (`<app-guid>` is your add-in's ID) and property set GUID is `{00020329-0000-0000-C000-000000000046}`. (For more information about this object, please see [MS-OXCEXT 2.2.5 Mail App Custom Properties](https://msdn.microsoft.com/library/hh968549(v=exchg.80).aspx).) You can then use EWS or REST to get this MAPI-based property.
+Custom properties set by an add-in are not equivalent to normal MAPI-based properties. Add-in APIs serialize all your add-in's **CustomProperties** as a JSON payload and then save them in a single MAPI-based extended property whose name is `cecp-<app-guid>` (`<app-guid>` is your add-in's ID) and property set GUID is `{00020329-0000-0000-C000-000000000046}`. (For more information about this object, see [MS-OXCEXT 2.2.5 Mail App Custom Properties](https://msdn.microsoft.com/library/hh968549(v=exchg.80).aspx).) You can then use EWS or REST to get this MAPI-based property.
 
 #### Get custom properties using EWS
 
