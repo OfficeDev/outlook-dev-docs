@@ -112,7 +112,7 @@ You can specify data specific to an item in the user's mailbox using the [Custom
 
 Similar to roaming settings, changes to custom properties are stored on in-memory copies of the properties for the current Outlook session. To make sure these custom properties will be available in the next session, use [CustomProperties.saveAsync](/javascript/api/outlook_1_5/office.CustomProperties#saveasync-callback--asynccontext-).
 
-These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based, [UserProperties](https://docs.microsoft.com/office/vba/api/Outlook.UserProperties) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot directly access **CustomProperties** by using the Outlook object model, EWS, or REST. To learn how to access **CustomProperties** using EWS or REST, see the section [Get custom properties using EWS or REST](#get-custom-properties-using-ews-or-rest).
+These add-in-specific, item-specific custom properties can only be accessed by using the **CustomProperties** object. These properties are different from the custom, MAPI-based [UserProperties](https://docs.microsoft.com/office/vba/api/Outlook.UserProperties) in the Outlook object model, and extended properties in Exchange Web Services (EWS). You cannot directly access **CustomProperties** by using the Outlook object model, EWS, or REST. To learn how to access **CustomProperties** using EWS or REST, see the section [Get custom properties using EWS or REST](#get-custom-properties-using-ews-or-rest).
 
 ### Using custom properties
 
