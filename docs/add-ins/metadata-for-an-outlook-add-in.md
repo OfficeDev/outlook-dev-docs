@@ -273,6 +273,53 @@ GET https://outlook.office.com/api/v2.0/Me/Events?$filter=SingleValueExtendedPro
 
 For other examples that use REST to get single-value MAPI-based extended properties, see [Get singleValueExtendedProperty](/graph/api/singlevaluelegacyextendedproperty-get?view=graph-rest-1.0).
 
+The following example shows how to get an item and its custom properties. In the callback function for the `done` method, `item.SingleValueExtendedProperties` contains a list of the requested custom properties.
+
+> [!IMPORTANT]
+> In the following example, replace `<app-guid>` with your add-in's ID.
+
+```typescript
+Office.context.mailbox.getCallbackTokenAsync(
+    {
+        isRest: true
+    },
+    function (asyncResult) {
+        if (asyncResult.status === Office.AsyncResultStatus.Succeeded
+            && asyncResult.value !== "") {
+            let item_rest_id = Office.context.mailbox.convertToRestId(
+                Office.context.mailbox.item.itemId,
+                Office.MailboxEnums.RestVersion.v2_0);
+            let rest_url = Office.context.mailbox.restUrl +
+                           "/v2.0/me/messages('" +
+                           item_rest_id +
+                           "')";
+            rest_url += "?$expand=SingleValueExtendedProperties($filter=PropertyId eq 'String {00020329-0000-0000-C000-000000000046} Name cecp-<app-guid>')";
+
+            let auth_token = asyncResult.value;
+            $.ajax(
+                {
+                    url: rest_url,
+                    dataType: 'json',
+                    headers:
+                        {
+                            "Authorization":"Bearer " + auth_token
+                        }
+                }
+                ).done(
+                    function (item) {
+                        console.log(JSON.stringify(item));
+                    }
+                ).fail(
+                    function (error) {
+                        console.log(JSON.stringify(error));
+                    }
+                );
+        } else {
+            console.log(JSON.stringify(asyncResult));
+        }
+    }
+);
+```
 
 ## See also
 
