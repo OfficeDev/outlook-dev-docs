@@ -273,7 +273,7 @@ GET https://outlook.office.com/api/v2.0/Me/Events?$filter=SingleValueExtendedPro
 
 For other examples that use REST to get single-value MAPI-based extended properties, see [Get singleValueExtendedProperty](/graph/api/singlevaluelegacyextendedproperty-get?view=graph-rest-1.0).
 
-The following example shows how to get an item and its custom properties. In the callback function for the `done` method, `item.SingleValueExtendedProperties` will give a list of the requested custom properties.
+The following example shows how to get an item and its custom properties. In the callback function for the `done` method, `item.SingleValueExtendedProperties` contains a list of the requested custom properties.
 
 > [!IMPORTANT]
 > In the following example, replace `<app-guid>` with your add-in's ID.
@@ -314,12 +314,11 @@ Office.context.mailbox.getCallbackTokenAsync(
                         console.log(JSON.stringify(error));
                     }
                 );
-            }
-            else {
-                console.log(JSON.stringify(asyncResult));
-            }
+        } else {
+            console.log(JSON.stringify(asyncResult));
         }
-    );
+    }
+);
 ```
 
 ## See also
