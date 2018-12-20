@@ -201,6 +201,59 @@ Custom properties set by an add-in are not equivalent to normal MAPI-based prope
 
 Your mail add-in can get the **CustomProperties** MAPI-based extended property by using the EWS [GetItem](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getitem-operation) operation. Access **GetItem** on the server side by using a callback token, or on the client side by using the [mailbox.makeEwsRequestAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method. In the **GetItem** request, specify the **CustomProperties** MAPI-based property in its property set using the details provided in the preceding section [How custom properties are stored on an item](#how-custom-properties-are-stored-on-an-item).
 
+The following example shows how to get an item and its custom properties.
+
+> [!IMPORTANT]
+> In the following example, replace `<app-guid>` with your add-in's ID.
+
+```typescript
+let request_str =
+    '<?xml version="1.0" encoding="utf-8"?>' +
+    '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' +
+                   'xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages"' +
+                   'xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types"' +
+                   'xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
+        '<soap:Header xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"' +
+                     'xmlns:wsa="http://www.w3.org/2005/08/addressing">' +
+            '<t:RequestServerVersion Version="Exchange2010_SP1"/>' +
+        '</soap:Header>' +
+        '<soap:Body>' +
+            '<m:GetItem>' +
+                '<m:ItemShape>' +
+                    '<t:BaseShape>AllProperties</t:BaseShape>' +
+                    '<t:IncludeMimeContent>true</t:IncludeMimeContent>' +
+                    '<t:AdditionalProperties>' +
+                        '<t:ExtendedFieldURI ' +
+                          'DistinguishedPropertySetId="PublicStrings" ' +
+                          'PropertyName="cecp-<app-guid>"' +
+                          'PropertyType="String" ' +
+                        '/>' +
+                    '</t:AdditionalProperties>' +
+                '</m:ItemShape>' +
+                '<m:ItemIds>' +
+                    '<t:ItemId Id="' +
+                      Office.context.mailbox.item.itemId +
+                    '"/>' +
+                '</m:ItemIds>' +
+            '</m:GetItem>' +
+        '</soap:Body>' +
+    '</soap:Envelope>';
+
+Office.context.mailbox.makeEwsRequestAsync(
+    request_str,
+    function(asyncResult) {
+        if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+            console.log(asyncResult.value);
+        }
+        else {
+            console.log(JSON.stringify(asyncResult));
+        }
+    }
+);
+```
+
+You can also get more custom properties if you specify them in the request string as other [ExtendedFieldURI](/exchange/client-developer/web-service-reference/extendedfielduri) elements.
+
 #### Get custom properties using REST
 
 In your add-in, you can construct your REST query against messages and events to get the ones that already have custom properties. In your query, you should include the **CustomProperties** MAPI-based property and its property set using the details provided in the section [How custom properties are stored on an item](#how-custom-properties-are-stored-on-an-item).
