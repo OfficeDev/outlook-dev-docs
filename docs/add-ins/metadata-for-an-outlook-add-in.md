@@ -247,10 +247,12 @@ Office.context.mailbox.makeEwsRequestAsync(
         }
         else {
             console.log(JSON.stringify(asyncResult));
-        });
+        }
+    }
+);
 ```
 
-You can also get more custom properties if you specify them in the request string as other [**ExtendedFieldURI** elements](/exchange/client-developer/web-service-reference/extendedfielduri).
+You can also get more custom properties if you specify them in the request string as other [ExtendedFieldURI](/exchange/client-developer/web-service-reference/extendedfielduri) elements.
 
 #### Get custom properties using REST
 
