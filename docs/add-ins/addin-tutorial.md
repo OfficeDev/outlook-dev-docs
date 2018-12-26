@@ -584,9 +584,9 @@ function buildGistList(parent, gists, clickFunc) {
       .attr('type', 'hidden')
       .val(gist.id)
       .appendTo(listItem);
-  });
-
-  $('.ms-ListItem').on('click', clickFunc);
+      
+      listItem.on('click', clickFunc);
+  });  
 }
 
 function buildFileList(files) {
