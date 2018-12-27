@@ -208,7 +208,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
 	
     After you complete the wizard, the generator will create the project and install supporting Node components.
-    
+
 1. Navigate to the root folder of the web application project.
 
     ```bash
@@ -222,37 +222,35 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 1. Replace the `<header>`, `<section>`, and `<main>` elements inside the `<body>` element with the following markup and save the file.
 
     ```HTML
-    <body class="ms-font-m ms-welcome">
-        <div class="ms-Fabric content-main">
-            <h1 class="ms-font-xxl">Message properties</h1>
-            <table class="ms-Table ms-Table--selectable">
-                <thead>
-                    <tr>
-                        <th>Property</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Id</strong></td>
-                        <td class="prop-val"><code><label id="item-id"></label></code></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Subject</strong></td>
-                        <td class="prop-val"><code><label id="item-subject"></label></code></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Message Id</strong></td>
-                        <td class="prop-val"><code><label id="item-internetMessageId"></label></code></td>
-                    </tr>
-                    <tr>
-                        <td><strong>From</strong></td>
-                        <td class="prop-val"><code><label id="item-from-displayName"></label></code></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </body>
+    <div class="ms-Fabric content-main">
+        <h1 class="ms-font-xxl">Message properties</h1>
+        <table class="ms-Table ms-Table--selectable">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Id</strong></td>
+                    <td class="prop-val"><code><label id="item-id"></label></code></td>
+                </tr>
+                <tr>
+                    <td><strong>Subject</strong></td>
+                    <td class="prop-val"><code><label id="item-subject"></label></code></td>
+                </tr>
+                <tr>
+                    <td><strong>Message Id</strong></td>
+                    <td class="prop-val"><code><label id="item-internetMessageId"></label></code></td>
+                </tr>
+                <tr>
+                    <td><strong>From</strong></td>
+                    <td class="prop-val"><code><label id="item-from-displayName"></label></code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     ```
 
 1. Open the file **src/index.js** to specify the script for the add-in. Replace the entire contents with the following code and save the file.
