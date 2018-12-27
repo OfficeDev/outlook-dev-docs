@@ -325,7 +325,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     ...
     ```
 
-### Sideload the manifest
+### Start the dev server
 
 1. Open a command prompt in the root directory of your project (**[...]/My Office Add-in**) and run the following command to start the web server at `https://localhost:3000`.
 
@@ -340,11 +340,11 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     > [!NOTE]
     > Chrome (web browser) may continue to indicate the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
 
-1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file.
-
 ### Try it out
 
-1. After you've sideloaded the manifest, select or open a message in Outlook.
+1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the add-in in Outlook.
+
+1. In Outlook, select or open a message.
 
 1. On the **Home** tab (**Message** tab if you opened the message in a new window), locate the add-in's **Display all properties** button.
 
