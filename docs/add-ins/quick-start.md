@@ -78,10 +78,10 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     (function () {
 
-      // Initialization will fail if Office.initialize
-      // does not have a function assigned to it
-      Office.initialize = function (reason) {
+      Office.onReady(function () {
+        // Office is ready
         $(document).ready(function () {
+          // The document is ready
           loadItemProps(Office.context.mailbox.item);
         });
       };
@@ -247,10 +247,10 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     (function () {
 
-      // Initialization will fail if Office.initialize
-      // does not have a function assigned to it
-      Office.initialize = function (reason) {
+      Office.onReady(function () {
+        // Office is ready
         $(document).ready(function () {
+          // The document is ready
           loadItemProps(Office.context.mailbox.item);
         });
       };
