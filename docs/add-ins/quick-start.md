@@ -230,18 +230,37 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 1. Replace the `<header>`, `<section>`, and `<main>` elements inside the `<body>` element with the following markup and save the file.
 
     ```HTML
-    <div class="ms-Fabric content-main">
-        <h1 class="ms-font-xxl">Message properties</h1>
-        <table class="ms-Table ms-Table--selectable">
-            <thead>
-                <tr>
-                    <th>Property</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody class="prop-table"/>
-        </table>
-    </div>
+    <body class="ms-font-m ms-welcome">
+        <div class="ms-Fabric content-main">
+            <h1 class="ms-font-xxl">Message properties</h1>
+            <table class="ms-Table ms-Table--selectable">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Id</strong></td>
+                        <td class="prop-val"><code><label id="item-id"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subject</strong></td>
+                        <td class="prop-val"><code><label id="item-subject"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Message Id</strong></td>
+                        <td class="prop-val"><code><label id="item-internetMessageId"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>From</strong></td>
+                        <td class="prop-val"><code><label id="item-from-displayName"></label></code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
     ```
 
 1. Open the file **src/index.js** to specify the script for the add-in. Replace the entire contents with the following code and save the file.
@@ -251,32 +270,21 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     (function () {
 
-      Office.onReady(function () {
-        // Office is ready
-        $(document).ready(function () {
-          // The document is ready
-          loadItemProps(Office.context.mailbox.item);
+        Office.onReady(function () {
+            // Office is ready
+            $(document).ready(function () {
+                // The document is ready
+                loadItemProps(Office.context.mailbox.item);
+            });
         });
-      });
 
-      function loadItemProps(item) {
-        // Get the table body element
-        var tbody = $('.prop-table');
-
-        // Add a row to the table for each message property
-        tbody.append(makeTableRow("Id", item.itemId));
-        tbody.append(makeTableRow("Subject", item.subject));
-        tbody.append(makeTableRow("Message Id", item.internetMessageId));
-        tbody.append(makeTableRow("From", item.from.displayName + " &lt;" +
-          item.from.emailAddress + "&gt;"));
-      }
-
-      function makeTableRow(name, value) {
-        return $("<tr><td><strong>" + name + 
-          "</strong></td><td class=\"prop-val\"><code>" +
-          value + "</code></td></tr>");
-      }
-
+        function loadItemProps(item) {
+            // Write message property values to the task pane
+            $('#item-id').text(item.itemId);
+            $('#item-subject').text(item.subject);
+            $('#item-internetMessageId').text(item.internetMessageId);
+            $('#item-from-displayName').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
+        }
     })();
     ```
 
