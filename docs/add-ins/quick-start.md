@@ -207,13 +207,13 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
 	
+    After you complete the wizard, the generator will create the project and install supporting Node components.
+    
 1. Navigate to the root folder of the web application project.
 
     ```bash
     cd "My Office Add-in"
     ```
-
-    After you complete the wizard, the generator will create the project and install supporting Node components.
 
 ### Update the code
 
