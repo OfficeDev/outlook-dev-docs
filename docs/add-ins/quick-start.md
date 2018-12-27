@@ -84,7 +84,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
           // The document is ready
           loadItemProps(Office.context.mailbox.item);
         });
-      };
+      });
 
       function loadItemProps(item) {
         // Get the table body element
@@ -253,7 +253,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
           // The document is ready
           loadItemProps(Office.context.mailbox.item);
         });
-      };
+      });
 
       function loadItemProps(item) {
         // Get the table body element
