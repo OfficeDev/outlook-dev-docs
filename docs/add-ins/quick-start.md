@@ -80,7 +80,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
                     </tr>
                     <tr>
                         <td><strong>From</strong></td>
-                        <td class="prop-val"><code><label id="item-from-displayName"></label></code></td>
+                        <td class="prop-val"><code><label id="item-from"></label></code></td>
                     </tr>
                 </tbody>
             </table>
@@ -108,7 +108,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
             $('#item-id').text(item.itemId);
             $('#item-subject').text(item.subject);
             $('#item-internetMessageId').text(item.internetMessageId);
-            $('#item-from-displayName').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
+            $('#item-from').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
         }
     })();
     ```
@@ -246,7 +246,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
                 </tr>
                 <tr>
                     <td><strong>From</strong></td>
-                    <td class="prop-val"><code><label id="item-from-displayName"></label></code></td>
+                    <td class="prop-val"><code><label id="item-from"></label></code></td>
                 </tr>
             </tbody>
         </table>
@@ -273,7 +273,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
             $('#item-id').text(item.itemId);
             $('#item-subject').text(item.subject);
             $('#item-internetMessageId').text(item.internetMessageId);
-            $('#item-from-displayName').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
+            $('#item-from').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
         }
     })();
     ```
