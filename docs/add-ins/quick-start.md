@@ -65,7 +65,24 @@ When you've completed the wizard, Visual Studio creates a solution that contains
                         <th>Value</th>
                     </tr>
                 </thead>
-                <tbody class="prop-table"/>
+                <tbody>
+                    <tr>
+                        <td><strong>Id</strong></td>
+                        <td class="prop-val"><code><label id="item-id"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subject</strong></td>
+                        <td class="prop-val"><code><label id="item-subject"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Message Id</strong></td>
+                        <td class="prop-val"><code><label id="item-internetMessageId"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>From</strong></td>
+                        <td class="prop-val"><code><label id="item-from-displayName"></label></code></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </body>
@@ -78,32 +95,21 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     (function () {
 
-      Office.onReady(function () {
-        // Office is ready
-        $(document).ready(function () {
-          // The document is ready
-          loadItemProps(Office.context.mailbox.item);
+        Office.onReady(function () {
+            // Office is ready
+            $(document).ready(function () {
+                // The document is ready
+                loadItemProps(Office.context.mailbox.item);
+            });
         });
-      });
 
-      function loadItemProps(item) {
-        // Get the table body element
-        var tbody = $('.prop-table');
-
-        // Add a row to the table for each message property
-        tbody.append(makeTableRow("Id", item.itemId));
-        tbody.append(makeTableRow("Subject", item.subject));
-        tbody.append(makeTableRow("Message Id", item.internetMessageId));
-        tbody.append(makeTableRow("From", item.from.displayName + " &lt;" +
-          item.from.emailAddress + "&gt;"));
-      }
-
-      function makeTableRow(name, value) {
-        return $("<tr><td><strong>" + name + 
-          "</strong></td><td class=\"prop-val\"><code>" +
-          value + "</code></td></tr>");
-      }
-
+        function loadItemProps(item) {
+            // Write message property values to the task pane
+            $('#item-id').text(item.itemId);
+            $('#item-subject').text(item.subject);
+            $('#item-internetMessageId').text(item.internetMessageId);
+            $('#item-from-displayName').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
+        }
     })();
     ```
 
@@ -153,7 +159,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. Using Visual Studio, test the newly created Outlook add-in by pressing F5 or choosing the **Start** button. The add-in will be hosted locally on IIS.
 
-1. In the **Connect to Exchange email account** dialog box, enter the email address and password for your [Microsoft account](https://account.microsoft.com/account) and then choose **Connect**. When the Outlook.com (or other mail service) login page opens in a browser, login to your email account with the same credentials as you entered previously.
+1. In the **Connect to Exchange email account** dialog box, enter the email address and password for your [Microsoft account](https://account.microsoft.com/account) and then choose **Connect**. When the Outlook.com login page opens in a browser, login to your email account with the same credentials as you entered previously.
 
     > [!NOTE]
     > If the **Connect to Exchange email account** dialog box repeatedly prompts you to login, Basic Auth may be disabled for accounts on your Office 365 tenant. To test this add-in, login using a [Microsoft account](https://account.microsoft.com/account) instead.
