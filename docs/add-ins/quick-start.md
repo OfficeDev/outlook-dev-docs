@@ -191,14 +191,6 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Create the add-in project
 
-1. Create a folder on your local drive and name it `my-outlook-addin`. This is where you'll create the files for your add-in.
-
-1. Navigate to your new folder.
-
-    ```powershell
-    cd my-outlook-addin
-    ```
-
 1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
 
     ```powershell
