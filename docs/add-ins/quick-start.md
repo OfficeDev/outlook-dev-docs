@@ -65,7 +65,24 @@ When you've completed the wizard, Visual Studio creates a solution that contains
                         <th>Value</th>
                     </tr>
                 </thead>
-                <tbody class="prop-table"/>
+                <tbody>
+                    <tr>
+                        <td><strong>Id</strong></td>
+                        <td class="prop-val"><code><label id="item-id"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subject</strong></td>
+                        <td class="prop-val"><code><label id="item-subject"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Message Id</strong></td>
+                        <td class="prop-val"><code><label id="item-internetMessageId"></label></code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>From</strong></td>
+                        <td class="prop-val"><code><label id="item-from"></label></code></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </body>
@@ -78,32 +95,21 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     (function () {
 
-      // Initialization will fail if Office.initialize
-      // does not have a function assigned to it
-      Office.initialize = function (reason) {
-        $(document).ready(function () {
-          loadItemProps(Office.context.mailbox.item);
+        Office.onReady(function () {
+            // Office is ready
+            $(document).ready(function () {
+                // The document is ready
+                loadItemProps(Office.context.mailbox.item);
+            });
         });
-      };
 
-      function loadItemProps(item) {
-        // Get the table body element
-        var tbody = $('.prop-table');
-
-        // Add a row to the table for each message property
-        tbody.append(makeTableRow("Id", item.itemId));
-        tbody.append(makeTableRow("Subject", item.subject));
-        tbody.append(makeTableRow("Message Id", item.internetMessageId));
-        tbody.append(makeTableRow("From", item.from.displayName + " &lt;" +
-          item.from.emailAddress + "&gt;"));
-      }
-
-      function makeTableRow(name, value) {
-        return $("<tr><td><strong>" + name + 
-          "</strong></td><td class=\"prop-val\"><code>" +
-          value + "</code></td></tr>");
-      }
-
+        function loadItemProps(item) {
+            // Write message property values to the task pane
+            $('#item-id').text(item.itemId);
+            $('#item-subject').text(item.subject);
+            $('#item-internetMessageId').text(item.internetMessageId);
+            $('#item-from').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
+        }
     })();
     ```
 
@@ -151,14 +157,12 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Try it out
 
-1. Using Visual Studio, test the newly created Outlook add-in by pressing F5 or choosing the **Start** button to launch Outlook on the web. The add-in will be hosted locally on IIS.
+1. Using Visual Studio, test the newly created Outlook add-in by pressing F5 or choosing the **Start** button. The add-in will be hosted locally on IIS.
+
+1. In the **Connect to Exchange email account** dialog box, enter the email address and password for your [Microsoft account](https://account.microsoft.com/account) and then choose **Connect**. When the Outlook.com login page opens in a browser, login to your email account with the same credentials as you entered previously.
 
     > [!NOTE]
-    > If you're asked to log in repeatedly then Basic Auth may be disabled for accounts on your Office 365 tenant. You can consider:
-    >
-    > a. hosting the add-in on a local server then [sideloading](sideload-outlook-add-ins-for-testing.md).
-    >
-    > b. using a Microsoft account instead.
+    > If the **Connect to Exchange email account** dialog box repeatedly prompts you to login, Basic Auth may be disabled for accounts on your Office 365 tenant. To test this add-in, login using a [Microsoft account](https://account.microsoft.com/account) instead.
 
 1. In Outlook on the web, select or open a message.
 
@@ -187,14 +191,6 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Create the add-in project
 
-1. Create a folder on your local drive and name it `my-outlook-addin`. This is where you'll create the files for your add-in.
-
-1. Navigate to your new folder.
-
-    ```powershell
-    cd my-outlook-addin
-    ```
-
 1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
 
     ```powershell
@@ -211,13 +207,13 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
 	
+    After you complete the wizard, the generator will create the project and install supporting Node components.
+
 1. Navigate to the root folder of the web application project.
 
     ```bash
     cd "My Office Add-in"
     ```
-
-    After you complete the wizard, the generator will create the project and install supporting Node components.
 
 ### Update the code
 
@@ -235,7 +231,24 @@ When you've completed the wizard, Visual Studio creates a solution that contains
                     <th>Value</th>
                 </tr>
             </thead>
-            <tbody class="prop-table"/>
+            <tbody>
+                <tr>
+                    <td><strong>Id</strong></td>
+                    <td class="prop-val"><code><label id="item-id"></label></code></td>
+                </tr>
+                <tr>
+                    <td><strong>Subject</strong></td>
+                    <td class="prop-val"><code><label id="item-subject"></label></code></td>
+                </tr>
+                <tr>
+                    <td><strong>Message Id</strong></td>
+                    <td class="prop-val"><code><label id="item-internetMessageId"></label></code></td>
+                </tr>
+                <tr>
+                    <td><strong>From</strong></td>
+                    <td class="prop-val"><code><label id="item-from"></label></code></td>
+                </tr>
+            </tbody>
         </table>
     </div>
     ```
@@ -247,32 +260,21 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     (function () {
 
-      // Initialization will fail if Office.initialize
-      // does not have a function assigned to it
-      Office.initialize = function (reason) {
-        $(document).ready(function () {
-          loadItemProps(Office.context.mailbox.item);
+        Office.onReady(function () {
+            // Office is ready
+            $(document).ready(function () {
+                // The document is ready
+                loadItemProps(Office.context.mailbox.item);
+            });
         });
-      };
 
-      function loadItemProps(item) {
-        // Get the table body element
-        var tbody = $('.prop-table');
-
-        // Add a row to the table for each message property
-        tbody.append(makeTableRow("Id", item.itemId));
-        tbody.append(makeTableRow("Subject", item.subject));
-        tbody.append(makeTableRow("Message Id", item.internetMessageId));
-        tbody.append(makeTableRow("From", item.from.displayName + " &lt;" +
-          item.from.emailAddress + "&gt;"));
-      }
-
-      function makeTableRow(name, value) {
-        return $("<tr><td><strong>" + name + 
-          "</strong></td><td class=\"prop-val\"><code>" +
-          value + "</code></td></tr>");
-      }
-
+        function loadItemProps(item) {
+            // Write message property values to the task pane
+            $('#item-id').text(item.itemId);
+            $('#item-subject').text(item.subject);
+            $('#item-internetMessageId').text(item.internetMessageId);
+            $('#item-from').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
+        }
     })();
     ```
 
@@ -323,20 +325,26 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     ...
     ```
 
-### Sideload the manifest
+### Start the dev server
 
-1. In your command prompt/shell, make sure you are in the root directory of your project (**[...]/My Office Add-in**), and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
+1. Open a command prompt in the root directory of your project (**[...]/My Office Add-in**) and run the following command to start the web server at `https://localhost:3000`.
+
+    ```bash
+    npm start
+    ```
+
+1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, proceed to the next section in this article (**Try it out**). If your browser indicates that the site's certificate is not trusted, proceed to the following step.
 
 1. If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
     > [!NOTE]
-    > Chrome (web browser) may continue to indicate the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). You can disregard this warning in Chrome and can verify that the certificate is trusted by navigating to `https://localhost:3000` in either Internet Explorer or Microsoft Edge. 
-
-1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file.
+    > Chrome (web browser) may continue to indicate the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
 
 ### Try it out
 
-1. Once you've sideloaded the manifest, select or open a message in Outlook.
+1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the add-in in Outlook.
+
+1. In Outlook, select or open a message.
 
 1. On the **Home** tab (**Message** tab if you opened the message in a new window), locate the add-in's **Display all properties** button.
 
