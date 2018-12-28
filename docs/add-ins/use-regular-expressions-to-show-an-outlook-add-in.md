@@ -36,8 +36,9 @@ An  `ItemHasRegularExpressionMatch` rule is useful in controlling activation of 
 |:-----|:-----|
 |`RegExName`|Specifies the name of the regular expression so that you can refer to the expression in the code for your add-in.|
 |`RegExValue`|Specifies the regular expression that will be evaluated to determine whether the add-in should be shown.|
-|`PropertyName`|Specifies the name of the property that the regular expression will be evaluated against. The allowed values are `BodyAsHTML`, `BodyAsPlaintext`, `SenderSMTPAddress`, and `Subject`.<br/><br/>If you specify `BodyAsHTML`, Outlook applies the regular expression only if the item body is HTML, and otherwise Outlook returns no matches for that regular expression.<br/><br/>If you specify  `BodyAsPlaintext`, Outlook always applies the regular expression on the item body.|
+|`PropertyName`|Specifies the name of the property that the regular expression will be evaluated against. The allowed values are `BodyAsHTML`, `BodyAsPlaintext`, `SenderSMTPAddress`, and `Subject`.<br/><br/>If you specify `BodyAsHTML`, Outlook only applies the regular expression if the item body is HTML. Otherwise, Outlook returns no matches for that regular expression.<br/><br/>If you specify `BodyAsPlaintext`, Outlook always applies the regular expression on the item body.<br/><br/>**Note:** You must set the `PropertyName` attribute to `BodyAsPlaintext` if you specify the `Highlight` attribute for the `Rule` element.|
 |`IgnoreCase`|Specifies whether to ignore case when matching the regular expression specified by `RegExName`.|
+| `Highlight` | Specifies how the client should highlight matching text. This element can only be applied to `Rule` elements within `ExtensionPoint` elements. Can be one of the following: `all` or `none`. If not specified, the default value is `all`.<br/><br/>**Note:** You must set the `PropertyName` attribute to `BodyAsPlaintext` if you specify the `Highlight` attribute for the `Rule` element. |
 
 ### Best practices for using regular expressions in rules
 
