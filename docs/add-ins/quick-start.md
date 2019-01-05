@@ -205,7 +205,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     - **Which Office client application would you like to support?** - `Outlook`
 
-    ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
+    ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.png)
 	
     After you complete the wizard, the generator will create the project and install supporting Node components.
 
@@ -348,11 +348,11 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. On the **Home** tab (**Message** tab if you opened the message in a new window), locate the add-in's **Display all properties** button.
 
-    ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button.PNG)
+    ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button.png)
 
 1. Click the button to open the add-in's task pane.
 
-    ![A screenshot of the add-in's task pane displaying message properties](images/quick-start-task-pane.PNG)
+    ![A screenshot of the add-in's task pane displaying message properties](images/quick-start-task-pane.png)
 
 ---
 

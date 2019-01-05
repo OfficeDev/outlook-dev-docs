@@ -36,7 +36,7 @@ If this is your first time using Spring Tool Suite, you should complete the foll
 
 1. Click the **Directory** button next to **JRE home**. Browse to the directory where you installed the JDK. Click **Finish**.
 
-  ![The Add JRE dialog in Spring Tool Suites](images/java-tutorial/installed-jre.PNG)
+  ![The Add JRE dialog in Spring Tool Suites](images/java-tutorial/installed-jre.png)
 1. In the list of **Installed JREs**, make sure that the entry you just added is checked, making it the default. Click **OK**.
 
 1. On the **Window** menu, choose **Show View**, then **Other**. Choose **Maven Repositories** from the list of views and click **OK**.
@@ -51,7 +51,7 @@ Check the **Create a simple project (skip archetype selection)** checkbox and cl
 
 Enter `com.outlook.dev` for **Group Id**, and `java-tutorial` for **Artifact Id**. Change **Packaging** to `war`. Click **Finish**.
 
-![The New Maven project dialog in Spring Tool Suite](images/java-tutorial/new-maven-project.PNG)
+![The New Maven project dialog in Spring Tool Suite](images/java-tutorial/new-maven-project.png)
 
 In **Project Explorer**, right-click the project and choose **Properties**. Select **Java Build Path**, then select the **Libraries** tab. If the version of the **JRE System Library** does not match the version of the JDK you installed, do the following:
 
@@ -61,13 +61,13 @@ In **Project Explorer**, right-click the project and choose **Properties**. Sele
 
 1. Select **Workspace default JRE** and click **Finish**.
 
-  ![The Java Build Path dialog in Spring Tool Suite](images/java-tutorial/java-build-path.PNG)
+  ![The Java Build Path dialog in Spring Tool Suite](images/java-tutorial/java-build-path.png)
 
 1. Click **OK**.
 
 Right-click the project and choose **Properties**. Select **Project Facets**. Change the version of **Dynamic Web Module** to `3.0`. Change the version of **Java** to `1.8`.
 
-![The Project Facets dialog in Spring Tool Suite](images/java-tutorial/project-facets.PNG)
+![The Project Facets dialog in Spring Tool Suite](images/java-tutorial/project-facets.png)
 
 Click **OK**. In order to force Spring Tool Suite to recognize the facet changes, we need to close and reopen the project. Right-click the project and choose **Close Project**. Then double-click (or right-click and choose **Open Project**) to reopen the project.
 
@@ -102,7 +102,7 @@ Save the file. Right-click the project in **Project Explorer** and choose **Mave
 
 Now let's make sure it works. Right-click the project and choose **Run as**, then **Maven build**. In the **Goals** field, enter `jetty:run`, then click **Run**. In the **Console** view, you should see output from the Maven build process. Assuming nothing goes wrong, you should eventually see `[INFO] Started Jetty Server`. Open a browser and browse to `http://localhost:8080`. Because there is no content there, you should see something like this:
 
-![The default landing page for the Jetty test server](images/java-tutorial/jetty-default.PNG)
+![The default landing page for the Jetty test server](images/java-tutorial/jetty-default.png)
 
 ### Add Spring and Apache Tiles
 
@@ -258,7 +258,7 @@ Right-click the **WEB-INF** folder and choose **New**, then **Other**. In the li
 
 Click the **Namespaces** tab in the bottom toolbar. Select the `context` namespace, then click the **Source** tab.
 
-![The Namespaces tab in Spring Tool Suite](images/java-tutorial/add-context-namespace.PNG)
+![The Namespaces tab in Spring Tool Suite](images/java-tutorial/add-context-namespace.png)
 
 Add the following code inside the `<beans>` element:
 
@@ -396,7 +396,7 @@ public class IndexController {
 
 Save all of the files and restart the app. Now if you browse to `http://localhost:8080`, you should see the following:
 
-![The app's home page showing "Hello World"](images/java-tutorial/hello-world.PNG)
+![The app's home page showing "Hello World"](images/java-tutorial/hello-world.png)
 
 Now that we have the environment ready, we're ready to start coding!
 
@@ -437,7 +437,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![A screenshot of the completed app registration in the Application Registration Portal](images/java-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/java-tutorial/app-registration.png)
 
 ## Implementing OAuth2
 
@@ -661,7 +661,7 @@ Open the `pages.xml` file (**Deployed Resources**, **webapp**, **WEB-INF**, **de
 
 Save all of your changes and restart the app. Browse to `http://localhost:8080` and click the login button. Sign in with an Office 365 or Outlook.com account. Once you sign in and grant access to your information, the browser should redirect to the app, which displays the authorization code and ID token.
 
-![The app's mail page showing the user's access token](images/java-tutorial/auth-code.PNG)
+![The app's mail page showing the user's access token](images/java-tutorial/auth-code.png)
 
 ### Exchanging the code for a token ###
 
@@ -1531,7 +1531,7 @@ This uses the `forEach` tag from the JSTL core tag library to iterate through th
 
 Save your changes and refresh the page. You should now see a table of messages.
 
-![The app's mail page showing a table of messages](images/java-tutorial/inbox-list.PNG)
+![The app's mail page showing a table of messages](images/java-tutorial/inbox-list.png)
 
 ## Adding Calendar and Contacts APIs
 

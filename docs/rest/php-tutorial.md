@@ -135,7 +135,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![A screenshot of the completed app registration in the Application Registration Portal](images/php-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/php-tutorial/app-registration.png)
 
 ## Implementing OAuth2
 
@@ -713,7 +713,7 @@ public function mail()
 
 Save your changes and refresh the mail page. You should now get a nicely rendered list of messages.
 
-![The finished app displaying the user's inbox.](images/php-tutorial/inbox-listing.PNG)
+![The finished app displaying the user's inbox.](images/php-tutorial/inbox-listing.png)
 
 ## Adding Calendar and Contacts APIs
 
