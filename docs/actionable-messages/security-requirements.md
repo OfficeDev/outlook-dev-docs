@@ -37,39 +37,71 @@ DKIM and SPF are industry standard ways to prove a sender's identity when sendin
 
 Actionable messages [sent via email](send-via-email.md) support an alternative verification method: signing the card payload with and RSA key or X509 certificate. This method is required in the following scenarios:
 
-- The sending servers do not support DKIM or SPF verification.
+- SPF/DKIM failure caused by sender setup or recipient tenant set custom security services in front of Office 365 services.
 - You scenario for actionable messages requires sending from multiple email accounts.
 
 Using signed card payloads requires onboarding with Microsoft. Please contact [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) for more information.
 
 #### SignedCard
 
-Signed actionable message cards are available when sending via email. Use this format to include a signed card in the HTML body of an email. This payload is serialized as JSON inside of a `<script>` tag of type `application/ld+json` in the `<head>` of the HTML body.
+Signed actionable message cards are available when sending via email. Use this format to include a signed card in the HTML body of an email. This payload is serialized in Microdata format appended in the end of HTML body.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `@type` | String | Required. MUST be set to either `SignedAdaptiveCard` when using the [Adaptive card format](adaptive-card.md), or `SignedMessageCard` when using the [MessageCard format](message-card-reference.md). |
-| `@context` | String | Required. MUST be set to `http://schema.org/extensions` |
-| `signedAdaptiveCard` | String | Required if `@type` is set to `SignedAdaptiveCard`. MUST be set to a signed [SignedCardPayload](#signedcardpayload), signed using the [JSON Web Signature (JWS)](https://tools.ietf.org/html/rfc7515) standard. |
-| `signedMessageCard` | String | Required if `@type` is set to `SignedMessageCard`. MUST be set to a signed [SignedCardPayload](#signedcardpayload), signed using the [JSON Web Signature (JWS)](https://tools.ietf.org/html/rfc7515) standard. |
+```
+<section itemscope itemtype="http://schema.org/SignedAdaptiveCard">
+    <meta itemprop="@context" content="http://schema.org/extensions" />
+    <meta itemprop="@type" content="SignedAdaptiveCard" />
+    <div itemprop="signedAdaptiveCard" style="mso-hide:all;display:none;max-height:0px;overflow:hidden;">[SignedCardPayload]</div>
+</section>
+```
+> Note: Partners who prefer to use the legacy MessageCard entity may create a SignedMessageCard entity in place of a SignedAdaptiveCard.
 
 ##### SignedCardPayload
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `originator` | String | Required. MUST be set to the ID provided by Microsoft during onboarding. |
-| `iat` | TimeStamp (Unix epoch) | Required. The time that the payload was signed. |
-| `sender` | String | Required. The email address used to send this actionable message. |
-| `recipientsSerialized` | String | A serialized [RecipientList](#recipientlist) containing all of the To and CC recipients of the message. |
-| `sub` | String | Required. A unique identifier in your backend system for the recipient. |
-| `adaptiveCardSerialized` | String | Required if using the Adaptive card format, otherwise MUST NOT be present. The serialized content of the Adaptive card JSON. |
-| `messageCardSerialized` | String | Required if using the MessageCard format, otherwise MUST NOT be present. The serialized content of the Adaptive card JSON. |
+SignedCardPayload is a string encoded by JSON Web Signature (JWS) standard. [RFC7515](https://tools.ietf.org/html/rfc7515) describes JWS, and [RFC7519](https://tools.ietf.org/html/rfc7519) describes JSON Web Token (JWT). Given no claim is required in JWT, JWT libraries can be used to build JWS signature.
 
-###### RecipientList
+> Note: The term "JWT" can be used interchangeably in practice. However, we prefer the term "JWS" here. 
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `recipients` | Array of String | Required. Contains the email addresses of the To and CC recipients for the actionable message. |
+Here is an example of SignedCardPayload. The encoded Adaptive Card appears in the form of [header].[payload].[signature] as per JWS specification.
+
+```
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZW5kZXIiOiJzZXJ2aWNlLWFjY291bnRAY29udG9zby5jb20iLCJvcmlnaW5hdG9yIjoiNjVjNjgwZWYtMzZhNi00YTFiLWI4NGMtYTdiNWM2MTk4NzkyIiwicmVjaXBpZW50c1NlcmlhbGl6ZWQiOiJbXCJqb2huQGNvbnRvc28uY29tXCIsXCJqYW5lQGNvbnRvc28uY29tXCJdIiwiYWRhcHRpdmVDYXJkU2VyaWFsaXplZCI6IntcIiRzY2hlbWFcIjpcImh0dHA6Ly9hZGFwdGl2ZWNhcmRzLmlvL3NjaGVtYXMvYWRhcHRpdmUtY2FyZC5qc29uXCIsXCJ0eXBlXCI6XCJBZGFwdGl2ZUNhcmRcIixcInZlcnNpb25cIjpcIjEuMFwiLFwiYm9keVwiOlt7XCJzaXplXCI6XCJsYXJnZVwiLFwidGV4dFwiOlwiSGVsbG8gQWN0aW9uYWJsZSBtZXNzYWdlXCIsXCJ3cmFwXCI6dHJ1ZSxcInR5cGVcIjpcIlRleHRCbG9ja1wifV0sXCJhY3Rpb25zXCI6W3tcInR5cGVcIjpcIkFjdGlvbi5JbnZva2VBZGRJbkNvbW1hbmRcIixcInRpdGxlXCI6XCJPcGVuIEFjdGlvbmFibGUgTWVzc2FnZXMgRGVidWdnZXJcIixcImFkZEluSWRcIjpcIjNkMTQwOGY2LWFmYjMtNGJhZi1hYWNkLTU1Y2Q4NjdiYjBmYVwiLFwiZGVza3RvcENvbW1hbmRJZFwiOlwiYW1EZWJ1Z2dlck9wZW5QYW5lQnV0dG9uXCJ9XX0iLCJpYXQiOjE1NDUzNDgxNTN9.BP9mK33S1VZyjtWZd-lNTTjvueyeeoitygw9bl17TeQFTUDh9Kg5cB3fB7BeZYQs6IiWa1VGRdiiR4q9EkAB1qDsmIcJnw6aYwDUZ1KY4lNoYgQCH__FxEPHViGidNGtq1vAC6ODw0oIfaTUWTa5cF5MfiRBIhpQ530mbRNnA0QSrBYtyB54EDJxjBF1vNSKOeVHAl2d4gqcGxsytQA0PA7XMbrZ8B7fEU2uNjSiLQpoh6A1tevpla2C7W6h-Wekgsmjpw2YToAOX67VZ1TcS5oZAHmjv2RhqsfX5DlN-ZsTRErU4Hs5d92NY9ijJPDunSLyUFNCw7HLNPFqqPmZsw
+```
+
+The header in above JWS is:
+
+```
+{
+  "alg": "RS256",
+  "typ": "JWT"
+}
+```
+ 
+The payload in above JWS is:
+
+```
+{
+  "sender": "service-account@contoso.com",
+  "originator": "65c680ef-36a6-4a1b-b84c-a7b5c6198792",
+  "recipientsSerialized": "[\"john@contoso.com\",\"jane@contoso.com\"]",
+  "adaptiveCardSerialized": "{\"$schema\":\"http://adaptivecards.io/schemas/adaptive-card.json\",\"type\":\"AdaptiveCard\",\"version\":\"1.0\",\"body\":[{\"size\":\"large\",\"text\":\"Hello Actionable message\",\"wrap\":true,\"type\":\"TextBlock\"}],\"actions\":[{\"type\":\"Action.InvokeAddInCommand\",\"title\":\"Open Actionable Messages Debugger\",\"addInId\":\"3d1408f6-afb3-4baf-aacd-55cd867bb0fa\",\"desktopCommandId\":\"amDebuggerOpenPaneButton\"}]}",
+  "iat": 1545348153
+}
+```
+
+###### Required Claims
+
+| Claim | Description |
+|-------|-------------|
+| `originator` | MUST be set to the ID provided by Microsoft during onboarding. |
+| `iat` | The time that the payload was signed. |
+| `sender` | The email address used to send this actionable message. |
+| `recipientsSerialized` | The stringified list of the recipients of the email. This should include all the To/CC recipients of the email. |
+| `adaptiveCardSerialized` | The stringfied Adaptive Card. |
+
+Sample code generating signed card:
+
+- [.NET Sample](https://github.com/tony-zhu/SignedAdaptiveCardSample-dotnet)
+- [Node.js Sample](https://github.com/tony-zhu/SignedAdaptiveCardSample-node)
 
 ## Verifying that requests come from Microsoft
 
