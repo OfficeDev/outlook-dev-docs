@@ -11,13 +11,16 @@ ms.author: jasonjoh
 # Legacy actionable message card reference
 
 > [!NOTE]
-> This document describes the original JSON format for the actionable message card format. This has been replaced with the [Adaptive Card format](adaptive-card.md). Microsoft recommends that new actionable message integrations use the Adaptive Card format, and existing integrations consider updating to Adaptive Card format.
+> This document describes the original JSON format for the actionable message card format. For actionable messages sent via email, this has been replaced with the [Adaptive Card format](adaptive-card.md). Microsoft recommends that new actionable message integrations use the Adaptive Card format, and existing integrations consider updating to Adaptive Card format. However, if you are sending actionable messages via an Office 365 connector, or to a Microsoft Teams connector, you must continue to use the message card format.
 
 Cards are meant to provide easy to read, at-a-glance information that users can very quickly decipher and act upon when appropriate. As such, the guiding principle for designing great card is "content over chrome," which means cards are straight to the point and minimize the use of anything that would be distracting such as icons or custom colors.
 
 ## Card playground
 
 Ready to experiment with your card design? Head to the [Card Playground](https://messagecardplayground.azurewebsites.net/) which allows you to see what your card will look like as you edit the associated JSON payload.
+
+> [!NOTE]
+> The Card Playground loads Adaptive Card examples by default. You can find message card format examples by selecting the **Select a sample** dropdown in the playground.
 
 ## Design guidelines
 
@@ -139,7 +142,7 @@ When an `HttpPOST` action is executed, a POST request is made to the URL in the 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String | The `name` property defines the text that will be displayed on screen for the action.<br><br>**Do** use verbs. For instance, use "Set due date" instead of "Due date" or "Add note" instead of "Note." In some cases, the noun itself just works because it is also a verb: "Comment" |
-| `target` | String | Defines the URL endpoint of the service that implements the action. |
+| `target` | String | Defines the URL endpoint of the service that implements the action. **Note:** this URL must be accessible from the internet, you cannot use `localhost`. |
 | `headers` | Array of `Header` | A collection of `Header` objects representing a set of HTTP headers that will be emitted when sending the POST request to the target URL. See [Header](#header). |
 | `body` | String | The body of the POST request. |
 | `bodyContentType` | String | The `bodyContentType` is optional and specifies the MIME type of the body in the POST request. Some services require that a content type be specified. Valid values are `application/json` and `application/x-www-form-urlencoded`. If not specified, `application/json` is assumed. |
@@ -357,7 +360,6 @@ The value of an input can be referenced in any URL of a `ViewAction` or `HttpPOS
 To reference an input's value, use the following format:
 
 `{{<id of input>.value}}`
-
 
 ##### Input value substitution example
 
