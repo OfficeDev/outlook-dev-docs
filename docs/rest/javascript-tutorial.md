@@ -44,7 +44,7 @@ Before you begin you'll need to have [Node.js](https://nodejs.org/en/) installed
 
 1. Open a browser and browse to `http://localhost:8080`. If the server is working correctly, you should see something like the following:
 
-    ![Browser showing a directory listing of an empty directory.](images/javascript-tutorial/empty-directory-listing.PNG)
+    ![Browser showing a directory listing of an empty directory.](images/javascript-tutorial/empty-directory-listing.png)
 
 This confirms that the server is working, so we're ready to start coding. You can leave the server running. If you do stop it at some point, be sure to restart it using the `http-server` command in the `javascript-tutorial` directory.
 
@@ -268,7 +268,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![A screenshot of the completed app registration in the Application Registration Portal](images/javascript-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/javascript-tutorial/app-registration.png)
 
 ## Implementing OAuth2
 
@@ -486,7 +486,7 @@ Now we need to add code to `index.html` to support our new `renderTokens` functi
 
 Save your changes and refresh your browser. Depending on the state of your session you may have to sign in again. After signing in you should see something simliar to this.
 
-![The app displaying tokens](images/javascript-tutorial/token-display.PNG)
+![The app displaying tokens](images/javascript-tutorial/token-display.png)
 
 If you're not seeing that, there may be an error returned from the authentication process. Let's add some code to handle an error response. First, add the following after the `// Error display` line in the `render` function:
 
@@ -928,7 +928,7 @@ if (error) {
 
 Save your changes and refresh your browser.
 
-![A formatted list of messages.](images/javascript-tutorial/inbox-listing.PNG)
+![A formatted list of messages.](images/javascript-tutorial/inbox-listing.png)
 
 ## Adding Calendar and Contacts APIs
 

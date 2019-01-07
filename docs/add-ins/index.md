@@ -37,7 +37,7 @@ Extension points are the ways that add-ins integrate with Outlook. The following
     
     **A contextual add-in for a highlighted entity (an address)**
 
-    ![Shows a contextual app in a card](images/outlook-detected-entity-card.PNG)
+    ![Shows a contextual app in a card](images/outlook-detected-entity-card.png)
 
 
 > [!NOTE]

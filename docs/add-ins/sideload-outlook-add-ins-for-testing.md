@@ -44,7 +44,7 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 1. Locate the **Custom add-ins** section at the bottom of the dialog box. Select the **Add a custom add-in** link, and then select **Add from file**.
 
-    ![Manage add-ins screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.PNG)
+    ![Manage add-ins screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.png)
 
 1. Locate the manifest file for your custom add-in and install it. Accept all prompts during the installation.
 
@@ -54,7 +54,7 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 1. Choose the gear icon in the top-right section of the toolbar and select **Manage add-ins**.
 
-    ![Outlook on the web screenshot pointing to Manage add-ins option](images/outlook-sideload-web-manage-integrations.PNG)
+    ![Outlook on the web screenshot pointing to Manage add-ins option](images/outlook-sideload-web-manage-integrations.png)
 
 1. On the **Manage add-ins** page, select **Add-Ins**, and then select **My add-ins**.
 
@@ -62,7 +62,7 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 1. Locate the **Custom add-ins** section at the bottom of the dialog box. Select the **Add a custom add-in** link, and then select **Add from file**.
 
-    ![Manage add-ins screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.PNG)
+    ![Manage add-ins screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.png)
 
 1. Locate the manifest file for your custom add-in and install it. Accept all prompts during the installation.
 
@@ -72,7 +72,7 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 1. Select the **Get Add-ins** button on the ribbon.
 
-    ![Outlook 2016 ribbon pointing to Store button](images/outlook-sideload-desktop-store.PNG)
+    ![Outlook 2016 ribbon pointing to Store button](images/outlook-sideload-desktop-store.png)
 
     > [!NOTE]
     > If you don't see the **Get Add-ins** button in your version of Outlook, select the **Store** button on the ribbon instead.
@@ -83,6 +83,6 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 1. Locate the **Custom add-ins** section at the bottom of the dialog. Select the **Add a custom add-in** link, and then select **Add from file**.
 
-    ![Store screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.PNG)
+    ![Store screenshot pointing to Add from a file option](images/outlook-sideload-desktop-add-from-file.png)
 
 1. Locate the manifest file for your custom add-in and install it. Accept all prompts during the installation.
