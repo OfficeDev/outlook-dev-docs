@@ -13,7 +13,7 @@ ms.author: jasonjoh
 Outlook Actionable Messages cards are designed using the Adaptive Card format. The Adaptive Card format is a simple yet powerful declarative layout format that provides a lot of flexibility, allowing for visually rich cards. In this topic we'll cover the Outlook-specific features of the Adaptive Card format.
 
 > [!IMPORTANT]
-> The Adaptive Card format is only available for Actionable Messages sent via email. The MessageCard format is still supported but is now de-emphasized. Office 365 Connectors do not currently support the Adaptive Card format. If you are implementing an Office 365 Connector, please refer to the [MessageCard format reference](https://docs.microsoft.com/outlook/actionable-messages/message-card-reference).
+> The Adaptive Card format is only available for Actionable Messages sent via email. The MessageCard format is still supported but is now de-emphasized. Office 365 connectors and Microsoft Teams connectors do not currently support the Adaptive Card format. If you are implementing an Office 365 or Microsoft Teams connector, please refer to the [MessageCard format reference](https://docs.microsoft.com/outlook/actionable-messages/message-card-reference).
 >
 > For information on which Outlook versions support the Adaptive Card format, see [Outlook version requirements for actionable messages](index.md#outlook-version-requirements-for-actionable-messages).
 
