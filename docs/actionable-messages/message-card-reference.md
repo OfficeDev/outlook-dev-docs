@@ -19,6 +19,9 @@ Cards are meant to provide easy to read, at-a-glance information that users can 
 
 Ready to experiment with your card design? Head to the [Card Playground](https://messagecardplayground.azurewebsites.net/) which allows you to see what your card will look like as you edit the associated JSON payload.
 
+> [!NOTE]
+> The Card Playground loads Adaptive Card examples by default. You can find message card format examples by selecting the **Select a sample** dropdown in the playground.
+
 ## Design guidelines
 
 ### Text formatting
