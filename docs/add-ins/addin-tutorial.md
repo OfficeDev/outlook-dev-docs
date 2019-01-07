@@ -107,7 +107,7 @@ Use the Yeoman generator to create an Outlook add-in project.
 
     - **Which Office client application would you like to support?** - `Outlook`
 
-    ![A screenshot of the prompts and answers for the Yeoman generator](images/addin-tutorial/yeoman-prompts.PNG)
+    ![A screenshot of the prompts and answers for the Yeoman generator](images/addin-tutorial/yeoman-prompts.png)
     
     After you complete the wizard, the generator will create the project and install supporting Node components.
 	
@@ -187,7 +187,7 @@ Before going any further, let's test the basic add-in that the generator created
 
 1. In Outlook, open an existing message and select the **Display all properties** button. If everything's been set up correctly, the task pane will open and render the add-in's welcome page.
 
-    ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.PNG)
+    ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.png)
 
 ## Define buttons
 
@@ -826,11 +826,11 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 1. In the compose message window, select the **Insert default gist** button. You should be prompted to configure the add-in.
 
-    ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.PNG)
+    ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.png)
 
 1. In the settings dialog, enter your GitHub username and then either **Tab** or click elsewhere in the dialog to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and select **Done**.
 
-    ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.PNG)
+    ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.png)
 
 1. Select the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
 
@@ -1179,7 +1179,7 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 1. In the task pane, select the **Hello World Html** gist and select **Insert** to insert that gist into the body of the message.
 
-![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.PNG)
+![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.png)
 
 ## Next steps
 

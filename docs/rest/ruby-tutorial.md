@@ -39,7 +39,7 @@ rails server
 
 Open a browser and navigate to `http://localhost:3000`. You should see the default Ruby on Rails welcome page.
 
-![The default Ruby on Rails welcome page.](images/ruby-tutorial/default-ruby-page.PNG)
+![The default Ruby on Rails welcome page.](images/ruby-tutorial/default-ruby-page.png)
 
 Now that we've confirmed that Ruby on Rails is working, we're ready to do some real work.
 
@@ -138,7 +138,7 @@ end
 
 Save your changes. Now browsing to `http://localhost:3000` should look like:
 
-![The app's home page.](images/ruby-tutorial/home-page.PNG)
+![The app's home page.](images/ruby-tutorial/home-page.png)
 
 ## Register the app
 
@@ -154,7 +154,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![A screenshot of the completed app registration in the Application Registration Portal](images/ruby-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/ruby-tutorial/app-registration.png)
 
 ## Implementing OAuth2
 
@@ -515,7 +515,7 @@ The template is a fairly simple HTML table. It uses embedded Ruby to iterate thr
 
 Save the changes and sign in to the app. You should now see a simple table of messages in your inbox.
 
-![An HTML table displaying the contents of an inbox.](images/ruby-tutorial/simple-inbox-listing.PNG)
+![An HTML table displaying the contents of an inbox.](images/ruby-tutorial/simple-inbox-listing.png)
 
 ## Adding Calendar and Contacts APIs
 

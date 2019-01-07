@@ -40,7 +40,7 @@ There are two major components to creating a payment integration in Outlook.
 
 The payment request message is an email message with an actionable card embedded in the HTML body. The card is defined by a JSON payload as specified in [ActionRequest markup reference](action-request.md).
 
-![A screenshot of a payment request message in Outlook](images/payment-request-message.PNG)
+![A screenshot of a payment request message in Outlook](images/payment-request-message.png)
 
 The `ActionRequest` payload contains a `productContext` JSON dictionary, which should include the information your webhooks need to locate the corresponding invoice.
 

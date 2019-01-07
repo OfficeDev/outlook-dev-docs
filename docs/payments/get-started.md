@@ -45,7 +45,7 @@ Follow the instructions in the [payments in Outlook partner dashboard guide](par
 
 1. Login to Outlook.com using your Microsoft account and find the message you sent from the MessageCard Playground.
 
-    ![The message sent by the MessageCard Playground](images/payment-request-message.PNG)
+    ![The message sent by the MessageCard Playground](images/payment-request-message.png)
 
 1. Choose the **Review & Pay** button to open the payment pane. Your payment request webhook should receive a `loadentity` payload.
 
