@@ -320,7 +320,7 @@ Outlook Actionable Messages use an HTTP-based action model via the `Action.Http`
 | `type` | String | Yes | Must be set to `Action.Http`. |
 | `title` | String | No | The title of the action as it will appear on screen on a button control, for instance. |
 | `method` | String | Yes | Valid values are `GET` and `POST`. When `method` is set to `POST` the `body` property must be specified. |
-| `url` | String | Yes | The url of the request's target endpoint. The `url` property supports [input value substitution](#input-value-substitution). |
+| `url` | String | Yes | The url of the request's target endpoint. The `url` property supports [input value substitution](#input-value-substitution). **Note:** this URL must be accessible from the internet, you cannot use `localhost`. |
 | `headers` | Array of [HttpHeader](#httpheader) objects | No | An optional list of headers that should be sent to the target endpoint .|
 | `body` | String | Only if `method` is set to `POST` | The body of the POST request. The `body` property supports [input value substitution](#input-value-substitution). |
 
