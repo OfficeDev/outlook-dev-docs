@@ -5,7 +5,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: office-add-ins
 ms.devlang: javascript
-ms.date: 09/05/2018
+ms.date: 12/27/2018
 ms.author: jasonjoh
 ---
 

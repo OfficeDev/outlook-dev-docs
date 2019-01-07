@@ -4,7 +4,7 @@ description: Learn how to use regular expression activation rules for Outlook co
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 04/12/2018
+ms.date: 12/27/2018
 ms.author: jasonjoh
 ---
 
