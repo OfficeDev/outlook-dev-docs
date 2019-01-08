@@ -4,7 +4,7 @@ description: Create applications that run inside Outlook to make it easy for you
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 08/09/2017
+ms.date: 01/08/2019
 ms.author: jasonjoh
 ---
 
