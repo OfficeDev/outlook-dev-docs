@@ -13,7 +13,7 @@ ms.author: jasonjoh
 Module extension add-ins appear in the Outlook navigation bar, right alongside mail, tasks, and calendars. A module extension is not limited to using mail and appointment information. You can create applications that run inside Outlook to make it easy for your users to access business information and productivity tools without ever leaving Outlook.
 
 > [!NOTE]
-> Module extensions are available only in Outlook 2016 or later. 
+> Module extensions are available only in Outlook 2016 or later.  
 
 ## Open a module extension
 

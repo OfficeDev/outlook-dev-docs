@@ -15,7 +15,7 @@ The [task pane](add-in-commands-for-outlook.md#launching-a-task-pane) UX shape f
 However, by default, if a user has an add-in task pane open for a message in the Reading Pane, and then selects a new message, the task pane is automatically closed. For a heavily-used add-in, the user may prefer to keep that pane open, eliminating the need to reactivate the add-in on each message. With pinnable task panes, your add-in can give the user that option.
 
 > [!NOTE]
-> Pinnable task panes are currently supported by Outlook 2016 or later for Windows (build 7668.2000 or later for users in the Current or Office Insider Channels, build 7900.xxxx or later for users in Deferred channels) and Outlook Online.
+> Pinnable task panes are currently supported by Outlook 2016 or later for Windows (build 7668.2000 or later for users in the Current or Office Insider Channels, build 7900.xxxx or later for users in Deferred channels) and Outlook Online. 
 
 ## Support task pane pinning
 
