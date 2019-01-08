@@ -34,7 +34,7 @@ python manage.py runserver
 
 Once the server starts, open a web browser and browse to `http://localhost:8000/`. You should see a success message.
 
-![The default Django welcome page.](images/python-tutorial/django_welcome.PNG)
+![The default Django welcome page.](images/python-tutorial/django_welcome.png)
 
 As the success message suggests, let's add an app to our new project. On the command prompt, run the following command.
 
@@ -212,7 +212,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![A screenshot of the completed app registration in the Application Registration Portal](images/python-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/python-tutorial/app-registration.png)
 
 ## Implementing OAuth2
 
@@ -714,7 +714,7 @@ def mail(request):
 
 Save the changes and sign in to the app. You should now see a simple table of messages in your inbox.
 
-![The finished app displaying the user's inbox.](images/python-tutorial/inbox-listing.PNG)
+![The finished app displaying the user's inbox.](images/python-tutorial/inbox-listing.png)
 
 ## Adding Calendar and Contacts APIs
 

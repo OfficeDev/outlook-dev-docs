@@ -22,11 +22,11 @@ This guide assumes that you already have Visual Studio 2013 or Visual Studio 201
 
 Let's dive right in! In Visual Studio, create a new Visual C# ASP.NET Web Application using .NET Framework 4.5. Name the application `dotnet-tutorial`.
 
-![The Visual Studio New Project window.](images/dotnet-tutorial/new-project.PNG)
+![The Visual Studio New Project window.](images/dotnet-tutorial/new-project.png)
 
 Select the **MVC** template. Click the **Change Authentication** button and choose "No Authentication". Un-select the "Host in the cloud" checkbox. The dialog should look like the following.
 
-![The Visual Studio Template Selection window.](images/dotnet-tutorial/template-selection.PNG)
+![The Visual Studio Template Selection window.](images/dotnet-tutorial/template-selection.png)
 
 Click OK to have Visual Studio create the project. Once that's done, run the project to make sure everything's working properly by pressing **F5** or choosing **Start Debugging** from the **Debug** menu. You should see a browser open displaying the stock ASP.NET home page. Close your browser.
 
@@ -54,7 +54,7 @@ Let's begin by replacing the stock home page with a simpler one. Open the `./Vie
 
 This is basically repurposing the `jumbotron` element from the stock home page, and removing all of the other elements. The button doesn't do anything yet, but the home page should now look like the following.
 
-![The sample app's home page.](images/dotnet-tutorial/home-page.PNG)
+![The sample app's home page.](images/dotnet-tutorial/home-page.png)
 
 Let's also modify the stock error page so that we can pass an error message and display it. Replace the contents of `./Views/Shared/Error.cshtml` with the following code.
 
@@ -111,7 +111,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![A screenshot of the completed app registration in the Application Registration Portal](images/dotnet-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/dotnet-tutorial/app-registration.png)
 
 ## Implementing OAuth2 ##
 
@@ -718,7 +718,7 @@ If you restart the app now, you should get a very basic listing of email subject
 
 MVC can generate views based on a model. So let's start by creating a view based on the `Microsoft.Graph.Message` object. In Solution Explorer, right-click the `./Views/Home` folder and choose **Add**, then **View**. Enter `Inbox` for the **View name**. Change the **Template** field to `Empty (without model)`. Leave everything else as default values and click **Add**.
 
-![The Add View dialog.](images/dotnet-tutorial/add-view.PNG)
+![The Add View dialog.](images/dotnet-tutorial/add-view.png)
 
 Open the `Inbox.cshtml` file that gets created and replace the entire contents of the file with the following code.
 
@@ -823,7 +823,7 @@ The changes here are minimal. Instead of building a string with the results, we 
 
 Save your changes and run the app. You should now get a list of messages that looks something like this.
 
-![The sample app displaying a user's inbox.](images/dotnet-tutorial/inbox-display.PNG)
+![The sample app displaying a user's inbox.](images/dotnet-tutorial/inbox-display.png)
 
 ## Adding Calendar and Contacts APIs
 

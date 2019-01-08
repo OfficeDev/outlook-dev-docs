@@ -61,7 +61,7 @@ Each of the above are independent steps. i.e. you can pick only one scope for ea
 > - The **My Mailbox** scope has the additional text "(auto-approved)".
 > - The **Organization** scope has the additional text "(You will be submitting this request to your company administrators)".
 >
-> ![A screenshot of the Scope of submission section of the developer dashboard when self-service is enabled for the organization.](images/actionable-email-dashboard-self-serve.PNG)
+> ![A screenshot of the Scope of submission section of the developer dashboard when self-service is enabled for the organization.](images/actionable-email-dashboard-self-serve.png)
 
 Self-service of registrations is available for registrations that use the following scopes.
 

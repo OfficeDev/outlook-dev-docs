@@ -148,7 +148,7 @@ pre {
 
 If you refresh the page now, it should look very different.
 
-![A screenshot of the home page](images/node-tutorial/homepage.PNG)
+![A screenshot of the home page](images/node-tutorial/homepage.png)
 
 The sign-in button doesn't do anything yet, so let's move on to changing that.
 
@@ -166,7 +166,7 @@ Head over to the [Application Registration Portal](https://apps.dev.microsoft.co
 
 Here's what the details of your app registration should look like when you are done.
 
-![A screenshot of the completed app registration in the Application Registration Portal](images/node-tutorial/app-registration.PNG)
+![A screenshot of the completed app registration in the Application Registration Portal](images/node-tutorial/app-registration.png)
 
 ## Implementing OAuth2
 
@@ -745,7 +745,7 @@ router.get('/', async function(req, res, next) {
 
 Restart the server, sign in, and click the **Inbox** nav item. You should see a formatted table of the results.
 
-![An HTML table displaying the contents of an inbox.](images/node-tutorial/inbox.PNG)
+![An HTML table displaying the contents of an inbox.](images/node-tutorial/inbox.png)
 
 ## Adding Calendar and Contacts APIs
 

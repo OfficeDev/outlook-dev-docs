@@ -101,6 +101,6 @@ Use [Postman](https://www.getpostman.com/) to post an actionable message payload
 
    The Postman window should look like this when you are done:
 
-   ![The Postman request window configured to post a sample actionable message to a webhook URL](images/get-started/postman-setup.PNG)
+   ![The Postman request window configured to post a sample actionable message to a webhook URL](images/get-started/postman-setup.png)
 
 6. Click **Send** to post the message.
