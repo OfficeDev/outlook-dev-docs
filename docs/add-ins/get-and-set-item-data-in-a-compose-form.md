@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 08/09/2017
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Get and set item data in a compose form in Outlook

@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/08/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Use the Outlook REST APIs from an Outlook add-in

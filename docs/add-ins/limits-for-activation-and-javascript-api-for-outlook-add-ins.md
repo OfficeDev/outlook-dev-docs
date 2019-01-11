@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 07/28/2017
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Limits for activation and JavaScript API for Outlook add-ins

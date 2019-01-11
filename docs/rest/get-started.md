@@ -8,6 +8,7 @@ ms.technology: ms-graph
 ms.devlang: rest-api
 ms.date: 04/26/2017
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 # Overview of using the Outlook REST APIs
 

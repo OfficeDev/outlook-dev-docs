@@ -2,6 +2,7 @@
 name: Documentation Issue
 about: Let us know about a problem with the documentation
 
+localization_priority: Normal
 ---
 
 Thank you for helping us to improve the Outlook developer documentation.

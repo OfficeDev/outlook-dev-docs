@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/13/2017
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Authentication options in Outlook add-ins

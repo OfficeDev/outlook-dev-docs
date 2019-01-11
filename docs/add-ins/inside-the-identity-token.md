@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/22/2017
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Inside the Exchange identity token

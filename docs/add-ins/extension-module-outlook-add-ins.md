@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 01/08/2019
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Module extension Outlook add-ins

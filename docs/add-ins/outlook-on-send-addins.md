@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 12/11/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # On send feature for Outlook add-ins

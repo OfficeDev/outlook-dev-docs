@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 11/09/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Authenticate a user with an single-sign-on token in an Outlook add-in (preview)

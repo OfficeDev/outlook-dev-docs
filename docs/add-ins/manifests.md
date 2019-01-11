@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 12/04/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Outlook add-in manifests

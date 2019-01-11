@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 10/22/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Outlook add-ins overview

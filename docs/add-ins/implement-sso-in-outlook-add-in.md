@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 10/04/2017
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Scenario: Implement single sign-on to your service in an Outlook add-in

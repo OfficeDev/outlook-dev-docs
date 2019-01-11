@@ -7,6 +7,7 @@ ms.technology: office-add-ins
 ms.devlang: javascript
 ms.date: 12/27/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Build your first Outlook add-in

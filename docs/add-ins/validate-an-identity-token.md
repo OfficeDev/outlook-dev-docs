@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/20/2017
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Validate an Exchange identity token

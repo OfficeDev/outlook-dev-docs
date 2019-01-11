@@ -7,6 +7,7 @@ ms.technology: ms-graph
 ms.devlang: java
 ms.date: 02/20/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Write a Java Spring MVC Web app to get Outlook mail, calendar, and contacts

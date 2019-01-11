@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: o365-connectors
 ms.date: 10/25/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Security requirements for actionable messages in Office 365

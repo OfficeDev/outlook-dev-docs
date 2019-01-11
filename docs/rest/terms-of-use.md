@@ -7,6 +7,7 @@ ms.technology: ms-graph
 ms.devlang: rest-api
 ms.date: 07/05/2018
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Microsoft API terms of use
