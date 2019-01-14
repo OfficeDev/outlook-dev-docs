@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 03/21/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Outlook add-in design guidelines

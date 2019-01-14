@@ -7,6 +7,7 @@ ms.technology: ms-graph
 ms.devlang: nodejs
 ms.date: 02/23/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Write a Node.js app to get Outlook mail, calendar, and contacts

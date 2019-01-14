@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/20/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Call web services from an Outlook add-in

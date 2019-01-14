@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 06/13/2017
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Get or set the subject when composing an appointment or message in Outlook

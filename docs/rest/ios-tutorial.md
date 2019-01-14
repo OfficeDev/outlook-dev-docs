@@ -8,6 +8,7 @@ ms.technology: ms-graph
 ms.devlang: swift
 ms.date: 02/20/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Write an iOS app to get Outlook mail, calendar, and contacts

@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 08/09/2017
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Get or set the location when composing an appointment in Outlook

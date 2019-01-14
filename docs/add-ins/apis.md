@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 07/14/2017
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Outlook add-in APIs

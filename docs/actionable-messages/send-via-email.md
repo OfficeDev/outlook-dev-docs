@@ -6,6 +6,7 @@ ms.topic: get-started-article
 ms.technology: o365-connectors
 ms.date: 07/09/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Send an actionable message via email in Office 365

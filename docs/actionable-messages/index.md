@@ -7,6 +7,7 @@ ms.technology: o365-connectors
 ms.date: 08/02/2018
 ms.author: jasonjoh
 nodes_to_expand: get-started
+localization_priority: Priority
 ---
 
 # Actionable messages in Outlook and Office 365 Groups

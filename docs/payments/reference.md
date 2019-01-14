@@ -6,6 +6,7 @@ ms.topic: reference
 ms.technology: o365-connectors
 ms.date: 05/22/2018
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Payments in Outlook webhook reference

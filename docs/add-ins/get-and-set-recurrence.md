@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 12/12/2018
 ms.author: elizs
+localization_priority: Normal
 ---
 
 # Get and set recurrence

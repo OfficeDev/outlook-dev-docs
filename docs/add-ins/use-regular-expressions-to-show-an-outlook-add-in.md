@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 12/27/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Use regular expression activation rules to show an Outlook add-in

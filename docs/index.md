@@ -6,6 +6,7 @@ ms.topic: overview
 ms.technology: ms-graph
 ms.date: 04/26/2017
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Outlook Developer documentation

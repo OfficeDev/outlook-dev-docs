@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 04/12/2018
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # Create Outlook add-ins for read forms
