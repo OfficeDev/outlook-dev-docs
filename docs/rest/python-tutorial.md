@@ -8,6 +8,7 @@ ms.technology: ms-graph
 ms.devlang: python
 ms.date: 02/21/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Write a Python app to get Outlook mail, calendar, and contacts

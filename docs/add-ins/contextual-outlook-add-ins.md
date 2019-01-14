@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 01/12/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Contextual Outlook add-ins

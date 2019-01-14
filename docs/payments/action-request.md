@@ -6,6 +6,7 @@ ms.topic: reference
 ms.technology: o365-connectors
 ms.date: 10/25/2018
 ms.author: jasonjoh
+localization_priority: Normal
 ---
 
 # ActionRequest markup reference

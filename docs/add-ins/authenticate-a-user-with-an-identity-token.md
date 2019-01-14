@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 09/18/2017
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Authenticate a user with an identity token for Exchange

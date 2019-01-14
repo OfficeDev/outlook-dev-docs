@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Register your service with the actionable email developer dashboard

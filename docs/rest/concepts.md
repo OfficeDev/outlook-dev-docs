@@ -7,6 +7,7 @@ ms.topic: article
 ms.technology: ms-graph
 ms.date: 06/01/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Outlook REST API conceptual documentation

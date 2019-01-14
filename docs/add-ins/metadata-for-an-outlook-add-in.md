@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 12/19/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Get and set add-in metadata for an Outlook add-in

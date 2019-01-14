@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 11/20/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Sideload Outlook add-ins for testing

@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: office-add-ins
 ms.date: 05/02/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Create Outlook add-ins for compose forms

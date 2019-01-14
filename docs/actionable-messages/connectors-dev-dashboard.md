@@ -6,6 +6,7 @@ ms.topic: article
 ms.technology: o365-connectors
 ms.date: 08/02/2018
 ms.author: jasonjoh
+localization_priority: Priority
 ---
 
 # Register your connector with the Office 365 Connectors developer dashboard
