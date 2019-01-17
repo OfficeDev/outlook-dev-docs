@@ -4,7 +4,7 @@ description: Outlook add-in commands provide ways to initiate specific add-in ac
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 10/22/2018
+ms.date: 01/16/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -66,7 +66,7 @@ In module extensions, the add-in command button can execute JavaScript functions
 
 Use an add-in command button to launch a task pane for scenarios where a user needs to interact with an add-in for a longer period of time. For example, the add-in requires changes to settings or the completion of many fields.
 
-The default width of the vertical task pane is 300 px. The vertical task pane can be resized in both the Outlook Explorer and inspector. The pane can be resized in the same way the to-do pane and list view resize.
+The default width of the vertical task pane is 320 px. The vertical task pane can be resized in both the Outlook Explorer and inspector. The pane can be resized in the same way the to-do pane and list view resize.
 
 ![A button that opens a task pane on the Outlook ribbon.](images/commands-taskpane-button.png)
 
