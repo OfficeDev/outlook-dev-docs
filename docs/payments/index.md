@@ -55,14 +55,6 @@ The web service implements two distinct webhooks.
 - Payment request webhook: this webhook receives POSTs to load invoices. If your invoicing scenario includes prompting for a shipping address and shipping option, this webhook also receives POSTs when the user selects or changes their shipping information. This webhook returns an up-to-date invoice to be displayed in Outlook. For details, see [PaymentRequest webhook](reference.md#paymentrequest-webhook).
 - Payment complete webhook: this webhook receives POSTs with payment tokens. This webhook processes payment tokens and returns success or failure to Outlook. For details, see [PaymentComplete webhook](reference.md#paymentcomplete-webhook).
 
-## Administrator control
-
-Administrators can enable or disable payments in Outlook for their Office 365 organization using the [Set-OrganizationConfig cmdlet](powershell/module/exchange/organization/set-organizationconfig).
-
-```PowerShell
-Set-OrganizationConfig -OutlookPayEnabled:$true
-```
-
 ## Next steps
 
 Check out our getting started guide to learn how to implement your own payments in Outlook solution.
