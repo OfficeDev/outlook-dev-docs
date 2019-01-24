@@ -13,6 +13,9 @@ localization_priority: Normal
 
 The purpose of this guide is to walk through the process of setting up one of our sample payment services and testing some mock payment scenarios.
 
+> [!NOTE]
+> Office 365 administrators can disable payments in Outlook via the [Set-OrganizationConfig cmdlet](powershell/module/exchange/organization/set-organizationconfig). If payment cards do not render, check with your administrator to make sure the feature is enabled in your organization.
+
 ## Prerequisites
 
 - An Office 365 subscription with Exchange Online. If you don't have an existing subscription, you can signup for a [25-user free trial](https://portal.office.com/Signup/Signup.aspx?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&alo=1&lc=1033&ali=1#0) of the Office 365 Business subscription.
