@@ -13,6 +13,9 @@ localization_priority: Priority
 
 Actionable messages can be posted via a group or inbox connector, or can be sent directly over email. Choosing the right delivery mechanism depends on your scenario.
 
+> [!NOTE]
+> Office 365 administrators can disable actionable messages via the [Set-OrganizationConfig cmdlet](powershell/module/exchange/organization/set-organizationconfig). If actionable messages do not render, check with your administrator to make sure the feature is enabled in your organization.
+
 ## Connectors vs Email: Choosing a delivery mechanism
 
 With Office 365 Connectors, any user can choose to connect to services like Trello, Bing News, Twitter, etc., from Outlook and get notified of activity from that service into their Office 365 inbox or Group. With actionable messages for Office 365 Connectors, user can now act on these notifications to complete routine tasks without the hassle of context switching or signing in. For example the Trello connector allow users to subscribe to the boards and notifications they care about and lets them take actions such as set a due date or add a comment without ever leaving Outlook.
