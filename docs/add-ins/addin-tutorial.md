@@ -24,7 +24,7 @@ In this tutorial, you will:
 
 * [Node.js and npm](https://nodejs.org)
 
-* The latest version of [Yeoman](http://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command from the command prompt:
+* The latest version of [Yeoman](https://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command from the command prompt:
 
     ```bash
     npm install -g yo generator-office
