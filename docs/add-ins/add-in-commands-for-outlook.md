@@ -4,7 +4,7 @@ description: Outlook add-in commands provide ways to initiate specific add-in ac
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 01/16/2019
+ms.date: 01/29/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -20,20 +20,22 @@ Outlook add-in commands provide ways to initiate specific add-in actions from th
 > - [March 8, 2016 security update for Outlook](https://support.microsoft.com/en-us/kb/3114829)
 > - [March 8, 2016 security update for Office (KB3114816)](https://support.microsoft.com/en-us/help/3114816/march-8,-2016,-update-for-office-2013-kb3114816)
 > - [March 8, 2016 security update for Office (KB3114828)](https://support.microsoft.com/en-us/help/3114828/march-8,-2016,-update-for-office-2013-kb3114828)
-> 
+>
 > Support for add-in commands in Exchange 2016 requires [Cumulative Update 5](https://support.microsoft.com/en-us/help/4012106/cumulative-update-5-for-exchange-server-2016).
 
 Add-in commands are only available for add-ins that do not use [ItemHasAttachment, ItemHasKnownEntity, or ItemHasRegularExpressionMatch rules](activation-rules.md) to limit the types of items they activate on. However, contextual add-ins can present different commands depending on whether the currently selected item is a message or appointment, and can choose to appear in read or compose scenarios. Using add-in commands if possible is a [best practice](https://docs.microsoft.com/office/dev/add-ins/concepts/add-in-development-best-practices).
 
 ## Creating the add-in command
 
-Add-in commands are declared in the add-in manifest in the `VersionOverrides` element. This element is an addition to the manifest schema v1.1 that ensures backward compatibility. In a client that doesn't support `VersionOverrides`, existing add-ins will continue to function as they did without add-in commands.
+Add-in commands are declared in the add-in manifest in the [VersionOverrides element](/office/dev/add-ins/reference/manifest/versionoverrides). This element is an addition to the manifest schema v1.1 that ensures backward compatibility. In a client that doesn't support `VersionOverrides`, existing add-ins will continue to function as they did without add-in commands.
 
 The `VersionOverrides` manifest entries specify many things for the add-in, such as the host, types of controls to add to the ribbon, the text, the icons, and any associated functions.
 
 When an add-in needs to provide status updates, such as progress indicators or error messages, it must do so through the [notification APIs](https://docs.microsoft.com/javascript/api/outlook_1_5/office.NotificationMessages). The processing for the notifications must also be defined in a separate HTML file that is specified in the `FunctionFile` node of the manifest.
 
 Developers should define icons for all required sizes so that the add-in commands will adjust smoothly along with the ribbon. The required icon sizes are 80 x 80 pixels, 32 x 32 pixels, and 16 x 16 pixels for desktop, and 48 x 48 pixels, 32 x 32 pixels, and 25 x 25 pixels for mobile.
+
+For more information about creating add-in commands, see [Create add-in commands in your manifest](/office/dev/add-ins/develop/create-addin-commands).
 
 ## How do add-in commands appear?
 

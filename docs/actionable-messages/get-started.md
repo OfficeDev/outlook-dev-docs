@@ -14,7 +14,7 @@ localization_priority: Priority
 Actionable messages can be posted via a group or inbox connector, or can be sent directly over email. Choosing the right delivery mechanism depends on your scenario.
 
 > [!NOTE]
-> Office 365 administrators can disable actionable messages via the [Set-OrganizationConfig cmdlet](powershell/module/exchange/organization/set-organizationconfig). If actionable messages do not render, check with your administrator to make sure the feature is enabled in your organization.
+> Office 365 administrators can disable actionable messages via the [Set-OrganizationConfig cmdlet](/powershell/module/exchange/organization/set-organizationconfig). If actionable messages do not render, check with your administrator to make sure the feature is enabled in your organization.
 
 ## Connectors vs Email: Choosing a delivery mechanism
 

@@ -14,7 +14,7 @@ localization_priority: Normal
 The purpose of this guide is to walk through the process of setting up one of our sample payment services and testing some mock payment scenarios.
 
 > [!NOTE]
-> Office 365 administrators can disable payments in Outlook via the [Set-OrganizationConfig cmdlet](powershell/module/exchange/organization/set-organizationconfig). If payment cards do not render, check with your administrator to make sure the feature is enabled in your organization.
+> Office 365 administrators can disable payments in Outlook via the [Set-OrganizationConfig cmdlet](/powershell/module/exchange/organization/set-organizationconfig). If payment cards do not render, check with your administrator to make sure the feature is enabled in your organization.
 
 ## Prerequisites
 
