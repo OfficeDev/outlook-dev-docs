@@ -4,7 +4,7 @@ description: Learn how to use the Outlook REST APIs from an Outlook add-in to ge
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 06/08/2018
+ms.date: 01/30/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -12,9 +12,6 @@ localization_priority: Priority
 # Use the Outlook REST APIs from an Outlook add-in
 
 The [Office.context.mailbox.item](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item) namespace provides access to many of the common fields of messages and appointments. However, in some scenarios an add-in may need to access data that is not exposed by the namespace. For example, the add-in may rely on custom properties set by an outside app, or it needs to search the user's mailbox for messages from the same sender. In these scenarios, the [Outlook REST APIs](../rest/index.md) is the recommended method to retrieve the information.
-
-> [!NOTE]
-> You can also access [Outlook REST APIs via Microsoft Graph](../rest/index.md#outlook-rest-api-via-microsoft-graph) but there are some key differences. For more details, please [Compare Microsoft Graph and Outlook](../rest/compare-graph.md).
 
 ## Get an access token
 
@@ -112,4 +109,5 @@ function getCurrentItem(accessToken) {
 
 ## See also
 
-For an example that calls the REST APIs from an Outlook add-in, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.
+- For an example that calls the REST APIs from an Outlook add-in, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.
+- Outlook REST APIs are also available through the Microsoft Graph endpoint but there are some key differences, including how your add-in gets an access token. For more information, see [Outlook REST API via Microsoft Graph](../rest/index.md#outlook-rest-api-via-microsoft-graph).
