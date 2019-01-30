@@ -110,4 +110,4 @@ function getCurrentItem(accessToken) {
 ## See also
 
 - For an example that calls the REST APIs from an Outlook add-in, see [command-demo](https://github.com/OfficeDev/outlook-add-in-command-demo) on GitHub.
-- Outlook REST APIs are also available through the Microsoft Graph endpoint (see [Outlook REST API via Microsoft Graph](../rest/index.md#outlook-rest-api-via-microsoft-graph)) but there are some key differences, including how your add-in gets an access token. For more details, please [Compare Microsoft Graph and Outlook](../rest/compare-graph.md).
+- Outlook REST APIs are also available through the Microsoft Graph endpoint but there are some key differences, including how your add-in gets an access token. For more details, please [Compare Microsoft Graph and Outlook](../rest/compare-graph.md).
