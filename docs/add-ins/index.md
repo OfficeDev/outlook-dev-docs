@@ -4,7 +4,7 @@ description: Outlook add-ins are integrations built by third parties into Outloo
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 10/22/2018
+ms.date: 02/01/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -29,13 +29,13 @@ The Outlook items that support add-ins include email messages, meeting requests,
 Extension points are the ways that add-ins integrate with Outlook. The following are the ways this can be done:
 
 - Add-ins can declare buttons that appear in command surfaces across messages and appointments. For more information, see [Add-in commands for Outlook](add-in-commands-for-outlook.md).
-    
+
     **An add-in with command buttons on the ribbon**
 
     ![Add-in Command UI-less shape](images/uiless-command-shape.png)
 
 - Add-ins can link off regular expression matches or detected entities in messages and appointments. For more information, see [Contextual Outlook add-ins](contextual-outlook-add-ins.md).
-    
+
     **A contextual add-in for a highlighted entity (an address)**
 
     ![Shows a contextual app in a card](images/outlook-detected-entity-card.png)
@@ -49,19 +49,19 @@ Extension points are the ways that add-ins integrate with Outlook. The following
 Outlook add-ins are available on messages or appointments while composing or reading, but not other item types. Outlook does not activate add-ins if the current message item, in a compose or read form, is one of the following:
 
 - Protected by Information Rights Management (IRM) or encrypted in other ways for protection. A digitally signed message is an example since digital signing relies on one of these mechanisms.
-    
+
 - A delivery report or notification that has the message class IPM.Report.*, including delivery and Non-Delivery Report (NDR) reports, and read, non-read, and delay notifications.
 
 - A draft (does not have a sender assigned to it), or in the Outlook Drafts folder.
-    
+
 - A .msg or .eml file which is an attachment to another message.
-    
+
 - A .msg or .eml file opened from the file system.
 
 - In a shared mailbox, in another user's mailbox, in an archive mailbox, or in a public folder.
 
-- Using a [custom form](https://support.office.com/en-us/article/Overview-of-forms-in-Outlook-CC2D2F5B-635F-4E60-95CA-6B8D91639214).
-    
+- Using a custom form.
+
 In general, Outlook can activate add-ins in read form for items in the Sent Items folder, with the exception of add-ins that activate based on string matches of well-known entities. For more information about the reasons behind this, see "Support for well-known entities" in [Match strings in an Outlook item as well-known entities](match-strings-in-an-item-as-well-known-entities.md).
 
 
