@@ -4,7 +4,7 @@ description: Provides a way to handle email or block email users from certain ac
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 12/11/2018
+ms.date: 02/01/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -63,19 +63,19 @@ The on send feature currently has the following limitations:
 - **Manifest** &ndash; Only one **ItemSend** event is supported per add-in. If you have two or more **ItemSend** events in a manifest, the manifest will fail validation.
 - **Performance** &ndash; Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple email message-based operations.
 
-### Mailbox type limitations
+### Mailbox type/mode limitations
 
-On send functionality is only supported for user mailboxes in Outlook on the web. The functionality is not currently supported for the following mailbox types:
+On send functionality is only supported for user mailboxes in Outlook on the web. The functionality is not currently supported for the following mailbox types and modes:
 
 - Shared mailboxes
-- Offline mode
 - Group mailboxes
+- Offline mode
 
-Outlook on the web won't allow sending if the on send feature is enabled for these mailbox types. If a user responds to an email in a group mailbox, the on send add-in won't run and the message will be sent.
+Outlook on the web won't allow sending if the on send feature is enabled for these mailbox scenarios. However, if a user responds to an email in a group mailbox, the on send add-in won't run and the message will be sent.
 
 ## Multiple on send add-ins
 
-If more than one on send add-in is installed, the add-ins will run in the order in which they were installed. If the first add-in allows sending, the second add-in can change something that would make the first one block sending. However, the first add-in won't run again if all installed add-ins have allowed sending. 
+If more than one on send add-in is installed, the add-ins will run in the order in which they were installed. If the first add-in allows sending, the second add-in can change something that would make the first one block sending. However, the first add-in won't run again if all installed add-ins have allowed sending.
 
 For example, Add-in1 and Add-in2 both use the on send feature. Add-in1 is installed first, and Add-in2 is installed second. Add-in1 verifies that the word Fabrikam appears in the message as a condition for the add-in to allow send.  However, Add-in2 removes any occurrences of the word Fabrikam. The message will send with all instances of Fabrikam removed (due to the order of installation of Add-in1 and Add-in2).
 
