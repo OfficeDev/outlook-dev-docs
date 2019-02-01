@@ -4,7 +4,7 @@ description: Outlook add-ins are integrations built by third parties into Outloo
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 02/01/2018
+ms.date: 02/01/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
