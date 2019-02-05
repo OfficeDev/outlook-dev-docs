@@ -1,11 +1,8 @@
 ---
 title: Validate an Outlook add-in identity token
 description: Your Outlook add-in can send you an Exchange user identity token, but before you trust the request you must validate the token to ensure that it came from the Exchange server that you expect.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
-ms.date: 09/20/2017
-ms.author: jasonjoh
+ms.date: 02/05/2019
 localization_priority: Normal
 ---
 
@@ -43,6 +40,10 @@ To validate the token contents, you should check the following.
     - Check that the `aud` claim is the expected URL for your add-in.
     - Check that the `version` claim inside the `appctx` claim is set to `ExIdTok.V1`.
     - Check that the `amurl` claim inside the `appctx` is set to a valid URL.
+
+### Verify the domain
+
+In addition to implementing the verification logic described previously in this section, you may also choose to require that the domain of the `amurl` claim matches the Autodiscover domain for the user. To do so, you'll need to use or implement Autodiscover. To learn more, you can start with [Autodiscover for Exchange](/exchange/client-developer/exchange-web-services/autodiscover-for-exchange).
 
 ## Validate the identity token signature
 

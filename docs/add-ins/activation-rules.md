@@ -1,11 +1,8 @@
 ---
 title: Outlook add-in activation rules
 description: Outlook activates some types of add-ins if the message or appointment that the user is reading or composing satisfies the activation rules of the add-in.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 04/12/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

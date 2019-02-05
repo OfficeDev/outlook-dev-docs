@@ -1,11 +1,8 @@
 ---
 title: Create Outlook add-ins for compose forms
 description: Learn about scenarios and capabilities of Outlook add-ins for compose forms.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 05/02/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

@@ -1,11 +1,8 @@
 ---
 title: Handling date values in Outlook add-ins
 description: The JavaScript API for Office uses the JavaScript Date object for most of the storage and retrieval of dates and times. 
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 06/13/2017
-ms.author: jasonjoh
 localization_priority: Normal
 ---
 

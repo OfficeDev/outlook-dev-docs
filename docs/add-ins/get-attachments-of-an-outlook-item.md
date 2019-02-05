@@ -1,11 +1,8 @@
 ---
 title: Get attachments in an Outlook add-in
 description: Your add-in can use the attachments API to send information about the attachments to a remote service.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 04/12/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

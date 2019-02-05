@@ -1,11 +1,8 @@
 ---
 title: Extract entity strings from an Outlook item
 description: Learn how to extract entity strings from an Outlook item in an Outlook add-in.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 04/12/2018
-ms.author: jasonjoh
 localization_priority: Normal
 ---
 
