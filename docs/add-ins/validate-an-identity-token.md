@@ -4,7 +4,7 @@ description: Your Outlook add-in can send you an Exchange user identity token, b
 author: jasonjoh
 ms.topic: article
 ms.technology: office-add-ins
-ms.date: 02/01/2019
+ms.date: 02/05/2019
 ms.author: jasonjoh
 localization_priority: Normal
 ---
@@ -46,11 +46,7 @@ To validate the token contents, you should check the following.
 
 ### Verify the domain
 
-You could also consider verifying that the domain of the `amurl` claim matches the user's domain by getting the list of endpoints then trying them in a specific order until you find the one that works.
-
-To get the list of endpoints for Exchange on premises, you should implement the Autodiscover-match strategy and [generate a list of endpoints](/exchange/client-developer/exchange-web-services/how-to-generate-a-list-of-autodiscover-endpoints).
-
-For Office 365, you'll need to get the [URLs that apply](/office365/enterprise/urls-and-ip-address-ranges) for your add-in.
+In addition to implementing the verification logic described previously in this section, you may also choose to require that the domain of the `amurl` claim matches the Autodiscover domain for the user. To do so, you'll need to use or implement Autodiscover. To learn more, you can start with [Autodiscover for Exchange](/exchange/client-developer/exchange-web-services/autodiscover-for-exchange).
 
 ## Validate the identity token signature
 
