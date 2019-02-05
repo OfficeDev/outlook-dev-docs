@@ -1,11 +1,8 @@
 ---
 title: Get or set item data in an Outlook add-in
 description: Depending on whether an add-in is activated in a read or compose form, the properties that are available to the add-in on an item differ.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 06/13/2017
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

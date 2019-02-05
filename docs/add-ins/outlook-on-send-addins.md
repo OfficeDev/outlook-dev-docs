@@ -1,11 +1,8 @@
 ---
 title: On send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 12/11/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

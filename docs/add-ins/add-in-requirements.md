@@ -1,11 +1,8 @@
 ---
 title: Outlook add-in requirements
 description: For Outlook add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 10/22/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

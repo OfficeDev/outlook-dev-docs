@@ -1,11 +1,8 @@
 ---
 title: Understanding Outlook add-in permissions
 description: Outlook add-ins specify the required permission level in their manifest, which include Restricted, ReadItem, ReadWriteItem, or ReadWriteMailbox. 
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 07/26/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

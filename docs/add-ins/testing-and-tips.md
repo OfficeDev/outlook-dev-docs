@@ -1,11 +1,8 @@
 ---
 title: Deploy and install Outlook add-ins for testing
 description: Create a manifest file, deploy the add-in UI file to a web server, install the add-in in your mailbox, and then test the add-in.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 07/28/2017
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

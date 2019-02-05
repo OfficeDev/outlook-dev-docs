@@ -1,11 +1,8 @@
 ---
 title: Troubleshoot Outlook contextual add-in activation
 description: If your add-in doesn't activate as you expect, you should look into the following areas for possible reasons.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 05/02/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

@@ -1,11 +1,8 @@
 ---
 title: Scenario - Implement single sign-on to your service
 description: Learn about using the single-sign-on token and Exchange identity token provided by an Outlook add-in to implement SSO with your service.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 10/04/2017
-ms.author: jasonjoh
 localization_priority: Normal
 ---
 
