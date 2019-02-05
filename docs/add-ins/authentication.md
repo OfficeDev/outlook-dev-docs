@@ -1,11 +1,8 @@
 ---
 title: Authentication options in Outlook add-ins
 description: Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 09/13/2017
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

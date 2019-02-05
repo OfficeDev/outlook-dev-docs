@@ -1,12 +1,8 @@
 ---
 title: Build an Outlook add-in
 description: Learn how to build a simple Outlook add-in by using jQuery and the Office JS API and test it locally.
-author: jasonjoh
 ms.topic: get-started-article
-ms.technology: office-add-ins
-ms.devlang: javascript
 ms.date: 12/27/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 

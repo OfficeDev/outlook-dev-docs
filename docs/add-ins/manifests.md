@@ -1,11 +1,8 @@
 ---
 title: Outlook add-in manifests
 description: The manifest describes how an Outlook add-in integrates across Outlook clients; includes an example.
-author: jasonjoh
 ms.topic: article
-ms.technology: office-add-ins
 ms.date: 12/04/2018
-ms.author: jasonjoh
 localization_priority: Priority
 ---
 
