@@ -49,6 +49,15 @@
       },
       "titleSuffix": {
         "**/*.md": "Outlook Developer"
+      },
+      "author": {
+        "docs/add-ins/*.md": "o365devx"
+      },
+      "ms.author": {
+        "docs/add-ins/*.md": "o365devx"
+      },
+      "ms.technology": {
+        "docs/add-ins/*.md": "add-ins"
       }
     },
     "template": [],
