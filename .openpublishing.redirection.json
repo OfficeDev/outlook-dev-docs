@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/add-ins/legacy-addins.md",
+      "redirect_url": "/outlook/add-ins/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/add-ins/call-a-service-by-using-an-identity-token.md",
       "redirect_url": "/outlook/add-ins/authentication",
       "redirect_document_id": false
