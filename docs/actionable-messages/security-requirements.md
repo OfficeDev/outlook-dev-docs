@@ -47,7 +47,7 @@ Using signed card payloads requires onboarding with Microsoft. Please contact [o
 
 Signed actionable message cards are available when sending via email. Use this format to include a signed card in the HTML body of an email. This payload is serialized in Microdata format appended in the end of HTML body.
 
-```
+```html
 <section itemscope itemtype="http://schema.org/SignedAdaptiveCard">
     <meta itemprop="@context" content="http://schema.org/extensions" />
     <meta itemprop="@type" content="SignedAdaptiveCard" />
@@ -70,7 +70,7 @@ eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZW5kZXIiOiJzZXJ2aWNlLWFjY291bnRAY29udG9
 
 The header in above JWS is:
 
-```
+```json
 {
   "alg": "RS256",
   "typ": "JWT"
@@ -79,7 +79,7 @@ The header in above JWS is:
  
 The payload in above JWS is:
 
-```
+```json
 {
   "sender": "service-account@contoso.com",
   "originator": "65c680ef-36a6-4a1b-b84c-a7b5c6198792",

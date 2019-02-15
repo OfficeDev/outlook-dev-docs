@@ -139,3 +139,5 @@
     href: /office/dev/add-ins/reference/objectmodel/requirement-set-1.1/outlook-requirement-set-1.1
   - name: JavaScript API for Office
     href: /office/dev/add-ins/reference/javascript-api-for-office?context=outlook/context
+- name: Resources
+  href: /office/dev/add-ins/resources/resources-links-help
