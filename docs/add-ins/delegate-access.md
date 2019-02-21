@@ -1,24 +1,21 @@
 ---
-title: Enable an Outlook add-in to support delegate access scenarios
+title: Enable delegate access scenarios in an Outlook add-in
 description: Briefly describes delegate access and discusses how to configure add-in support.
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/21/2019
 localization_priority: Normal
 ---
 
-# How to enable delegate access scenarios in an Outlook add-in (preview)
+# Enable delegate access scenarios in an Outlook add-in (preview)
 
-There are a few steps you should follow to configure your Outlook add-in to support delegate access. These include enabling the `SupportsSharedFolders` property in the manifest and using the `SharedProperties` object.
+A mailbox owner can use the delegate access feature to [allow someone else to manage their mail and calendar](https://support.office.com/article/allow-someone-else-to-manage-your-mail-and-calendar-41c40c04-3bd1-4d22-963a-28eafec25926). This article specifies which delegate permissions the Office JavaScript API supports and describes how to enable delegate access scenarios in your Outlook add-in.
 
-## What is delegate access?
+> [!IMPORTANT]
+> Delegate access for Outlook add-ins is currently in preview and only supported against Exchange Online. Delegate access APIs should not yet be used in production environments.
 
-Consider a business setting where an executive enables their assistant to manage the executive's mail and calendar. Depending on the level of access, the assistant or delegate can respond on the mailbox owner's behalf and create new appointments, among other tasks. To learn more about delegate access and how to give delegates permission, see [Allow someone else to manage your mail and calendar](https://support.office.com/article/allow-someone-else-to-manage-your-mail-and-calendar-41c40c04-3bd1-4d22-963a-28eafec25926).
+## Supported permissions for delegate access
 
-## Supported permissions
-
-You should know which delegate permissions the JavaScript for Office API supports.
-
-**Table 1 Supported permissions for delegate access**
+The following table describes the delegate permissions that the Office JavaScript API supports.
 
 |Permission|Value|Description|Bit position<br>from the right|
 |---|:---:|---|:---:|
@@ -30,18 +27,16 @@ You should know which delegate permissions the JavaScript for Office API support
 |EditAll|32|Can edit any items.|6|
 
 > [!NOTE]
-> Using the API, you can only get existing delegate permissions.
+> Currently the API supports getting existing delegate permissions, but not setting delegate permissions.
 
-Also, the [DelegatePermissions](/javascript/api/outlook/office.mailboxenums.delegatepermissions) object is implemented using a bit mask to indicate all the delegate's permissions. This means that each position represents a particular permission and if it is set to `1` (i.e., it's on) then the delegate has the respective permission. For example, if the second bit from the right is `1`, then the delegate has **Write** permission. You can see an example of how to check for a specific permission in the [Use in messages and appointments for compose and read modes](#use-in-messages-and-appointments-for-compose-and-read-modes) section later in this article.
+The [DelegatePermissions](/javascript/api/outlook/office.mailboxenums.delegatepermissions) object is implemented using a bitmask to indicate the delegate's permissions. Each position in the bitmask represents a particular permission and if it's set to `1` then the delegate has the respective permission. For example, if the second bit from the right is `1`, then the delegate has **Write** permission. You can see an example of how to check for a specific permission in the [Get delegate permissions](#get-delegate-permissions) section later in this article.
 
 ## Configure the manifest
 
-You should set the [SupportsSharedFolders](/office/dev/add-ins/reference/manifest/supportssharedfolders) element to `true` under the parent element `DesktopFormFactor` so that your add-in is available in delegate access scenarios.
+To enable delegate access scenarios in your add-in, you must set the [SupportsSharedFolders](/office/dev/add-ins/reference/manifest/supportssharedfolders) element to `true` in the manifest (under the parent element `DesktopFormFactor`).
 
 > [!IMPORTANT]
-> The `SupportsSharedFolders` element is only available in the [Outlook add-ins preview requirement set](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) against Exchange Online.
->
-> Add-ins that use this element cannot be published to AppSource or deployed via centralized deployment.
+> Because delegate access for Outlook add-ins is currently in preview, add-ins that use the `SupportSharedFolders` element cannot be published to AppSource or deployed via centralized deployment.
 
 The following example shows the `SupportsSharedFolders` element set to `true` in a section of the manifest.
 
@@ -50,16 +45,16 @@ The following example shows the `SupportsSharedFolders` element set to `true` in
   <FunctionFile resid="residDesktopFuncUrl" />
   <SupportsSharedFolders>true</SupportsSharedFolders>
   <ExtensionPoint xsi:type="PrimaryCommandSurface">
-    <!-- information about this extension point -->
+    <!-- configure this extension point -->
   </ExtensionPoint>
 </DesktopFormFactor>
 ```
 
-## Use in messages and appointments for compose and read modes
+## Get delegate permissions
 
-You can get the item's shared properties by calling the [item.getSharedPropertiesAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getsharedpropertiesasyncoptions-callback) method. This returns a [SharedProperties](/javascript/api/outlook/office.sharedproperties) object that currently provides the delegate's permissions, the owner's email address, and the REST URL of the owner's mailbox.
+You can get an item's shared properties in Compose or Read mode by calling the [item.getSharedPropertiesAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getsharedpropertiesasyncoptions-callback) method. This returns a [SharedProperties](/javascript/api/outlook/office.sharedproperties) object that currently provides the delegate's permissions, the owner's email address, and the REST URL of the owner's mailbox.
 
-The following example shows how to get an item's shared properties and check if the delegate has **Write** permission.
+The following example shows how to get the shared properties of a message or appointment and check if the delegate has **Write** permission.
 
 ```js
 Office.context.mailbox.item.getSharedPropertiesAsync(callback);
@@ -81,10 +76,6 @@ function callback (asyncResult) {
   }
 }
 ```
-
-## Limitations and restrictions
-
-At present, delegate access is only available in the [Outlook add-ins preview requirement set](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) against Exchange Online. Add-ins that use the `SupportsSharedFolders` element in their manifest cannot be published to AppSource or deployed via centralized deployment as the delegate access feature APIs should not be used in production environments yet.
 
 ## See also
 
