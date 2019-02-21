@@ -26,6 +26,8 @@
     href: outlook-on-send-addins.md
   - name: Pinnable task pane
     href: pinnable-taskpane.md
+  - name: Delegate access
+    href: delegate-access.md
   - name: Manifests
     href: manifests.md
     items:
