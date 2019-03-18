@@ -40,7 +40,7 @@ The following is an example of the structure, assuming there are three defined r
 
 ### Loading roaming settings
 
-A mail add-in typically loads roaming settings in the [Office.initialize](https://docs.microsoft.com/javascript/api/office#initialize-reason-) event handler. The following JavaScript code example shows how to load existing roaming settings and get the values of 2 settings, **customerName** and **customerBalance**:
+A mail add-in typically loads roaming settings in the [Office.initialize](/javascript/api/office#office-initialize) event handler. The following JavaScript code example shows how to load existing roaming settings and get the values of 2 settings, **customerName** and **customerBalance**:
 
 
 ```js
@@ -65,7 +65,7 @@ Office.initialize = function () {
 
 Continuing with the preceding example, the following JavaScript function,  `setAddInSetting`, shows how to use the [RoamingSettings.set](https://docs.microsoft.com/javascript/api/outlook_1_5/office.RoamingSettings) method to set a setting named `cookie` with today's date, and persist the data by using the [RoamingSettings.saveAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.RoamingSettings#saveasync-callback-) method to save all the roaming settings back to the server.
 
-The **set** method creates the setting if the setting does not already exist, and assigns the setting to the specified value. The **saveAsync** method saves roaming settings asynchronously. This code sample passes a callback method, `saveMyAddInSettingsCallback`, to **saveAsync**. When the asynchronous call finishes,  `saveMyAddInSettingsCallback` is called by using one parameter, _asyncResult_. This parameter is an [AsyncResult](https://docs.microsoft.com/javascript/api/office/office.asyncresult) object that contains the result of and any details about the asynchronous call. You can use the optional _userContext_ parameter to pass any state information from the asynchronous call to the callback function.
+The **set** method creates the setting if the setting does not already exist, and assigns the setting to the specified value. The **saveAsync** method saves roaming settings asynchronously. This code sample passes a callback method, `saveMyAddInSettingsCallback`, to **saveAsync**. When the asynchronous call finishes,  `saveMyAddInSettingsCallback` is called by using one parameter, _asyncResult_. This parameter is an [AsyncResult](/javascript/api/office/office.asyncresult) object that contains the result of and any details about the asynchronous call. You can use the optional _userContext_ parameter to pass any state information from the asynchronous call to the callback function.
 
 ```js
 // Set a roaming setting.
@@ -129,7 +129,7 @@ The following example shows a simplified set of methods for an Outlook add-in th
 This example includes the following methods:
 
 
-- [Office.initialize](https://docs.microsoft.com/javascript/api/office#initialize-reason-) -- Initializes the add-in and loads the custom property bag from the Exchange server.
+- [Office.initialize](/javascript/api/office#office-initialize) -- Initializes the add-in and loads the custom property bag from the Exchange server.
 
 - **customPropsCallback** -- Gets the custom property bag that is returned from the server and saves it for later use.
 
