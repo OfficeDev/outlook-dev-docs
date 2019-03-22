@@ -41,4 +41,4 @@ Add-in files (HTML, JavaScript, etc.) can be hosted on any web server platform d
 
 - [Requirements for running Office Add-ins](/office/dev/add-ins/concepts/requirements-for-running-office-add-ins)
 - [Office Add-in host and platform availability (Outlook section)](/office/dev/add-ins/overview/office-add-in-availability#outlook)
-- [Outlook JavaScript API requirement sets (Clients section)](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets?view=office-js#clients)
+- [Outlook JavaScript API requirement sets (Clients section)](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#clients)
