@@ -2,7 +2,7 @@
 title: Outlook add-in requirements
 description: For Outlook add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 03/22/2019
 localization_priority: Priority
 ---
 
@@ -17,6 +17,7 @@ For Outlook add-ins to load and function properly, there are a number of require
    - Outlook 2013 or later for Windows
    - Outlook 2016 or later for Mac
    - Outlook for iOS
+   - Outlook for Android
    - Outlook on the web for Exchange 2016 or later and Office 365
    - Outlook Web Access for Exchange 2013
    - Outlook.com
@@ -35,3 +36,9 @@ If the user is connected to Office 365 or Outlook.com, mail server requirements 
 ## Add-in server requirements
 
 Add-in files (HTML, JavaScript, etc.) can be hosted on any web server platform desired. The only requirement is that the server must be configured to use HTTPS, and the SSL certificate must be trusted by the client.
+
+## See also
+
+- [Requirements for running Office Add-ins](/office/dev/add-ins/concepts/requirements-for-running-office-add-ins)
+- [Office Add-in host and platform availability (Outlook section)](/office/dev/add-ins/overview/office-add-in-availability#outlook)
+- [Outlook JavaScript API requirement sets (Clients section)](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#clients)
