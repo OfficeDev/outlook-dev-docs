@@ -2,7 +2,7 @@
 title: Enable delegate access scenarios in an Outlook add-in
 description: Briefly describes delegate access and discusses how to configure add-in support.
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 04/03/2019
 localization_priority: Normal
 ---
 
@@ -41,13 +41,28 @@ To enable delegate access scenarios in your add-in, you must set the [SupportsSh
 The following example shows the `SupportsSharedFolders` element set to `true` in a section of the manifest.
 
 ```XML
-<DesktopFormFactor>
-  <FunctionFile resid="residDesktopFuncUrl" />
-  <SupportsSharedFolders>true</SupportsSharedFolders>
-  <ExtensionPoint xsi:type="MessageReadCommandSurface">
-    <!-- configure selected extension point -->
-  </ExtensionPoint>
-</DesktopFormFactor>
+...
+<VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+    ...
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <SupportsSharedFolders>true</SupportsSharedFolders>
+          <FunctionFile resid="residDesktopFuncUrl" />
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <!-- configure selected extension point -->
+          </ExtensionPoint>
+
+          <!-- You can define more than one ExtensionPoint element as needed -->
+
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    ...
+  </VersionOverrides>
+</VersionOverrides>
+...
 ```
 
 ## Get delegate permissions
