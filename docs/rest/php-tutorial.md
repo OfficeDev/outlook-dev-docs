@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: get-started-article
 ms.technology: ms-graph
 ms.devlang: php
-ms.date: 02/21/2018
+ms.date: 04/04/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -126,17 +126,26 @@ The **Connect to Outlook** button doesn't do anything yet, but we'll fix that so
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID and secret.
+1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
 
-1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `php-tutorial` for the name and click **Create application**.
-1. Locate the **Application Secrets** section, and click the **Generate New Password** button. Copy the password now and save it to a safe place. Once you've copied the password, click **Ok**.
-1. Locate the **Platforms** section, and click **Add Platform**. Choose **Web**, then enter `http://localhost:8000/authorize` under **Redirect URIs**.
-1. Click **Save** to complete the registration. Copy the **Application Id** and save it along with the password you copied earlier. We'll need those values soon.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
 
-Here's what the details of your app registration should look like when you are done.
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
-![A screenshot of the completed app registration in the Application Registration Portal](images/php-tutorial/app-registration.png)
+    - Set **Name** to `PHP Outlook Tutorial`.
+    - Set **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts**.
+    - Under **Redirect URI**, set the first drop-down to `Web` and set the value to `http://localhost:8000/authorize`.
+
+1. Choose **Register**. On the **PHP Outlook Tutorial** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+
+1. Select **Authentication** under **Manage**. Locate the **Implicit grant** section and enable **ID tokens**. Choose **Save**.
+
+1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
+
+1. Copy the client secret value before you leave this page. You will need it in the next step.
+
+    > [!IMPORTANT]
+    > This client secret is never shown again, so make sure you copy it now.
 
 ## Implementing OAuth2
 

@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: article
 ms.technology: ms-graph
 ms.devlang: rest-api
-ms.date: 04/26/2017
+ms.date: 04/04/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -32,7 +32,7 @@ In order to call the Mail API, the app requires an access token from Azure Activ
 > [!NOTE]
 > This example scenario will use the [authorization code flow](/azure/active-directory/develop/active-directory-v2-protocols-oauth-code). The steps for the [implicit flow](/azure/active-directory/develop/active-directory-v2-protocols-implicit) or [client credentials flow](/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds) will be slightly different.
 
-You can use the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly register an app that uses any of the Outlook APIs.
+You can use the [Azure Active Directory admin center](https://aad.portal.azure.com) to quickly register an app that uses any of the Outlook APIs in Microsoft Graph.
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
