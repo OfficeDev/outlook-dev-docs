@@ -130,18 +130,6 @@ At this point the app should build and run. Tapping the **Log in** button should
 
 [!include[App Registration Intro](~/includes/rest/app-registration-intro.md)]
 
-Head over to the [Application Registration Portal](https://apps.dev.microsoft.com/) to quickly get an application ID.
-
-1. Using the **Sign in** link, sign in with either your Microsoft account (Outlook.com), or your work or school account (Office 365).
-1. Click the **Add an app** button. Enter `swift-tutorial` for the name and click **Create**.
-1. Locate the **Platforms** section, and click **Add Platform**. Choose **Native application**.
-1. Replace the value for **Custom Redirect URIs** with `swift-tutorial://oauth2/callback`.
-1. Click **Save** to complete the registration. Copy the **Application Id** and save it. We'll need it soon.
-
-Here's what the details of your app registration should look like when you are done.
-
-![A screenshot of the completed app registration in the Application Registration Portal](images/ios-tutorial/app-registration.png)
-
 1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com) and login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
 
 1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
