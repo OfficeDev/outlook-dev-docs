@@ -4,7 +4,7 @@ description: With the simplicity of REST, you can use your favorite language and
 author: jasonjoh
 ms.topic: overview
 ms.technology: ms-graph
-ms.date: 04/26/2017
+ms.date: 04/04/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -17,7 +17,7 @@ Start with choosing a language for your app&mdash;Node, Python, Ruby, Swift&mdas
 
 ## Get started
 
-1. [Register](https://apps.dev.microsoft.com/) your app. Registration takes only a minute.
+1. [Register](https://aad.portal.azure.com) your app. Registration takes only a minute.
 
 2. [Start](get-started.md) coding and implement REST API calls.
 
@@ -27,7 +27,7 @@ There's just one simple process for Outlook.com and Office 365: register and get
 
 Take an early look at the following services in preview status:
 
-- [Application Registration Portal](https://apps.dev.microsoft.com/)
+- [Azure Active Directory admin center](https://aad.portal.azure.com)
 
   Use a Microsoft account or Office 365 subscription account to register your app. It takes only a few steps to identify your app for Outlook.com and Office 365.
 
