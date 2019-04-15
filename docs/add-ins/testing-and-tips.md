@@ -2,7 +2,7 @@
 title: Deploy and install Outlook add-ins for testing
 description: Create a manifest file, deploy the add-in UI file to a web server, install the add-in in your mailbox, and then test the add-in.
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
@@ -16,7 +16,7 @@ As part of the process of developing an Outlook add-in, you will probably find y
 1. Testing the add-in, making appropriate changes to the UI or manifest files, and repeating steps 2 and 3 to test the changes.
 
 > [!NOTE]
-> [Custom panes have been deprecated](https://developer.microsoft.com/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using [a supported add-in extension point](https://docs.microsoft.com/outlook/add-ins/#extension-points).
+> [Custom panes have been deprecated](https://developer.microsoft.com/outlook/blogs/make-your-add-ins-available-in-the-office-ribbon/) so please ensure that you're using [a supported add-in extension point](/outlook/add-ins/#extension-points).
 
 ## Create a manifest file for the add-in
 
@@ -72,7 +72,7 @@ Deciding what versions of the Outlook client to test depends on your development
 
 - If you are developing an add-in for private use, or only for members of your organization, then it is important to test the versions of Outlook that your company uses. Keep in mind that some users may use Outlook on the web, so testing your company's standard browser versions is also important.
 
-- If you are developing an add-in to list in the Office Store, you must test the required versions as specified in the [Office Store validation policies 4.12.1](https://docs.microsoft.com/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably). This includes:
+- If you are developing an add-in to list in the Office Store, you must test the required versions as specified in the [Office Store validation policies 4.12.1](/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably). This includes:
     - The latest version of Outlook for Windows and the version prior to the latest.
     - The latest version of Outlook for Mac.
     - The latest version of Outlook for iOS (if your add-in [supports mobile form factor](add-mobile-support.md)).
@@ -83,4 +83,4 @@ Deciding what versions of the Outlook client to test depends on your development
 
 ## See also
 
-- [Troubleshoot user errors with Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/testing/testing-and-troubleshooting)
+- [Troubleshoot user errors with Office Add-ins](/office/dev/add-ins/testing/testing-and-troubleshooting)

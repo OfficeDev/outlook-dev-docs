@@ -2,7 +2,7 @@
 title: Contextual Outlook add-ins
 description: Initiate tasks related to a message without leaving the message itself to result in an easier and richer user experience.
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
@@ -22,7 +22,7 @@ The following are examples of contextual add-ins:
 
 ## How to make a contextual add-in
 
-A contextual add-in's manifest must include an [ExtensionPoint](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/extensionpoint) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the add-in specifies the entities or regular expression that can activate it. If an entity is specified, the entity can be any of the properties in the [Entities](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities) object.
+A contextual add-in's manifest must include an [ExtensionPoint](/office/dev/add-ins/reference/manifest/extensionpoint) element with an `xsi:type` attribute set to `DetectedEntity`. Within the **ExtensionPoint** element, the add-in specifies the entities or regular expression that can activate it. If an entity is specified, the entity can be any of the properties in the [Entities](/javascript/api/outlook_1_5/office.entities) object.
 
 Thus, the add-in manifest must contain a rule of type **ItemHasKnownEntity** or **ItemHasRegularExpressionMatch**. The following example shows how to specify that an add-in should activate on messages with a detected entity that is a phone number:
 
@@ -86,4 +86,4 @@ The following contextual add-ins are installed by default for users with Outlook
 - [Outlook add-in: Contoso Order Number](https://github.com/OfficeDev/Outlook-Add-In-Contextual-Regex) (sample contextual add-in that activates based on a regular expression match)
 - [Write your first Outlook add-in](quick-start.md)
 - [Use regular expression activation rules to show an Outlook add-in](use-regular-expressions-to-show-an-outlook-add-in.md)
-- [Entities object](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities)
+- [Entities object](/javascript/api/outlook_1_5/office.entities)

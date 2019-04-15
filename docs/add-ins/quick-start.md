@@ -2,7 +2,7 @@
 title: Build an Outlook add-in
 description: Learn how to build a simple Outlook add-in by using jQuery and the Office JS API and test it locally.
 ms.topic: quickstart
-ms.date: 12/27/2018
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
@@ -21,7 +21,7 @@ You can create an Office Add-in by using Visual Studio or any other editor. Tell
 - [Visual Studio 2017](https://www.visualstudio.com/vs/) with the **Office/SharePoint development** workload installed
 
     > [!NOTE]
-    > If you've previously installed Visual Studio 2017, [use the Visual Studio Installer](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) to ensure that the **Office/SharePoint development** workload is installed.
+    > If you've previously installed Visual Studio 2017, [use the Visual Studio Installer](/visualstudio/install/modify-visual-studio) to ensure that the **Office/SharePoint development** workload is installed.
 
 - Office 365
 
