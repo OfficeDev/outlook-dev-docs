@@ -2,7 +2,7 @@
 title: On send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
@@ -275,8 +275,8 @@ The on send API requires **VersionOverrides v1_1**. The following shows you how 
 > [!NOTE]
 > For more information, see the following:
 > - [Outlook add-in manifests](manifests.md)
-> - [VersionOverrides](https://docs.microsoft.com/office/dev/add-ins/develop/create-addin-commands#step-3-add-versionoverrides-element)
-> - [Office Add-ins XML manifest](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests)
+> - [VersionOverrides](/office/dev/add-ins/develop/create-addin-commands#step-3-add-versionoverrides-element)
+> - [Office Add-ins XML manifest](/office/dev/add-ins/overview/add-in-manifests)
 
 
 ### Event, item, body getAsync, and setAsync methods
@@ -300,7 +300,7 @@ To access the currently selected message (in this example, the newly composed  m
 The `validateBody` function gets the current body in the specified format (HTML) and passes the **ItemSend** event object that the code wants to access in the callback method. In addition to the **getAsync** method, the **Body** object also provides a **setAsync** method that you can use to replace the body with the specified text.
 
 > [!NOTE]
-> For more information, see [Event Object](https://docs.microsoft.com/javascript/api/office/office.addincommands.event) and [Body.getAsync](https://docs.microsoft.com/javascript/api/outlook_1_5/office.Body#getasync-coerciontype--options--callback-).
+> For more information, see [Event Object](/javascript/api/office/office.addincommands.event) and [Body.getAsync](/javascript/api/outlook_1_5/office.Body#getasync-coerciontype--options--callback-).
   
 
 ### NotificationMessages object and event.completed method
@@ -333,17 +333,17 @@ The `checkBodyOnlyOnSendCallBack` function uses a regular expression to determin
 The following are the parameters for the **addAsync** method:
 
 - *NoSend* &ndash; A string that is a developer-specified key to reference a notification message. You can use it to modify this message later. The key can’t be longer than 32 characters. 
-- *type* &ndash; One of the properties of the  JSON object parameter. Represents the type of a message; the types correspond to the values of the [Office.MailboxEnums.ItemNotificationMessageType](https://docs.microsoft.com/javascript/api/outlook_1_5/office.mailboxenums.itemnotificationmessagetype) enumeration. Possible values are progress indicator, information message, or error message. In this example, *type* is an error message.  
+- *type* &ndash; One of the properties of the  JSON object parameter. Represents the type of a message; the types correspond to the values of the [Office.MailboxEnums.ItemNotificationMessageType](/javascript/api/outlook_1_5/office.mailboxenums.itemnotificationmessagetype) enumeration. Possible values are progress indicator, information message, or error message. In this example, *type* is an error message.  
 - *message* &ndash; One of the properties of the JSON object parameter. In this example, *message* is the text of the notification message. 
 
 To signal that the add-in has finished processing the **ItemSend** event triggered by the send operation, call the **event.completed({allowEvent:Boolean}** method. The **allowEvent** property is a Boolean. If set to **true**, send is allowed. If set to **false**, the email message is blocked from sending.
 
 > [!NOTE]
-> For more information, see [notificationMessages](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#notificationmessages-notificationmessagesjavascriptapioutlook15officenotificationmessages) and [completed](https://docs.microsoft.com/javascript/api/office/office.addincommands.event).
+> For more information, see [notificationMessages](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#notificationmessages-notificationmessages) and [completed](/javascript/api/office/office.addincommands.event).
 
 ### replaceAsync, removeAsync, and getAllAsync methods
 
-In addition to the **addAsync** method, the **NotificationMessages** object also includes **replaceAsync, removeAsync and getAllAsync** methods.  These methods are not used in this code sample.  For more information, see [NotificationMessages](https://docs.microsoft.com/javascript/api/outlook_1_5/office.NotificationMessages).
+In addition to the **addAsync** method, the **NotificationMessages** object also includes **replaceAsync, removeAsync and getAllAsync** methods.  These methods are not used in this code sample.  For more information, see [NotificationMessages](/javascript/api/outlook_1_5/office.NotificationMessages).
 
 
 ### Subject and CC checker

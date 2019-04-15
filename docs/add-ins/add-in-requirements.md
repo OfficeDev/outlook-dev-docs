@@ -2,7 +2,7 @@
 title: Outlook add-in requirements
 description: For Outlook add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
@@ -30,7 +30,7 @@ If the user is connected to Office 365 or Outlook.com, mail server requirements 
 
 - The server must be Exchange 2013 or later.
 - Exchange Web Services (EWS) must be enabled and must be exposed to the Internet. Many add-ins require EWS to function properly.
-- The server must have a valid authentication certificate in order for the server to issue valid identity tokens. New installations of Exchange Server include a default authentication certificate. For more information, see [Digital certificates and encryption in Exchange 2016](https://technet.microsoft.com/en-us/library/dd351044(v=exchg.160).aspx) and [Set-AuthConfig](https://docs.microsoft.com/powershell/module/exchange/organization/Set-AuthConfig?view=exchange-ps).
+- The server must have a valid authentication certificate in order for the server to issue valid identity tokens. New installations of Exchange Server include a default authentication certificate. For more information, see [Digital certificates and encryption in Exchange 2016](https://technet.microsoft.com/en-us/library/dd351044(v=exchg.160).aspx) and [Set-AuthConfig](/powershell/module/exchange/organization/Set-AuthConfig?view=exchange-ps).
 - To access add-ins from the [Office Store](https://appsource.microsoft.com/marketplace/apps?product=office&page=1&src=office&corrid=a35323d5-0e3d-4cc0-ba44-57537d74aae8&omexanonuid=581941df-1c6f-4eda-89e7-651af8aeaeb2), the client access servers must be able to communicate with AppSource.
 
 ## Add-in server requirements

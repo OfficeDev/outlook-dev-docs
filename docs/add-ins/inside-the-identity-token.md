@@ -2,13 +2,13 @@
 title: Inside the Exchange identity token in an Outlook add-in
 description: Learn about the contents of an Exchange user identity token generated from an Outlook add-in.
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
 # Inside the Exchange identity token
 
-The Exchange user identity token returned by the [getUserIdentityTokenAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext) method provides a way for your add-in code to include the user's identity with calls to your back-end service. This article will discuss the format and contents of the token.
+The Exchange user identity token returned by the [getUserIdentityTokenAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext) method provides a way for your add-in code to include the user's identity with calls to your back-end service. This article will discuss the format and contents of the token.
 
 An Exchange user identity token is a base-64 URL-encoded string that is signed by the Exchange server that sent it. The token is not encrypted, and the public key that you use to validate the signature is stored on the Exchange server that issued the token. The token has three parts: a header, a payload, and a signature. In the token string, the parts are separated by a period character (`.`) to make it easy for you to split the token.
 
@@ -62,7 +62,7 @@ The following table lists the parts of the identity token payload.
 
 | Claim | Description |
 |:-----|:-----|
-| `aud` | The URL of the add-in that requested the token. A token is only valid if it is sent from the add-in that is running in the client's browser. If the add-in uses the Office Add-ins manifests schema v1.1, this URL is the URL specified in the first `SourceLocation` element, under the form type `ItemRead` or `ItemEdit`, whichever occurs first as part of the [FormSettings](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/formsettings) element in the add-in manifest. |
+| `aud` | The URL of the add-in that requested the token. A token is only valid if it is sent from the add-in that is running in the client's browser. If the add-in uses the Office Add-ins manifests schema v1.1, this URL is the URL specified in the first `SourceLocation` element, under the form type `ItemRead` or `ItemEdit`, whichever occurs first as part of the [FormSettings](/office/dev/add-ins/reference/manifest/formsettings) element in the add-in manifest. |
 | `iss` | A unique identifier for the Exchange server that issued the token. All tokens issued by this Exchange server will have the same identifier. |
 | `nbf` | The date and time that the token is valid starting from. The value is the number of seconds since January 1, 1970. |
 | `exp` | The date and time that the token is valid until. The value is the number of seconds since January 1, 1970. |
