@@ -2,7 +2,7 @@
 title: Get attachments in an Outlook add-in
 description: Your add-in can use the attachments API to send information about the attachments to a remote service.
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
@@ -12,11 +12,11 @@ An Outlook add-in cannot pass the attachments of a selected item directly to the
 
 To send attachment information to the remote service, you use the following properties and function:
 
-- [Office.context.mailbox.ewsUrl](https://docs.microsoft.com/javascript/api/outlook_1_5/office.entities) property &ndash; Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, or the [GetAttachment](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation.
+- [Office.context.mailbox.ewsUrl](/javascript/api/outlook_1_5/office.entities) property &ndash; Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, or the [GetAttachment](/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation.
 
-- [Office.context.mailbox.item.attachments](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#attachments-arrayattachmentdetailsjavascriptapioutlook15officeattachmentdetails) property &ndash; Gets an array of [AttachmentDetails](https://docs.microsoft.com/javascript/api/outlook_1_5/office.attachmentdetails) objects, one for each attachment to the item.
+- [Office.context.mailbox.item.attachments](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#attachments-arrayattachmentdetails) property &ndash; Gets an array of [AttachmentDetails](/javascript/api/outlook_1_5/office.attachmentdetails) objects, one for each attachment to the item.
 
-- [Office.context.mailbox.getCallbackTokenAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getcallbacktokenasyncoptions-callback) function &ndash; Makes an asynchronous call to the Exchange server that hosts the mailbox to get a callback token that the server sends back to the Exchange server to authenticate a request for an attachment.
+- [Office.context.mailbox.getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getcallbacktokenasyncoptions-callback) function &ndash; Makes an asynchronous call to the Exchange server that hosts the mailbox to get a callback token that the server sends back to the Exchange server to authenticate a request for an attachment.
 
 ## Using the attachments API
 
@@ -37,7 +37,7 @@ Each of these steps is covered in detail in the following sections using code fr
 
 ## Get a callback token
 
-The [Office.context.mailbox](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox) object provides the `getCallbackTokenAsync` function to get a token that the remote server can use to authenticate with the Exchange server. The following code shows a function in an add-in that starts the asynchronous request to get the callback token, and the callback function that gets the response. The callback token is stored in the service request object that is defined in the next section.
+The [Office.context.mailbox](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox) object provides the `getCallbackTokenAsync` function to get a token that the remote server can use to authenticate with the Exchange server. The following code shows a function in an add-in that starts the asynchronous request to get the callback token, and the callback function that gets the response. The callback token is stored in the service request object that is defined in the next section.
 
 ```js
 function getAttachmentToken() {
@@ -113,7 +113,7 @@ function makeServiceRequest() {
 
 ## Get the attachments from the Exchange server
 
-Your remote service can use either the [GetAttachments](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) EWS Managed API method or the [GetAttachment](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation to retrieve attachments from the server. The service application needs two objects to deserialize the JSON string into .NET Framework objects that can be used on the server. The following code shows the definitions of the deserialization objects.
+Your remote service can use either the [GetAttachments](/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) EWS Managed API method or the [GetAttachment](/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation to retrieve attachments from the server. The service application needs two objects to deserialize the JSON string into .NET Framework objects that can be used on the server. The following code shows the definitions of the deserialization objects.
 
 ```cs
 namespace AttachmentsSample
@@ -140,7 +140,7 @@ namespace AttachmentsSample
 
 ### Use the EWS Managed API to get the attachments
 
-If you use the [EWS Managed API](https://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](https://docs.microsoft.com/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
+If you use the [EWS Managed API](https://go.microsoft.com/fwlink/?LinkID=255472) in your remote service, you can use the [GetAttachments](/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, which will construct, send, and receive an EWS SOAP request to get the attachments. We recommend that you use the EWS Managed API because it requires fewer lines of code and provides a more intuitive interface for making calls to EWS. The following code makes one request to retrieve all the attachments, and returns the count and names of the attachments processed.
 
 ```cs
 private AttachmentSampleServiceResponse GetAtttachmentsFromExchangeServerUsingEWSManagedApi(AttachmentSampleServiceRequest request)
@@ -206,7 +206,7 @@ private AttachmentSampleServiceResponse GetAtttachmentsFromExchangeServerUsingEW
 
 ### Use EWS to get the attachments
 
-If you use EWS in your remote service, you need to construct a [GetAttachment](https://docs.microsoft.com/exchange/client-developer/web-service-reference/getattachment-operation) SOAP request to get the attachments from the Exchange server. The following code returns a string that provides the SOAP request. The remote service uses the `String.Format` method to insert the attachment ID for an attachment into the string.
+If you use EWS in your remote service, you need to construct a [GetAttachment](/exchange/client-developer/web-service-reference/getattachment-operation) SOAP request to get the attachments from the Exchange server. The following code returns a string that provides the SOAP request. The remote service uses the `String.Format` method to insert the attachment ID for an attachment into the string.
 
 
 ```cs

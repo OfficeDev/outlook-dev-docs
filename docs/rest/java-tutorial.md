@@ -2,7 +2,7 @@
 title: How to use Outlook REST APIs in a Java Spring MVC Web app
 description: Learn how to use Microsoft Graph in a Java web app to access the Outlook API. This tutorial goes step-by-step to authorize and list the inbox.
 author: jasonjoh
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.technology: ms-graph
 ms.devlang: java
 ms.date: 04/04/2019

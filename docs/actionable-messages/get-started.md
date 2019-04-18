@@ -2,7 +2,7 @@
 title: Get started with actionable messages
 description: Get started with actionable messages. Learn about the available delivery mechanisms and applicable scenarios.
 author: jasonjoh
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.technology: o365-connectors
 ms.date: 05/09/2017
 ms.author: jasonjoh

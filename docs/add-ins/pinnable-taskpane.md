@@ -2,7 +2,7 @@
 title: Implement a pinnable task pane in an Outlook add-in
 description: The task pane UX shape for add-in commands opens a vertical task pane to the right of an open message or meeting request, allowing the add-in to provide UI for more detailed interactions.
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
@@ -20,12 +20,12 @@ However, by default, if a user has an add-in task pane open for a message in the
 
 ## Support task pane pinning
 
-The first step is to add pinning support, which is done in the add-in [manifest](manifests.md). This is done by adding the [SupportsPinning](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/action#supportspinning) element to the `Action` element that describes the task pane button.
+The first step is to add pinning support, which is done in the add-in [manifest](manifests.md). This is done by adding the [SupportsPinning](/office/dev/add-ins/reference/manifest/action#supportspinning) element to the `Action` element that describes the task pane button.
 
-The `SupportsPinning` element is defined in the VersionOverrides v1.1 schema, so you will need to include a [VersionOverrides](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/versionoverrides) element both for v1.0 and v1.1.
+The `SupportsPinning` element is defined in the VersionOverrides v1.1 schema, so you will need to include a [VersionOverrides](/office/dev/add-ins/reference/manifest/versionoverrides) element both for v1.0 and v1.1.
 
 > [!NOTE]
-> If you plan to [publish](https://docs.microsoft.com/office/dev/add-ins/publish/publish) your Outlook add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [AppSource (Office Store) validation](https://docs.microsoft.com/office/dev/store/validation-policies), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
+> If you plan to [publish](/office/dev/add-ins/publish/publish) your Outlook add-in to the Office Store, when you use the **SupportsPinning** element, in order to pass [AppSource (Office Store) validation](/office/dev/store/validation-policies), your add-in content must not be static and it must clearly display data related to the message that is open or selected in the mailbox.
 
 ```xml
 <!-- Task pane button -->
@@ -78,7 +78,7 @@ function itemChanged(eventArgs) {
 
 ### Register the event handler
 
-Use the [Office.context.mailbox.addHandlerAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#addhandlerasynceventtype-handler-options-callback) method to register your event handler for the `Office.EventType.ItemChanged` event. This should be done in the `Office.initialize` function for your task pane.
+Use the [Office.context.mailbox.addHandlerAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#addhandlerasynceventtype-handler-options-callback) method to register your event handler for the `Office.EventType.ItemChanged` event. This should be done in the `Office.initialize` function for your task pane.
 
 ```js
 Office.initialize = function (reason) {

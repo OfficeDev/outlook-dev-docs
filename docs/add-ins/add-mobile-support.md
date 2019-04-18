@@ -2,7 +2,7 @@
 title: Add mobile support to an Outlook add-in
 description: Adding support for Outlook Mobile requires updating the add-in manifest and possibly changing your code for mobile scenarios.
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/15/2019
 localization_priority: Normal
 ---
 
@@ -97,8 +97,8 @@ The following APIs are not supported by Outlook Mobile.
   - [Office.context.mailbox.item.dateTimeModified](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#datetimemodified-date)
   - [Office.context.mailbox.item.displayReplyAllForm](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#displayreplyallformformdata-callback)
   - [Office.context.mailbox.item.displayReplyForm](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#displayreplyformformdata-callback)
-  - [Office.context.mailbox.item.getEntities](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getentities--entitiesjavascriptapioutlook15officeentities)
-  - [Office.context.mailbox.item.getEntitiesByType](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getentitiesbytypeentitytype--nullable-arraystringcontactjavascriptapioutlook15officecontactmeetingsuggestionjavascriptapioutlook15officemeetingsuggestionphonenumberjavascriptapioutlook15officephonenumbertasksuggestionjavascriptapioutlook15officetasksuggestion)
-  - [Office.context.mailbox.item.getFilteredEntitiesByName](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactjavascriptapioutlook15officecontactmeetingsuggestionjavascriptapioutlook15officemeetingsuggestionphonenumberjavascriptapioutlook15officephonenumbertasksuggestionjavascriptapioutlook15officetasksuggestion)
+  - [Office.context.mailbox.item.getEntities](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getentities--entities)
+  - [Office.context.mailbox.item.getEntitiesByType](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getentitiesbytypeentitytype--nullable-arraystringcontactmeetingsuggestionphonenumbertasksuggestion)
+  - [Office.context.mailbox.item.getFilteredEntitiesByName](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactmeetingsuggestionphonenumbertasksuggestion)
   - [Office.context.mailbox.item.getRegexMatches](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatches--object)
   - [Office.context.mailbox.item.getRegexMatchesByName](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-)

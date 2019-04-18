@@ -2,7 +2,7 @@
 title: Module extension Outlook add-ins
 description: Create applications that run inside Outlook to make it easy for your users to access business information and productivity tools without ever leaving Outlook.
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 localization_priority: Priority
 ---
 
@@ -146,5 +146,5 @@ The following is a section of a manifest file that defines a module extension.
 ## See also
 
 - [Outlook add-in manifests](manifests.md)
-- [Define add-in commands in your manifest](https://docs.microsoft.com/office/dev/add-ins/develop/define-add-in-commands)
+- [Define add-in commands in your manifest](/office/dev/add-ins/develop/define-add-in-commands)
 - [Outlook module extensions Billable hours sample](https://github.com/OfficeDev/Outlook-Add-in-JavaScript-ModuleExtension)

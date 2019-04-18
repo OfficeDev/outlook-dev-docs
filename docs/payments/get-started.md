@@ -2,7 +2,7 @@
 title: Get started with payments in Outlook
 description: Follow this step-by-step walkthrough to implement and test an example payments in Outlook solution.
 author: jasonjoh
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
