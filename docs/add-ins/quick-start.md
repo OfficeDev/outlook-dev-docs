@@ -226,7 +226,7 @@ The add-in project that you've created with the Yeoman generator contains sample
 
 ### Update the code
 
-1. In your code editor, open the file **./src/taskpane/taskpane.html** and remove the entire `<main>` element (from within the `<body>` element). Then add the following markup in the same location, to specify labels where data can be written.
+1. In your code editor, open the file **./src/taskpane/taskpane.html** and replace the entire `<main>` element (within the `<body>` element) with the following markup. This new markup adds a label where the script in **./src/taskpane/taskpane.js** will write data.
 
     ```html
     <main id="app-body" class="ms-welcome__main" style="display: none;">
@@ -238,7 +238,7 @@ The add-in project that you've created with the Yeoman generator contains sample
     </main>
     ```
 
-1. In your code editor, open the file **./src/taskpane/taskpane.js** and add the following code within the **run** function. This code uses the Office JavaScript API to get a reference to the current message and write its `itemId` and `subject` property values to the task pane.
+1. In your code editor, open the file **./src/taskpane/taskpane.js** and add the following code within the **run** function. This code uses the Office JavaScript API to get a reference to the current message and write its `subject` property value to the task pane.
 
     ```js
     // Get a reference to the current message
@@ -254,7 +254,7 @@ The add-in project that you've created with the Yeoman generator contains sample
 
 1. In Outlook, select or open a message.
 
-1. On the **Home** tab (**Message** tab if you opened the message in a new window), locate the add-in's **Display all properties** button.
+1. Choose the **Home** tab (or the **Message** tab if you opened the message in a new window), and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane.
 
     ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button-2.png)
 
