@@ -1,14 +1,14 @@
 ---
-title: Build an Outlook add-in
+title: Build an Outlook task pane add-in
 description: Learn how to build a simple Outlook add-in by using jQuery and the Office JS API and test it locally.
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 04/23/2019
 localization_priority: Priority
 ---
 
 # Build your first Outlook add-in
 
-In this article, you'll walk through the process of building an Outlook add-in by using jQuery and the Office JS API.
+In this article, you'll walk through the process of building an Outlook task pane add-in.
 
 ## Create the add-in
 
@@ -178,13 +178,16 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org)
+- [Node.js](https://nodejs.org) (version 8.0.0 or later)
 
-- Install the latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
+- The latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office). To install these tools globally, run the following command via the command prompt:
 
-    ```powershell
+    ```
     npm install -g yo generator-office
     ```
+
+    > [!NOTE]
+    > Even if you've previously installed the Yeoman generator, we recommend you update your package to the latest version from npm.
 
 ### Create the add-in project
 
@@ -194,7 +197,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     yo office
     ```
 
-    - **Choose a project type** - `Office Add-in project using Jquery framework`
+    - **Choose a project type** - `Office Add-in Task Pane project`
 
     - **Choose a script type** - `Javascript`
 
@@ -202,7 +205,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     - **Which Office client application would you like to support?** - `Outlook`
 
-    ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.png)
+    ![A screenshot of the prompts and answers for the Yeoman generator](images/yo-office-outlook.png)
 	
     After you complete the wizard, the generator will create the project and install supporting Node components.
 
@@ -212,130 +215,38 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     cd "My Office Add-in"
     ```
 
+### Explore the project
+
+The add-in project that you've created with the Yeoman generator contains sample code for a very basic task pane add-in. 
+
+- The **./manifest.xml** file in the root directory of the project defines the settings and capabilities of the add-in.
+- The **./src/taskpane/taskpane.html** file contains the HTML markup for the task pane.
+- The **./src/taskpane/taskpane.css** file contains the CSS styles that are used by **taskpane.html**.
+- The **./src/taskpane/taskpane.js** file contains the Office JavaScript API code that facilitates interaction between the task pane and the Office host application.
+
 ### Update the code
 
-1. In your code editor, open **index.html** in the root of the project. This files contains the HTML that will be rendered in the add-in's task pane.
+1. In your code editor, open the file **./src/taskpane/taskpane.html** and remove the entire `<main>` element (from within the `<body>` element). Then add the following markup in the same location, to specify labels where data can be written.
 
-1. Replace the `<header>`, `<section>`, and `<main>` elements inside the `<body>` element with the following markup and save the file.
-
-    ```HTML
-    <div class="ms-Fabric content-main">
-        <h1 class="ms-font-xxl">Message properties</h1>
-        <table class="ms-Table ms-Table--selectable">
-            <thead>
-                <tr>
-                    <th>Property</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Id</strong></td>
-                    <td class="prop-val"><code><label id="item-id"></label></code></td>
-                </tr>
-                <tr>
-                    <td><strong>Subject</strong></td>
-                    <td class="prop-val"><code><label id="item-subject"></label></code></td>
-                </tr>
-                <tr>
-                    <td><strong>Message Id</strong></td>
-                    <td class="prop-val"><code><label id="item-internetMessageId"></label></code></td>
-                </tr>
-                <tr>
-                    <td><strong>From</strong></td>
-                    <td class="prop-val"><code><label id="item-from"></label></code></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    ```html
+    <main id="app-body" class="ms-welcome__main" style="display: none;">
+        <h2 class="ms-font-xl"> Discover what Office Add-ins can do for you today! </h2>
+        <p><label id="item-subject"></label></p>
+        <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
+            <span class="ms-Button-label">Run</span>
+        </div>
+    </main>
     ```
 
-1. Open the file **src/index.js** to specify the script for the add-in. Replace the entire contents with the following code and save the file.
+1. In your code editor, open the file **./src/taskpane/taskpane.js** and add the following code within the **run** function. This code uses the Office JavaScript API to get a reference to the current message and write its `itemId` and `subject` property values to the task pane.
 
     ```js
-    'use strict';
+    // Get a reference to the current message
+    var item = Office.context.mailbox.item;
 
-    (function () {
-
-        Office.onReady(function () {
-            // Office is ready
-            $(document).ready(function () {
-                // The document is ready
-                loadItemProps(Office.context.mailbox.item);
-            });
-        });
-
-        function loadItemProps(item) {
-            // Write message property values to the task pane
-            $('#item-id').text(item.itemId);
-            $('#item-subject').text(item.subject);
-            $('#item-internetMessageId').text(item.internetMessageId);
-            $('#item-from').html(item.from.displayName + " &lt;" + item.from.emailAddress + "&gt;");
-        }
-    })();
+    // Write message property value to the task pane
+    document.getElementById("item-subject").innerHTML = "<b>Subject:</b> <br/>" + item.subject;
     ```
-
-1. Open **app.css** in the root of the project, replace the entire contents with the following code, and save the file.
-
-    ```CSS
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    td.prop-val {
-        word-break: break-all;
-    }
-
-    .content-main {
-        margin: 10px;
-    }
-    ```
-
-### Update the manifest
-
-1. Open the **manifest.xml** file.
-
-1. The `ProviderName` element has a placeholder value. Replace it with your name.
-
-1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `My First Outlook add-in`.
-
-1. The `DefaultValue` attribute of the `SupportUrl` element has a placeholder. Replace it with `https://localhost:3000` and save the file.
-
-    ```xml
-    ...
-    <ProviderName>Jason Johnston</ProviderName>
-    <DefaultLocale>en-US</DefaultLocale>
-    <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-    <DisplayName DefaultValue="My Office Add-in" />
-    <Description DefaultValue="My First Outlook add-in"/>
-
-    <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-    <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
-    <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
-
-    <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
-    <SupportUrl DefaultValue="https://localhost:3000" />
-    ...
-    ```
-
-### Start the dev server
-
-1. Open a command prompt in the root directory of your project (**[...]/My Office Add-in**) and run the following command to start the web server at `https://localhost:3000`.
-
-    ```bash
-    npm start
-    ```
-
-1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, proceed to the next section in this article (**Try it out**). If your browser indicates that the site's certificate is not trusted, proceed to the following step.
-
-1. If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
-
-    > [!NOTE]
-    > Chrome (web browser) may continue to indicate the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
 
 ### Try it out
 
@@ -345,17 +256,17 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. On the **Home** tab (**Message** tab if you opened the message in a new window), locate the add-in's **Display all properties** button.
 
-    ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button.png)
+    ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button-2.png)
 
-1. Click the button to open the add-in's task pane.
+1. Scroll to the bottom of the task pane and choose the **Run** link to write the message subject to the task pane.
 
-    ![A screenshot of the add-in's task pane displaying message properties](images/quick-start-task-pane.png)
+    ![A screenshot of the add-in's task pane displaying message properties](images/quick-start-task-pane-1.png)
 
 ---
 
 ## Next steps
 
-Congratulations, you've successfully created your first Outlook add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with the Advanced Outlook add-in tutorial.
+Congratulations, you've successfully created your first Outlook task pane add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with the Advanced Outlook add-in tutorial.
 
 > [!div class="nextstepaction"]
 > [Advanced Outlook add-in tutorial](addin-tutorial.md)
