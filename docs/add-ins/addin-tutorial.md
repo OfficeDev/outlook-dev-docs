@@ -179,10 +179,10 @@ Before going any further, let's test the basic add-in that the generator created
 
 1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, you can close the browser and proceed to step 4. If your browser indicates the site's certificate is not trusted, proceed to the next step.
 
-1. Office Add-ins should use HTTPS, not HTTP, even when you're developing. If your browser indicates the site's certificate is not trusted, you'll need to add the certificate as a trusted certificate. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
+1. Office Add-ins should use HTTPS, not HTTP, even when you're developing. If your browser indicates the site's certificate is not trusted, you'll need to add the certificate as a trusted certificate. See [Installing the self-signed certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
     > [!NOTE]
-    > Chrome (web browser) may continue to indicate the the site's certificate is not trusted, even after you have completed the process described in [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
+    > Chrome (web browser) may continue to indicate the the site's certificate is not trusted, even after you have completed the process described in [Installing the self-signed certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
 
 1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file that's located in the root directory of the project.
 

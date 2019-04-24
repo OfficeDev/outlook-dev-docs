@@ -250,6 +250,15 @@ The add-in project that you've created with the Yeoman generator contains sample
 
 ### Try it out
 
+1. Start the local web server by running the following command:
+
+    ```
+    npm start
+    ```
+
+    > [!NOTE]
+    > Office Add-ins should use HTTPS, not HTTP, even when you are developing. If you are prompted to install a certificate after you run `npm start`, accept the prompt to install the certificate that the Yeoman generator provides. 
+
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the add-in in Outlook.
 
 1. In Outlook, select or open a message.
