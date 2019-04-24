@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 04/23/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -22,17 +22,20 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-* [Node.js and npm](https://nodejs.org)
+- [Node.js](https://nodejs.org) (version 8.0.0 or later)
 
-* The latest version of [Yeoman](https://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command from the command prompt:
+- The latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office). To install these tools globally, run the following command via the command prompt:
 
-    ```bash
+    ```
     npm install -g yo generator-office
     ```
 
-* Outlook 2016 or later for Windows (connected to an Office 365 account) or Outlook on the web
+    > [!NOTE]
+    > Even if you've previously installed the Yeoman generator, we recommend you update your package to the latest version from npm.
 
-* A [GitHub](https://www.github.com) account 
+- Outlook 2016 or later for Windows (connected to an Office 365 account) or Outlook on the web
+
+- A [GitHub](https://www.github.com) account 
 
 ## Setup
 
@@ -100,7 +103,7 @@ Use the Yeoman generator to create an Outlook add-in project.
     yo office
     ```
 
-    - **Choose a project type** - `Office Add-in project using Jquery framework`
+    - **Choose a project type** - `Office Add-in Task Pane project`
 
     - **Choose a script type** - `Javascript`
 
@@ -108,7 +111,7 @@ Use the Yeoman generator to create an Outlook add-in project.
 
     - **Which Office client application would you like to support?** - `Outlook`
 
-    ![A screenshot of the prompts and answers for the Yeoman generator](images/addin-tutorial/yeoman-prompts.png)
+    ![A screenshot of the prompts and answers for the Yeoman generator](images/addin-tutorial/yeoman-prompts-2.png)
     
     After you complete the wizard, the generator will create the project and install supporting Node components.
 	
@@ -130,7 +133,7 @@ The manifest for an add-in controls how it appears in Outlook. It defines the wa
 
 #### Specify a support page
 
-The manifest the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
+The manifest that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
 
 1. In the root directory of the project, create a new file named **support.html** and add the following markup.
 
@@ -152,9 +155,9 @@ The manifest the generator creates contains a placeholder value for the `Support
 
 1. Open the **manifest.xml** file and update the `SupportUrl` element to point to the **support.html** file that you created.
 
-  ```xml
-  <SupportUrl DefaultValue="https://localhost:3000/support.html" />
-  ```
+    ```xml
+    <SupportUrl DefaultValue="https://localhost:3000/support.html" />
+    ```
 
 #### Specify basic information
 
@@ -162,29 +165,29 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 
 1. Locate the `ProviderName` element and replace the default value with your company name.
 
-   ```xml
+    ```xml
     <ProviderName>Contoso</ProviderName>
     ```
 1. Locate the `Description` element, replace the default value with a description of the add-in, and save the file.
 
     ```xml
     <Description DefaultValue="Allows users to access their GitHub gists"/>
-   ```
+    ```
 
 #### Test the generated add-in
 
 Before going any further, let's test the basic add-in that the generator created to confirm that the project is set up correctly. 
 
-1. At the command prompt, make sure you're in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000`.
+1. At the command prompt, make sure you're in the root directory of your project. Start the local web server by running the following command:
 
-1. Open either Internet Explorer or Microsoft Edge and navigate to `https://localhost:3000`. If the page loads without any certificate errors, you can close the browser and proceed to step 4. If your browser indicates the site's certificate is not trusted, proceed to the next step.
-
-1. Office Add-ins should use HTTPS, not HTTP, even when you're developing. If your browser indicates the site's certificate is not trusted, you'll need to add the certificate as a trusted certificate. See [Installing the self-signed certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
+    ```
+    npm start
+    ```
 
     > [!NOTE]
-    > Chrome (web browser) may continue to indicate the the site's certificate is not trusted, even after you have completed the process described in [Installing the self-signed certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md). Therefore, you should use either Internet Explorer or Microsoft Edge to verify that the certificate is trusted. 
+    > Office Add-ins should use HTTPS, not HTTP, even when you are developing. If you are prompted to install a certificate after you run `npm start`, accept the prompt to install the certificate that the Yeoman generator provides. 
 
-1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file that's located in the root directory of the project.
+1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file that's located in the root directory of the project.
 
 1. In Outlook, open an existing message and select the **Display all properties** button. If everything's been set up correctly, the task pane will open and render the add-in's welcome page.
 
