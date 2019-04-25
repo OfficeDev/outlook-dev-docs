@@ -248,7 +248,7 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
           <SourceLocation resid="Taskpane.Url"/>
         </Action>
       </Control>
-      <Control xsi:type="Button" id="msgComposeInsertDefGist">
+      <Control xsi:type="Button" id="msgComposeInsertDefaultGist">
         <Label resid="FunctionButton.Label"/>
         <Supertip>
           <Title resid="FunctionButton.Title"/>
@@ -272,7 +272,7 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
 
 The previous code references labels, tooltips, and URLs that you need to define before the manifest will be valid. You'll specify this information in the `Resources` section of the manifest. 
 
-1. Locate the `Resources` element in the manifest file and delete this element entirely (including its closing tag).
+1. Locate the `Resources` element in the manifest file and delete the entire element (including its closing tag).
 
 1. In that same location, add the following markup to replace the `Resources` element you just removed:
 
@@ -289,8 +289,8 @@ The previous code references labels, tooltips, and URLs that you need to define 
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Git the gist"/>
-        <bt:String id="TaskPaneButton.Label" DefaultValue="Insert gist"/>
-        <bt:String id="TaskPaneButton.Title" DefaultValue="Insert gist"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Insert gist"/>
+        <bt:String id="TaskpaneButton.Title" DefaultValue="Insert gist"/>
         <bt:String id="FunctionButton.Label" DefaultValue="Insert default gist"/>
         <bt:String id="FunctionButton.Title" DefaultValue="Insert default gist"/>
       </bt:ShortStrings>
