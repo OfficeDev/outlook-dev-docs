@@ -240,11 +240,11 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
           <SourceLocation resid="Contoso.InsertGist.Taskpane.Url" />
         </Action>
       </Control>
-      <Control xsi:type="Button" id="msgComposeInsertDefaultGist">
-        <Label resid="Contoso.InsertDefaultGist.Label"/>
+      <Control xsi:type="Button" id="msgComposeInsertDefGist">
+        <Label resid="Contoso.InsertDefGist.Label"/>
         <Supertip>
-          <Title resid="Contoso.InsertDefaultGist.Title"/>
-          <Description resid="Contoso.InsertDefaultGist.Tooltip"/>
+          <Title resid="Contoso.InsertDefGist.Title"/>
+          <Description resid="Contoso.InsertDefGist.Tooltip"/>
         </Supertip>
         <Icon>
           <bt:Image size="16" resid="Contoso.tpicon_16x16"/>
@@ -280,7 +280,7 @@ The previous code references labels, tooltips, and URLs that you need to define 
     ```xml
     <bt:String id="Contoso.InsertGist.Label" DefaultValue="Insert gist"/>
     <bt:String id="Contoso.InsertGist.Title" DefaultValue="Insert gist"/>
-    <bt:String id="Contoso.InsertDefaultGist.Label" DefaultValue="Insert default gist"/>
+    <bt:String id="Contoso.InsertDefGist.Label" DefaultValue="Insert default gist"/>
     <bt:String id="Contoso.InsertGist.Title" DefaultValue="Insert default gist"/>
     ```
 
@@ -288,7 +288,7 @@ The previous code references labels, tooltips, and URLs that you need to define 
 
     ```xml
     <bt:String id="Contoso.InsertGist.Tooltip" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message"/>
-    <bt:String id="Contoso.InsertDefaultGist.Tooltip" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
+    <bt:String id="Contoso.InsertDefGist.Tooltip" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
     ```
 
 1. Save your changes to the manifest. 
