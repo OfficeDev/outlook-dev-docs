@@ -201,6 +201,14 @@ Now that you've verified the base add-in works, you can customize it to add more
 
 - **Insert default gist**: a button that invokes a function
 
+### Specify the function file URL
+
+Open the **manifest.xml** file and locate the `FunctionFile` element. Within the `FunctionFile` element, set the `resid` attribute value to `Commands.Url`.
+
+```xml
+<FunctionFile resid="Commands.Url"/>
+```
+
 ### Remove the MessageReadCommandSurface extension point
 
 Open the **manifest.xml** file and locate the `ExtensionPoint` element with type `MessageReadCommandSurface`. Delete this `ExtensionPoint` element (including its closing tag) to remove the buttons from the read message window.
@@ -224,32 +232,32 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
 <ExtensionPoint xsi:type="MessageComposeCommandSurface">
   <OfficeTab id="TabDefault">
     <Group id="msgComposeCmdGroup">
-      <Label resid="Contoso.GroupLabel"/>
+      <Label resid="GroupLabel"/>
       <Control xsi:type="Button" id="msgComposeInsertGist">
-        <Label resid="Contoso.InsertGist.Label"/>
+        <Label resid="TaskpaneButton.Label"/>
         <Supertip>
-          <Title resid="Contoso.InsertGist.Title"/>
-          <Description resid="Contoso.InsertGist.Tooltip"/>
+          <Title resid="TaskpaneButton.Title"/>
+          <Description resid="TaskpaneButton.Tooltip"/>
         </Supertip>
         <Icon>
-          <bt:Image size="16" resid="Contoso.tpicon_16x16"/>
-          <bt:Image size="32" resid="Contoso.tpicon_32x32"/>
-          <bt:Image size="80" resid="Contoso.tpicon_80x80"/>
+          <bt:Image size="16" resid="tpicon_16x16"/>
+          <bt:Image size="32" resid="tpicon_32x32"/>
+          <bt:Image size="80" resid="tpicon_80x80"/>
         </Icon>
         <Action xsi:type="ShowTaskpane">
-          <SourceLocation resid="Contoso.InsertGist.Taskpane.Url" />
+          <SourceLocation resid="Taskpane.Url"/>
         </Action>
       </Control>
       <Control xsi:type="Button" id="msgComposeInsertDefGist">
-        <Label resid="Contoso.InsertDefGist.Label"/>
+        <Label resid="FunctionButton.Label"/>
         <Supertip>
-          <Title resid="Contoso.InsertDefGist.Title"/>
-          <Description resid="Contoso.InsertDefGist.Tooltip"/>
+          <Title resid="FunctionButton.Title"/>
+          <Description resid="FunctionButton.Tooltip"/>
         </Supertip>
         <Icon>
-          <bt:Image size="16" resid="Contoso.tpicon_16x16"/>
-          <bt:Image size="32" resid="Contoso.tpicon_32x32"/>
-          <bt:Image size="80" resid="Contoso.tpicon_80x80"/>
+          <bt:Image size="16" resid="tpicon_16x16"/>
+          <bt:Image size="32" resid="tpicon_32x32"/>
+          <bt:Image size="80" resid="tpicon_80x80"/>
         </Icon>
         <Action xsi:type="ExecuteFunction">
           <FunctionName>insertDefaultGist</FunctionName>
@@ -262,33 +270,35 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
 
 ### Update resources in the manifest
 
-The previous code references labels, tooltips, and URLs that you need to define before the manifest will be valid. Specify this information by making the following changes in the `Resources` section of the manifest. 
+The previous code references labels, tooltips, and URLs that you need to define before the manifest will be valid. You'll specify this information in the `Resources` section of the manifest. 
 
-1. Add the following element as a child of the `bt:Urls` element:
+1. Locate the `Resources` element in the manifest file and delete this element entirely (including its closing tag).
 
-    ```xml
-    <bt:Url id="Contoso.InsertGist.Taskpane.Url" DefaultValue="https://localhost:3000/msg-compose/insert-gist.html"/>
-    ```
-1. Within the collection of child elements under the `bt:ShortStrings` element, locate the child element with `id="groupLabel"`. Change the `DefaultValue` attribute of this element to **Git the gist**.
+1. In that same location, add the following markup to replace the `Resources` element you just removed:
 
     ```xml
-    <bt:String id="Contoso.GroupLabel" DefaultValue="Git the gist"/>
-    ```
-
-1. Add the following elements as children of the `bt:ShortStrings` element.
-
-    ```xml
-    <bt:String id="Contoso.InsertGist.Label" DefaultValue="Insert gist"/>
-    <bt:String id="Contoso.InsertGist.Title" DefaultValue="Insert gist"/>
-    <bt:String id="Contoso.InsertDefGist.Label" DefaultValue="Insert default gist"/>
-    <bt:String id="Contoso.InsertDefGist.Title" DefaultValue="Insert default gist"/>
-    ```
-
-1. Add the following elements as children of the `bt:LongStrings` element.
-
-    ```xml
-    <bt:String id="Contoso.InsertGist.Tooltip" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message"/>
-    <bt:String id="Contoso.InsertDefGist.Tooltip" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="tpicon_16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="tpicon_32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="tpicon_80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Git the gist"/>
+        <bt:String id="TaskPaneButton.Label" DefaultValue="Insert gist"/>
+        <bt:String id="TaskPaneButton.Title" DefaultValue="Insert gist"/>
+        <bt:String id="FunctionButton.Label" DefaultValue="Insert default gist"/>
+        <bt:String id="FunctionButton.Title" DefaultValue="Insert default gist"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message."/>
+        <bt:String id="FunctionButton.Tooltip" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
+      </bt:LongStrings>
+    </Resources>
     ```
 
 1. Save your changes to the manifest. 
