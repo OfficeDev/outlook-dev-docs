@@ -281,7 +281,7 @@ The previous code references labels, tooltips, and URLs that you need to define 
     <bt:String id="Contoso.InsertGist.Label" DefaultValue="Insert gist"/>
     <bt:String id="Contoso.InsertGist.Title" DefaultValue="Insert gist"/>
     <bt:String id="Contoso.InsertDefGist.Label" DefaultValue="Insert default gist"/>
-    <bt:String id="Contoso.InsertGist.Title" DefaultValue="Insert default gist"/>
+    <bt:String id="Contoso.InsertDefGist.Title" DefaultValue="Insert default gist"/>
     ```
 
 1. Add the following elements as children of the `bt:LongStrings` element.
@@ -324,7 +324,7 @@ This add-in needs to be able to read gists from the user's GitHub account and id
 
 ### Collect data from the user
 
-Let's start by creating the UI for the dialog itself. Create a folder in the root of the project named **settings**. In that folder, create a file named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. Note that this dialog uses [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
+Let's start by creating the UI for the dialog itself. Within the **./src** folder, create a new subfolder named **settings**. In the **./src/settings** folder, create a file named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. Note that this dialog uses [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
 
 ```html
 <!DOCTYPE html>
@@ -400,7 +400,7 @@ Let's start by creating the UI for the dialog itself. Create a folder in the roo
 </html>
 ```
 
-Next, create a file in the **settings** folder named **dialog.css**, and add the following code to specify the styles that are used by **dialog.html**.
+Next, create a file in the **./src/settings** folder named **dialog.css**, and add the following code to specify the styles that are used by **dialog.html**.
 
 ```CSS
 section {
@@ -430,7 +430,7 @@ ul {
 }
 ```
 
-Now that you've defined the dialog UI, you can write the code that makes it actually do something. Create a file in the **settings** folder named **dialog.js** and add the following code. Note that this code uses jQuery to register events and uses the `messageParent` function to send the user's choices back to the caller.
+Now that you've defined the dialog UI, you can write the code that makes it actually do something. Create a file in the **./src/settings** folder named **dialog.js** and add the following code. Note that this code uses jQuery to register events and uses the `messageParent` function to send the user's choices back to the caller.
 
 ```js
 (function(){
@@ -537,7 +537,7 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
 
 The **dialog.js** file you just created specifies that the add-in should load gists when the `change` event fires for the GitHub username field. To retrieve the user's gists from GitHub, you'll use the [GitHub Gists API](https://developer.github.com/v3/gists/).
 
-Create a folder in the root of the project named **helpers**. In that folder, create a file named **gist-api.js**, and add the following code to retrieve the user's gists from GitHub and build the list of gists.
+Within the **./src** folder, create a new subfolder named **helpers**. In the **./src/helpers** folder, create a file named **gist-api.js**, and add the following code to retrieve the user's gists from GitHub and build the list of gists.
 
 ```js
 function getUserGists(user, callback) {
@@ -626,7 +626,7 @@ This add-in's **Insert default gist** button is a UI-less button that will invok
 
 A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/commands/commands.html` as the function file. 
 
-Open the file **./commands/commands.html** and replace the entire contents with the following markup.
+Open the file **./src/commands/commands.html** and replace the entire contents with the following markup.
 
 ```html
 <!DOCTYPE html>
@@ -657,7 +657,7 @@ Open the file **./commands/commands.html** and replace the entire contents with 
 
 ### Update the function file (JavaScript)
 
-Open the file **./commands/commands.js** and replace the entire contents with the following code. Note that if the `insertDefaultGist` function determines the add-in has not yet been configured, it adds the `?warn=1` parameter to the dialog URL. Doing so makes the settings dialog render the message bar that's defined in **./settings/dialog.html**, to tell the user why they're seeing the dialog.
+Open the file **./src/commands/commands.js** and replace the entire contents with the following code. Note that if the `insertDefaultGist` function determines the add-in has not yet been configured, it adds the `?warn=1` parameter to the dialog URL. Doing so makes the settings dialog render the message bar that's defined in **./settings/dialog.html**, to tell the user why they're seeing the dialog.
 
 ```js
 var config;
@@ -744,7 +744,7 @@ function dialogClosed(message) {
 
 ### Create a file to manage configuration settings
 
-The HTML function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
+The HTML function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **./src/helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
 
 ```js
 function getConfig() {
@@ -766,7 +766,7 @@ function setConfig(config, callback) {
 
 ### Create new functions to process gists
 
-Next, open the **./helpers/gist-api.js** file and add the following functions. Note the following: 
+Next, open the **./src/helpers/gist-api.js** file and add the following functions. Note the following: 
 
 - If the gist contains HTML, the add-in will insert the HTML as-is into the body of the message. 
 
@@ -844,7 +844,7 @@ This add-in's **Insert gist** button will open a task pane and display the user'
 
 ### Create the HTML file for the task pane
 
-Create a folder in the root of the project named **msg-compose**. Then in that folder, create a file named **insert-gist.html**, and add the following markup to define the UI for the task pane.
+Within the **./src** folder, create a new subfolder named **msg-compose**. In the **./src/message-compose** folder, create a file named **insert-gist.html**, and add the following markup to define the UI for the task pane.
 
 ```html
 <!DOCTYPE html>
@@ -907,7 +907,7 @@ Create a folder in the root of the project named **msg-compose**. Then in that f
 
 ### Create the CSS file for the task pane
 
-Create a file in the **msg-compose** folder named **insert-gist.css**, and add the following code to define the styles used by the task pane.
+Create a file in the **./src/msg-compose** folder named **insert-gist.css**, and add the following code to define the styles used by the task pane.
 
 ```css
 /* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
@@ -1062,7 +1062,7 @@ ul {
 
 ### Create the JavaScript file for the task pane
 
-Create a file in the **msg-compose** folder named **insert-gist.js**, and add the following code to specify the script for the task pane.
+Create a file in the **./src/msg-compose** folder named **insert-gist.js**, and add the following code to specify the script for the task pane.
 
 ```js
 (function(){
