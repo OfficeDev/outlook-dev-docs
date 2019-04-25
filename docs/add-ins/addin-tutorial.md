@@ -189,7 +189,7 @@ Before going any further, let's test the basic add-in that the generator created
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file that's located in the root directory of the project.
 
-1. In Outlook, open an existing message and select the **Display all properties** button. If everything's been set up correctly, the task pane will open and render the add-in's welcome page.
+1. In Outlook, open an existing message and select the **Show Taskpane** button. If everything's been set up correctly, the task pane will open and render the add-in's welcome page.
 
     ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.png)
 
@@ -224,32 +224,32 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
 <ExtensionPoint xsi:type="MessageComposeCommandSurface">
   <OfficeTab id="TabDefault">
     <Group id="msgComposeCmdGroup">
-      <Label resid="groupLabel"/>
+      <Label resid="Contoso.GroupLabel"/>
       <Control xsi:type="Button" id="msgComposeInsertGist">
-        <Label resid="insertGistLabel"/>
+        <Label resid="Contoso.InsertGist.Label"/>
         <Supertip>
-          <Title resid="insertGistTitle"/>
-          <Description resid="insertGistDesc"/>
+          <Title resid="Contoso.InsertGist.Title"/>
+          <Description resid="Contoso.InsertGist.Desc"/>
         </Supertip>
         <Icon>
-          <bt:Image size="16" resid="icon16"/>
-          <bt:Image size="32" resid="icon32"/>
-          <bt:Image size="80" resid="icon80"/>
+          <bt:Image size="16" resid="Contoso.tpicon_16x16"/>
+          <bt:Image size="32" resid="Contoso.tpicon_32x32"/>
+          <bt:Image size="80" resid="Contoso.tpicon_80x80"/>
         </Icon>
         <Action xsi:type="ShowTaskpane">
-          <SourceLocation resid="insertGistPaneUrl" />
+          <SourceLocation resid="Contoso.InsertGist.Taskpane.Url" />
         </Action>
       </Control>
       <Control xsi:type="Button" id="msgComposeInsertDefaultGist">
-        <Label resid="insertDefaultGistLabel"/>
+        <Label resid="Contoso.InsertDefaultGist.Label"/>
         <Supertip>
-          <Title resid="insertDefaultGistTitle"/>
-          <Description resid="insertDefaultGistDesc"/>
+          <Title resid="Contoso.InsertDefaultGist.Title"/>
+          <Description resid="Contoso.InsertDefaultGist.Desc"/>
         </Supertip>
         <Icon>
-          <bt:Image size="16" resid="icon16"/>
-          <bt:Image size="32" resid="icon32"/>
-          <bt:Image size="80" resid="icon80"/>
+          <bt:Image size="16" resid="Contoso.tpicon_16x16"/>
+          <bt:Image size="32" resid="Contoso.tpicon_32x32"/>
+          <bt:Image size="80" resid="Contoso.tpicon_80x80"/>
         </Icon>
         <Action xsi:type="ExecuteFunction">
           <FunctionName>insertDefaultGist</FunctionName>
@@ -267,28 +267,28 @@ The previous code references labels, tooltips, and URLs that you need to define 
 1. Add the following element as a child of the `bt:Urls` element:
 
     ```xml
-    <bt:Url id="insertGistPaneUrl" DefaultValue="https://localhost:3000/msg-compose/insert-gist.html"/>
+    <bt:Url id="Contoso.InsertGist.Taskpane.Url" DefaultValue="https://localhost:3000/msg-compose/insert-gist.html"/>
     ```
 1. Within the collection of child elements under the `bt:ShortStrings` element, locate the child element with `id="groupLabel"`. Change the `DefaultValue` attribute of this element to **Git the gist**.
 
     ```xml
-    <bt:String id="groupLabel" DefaultValue="Git the gist"/>
+    <bt:String id="Contoso.GroupLabel" DefaultValue="Git the gist"/>
     ```
 
 1. Add the following elements as children of the `bt:ShortStrings` element.
 
     ```xml
-    <bt:String id="insertGistLabel" DefaultValue="Insert gist"/>
-    <bt:String id="insertGistTitle" DefaultValue="Insert gist"/>
-    <bt:String id="insertDefaultGistLabel" DefaultValue="Insert default gist"/>
-    <bt:String id="insertDefaultGistTitle" DefaultValue="Insert default gist"/>
+    <bt:String id="Contoso.InsertGist.Label" DefaultValue="Insert gist"/>
+    <bt:String id="Contoso.InsertGist.Title" DefaultValue="Insert gist"/>
+    <bt:String id="Contoso.InsertDefaultGist.Label" DefaultValue="Insert default gist"/>
+    <bt:String id="Contoso.InsertGist.Title" DefaultValue="Insert default gist"/>
     ```
 
 1. Add the following elements as children of the `bt:LongStrings` element.
 
     ```xml
-    <bt:String id="insertGistDesc" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message"/>
-    <bt:String id="insertDefaultGistDesc" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
+    <bt:String id="Contoso.InsertGist.Desc" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message"/>
+    <bt:String id="Contoso.InsertDefaultGist.Desc" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
     ```
 
 1. Save your changes to the manifest. 
@@ -624,9 +624,9 @@ This add-in's **Insert default gist** button is a UI-less button that will invok
 
 ### Update the function file (HTML)
 
-A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/function-file/function-file.html` as the function file. 
+A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/commands/commands.html` as the function file. 
 
-Open the file **./function-file/function-file.html** and replace the entire contents with the following markup.
+Open the file **./commands/commands.html** and replace the entire contents with the following markup.
 
 ```html
 <!DOCTYPE html>
@@ -644,11 +644,11 @@ Open the file **./function-file/function-file.html** and replace the entire cont
     <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
     <script type="text/javascript" src="../helpers/addin-config.js"></script>
     <script type="text/javascript" src="../helpers/gist-api.js"></script>
-    <script type="text/javascript" src="function-file.js"></script>
+    <script type="text/javascript" src="commands.js"></script>
 </head>
 
 <body>
-  <!-- NOTE: The body is empty on purpose. Since functions in function-file.js are
+  <!-- NOTE: The body is empty on purpose. Since functions in commands.js are
        invoked via a button, there is no UI to render. -->
 </body>
 
@@ -657,7 +657,7 @@ Open the file **./function-file/function-file.html** and replace the entire cont
 
 ### Update the function file (JavaScript)
 
-Open the file **./function-file/function-file.js** and replace the entire contents with the following code. Note that if the `insertDefaultGist` function determines the add-in has not yet been configured, it adds the `?warn=1` parameter to the dialog URL. Doing so makes the settings dialog render the message bar that's defined in **./settings/dialog.html**, to tell the user why they're seeing the dialog.
+Open the file **./commands/commands.js** and replace the entire contents with the following code. Note that if the `insertDefaultGist` function determines the add-in has not yet been configured, it adds the `?warn=1` parameter to the dialog URL. Doing so makes the settings dialog render the message bar that's defined in **./settings/dialog.html**, to tell the user why they're seeing the dialog.
 
 ```js
 var config;
