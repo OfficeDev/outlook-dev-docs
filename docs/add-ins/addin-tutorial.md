@@ -634,7 +634,7 @@ This add-in's **Insert default gist** button is a UI-less button that will invok
 
 ### Update the function file (HTML)
 
-A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/commands/commands.html` as the function file. 
+A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/commands.html` as the function file. 
 
 Open the file **./src/commands/commands.html** and replace the entire contents with the following markup.
 
@@ -852,29 +852,28 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 This add-in's **Insert gist** button will open a task pane and display the user's gists. The user can then select one of the gists to insert into the body of the message. If the user has not yet configured the add-in, they will be prompted to do so.
 
-### Create the HTML file for the task pane
+### Specify the HTML for the task pane
 
-Within the **./src** folder, create a new subfolder named **msg-compose**. In the **./src/message-compose** folder, create a file named **insert-gist.html**, and add the following markup to define the UI for the task pane.
+In the project that you've created, the task pane HTML is specified in the file **./src/taskpane/taskpane.html**. Open that file and replace the entire contents with the following markup. 
 
 ```html
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <title>Landing Page</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
 
-  <!-- Office JavaScript API -->
-  <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 
-  <!-- LOCAL -->
-  <link rel="stylesheet" href="../node_modules/office-ui-fabric-js/dist/css/fabric.min.css" />
-  <link rel="stylesheet" href="../node_modules/office-ui-fabric-js/dist/css/fabric.components.css" />
+    <!-- For more information on Office UI Fabric, visit https://developer.microsoft.com/fabric. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
 
-  <!-- Template styles -->
-
-  <link href="insert-gist.css" rel="stylesheet" type="text/css" />
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="ms-font-l ms-landing-page">
@@ -915,9 +914,9 @@ Within the **./src** folder, create a new subfolder named **msg-compose**. In th
 </html>
 ```
 
-### Create the CSS file for the task pane
+### Specify the CSS for the task pane
 
-Create a file in the **./src/msg-compose** folder named **insert-gist.css**, and add the following code to define the styles used by the task pane.
+In the project that you've created, the task pane CSS is specified in the file **./src/taskpane/taskpane.css**. Open that file and replace the entire contents with the following code. 
 
 ```css
 /* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
@@ -1070,9 +1069,9 @@ ul {
           background: transparent; }
 ```
 
-### Create the JavaScript file for the task pane
+### Specify the JavaScript for the task pane
 
-Create a file in the **./src/msg-compose** folder named **insert-gist.js**, and add the following code to specify the script for the task pane.
+In the project that you've created, the task pane JavaScript is specified in the file **./src/taskpane/taskpane.js**. Open that file and replace the entire contents with the following code. 
 
 ```js
 (function(){
