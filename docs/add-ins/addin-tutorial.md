@@ -334,7 +334,7 @@ This add-in needs to be able to read gists from the user's GitHub account and id
 
 ### Collect data from the user
 
-Let's start by creating the UI for the dialog itself. Within the **./src** folder, create a new subfolder named **settings**. In the **./src/settings** folder, create a file named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. Note that this dialog uses [Office Fabric](https://developer.microsoft.com/fabric#/get-started) for fonts and styles.
+Let's start by creating the UI for the dialog itself. Within the **./src** folder, create a new subfolder named **settings**. In the **./src/settings** folder, create a file named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. 
 
 ```html
 <!DOCTYPE html>
@@ -348,9 +348,8 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
   <!-- Office JavaScript API -->
   <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
 
-  <!-- LOCAL -->
-  <link rel="stylesheet" href="../node_modules/office-ui-fabric-js/dist/css/fabric.min.css" />
-  <link rel="stylesheet" href="../node_modules/office-ui-fabric-js/dist/css/fabric.components.css" />
+  <!-- For more information on Office UI Fabric, visit https://developer.microsoft.com/fabric. -->
+  <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
 
   <!-- Template styles -->
   <link href="../app.css" rel="stylesheet" type="text/css" />
@@ -401,7 +400,6 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
   </main>
   <script type="text/javascript" src="../node_modules/core-js/client/core.js"></script>
   <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
-  <script type="text/javascript" src="../node_modules/office-ui-fabric-js/dist/js/fabric.js"></script>
 
   <script type="text/javascript" src="../helpers/gist-api.js"></script>
   <script type="text/javascript" src="dialog.js"></script>
