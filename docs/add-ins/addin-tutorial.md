@@ -191,7 +191,7 @@ Before going any further, let's test the basic add-in that the generator created
 
 1. In Outlook, open an existing message and select the **Show Taskpane** button. If everything's been set up correctly, the task pane will open and render the add-in's welcome page.
 
-    ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.png)
+    ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane-1.png)
 
 ## Define buttons
 
