@@ -26,7 +26,7 @@ In this tutorial, you will:
 
 * The latest version of [Yeoman](https://yeoman.io/) and the [Yeoman generator for Office Add-ins](https://www.npmjs.com/package/generator-office). To install these tools globally, run the following command from the command prompt:
 
-    ```command line
+    ```command&nbsp;line
     npm install -g yo generator-office
     ```
 
@@ -96,7 +96,7 @@ Use the Yeoman generator to create an Outlook add-in project.
 
 1. Run the following command from the command prompt and then answer the prompts as follows:
 
-    ```command line
+    ```command&nbsp;line
     yo office
     ```
 
@@ -114,13 +114,13 @@ Use the Yeoman generator to create an Outlook add-in project.
 	
 1. Navigate to the root directory of the project.
 
-    ```command line
+    ```command&nbsp;line
     cd "Git the gist"
     ```
 
 1. This add-in will use the [Showdown](https://github.com/showdownjs/showdown) library to convert Markdown to HTML and the [URI.js](https://github.com/medialize/URI.js) library to build relative URLs. To install these tools for your project, run the following command in the root directory of the project:
 
-    ```command line
+    ```command&nbsp;line
     npm install showdown urijs --save
     ```
 

@@ -182,7 +182,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 - Install the latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
 
-    ```command line
+    ```command&nbsp;line
     npm install -g yo generator-office
     ```
 
@@ -190,7 +190,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
 
-    ```command line
+    ```command&nbsp;line
     yo office
     ```
 
@@ -208,7 +208,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. Navigate to the root folder of the web application project.
 
-    ```command line
+    ```command&nbsp;line
     cd "My Office Add-in"
     ```
 
@@ -326,7 +326,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. Open a command prompt in the root directory of your project (**[...]/My Office Add-in**) and run the following command to start the web server at `https://localhost:3000`.
 
-    ```command line
+    ```command&nbsp;line
     npm start
     ```
 
