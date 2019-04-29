@@ -102,7 +102,7 @@
       href: implement-sso-in-outlook-add-in.md
   - name: Testing and tips
     items:
-    - name: Overview of the testing process
+    - name: Overview
       href: testing-and-tips.md
     - name: Sideload an add-in for testing
       href: sideload-outlook-add-ins-for-testing.md
@@ -116,7 +116,7 @@
       href: troubleshoot-outlook-add-in-activation.md
   - name: Publish
     items:
-    - name: Deploy and publish your Office Add-in
+    - name: Overview
       href: /office/dev/add-ins/publish/publish?context=outlook/context
     - name: Host an Office Add-in on Microsoft Azure
       href: /office/dev/add-ins/publish/host-an-office-add-in-on-microsoft-azure?context=outlook/context
