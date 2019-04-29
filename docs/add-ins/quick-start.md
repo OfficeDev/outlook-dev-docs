@@ -193,7 +193,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
 
-    ```powershell
+    ```command&nbsp;line
     yo office
     ```
 
@@ -211,7 +211,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. Navigate to the root folder of the web application project.
 
-    ```bash
+    ```command&nbsp;line
     cd "My Office Add-in"
     ```
 
