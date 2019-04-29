@@ -29,8 +29,9 @@
   - name: Delegate access
     href: delegate-access.md
   - name: Manifests
-    href: manifests.md
     items:
+    - name: Outlook add-in manifests
+      href: manifests.md
     - name: Activation rules
       href: activation-rules.md
     - name: Add support for Outlook Mobile
@@ -50,8 +51,9 @@
   - name: Get or set add-in metadata
     href: metadata-for-an-outlook-add-in.md
   - name: Read scenario
-    href: read-scenario.md
     items:
+    - name: Overview
+      href: read-scenario.md
     - name: Use regular expressions to activate contextual add-ins
       href: use-regular-expressions-to-show-an-outlook-add-in.md
     - name: Match well known entities in an item
@@ -61,8 +63,9 @@
     - name: Get attachments
       href: get-attachments-of-an-outlook-item.md
   - name: Compose scenario
-    href: compose-scenario.md
     items:
+    - name: Overview
+      href: compose-scenario.md
     - name: Add and remove attachments
       href: add-and-remove-attachments-to-an-item-in-a-compose-form.md
     - name: Get and set item data
@@ -78,13 +81,15 @@
     - name: Get and set location
       href: get-or-set-the-location-of-an-appointment.md
   - name: Privacy and security
-    href: privacy-and-security.md
     items:
+    - name: Overview
+      href: privacy-and-security.md
     - name: Understanding add-in permissions
       href: understanding-outlook-add-in-permissions.md
   - name: Authentication
-    href: authentication.md
     items:
+    - name: Overview
+      href: authentication.md
     - name: Authenticate with SSO token
       href: authenticate-a-user-with-an-sso-token.md
     - name: Authenticate with an identity token
@@ -96,8 +101,9 @@
     - name: "Scenario: Implement single sign-on"
       href: implement-sso-in-outlook-add-in.md
   - name: Testing and tips
-    href: testing-and-tips.md
     items:
+    - name: Overview of the testing process
+      href: testing-and-tips.md
     - name: Sideload an add-in for testing
       href: sideload-outlook-add-ins-for-testing.md
     - name: Compare add-in support in Outlook for Mac
@@ -109,8 +115,9 @@
     - name: Troubleshoot add-in activation
       href: troubleshoot-outlook-add-in-activation.md
   - name: Publish
-    href: /office/dev/add-ins/publish/publish?context=outlook/context
     items:
+    - name: Deploy and publish your Office Add-in
+      href: /office/dev/add-ins/publish/publish?context=outlook/context
     - name: Host an Office Add-in on Microsoft Azure
       href: /office/dev/add-ins/publish/host-an-office-add-in-on-microsoft-azure?context=outlook/context
     - name: Package your add-in using Visual Studio

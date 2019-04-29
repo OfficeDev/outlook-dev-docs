@@ -1,8 +1,9 @@
 - name: Overview
   href: index.md
 - name: Get Started
-  href: get-started.md
   items:
+  - name: Using the Outlook REST APIs
+    href: get-started.md
   - name: .NET
     href: dotnet-tutorial.md
   - name: iOS
@@ -20,8 +21,9 @@
   - name: Ruby
     href: ruby-tutorial.md
 - name: Concepts
-  href: concepts.md
   items:
+  - name: Overview
+    href: concepts.md
   - name: Compare Graph and Outlook
     href: compare-graph.md
 - name: Reference
