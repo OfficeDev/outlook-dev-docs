@@ -986,7 +986,7 @@ In the project that you've created, the task pane HTML is specified in the file 
   <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
   <script type="text/javascript" src="../helpers/addin-config.js"></script>
   <script type="text/javascript" src="../helpers/gist-api.js"></script>
-  <script type="text/javascript" src="insert-gist.js"></script>
+  <script type="text/javascript" src="taskpane.js"></script>
 </body>
 
 </html>
