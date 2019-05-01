@@ -974,7 +974,7 @@ In the project that you've created, the task pane HTML is specified in the file 
   </main>
   <footer class="ms-landing-page__footer ms-bgColor-themePrimary">
     <div class="ms-landing-page__footer--left">
-      <img src="../assets/logo-filled.png" />
+      <img src="../../assets/logo-filled.png" />
       <h1 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-white">Git the gist</h1>
     </div>
     <div id="settings-icon" class="ms-landing-page__footer--right">
