@@ -549,10 +549,10 @@ Finally, open the file **webpack.config.js** file in the root directory of the p
       taskpane: "./src/taskpane/taskpane.js",
       commands: "./src/commands/commands.js",
       dialog: "./src/settings/dialog.js"
-    }
+    },
     ```
   
-2. Locate the `plugins` array within the `config` object and these two new objects to the end of that array.
+2. Locate the `plugins` array within the `config` object and add these two new objects to the end of that array.
 
     ```js
     new HtmlWebpackPlugin({
@@ -600,7 +600,7 @@ Finally, open the file **webpack.config.js** file in the root directory of the p
         from: "./src/settings/dialog.css"
       }
       ])
-    ]
+    ],
     ```
 
 3. If the web server is running, run the following command to stop it.
