@@ -558,7 +558,7 @@ Finally, open the file **webpack.config.js** file in the root directory of the p
     new HtmlWebpackPlugin({
       filename: "dialog.html",
       template: "./src/settings/dialog.html",
-      chunks: ['polyfill', 'dialog']
+      chunks: ["polyfill", "dialog"]
     }),
     new CopyWebpackPlugin([
       {
