@@ -201,14 +201,6 @@ Now that you've verified the base add-in works, you can customize it to add more
 
 - **Insert default gist**: a button that invokes a function
 
-### Specify the function file URL
-
-Open the **manifest.xml** file and locate the `FunctionFile` element. Within the `FunctionFile` element, set the `resid` attribute value to `Commands.Url`.
-
-```xml
-<FunctionFile resid="Commands.Url"/>
-```
-
 ### Remove the MessageReadCommandSurface extension point
 
 Open the **manifest.xml** file and locate the `ExtensionPoint` element with type `MessageReadCommandSurface`. Delete this `ExtensionPoint` element (including its closing tag) to remove the buttons from the read message window.
@@ -240,9 +232,9 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
           <Description resid="TaskpaneButton.Tooltip"/>
         </Supertip>
         <Icon>
-          <bt:Image size="16" resid="tpicon_16x16"/>
-          <bt:Image size="32" resid="tpicon_32x32"/>
-          <bt:Image size="80" resid="tpicon_80x80"/>
+          <bt:Image size="16" resid="Icon.16x16"/>
+          <bt:Image size="32" resid="Icon.32x32"/>
+          <bt:Image size="80" resid="Icon.80x80"/>
         </Icon>
         <Action xsi:type="ShowTaskpane">
           <SourceLocation resid="Taskpane.Url"/>
@@ -255,9 +247,9 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
           <Description resid="FunctionButton.Tooltip"/>
         </Supertip>
         <Icon>
-          <bt:Image size="16" resid="tpicon_16x16"/>
-          <bt:Image size="32" resid="tpicon_32x32"/>
-          <bt:Image size="80" resid="tpicon_80x80"/>
+          <bt:Image size="16" resid="Icon.16x16"/>
+          <bt:Image size="32" resid="Icon.32x32"/>
+          <bt:Image size="80" resid="Icon.80x80"/>
         </Icon>
         <Action xsi:type="ExecuteFunction">
           <FunctionName>insertDefaultGist</FunctionName>
@@ -279,9 +271,9 @@ The previous code references labels, tooltips, and URLs that you need to define 
     ```xml
     <Resources>
       <bt:Images>
-        <bt:Image id="tpicon_16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="tpicon_32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="tpicon_80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
