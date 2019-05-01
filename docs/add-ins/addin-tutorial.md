@@ -295,7 +295,6 @@ The previous code references labels, tooltips, and URLs that you need to define 
 
 1. Save your changes to the manifest. 
 
-
 ### Reinstall the add-in
 
 Since you previously installed the add-in from a file, you must reinstall it in order for the manifest changes to take effect. 
@@ -338,13 +337,12 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
   <title>Settings</title>
 
   <!-- Office JavaScript API -->
-  <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
+  <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 
   <!-- For more information on Office UI Fabric, visit https://developer.microsoft.com/fabric. -->
   <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
 
   <!-- Template styles -->
-  <link href="../app.css" rel="stylesheet" type="text/css" />
   <link href="dialog.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -637,7 +635,7 @@ Open the file **./src/commands/commands.html** and replace the entire contents w
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
     <!-- Office JavaScript API -->
-    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../node_modules/showdown/dist/showdown.min.js"></script>
