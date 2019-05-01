@@ -531,6 +531,8 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
 })();
 ```
 
+#### Update webpack config settings
+
 Finally, open the file **webpack.config.js** file in the root directory of the project and complete the following steps.
 
 1. Locate the `entry` object within the `config` object and add a new entry for `dialog`.
