@@ -531,6 +531,94 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
 })();
 ```
 
+Finally, open the file **webpack.config.js** file in the root directory of the project and complete the following steps.
+
+1. Locate the `entry` object within the `config` object and add a new entry for `dialog`.
+
+    ```js
+    dialog: "./src/settings/dialog.js"
+    ```
+
+    After you've done this, the new `entry` object will look like this:
+
+    ```js
+    entry: {
+      polyfill: "@babel/polyfill",
+      taskpane: "./src/taskpane/taskpane.js",
+      commands: "./src/commands/commands.js",
+      dialog: "./src/settings/dialog.js"
+    }
+    ```
+  
+2. Locate the `plugins` array within the `config` object and these two new objects to the end of that array.
+
+    ```js
+    new HtmlWebpackPlugin({
+      filename: "dialog.html",
+      template: "./src/settings/dialog.html",
+      chunks: ['polyfill', 'dialog']
+    }),
+    new CopyWebpackPlugin([
+      {
+        to: "dialog.css",
+        from: "./src/settings/dialog.css"
+      }
+    ])
+    ```
+
+    After you've done this, the new `plugins` array will look like this:
+
+    ```js
+    plugins: [
+      new CleanWebpackPlugin(dev ? [] : ["dist"]),
+      new HtmlWebpackPlugin({
+        filename: "taskpane.html",
+        template: "./src/taskpane/taskpane.html",
+        chunks: ['polyfill', 'taskpane']
+      }),
+      new CopyWebpackPlugin([
+      {
+        to: "taskpane.css",
+        from: "./src/taskpane/taskpane.css"
+      }
+      ]),
+      new HtmlWebpackPlugin({
+        filename: "commands.html",
+        template: "./src/commands/commands.html",
+        chunks: ["polyfill", "commands"]
+      }),
+      new HtmlWebpackPlugin({
+        filename: "dialog.html",
+        template: "./src/settings/dialog.html",
+        chunks: ['polyfill', 'dialog']
+      }),
+      new CopyWebpackPlugin([
+      {
+        to: "dialog.css",
+        from: "./src/settings/dialog.css"
+      }
+      ])
+    ]
+    ```
+
+3. If the web server is running, run the following command to stop it.
+
+    ```command&nbsp;line
+    npm run stop
+    ```
+
+4. Run the following command to rebuild the project.
+
+    ```command&nbsp;line
+    npm run build 
+    ```
+
+5. Run the following command to start the web server.
+
+    ```command&nbsp;line
+    npm start 
+    ```
+
 ### Fetch data from GitHub
 
 The **dialog.js** file you just created specifies that the add-in should load gists when the `change` event fires for the GitHub username field. To retrieve the user's gists from GitHub, you'll use the [GitHub Gists API](https://developer.github.com/v3/gists/).
