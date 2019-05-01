@@ -4,7 +4,6 @@ description: Actionable Messages enable you to take quick actions right from wit
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 08/02/2018
 ms.author: jasonjoh
 nodes_to_expand: get-started
 localization_priority: Priority
@@ -23,19 +22,15 @@ Office 365 provides two solutions to enhance productivity with Outlook Actionabl
 
 Let's take a look at the end-to-end user experience for both an email-based and a connectors-based actionable message scenario.
 
-### Actionable messages via email: expense approval scenario
+### Actionable messages via email: group membership request approval scenario
 
-A Contoso employee submits an expense report to the internal system. That system sends an Actionable Message to the person who is to approve or reject the expense. The card included in the message contains all the information the approver might need to quickly understand who submitted the expense, the total amount, and more. It also includes **Approve** and **Reject** actions that can be taken right from Outlook:
+A Contoso employee submits a request to join a private Office 365 group. Office 365 sends an Actionable Message to the person who owns the group to approve or decline the request. The card included in the message contains all the information the approver might need to quickly understand who submitted the request and any message they included to explain their request. It also includes **Approve** and **Decline** actions that can be taken right from Outlook. The owner approves the request, and the card updates to indicate the outcome.
 
-![An expense report message card rendered in Outlook](images/expense-report-approval.png)
+![An join group request message card rendered in Outlook for iOS](images/group-join-request-ios.png)
 
-The recipient decides to approve the request, and clicks the **Approve** action:
+The new member of the group submits a second request to add her team members to the group. Office 365 send an Actionable Message to the owner with clear information about who submitted the request and the new members to add. The recipient can approve all, some, or none of the proposed new members. The owner approves one new member and declines the other, and the card updates to indicate the outcome.
 
-![An expense report message card displaying a spinner, indicating it is processing a user action](images/expense-report-progress.png)
-
-Outlook makes a request to the expense report approval system, and the expense report is marked as "approved" in the system. As a result, the card is refreshed to indicate the new status of the expense report:
-
-![The refreshed card rendered in Outlook](images/expense-report-refresh.png)
+![An add group members message card rendered in Outlook for iOS](images/group-add-members-request-ios.png)
 
 ### Actionable messages via Office 365 Connectors: task management scenario
 
@@ -97,17 +92,17 @@ For information on admin controls, look at the FAQ section of this <a target="_b
 
 Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Office 365 ProPlus](https://support.office.com/en-us/article/Overview-of-update-channels-for-Office-365-ProPlus-9ccf0f13-28ff-4975-9bd2-7e4ea2fefef4).
 
-| Client | Actionable messages supported? | Adaptive card supported? |
-|--------|--------------------------------|--------------------------|
-| Outlook on the web for Office 365| Yes | Yes |
-| Office 365 ProPlus Monthly Channel | Yes, in version 1705, Build 8201 | Yes, in version 1805, Build 9330 |
-| Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes, in version 1708, Build 8431 | Yes, in version 1808, Build 10730.20262 |
-| Office 365 ProPlus Semi-Annual Channel | Yes, in version 1708, Build 8431.2153 | Yes, in version 1808, Build 10730.20264 |
-| Outlook 2016 for Mac | Coming Soon | Coming Soon |
-| Outlook for iOS | Coming Soon | Coming Soon |
-| Outlook for Android | Coming Soon | Coming Soon |
-| Office Professional Plus 2016 | Actionable Messages are available for Office 365 only | No |
-| Exchange 2016 On-Premises Outlook on the web | Actionable Messages are available for Office 365 only | No |
+| Client                                            | Actionable messages supported?                        | Adaptive card supported? |
+|---------------------------------------------------|-------------------------------------------------------|---|
+| Outlook on the web for Office 365                 | Yes                                                   | Yes |
+| Office 365 ProPlus Monthly Channel                | Yes, in version 1705, Build 8201                      | Yes, in version 1805, Build 9330 |
+| Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes, in version 1708, Build 8431                      | Yes, in version 1808, Build 10730.20262 |
+| Office 365 ProPlus Semi-Annual Channel            | Yes, in version 1708, Build 8431.2153                 | Yes, in version 1808, Build 10730.20264 |
+| Outlook 2016 for Mac                              | Coming Soon                                           | Coming Soon |
+| Outlook for iOS                                   | Adaptive Card Only                                    | Yes - Support is rolling out in waves to users |
+| Outlook for Android                               | Adaptive Card Only                                    | Q2 CY2019 |
+| Office Professional Plus 2016                     | Actionable Messages are available for Office 365 only | No |
+| Exchange 2016 On-Premises Outlook on the web      | Actionable Messages are available for Office 365 only | No |
 
 ## Submit feedback
 
