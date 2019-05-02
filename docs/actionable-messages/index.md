@@ -26,13 +26,13 @@ Let's take a look at the end-to-end user experience for both an email-based and 
 
 A Contoso employee submits a request to join a private Office 365 group. Office 365 sends an Actionable Message to the person who owns the group to approve or decline the request. The card included in the message contains all the information the approver might need to quickly understand who submitted the request and any message they included to explain their request. It also includes **Approve** and **Decline** actions that can be taken right from Outlook. The owner approves the request, and the card updates to indicate the outcome.
 
-<!-- markdownlint-disable MD045 -->
-[![](images/group-join-request-ios-lrg.png "A join group request message card rendered in Outlook for iOS")](images/group-join-request-ios-lrg.png#lightbox)
-<!-- markdownlint-enable MD045 -->
+![A join group request message card rendered in Outlook for iOS](images/group-join-request-ios.png)
 
 The new member of the group submits a second request to add her team members to the group. Office 365 send an Actionable Message to the owner with clear information about who submitted the request and the new members to add. The recipient can approve all, some, or none of the proposed new members. The owner approves one new member and declines the other, and the card updates to indicate the outcome.
 
-![An add group members message card rendered in Outlook for iOS](images/group-add-members-request-ios.png)
+![An add group members message card showing the first requested member being approved as rendered in Outlook for iOS](images/group-add-members-request-ios-1.png)
+
+![An add group members message card showing the second requested member being declined as rendered in Outlook for iOS](images/group-add-members-request-ios-2.png)
 
 ### Actionable messages via Office 365 Connectors: task management scenario
 
