@@ -2,7 +2,7 @@
 title: Build an Outlook task pane add-in
 description: Learn how to build a simple Outlook add-in by using jQuery and the Office JS API and test it locally.
 ms.topic: quickstart
-ms.date: 04/23/2019
+ms.date: 05/02/2019
 localization_priority: Priority
 ---
 
@@ -182,7 +182,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 - The latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office). To install these tools globally, run the following command via the command prompt:
 
-    ```
+    ```command&nbsp;line
     npm install -g yo generator-office
     ```
 
@@ -252,7 +252,7 @@ The add-in project that you've created with the Yeoman generator contains sample
 
 1. Start the local web server by running the following command:
 
-    ```
+    ```command&nbsp;line
     npm start
     ```
 
