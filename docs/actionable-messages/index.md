@@ -28,9 +28,11 @@ A Contoso employee submits a request to join a private Office 365 group. Office 
 
 ![A join group request message card rendered in Outlook for iOS](images/group-join-request-ios.png)
 
-The new member of the group submits a second request to add her team members to the group. Office 365 send an Actionable Message to the owner with clear information about who submitted the request and the new members to add. The recipient can approve all, some, or none of the proposed new members. The owner approves one new member and declines the other, and the card updates to indicate the outcome.
+The new member of the group submits a second request to add her team members to the group. Office 365 send an Actionable Message to the owner with clear information about who submitted the request and the new members to add. The recipient can approve all, some, or none of the proposed new members. The owner approves one new member, and the card updates to indicate the outcome.
 
 ![An add group members message card showing the first requested member being approved as rendered in Outlook for iOS](images/group-add-members-request-ios-1.png)
+
+The owner declines the other requested new member, and the card updates to indicate the outcome.
 
 ![An add group members message card showing the second requested member being declined as rendered in Outlook for iOS](images/group-add-members-request-ios-2.png)
 
