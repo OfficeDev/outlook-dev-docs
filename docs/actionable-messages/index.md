@@ -103,10 +103,13 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes, in version 1708, Build 8431                      | Yes, in version 1808, Build 10730.20262 |
 | Office 365 ProPlus Semi-Annual Channel            | Yes, in version 1708, Build 8431.2153                 | Yes, in version 1808, Build 10730.20264 |
 | Outlook 2016 for Mac                              | Coming Soon                                           | Coming Soon |
-| Outlook for iOS                                   | Adaptive Card Only                                    | Yes - Support is rolling out in waves to users |
-| Outlook for Android                               | Adaptive Card Only                                    | Q2 CY2019 |
+| Outlook for iOS                                   | Yes (see note below)                                  | Yes (Legacy MessageCard format is not supported) |
+| Outlook for Android                               | Q2 CY2019 (see note below)                            | Yes (Legacy MessageCard format is not supported) |
 | Office Professional Plus 2016                     | Actionable Messages are available for Office 365 only | No |
 | Exchange 2016 On-Premises Outlook on the web      | Actionable Messages are available for Office 365 only | No |
+
+> [!NOTE]
+> Actionable message support in Outlook for iOS and Outlook for Android requires the user to be on the [native Microsoft sync technology](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/outlook-for-ios-and-android#data-synchronization-protocol). Users are being migrated to this new technology in waves.
 
 ## Submit feedback
 
