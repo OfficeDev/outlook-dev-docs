@@ -1,3 +1,4 @@
+
 ---
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
@@ -121,10 +122,16 @@ Use the Yeoman generator to create an Outlook add-in project.
     cd "Git the gist"
     ```
 
-1. This add-in will use the [Showdown](https://github.com/showdownjs/showdown) library to convert Markdown to HTML and the [URI.js](https://github.com/medialize/URI.js) library to build relative URLs. To install these tools for your project, run the following command in the root directory of the project:
+1. This add-in will use the following libraries:
+
+    - [Showdown](https://github.com/showdownjs/showdown) library to convert Markdown to HTML
+    - [URI.js](https://github.com/medialize/URI.js) library to build relative URLs.
+    - [jquery](https://jquery.com/) library to simplify DOM interactions.
+    
+     To install these tools for your project, run the following command in the root directory of the project:
 
     ```command&nbsp;line
-    npm install showdown urijs --save
+    npm install showdown urijs jquery --save
     ```
 
 ### Update the manifest
@@ -317,7 +324,7 @@ After you've reinstalled the add-in, you can verify that it installed successful
 
 - If you're running this add-in in Outlook on the web, you should see a new button at the bottom of the message compose window. Select that button to see the options **Insert gist** and **Insert default gist**.
 
-    ![A screenshot of the message compose form in Outlook for the web with the add-in button and pop-up menu highlighted](images/addin-tutorial/add-in-buttons-owa.png)
+    ![A screenshot of the message compose form in Outlook for the web with the add-in button and pop-up menu highlighted](images/addin-tutorial/add-in-buttons-for-owa.png)
 
 ## Implement a first-run experience
 
@@ -388,8 +395,8 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
       </div>
     </section>
   </main>
-  <script type="text/javascript" src="../node_modules/core-js/client/core.js"></script>
-  <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="../../node_modules/core-js/client/core.js"></script>
+  <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
 
   <script type="text/javascript" src="../helpers/gist-api.js"></script>
   <script type="text/javascript" src="dialog.js"></script>
@@ -730,8 +737,8 @@ Open the file **./src/commands/commands.html** and replace the entire contents w
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../node_modules/showdown/dist/showdown.min.js"></script>
     <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
-    <script type="text/javascript" src="../helpers/addin-config.js"></script>
-    <script type="text/javascript" src="../helpers/gist-api.js"></script>
+    <script type="text/javascript" src="../src/helpers/addin-config.js"></script>
+    <script type="text/javascript" src="../src/helpers/gist-api.js"></script>
     <script type="text/javascript" src="commands.js"></script>
 </head>
 
@@ -802,7 +809,7 @@ function insertDefaultGist(event) {
     btnEvent = event;
     // Not configured yet, display settings dialog with
     // warn=1 to display warning.
-    var url = new URI('../settings/dialog.html?warn=1').absoluteTo(window.location).toString();
+    var url = new URI('../src/settings/dialog.html?warn=1').absoluteTo(window.location).toString();
     var dialogOptions = { width: 20, height: 40, displayInIframe: true };
 
     Office.context.ui.displayDialogAsync(url, dialogOptions, function(result) {
@@ -984,8 +991,8 @@ In the project that you've created, the task pane HTML is specified in the file 
   <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../node_modules/showdown/dist/showdown.min.js"></script>
   <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
-  <script type="text/javascript" src="../helpers/addin-config.js"></script>
-  <script type="text/javascript" src="../helpers/gist-api.js"></script>
+  <script type="text/javascript" src="../src/helpers/addin-config.js"></script>
+  <script type="text/javascript" src="../src/helpers/gist-api.js"></script>
   <script type="text/javascript" src="taskpane.js"></script>
 </body>
 
@@ -1200,7 +1207,7 @@ In the project that you've created, the task pane JavaScript is specified in the
       // When the settings icon is selected, open the settings dialog
       $('#settings-icon').on('click', function(){
         // Display settings dialog
-        var url = new URI('../settings/dialog.html').absoluteTo(window.location).toString();
+        var url = new URI('../src/settings/dialog.html').absoluteTo(window.location).toString();
         if (config) {
           // If the add-in has already been configured, pass the existing values
           // to the dialog
