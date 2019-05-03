@@ -352,7 +352,7 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
   <link href="dialog.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="ms-Fabric ms-font-l">
+<body class="ms-font-l">
   <main>
     <section class="ms-font-m ms-fontColor-neutralPrimary">
       <div class="not-configured-warning ms-MessageBar ms-MessageBar--warning">
@@ -666,7 +666,7 @@ function buildGistList(parent, gists, clickFunc) {
 
     var desc = $('<span/>')
       .addClass('ms-ListItem-tertiaryText')
-      .text('Last updated ' + updated.toLocaleString())
+      .text(' - Last updated ' + updated.toLocaleString())
       .appendTo(listItem);
 
     var selTarget = $('<div/>')
@@ -968,7 +968,7 @@ In the project that you've created, the task pane HTML is specified in the file 
     <link href="taskpane.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="ms-Fabric ms-font-l ms-landing-page">
+<body class="ms-font-l ms-landing-page">
   <main class="ms-landing-page__main">
     <section class="ms-landing-page__content ms-font-m ms-fontColor-neutralPrimary">
       <div id="not-configured" style="display: none;">
