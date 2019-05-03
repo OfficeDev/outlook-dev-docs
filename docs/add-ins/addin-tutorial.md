@@ -1,4 +1,3 @@
-
 ---
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
