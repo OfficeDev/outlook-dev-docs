@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
-ms.date: 05/02/2019
+ms.date: 05/03/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -35,7 +35,7 @@ In this tutorial, you will:
 
 - Outlook 2016 or later for Windows (connected to an Office 365 account) or Outlook on the web
 
-- A [GitHub](https://www.github.com) account 
+- A [GitHub](https://www.github.com) account
 
 ## Setup
 
@@ -43,14 +43,14 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
 1. [Login to GitHub](https://github.com/login).
 
-1. [Create a new gist](https://gist.github.com). 
+1. [Create a new gist](https://gist.github.com).
 
     - In the **Gist description...** field, enter **Hello World Markdown**.
 
     - In the **Filename including extension...** field, enter **test.md**.
 
     - Add the following markdown to the multiline textbox:
-    
+
         ```markdown
         # Hello World
 
@@ -67,7 +67,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
     - Select the **Create public gist** button.
 
-1. [Create another new gist](https://gist.github.com). 
+1. [Create another new gist](https://gist.github.com).
 
     - In the **Gist description...** field, enter **Hello World Html**.
 
@@ -82,7 +82,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
             h1 {
               font-family: Calibri;
             }
-            </style>      
+            </style>
           </head>
           <body>
             <h1>Hello World!</h1>
@@ -114,7 +114,7 @@ Use the Yeoman generator to create an Outlook add-in project.
     ![A screenshot of the prompts and answers for the Yeoman generator](images/addin-tutorial/yeoman-prompts-2.png)
     
     After you complete the wizard, the generator will create the project and install supporting Node components.
-	
+
 1. Navigate to the root directory of the project.
 
     ```command&nbsp;line
@@ -126,7 +126,7 @@ Use the Yeoman generator to create an Outlook add-in project.
     - [Showdown](https://github.com/showdownjs/showdown) library to convert Markdown to HTML
     - [URI.js](https://github.com/medialize/URI.js) library to build relative URLs.
     - [jquery](https://jquery.com/) library to simplify DOM interactions.
-    
+
      To install these tools for your project, run the following command in the root directory of the project:
 
     ```command&nbsp;line
@@ -135,7 +135,7 @@ Use the Yeoman generator to create an Outlook add-in project.
 
 ### Update the manifest
 
-The manifest for an add-in controls how it appears in Outlook. It defines the way the add-in appears in the add-in list and the buttons that appear on the ribbon, and it sets the URLs for the HTML and JavaScript files used by the add-in. 
+The manifest for an add-in controls how it appears in Outlook. It defines the way the add-in appears in the add-in list and the buttons that appear on the ribbon, and it sets the URLs for the HTML and JavaScript files used by the add-in.
 
 #### Specify a support page
 
@@ -182,16 +182,16 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 
 #### Test the generated add-in
 
-Before going any further, let's test the basic add-in that the generator created to confirm that the project is set up correctly. 
+Before going any further, let's test the basic add-in that the generator created to confirm that the project is set up correctly.
 
-1. At the command prompt, make sure you're in the root directory of your project. Start the local web server by running the following command:
+1. At the command prompt, make sure you're in the root directory of your project. Start the local web server by running the following command, which should open a node command window.
 
     ```
     npm start
     ```
 
     > [!NOTE]
-    > Office Add-ins should use HTTPS, not HTTP, even when you are developing. If you are prompted to install a certificate after you run `npm start`, accept the prompt to install the certificate that the Yeoman generator provides. 
+    > Office Add-ins should use HTTPS, not HTTP, even when you are developing. If you are prompted to install a certificate after you run `npm start`, accept the prompt to install the certificate that the Yeoman generator provides.
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file that's located in the root directory of the project.
 
@@ -268,7 +268,7 @@ Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately b
 
 ### Update resources in the manifest
 
-The previous code references labels, tooltips, and URLs that you need to define before the manifest will be valid. You'll specify this information in the `Resources` section of the manifest. 
+The previous code references labels, tooltips, and URLs that you need to define before the manifest will be valid. You'll specify this information in the `Resources` section of the manifest.
 
 1. Locate the `Resources` element in the manifest file and delete the entire element (including its closing tag).
 
@@ -294,18 +294,18 @@ The previous code references labels, tooltips, and URLs that you need to define 
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Displays a list of your gists and allows you to insert their contents into the current message."/>
-        <bt:String id="FunctionButton.Tooltip" DefaultValue="Inserts the content of the gist you mark as default into the current message"/>
+        <bt:String id="FunctionButton.Tooltip" DefaultValue="Inserts the content of the gist you mark as default into the current message."/>
       </bt:LongStrings>
     </Resources>
     ```
 
-1. Save your changes to the manifest. 
+1. Save your changes to the manifest.
 
 ### Reinstall the add-in
 
-Since you previously installed the add-in from a file, you must reinstall it in order for the manifest changes to take effect. 
+Since you previously installed the add-in from a file, you must reinstall it in order for the manifest changes to take effect.
 
-1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to locate the **Custom add-ins** section at the bottom of the **My add-ins** dialog box. 
+1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to locate the **Custom add-ins** section at the bottom of the **My add-ins** dialog box.
 
 1. Select the **...** button next to the **Git the gist** entry and then choose **Remove**.
 
@@ -317,7 +317,7 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 
 After you've reinstalled the add-in, you can verify that it installed successfully by checking for the commands **Insert gist** and **Insert default gist** in the message compose window. Note that nothing will happen if you select either of these items, because you haven't yet finished building this add-in.
 
-- If you're running this add-in in Outlook 2016 or later for Windows, you should see two new buttons in the ribbon of the message compose window: **Insert gist** and **Insert default gist**. 
+- If you're running this add-in in Outlook 2016 or later for Windows, you should see two new buttons in the ribbon of the message compose window: **Insert gist** and **Insert default gist**.
 
     ![A screenshot of the ribbon in Outlook for Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-windows.png)
 
@@ -331,7 +331,7 @@ This add-in needs to be able to read gists from the user's GitHub account and id
 
 ### Collect data from the user
 
-Let's start by creating the UI for the dialog itself. Within the **./src** folder, create a new subfolder named **settings**. In the **./src/settings** folder, create a file named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript. 
+Let's start by creating the UI for the dialog itself. Within the **./src** folder, create a new subfolder named **settings**. In the **./src/settings** folder, create a file named **dialog.html**, and add the following markup to define a very basic form with a text input for a GitHub username and an empty list for gists that'll be populated via JavaScript.
 
 ```html
 <!DOCTYPE html>
@@ -352,7 +352,7 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
   <link href="dialog.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="ms-font-l">
+<body class="ms-Fabric ms-font-l">
   <main>
     <section class="ms-font-m ms-fontColor-neutralPrimary">
       <div class="not-configured-warning ms-MessageBar ms-MessageBar--warning">
@@ -440,17 +440,17 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
 (function(){
   'use strict';
 
-  // The Office initialize function must be run each time a new page is loaded
+  // The Office initialize function must be run each time a new page is loaded.
   Office.initialize = function(reason){
     jQuery(document).ready(function(){
       if (window.location.search) {
-        // Check if warning should be displayed
+        // Check if warning should be displayed.
         var warn = getParameterByName('warn');
         if (warn) {
           $('.not-configured-warning').show();
         } else {
-          // See if the config values were passed
-          // If so, pre-populate the values
+          // See if the config values were passed.
+          // If so, pre-populate the values.
           var user = getParameterByName('gitHubUserName');
           var gistId = getParameterByName('defaultGistId');
 
@@ -467,7 +467,7 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
       }
 
       // When the GitHub username changes,
-      // try to load gists
+      // try to load gists.
       $('#github-user').on('change', function(){
         $('#gist-list').empty();
         var ghUser = $('#github-user').val();
@@ -495,7 +495,7 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
   };
 
   // Load gists for the user using the GitHub API
-  // and build the list
+  // and build the list.
   function loadGists(user, callback) {
     getUserGists(user, function(gists, error){
       if (error) {
@@ -578,7 +578,7 @@ Finally, open the file **webpack.config.js** file in the root directory of the p
 
     ```js
     plugins: [
-      new CleanWebpackPlugin(dev ? [] : ["dist"]),
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         filename: "taskpane.html",
         template: "./src/taskpane/taskpane.html",
@@ -609,22 +609,18 @@ Finally, open the file **webpack.config.js** file in the root directory of the p
     ],
     ```
 
-3. If the web server is running, run the following command to stop it.
-
-    ```command&nbsp;line
-    npm run stop
-    ```
+3. If the web server is running, close the node command window.
 
 4. Run the following command to rebuild the project.
 
     ```command&nbsp;line
-    npm run build 
+    npm run build
     ```
 
 5. Run the following command to start the web server.
 
     ```command&nbsp;line
-    npm start 
+    npm start
     ```
 
 ### Fetch data from GitHub
@@ -682,7 +678,7 @@ function buildGistList(parent, gists, clickFunc) {
       .attr('type', 'hidden')
       .val(gist.id)
       .appendTo(listItem);
-      
+
       listItem.on('click', clickFunc);
   });  
 }
@@ -706,19 +702,19 @@ function buildFileList(files) {
 ```
 
 > [!NOTE]
-> You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured when the user selects either the **Insert default gist** button or the **Insert gist** button. If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding. 
+> You may have noticed that there's no button to invoke the settings dialog. Instead, the add-in will check whether it has been configured when the user selects either the **Insert default gist** button or the **Insert gist** button. If the add-in has not yet been configured, the settings dialog will prompt the user to configure before proceeding.
 
 ## Implement a UI-less button
 
-This add-in's **Insert default gist** button is a UI-less button that will invoke a JavaScript function, rather than open a task pane like many add-in buttons do. When the user selects the **Insert default gist** button, the corresponding JavaScript function will check whether the add-in has been configured. 
+This add-in's **Insert default gist** button is a UI-less button that will invoke a JavaScript function, rather than open a task pane like many add-in buttons do. When the user selects the **Insert default gist** button, the corresponding JavaScript function will check whether the add-in has been configured.
 
-- If the add-in has already been configured, the function will load the content of the gist that the user has selected as the default and insert it into the body of the message. 
+- If the add-in has already been configured, the function will load the content of the gist that the user has selected as the default and insert it into the body of the message.
 
-- If the add-in hasn't yet been configured, then the settings dialog will prompt the user to provide the required information. 
+- If the add-in hasn't yet been configured, then the settings dialog will prompt the user to provide the required information.
 
 ### Update the function file (HTML)
 
-A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/commands.html` as the function file. 
+A function that's invoked by a UI-less button must be defined in the file that's specified by the `FunctionFile` element in the manifest for the corresponding form factor. This add-in's manifest specifies `https://localhost:3000/commands.html` as the function file.
 
 Open the file **./src/commands/commands.html** and replace the entire contents with the following markup.
 
@@ -776,9 +772,9 @@ function insertDefaultGist(event) {
 
   config = getConfig();
 
-  // Check if the add-in has been configured
+  // Check if the add-in has been configured.
   if (config && config.defaultGistId) {
-    // Get the default gist content and insert
+    // Get the default gist content and insert.
     try {
       getGist(config.defaultGistId, function(gist, error) {
         if (gist) {
@@ -804,7 +800,7 @@ function insertDefaultGist(event) {
     }
 
   } else {
-    // Save the event object so we can finish up later
+    // Save the event object so we can finish up later.
     btnEvent = event;
     // Not configured yet, display settings dialog with
     // warn=1 to display warning.
@@ -834,6 +830,18 @@ function dialogClosed(message) {
   btnEvent.completed();
   btnEvent = null;
 }
+
+function getGlobal() {
+  return (typeof self !== "undefined") ? self :
+    (typeof window !== "undefined") ? window :
+    (typeof global !== "undefined") ? global :
+    undefined;
+}
+
+var g = getGlobal();
+
+// The add-in command functions need to be available in global scope.
+g.insertDefaultGist = insertDefaultGist;
 ```
 
 ### Create a file to manage configuration settings
@@ -860,11 +868,11 @@ function setConfig(config, callback) {
 
 ### Create new functions to process gists
 
-Next, open the **./src/helpers/gist-api.js** file and add the following functions. Note the following: 
+Next, open the **./src/helpers/gist-api.js** file and add the following functions. Note the following:
 
-- If the gist contains HTML, the add-in will insert the HTML as-is into the body of the message. 
+- If the gist contains HTML, the add-in will insert the HTML as-is into the body of the message.
 
-- If the gist contains Markdown, the add-in will use the [Showdown](https://github.com/showdownjs/showdown) library to convert the Markdown to HTML, and will then insert the resulting HTML into the body of the message. 
+- If the gist contains Markdown, the add-in will use the [Showdown](https://github.com/showdownjs/showdown) library to convert the Markdown to HTML, and will then insert the resulting HTML into the body of the message.
 
 - If the gist contains anything other than HTML or Markdown, the add-in will insert it into the body of the message as a code snippet.
 
@@ -889,20 +897,20 @@ function buildBodyContent(gist, callback) {
     if (gist.files.hasOwnProperty(filename)) {
       var file = gist.files[filename];
       if (!file.truncated) {
-        // We have a winner
+        // We have a winner.
         switch (file.language) {
           case 'HTML':
-            // Insert as-is
+            // Insert as-is.
             callback(file.content);
             break;
           case 'Markdown':
-            // Convert Markdown to HTML
+            // Convert Markdown to HTML.
             var converter = new showdown.Converter();
             var html = converter.makeHtml(file.content);
             callback(html);
             break;
           default:
-            // Insert contents as a <code> block
+            // Insert contents as a <code> block.
             var codeBlock = '<pre><code>';
             codeBlock = codeBlock + file.content;
             codeBlock = codeBlock + '</code></pre>';
@@ -918,9 +926,9 @@ function buildBodyContent(gist, callback) {
 
 ### Test the button
 
-Save all of your changes and run `npm start` from the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert default gist** button. 
+Save all of your changes and run `npm start` from the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert default gist** button.
 
-1. Open Outlook and compose a new message. 
+1. Open Outlook and compose a new message.
 
 1. In the compose message window, select the **Insert default gist** button. You should be prompted to configure the add-in.
 
@@ -938,7 +946,7 @@ This add-in's **Insert gist** button will open a task pane and display the user'
 
 ### Specify the HTML for the task pane
 
-In the project that you've created, the task pane HTML is specified in the file **./src/taskpane/taskpane.html**. Open that file and replace the entire contents with the following markup. 
+In the project that you've created, the task pane HTML is specified in the file **./src/taskpane/taskpane.html**. Open that file and replace the entire contents with the following markup.
 
 ```html
 <!DOCTYPE html>
@@ -960,7 +968,7 @@ In the project that you've created, the task pane HTML is specified in the file 
     <link href="taskpane.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="ms-font-l ms-landing-page">
+<body class="ms-Fabric ms-font-l ms-landing-page">
   <main class="ms-landing-page__main">
     <section class="ms-landing-page__content ms-font-m ms-fontColor-neutralPrimary">
       <div id="not-configured" style="display: none;">
@@ -1000,7 +1008,7 @@ In the project that you've created, the task pane HTML is specified in the file 
 
 ### Specify the CSS for the task pane
 
-In the project that you've created, the task pane CSS is specified in the file **./src/taskpane/taskpane.css**. Open that file and replace the entire contents with the following code. 
+In the project that you've created, the task pane CSS is specified in the file **./src/taskpane/taskpane.css**. Open that file and replace the entire contents with the following code.
 
 ```css
 /* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
@@ -1155,7 +1163,7 @@ ul {
 
 ### Specify the JavaScript for the task pane
 
-In the project that you've created, the task pane JavaScript is specified in the file **./src/taskpane/taskpane.js**. Open that file and replace the entire contents with the following code. 
+In the project that you've created, the task pane JavaScript is specified in the file **./src/taskpane/taskpane.js**. Open that file and replace the entire contents with the following code.
 
 ```js
 (function(){
@@ -1172,10 +1180,10 @@ In the project that you've created, the task pane JavaScript is specified in the
 
       // Check if add-in is configured
       if (config && config.gitHubUserName) {
-        // If configured load the gist list
+        // If configured, load the gist list.
         loadGists(config.gitHubUserName);
       } else {
-        // Not configured yet
+        // Not configured yet.
         $('#not-configured').show();
       }
 
@@ -1203,13 +1211,13 @@ In the project that you've created, the task pane JavaScript is specified in the
         });
       });
 
-      // When the settings icon is selected, open the settings dialog
+      // When the settings icon is selected, open the settings dialog.
       $('#settings-icon').on('click', function(){
-        // Display settings dialog
+        // Display settings dialog.
         var url = new URI('../src/settings/dialog.html').absoluteTo(window.location).toString();
         if (config) {
           // If the add-in has already been configured, pass the existing values
-          // to the dialog
+          // to the dialog.
           url = url + '?gitHubUserName=' + config.gitHubUserName + '&defaultGistId=' + config.defaultGistId;
         }
 
@@ -1268,9 +1276,9 @@ In the project that you've created, the task pane JavaScript is specified in the
 
 ### Test the button
 
-Save all of your changes and run `npm start` from the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert gist** button. 
+Save all of your changes and run `npm start` from the command prompt, if the server isn't already running. Then complete the following steps to test the **Insert gist** button.
 
-1. Open Outlook and compose a new message. 
+1. Open Outlook and compose a new message.
 
 1. In the compose message window, select the **Insert gist** button. You should see a task pane open to the right of the compose form.
 
@@ -1280,7 +1288,7 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 ## Next steps
 
-In this tutorial, you've created an Outlook add-in that can be used in message compose mode to insert content into the body of a message. To learn more about developing Outlook add-ins, continue to the following article: 
+In this tutorial, you've created an Outlook add-in that can be used in message compose mode to insert content into the body of a message. To learn more about developing Outlook add-ins, continue to the following article:
 
 > [!div class="nextstepaction"]
 > [Outlook add-in APIs](apis.md)
