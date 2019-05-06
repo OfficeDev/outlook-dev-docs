@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
-ms.date: 05/03/2019
+ms.date: 05/06/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -177,7 +177,7 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 1. Locate the `Description` element, replace the default value with a description of the add-in, and save the file.
 
     ```xml
-    <Description DefaultValue="Allows users to access their GitHub gists"/>
+    <Description DefaultValue="Allows users to access their GitHub gists."/>
     ```
 
 #### Test the generated add-in
@@ -215,7 +215,7 @@ Open the **manifest.xml** file and locate the `ExtensionPoint` element with type
 
 Locate the line in the manifest that reads `</DesktopFormFactor>`. Immediately before this line, insert the following XML markup. Note the following about this markup:
 
-- The `ExtensionPoint` with `xsi:type="MessageComposeCommandSurface"` indicates that you're defining buttons to add to the message compose window.
+- The `ExtensionPoint` with `xsi:type="MessageComposeCommandSurface"` indicates that you're defining buttons to add to the compose message window.
 
 - By using an `OfficeTab` element with `id="TabDefault"`, you're indicating you want to add the buttons to the default tab on the ribbon.
 
@@ -315,13 +315,13 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to reinstall the add-in using the updated **manifest.xml** file.
 
-After you've reinstalled the add-in, you can verify that it installed successfully by checking for the commands **Insert gist** and **Insert default gist** in the message compose window. Note that nothing will happen if you select either of these items, because you haven't yet finished building this add-in.
+After you've reinstalled the add-in, you can verify that it installed successfully by checking for the commands **Insert gist** and **Insert default gist** in a compose message window. Note that nothing will happen if you select either of these items, because you haven't yet finished building this add-in.
 
-- If you're running this add-in in Outlook 2016 or later for Windows, you should see two new buttons in the ribbon of the message compose window: **Insert gist** and **Insert default gist**.
+- If you're running this add-in in Outlook 2016 or later for Windows, you should see two new buttons in the ribbon of the compose message window: **Insert gist** and **Insert default gist**.
 
     ![A screenshot of the ribbon in Outlook for Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-windows.png)
 
-- If you're running this add-in in Outlook on the web, you should see a new button at the bottom of the message compose window. Select that button to see the options **Insert gist** and **Insert default gist**.
+- If you're running this add-in in Outlook on the web, you should see a new button at the bottom of the compose message window. Select that button to see the options **Insert gist** and **Insert default gist**.
 
     ![A screenshot of the message compose form in Outlook for the web with the add-in button and pop-up menu highlighted](images/addin-tutorial/add-in-buttons-for-owa.png)
 
@@ -659,7 +659,7 @@ function buildGistList(parent, gists, clickFunc) {
 
     var desc = $('<span/>')
       .addClass('ms-ListItem-secondaryText')
-      .text(buildFileList(gist.files))
+      .text(' - ' + buildFileList(gist.files))
       .appendTo(listItem);
 
     var updated = new Date(gist.updated_at);
@@ -991,7 +991,7 @@ In the project that you've created, the task pane HTML is specified in the file 
       <img src="../../assets/logo-filled.png" />
       <h1 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-white">Git the gist</h1>
     </div>
-    <div id="settings-icon" class="ms-landing-page__footer--right">
+    <div id="settings-icon" class="ms-landing-page__footer--right" aria-label="Settings">
       <i class="ms-Icon enlarge ms-Icon--Settings ms-fontColor-white"></i>
     </div>
   </footer>
@@ -1178,7 +1178,7 @@ In the project that you've created, the task pane JavaScript is specified in the
 
       config = getConfig();
 
-      // Check if add-in is configured
+      // Check if add-in is configured.
       if (config && config.gitHubUserName) {
         // If configured, load the gist list.
         loadGists(config.gitHubUserName);
@@ -1241,6 +1241,7 @@ In the project that you've created, the task pane JavaScript is specified in the
       if (error) {
 
       } else {
+        $('#gist-list').empty();
         buildGistList($('#gist-list'), gists, onGistSelected);
       }
     });
