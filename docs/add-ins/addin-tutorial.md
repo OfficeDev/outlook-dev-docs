@@ -944,8 +944,8 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 1. Select the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
 
-  > [!NOTE]
-  > Outlook for Windows: To pick up the latest settings, you may need to close and reopen the compose message window.
+   > [!NOTE]
+   > Outlook for Windows: To pick up the latest settings, you may need to close and reopen the compose message window.
 
 ## Implement a task pane
 
