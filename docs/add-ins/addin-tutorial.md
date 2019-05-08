@@ -655,7 +655,6 @@ function buildGistList(parent, gists, clickFunc) {
     var radioItem = $('<input>')
       .addClass('ms-ListItem')
       .addClass('is-selectable')
-      .addClass('ms-ListItem-primaryText')
       .attr('type', 'radio')
       .attr('name', 'gists')
       .attr('tabindex', 0)
