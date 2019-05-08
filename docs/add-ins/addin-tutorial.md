@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 05/07/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -381,8 +381,10 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
         </div>
         <div class="gist-list-container ms-Grid-row">
           <div class="list-title ms-font-xl ms-fontWeight-regular">Choose Default Gist</div>
-          <ul id="gist-list" class="ms-List">
-          </ul>
+          <form>
+            <div id="gist-list">
+            </div>
+          </form>
         </div>
       </div>
       <div class="ms-Dialog-actions">
@@ -432,6 +434,11 @@ section {
 ul {
   margin-top: 10px;
 }
+
+.ms-ListItem-secondaryText,
+.ms-ListItem-tertiaryText {
+  padding-left: 15px;
+}
 ```
 
 Now that you've defined the dialog UI, you can write the code that makes it actually do something. Create a file in the **./src/settings** folder named **dialog.js** and add the following code. Note that this code uses jQuery to register events and uses the `messageParent` function to send the user's choices back to the caller.
@@ -457,9 +464,10 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
           $('#github-user').val(user);
           loadGists(user, function(success){
             if (success) {
-              $('input:hidden').filter(function() {
+              $('.ms-ListItem').removeClass('is-selected');
+              $('input').filter(function() {
                 return this.value === gistId;
-              }).parent().addClass('is-selected');
+              }).addClass('is-selected').attr('checked', 'checked');
               $('#settings-done').removeAttr('disabled');
             }
           });
@@ -484,9 +492,9 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
 
         settings.gitHubUserName = $('#github-user').val();
 
-        var selectedGist = $('li.is-selected');
+        var selectedGist = $('.ms-ListItem.is-selected');
         if (selectedGist) {
-          settings.defaultGistId = selectedGist.children('.gist-id').val();
+          settings.defaultGistId = selectedGist.val();
 
           sendMessage(JSON.stringify(settings));
         }
@@ -513,8 +521,8 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
   }
 
   function onGistSelected() {
-    $('.ms-ListItem').removeClass('is-selected');
-    $(this).addClass('is-selected');
+    $('.ms-ListItem').removeClass('is-selected').removeAttr('checked');
+    $(this).children('.ms-ListItem').addClass('is-selected').attr('checked', 'checked');
     $('.not-configured-warning').hide();
     $('#settings-done').removeAttr('disabled');
   }
@@ -644,13 +652,19 @@ function getUserGists(user, callback) {
 }
 
 function buildGistList(parent, gists, clickFunc) {
-  gists.forEach(function(gist, index) {
+  gists.forEach(function(gist) {
 
-    var listItem = $('<li/>')
+    var listItem = $('<div/>')
+      .appendTo(parent);
+
+    var radioItem = $('<input>')
       .addClass('ms-ListItem')
       .addClass('is-selectable')
-      .attr('tabindex', index)
-      .appendTo(parent);
+      .attr('type', 'radio')
+      .attr('name', 'gists')
+      .attr('tabindex', 0)
+      .val(gist.id)
+      .appendTo(listItem);
 
     var desc = $('<span/>')
       .addClass('ms-ListItem-primaryText')
@@ -669,17 +683,7 @@ function buildGistList(parent, gists, clickFunc) {
       .text(' - Last updated ' + updated.toLocaleString())
       .appendTo(listItem);
 
-    var selTarget = $('<div/>')
-      .addClass('ms-ListItem-selectionTarget')
-      .appendTo(listItem);
-
-    var id = $('<input/>')
-      .addClass('gist-id')
-      .attr('type', 'hidden')
-      .val(gist.id)
-      .appendTo(listItem);
-
-      listItem.on('click', clickFunc);
+    listItem.on('click', clickFunc);
   });  
 }
 
@@ -753,11 +757,11 @@ Open the file **./src/commands/commands.js** and replace the entire contents wit
 var config;
 var btnEvent;
 
-// The initialize function must be run each time a new page is loaded
+// The initialize function must be run each time a new page is loaded.
 Office.initialize = function (reason) {
 };
 
-// Add any ui-less function here
+// Add any ui-less function here.
 function showError(error) {
   Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
     type: 'errorMessage',
@@ -976,13 +980,15 @@ In the project that you've created, the task pane HTML is specified in the file 
         <div class="ms-font-xl" id="settings-prompt">Please choose the <strong>Settings</strong> icon at the bottom of this window to configure this add-in.</div>
       </div>
       <div id="gist-list-container" style="display: none;">
-        <ul id="gist-list" class="ms-List">
-        </ul>
+        <form>
+          <div id="gist-list">
+          </div>
+        </form>
       </div>
       <div id="error-display" style="display: none;" class="ms-u-borderBase ms-fontColor-error ms-font-m ms-bgColor-error ms-borderColor-error">
       </div>
     </section>
-    <button class="ms-Button ms-Button--primary" id="insert-button" disabled>
+    <button class="ms-Button ms-Button--primary" id="insert-button" tabindex=0 disabled>
       <span class="ms-Button-label">Insert</span>
     </button>
   </main>
@@ -991,7 +997,7 @@ In the project that you've created, the task pane HTML is specified in the file 
       <img src="../../assets/logo-filled.png" />
       <h1 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-white">Git the gist</h1>
     </div>
-    <div id="settings-icon" class="ms-landing-page__footer--right" aria-label="Settings">
+    <div id="settings-icon" class="ms-landing-page__footer--right" aria-label="Settings" tabindex=0>
       <i class="ms-Icon enlarge ms-Icon--Settings ms-fontColor-white"></i>
     </div>
   </footer>
@@ -1070,6 +1076,11 @@ ul {
   position: relative;
   font-size: 20px;
   top: 4px; }
+
+.ms-ListItem-secondaryText,
+.ms-ListItem-tertiaryText {
+  padding-left: 15px;
+}
 
 .ms-landing-page {
   display: -webkit-flex;
@@ -1190,14 +1201,14 @@ In the project that you've created, the task pane JavaScript is specified in the
       // When insert button is selected, build the content
       // and insert into the body.
       $('#insert-button').on('click', function(){
-        var gistId = $('.ms-ListItem.is-selected').children('.gist-id').val();
+        var gistId = $('.ms-ListItem.is-selected').val();
         getGist(gistId, function(gist, error) {
           if (gist) {
             buildBodyContent(gist, function (content, error) {
               if (content) {
                 Office.context.mailbox.item.body.setSelectedDataAsync(content,
                   {coercionType: Office.CoercionType.Html}, function(result) {
-                    if (result.status == 'failed') {
+                    if (result.status === Office.AsyncResultStatus.Failed) {
                       showError('Could not insert gist: ' + result.error.message);
                     }
                 });
@@ -1248,8 +1259,8 @@ In the project that you've created, the task pane JavaScript is specified in the
   }
 
   function onGistSelected() {
-    $('.ms-ListItem').removeClass('is-selected');
-    $(this).addClass('is-selected');
+    $('.ms-ListItem').removeClass('is-selected').removeAttr('checked');
+    $(this).children('.ms-ListItem').addClass('is-selected').attr('checked', 'checked');
     $('#insert-button').removeAttr('disabled');
   }
 
