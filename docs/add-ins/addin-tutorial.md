@@ -521,8 +521,8 @@ Now that you've defined the dialog UI, you can write the code that makes it actu
   }
 
   function onGistSelected() {
-    $('.ms-ListItem').removeClass('is-selected');
-    $(this).children('.ms-ListItem').addClass('is-selected');
+    $('.ms-ListItem').removeClass('is-selected').removeAttr('checked');
+    $(this).children('.ms-ListItem').addClass('is-selected').attr('checked', 'checked');
     $('.not-configured-warning').hide();
     $('#settings-done').removeAttr('disabled');
   }
@@ -1259,8 +1259,8 @@ In the project that you've created, the task pane JavaScript is specified in the
   }
 
   function onGistSelected() {
-    $('.ms-ListItem').removeClass('is-selected');
-    $(this).children('.ms-ListItem').addClass('is-selected');
+    $('.ms-ListItem').removeClass('is-selected').removeAttr('checked');
+    $(this).children('.ms-ListItem').addClass('is-selected').attr('checked', 'checked');
     $('#insert-button').removeAttr('disabled');
   }
 
