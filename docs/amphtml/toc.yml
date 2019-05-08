@@ -6,4 +6,6 @@
   href: register-outlook.md
 - name: Security Requirements
   href: security-requirements.md
+- name: Authenticate Requests
+  href: authentication.md
   
