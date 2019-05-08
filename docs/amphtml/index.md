@@ -27,7 +27,7 @@ We will closely monitor the interest and feedback from Outlook users and the ema
 
 ## Get Started
 
-1. Learn about AMP for Email. Its important for you to understand the fundamentals.
+1. Read the [AMP for Email specification](https://amp.dev/documentation/guides-and-tutorials/learn/amp-email-format). Its important for you to understand the fundamentals.
 1. Develop your code using [AMP Components](https://amp.dev/documentation/components/?format=email) and test using the [AMP Playground](https://playground.amp.dev/?runtime=amp4email)
 1. [Send email to your mailbox](test-amp-email.md) to verify it works
 1. Before sending emails to your customers, [register to be come an authorized sender](register-outlook.md). Note that you will need to meet all [security requirements](security-requiremets) before you can become an authorized sender.
