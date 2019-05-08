@@ -12,4 +12,6 @@ localization_priority: Priority
 
 Here's the overview!
 
+This is a test commit :)
+
 ![This is a logo](images/logo.png)
