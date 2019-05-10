@@ -2,7 +2,7 @@
 title: Outlook add-in requirements
 description: For Outlook add-ins to load and function properly, there are a number of requirements for both the servers and the clients. 
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/10/2019
 localization_priority: Priority
 ---
 
@@ -14,7 +14,7 @@ For Outlook add-ins to load and function properly, there are a number of require
 
 - The client must be one of the supported hosts for Outlook add-ins. The following clients support add-ins:
 
-   - Outlook 2013 or later for Windows
+   - Outlook 2013 or later on Windows
    - Outlook 2016 or later for Mac
    - Outlook for iOS
    - Outlook for Android

@@ -33,7 +33,7 @@ In this tutorial, you will:
     > [!NOTE]
     > Even if you've previously installed the Yeoman generator, we recommend you update your package to the latest version from npm.
 
-- Outlook 2016 or later for Windows (connected to an Office 365 account) or Outlook on the web
+- Outlook 2016 or later on Windows (connected to an Office 365 account) or Outlook on the web
 
 - A [GitHub](https://www.github.com) account
 
@@ -317,9 +317,9 @@ Since you previously installed the add-in from a file, you must reinstall it in 
 
 After you've reinstalled the add-in, you can verify that it installed successfully by checking for the commands **Insert gist** and **Insert default gist** in a compose message window. Note that nothing will happen if you select either of these items, because you haven't yet finished building this add-in.
 
-- If you're running this add-in in Outlook 2016 or later for Windows, you should see two new buttons in the ribbon of the compose message window: **Insert gist** and **Insert default gist**.
+- If you're running this add-in in Outlook 2016 or later on Windows, you should see two new buttons in the ribbon of the compose message window: **Insert gist** and **Insert default gist**.
 
-    ![A screenshot of the ribbon in Outlook for Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-windows.png)
+    ![A screenshot of the ribbon in Outlook on Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-windows.png)
 
 - If you're running this add-in in Outlook on the web, you should see a new button at the bottom of the compose message window. Select that button to see the options **Insert gist** and **Insert default gist**.
 
@@ -945,7 +945,7 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 1. Select the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
 
    > [!NOTE]
-   > Outlook for Windows: To pick up the latest settings, you may need to close and reopen the compose message window.
+   > Outlook on Windows: To pick up the latest settings, you may need to close and reopen the compose message window.
 
 ## Implement a task pane
 

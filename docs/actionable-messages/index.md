@@ -58,7 +58,7 @@ Office 365 Connectors are a great way to get useful information and content into
 
 ## Accessing Office 365 Connectors from Outlook
 
-Office 365 Connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web, or Outlook 2016 or later for Windows.
+Office 365 Connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web, or Outlook 2016 or later on Windows.
 
 ### Accessing connectors in Outlook on the web
 
