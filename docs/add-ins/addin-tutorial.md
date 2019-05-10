@@ -936,11 +936,11 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 1. In the compose message window, select the **Insert default gist** button. You should be prompted to configure the add-in.
 
-    ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.png)
+    ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure-1.png)
 
 1. In the settings dialog, enter your GitHub username and then either **Tab** or click elsewhere in the dialog to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and select **Done**.
 
-    ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.png)
+    ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings-1.png)
 
 1. Select the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
 
@@ -1299,7 +1299,7 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 1. In the task pane, select the **Hello World Html** gist and select **Insert** to insert that gist into the body of the message.
 
-![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.png)
+![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane-1.png)
 
 ## Next steps
 
