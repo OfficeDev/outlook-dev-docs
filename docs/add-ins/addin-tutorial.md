@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -943,6 +943,9 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
     ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.png)
 
 1. Select the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
+
+   > [!NOTE]
+   > Outlook for Windows: To pick up the latest settings, you may need to close and reopen the compose message window.
 
 ## Implement a task pane
 
