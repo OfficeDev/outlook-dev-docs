@@ -2,7 +2,7 @@
 title: Sideload Outlook add-ins for testing
 description: Use sideloading to install an Outlook add-in for testing without having to first put it in an add-in catalog.
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 05/10/2019
 localization_priority: Priority
 ---
 
@@ -66,7 +66,7 @@ The process for sideloading an add-in in Outlook in Office 365 depends upon whet
 
 ## Sideload an add-in in Outlook on the desktop
 
-1. Open Outlook 2013 or later for Windows, or Outlook 2016 or later for Mac.
+1. Open Outlook 2013 or later on Windows, or Outlook 2016 or later for Mac.
 
 1. Select the **Get Add-ins** button on the ribbon.
 
