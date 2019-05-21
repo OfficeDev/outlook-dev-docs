@@ -2,7 +2,7 @@
 title: Outlook add-in design
 description: Guidelines to help you design and build a compelling add-in, which brings the best of your app right into Outlook on Windows, Web, iOS, Mac, and Android.
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/21/2019
 localization_priority: Priority
 ---
 
@@ -48,7 +48,7 @@ The following high-level guidelines will help you design and build a compelling 
 > [!NOTE]
 > While the above principles apply to all endpoints/platforms, the following patterns and examples are specific to mobile add-ins on the iOS platform.
 
-To help you create a well-designed add-in, we have [templates](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns/blob/master/assets/iOS-Addins-Components-Final.sketch) that contain iOS mobile patterns that work within the Outlook Mobile environment. Leveraging these specific patterns will help ensure your add-in feels native to both the iOS platform and Outlook Mobile. These patterns are also detailed below. While not exhaustive, this is the start of a library that we will continue to build upon as we uncover additional paradigms partners wish to include in their add-ins.  
+To help you create a well-designed add-in, we have [templates](/office/dev/add-ins/design/ux-design-pattern-templates) that contain iOS mobile patterns that work within the Outlook Mobile environment. Leveraging these specific patterns will help ensure your add-in feels native to both the iOS platform and Outlook Mobile. These patterns are also detailed below. While not exhaustive, this is the start of a library that we will continue to build upon as we uncover additional paradigms partners wish to include in their add-ins.  
 
 ### Overview
 
