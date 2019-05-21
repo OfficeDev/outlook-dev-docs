@@ -4,7 +4,7 @@ description: Learn about security requirements for actionable messages and how t
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 10/25/2018
+ms.date: 05/21/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -32,7 +32,7 @@ While DKIM and SPF are sufficient for some scenarios, that solution will not wor
 DKIM and SPF are industry standard ways to prove a sender's identity when sending emails over SMTP. Many companies already implement these standards to secure the emails they are already sending. To learn more about SPF/DKIM and how to implement them, see:
 
 - [DomainKeys Identified Mail (DKIM)](http://www.dkim.org/)
-- [Sender Policy Framework](http://www.openspf.org/)
+- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)
 
 ### Signed card payloads
 
