@@ -2,7 +2,7 @@
 title: Outlook add-ins overview
 description: Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform. 
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/10/2019
 localization_priority: Priority
 ---
 
@@ -10,7 +10,7 @@ localization_priority: Priority
 
 Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform. Outlook add-ins have three key aspects:
 
-- The same add-in and business logic works across desktop (Outlook for Windows and Mac), web (Office 365 and Outlook.com), and mobile.
+- The same add-in and business logic works across desktop (Outlook on Windows and Mac), web (Office 365 and Outlook.com), and mobile.
 - Outlook add-ins consist of a manifest, which describes how the add-in integrates into Outlook (for example, a button or a task pane), and JavaScript/HTML code, which makes up the UI and business logic of the add-in.
 - Outlook add-ins can be acquired from the Office store or [side-loaded](sideload-outlook-add-ins-for-testing.md) by end-users or administrators.
 
@@ -64,7 +64,7 @@ In general, Outlook can activate add-ins in read form for items in the Sent Item
 
 ## Supported hosts
 
-Outlook add-ins are supported in Outlook 2013 or later for Windows, Outlook 2016 or later for Mac, Outlook Web App for Exchange 2013 on-premises and later versions, Outlook for iOS, Outlook for Android, and Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all [clients](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#clients) at the same time. Please refer to articles and API references for those features to see which hosts they may or may not be supported in.
+Outlook add-ins are supported in Outlook 2013 or later on Windows, Outlook 2016 or later for Mac, Outlook Web App for Exchange 2013 on-premises and later versions, Outlook for iOS, Outlook for Android, and Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all [clients](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#clients) at the same time. Please refer to articles and API references for those features to see which hosts they may or may not be supported in.
 
 
 ## Get started building Outlook add-ins

@@ -2,7 +2,7 @@
 title: Privacy, permissions, and security for Outlook add-ins
 description: Learn how to manage privacy, permissions, and security in an Outlook add-in.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/10/2019
 localization_priority: Priority
 ---
 
@@ -169,7 +169,7 @@ The security model provides the following rights and responsibilities to adminis
     
 - Can disable or enable any Outlook add-in on the Exchange Admin Center.
     
-- Applicable to only Outlook for Windows: Can override performance threshold settings by GPO registry settings.
+- Applicable to only Outlook on Windows: Can override performance threshold settings by GPO registry settings.
     
 
 

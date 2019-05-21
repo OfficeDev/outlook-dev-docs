@@ -2,7 +2,7 @@
 title: Troubleshoot Outlook contextual add-in activation
 description: If your add-in doesn't activate as you expect, you should look into the following areas for possible reasons.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/10/2019
 localization_priority: Priority
 ---
 
@@ -74,7 +74,7 @@ If your add-in is a compose add-in and is supposed to be activated when the user
 
 ## Is the add-in manifest installed properly, and does Outlook have a cached copy?
 
-This scenario applies to only Outlook for Windows. Normally, when you install an Outlook add-in for a mailbox, the Exchange Server copies the add-in manifest from the location you indicate to the mailbox on that Exchange Server. Every time the Outlook starts, it reads all the manifests installed for that mailbox into a temporary cache at the following location:
+This scenario applies to only Outlook on Windows. Normally, when you install an Outlook add-in for a mailbox, the Exchange Server copies the add-in manifest from the location you indicate to the mailbox on that Exchange Server. Every time Outlook starts, it reads all the manifests installed for that mailbox into a temporary cache at the following location:
 
 ```text
 %LocalAppData%\Microsoft\Office\15.0\WEF
@@ -179,7 +179,7 @@ If you use an **ItemHasRegularExpressionMatch** activation rule, verify whether 
 
 - If the selected item is a message and you specify **BodyAsHTML** in the **PropertyName** attribute, open the message, and then choose **View Source** to verify the message body in the HTML representation of that item.
 
-- If the selected item is an appointment, or if the activation rule specifies **BodyAsPlaintext** in the **PropertyName**, you can use the Outlook object model and the Visual Basic Editor in Outlook for Windows:
+- If the selected item is an appointment, or if the activation rule specifies **BodyAsPlaintext** in the **PropertyName**, you can use the Outlook object model and the Visual Basic Editor in Outlook on Windows:
 
     1. Ensure that macros are enabled and the **Developer** tab is displayed in the ribbon for Outlook.
 
