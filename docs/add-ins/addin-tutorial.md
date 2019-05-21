@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -738,7 +738,6 @@ Open the file **./src/commands/commands.html** and replace the entire contents w
     <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
     <script type="text/javascript" src="../src/helpers/addin-config.js"></script>
     <script type="text/javascript" src="../src/helpers/gist-api.js"></script>
-    <script type="text/javascript" src="commands.js"></script>
 </head>
 
 <body>
