@@ -4,7 +4,7 @@ description: Learn about security requirements for actionable messages and how t
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 10/25/2018
+ms.date: 05/21/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
