@@ -401,6 +401,7 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
   <script type="text/javascript" src="../../node_modules/core-js/client/core.js"></script>
   <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../helpers/gist-api.js"></script>
+  <script type="text/javascript" src="dialog.js"></script>
 </body>
 
 </html>
@@ -1008,6 +1009,7 @@ In the project that you've created, the task pane HTML is specified in the file 
   <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
   <script type="text/javascript" src="../src/helpers/addin-config.js"></script>
   <script type="text/javascript" src="../src/helpers/gist-api.js"></script>
+  <script type="text/javascript" src="taskpane.js"></script>
 </body>
 
 </html>
