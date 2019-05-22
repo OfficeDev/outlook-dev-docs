@@ -35,6 +35,8 @@ In this tutorial, you will:
 
 - Outlook 2016 or later on Windows (connected to an Office 365 account) or Outlook on the web
 
+- [Git](https://git-scm.com/downloads)
+
 - A [GitHub](https://www.github.com) account
 
 ## Setup

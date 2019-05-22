@@ -189,6 +189,8 @@ When you've completed the wizard, Visual Studio creates a solution that contains
     > [!NOTE]
     > Even if you've previously installed the Yeoman generator, we recommend you update your package to the latest version from npm.
 
+- - [Git](https://git-scm.com/downloads)
+
 ### Create the add-in project
 
 1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
