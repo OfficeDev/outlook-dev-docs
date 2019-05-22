@@ -734,7 +734,7 @@ Open the file **./src/commands/commands.html** and replace the entire contents w
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../node_modules/showdown/dist/showdown.min.js"></script>
     <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
-    <script type="text/javascript" src="../src/helpers/config.js"></script>
+    <script type="text/javascript" src="../src/helpers/ghconfig.js"></script>
     <script type="text/javascript" src="../src/helpers/gist.js"></script>
 </head>
 
@@ -847,7 +847,7 @@ g.insertDefaultGist = insertDefaultGist;
 
 ### Create a file to manage configuration settings
 
-The HTML function file references a file named **config.js**, which doesn't yet exist. Create a file named **config.js** in the **./src/helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
+The HTML function file references a file named **ghconfig.js**, which doesn't yet exist. Create a file named **ghconfig.js** in the **./src/helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
 
 ```js
 function getConfig() {
@@ -1004,7 +1004,7 @@ In the project that you've created, the task pane HTML is specified in the file 
   <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../node_modules/showdown/dist/showdown.min.js"></script>
   <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
-  <script type="text/javascript" src="../src/helpers/config.js"></script>
+  <script type="text/javascript" src="../src/helpers/ghconfig.js"></script>
   <script type="text/javascript" src="../src/helpers/gist.js"></script>
 </body>
 
