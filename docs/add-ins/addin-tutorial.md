@@ -399,7 +399,7 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
   <script type="text/javascript" src="../../node_modules/core-js/client/core.js"></script>
   <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
 
-  <script type="text/javascript" src="../helpers/gist-api.js"></script>
+  <script type="text/javascript" src="../helpers/gist.js"></script>
   <script type="text/javascript" src="dialog.js"></script>
 </body>
 
@@ -635,7 +635,7 @@ Finally, open the file **webpack.config.js** file in the root directory of the p
 
 The **dialog.js** file you just created specifies that the add-in should load gists when the `change` event fires for the GitHub username field. To retrieve the user's gists from GitHub, you'll use the [GitHub Gists API](https://developer.github.com/v3/gists/).
 
-Within the **./src** folder, create a new subfolder named **helpers**. In the **./src/helpers** folder, create a file named **gist-api.js**, and add the following code to retrieve the user's gists from GitHub and build the list of gists.
+Within the **./src** folder, create a new subfolder named **helpers**. In the **./src/helpers** folder, create a file named **gist.js**, and add the following code to retrieve the user's gists from GitHub and build the list of gists.
 
 ```js
 function getUserGists(user, callback) {
@@ -736,8 +736,8 @@ Open the file **./src/commands/commands.html** and replace the entire contents w
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../node_modules/showdown/dist/showdown.min.js"></script>
     <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
-    <script type="text/javascript" src="../src/helpers/addin-config.js"></script>
-    <script type="text/javascript" src="../src/helpers/gist-api.js"></script>
+    <script type="text/javascript" src="../src/helpers/config.js"></script>
+    <script type="text/javascript" src="../src/helpers/gist.js"></script>
 </head>
 
 <body>
@@ -849,7 +849,7 @@ g.insertDefaultGist = insertDefaultGist;
 
 ### Create a file to manage configuration settings
 
-The HTML function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **./src/helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
+The HTML function file references a file named **config.js**, which doesn't yet exist. Create a file named **config.js** in the **./src/helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
 
 ```js
 function getConfig() {
@@ -871,7 +871,7 @@ function setConfig(config, callback) {
 
 ### Create new functions to process gists
 
-Next, open the **./src/helpers/gist-api.js** file and add the following functions. Note the following:
+Next, open the **./src/helpers/gist.js** file and add the following functions. Note the following:
 
 - If the gist contains HTML, the add-in will insert the HTML as-is into the body of the message.
 
@@ -1006,8 +1006,8 @@ In the project that you've created, the task pane HTML is specified in the file 
   <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../node_modules/showdown/dist/showdown.min.js"></script>
   <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
-  <script type="text/javascript" src="../src/helpers/addin-config.js"></script>
-  <script type="text/javascript" src="../src/helpers/gist-api.js"></script>
+  <script type="text/javascript" src="../src/helpers/config.js"></script>
+  <script type="text/javascript" src="../src/helpers/gist.js"></script>
   <script type="text/javascript" src="taskpane.js"></script>
 </body>
 
