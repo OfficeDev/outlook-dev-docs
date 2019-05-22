@@ -24,6 +24,8 @@ In this tutorial, you will:
 
 - [Node.js](https://nodejs.org) (version 8.0.0 or later)
 
+- [Git](https://git-scm.com/downloads)
+
 - The latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office). To install these tools globally, run the following command via the command prompt:
 
     ```command&nbsp;line
@@ -34,8 +36,6 @@ In this tutorial, you will:
     > Even if you've previously installed the Yeoman generator, we recommend you update your package to the latest version from npm.
 
 - Outlook 2016 or later on Windows (connected to an Office 365 account) or Outlook on the web
-
-- [Git](https://git-scm.com/downloads)
 
 - A [GitHub](https://www.github.com) account
 
