@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -23,6 +23,8 @@ In this tutorial, you will:
 ## Prerequisites
 
 - [Node.js](https://nodejs.org) (version 8.0.0 or later)
+
+- [Git](https://git-scm.com/downloads)
 
 - The latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office). To install these tools globally, run the following command via the command prompt:
 
@@ -398,7 +400,6 @@ Let's start by creating the UI for the dialog itself. Within the **./src** folde
   </main>
   <script type="text/javascript" src="../../node_modules/core-js/client/core.js"></script>
   <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
-
   <script type="text/javascript" src="../helpers/gist-api.js"></script>
   <script type="text/javascript" src="dialog.js"></script>
 </body>
@@ -738,7 +739,6 @@ Open the file **./src/commands/commands.html** and replace the entire contents w
     <script type="text/javascript" src="../node_modules/urijs/src/URI.min.js"></script>
     <script type="text/javascript" src="../src/helpers/addin-config.js"></script>
     <script type="text/javascript" src="../src/helpers/gist-api.js"></script>
-    <script type="text/javascript" src="commands.js"></script>
 </head>
 
 <body>
