@@ -186,14 +186,21 @@ Next, make the following updates in the **manifest.xml** file to specify some ba
 
 Before going any further, let's test the basic add-in that the generator created to confirm that the project is set up correctly.
 
-1. At the command prompt, make sure you're in the root directory of your project. Start the local web server by running the following command, which should open a node command window.
+> [!NOTE]
+> Office Add-ins should use HTTPS, not HTTP, even when you are developing. If you are prompted to install a certificate after you run one of the following commands, accept the prompt to install the certificate that the Yeoman generator provides.
 
-    ```
+> [!TIP]
+> If you're testing your add-in on Mac, run the following command before proceeding. When you run this command, the local web server will start.
+>
+> ```command&nbsp;line
+> npm run dev-server
+> ```
+
+1. Run the following command in the root directory of your project. When you run this command, the local web server will start (if it's not already running).
+
+    ```command&nbsp;line
     npm start
     ```
-
-    > [!NOTE]
-    > Office Add-ins should use HTTPS, not HTTP, even when you are developing. If you are prompted to install a certificate after you run `npm start`, accept the prompt to install the certificate that the Yeoman generator provides.
 
 1. Follow the instructions in [Sideload Outlook add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **manifest.xml** file that's located in the root directory of the project.
 
