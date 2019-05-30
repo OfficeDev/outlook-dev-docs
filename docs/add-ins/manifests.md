@@ -2,7 +2,7 @@
 title: Outlook add-in manifests
 description: The manifest describes how an Outlook add-in integrates across Outlook clients; includes an example.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/29/2019
 localization_priority: Priority
 ---
 
@@ -347,7 +347,7 @@ The **FormSettings** element is used by older Outlook clients, which only suppor
 
 These settings are directly related to the activation rules in the **Rule** element. For example, if an add-in specifies that it should appear on a message in compose mode, an **ItemEdit** form must be specified.
 
-For more details, please refer to the [Schema reference for Office Add-ins manifests (v1.1)](/office/dev/add-ins/overview/add-in-manifests)
+For more details, please refer to the [Schema reference for Office Add-ins manifests (v1.1)](/office/dev/add-ins/overview/add-in-manifests).
 
 ## App domains
 
@@ -366,6 +366,16 @@ The following example specifies a domain  `https://www.contoso2.com` as a second
 ```
 
 App domains are also necessary to enable cookie sharing between the pop-out window and the add-in running in the rich client.
+
+The following table describes browser behavior when your add-in attempts to navigate to a URL outside of the add-in's default domain.
+
+|Outlook client|Domain defined<br>in AppDomains?|Browser behavior|
+|---|---|---|
+|All clients|Yes|Link opens in add-in task pane.|
+|Outlook 2016 on Windows (one-time purchase)<br>Outlook 2013 on Windows|No|Link opens in Internet Explorer 11.|
+|Other clients|No|Link opens in user's default browser.|
+
+For more details, see the [Specify domains you want to open in the add-in window](/office/dev/add-ins/develop/add-in-manifests?tabs=tabid-1#specify-domains-you-want-to-open-in-the-add-in-window).
 
 ## Permissions
 
