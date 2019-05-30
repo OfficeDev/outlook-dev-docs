@@ -367,7 +367,7 @@ The following example specifies a domain  `https://www.contoso2.com` as a second
 
 App domains are also necessary to enable cookie sharing between the pop-out window and the add-in running in the rich client.
 
-The following table describes the browser behavior for URLs not belonging to the add-in's default domain.
+The following table describes browser behavior when your add-in attempts to navigate to a URL outside of the add-in's default domain.
 
 |Outlook client|Domain defined<br>in AppDomains?|Browser behavior|
 |---|---|---|
