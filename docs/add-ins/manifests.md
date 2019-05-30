@@ -372,7 +372,7 @@ The following table describes browser behavior when your add-in attempts to navi
 |Outlook client|Domain defined<br>in AppDomains?|Browser behavior|
 |---|---|---|
 |All clients|Yes|Link opens in add-in task pane.|
-|Outlook 2013 on Windows<br>Outlook 2016 on Windows (one-time purchase)|No|Link opens in Internet Explorer 11.|
+|Outlook 2016 on Windows (one-time purchase)<br>Outlook 2013 on Windows|No|Link opens in Internet Explorer 11.|
 |Other clients|No|Link opens in user's default browser.|
 
 For more details, see the [Specify domains you want to open in the add-in window](/office/dev/add-ins/develop/add-in-manifests?tabs=tabid-1#specify-domains-you-want-to-open-in-the-add-in-window).
