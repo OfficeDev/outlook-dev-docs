@@ -9,13 +9,13 @@ localization_priority: Priority
 ---
 # Get Started with AMP for Email
 
-## 1.- Author your AMP for Email code
+## Author AMP for Email code
 
 1. Read the [AMP for Email specification](https://amp.dev/documentation/guides-and-tutorials/learn/amp-email-format). Its important for you to understand the fundamentals.
 1. Develop your code using [AMP Components](https://amp.dev/documentation/components/?format=email) and test using the [AMP Playground](https://playground.amp.dev/?runtime=amp4email). There is also a Visual Studio Code extension to create and validate AMP code.
 
 
-## 2.- Test your AMP emails in Outlook.com
+## Test AMP emails in Outlook.com
 
 There are multiple ways to send AMP e-mails to your mailbox to verify it works
 
@@ -27,9 +27,9 @@ There are multiple ways to send AMP e-mails to your mailbox to verify it works
 ### Test using other tools
 You can take a look at other tools, such as [LITMUS](https://litmus.com) which allows you to preview and send e-mails to multiple e-mail providers, including Outlook. Also, email service providers, such as SendGrid also support sending AMPHTML emails.
 
-## 3.- Send emails to Outlook.com users
+## Send emails to Outlook.com users
 
-Before sending emails to your customers, [register to be come an authorized sender](register-outlook.md). Note that you will need to meet all [security requirements](security-requiremets.md) before you can become an authorized sender.
+Before sending emails to your customers, you must [register to be come an authorized sender](register-outlook.md). Note that you will need to meet all [security requirements](security-requiremets.md) before you can become an authorized sender.
 
-Once approved, Outlook users that have the feature turned on (about half of Outlook users during the preview) will render your AMPHTML emails.
+Once approved, Outlook.com users that have the feature turned on (about half of Outlook.com users during the preview) will see the AMPHTML version of your emails.
 
