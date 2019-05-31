@@ -21,16 +21,9 @@ Outlook.com supports AMP for email as a preview. During the preview period:
 
 - Developers will be able to test AMPHTML emails on their own mailboxes
 - Authorized senders will be able to send AMPHTML emails to users
-- Only the Outlook.com web application will render AMPHTML emails. Other outlook clients and platforms are not currently supported. 
+- Only the Outlook.com web application will render AMPHTML emails. Other outlook clients and platforms are not currently supported. About half of Outlook.com users will have the feature turned on during the preview.  
 
-We will closely monitor the interest and feedback from Outlook users and the email ecosystem during this preview. 
-
-## Get Started
-
-1. Read the [AMP for Email specification](https://amp.dev/documentation/guides-and-tutorials/learn/amp-email-format). Its important for you to understand the fundamentals.
-1. Develop your code using [AMP Components](https://amp.dev/documentation/components/?format=email) and test using the [AMP Playground](https://playground.amp.dev/?runtime=amp4email)
-1. [Send email to your mailbox](test-amp-email.md) to verify it works
-1. Before sending emails to your customers, [register to be come an authorized sender](register-outlook.md). Note that you will need to meet all [security requirements](security-requiremets.md) before you can become an authorized sender.
+We will closely monitor the interest and feedback from Outlook users, developers and the email ecosystem during this preview. [Add info on how to get in touch with us, likely an email address or community via the dev program]
 
 
 ![This is a logo](images/logo.png)
