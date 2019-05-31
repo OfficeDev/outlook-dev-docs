@@ -1,7 +1,7 @@
 - name: Overview
   href: index.md
-- name: Test AMP email
-  href: test-amp-email.md
+- name: Get Started
+  href: get-started.md
 - name: Register with Outlook
   href: register-outlook.md
 - name: Security Requirements

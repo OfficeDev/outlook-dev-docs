@@ -7,7 +7,7 @@ ms.technology: o365-amp
 ms.author: humlezg
 localization_priority: Priority
 ---
-# Get Started with AMP for Email in Outlook.com (Preview)
+# Get Started with AMP for Email
 
 ## 1.- Author your AMP for Email code
 
