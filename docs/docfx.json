@@ -44,9 +44,6 @@
       "feedback_product_url": "https://officespdev.uservoice.com/"
     },
     "fileMetadata": {
-      "feedback_system": {
-        "rest/terms-of-use.md": "None"
-      },
       "titleSuffix": {
         "**/*.md": "Outlook Developer"
       },
