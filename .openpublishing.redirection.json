@@ -64,6 +64,11 @@
       "source_path": "docs/actionable-messages/invoke-add-in-from-actionable-message.md",
       "redirect_url": "/outlook/actionable-messages/invoke-add-in",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/rest/terms-of-use.md",
+      "redirect_url": "/legal/microsoft-apis/terms-of-use",
+      "redirect_document_id": false
     }
   ]
 }
