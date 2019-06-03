@@ -11,7 +11,9 @@ ms.author: jasonjoh
 localization_priority: Priority
 ---
 
+<!-- markdownlint-disable MD025 -->
 # Write a Python app to get Outlook mail, calendar, and contacts
+<!-- markdownlint-enable MD025 -->
 
 The purpose of this guide is to walk through the process of creating a simple Python web app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/python_tutorial) is what you should end up with if you follow the steps outlined here.
 
@@ -47,7 +49,7 @@ This creates a new subdirectory under the `python_tutorial` directory and a numb
 
 Open the `.\python_tutorial\settings.py` file and add the new `tutorial` app to the `INSTALLED_APPS` setting.
 
-#### New value of `INSTALLED_APPS` in `.\python_tutorial\settings.py`
+### New value of `INSTALLED_APPS` in `.\python_tutorial\settings.py`
 
 ```python
 INSTALLED_APPS = (
@@ -69,7 +71,7 @@ python manage.py migrate
 
 Let's add a bit of code to the app just to make sure that it is working. Open the `.\tutorial\views.py` file and add the following code.
 
-#### `home` function in the `.\tutorial\views.py` file
+### `home` function in the `.\tutorial\views.py` file
 
 ```python
 from django.http import HttpResponse, HttpResponseRedirect
@@ -80,7 +82,7 @@ def home(request):
 
 Create a new file in the `tutorial` directory called `urls.py`. Add the following code to this file.
 
-#### Contents of the `.\tutorial\urls.py` file
+### Contents of the `.\tutorial\urls.py` file
 
 ```python
 from django.conf.urls import url
@@ -97,7 +99,7 @@ urlpatterns = [
 
 Finally, open the `.\python_tutorial\urls.py` file and replace the contents with the following.
 
-### New contents of `.\python_tutorial\urls.py` ###
+### New contents of `.\python_tutorial\urls.py`
 
 ```python
 from django.conf.urls import url, include
@@ -125,7 +127,7 @@ Our app will be very simple. When a user visits the site, they will see a link t
 
 Let's begin by replacing the static message with something nicer. Start by creating a new subdirectory in the `tutorial` directory called `templates`. In the `templates` directory, create a new subdirectory called `tutorial`. Finally, create a new file in this directory called `layout.html`, and add the following code. This will be a layout used by all pages in the app to add [Bootstrap](https://getbootstrap.com/docs/3.3/getting-started/) for basic layout and styling, and a simple nav bar.
 
-#### Contents of the `.\tutorial\templates\tutorial\layout.html` file
+### Contents of the `.\tutorial\templates\tutorial\layout.html` file
 
 ```HTML
 <!DOCTYPE html>
@@ -171,7 +173,7 @@ Let's begin by replacing the static message with something nicer. Start by creat
 
 Now let's create a simple homepage to show a **Connect to Outlook** button. Create a file called `home.html` in the `.\tutorial\templates\tutorial` directory and add the following code.
 
-#### Contents of the `.\tutorial\templates\tutorial\home.html` file
+### Contents of the `.\tutorial\templates\tutorial\home.html` file
 
 ```HTML
 {% extends "tutorial/layout.html" %}
@@ -188,7 +190,7 @@ Now let's create a simple homepage to show a **Connect to Outlook** button. Crea
 
 Finally, let's modify the `home` function in `.\tutorial\views.py` to use this new view. Update the `home` function to match the following.
 
-#### Updated `home` function
+### Updated `home` function
 
 ```python
 def home(request):
@@ -234,7 +236,7 @@ pip install requests
 
 Now the library is installed and ready to use. Create a new file in the `tutorial` directory called `authhelper.py`. We'll start here by defining a function to generate the login URL.
 
-#### Contents of the `.\tutorial\authhelper.py` file
+### Contents of the `.\tutorial\authhelper.py` file
 
 ```python
 from urllib.parse import quote, urlencode
@@ -278,7 +280,7 @@ Replace the `YOUR APP ID HERE` and `YOUR APP PASSWORD HERE` placeholders with th
 
 Now that we have actual values for the client ID and secret, let's put our new function to work. Modify the `home` function in the `.\tutorial\views.py` file to use the `get_signin_url` function to fill in the link. That function takes a parameter, `redirect_uri`. This value is used to set the URL in our app where Azure will redirect after signin is complete. Let's go ahead and create a placeholder view to act as our redirect target called `gettoken`.
 
-#### Updated contents of `.\tutorial\views.py`
+### Updated contents of `.\tutorial\views.py`
 
 ```python
 from django.shortcuts import render
@@ -291,7 +293,8 @@ from tutorial.authhelper import get_signin_url
 def home(request):
   redirect_uri = request.build_absolute_uri(reverse('tutorial:gettoken'))
   sign_in_url = get_signin_url(redirect_uri)
-  return HttpResponse('<a href="' + sign_in_url +'">Click here to sign in and view your mail</a>')
+  context = { 'signin_url': sign_in_url }
+  return render(request, 'tutorial/home.html', context)
 
 def gettoken(request):
   return HttpResponse('gettoken view')
@@ -299,7 +302,7 @@ def gettoken(request):
 
 The view doesn't do much now, but we'll change that soon. Add this new view to the `.\tutorials\urls.py` file.
 
-#### Updated contents of the `.\tutorials\urls.py` file
+### Updated contents of the `.\tutorials\urls.py` file
 
 ```python
 from django.conf.urls import url
@@ -324,7 +327,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?scope=openid+User
 
 The `<SOME GUID>` portion should match your client ID. Click on the link and you should be presented with a sign in page. Sign in with your Office 365 or Outlook.com account. Your browser should redirect to back to the `gettoken` view. The view doesn't do anything yet, so let's fix that now.
 
-### Exchanging the code for a token ###
+### Exchanging the code for a token
 
 The first thing we need to do is extract the authorization code from the request. When Azure redirects to our `gettoken` function, it includes a `code` query parameter, which contains the authorization code. Update the `gettoken` function to get this parameter's value and display it.
 
@@ -367,13 +370,13 @@ def get_token_from_code(auth_code, redirect_uri):
     return 'Error retrieving token: {0} - {1}'.format(r.status_code, r.text)
 ```
 
-### Getting the user ###
+### Getting the user
 
 Our first use of the access token will be to get the user's display name from Microsoft Graph, just to make sure that our access token works.
 
 Create a new file in the `tutorial` directory called `outlookservice.py`. We'll implement all of our Outlook API functions in this file. We'll start by creating a generic method for sending API requests called `make_api_call`.
 
-#### Contents of `./tutorial/outlookservice.py` ####
+#### Contents of `./tutorial/outlookservice.py`
 
 ```python
 import requests
@@ -418,7 +421,7 @@ This function uses the `requests` library to send API requests. It sets a standa
 
 Now let's create a function to make us of the `make_api_call` function to get the user. Add a function called `get_me` to `outlookservice.py`.
 
-#### The `get_me` function in `./tutorial/outlookservice.py` ####
+#### The `get_me` function in `./tutorial/outlookservice.py`
 
 ```python
 def get_me(access_token):
@@ -438,7 +441,9 @@ def get_me(access_token):
 
 Let's make sure that works. Modify the `gettoken` function in `views.py` to use these helper functions and display the return values.
 
-#### Updated `gettoken` function in `.\tutorial\views.py` ####
+<!-- markdownlint-disable MD024 -->
+#### Updated `gettoken` function in `.\tutorial\views.py`
+<!-- markdownlint-enable MD024 -->
 
 ```python
 # Add import statement to include new function
@@ -474,7 +479,9 @@ scopes = [ 'openid',
 
 This will cause the token response from Azure to include a refresh token. Let's update `gettoken` in `views.py` to save the refresh token and the expiration time in the session.
 
-#### Updated `gettoken` function in `.\tutorial\views.py` ####
+<!-- markdownlint-disable MD024 -->
+#### Updated `gettoken` function in `.\tutorial\views.py`
+<!-- markdownlint-enable MD024 -->
 
 ```python
 # Add import statement to include new function
@@ -504,7 +511,7 @@ def gettoken(request):
 
 Now let's create a function to refresh the access token. Add the following function to `authhelper.py`.
 
-#### The `get_token_from_refresh_token` function in `./tutorial/authhelper.py` ####
+#### The `get_token_from_refresh_token` function in `./tutorial/authhelper.py`
 
 ```python
 def get_token_from_refresh_token(refresh_token, redirect_uri):
@@ -527,7 +534,7 @@ def get_token_from_refresh_token(refresh_token, redirect_uri):
 
 Finally let's create a helper function to retrieve the access token. The function will check the expiration time, and if the token is expired, will refresh it. Otherwise it will just return the access token from the session. Add the following function to `authhelper.py`.
 
-#### The `get_access_token` function in `./tutorial/authhelper.py` ####
+#### The `get_access_token` function in `./tutorial/authhelper.py`
 
 ```python
 def get_access_token(request, redirect_uri):
@@ -567,7 +574,7 @@ from tutorial.authhelper import get_signin_url, get_token_from_code, get_access_
 
 Now that we can get an access token, we're in a good position to do something with the Mail API. Let's start by creating a `mail` view in `views.py`.
 
-#### `mail` function in `.\tutorial\views.py`
+### `mail` function in `.\tutorial\views.py`
 
 ```python
 def mail(request):
@@ -581,7 +588,7 @@ def mail(request):
 
 Update the `urls.py` file to include an entry for the new view.
 
-#### Updated contents of `.\tutorial\urls.py`
+### Updated contents of `.\tutorial\urls.py`
 
 ```python
 from django.conf.urls import url
@@ -602,7 +609,9 @@ urlpatterns = [
 
 Update the `gettoken` function to redirect to the `mail` view after saving the token in the session.
 
-#### Updated `gettoken` function in `.\tutorial\views.py`
+<!-- markdownlint-disable MD024 -->
+### Updated `gettoken` function in `.\tutorial\views.py`
+<!-- markdownlint-enable MD024 -->
 
 ```python
 def gettoken(request):
@@ -631,7 +640,7 @@ For now all this does is read the token back from the cookie and display it. Sav
 
 Now let's add a function that will use the `make_api_call` function to implement a request to retrieve messages from the inbox. Create a new function in `outlookservice.py` called `get_my_messages`.
 
-#### The `get_my_messages` function in `./tutorial/outlookservice.py`
+### The `get_my_messages` function in `./tutorial/outlookservice.py`
 
 ```python
 def get_my_messages(access_token):
@@ -661,7 +670,7 @@ from tutorial.outlookservice import get_me, get_my_messages
 
 Then update the `mail` function to call the new function.
 
-#### New version of the `mail` function in `./tutorial/views.py`
+### New version of the `mail` function in `./tutorial/views.py`
 
 ```python
 def mail(request):
@@ -676,13 +685,13 @@ def mail(request):
 
 If you save the changes and sign into the app, you should now see a raw listing of the JSON response.
 
-## Displaying the results ##
+## Displaying the results
 
 While the current listing of messages confirms that the API calls are working, we can use Django templates to display the results in a more user-friendly fashion.
 
 Create a new file in the `./tutorial/templates/tutorial` directory called `mail.html`, and add the following code.
 
-#### Contents of the `./tutorial/templates/tutorial/mail.html` file
+### Contents of the `./tutorial/templates/tutorial/mail.html` file
 
 ```HTML
 {% extends "tutorial/layout.html" %}
@@ -708,7 +717,7 @@ Create a new file in the `./tutorial/templates/tutorial` directory called `mail.
 
 Update the `mail` function in `views.py` to use this new template.
 
-#### Updated `mail` function in `./tutorial/views.py`
+### Updated `mail` function in `./tutorial/views.py`
 
 ```python
 def mail(request):
@@ -733,7 +742,9 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 > [!TIP]
 > If you've followed along with the tutorial, you probably have an access token saved in your session cookie. That token will only be valid for the `Mail.Read` scope. In order to call the Calendar or Contacts API, we will need to add new scopes. Be sure to restart your browser to get rid of the session cookie so that you can start the login process from the beginning to get a new access token.
 
+<!-- markdownlint-disable MD026 -->
 ### For Calendar API:
+<!-- markdownlint-enable MD026 -->
 
 1. Update the `scopes` array in `authhelper.py` to include the `Calendars.Read` scope.
 
@@ -821,7 +832,9 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Save all changes. After signing into the app, browse to `http://localhost:8000/tutorial/events`.
 
+<!-- markdownlint-disable MD026 -->
 ### For Contacts API:
+<!-- markdownlint-enable MD026 -->
 
 1. Update the `scopes` array in `authhelper.py` to include the `Contacts.Read` scope.
 
