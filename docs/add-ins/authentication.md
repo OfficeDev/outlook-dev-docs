@@ -2,7 +2,7 @@
 title: Authentication options in Outlook add-ins
 description: Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/31/2019
 localization_priority: Priority
 ---
 
@@ -46,6 +46,8 @@ Exchange user identity tokens provide a way for your add-in to establish the ide
 
 - Is used primarily by Exchange on-premises users
 - Needs access to a non-Microsoft service that you control
+
+Your add-in can call [getUserIdentityTokenAsync](/javascript/api/outlook_1_1/office.mailbox?view=office-js#getuseridentitytokenasync-callback--usercontext-) to get Exchange user identity tokens. For details on using these tokens, see [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md).
 
 ## Access tokens obtained via OAuth2 flows
 
