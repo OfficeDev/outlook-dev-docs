@@ -10,7 +10,9 @@ ms.author: jasonjoh
 localization_priority: Priority
 ---
 
+<!-- markdownlint-disable MD025 -->
 # Write a Node.js app to get Outlook mail, calendar, and contacts
+<!-- markdownlint-enable MD025 -->
 
 The purpose of this guide is to walk through the process of creating a simple Node.js app that retrieves messages in Office 365 or Outlook.com. The source code in this [repository](https://github.com/jasonjoh/node-tutorial) is what you should end up with if you follow the steps outlined here.
 
@@ -205,7 +207,7 @@ require('dotenv').config();
 
 Now the library is installed and ready to use. Create a new directory in the `node-tutorial` directory called `helpers`, then create a new file called `auth.js` in that directory. We'll start here by defining a function to generate the login URL.
 
-#### Contents of the `./helpers/auth.js` file
+### Contents of the `./helpers/auth.js` file
 
 ```js
 const credentials = {
@@ -235,7 +237,7 @@ exports.getAuthUrl = getAuthUrl;
 
 Modify the route in the `./routes/index.js` file to use the `getAuthUrl` function to generate a sign-in URL. You'll need to require the `auth.js` file to gain access to this function.
 
-#### Updated contents of the `./routes/index.js` file
+### Updated contents of the `./routes/index.js` file
 
 ```js
 var express = require('express');
@@ -354,11 +356,10 @@ router.get('/', async function(req, res, next) {
 
     try {
       token = await authHelper.getTokenFromCode(code);
+      res.render('index', { title: 'Home', debug: `Access token: ${token}` });
     } catch (error) {
       res.render('error', { title: 'Error', message: 'Error exchanging code for token', error: error });
     }
-
-    res.render('index', { title: 'Home', debug: `Access token: ${token}` });
   } else {
     // Otherwise complain
     res.render('error', { title: 'Error', message: 'Authorization error', error: { status: 'Missing code parameter' } });
@@ -419,7 +420,9 @@ function saveValuesToCookie(token, res) {
 
 Now update the route in `./routes/authorize.js` to pass the Express response object to `getTokenFromCode` and redirect back to the home page.
 
+<!-- markdownlint-disable MD024 -->
 #### Updated route in `./routes/authorize.js`
+<!-- markdownlint-enable MD024 -->
 
 ```js
 router.get('/', async function(req, res, next) {
@@ -428,16 +431,13 @@ router.get('/', async function(req, res, next) {
 
   // If code is present, use it
   if (code) {
-    let token;
-
     try {
-      token = await authHelper.getTokenFromCode(code, res);
+      await authHelper.getTokenFromCode(code, res);
+      // Redirect to home
+      res.redirect('/');
     } catch (error) {
       res.render('error', { title: 'Error', message: 'Error exchanging code for token', error: error });
     }
-
-    // Redirect to home
-    res.redirect('/');
   } else {
     // Otherwise complain
     res.render('error', { title: 'Error', message: 'Authorization error', error: { status: 'Missing code parameter' } });
@@ -582,7 +582,9 @@ exports.getAccessToken = getAccessToken;
 
 Finally, let's update the route in `./routes/index.js` to use this function.
 
+<!-- markdownlint-disable MD024 -->
 #### Updated route in `./routes/index.js`
+<!-- markdownlint-enable MD024 -->
 
 ```js
 router.get('/', async function(req, res, next) {
@@ -615,7 +617,7 @@ npm install @microsoft/microsoft-graph-client --save
 
 Let's start by creating a `mail` route. Create a file called `mail.js` in the `./routes` directory and add the following code.
 
-#### Contents of `./routes/mail.js`
+### Contents of `./routes/mail.js`
 
 ```js
 var express = require('express');
@@ -764,7 +766,9 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 > [!TIP]
 > If you've followed along with the tutorial, you probably have an access token saved in your session cookie. That token will only be valid for the `Mail.Read` scope. In order to call the Calendar or Contacts API, we will need to add new scopes. Be sure to sign out so that you can start the login process from the beginning to get a new access token.
 
+<!-- markdownlint-disable MD026 -->
 ### For Calendar API:
+<!-- markdownlint-enable MD026 -->
 
 1. Update the `APP_SCOPES` value in `.env` to include the `Calendars.Read` scope.
 
@@ -883,7 +887,9 @@ Now that you've mastered calling the Outlook Mail API, doing the same for Calend
 
 1. Restart the app. After signing in, click the **Calendar** nav item.
 
+<!-- markdownlint-disable MD026 -->
 ### For Contacts API:
+<!-- markdownlint-enable MD026 -->
 
 1. Update the `APP_SCOPES` value in `.env` to include the `Contacts.Read` scope.
 
