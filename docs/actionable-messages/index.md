@@ -5,6 +5,7 @@ author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
 ms.author: jasonjoh
+ms.date: 05/13/2019
 nodes_to_expand: get-started
 localization_priority: Priority
 ---
