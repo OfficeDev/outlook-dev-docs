@@ -2,7 +2,7 @@
 title: Outlook add-ins overview
 description: Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform. 
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 06/13/2019
 localization_priority: Priority
 ---
 
@@ -69,7 +69,10 @@ Outlook add-ins are supported in Outlook 2013 or later on Windows, Outlook 2016 
 
 ## Get started building Outlook add-ins
 
-To get started building Outlook add-ins, see [Get Started with Outlook add-ins for Office 365](addin-tutorial.md).
+To get started building Outlook add-ins, try the following.
+
+- [Quick start](quick-start.md)
+- [Tutorial](addin-tutorial.md)
 
 
 ## See also

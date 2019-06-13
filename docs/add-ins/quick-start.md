@@ -2,17 +2,17 @@
 title: Build an Outlook task pane add-in
 description: Learn how to build a simple Outlook add-in by using jQuery and the Office JS API and test it locally.
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 06/13/2019
 localization_priority: Priority
 ---
 
 # Build your first Outlook add-in
 
-In this article, you'll walk through the process of building an Outlook task pane add-in.
+In this article, you'll walk through the process of building an Outlook task pane add-in that displays at least one property of a selected message.
 
 ## Create the add-in
 
-You can create an Office Add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs:
+You can create an Office Add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs.
 
 # [Visual Studio](#tab/visual-studio)
 
@@ -159,7 +159,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 1. In the **Connect to Exchange email account** dialog box, enter the email address and password for your [Microsoft account](https://account.microsoft.com/account) and then choose **Connect**. When the Outlook.com login page opens in a browser, login to your email account with the same credentials as you entered previously.
 
     > [!NOTE]
-    > If the **Connect to Exchange email account** dialog box repeatedly prompts you to login, Basic Auth may be disabled for accounts on your Office 365 tenant. To test this add-in, login using a [Microsoft account](https://account.microsoft.com/account) instead.
+    > If the **Connect to Exchange email account** dialog box repeatedly prompts you to log in, Basic Auth may be disabled for accounts on your Office 365 tenant. To test this add-in, login using a [Microsoft account](https://account.microsoft.com/account) instead.
 
 1. In Outlook on the web, select or open a message.
 
@@ -284,7 +284,7 @@ The add-in project that you've created with the Yeoman generator contains sample
 
 ## Next steps
 
-Congratulations, you've successfully created your first Outlook task pane add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with the Advanced Outlook add-in tutorial.
+Congratulations, you've successfully created your first Outlook task pane add-in! Next, learn more about the capabilities of an Outlook add-in and build a more complex add-in by following along with the Outlook add-in tutorial.
 
 > [!div class="nextstepaction"]
-> [Advanced Outlook add-in tutorial](addin-tutorial.md)
+> [Outlook add-in tutorial](addin-tutorial.md)
