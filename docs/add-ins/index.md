@@ -71,8 +71,8 @@ Outlook add-ins are supported in Outlook 2013 or later on Windows, Outlook 2016 
 
 To get started building Outlook add-ins, try the following.
 
-* [Quick start](quick-start.md) - Build a simple task pane.
-* [Tutorial](addin-tutorial.md) - Learn how to create an add-in that inserts GitHub gists into a new message.
+- [Quick start](quick-start.md) - Build a simple task pane.
+- [Tutorial](addin-tutorial.md) - Learn how to create an add-in that inserts GitHub gists into a new message.
 
 
 ## See also
