@@ -12,7 +12,7 @@ In this article, you'll walk through the process of building an Outlook task pan
 
 ## Create the add-in
 
-You can create an Office Add-in by using Visual Studio or any other editor. Tell us what editor you'd like to use by choosing one of the following tabs.
+You can create an Office Add-in by using Visual Studio or any other editor. Tell us which editor you prefer by choosing one of the following tabs.
 
 # [Visual Studio](#tab/visual-studio)
 
@@ -159,7 +159,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 1. In the **Connect to Exchange email account** dialog box, enter the email address and password for your [Microsoft account](https://account.microsoft.com/account) and then choose **Connect**. When the Outlook.com login page opens in a browser, login to your email account with the same credentials as you entered previously.
 
     > [!NOTE]
-    > If the **Connect to Exchange email account** dialog box repeatedly prompts you to log in, Basic Auth may be disabled for accounts on your Office 365 tenant. To test this add-in, login using a [Microsoft account](https://account.microsoft.com/account) instead.
+    > If the **Connect to Exchange email account** dialog box repeatedly prompts you to sign in, Basic Auth may be disabled for accounts on your Office 365 tenant. To test this add-in, login using a [Microsoft account](https://account.microsoft.com/account) instead.
 
 1. In Outlook on the web, select or open a message.
 
