@@ -106,7 +106,7 @@
       href: testing-and-tips.md
     - name: Sideload an add-in for testing
       href: sideload-outlook-add-ins-for-testing.md
-    - name: Compare add-in support in Outlook for Mac
+    - name: Compare add-in support in Outlook on Mac
       href: compare-outlook-add-in-support-in-outlook-for-mac.md
     - name: Tips for handling date values
       href: tips-for-handling-date-values-in-outlook-add-ins.md

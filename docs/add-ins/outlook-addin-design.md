@@ -2,7 +2,7 @@
 title: Outlook add-in design
 description: Guidelines to help you design and build a compelling add-in, which brings the best of your app right into Outlook on Windows, Web, iOS, Mac, and Android.
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 06/24/2019
 localization_priority: Priority
 ---
 
@@ -26,7 +26,7 @@ The following high-level guidelines will help you design and build a compelling 
 
    Your add-in should be designed using patterns native to the platform that Outlook is running on. To achieve this, be sure to respect and implement the interaction and visual guidelines set forth by each platform. Outlook has its own guidelines and those are also important to consider. A well-designed add-in will be an appropriate blend of your experience, the platform, and Outlook.
 
-   This does mean that your add-in will have to visually be different when it runs on Outlook for iOS vs Outlook for Android. We recommend taking a look at [Framework7](https://framework7.io/) as one option to help you with styling.
+   This does mean that your add-in will have to visually be different when it runs in Outlook on iOS versus Android. We recommend taking a look at [Framework7](https://framework7.io/) as one option to help you with styling.
 
 3. **Make it enjoyable to use and get the details right**
 
