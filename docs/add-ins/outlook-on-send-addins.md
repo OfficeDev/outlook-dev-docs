@@ -85,7 +85,7 @@ We recommend that administrators deploy Outlook add-ins that use the on send fea
 
 ## Installing Outlook add-ins that use on send
 
-The on send feature in Outlook on the web requires that add-ins are configured for the send event types. Select the platform you'd like to configure.
+The on send feature in Outlook requires that add-ins are configured for the send event types. Select the platform you'd like to configure.
 
 ### [Web browser](#tab/browser)
 
