@@ -2,7 +2,7 @@
 title: Get and set metadata in an Outlook add-in
 description: Manage custom data in your Outlook add-in by using either roaming settings or custom properties.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 06/24/2019
 localization_priority: Priority
 ---
 
@@ -118,7 +118,7 @@ Before you can use custom properties, you must load them by calling the [loadCus
 
 
  > [!NOTE]
- > Because Outlook for Mac doesn't cache custom properties, if the user's network goes down, mail add-ins in Outlook for Mac would not be able to access their custom properties.
+ > Because Outlook on Mac doesn't cache custom properties, if the user's network goes down, mail add-ins in Outlook on Mac would not be able to access their custom properties.
 
 
 ### Custom properties example
