@@ -185,7 +185,7 @@ To set Mailbox policies, admins can download the [Administrative Templates tool]
 
 ### Enabling the on send feature
 
-By default, on send functionality is disabled. Administrators can enable on send by ensuring the group policy setting **Disable send when web extensions can't load** is set to **Enabled**.
+By default, on send functionality is disabled. Administrators can enable on send by ensuring the user's group policy setting **Disable send when web extensions can't load** is set to **Enabled**.
 
 TODO: Include steps
 
