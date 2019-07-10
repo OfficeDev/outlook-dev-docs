@@ -86,7 +86,7 @@ Currently add-ins in Outlook Mobile only support activation when reading message
 
 The following APIs are not supported by Outlook Mobile.
 
-  - [Office.context.officeTheme](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context#officetheme-object)
+  - [Office.context.officeTheme](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context#officetheme-object)
   - [Office.context.mailbox.ewsUrl](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#ewsurl-string)
   - [Office.context.mailbox.convertToEwsId](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#converttoewsiditemid-restversion--string)
   - [Office.context.mailbox.convertToRestId](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#converttorestiditemid-restversion--string)
