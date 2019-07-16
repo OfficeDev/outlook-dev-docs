@@ -271,7 +271,11 @@ Select the platform for which you'd like to view support configurations.
 
 Select the platform for which you'd like to view support configurations.
 
-***TODO***: Info for other platforms?
+***TODO***: Info for platforms other than Mac? Same info for all platforms?
+
+#### [Web browser](#tab/browser)
+
+#### [Windows](#tab/windows)
 
 #### [Mac](#tab/unix)
 
