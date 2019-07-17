@@ -72,11 +72,11 @@ Deciding what versions of the Outlook client to test depends on your development
 
 - If you are developing an add-in for private use, or only for members of your organization, then it is important to test the versions of Outlook that your company uses. Keep in mind that some users may use Outlook on the web, so testing your company's standard browser versions is also important.
 
-- If you are developing an add-in to list in the Office Store, you must test the required versions as specified in the [Office Store validation policies 4.12.1](/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably). This includes:
+- If you are developing an add-in to list in [AppSource](https://appsource.microsoft.com), you must test the required versions as specified in the [AppSource validation policies 4.12.1](/office/dev/store/validation-policies#4-apps-and-add-ins-behave-predictably). This includes:
     - The latest version of Outlook on Windows and the version prior to the latest.
     - The latest version of Outlook on Mac.
     - The latest version of Outlook on iOS (if your add-in [supports mobile form factor](add-mobile-support.md)).
-    - The browser versions specified in Office Store validation policy 4.12.1.
+    - The browser versions specified in AppSource validation policy 4.12.1.
 
 > [!NOTE]
 > If your add-in does not support one of the above clients due to [requesting an API requirement set](apis.md) that the client does not support, that client would be removed from the list of required clients.
