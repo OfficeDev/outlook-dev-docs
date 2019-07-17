@@ -56,7 +56,7 @@ The following screenshot shows an information bar that notifies the sender that 
 
 The on send feature currently has the following limitations:
 
-- **AppSource** &ndash; You can't publish Outlook add-ins that use the on send feature to [APpSource](https://appsource.microsoft.com). Add-ins that use the on send event will fail AppSource validation.
+- **AppSource** &ndash; You can't publish Outlook add-ins that use the on send feature to [AppSource](https://appsource.microsoft.com). Add-ins that use the on send event will fail AppSource validation.
 - **Manifest** &ndash; Only one **ItemSend** event is supported per add-in. If you have two or more **ItemSend** events in a manifest, the manifest will fail validation.
 - **Performance** &ndash; Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple email message-based operations.
 
