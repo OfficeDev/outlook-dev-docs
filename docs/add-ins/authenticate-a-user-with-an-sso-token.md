@@ -30,7 +30,7 @@ To use SSO, your Outlook add-in will need to have a server-side web API that is 
 
 ### Provide consent when sideloading an add-in
 
-When an add-in that uses SSO is acquired from the Office Store, the store UI handles prompting the user for consent to the requested Graph permissions. However, when you are developing an add-in, you have to provide consent in advance. For more information, see [Grant administrator consent to the add-in](/office/dev/add-ins/develop/grant-admin-consent-to-an-add-in)
+When an add-in that uses SSO is acquired from AppSource, the store UI handles prompting the user for consent to the requested Graph permissions. However, when you are developing an add-in, you have to provide consent in advance. For more information, see [Grant administrator consent to the add-in](/office/dev/add-ins/develop/grant-admin-consent-to-an-add-in)
 
 ## Update the add-in manifest
 
