@@ -6,9 +6,9 @@ ms.date: 07/17/2019
 localization_priority: Priority
 ---
 
-# On send feature for Outlook add-ins (preview)
+# On send feature for Outlook add-ins
 
-The on send feature for Outlook add-ins provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send. For example, you can use the on send feature to:
+The on send feature for Outlook add-ins provides a way to handle email or block email users from certain actions, and allows an add-in to set certain properties on send. For example, you can use the on send feature to:
 
 - Prevent a user from sending sensitive information or leaving the subject line blank.  
 - Add a specific recipient to the CC line.
@@ -89,7 +89,7 @@ The on send feature in Outlook requires that add-ins are configured for the send
 
 ### [Web browser](#tab/browser)
 
-***TODO***: Different instructions for classic vs new?
+***TODO***: Slightly different instructions for classic vs new OWA
 
 Add-ins for Outlook on the web that use the on send feature will run for users who are assigned an Outlook on the web mailbox policy that has the *OnSendAddinsEnabled* flag set to **true**.
 
@@ -185,7 +185,7 @@ Add-ins for Outlook on Windows that use the on send feature will run for users w
 
 To set Mailbox policies, admins can download the [Administrative Templates tool](https://www.microsoft.com/download/details.aspx?id=49030) and run it using the Group Policy editor, **gpedit.msc**.
 
-TODO: May need to discuss majority case (behavior when group policy is disabled i.e. can send, add-in can block) then exception or additional scenario for mission critical (behavior when group policy is enabled i.e., can send only when able to connect to Exchange then add-in can run and block). Is it similar for Mac or new OWA?
+TODO: May need to discuss majority case (behavior when group policy is disabled i.e. can send, add-in can block) then exception or additional scenario for mission critical (behavior when group policy is enabled i.e., can send only when able to connect to Exchange then add-in can run and block). Is it similar for Mac or new OWA? Yes
 
 ### Enabling the on send feature
 
@@ -242,21 +242,21 @@ Select the platform for which you'd like to view support configurations.
 |4|Enabled|Disabled|New session|No on send add-ins run; mail is sent.|Supported.|
 
 
-##### Outlook on the web (new)
+##### Outlook on the web (modern)
 
 |Scenario|Mailbox 1 on send feature|Mailbox 2 on send feature|Result|Supported?|
 |:------------|:------------|:--------------------------|:-------------|:------|
 |1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No|
-|3|Enabled|Disabled|Mailbox 1 cannot send an email from mailbox 2.|No|
+|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure that policy has been enabled on both mailboxes.|
+|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
 #### [Windows](#tab/windows)
 
 |Scenario|Mailbox 1 on send feature|Mailbox 2 on send feature|Result|Supported?|
 |:------------|:------------|:--------------------------|:-------------|:------|
 |1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No|
-|3|Enabled|Disabled|Mailbox 1 cannot send an email from mailbox 2.|No|
+|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure that policy has been enabled on both mailboxes.|
+|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
 
 #### [Mac](#tab/unix)
@@ -264,7 +264,7 @@ Select the platform for which you'd like to view support configurations.
 |Scenario|Mailbox 1 on send feature|Mailbox 2 on send feature|Result|Supported?|
 |:------------|:------------|:--------------------------|:-------------|:------|
 |1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No|
+|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure that policy has been enabled on both mailboxes.|
 |3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
 ---
@@ -277,14 +277,38 @@ Select the platform for which you'd like to view support configurations.
 
 #### [Web browser](#tab/browser)
 
+##### Outlook on the web (classic)
+
+***TODO***: Should include session info?
+
+|Scenario|Mailbox 1 on send feature|Mailbox 2 on send feature|Result|Supported?|
+|:------------|:------------|:--------------------------|:-------------|:------|
+|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+
+##### Outlook on the web (modern)
+
+|Scenario|Mailbox 1 on send feature|Mailbox 2 on send feature|Result|Supported?|
+|:------------|:------------|:--------------------------|:-------------|:------|
+|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+
 #### [Windows](#tab/windows)
+
+|Scenario|Mailbox 1 on send feature|Mailbox 2 on send feature|Result|Supported?|
+|:------------|:------------|:--------------------------|:-------------|:------|
+|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
 #### [Mac](#tab/unix)
 
 |Scenario|Mailbox 1 on send feature|Mailbox 2 on send feature|Result|Supported?|
 |:------------|:------------|:--------------------------|:-------------|:------|
 |1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.<br>**Note**: To enforce the on send feature, ensure that policy has been enabled on both mailboxes.|Yes|
+|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 |3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
 ---
@@ -301,24 +325,6 @@ Select the platform for which you'd like to view support configurations.
 ### User mailbox with on send add-in feature enabled, add-ins that support on send are installed and enabled and offline mode is enabled
 
 The on send add-ins will run during send if the user is online. If the user is offline, the on send add-ins will not run during send and the email will not be sent.
-
-## Offline behavior across supported platforms
-
-The following table provides the expected add-in behavior on the supported platforms according to cmdlet or policy state when:
-
-- add-in backend is offline
-- Exchange is offline
-
-|Platform|Cmdlet or policy|State|Add-in backend offline|Exchange offline|Add-in loaded|
-|---|---|---|---|---|---|
-|Outlook on the web (classic)|Set-OWAMailboxPolicy -OnSendAddinsEnabled:$&lt;state&gt;|true|Fail send|Fail send|Can block email|
-|||false|Allow send|Allow send|Allow send (add-in does not run)|
-|Outlook on the web (new)|Set-OWAMailboxPolicy -OnSendAddinsEnabled:$&lt;state&gt;|true|Fail send|Fail send|Can block email|
-|||false|Allow send|Allow send|Can block email|
-|Outlook on Windows|Disable send when web extensions can't load: &lt;state&gt;|Enabled|Fail send|Fail send|Can block email|
-|||Disabled|Allow send|Allow send|Can block email|
-|Outlook on Mac|OnSendAddinsWaitForLoad: &lt;state&gt;|true|Fail send|Fail send|Can block email|
-|||false|Allow send|Allow send|Can block email|
 
 ## Code examples
 
