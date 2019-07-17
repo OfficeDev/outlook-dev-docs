@@ -2,11 +2,11 @@
 title: On send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 07/17/2019
 localization_priority: Priority
 ---
 
-# On send feature for Outlook add-ins
+# On send feature for Outlook add-ins (preview)
 
 The on send feature for Outlook add-ins provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send. For example, you can use the on send feature to:
 
@@ -185,6 +185,8 @@ Add-ins for Outlook on Windows that use the on send feature will run for users w
 
 To set Mailbox policies, admins can download the [Administrative Templates tool](https://www.microsoft.com/download/details.aspx?id=49030) and run it using the Group Policy editor, **gpedit.msc**.
 
+TODO: May need to discuss majority case (behavior when group policy is disabled i.e. can send, add-in can block) then exception or additional scenario for mission critical (behavior when group policy is enabled i.e., can send only when able to connect to Exchange then add-in can run and block). Is it similar for Mac or new OWA?
+
 ### Enabling the on send feature
 
 By default, on send functionality is disabled. Administrators can enable on send by ensuring the user's group policy setting **Disable send when web extensions can't load** is set to **Enabled**.
@@ -203,11 +205,11 @@ Add-ins for Outlook on Mac that use the on send feature will run for users who h
 
 |||
 |:---|:---|
-|**Domain**|com.microsoft.com|
+|**Domain**|com.microsoft.outlook|
 |**Key**|OnSendAddinsWaitForLoad|
 |**DataType**|Boolean|
 |**Possible values**|false (default)<br>true|
-|**Availability**|***TODO***: Include version/build number|
+|**Availability**|16.27|
 |**Comments**|This key creates an onSendMailbox policy.|
 
 ---
