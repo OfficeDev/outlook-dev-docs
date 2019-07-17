@@ -12,7 +12,7 @@ End users, developers, and administrators can use the tiered permission levels o
 
 This article describes the possible permissions that Outlook add-ins can request, and examines the security model from the following perspectives:
 
-- **Office Store**: add-in integrity
+- **AppSource**: add-in integrity
     
 - **End-users**: privacy and performance concerns
     
@@ -47,9 +47,9 @@ The following figure shows the four levels of permissions and describes the capa
 ![4-tier permissions model for mail apps schema v1.1](images/add-in-permission-tiers.png)
 
 
-## Office Store: add-in integrity
+## AppSource: add-in integrity
 
-The Office Store hosts add-ins that can be installed by end users and administrators. The Office Store enforces the following measures to maintain the integrity of these Outlook add-ins:
+[AppSource](https://appsource.microsoft.com) hosts add-ins that can be installed by end users and administrators. AppSource enforces the following measures to maintain the integrity of these Outlook add-ins:
 
 - Requires the host server of an add-in to always use Secure Socket Layer (SSL) to communicate.
     
@@ -66,7 +66,7 @@ The security model addresses security, privacy, and performance concerns of end 
 
 - End user's messages that are protected by Outlook's Information Rights Management (IRM) do not interact with Outlook add-ins.
     
-- Before installing an add-in from the Office Store, end users can see the access and actions that the add-in can make on their data and must explicitly confirm to proceed. No Outlook add-in is automatically pushed onto a client computer without manual validation by the user or administrator.
+- Before installing an add-in from AppSource, end users can see the access and actions that the add-in can make on their data and must explicitly confirm to proceed. No Outlook add-in is automatically pushed onto a client computer without manual validation by the user or administrator.
     
 - Granting the **restricted** permission allows the Outlook add-in to have limited access on only the current item. Granting the **read item** permission allows the Outlook add-in to access personal identifiable information, such as sender and recipient names and email addresses, on only the current item,.
     
@@ -150,7 +150,7 @@ Developers should be aware of and plan for the following as well:
 
 - Developers cannot use ActiveX controls in add-ins because they are not supported.
     
-- Developers should do the following when submitting an Outlook add-in to the Office Store:
+- Developers should do the following when submitting an Outlook add-in to AppSource:
     
   - Produce an Extended Validation (EV) SSL certificate as a proof of identity.
     
@@ -165,7 +165,7 @@ Developers should be aware of and plan for the following as well:
 
 The security model provides the following rights and responsibilities to administrators:
 
-- Can prevent end users from installing any Outlook add-in, including add-ins on the Office Store.
+- Can prevent end users from installing any Outlook add-in, including add-ins from AppSource.
     
 - Can disable or enable any Outlook add-in on the Exchange Admin Center.
     
