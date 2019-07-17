@@ -226,17 +226,17 @@ In the `Contoso Message Body Checker.xml` manifest file, you include the functio
 
 ```xml
 <Hosts>
-        <Host xsi:type="MailHost">
-          <DesktopFormFactor>
+    <Host xsi:type="MailHost">
+        <DesktopFormFactor>
             <!-- The functionfile and function name to call on message send.  -->
             <!-- In this case, the function validateBody will be called within the JavaScript code referenced in residUILessFunctionFileUrl. -->
             <FunctionFile resid="residUILessFunctionFileUrl" />
             <ExtensionPoint xsi:type="Events">
-              <Event Type="ItemSend" FunctionExecution="synchronous" FunctionName="validateBody" />
+                <Event Type="ItemSend" FunctionExecution="synchronous" FunctionName="validateBody" />
             </ExtensionPoint>
-          </DesktopFormFactor>
-        </Host>
-      </Hosts>
+        </DesktopFormFactor>
+    </Host>
+</Hosts>
 ```
 
 > [!IMPORTANT]
@@ -248,17 +248,17 @@ For the `Contoso Subject and CC Checker.xml` manifest file, the following exampl
 
 ```xml
 <Hosts>
-        <Host xsi:type="MailHost">
-          <DesktopFormFactor>
+    <Host xsi:type="MailHost">
+        <DesktopFormFactor>
             <!-- The functionfile and function name to call on message send.  -->
             <!-- In this case the function validateSubjectAndCC will be called within the JavaScript code referenced in residUILessFunctionFileUrl. -->
             <FunctionFile resid="residUILessFunctionFileUrl" />
             <ExtensionPoint xsi:type="Events">
-              <Event Type="ItemSend" FunctionExecution="synchronous" FunctionName="validateSubjectAndCC" />
+                <Event Type="ItemSend" FunctionExecution="synchronous" FunctionName="validateSubjectAndCC" />
             </ExtensionPoint>
-          </DesktopFormFactor>
-        </Host>
-      </Hosts>
+        </DesktopFormFactor>
+    </Host>
+</Hosts>
 ```
 
 <br/>
@@ -267,10 +267,12 @@ The on send API requires **VersionOverrides v1_1**. The following shows you how 
 
 ```xml
  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
-    <!-- On Send requires VersionOverridesV1_1 -->
-    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+     <!-- On Send requires VersionOverridesV1_1 -->
+     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+         ...
+     </VersionOverrides>
+</VersionOverrides>
 ```
-
 
 > [!NOTE]
 > For more information, see the following:
@@ -284,17 +286,17 @@ The on send API requires **VersionOverrides v1_1**. The following shows you how 
 To access the currently selected message (in this example, the newly composed  message), use the **Office.context.mailbox.item** namespace. The **ItemSend** event is automatically passed by the on send feature to the function specified in the manifest&mdash;in this example, the `validateBody`function.
 
 ```js
- var mailboxItem;
+var mailboxItem;
 
-    Office.initialize = function (reason) {
-        mailboxItem = Office.context.mailbox.item;
-    }
+Office.initialize = function (reason) {
+    mailboxItem = Office.context.mailbox.item;
+}
 
-    // Entry point for Contoso Message Body Checker add-in before send is allowed.
-    // <param name="event">ItemSend event is automatically passed by on send code to the function specified in the manifest.</param>
-    function validateBody(event) {
-        mailboxItem.body.getAsync("html", { asyncContext: event }, checkBodyOnlyOnSendCallBack);
-    }
+// Entry point for Contoso Message Body Checker add-in before send is allowed.
+// <param name="event">ItemSend event is automatically passed by on send code to the function specified in the manifest.</param>
+function validateBody(event) {
+    mailboxItem.body.getAsync("html", { asyncContext: event }, checkBodyOnlyOnSendCallBack);
+}
 ```
 
 The `validateBody` function gets the current body in the specified format (HTML) and passes the **ItemSend** event object that the code wants to access in the callback method. In addition to the **getAsync** method, the **Body** object also provides a **setAsync** method that you can use to replace the body with the specified text.
@@ -308,26 +310,26 @@ The `validateBody` function gets the current body in the specified format (HTML)
 The `checkBodyOnlyOnSendCallBack` function uses a regular expression to determine whether the message body contains blocked words. If it finds a match against an array of restricted words, it then blocks the email from being sent and notifies the sender via the information bar. To do this, it uses the **notificationMessages** property of the **Item** object to return a **NotificationMessages** object. It then adds a notification to the item by calling the **addAsync** method, as shown in the following example.
 
 ```js
-  // Determine whether the body contains a specific set of blocked words. If it contains the blocked words, block email from being sent. Otherwise allow sending.
-    // <param name="asyncResult">ItemSend event passed from the calling function.</param>
-    function checkBodyOnlyOnSendCallBack(asyncResult) {
-        var listOfBlockedWords = new Array("blockedword", "blockedword1", "blockedword2");
-        var wordExpression = listOfBlockedWords.join('|');
+// Determine whether the body contains a specific set of blocked words. If it contains the blocked words, block email from being sent. Otherwise allow sending.
+// <param name="asyncResult">ItemSend event passed from the calling function.</param>
+function checkBodyOnlyOnSendCallBack(asyncResult) {
+    var listOfBlockedWords = new Array("blockedword", "blockedword1", "blockedword2");
+    var wordExpression = listOfBlockedWords.join('|');
 
-        // \b to perform a "whole words only" search using a regular expression in the form of \bword\b.
-        // i to perform case-insensitive search.
-        var regexCheck = new RegExp('\\b(' + wordExpression + ')\\b', 'i');
-        var checkBody = regexCheck.test(asyncResult.value);
+    // \b to perform a "whole words only" search using a regular expression in the form of \bword\b.
+    // i to perform case-insensitive search.
+    var regexCheck = new RegExp('\\b(' + wordExpression + ')\\b', 'i');
+    var checkBody = regexCheck.test(asyncResult.value);
 
-        if (checkBody) {
-            mailboxItem.notificationMessages.addAsync('NoSend', { type: 'errorMessage', message: 'Blocked words have been found in the body of this email. Please remove them.' });
-            // Block send.
-            asyncResult.asyncContext.completed({ allowEvent: false });
-        }
-
-        // Allow send.
-        asyncResult.asyncContext.completed({ allowEvent: true });
+    if (checkBody) {
+        mailboxItem.notificationMessages.addAsync('NoSend', { type: 'errorMessage', message: 'Blocked words have been found in the body of this email. Please remove them.' });
+        // Block send.
+        asyncResult.asyncContext.completed({ allowEvent: false });
     }
+
+    // Allow send.
+    asyncResult.asyncContext.completed({ allowEvent: true });
+}
 ```
 
 The following are the parameters for the **addAsync** method:
@@ -351,74 +353,71 @@ In addition to the **addAsync** method, the **NotificationMessages** object also
 The following code example shows you how to add a recipient to the CC line and verify that the message includes a subject on send. This example uses the on send feature to allow or disallow an email from sending.  
 
 ```js
-    // Invoke by Contoso Subject and CC Checker add-in before send is allowed.
-    // <param name="event">ItemSend event is automatically passed by on send code to the function specified in the manifest.</param>
-    function validateSubjectAndCC(event) {
-        shouldChangeSubjectOnSend(event);
-    }
+// Invoke by Contoso Subject and CC Checker add-in before send is allowed.
+// <param name="event">ItemSend event is automatically passed by on send code to the function specified in the manifest.</param>
+function validateSubjectAndCC(event) {
+    shouldChangeSubjectOnSend(event);
+}
 
-    // Determine whether the subject should be changed. If it is already changed, allow send. Otherwise change it.
-    // <param name="event">ItemSend event passed from the calling function.</param>
-    function shouldChangeSubjectOnSend(event) {
-        mailboxItem.subject.getAsync(
-            { asyncContext: event },
-            function (asyncResult) {
-                addCCOnSend(asyncResult.asyncContext);
-                //console.log(asyncResult.value);
-                // Match string.
-                var checkSubject = (new RegExp(/\[Checked\]/)).test(asyncResult.value)
-                // Add [Checked]: to subject line.
-                subject = '[Checked]: ' + asyncResult.value;
+// Determine whether the subject should be changed. If it is already changed, allow send. Otherwise change it.
+// <param name="event">ItemSend event passed from the calling function.</param>
+function shouldChangeSubjectOnSend(event) {
+    mailboxItem.subject.getAsync(
+        { asyncContext: event },
+        function (asyncResult) {
+            addCCOnSend(asyncResult.asyncContext);
+            //console.log(asyncResult.value);
+            // Match string.
+            var checkSubject = (new RegExp(/\[Checked\]/)).test(asyncResult.value)
+            // Add [Checked]: to subject line.
+            subject = '[Checked]: ' + asyncResult.value;
 
-                // Determine whether a string is blank, null, or undefined.
-                // If yes, block send and display information bar to notify sender to add a subject.
-                if (asyncResult.value === null || (/^\s*$/).test(asyncResult.value)) {
-                    mailboxItem.notificationMessages.addAsync('NoSend', { type: 'errorMessage', message: 'Please enter a subject for this email.' });
-                    asyncResult.asyncContext.completed({ allowEvent: false });
-                }
-                else {
-                    // If can't find a [Checked]: string match in subject, call subjectOnSendChange function.
-                    if (!checkSubject) {
-                        subjectOnSendChange(subject, asyncResult.asyncContext);
-                        //console.log(checkSubject);
-                    }
-                    else {
-                        // Allow send.
-                        asyncResult.asyncContext.completed({ allowEvent: true });
-                    }
-                }
-
+            // Determine whether a string is blank, null, or undefined.
+            // If yes, block send and display information bar to notify sender to add a subject.
+            if (asyncResult.value === null || (/^\s*$/).test(asyncResult.value)) {
+                mailboxItem.notificationMessages.addAsync('NoSend', { type: 'errorMessage', message: 'Please enter a subject for this email.' });
+                asyncResult.asyncContext.completed({ allowEvent: false });
             }
-          )
-    }
-
-    // Add a CC to the email. In this example, CC contoso@contoso.onmicrosoft.com
-    // <param name="event">ItemSend event passed from calling function</param>
-    function addCCOnSend(event) {
-        mailboxItem.cc.setAsync(['Contoso@contoso.onmicrosoft.com'], { asyncContext: event });
-    }
-
-    // Determine whether the subject should be changed. If it is already changed, allow send, otherwise change it.
-    // <param name="subject">Subject to set.</param>
-    // <param name="event">ItemSend event passed from the calling function.</param>
-    function subjectOnSendChange(subject, event) {
-        mailboxItem.subject.setAsync(
-            subject,
-            { asyncContext: event },
-            function (asyncResult) {
-                if (asyncResult.status == Office.AsyncResultStatus.Failed) {
-                    mailboxItem.notificationMessages.addAsync('NoSend', { type: 'errorMessage', message: 'Unable to set the subject.' });
-
-                    // Block send.
-                    asyncResult.asyncContext.completed({ allowEvent: false });
+            else {
+                // If can't find a [Checked]: string match in subject, call subjectOnSendChange function.
+                if (!checkSubject) {
+                    subjectOnSendChange(subject, asyncResult.asyncContext);
+                    //console.log(checkSubject);
                 }
                 else {
                     // Allow send.
                     asyncResult.asyncContext.completed({ allowEvent: true });
                 }
+            }
+        });
+}
 
-            });
-    }
+// Add a CC to the email. In this example, CC contoso@contoso.onmicrosoft.com
+// <param name="event">ItemSend event passed from calling function</param>
+function addCCOnSend(event) {
+    mailboxItem.cc.setAsync(['Contoso@contoso.onmicrosoft.com'], { asyncContext: event });
+}
+
+// Determine whether the subject should be changed. If it is already changed, allow send, otherwise change it.
+// <param name="subject">Subject to set.</param>
+// <param name="event">ItemSend event passed from the calling function.</param>
+function subjectOnSendChange(subject, event) {
+    mailboxItem.subject.setAsync(
+        subject,
+        { asyncContext: event },
+        function (asyncResult) {
+            if (asyncResult.status == Office.AsyncResultStatus.Failed) {
+                mailboxItem.notificationMessages.addAsync('NoSend', { type: 'errorMessage', message: 'Unable to set the subject.' });
+
+                // Block send.
+                asyncResult.asyncContext.completed({ allowEvent: false });
+            }
+            else {
+                // Allow send.
+                asyncResult.asyncContext.completed({ allowEvent: true });
+            }
+        });
+}
 ```
 
 To learn more about how to add a recipient to the CC line and verify that the email message includes a subject line on send, and to see the APIs you can use, see the [Outlook-Add-in-On-Send sample](https://github.com/OfficeDev/Outlook-Add-in-On-Send). The code is well commented.
