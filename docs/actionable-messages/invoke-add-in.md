@@ -20,7 +20,7 @@ Actionable messages allow the user to take quick actions on an email message or 
 `Action.InvokeAddInCommand` actions can work with add-ins that are already installed by the user, or they can work with add-ins that are not installed. If the required add-in is not installed, the user is prompted to install the add-in with a single click.
 
 > [!NOTE]
-> Single-click installation of the required add-in is only supported if the add-in is published in the [AppSource](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).
+> Single-click installation of the required add-in is only supported if the add-in is published in [AppSource](/office/dev/store/submit-to-the-office-store).
 
 The following example shows the prompt users see if the add-in is not installed.
 
