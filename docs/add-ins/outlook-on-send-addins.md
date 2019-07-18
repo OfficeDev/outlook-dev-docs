@@ -76,14 +76,14 @@ If multiple on send add-ins are installed, the add-ins will run in the order in 
 
 For example, Add-in1 and Add-in2 both use the on send feature. Add-in1 is installed first, and Add-in2 is installed second. Add-in1 verifies that the word Fabrikam appears in the message as a condition for the add-in to allow send.  However, Add-in2 removes any occurrences of the word Fabrikam. The message will send with all instances of Fabrikam removed (due to the order of installation of Add-in1 and Add-in2).
 
-## Deploying Outlook add-ins that use on send
+## Deploy Outlook add-ins that use on send
 
 We recommend that administrators deploy Outlook add-ins that use the on send feature. Administrators have to ensure that the on send add-in:
 
 - Is always present any time a compose item is opened (for email: new, reply, or forward).
 - Can't be closed or disabled by the user.
 
-## Installing Outlook add-ins that use on send
+## Install Outlook add-ins that use on send
 
 The on send feature in Outlook requires that add-ins are configured for the send event types. Select the platform you'd like to configure.
 
@@ -104,7 +104,7 @@ New-App -OrganizationApp -FileData $Data -DefaultStateForUser Enabled
 > [!NOTE]
 > To learn how to use remote PowerShell to connect to Exchange Online, see [Connect to Exchange Online PowerShell](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/connect-to-exchange-online-powershell).
 
-### Enabling the on send feature
+#### Enable the on send feature
 
 By default, on send functionality is disabled. Administrators can enable on send by running Exchange Online PowerShell cmdlets.
 
@@ -131,7 +131,7 @@ To enable on send add-ins for all users:
     Get-User -Filter {RecipientTypeDetails -eq 'UserMailbox'}|Set-CASMailbox -OwaMailboxPolicy OWAOnSendAddinAllUserPolicy
    ```
 
-### Enabling the on send feature for a group of users
+#### Enable the on send feature for a group of users
 
 To enable the on send feature for a specific group of users the steps are as follows.  In this example, an administrator only wants to enable an Outlook on the web on send add-in feature in an environment for Finance users (where the Finance users are in the Finance Department).
 
@@ -160,7 +160,7 @@ To enable the on send feature for a specific group of users the steps are as fol
 > [!NOTE]
 > Wait up to 60 minutes for the policy to take effect, or restart Internet Information Services (IIS). When the policy takes effect, the on send feature will be enabled for the group.
 
-### Disabling the on send feature
+#### Disable the on send feature
 
 To disable the on send feature for a user or assign an Outlook on the web mailbox policy that does not have the flag enabled, run the following cmdlets. In this example, the mailbox policy is *ContosoCorpOWAPolicy*.
 
@@ -194,7 +194,7 @@ New-App -OrganizationApp -FileData $Data -DefaultStateForUser Enabled
 > [!NOTE]
 > To learn how to use remote PowerShell to connect to Exchange Online, see [Connect to Exchange Online PowerShell](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/connect-to-exchange-online-powershell).
 
-### Enabling the on send policy
+#### Enable the on send policy
 
 By default, on send policy is disabled. Administrators can enable on send by running Exchange Online PowerShell cmdlets.
 
@@ -221,7 +221,7 @@ To enable on send add-ins for all users:
     Get-User -Filter {RecipientTypeDetails -eq 'UserMailbox'}|Set-CASMailbox -OwaMailboxPolicy OWAOnSendAddinAllUserPolicy
    ```
 
-### Enabling the on send policy for a group of users
+#### Enable the on send policy for a group of users
 
 To enable the on send policy for a specific group of users the steps are as follows.  In this example, an administrator only wants to enable an Outlook on the web on send add-in policy in an environment for Finance users (where the Finance users are in the Finance Department).
 
@@ -250,7 +250,7 @@ To enable the on send policy for a specific group of users the steps are as foll
 > [!NOTE]
 > Wait up to 60 minutes for the policy to take effect, or restart Internet Information Services (IIS). When the policy takes effect, the on send feature will be enforced for the group.
 
-### Disabling the on send policy
+#### Disable the on send policy
 
 To disable the on send policy for a user or assign an Outlook on the web mailbox policy that does not have the flag enabled, run the following cmdlets. In this example, the mailbox policy is *ContosoCorpOWAPolicy*.
 
@@ -269,17 +269,26 @@ Get-OWAMailboxPolicy OWAOnSendAddinAllUserPolicy | Set-OWAMailboxPolicy –OnSen
 
 ### [Windows](#tab/windows)
 
-Add-ins for Outlook on Windows that use the on send feature should run for any users who have them installed. However, if users are required to run the add-in to meet compliance standards, then the group policy setting **Disable send when web extensions can't load** must be set to **Enabled** on each applicable machine.
+Add-ins for Outlook on Windows that use the on send feature should run for any users who have them installed. However, if users are required to run the add-in to meet compliance standards, then the group policy **Disable send when web extensions can't load** must be set to **Enabled** on each applicable machine.
 
 To set mailbox policies, administrators can download the [Administrative Templates tool](https://www.microsoft.com/download/details.aspx?id=49030) and run it using the Group Policy editor, **gpedit.msc**.
 
-### Enabling the on send policy
+#### What the policy does
+
+For compliance reasons, administrators may need to ensure that users cannot send email until the latest on send add-in is available to run. Admins must enable the group policy **Disable send when web extensions can't load** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
+
+|Action|Policy enabled|Policy disabled|
+|---|---|---|
+|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked.|On send add-in can manage send.|
+|Run updated add-in|On send add-in can manage send.|On send add-in can manage send.|
+
+#### Enable the on send policy
 
 By default, on send policy is disabled. Administrators can enable the on send policy by ensuring the user's group policy setting **Disable send when web extensions can't load** is set to **Enabled**.
 
 ***TODO***: Include steps
 
-### Disabling the on send policy
+#### Disable the on send policy
 
 To disable the on send policy for a user, the administrator should disable the group policy setting **Disable send when web extensions can't load**.
 
@@ -297,6 +306,15 @@ Add-ins for Outlook on Mac that use the on send feature should run for any users
 |**Possible values**|false (default)<br>true|
 |**Availability**|16.27|
 |**Comments**|This key creates an onSendMailbox policy.|
+
+#### What the setting does
+
+For compliance reasons, administrators may need to ensure that users cannot send email until the latest on send add-in is available to run. Admins must enable the key **OnSendAddinsWaitForLoad** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
+
+|Action|Key enabled|Key disabled|
+|---|---|---|
+|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked.|On send add-in can manage send.|
+|Run updated add-in|On send add-in can manage send.|On send add-in can manage send.|
 
 ---
 
@@ -334,6 +352,8 @@ Select the platform for which you'd like to view support configurations.
 |2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure the policy has been enabled on both mailboxes.|
 |3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
+To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
+
 #### [Windows](#tab/windows)
 
 |Scenario|Mailbox 1 on send policy|Mailbox 2 on send policy|Result|Supported?|
@@ -342,6 +362,7 @@ Select the platform for which you'd like to view support configurations.
 |2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure the policy has been enabled on both mailboxes.|
 |3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
+To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
 
 #### [Mac](#tab/unix)
 
@@ -350,6 +371,8 @@ Select the platform for which you'd like to view support configurations.
 |1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 |2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure the policy has been enabled on both mailboxes.|
 |3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+
+To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
 
 ---
 
@@ -377,6 +400,8 @@ Select the platform for which you'd like to view support configurations.
 |2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 |3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
+To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
+
 #### [Windows](#tab/windows)
 
 |Scenario|Mailbox 1 on send policy|Mailbox 2 on send policy|Result|Supported?|
@@ -384,6 +409,8 @@ Select the platform for which you'd like to view support configurations.
 |1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 |2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 |3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
+
+To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
 
 #### [Mac](#tab/unix)
 
@@ -393,9 +420,13 @@ Select the platform for which you'd like to view support configurations.
 |2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 |3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
 
+To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
+
 ---
 
 ### Group 1 is a modern group mailbox and user mailbox 1 is a member of Group 1
+
+***TODO***: Is this section still needed?
 
 <br/>
 
