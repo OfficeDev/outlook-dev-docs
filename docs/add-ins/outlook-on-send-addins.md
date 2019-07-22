@@ -440,7 +440,7 @@ The on send add-ins will run during send if the user is online. If the user is o
 
 #### Add-in backend's state
 
-An on send add-ins will run if its backend is online and reachable. If the backend is offline, send is disabled.
+An on send add-in will run if its backend is online and reachable. If the backend is offline, send is disabled.
 
 #### Exchange's state
 
