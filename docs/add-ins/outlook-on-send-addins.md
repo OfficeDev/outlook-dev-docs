@@ -2,7 +2,7 @@
 title: On send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 localization_priority: Priority
 ---
 
@@ -59,6 +59,7 @@ The on send feature currently has the following limitations.
 - **AppSource** &ndash; You can't publish Outlook add-ins that use the on send feature to [AppSource](https://appsource.microsoft.com). Add-ins that use the on send event will fail AppSource validation. Such add-ins should be installed by admins.
 - **Manifest** &ndash; Only one **ItemSend** event is supported per add-in. If you have two or more **ItemSend** events in a manifest, the manifest will fail validation.
 - **Performance** &ndash; Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple email message-based operations.
+- **Send Later** (Mac only) &ndash; If there are on send add-ins, the **Send Later** feature will be unavailable.
 
 ### Mailbox type/mode limitations
 
@@ -279,7 +280,7 @@ For compliance reasons, administrators may need to ensure that users cannot send
 
 |Action|Policy enabled|Policy disabled|
 |---|---|---|
-|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked.|On send add-in can manage send.|
+|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked<br>(**Send** button is disabled).|On send add-in can manage send.|
 |Run updated add-in|On send add-in can manage send.|On send add-in can manage send.|
 
 #### Enable the on send policy
@@ -313,7 +314,7 @@ For compliance reasons, administrators may need to ensure that users cannot send
 
 |Action|Key enabled|Key disabled|
 |---|---|---|
-|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked.|On send add-in can manage send.|
+|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked<br>(**Send** button is disabled).|On send add-in can manage send.|
 |Run updated add-in|On send add-in can manage send.|On send add-in can manage send.|
 
 ---
@@ -380,11 +381,7 @@ To learn how to support delegate access in your add-in, see [Enable delegate acc
 
 Select the platform for which you'd like to view support configurations.
 
-***TODO***: Confirm info for each platform
-
 #### [Web browser - classic Outlook](#tab/classic)
-
-***TODO***: Should include session info?
 
 |Scenario|Mailbox 1 on send feature|Mailbox 2 on send policy|Result|Supported?|
 |:------------|:------------|:--------------------------|:-------------|:------|
@@ -426,8 +423,6 @@ To learn how to support delegate access in your add-in, see [Enable delegate acc
 
 ### Group 1 is a modern group mailbox and user mailbox 1 is a member of Group 1
 
-***TODO***: Is this section still needed?
-
 <br/>
 
 |Scenario|Mailbox 1 on send policy|On send add-ins enabled?|Mailbox 1 action|Result|Supported?|
@@ -437,7 +432,20 @@ To learn how to support delegate access in your add-in, see [Enable delegate acc
 
 ### User mailbox with on send add-in feature enabled, add-ins that support on send are installed and enabled and offline mode is enabled
 
+On send add-ins will run according to the online state of the user, the add-in backend, and Exchange.
+
+#### User's state
+
 The on send add-ins will run during send if the user is online. If the user is offline, the on send add-ins will not run during send and the email will not be sent.
+
+#### Add-in backend's state
+
+The on send add-ins will run if the add-in backend is online and reachable. If the backend is offline, send is disabled.
+
+#### Exchange's state
+
+The on send add-ins will run during send if the Exchange server is online and reachable. If the on send add-in cannot reach Exchange and the applicable policy or cmdlet is turned on, send is disabled.
+
 
 ## Code examples
 
