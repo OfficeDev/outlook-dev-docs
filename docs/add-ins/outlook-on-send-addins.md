@@ -2,7 +2,7 @@
 title: On send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/24/2019
 localization_priority: Priority
 ---
 
@@ -272,28 +272,27 @@ Get-OWAMailboxPolicy OWAOnSendAddinAllUserPolicy | Set-OWAMailboxPolicy –OnSen
 
 Add-ins for Outlook on Windows that use the on send feature should run for any users who have them installed. However, if users are required to run the add-in to meet compliance standards, then the group policy **Disable send when web extensions can't load** must be set to **Enabled** on each applicable machine.
 
-To set mailbox policies, administrators can download the [Administrative Templates tool](https://www.microsoft.com/download/details.aspx?id=49030) and run it using the Group Policy editor, **gpedit.msc**.
+To set mailbox policies, administrators can download the [Administrative Templates tool](https://www.microsoft.com/download/details.aspx?id=49030) then access the latest administrative templates by running the Local Group Policy editor, **gpedit.msc**.
 
 #### What the policy does
 
-For compliance reasons, administrators may need to ensure that users cannot send email until the latest on send add-in is available to run. Admins must enable the group policy **Disable send when web extensions can't load** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
+For compliance reasons, administrators may need to ensure that users cannot send email until the latest on send add-in is available to run. Administrators must enable the group policy **Disable send when web extensions can't load** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
 
 |Action|Policy enabled|Policy disabled|
 |---|---|---|
-|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked<br>(**Send** button is disabled).|On send add-in can manage send.|
+|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked.|On send add-in can manage send.|
 |Run updated add-in|On send add-in can manage send.|On send add-in can manage send.|
 
-#### Enable the on send policy
+#### Manage the on send policy
 
-By default, on send policy is disabled. Administrators can enable the on send policy by ensuring the user's group policy setting **Disable send when web extensions can't load** is set to **Enabled**.
+By default, the on send policy is disabled. Administrators can enable the on send policy by ensuring the user's group policy setting **Disable send when web extensions can't load** is set to **Enabled**. To disable the policy for a user, the administrator should set it to **Disabled**. To manage this policy setting, you can do the following.
 
-***TODO***: Include steps
-
-#### Disable the on send policy
-
-To disable the on send policy for a user, the administrator should disable the group policy setting **Disable send when web extensions can't load**.
-
-***TODO***: Include steps
+1. Download the latest [Administrative Templates tool](https://www.microsoft.com/download/details.aspx?id=49030).
+1. Open the Local Group Policy editor (**gpedit.msc**).
+1. Navigate to **User Configuration > Administrative Templates  > Microsoft Outlook 2016 > Security > Trust Center**.
+1. Select the **Disable send when web extensions can't load** setting.
+1. Open the link to edit policy setting.
+1. In the **Disable send when web extensions can't load** dialog window, select **Enabled** or **Disabled** as appropriate then select **OK** or **Apply** to put the update into effect.
 
 ### [Mac](#tab/unix)
 
@@ -333,9 +332,7 @@ Add-ins will run during the send event, which will then either allow or block th
 
 ### Mailbox delegation, where mailbox 1 has full access permissions to mailbox 2
 
-Select the platform for which you'd like to view support configurations.
-
-#### [Web browser - classic Outlook](#tab/classic)
+#### Web browser (classic Outlook)
 
 |Scenario|Mailbox 1 on send feature|Mailbox 2 on send feature|Outlook web session (classic)|Result|Supported?|
 |:------------|:------------|:--------------------------|:---------|:-------------|:-------------|
@@ -344,82 +341,9 @@ Select the platform for which you'd like to view support configurations.
 |3|Enabled|Enabled|Same session|On send add-ins assigned to mailbox 1 run on send.|Supported.|
 |4|Enabled|Disabled|New session|No on send add-ins run; mail is sent.|Supported.|
 
+#### Web browser (modern Outlook), Windows, Mac
 
-#### [Web browser - modern Outlook](#tab/modern)
-
-|Scenario|Mailbox 1 on send policy|Mailbox 2 on send policy|Result|Supported?|
-|:------------|:------------|:--------------------------|:-------------|:------|
-|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure the policy has been enabled on both mailboxes.|
-|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-
-To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
-
-#### [Windows](#tab/windows)
-
-|Scenario|Mailbox 1 on send policy|Mailbox 2 on send policy|Result|Supported?|
-|:------------|:------------|:--------------------------|:-------------|:------|
-|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure the policy has been enabled on both mailboxes.|
-|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-
-To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
-
-#### [Mac](#tab/unix)
-
-|Scenario|Mailbox 1 on send policy|Mailbox 2 on send policy|Result|Supported?|
-|:------------|:------------|:--------------------------|:-------------|:------|
-|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|Mailbox 1 cannot send an email from mailbox 2.|No<br>**Note**: To enforce the on send feature, ensure the policy has been enabled on both mailboxes.|
-|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-
-To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
-
----
-
-### Calendar delegation, where mailbox 1 has full access permissions to mailbox 2
-
-Select the platform for which you'd like to view support configurations.
-
-#### [Web browser - classic Outlook](#tab/classic)
-
-|Scenario|Mailbox 1 on send feature|Mailbox 2 on send policy|Result|Supported?|
-|:------------|:------------|:--------------------------|:-------------|:------|
-|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-
-#### [Web browser - modern Outlook](#tab/modern)
-
-|Scenario|Mailbox 1 on send policy|Mailbox 2 on send policy|Result|Supported?|
-|:------------|:------------|:--------------------------|:-------------|:------|
-|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-
-To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
-
-#### [Windows](#tab/windows)
-
-|Scenario|Mailbox 1 on send policy|Mailbox 2 on send policy|Result|Supported?|
-|:------------|:------------|:--------------------------|:-------------|:------|
-|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-
-To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
-
-#### [Mac](#tab/unix)
-
-|Scenario|Mailbox 1 on send policy|Mailbox 2 on send policy|Result|Supported?|
-|:------------|:------------|:--------------------------|:-------------|:------|
-|1|Enabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|2|Disabled|Enabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-|3|Enabled|Disabled|On send add-ins assigned to mailbox 1 run on send.|Yes|
-
-To learn how to support delegate access in your add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
-
----
+To enforce on send, administrators should ensure the policy has been enabled on both mailboxes. To learn how to support delegate access in an add-in, see [Enable delegate access scenarios in an Outlook add-in](delegate-access.md).
 
 ### Group 1 is a modern group mailbox and user mailbox 1 is a member of Group 1
 
