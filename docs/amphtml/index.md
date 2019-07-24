@@ -10,7 +10,7 @@ localization_priority: Priority
 
 # AMP for Email in Outlook.com (Preview)
 
-[AMP for Email](https://amp.dev/about/email.html) is a new open source email format that enables developers to create dynamic and interactive emails, almost like mini applications. These experiences make users more efficient by providing up-to-date information and actions that can be taken without directly on email, reducing context switches.
+[AMP for Email](https://amp.dev/about/email.html) is a new open source email format that enables developers to create dynamic and interactive emails. These experiences make users more efficient by providing up-to-date information and actions that can be taken directly on email, reducing context switches.
 
 [Add image here showing amp email in action in outlook]
 
