@@ -11,25 +11,32 @@ localization_priority: Priority
 
 ## Author AMP for Email code
 
-1. Read the [AMP for Email specification](https://amp.dev/documentation/guides-and-tutorials/learn/amp-email-format). Its important for you to understand the fundamentals.
-1. Develop your code using [AMP Components](https://amp.dev/documentation/components/?format=email) and test using the [AMP Playground](https://playground.amp.dev/?runtime=amp4email). There is also a Visual Studio Code extension to create and validate AMP code.
+1. Read the [AMP for Email specification](https://amp.dev/documentation/guides-and-tutorials/learn/amp-email-format) to understand the fundamentals. 
+1. If this is the first time you create an AMP email we recommend you to start with this [Tutorial](https://amp.dev/documentation/guides-and-tutorials/start/create_email/?format=email)
+1. Develop your code using [AMP Components](https://amp.dev/documentation/components/?format=email) and test using the [AMP Playground](https://playground.amp.dev/?runtime=amp4email). 
 
 
 ## Test AMP emails in Outlook.com
+When developing AMP emails, you can use your own Outlook.com account to test them. 
 
-There are multiple ways to send AMP e-mails to your mailbox to verify it works
+### Add the sender email address to your personal allowed list
+Login to you outlook.com account on the web and go to `Settings>All Outlook settings>Dynamic Email`.  Ensure that dynamic email is turned on and add any sender email addresses that you will use during your testing. 
 
-### Test using the Outlook Playground
+[add screenshot]
 
-1. Head to [address here] and paste your AMPHTML code there
-1. Hit "Send" 
+### Send AMP email to your Outlook.com mailbox
+There are multiple ways for you to send AMP emails to your Outlook.com mailbox. You are not required to use any particular tools. As long as you can send an email with the AMP MIME part on it, you are good for testing.
 
-### Test using other tools
-You can take a look at other tools, such as [LITMUS](https://litmus.com) which allows you to preview and send e-mails to multiple e-mail providers, including Outlook. Also, email service providers, such as SendGrid also support sending AMPHTML emails.
+#### Use the sender tool
+The easiest way to send email to your Outlook.com mailbox is to use the sender tool. 
+1. Head to [address here] to download and install the tool
+1. Run the tool to send emails to your Outlook mailbox
+
+
 
 ## Send emails to Outlook.com users
 
-Before sending emails to your customers, you must [register to be come an authorized sender](register-outlook.md). Note that you will need to meet all [security requirements](security-requiremets.md) before you can become an authorized sender.
+Once you are ready to send emails to Outlook.com end users (your actual customers) you must [register to become an authorized sender](register-outlook.md). 
 
-Once approved, Outlook.com users that have the feature turned on (about half of Outlook.com users during the preview) will see the AMPHTML version of your emails.
+Once approved, Outlook.com users that have the feature turned on (about half of Outlook.com users during the preview) will see the AMP version of your emails.
 
