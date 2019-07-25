@@ -25,11 +25,11 @@ Outlook.com supports AMP for email as a preview. During the preview:
 - About half of Outlook.com users will have the feature turned on by default, allowing them to see AMP emails from authorized senders.  
 
 ## Your feedback is important
-We will closely monitor the interest and feedback from Outlook users, developers and the email ecosystem during this preview. You can [reach out to us via email](mailto:ampforemailoutlook@service.microsoft.com). 
+We will closely monitor the interest and feedback from Outlook users, developers and the email ecosystem during this preview. If you have any comments or questions during the preview period you can [reach out to us via email](mailto:ampforemailoutlook@service.microsoft.com). 
 
 Also note that there are multiple technologies that enable the creation of dynamic and interactive emails. [Actionable messages](https://docs.microsoft.com/en-us/outlook/actionable-messages/) is Outlook's officially supported format to create interactive email experiences. AMP for email is a new email format that we are evaluating.
 
 ## Get Started
-Ready to give it a try?  Alright, [start here](get-started.md). 
+Ready to give it a try?  Great!, [start here](get-started.md). 
 
 
