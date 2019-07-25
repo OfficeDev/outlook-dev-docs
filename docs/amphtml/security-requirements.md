@@ -9,15 +9,24 @@ localization_priority: Priority
 ---
 # Security Requirements
 
-To protect users privacy and security AMP emails are subject to additional security requirements and restrictions. Failure to comply with any of these requirements will result in a fallback behavior where the AMP for email MIME part is ignored and the HTML part is rendered instead.
+To protect users experience, privacy and security AMP emails are subject to additional  requirements and restrictions. Failure to comply with any of these requirements will result in a fallback behavior where the AMP for email MIME part is ignored and the HTML part is rendered instead.
 
 ## Sender Authentication
-To verify the authenticity of AMP email senders, emails containing AMP need to pass the following checks:
+Emails containing AMP need to adhere to this criteria:
 
-- [Domain Keys Identified Mail (DKIM) authentication](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) 
-- [Sender Policy Framework (SPF) authentication](https://en.wikipedia.org/wiki/Sender_Policy_Framework)
-- [Domain-based Message Authentication
-Reporting and Conformance (DMARC)](https://en.wikipedia.org/wiki/DMARC); full pass. 
+- Emails must pass authentication via: 
+    - [Domain Keys Identified Mail (DKIM) authentication](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) 
+    - [Sender Policy Framework (SPF) authentication](https://en.wikipedia.org/wiki/Sender_Policy_Framework)
+    - [Domain-based Message Authentication
+    Reporting and Conformance (DMARC)](https://en.wikipedia.org/wiki/DMARC); full pass. 
+- The top-level domain (TLD) of the SPF check or DKIM signature must match the TLD of your `From:` email address. For example, if you use `From: myservice@contoso.com` the DKIM or SPF must be for `contoso.com` or `-.contoso.com`.
+- Emails must come from a static email address, e.g. `myservice@contoso.com`.
+
 
 ## Sender Registration
-Senders must [register](register-outlook.md) with Microsoft for their AMP emails to work in end user mailboxes. The from header address of any emails sent must be an exact match to the address used during registration. 
+In addition to pass all the checks outlined in the previous sections, senders of AMP email need to register the static email address their emails originate from.  See [sender registration](register-outlook.md) for more details.
+
+## Best Practices
+Emails that contain AMP must observe [best practices](best-practices.md); failure to do so may result in revokation of your sender registration. 
+
+

@@ -2,10 +2,14 @@
   href: index.md
 - name: Get Started
   href: get-started.md
-- name: Register with Outlook
-  href: register-outlook.md
-- name: Security Requirements
-  href: security-requirements.md
 - name: Authenticate Requests
   href: authentication.md
+- name: Security Requirements
+  href: security-requirements.md
+- name: Sender Registration
+  href: register-outlook.md
+- name: Best Practices
+  href: best-practices.md
+- name: Supported Outlook Versions
+  href: version-support.md
   

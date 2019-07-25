@@ -19,10 +19,9 @@ localization_priority: Priority
 ## Test AMP emails in Outlook.com
 When developing AMP emails, you can use your own Outlook.com account to test them. 
 
-### Add the sender email address to your personal allowed list
-[Login](https://www.outlook.com) to you outlook.com account and go to `Settings>All Outlook settings>Dynamic Email`.  Ensure that dynamic email is turned on and add any sender email addresses that you will use during your testing. 
+### Register your sender address with Outlook
+During development, you can self-register the email address that emails originate from on your account. See details. 
 
-[add screenshot] showing how settings look like
 
 ### Send AMP email to your Outlook.com mailbox
 There are multiple ways for you to send AMP emails to your Outlook.com mailbox. You are not required to use any particular tools. As long as you can send an email with the AMP MIME part on it, you are good for testing.

@@ -12,7 +12,7 @@ localization_priority: Priority
 If you require to perform an authenticated action in your AMP email you must supply access tokens as query string parameters on the URL of your actions and verify those tokens on your service.  The following example illustrates this with an amp-list. 
 
 ```html
-<amp-list src="https://fabrikam.com/order-status?id=123&exampletoken=BB34X21F" height="200">
+<amp-list src="https://contoso.com/order-status?id=123&exampletoken=BB34X21F" height="200">
   <template type="amp-mustache">
     <p>{{order}}</p>
   </template>
