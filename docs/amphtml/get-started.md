@@ -19,23 +19,14 @@ localization_priority: Priority
 ## Test AMP emails in Outlook.com
 When developing AMP emails, you can use your own Outlook.com account to test them. 
 
-### Register your sender address with Outlook
-During development, you can self-register the email address that emails originate from on your account. See details. 
-
-
-### Send AMP email to your Outlook.com mailbox
-There are multiple ways for you to send AMP emails to your Outlook.com mailbox. You are not required to use any particular tools. As long as you can send an email with the AMP MIME part on it, you are good for testing.
-
-#### Use the sender tool
-The easiest way to send email to your Outlook.com mailbox is to use the sender tool. 
-1. Head to [address here] to download and install the tool
-1. Run the tool to send emails to your Outlook mailbox
-
-
+1. Register the sender address with Outlook. During development you can self-register. See [details](register-outlook.md)
+1. Send AMP email to your Outlook.com mailbox. 
+    - Use this simple sender tool [Add link to tool when ready].
+    - You can also use any other tool or service provider that supports AMP for email. See [more](https://amp.dev/documentation/tools/)
 
 ## Send emails to Outlook.com users
 
 Once you are ready to send emails to Outlook.com end users (your actual customers) you must [register to become an authorized sender](register-outlook.md). 
 
-Once approved, Outlook.com users that have the feature turned on (about half of Outlook.com users during the preview) will see the AMP version of your emails.
+Once approved, Outlook.com users that have the feature turned on, about half of Outlook.com users during the preview, will see the AMP version of your emails.
 

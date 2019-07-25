@@ -1,5 +1,5 @@
 # Supported Outlook Versions
-During preview, AMP for email is only supported in the *web version* (browser-based) of *Outlook.com* for *personal accounts*.
+During preview, AMP for email is only supported in the *web version* (browser-based) of *Outlook.com* for *personal accounts*. Additionally, only about half of users mailboxes have the feature turned on by default. This is because we are evaluating the impact of the feature before making a decision to roll it out to all users and other versions of Outlook.
 
 ## Supported desktop browsers
 Outlook uses modern browser technology to render AMP for email. Unsupported browsers fall back to the HTML version of the email.
