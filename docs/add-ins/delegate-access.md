@@ -98,7 +98,7 @@ function performOperation() {
               // Construct REST URL for your operation.
               // Update <version> placeholder with actual Outlook REST API version e.g. "v2.0".
               // Update <operation> placeholder with actual operation.
-              let rest_url = sharedProperties.targetRestUrl + "/<version>/users/" + sharedProperties.targetMailbox + "<operation>";
+              let rest_url = sharedProperties.targetRestUrl + "/<version>/users/" + sharedProperties.targetMailbox + "/<operation>";
   
               $.ajax({
                   url: rest_url,
