@@ -309,11 +309,11 @@ Add-ins for Outlook on Mac that use the on send feature should run for any users
 
 #### What the setting does
 
-For compliance reasons, administrators may need to ensure that users cannot send email until the latest on send add-in is available to run. Admins must enable the key **OnSendAddinsWaitForLoad** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
+For compliance reasons, administrators may need to ensure that users cannot send email until the latest on send add-isn are available to run. Admins must enable the key **OnSendAddinsWaitForLoad** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
 
 |Action|Key enabled|Key disabled|
 |---|---|---|
-|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked<br>(**Send** button is disabled).|On send add-in can manage send.|
+|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked.<br>(**Send** button is disabled.)|On send add-in can manage send.|
 |Run updated add-in|On send add-in can manage send.|On send add-in can manage send.|
 
 ---
@@ -354,7 +354,7 @@ To enforce on send, administrators should ensure the policy has been enabled on 
 |1|Enabled|Yes|Mailbox 1 composes new message to Group 1.|On send add-ins run during send.|Yes|
 |2|Enabled|Yes|Mailbox 1 composes a new message to Group 1 within Group 1's group window in Outlook on the web.|On send add-ins do not run during send.|Not currently supported. As a workaround, use scenario 1.|
 
-### User mailbox with on send add-in feature enabled, add-ins that support on send are installed and enabled and offline mode is enabled
+### User mailbox with on send add-in feature/policy enabled, add-ins that support on send are installed and enabled and offline mode is enabled
 
 On send add-ins will run according to the online state of the user, the add-in backend, and Exchange.
 
@@ -369,6 +369,9 @@ An on send add-in will run if its backend is online and reachable. If the backen
 #### Exchange's state
 
 The on send add-ins will run during send if the Exchange server is online and reachable. If the on send add-in cannot reach Exchange and the applicable policy or cmdlet is turned on, send is disabled.
+
+> [!NOTE]
+> On Mac in any offline state, the **Send** button is disabled and a notification displayed that their organization doesn't allow send when the user is offline.
 
 
 ## Code examples
