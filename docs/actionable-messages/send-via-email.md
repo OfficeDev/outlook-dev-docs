@@ -70,7 +70,7 @@ Feel free to experiment with this simple example in the playground. You can see 
 ## Sending actionable messages via email
 
 > [!IMPORTANT]
-> You can design and test actionable messages by using the [Card Playground](https://messagecardplayground.azurewebsites.net/), which allows you to send actionable messages to yourself. You can also send actionable messages to yourself using the [Office 365 SMTP server](https://support.office.com/en-us/article/POP-and-IMAP-settings-for-Outlook-Office-365-for-business-7fc677eb-2491-4cbc-8153-8e7113525f6c). You will be unable to send actionable messages to any other user until you have registered using the [actionable messages developer dashboard](https://aka.ms/publishoam).
+> You can design and test actionable messages by using the [Card Playground](https://messagecardplayground.azurewebsites.net/), which allows you to send actionable messages to yourself. You can also send actionable messages to yourself using the [Office 365 SMTP server](https://support.office.com/en-us/article/pop-and-imap-email-settings-for-outlook-8361e398-8af4-4e97-b147-6c6c4ac95353). You will be unable to send actionable messages to any other user until you have registered using the [actionable messages developer dashboard](https://aka.ms/publishoam).
 
 To embed an actionable message card in an email message, we need to wrap the card in a `<script>` tag. The `<script>` tag is then inserted into the `<head>` of the email's HTML body.
 
