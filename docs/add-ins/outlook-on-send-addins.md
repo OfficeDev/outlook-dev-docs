@@ -16,7 +16,7 @@ The on send feature for Outlook add-ins provides a way to handle email or block 
 > [!NOTE]
 > The on send feature is currently supported for Outlook on the web in Office 365, Exchange 2016 on-premises (Cumulative Update 6 or later), and Exchange 2019 on-premises (Cumulative Update 1 or later). This feature is also available in preview on Windows and Mac connected to an Office 365 subscription. Add-ins that use the on send feature aren't allowed in [AppSource](https://appsource.microsoft.com).
 
-The on send feature is triggered by events. Currently, the feature supports the **ItemSend** event type. Events in Outlook add-ins enable you to handle, check, or block user actions when something of interest occurs. For example, events provide ways to:
+The on send feature is triggered by events. Currently, the feature supports the `ItemSend` event type. Events in Outlook add-ins enable you to handle, check, or block user actions when something of interest occurs. For example, events provide ways to:
 
 - Control user actions
 - Handle changes
@@ -28,7 +28,7 @@ For information about limitations related to the on send feature, see [Limitatio
 
 ## How does the on send feature work?
 
-You can use the on send feature to build an Outlook add-in that integrates the **ItemSend** synchronous event. This event detects that the user is pressing the **Send** button and can be used to block the email from sending if the message validation fails. For example, when a user triggers a message send event, an Outlook add-in that uses the on send feature can:
+You can use the on send feature to build an Outlook add-in that integrates the `ItemSend` synchronous event. This event detects that the user is pressing the **Send** button and can be used to block the email from sending if the message validation fails. For example, when a user triggers a message send event, an Outlook add-in that uses the on send feature can:
 
 - Read and validate the email message contents
 - Verify that the message includes a subject line
@@ -56,8 +56,8 @@ The following screenshot shows an information bar that notifies the sender that 
 
 The on send feature currently has the following limitations.
 
-- **AppSource** &ndash; You can't publish Outlook add-ins that use the on send feature to [AppSource](https://appsource.microsoft.com). Add-ins that use the on send event will fail AppSource validation. Such add-ins should be installed by admins.
-- **Manifest** &ndash; Only one **ItemSend** event is supported per add-in. If you have two or more **ItemSend** events in a manifest, the manifest will fail validation.
+- **AppSource** &ndash; You can't publish Outlook add-ins that use the on send feature to [AppSource](https://appsource.microsoft.com) as they will fail AppSource validation. Add-ins that use the on send feature should be deployed by administrators.
+- **Manifest** &ndash; Only one `ItemSend` event is supported per add-in. If you have two or more `ItemSend` events in a manifest, the manifest will fail validation.
 - **Performance** &ndash; Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple email message-based operations.
 - **Send Later** (Mac only) &ndash; If there are on send add-ins, the **Send Later** feature will be unavailable.
 
@@ -280,8 +280,8 @@ For compliance reasons, administrators may need to ensure that users cannot send
 
 |Policy status|Result|
 |---|---|
-|Disabled.|Send allowed. Email can be sent without running the on send add-in, even if the add-in has not been updated from Exchange yet.|
-|Enabled.|Send allowed only when the add-in has been updated from Exchange; otherwise, send is blocked.|
+|Disabled|Send allowed. Email can be sent without running the on send add-in, even if the add-in has not been updated from Exchange yet.|
+|Enabled|Send allowed only when the add-in has been updated from Exchange; otherwise, send is blocked.|
 
 #### Manage the on send policy
 
@@ -386,7 +386,7 @@ The [Outlook-Add-in-On-Send](https://github.com/OfficeDev/Outlook-Add-in-On-Send
 
 - `Contoso Subject and CC Checker.xml` &ndash; Shows how to add a recipient to the CC line and verify that the message includes a subject line on send.  
 
-In the `Contoso Message Body Checker.xml` manifest file, you include the function file and function name that should be called on the **ItemSend** event. The operation runs synchronously.
+In the `Contoso Message Body Checker.xml` manifest file, you include the function file and function name that should be called on the `ItemSend` event. The operation runs synchronously.
 
 ```xml
 <Hosts>
@@ -427,7 +427,7 @@ For the `Contoso Subject and CC Checker.xml` manifest file, the following exampl
 
 <br/>
 
-The on send API requires **VersionOverrides v1_1**. The following shows you how to add the VersionOverrides node in your manifest.
+The on send API requires `VersionOverrides v1_1`. The following shows you how to add the `VersionOverrides` node in your manifest.
 
 ```xml
  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -445,9 +445,9 @@ The on send API requires **VersionOverrides v1_1**. The following shows you how 
 > - [Office Add-ins XML manifest](/office/dev/add-ins/overview/add-in-manifests)
 
 
-### Event, item, body getAsync, and setAsync methods
+### `Event` and `item` objects, and `body.getAsync` and `body.setAsync` methods
 
-To access the currently selected message (in this example, the newly composed message), use the **Office.context.mailbox.item** namespace. The **ItemSend** event is automatically passed by the on send feature to the function specified in the manifest&mdash;in this example, the `validateBody`function.
+To access the currently selected message (in this example, the newly composed message), use the `Office.context.mailbox.item` namespace. The `ItemSend` event is automatically passed by the on send feature to the function specified in the manifest&mdash;in this example, the `validateBody` function.
 
 ```js
 var mailboxItem;
@@ -463,15 +463,15 @@ function validateBody(event) {
 }
 ```
 
-The `validateBody` function gets the current body in the specified format (HTML) and passes the **ItemSend** event object that the code wants to access in the callback method. In addition to the **getAsync** method, the **Body** object also provides a **setAsync** method that you can use to replace the body with the specified text.
+The `validateBody` function gets the current body in the specified format (HTML) and passes the `ItemSend` event object that the code wants to access in the callback method. In addition to the `getAsync` method, the `Body` object also provides a `setAsync` method that you can use to replace the body with the specified text.
 
 > [!NOTE]
 > For more information, see [Event Object](/javascript/api/office/office.addincommands.event) and [Body.getAsync](/javascript/api/outlook_1_5/office.Body#getasync-coerciontype--options--callback-).
   
 
-### NotificationMessages object and event.completed method
+### `NotificationMessages` object and `event.completed` method
 
-The `checkBodyOnlyOnSendCallBack` function uses a regular expression to determine whether the message body contains blocked words. If it finds a match against an array of restricted words, it then blocks the email from being sent and notifies the sender via the information bar. To do this, it uses the **notificationMessages** property of the **Item** object to return a **NotificationMessages** object. It then adds a notification to the item by calling the **addAsync** method, as shown in the following example.
+The `checkBodyOnlyOnSendCallBack` function uses a regular expression to determine whether the message body contains blocked words. If it finds a match against an array of restricted words, it then blocks the email from being sent and notifies the sender via the information bar. To do this, it uses the `notificationMessages` property of the `Item` object to return a `NotificationMessages` object. It then adds a notification to the item by calling the `addAsync` method, as shown in the following example.
 
 ```js
 // Determine whether the body contains a specific set of blocked words. If it contains the blocked words, block email from being sent. Otherwise allow sending.
@@ -496,20 +496,20 @@ function checkBodyOnlyOnSendCallBack(asyncResult) {
 }
 ```
 
-The following are the parameters for the **addAsync** method:
+The following are the parameters for the `addAsync` method:
 
-- *NoSend* &ndash; A string that is a developer-specified key to reference a notification message. You can use it to modify this message later. The key can’t be longer than 32 characters.
-- *type* &ndash; One of the properties of the  JSON object parameter. Represents the type of a message; the types correspond to the values of the [Office.MailboxEnums.ItemNotificationMessageType](/javascript/api/outlook_1_5/office.mailboxenums.itemnotificationmessagetype) enumeration. Possible values are progress indicator, information message, or error message. In this example, *type* is an error message.  
-- *message* &ndash; One of the properties of the JSON object parameter. In this example, *message* is the text of the notification message.
+- `NoSend` &ndash; A string that is a developer-specified key to reference a notification message. You can use it to modify this message later. The key can’t be longer than 32 characters.
+- `type` &ndash; One of the properties of the  JSON object parameter. Represents the type of a message; the types correspond to the values of the [Office.MailboxEnums.ItemNotificationMessageType](/javascript/api/outlook_1_5/office.mailboxenums.itemnotificationmessagetype) enumeration. Possible values are progress indicator, information message, or error message. In this example, `type` is an error message.  
+- `message` &ndash; One of the properties of the JSON object parameter. In this example, `message` is the text of the notification message.
 
-To signal that the add-in has finished processing the **ItemSend** event triggered by the send operation, call the **event.completed({allowEvent:Boolean})** method. The **allowEvent** property is a Boolean. If set to **true**, send is allowed. If set to **false**, the email message is blocked from sending.
+To signal that the add-in has finished processing the `ItemSend` event triggered by the send operation, call the `event.completed({allowEvent:Boolean})` method. The `allowEvent` property is a Boolean. If set to `true`, send is allowed. If set to `false`, the email message is blocked from sending.
 
 > [!NOTE]
 > For more information, see [notificationMessages](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#notificationmessages-notificationmessages) and [completed](/javascript/api/office/office.addincommands.event).
 
-### replaceAsync, removeAsync, and getAllAsync methods
+### `replaceAsync`, `removeAsync`, and `getAllAsync` methods
 
-In addition to the **addAsync** method, the **NotificationMessages** object also includes **replaceAsync**, **removeAsync**, and **getAllAsync** methods.  These methods are not used in this code sample.  For more information, see [NotificationMessages](/javascript/api/outlook_1_5/office.NotificationMessages).
+In addition to the `addAsync` method, the `NotificationMessages` object also includes `replaceAsync`, `removeAsync`, and `getAllAsync` methods.  These methods are not used in this code sample.  For more information, see [NotificationMessages](/javascript/api/outlook_1_5/office.NotificationMessages).
 
 
 ### Subject and CC checker
