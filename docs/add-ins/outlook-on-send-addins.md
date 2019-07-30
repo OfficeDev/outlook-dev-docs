@@ -2,7 +2,7 @@
 title: On send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
 ms.topic: article
-ms.date: 07/24/2019
+ms.date: 07/30/2019
 localization_priority: Priority
 ---
 
@@ -278,10 +278,10 @@ To set mailbox policies, administrators can download the [Administrative Templat
 
 For compliance reasons, administrators may need to ensure that users cannot send email until the latest on send add-in is available to run. Administrators must enable the group policy **Disable send when web extensions can't load** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
 
-|Action|Policy enabled|Policy disabled|
-|---|---|---|
-|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked.|On send add-in can manage send.|
-|Run updated add-in|On send add-in can manage send.|On send add-in can manage send.|
+|Policy status|Result|
+|---|---|
+|Disabled.|Send allowed. Email can be sent without running the on send add-in, even if the add-in has not been updated from Exchange yet.|
+|Enabled.|Send allowed only when the add-in has been updated from Exchange; otherwise, send is blocked.|
 
 #### Manage the on send policy
 
@@ -311,10 +311,10 @@ Add-ins for Outlook on Mac that use the on send feature should run for any users
 
 For compliance reasons, administrators may need to ensure that users cannot send email until the latest on send add-isn are available to run. Admins must enable the key **OnSendAddinsWaitForLoad** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
 
-|Action|Key enabled|Key disabled|
-|---|---|---|
-|Open add-in<br>-Load manifest from cache<br>-Connect to Exchange<br>-Update add-in|Send blocked.<br>(**Send** button is disabled.)|On send add-in can manage send.|
-|Run updated add-in|On send add-in can manage send.|On send add-in can manage send.|
+|Key's state|Result|
+|---|---|
+|false|Send allowed. Email can be sent without running the on send add-in, even if the add-in has not been updated from Exchange yet.|
+|true|Send allowed only when add-ins have been updated from Exchange; otherwise, send is blocked and the **Send** button is disabled.|
 
 ---
 
