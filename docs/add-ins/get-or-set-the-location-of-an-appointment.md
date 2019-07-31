@@ -2,7 +2,7 @@
 title: Get or set the location of an appointment in an add-in
 description: Learn how to get or set the location of an appointment in an Outlook add-in.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/31/2019
 localization_priority: Normal
 ---
 
@@ -111,5 +111,5 @@ function write(message){
 
 ## See also
 
-- [Write your first Outlook add-in](addin-tutorial.md)
+- [Create your first Outlook add-in](quick-start.md)
 - [Asynchronous programming in Office Add-ins](/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)
