@@ -855,7 +855,7 @@ g.insertDefaultGist = insertDefaultGist;
 
 ### Create a file to manage configuration settings
 
-The HTML function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **./src/helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook_1_5/office.RoamingSettings) to get and set configuration values.
+The HTML function file references a file named **addin-config.js**, which doesn't yet exist. Create a file named **addin-config.js** in the **./src/helpers** folder and add the following code. This code uses the [RoamingSettings object](/javascript/api/outlook/office.RoamingSettings) to get and set configuration values.
 
 ```js
 function getConfig() {

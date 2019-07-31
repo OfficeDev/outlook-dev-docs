@@ -12,9 +12,9 @@ An Outlook add-in cannot pass the attachments of a selected item directly to the
 
 To send attachment information to the remote service, you use the following properties and function:
 
-- [Office.context.mailbox.ewsUrl](/javascript/api/outlook_1_5/office.entities) property &ndash; Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, or the [GetAttachment](/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation.
+- [Office.context.mailbox.ewsUrl](/javascript/api/outlook/office.entities) property &ndash; Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, or the [GetAttachment](/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation.
 
-- [Office.context.mailbox.item.attachments](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#attachments-arrayattachmentdetails) property &ndash; Gets an array of [AttachmentDetails](/javascript/api/outlook_1_5/office.attachmentdetails) objects, one for each attachment to the item.
+- [Office.context.mailbox.item.attachments](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#attachments-arrayattachmentdetails) property &ndash; Gets an array of [AttachmentDetails](/javascript/api/outlook/office.attachmentdetails) objects, one for each attachment to the item.
 
 - [Office.context.mailbox.getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getcallbacktokenasyncoptions-callback) function &ndash; Makes an asynchronous call to the Exchange server that hosts the mailbox to get a callback token that the server sends back to the Exchange server to authenticate a request for an attachment.
 
