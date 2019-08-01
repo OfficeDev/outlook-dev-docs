@@ -5,7 +5,7 @@ author: jasonjoh
 ms.topic: conceptual
 ms.technology: ms-graph
 ms.devlang: javascript
-ms.date: 04/04/2019
+ms.date: 08/01/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -103,7 +103,7 @@ Let's begin by adding an HTML page to our app. Using your favorite editor, creat
   <div class="container main-container">
     <div id="signin-prompt" class="jumbotron page">
       <h1>Outlook SPA Demo</h1>
-      <p>This example shows how to get an OAuth token from Azure using the <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-implicit/">implicit grant flow</a> and to use that token to make calls to the Outlook APIs.</p>
+      <p>This example shows how to get an OAuth token from Azure using the <a href="https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow">implicit grant flow</a> and to use that token to make calls to the Outlook APIs.</p>
       <p>
         <a class="btn btn-lg btn-primary" href="#" role="button" id="connect-button">Connect to Outlook</a>
       </p>
@@ -233,9 +233,9 @@ $(function() {
 });
 ```
 
-This code creates a `render` method, which selectively shows parts of the page based on the current `#` value in the URL. For each supported hash value, there's a corresponding entry in the `pagemap` object. Right now there the blank value for the home page, and a new value `#unsupportedbrowser`. The very first thing the code does is check for support of the `Storage` interface and the `crypto.getRandomValues` function. The app is going to use the [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) to store access tokens, and the `crypto.getRandomValues` function to generate nonce values, so we need to make sure the browser supports them (most modern browsers do).
+This code creates a `render` method, which selectively shows parts of the page based on the current `#` value in the URL. For each supported hash value, there's a corresponding entry in the `pagemap` object. Right now there the blank value for the home page, and a new value `#unsupportedbrowser`. The very first thing the code does is check for support of the `Storage` interface and the `crypto.getRandomValues` function. The app is going to use the [Web Storage API](https://developer.mozilla.org/docs/Web/API/Web_Storage_API) to store access tokens, and the `crypto.getRandomValues` function to generate nonce values, so we need to make sure the browser supports them (most modern browsers do).
 
-Assuming your browser supports Web Storage and `crypto.getRandomValues`, at this point refrehsing the page should show the home page as before. If you change the URL in the browser to `http://localhost:8080/#unsupportedbrowser`, you should see the nav bar at the top, but the rest of the page is blank. Let's add in a note to tell the user what happened.
+Assuming your browser supports Web Storage and `crypto.getRandomValues`, at this point refreshing the page should show the home page as before. If you change the URL in the browser to `http://localhost:8080/#unsupportedbrowser`, you should see the nav bar at the top, but the rest of the page is blank. Let's add in a note to tell the user what happened.
 
 Open `index.html` and locate the following line:
 
@@ -250,7 +250,7 @@ Add the following code immediately after that line.
 ```HTML
 <div id="unsupported" class="jumbotron page">
   <h1>Oops....</h1>
-  <p>This page requires browser support for <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">session storage</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues"><code>crypto.getRandomValues</code></a>. Unfortunately, your browser does not support one or both features. Please visit this page using a different browser.</p>
+  <p>This page requires browser support for <a href="https://developer.mozilla.org/docs/Web/API/Web_Storage_API">session storage</a> and <a href="https://developer.mozilla.org/docs/Web/API/RandomSource/getRandomValues"><code>crypto.getRandomValues</code></a>. Unfortunately, your browser does not support one or both features. Please visit this page using a different browser.</p>
 </div>
 ```
 
@@ -276,7 +276,7 @@ Save the change and browse to `http://localhost:8080/#unsupportedbrowser`. You s
 
 ## Implementing OAuth2
 
-Our goal in this section is to make the link on our home page initiate the [OAuth2 Implicit Grant flow with Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-implicit/). This flow is designed for SPA apps, and will allow us to get an access token without needing to exchange a client secret or do extra requests to a token issuing endpoint.
+Our goal in this section is to make the link on our home page initiate the [OAuth2 Implicit Grant flow with Azure AD](/azure/active-directory/develop/v2-oauth2-implicit-grant-flow). This flow is designed for SPA apps, and will allow us to get an access token without needing to exchange a client secret or do extra requests to a token issuing endpoint.
 
 The implicit flow is pretty simple. The user browses to an authentication link hosted by Azure, where they sign in and grant access to our app. Azure redirects back to the app with the result. Assuming the user successfully signed in and granted consent, the result contains an access token and ID token.
 
@@ -583,7 +583,7 @@ Now save your changes and refresh the browser. You should be able to use the **S
 
 At this point we have an access token, so we could just proceed to calling the Outlook API. However, access tokens are relatively short-lived. After an hour they expire. While we could ask the user to sign in again, that's not a great solution. Ideally we would want to be able to silently request a new token. The implicit grant flow doesn't use refresh tokens, so the way to get a new token is to send another request to the authorization endpoint. To make it silent, we need to include the user's sign-in name, which we can get from the ID token that's included in our initial authorization response. We can also get data like the user's display name, which we can use to personalize the app.
 
-According to the [Azure documentation](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-tokens/#validating-tokens) and the [OpenID specification](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation), we MUST validate the token before using it. So our function will do some basic validation as it parses the token.
+According to the [Azure documentation](/azure/active-directory/develop/access-tokens#validating-tokens) and the [OpenID specification](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation), we MUST validate the token before using it. So our function will do some basic validation as it parses the token.
 
 > [!IMPORTANT]
 > This sample won't do all of the required validations listed in the OpenID spec. Most notably, it won't validate the signature on the token. Currently requesting the signing keys from Azure would require a server-side component, so we'll skip that step for the sake of simplicity. However, production apps should not skip this important step!
@@ -605,7 +605,7 @@ function validateIdToken(callback) {
     callback(false);
   }
 
-  // JWT is in three parts seperated by '.'
+  // JWT is in three parts separated by '.'
   var tokenParts = sessionStorage.idToken.split('.');
   if (tokenParts.length != 3){
     callback(false);
@@ -650,7 +650,7 @@ function validateIdToken(callback) {
   sessionStorage.userSigninName = payload.preferred_username;
 
   // Per the docs at:
-  // https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-implicit/#send-the-sign-in-request
+  // https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow#send-the-sign-in-request
   // Check if this is a consumer account so we can set domain_hint properly
   sessionStorage.userDomainType =
     payload.tid === '9188040d-6c67-4c5b-b112-36a304b66dad' ? 'consumers' : 'organizations';
@@ -705,7 +705,7 @@ Save your changes and refresh your browser. Now after logging in you should see 
 
 ### Refreshing the access token
 
-Let's tackle one more OAuth task before moving on to Outlook data: refreshing tokens. Per the [Azure documentation](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-implicit/#refreshing-tokens), the way to do this is with a hidden iframe request. Essentially we will insert an iframe into the page and have it load the Azure authentication endpoint. We'll add a few extra parameters to the URL to make it a silent request.
+Let's tackle one more OAuth task before moving on to Outlook data: refreshing tokens. Per the [Azure documentation](/azure/active-directory/develop/v2-oauth2-implicit-grant-flow#refreshing-tokens), the way to do this is with a hidden iframe request. Essentially we will insert an iframe into the page and have it load the Azure authentication endpoint. We'll add a few extra parameters to the URL to make it a silent request.
 
 Add the following function to `outlook-demo.js` after the `validateIdToken` function.
 

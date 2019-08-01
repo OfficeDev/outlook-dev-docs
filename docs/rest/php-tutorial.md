@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: conceptual
 ms.technology: ms-graph
 ms.devlang: php
-ms.date: 04/04/2019
+ms.date: 08/01/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -112,7 +112,7 @@ Now we'll modify the existing home page to use this layout. Open the `./php-tuto
 @section('content')
 <div class="jumbotron">
   <h1>PHP Outlook Sample</h1>
-  <p>This example shows how to get an OAuth token from Azure using the <a href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code" target="_blank">authorization code grant flow</a> and to use that token to make calls to the Outlook APIs in the <a href="https://docs.microsoft.com/en-us/graph/overview" target="_blank">Microsoft Graph</a>.</p>
+  <p>This example shows how to get an OAuth token from Azure using the <a href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code" target="_blank">authorization code grant flow</a> and to use that token to make calls to the Outlook APIs in the <a href="https://docs.microsoft.com/graph/overview" target="_blank">Microsoft Graph</a>.</p>
   <p>
     <a class="btn btn-lg btn-primary" href="/signin" role="button" id="connect-button">Connect to Outlook</a>
   </p>
