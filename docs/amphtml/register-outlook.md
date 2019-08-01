@@ -27,6 +27,6 @@ During development, you can self-register to test AMP emails on your account. Fo
 
 Once you are ready to send AMP emails to Outlook.com users (your customers), then you must register and be approved by Microsoft. Follow these steps:
 
-1. Ensure you meet all [security requirements](security-requirements).
+1. Ensure you meet all [security requirements](security-requirements.md).
 1. [Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzX-CbfWK8dJr5uYgzqdeDJUMkRSRFpJUEoxRUVOTFpXVEpWR0xJVlpSTy4u) to request registration as an authorized sender.
 1. Our team will review your request and contact you with a decision.
