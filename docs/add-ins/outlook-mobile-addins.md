@@ -2,7 +2,7 @@
 title: Outlook add-ins for Outlook Mobile
 description: Outlook mobile add-ins are supported on all Office 365 Commercial accounts, Outlook.com accounts, and support is coming soon to gmail accounts.
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 08/01/2019
 localization_priority: Priority
 ---
 
@@ -66,6 +66,8 @@ Troubleshooting on mobile can be hard since you may not have the tools you're us
 
 ## Next steps
 
-- Learn how to [add mobile support to your add-in's manifest](add-mobile-support.md).
-- Learn how to [design a great mobile experience for your add-in](outlook-addin-design.md).
-- Learn how to [get an access token and call Outlook REST APIs](use-rest-api.md) from your add-in.
+Learn how to:
+
+- [Add mobile support to your add-in's manifest](add-mobile-support.md).
+- [Design a great mobile experience for your add-in](outlook-addin-design.md).
+- [Get an access token and call Outlook REST APIs](use-rest-api.md) from your add-in.

@@ -2,7 +2,7 @@
 title: Add mobile support to an Outlook add-in
 description: Adding support for Outlook Mobile requires updating the add-in manifest and possibly changing your code for mobile scenarios.
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 08/01/2019
 localization_priority: Normal
 ---
 
@@ -84,7 +84,7 @@ Currently add-ins in Outlook Mobile only support activation when reading message
 
 ### Unsupported APIs
 
-The following APIs are not supported by Outlook Mobile.
+APIs introduced in requirement set 1.6 or later are not supported by Outlook Mobile. The following APIs from earlier requirement sets are also not supported.
 
   - [Office.context.officeTheme](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context#officetheme-object)
   - [Office.context.mailbox.ewsUrl](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#ewsurl-string)
@@ -102,3 +102,7 @@ The following APIs are not supported by Outlook Mobile.
   - [Office.context.mailbox.item.getFilteredEntitiesByName](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactmeetingsuggestionphonenumbertasksuggestion)
   - [Office.context.mailbox.item.getRegexMatches](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatches--object)
   - [Office.context.mailbox.item.getRegexMatchesByName](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-)
+
+## See also
+
+[Requirement set support](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#clients)
