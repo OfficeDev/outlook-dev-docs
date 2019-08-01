@@ -90,7 +90,7 @@ The following `ItemHasRegularExpressionMatch` rule activates the add-in whenever
 
 ## ItemHasKnownEntity rule
 
-An `ItemHasKnownEntity` rule activates an add-in based on the existence of an entity in the subject or body of the selected item. The [EntityType](/javascript/api/outlook_1_5/office.mailboxenums.entitytype) type defines the supported entities. Applying a regular expression on an `ItemHasKnownEntity` rule provides the convenience where activation is based on a subset of values for an entity (for example, a specific set of URLs, or telephone numbers with a certain area code).
+An `ItemHasKnownEntity` rule activates an add-in based on the existence of an entity in the subject or body of the selected item. The [EntityType](/javascript/api/outlook/office.mailboxenums.entitytype) type defines the supported entities. Applying a regular expression on an `ItemHasKnownEntity` rule provides the convenience where activation is based on a subset of values for an entity (for example, a specific set of URLs, or telephone numbers with a certain area code).
 
 > [!NOTE]
 > Outlook can only extract entity strings in English regardless of the default locale specified in the manifest. Only messages support the `MeetingSuggestion` entity type; appointments do not. You cannot extract entities from items in the **Sent Items** folder, nor can you use an `ItemHasKnownEntity` rule to activate an add-in for items in the **Sent Items** folder.

@@ -8,7 +8,7 @@ localization_priority: Normal
 
 # Get or set the subject when composing an appointment or message in Outlook
 
-The JavaScript API for Office provides asynchronous methods ([subject.getAsync](/javascript/api/outlook_1_5/office.Subject#getasync-options--callback-) and [subject.setAsync](/javascript/api/outlook_1_5/office.Subject#setasync-subject--options--callback-)) to get and set the subject of an appointment or message that the user is composing. These asynchronous methods are available only to compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms.
+The JavaScript API for Office provides asynchronous methods ([subject.getAsync](/javascript/api/outlook/office.Subject#getasync-options--callback-) and [subject.setAsync](/javascript/api/outlook/office.Subject#setasync-subject--options--callback-)) to get and set the subject of an appointment or message that the user is composing. These asynchronous methods are available only to compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms.
 
 The **subject** property is available for read access in both compose and read forms of appointments and messages. In a read form, you can access the property directly from the parent object, as in:
 
