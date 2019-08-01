@@ -2,7 +2,7 @@
 title: Deploy and install Outlook add-ins for testing
 description: Create a manifest file, deploy the add-in UI file to a web server, install the add-in in your mailbox, and then test the add-in.
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 08/01/2019
 localization_priority: Priority
 ---
 
@@ -46,7 +46,7 @@ If necessary, the administrator can run the following cmdlet to assign multiple 
 $users = Get-Mailbox *$users | ForEach-Object { New-ManagementRoleAssignment -Role "My Custom Apps" -User $_.Alias}
 ```
 
-For more information about the My Custom Apps role, see [My Custom Apps role](https://technet.microsoft.com/en-us/library/aa0321b3-2ec0-4694-875b-7a93d3d99089%28EXCHG.150%29.aspx). 
+For more information about the My Custom Apps role, see [My Custom Apps role](/exchange/my-custom-apps-role-exchange-2013-help).
 
 Using Office 365 or Visual Studio to develop add-ins assigns you the organization administrator role which allows you to install add-ins by file or URL in the EAC, or by Powershell cmdlets.
 
