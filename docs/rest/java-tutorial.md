@@ -5,7 +5,7 @@ author: jasonjoh
 ms.topic: conceptual
 ms.technology: ms-graph
 ms.devlang: java
-ms.date: 04/04/2019
+ms.date: 08/01/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -713,7 +713,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class IdToken {
   // NOTE: This is just a subset of the claims returned in the
   // ID token. For a full listing, see:
-  // https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-tokens/#idtokens
+  // https://docs.microsoft.com/azure/active-directory/develop/access-tokens#idtokens
   @JsonProperty("exp")
   private long expirationTime;
   @JsonProperty("nbf")
@@ -825,7 +825,7 @@ public class IdToken {
   private boolean isValid(String nonce) {
     // This method does some basic validation
     // For more information on validation of ID tokens, see
-    // https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-tokens/#validating-tokens
+    // https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
     Date now = new Date();
 
     // Check expiration and not before times

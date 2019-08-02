@@ -5,7 +5,7 @@ author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
 ms.author: jasonjoh
-ms.date: 06/24/2019
+ms.date: 08/01/2019
 nodes_to_expand: get-started
 localization_priority: Priority
 ---
@@ -91,11 +91,11 @@ In the inbox case, the Store dialog displays the **Add-ins** tab by default. Con
 
 Currently, you can only configure connectors from Outlook on the web, or Outlook 2016 or later on Windows, but you can view information posted by Connectors to your Group or inbox in multiple clients such as Outlook on the web, Outlook 2016 or later, and the Office365 Groups Mobile app.
 
-For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/en-us/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab?ui=en-US&rs=en-US&ad=US">support article</a>.
+For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab">support article</a>.
 
 ### Outlook version requirements for actionable messages
 
-Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Office 365 ProPlus](https://support.office.com/en-us/article/Overview-of-update-channels-for-Office-365-ProPlus-9ccf0f13-28ff-4975-9bd2-7e4ea2fefef4).
+Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Office 365 ProPlus](/DeployOffice/overview-of-update-channels-for-office-365-proplus).
 
 | Client                                            | Actionable messages supported?                        | Adaptive card supported? |
 |---------------------------------------------------|-------------------------------------------------------|---|

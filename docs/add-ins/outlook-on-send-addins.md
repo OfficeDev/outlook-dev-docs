@@ -2,7 +2,7 @@
 title: On send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 08/01/2019
 localization_priority: Priority
 ---
 
@@ -170,7 +170,7 @@ Get-CASMailbox joe@contoso.com | Set-CASMailbox –OWAMailboxPolicy "ContosoCorp
 ```
 
 > [!NOTE]
-> For more information about how to use the **Set-OwaMailboxPolicy** cmdlet to configure existing Outlook on the web mailbox policies, see [Set-OwaMailboxPolicy](https://technet.microsoft.com/en-us/library/dd297989(v=exchg.160).aspx).
+> For more information about how to use the **Set-OwaMailboxPolicy** cmdlet to configure existing Outlook on the web mailbox policies, see [Set-OwaMailboxPolicy](/powershell/module/exchange/client-access/Set-OwaMailboxPolicy).
 
 To disable the on send feature for all users that have a specific Outlook on the web mailbox policy assigned, run the following cmdlets.
 
@@ -260,7 +260,7 @@ Get-CASMailbox joe@contoso.com | Set-CASMailbox –OWAMailboxPolicy "ContosoCorp
 ```
 
 > [!NOTE]
-> For more information about how to use the **Set-OwaMailboxPolicy** cmdlet to configure existing Outlook on the web mailbox policies, see [Set-OwaMailboxPolicy](https://technet.microsoft.com/en-us/library/dd297989(v=exchg.160).aspx).
+> For more information about how to use the **Set-OwaMailboxPolicy** cmdlet to configure existing Outlook on the web mailbox policies, see [Set-OwaMailboxPolicy](/powershell/module/exchange/client-access/Set-OwaMailboxPolicy).
 
 To disable the on send policy for all users that have a specific Outlook on the web mailbox policy assigned, run the following cmdlets.
 
@@ -466,7 +466,7 @@ function validateBody(event) {
 The `validateBody` function gets the current body in the specified format (HTML) and passes the `ItemSend` event object that the code wants to access in the callback method. In addition to the `getAsync` method, the `Body` object also provides a `setAsync` method that you can use to replace the body with the specified text.
 
 > [!NOTE]
-> For more information, see [Event Object](/javascript/api/office/office.addincommands.event) and [Body.getAsync](/javascript/api/outlook_1_5/office.Body#getasync-coerciontype--options--callback-).
+> For more information, see [Event Object](/javascript/api/office/office.addincommands.event) and [Body.getAsync](/javascript/api/outlook/office.Body#getasync-coerciontype--options--callback-).
   
 
 ### `NotificationMessages` object and `event.completed` method
@@ -499,7 +499,7 @@ function checkBodyOnlyOnSendCallBack(asyncResult) {
 The following are the parameters for the `addAsync` method:
 
 - `NoSend` &ndash; A string that is a developer-specified key to reference a notification message. You can use it to modify this message later. The key can’t be longer than 32 characters.
-- `type` &ndash; One of the properties of the  JSON object parameter. Represents the type of a message; the types correspond to the values of the [Office.MailboxEnums.ItemNotificationMessageType](/javascript/api/outlook_1_5/office.mailboxenums.itemnotificationmessagetype) enumeration. Possible values are progress indicator, information message, or error message. In this example, `type` is an error message.  
+- `type` &ndash; One of the properties of the  JSON object parameter. Represents the type of a message; the types correspond to the values of the [Office.MailboxEnums.ItemNotificationMessageType](/javascript/api/outlook/office.mailboxenums.itemnotificationmessagetype) enumeration. Possible values are progress indicator, information message, or error message. In this example, `type` is an error message.  
 - `message` &ndash; One of the properties of the JSON object parameter. In this example, `message` is the text of the notification message.
 
 To signal that the add-in has finished processing the `ItemSend` event triggered by the send operation, call the `event.completed({allowEvent:Boolean})` method. The `allowEvent` property is a Boolean. If set to `true`, send is allowed. If set to `false`, the email message is blocked from sending.
@@ -509,7 +509,7 @@ To signal that the add-in has finished processing the `ItemSend` event triggered
 
 ### `replaceAsync`, `removeAsync`, and `getAllAsync` methods
 
-In addition to the `addAsync` method, the `NotificationMessages` object also includes `replaceAsync`, `removeAsync`, and `getAllAsync` methods.  These methods are not used in this code sample.  For more information, see [NotificationMessages](/javascript/api/outlook_1_5/office.NotificationMessages).
+In addition to the `addAsync` method, the `NotificationMessages` object also includes `replaceAsync`, `removeAsync`, and `getAllAsync` methods.  These methods are not used in this code sample.  For more information, see [NotificationMessages](/javascript/api/outlook/office.NotificationMessages).
 
 
 ### Subject and CC checker

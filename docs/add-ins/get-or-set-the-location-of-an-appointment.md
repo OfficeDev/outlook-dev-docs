@@ -2,13 +2,13 @@
 title: Get or set the location of an appointment in an add-in
 description: Learn how to get or set the location of an appointment in an Outlook add-in.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/31/2019
 localization_priority: Normal
 ---
 
 # Get or set the location when composing an appointment in Outlook
 
-The JavaScript API for Office provides asynchronous methods ([getAsync](/javascript/api/outlook_1_5/office.Location#getasync-options--callback-) and [setAsync](/javascript/api/outlook_1_5/office.Location#setasync-location--options--callback-)) to get and set the location of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described [Create Outlook add-ins for compose forms](compose-scenario.md).
+The JavaScript API for Office provides asynchronous methods ([getAsync](/javascript/api/outlook/office.Location#getasync-options--callback-) and [setAsync](/javascript/api/outlook/office.Location#setasync-location--options--callback-)) to get and set the location of an appointment that the user is composing. These asynchronous methods are available to only compose add-ins. To use these methods, make sure you have set up the add-in manifest appropriately for Outlook to activate the add-in in compose forms, as described [Create Outlook add-ins for compose forms](compose-scenario.md).
 
 The [location](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#location-stringlocation) property is available for read access in both compose and read forms of appointments. In a read form, you can access the property directly from the parent object, as in:
 
@@ -111,5 +111,5 @@ function write(message){
 
 ## See also
 
-- [Write your first Outlook add-in](addin-tutorial.md)
+- [Create your first Outlook add-in](quick-start.md)
 - [Asynchronous programming in Office Add-ins](/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins)

@@ -12,7 +12,7 @@ Sometimes you need to create and update a recurring appointment, such as a weekl
 
 ## Available recurrence patterns
 
-To configure the recurrence pattern, you need to combine the [recurrence type](/javascript/api/outlook_1_7/office.mailboxenums.recurrencetype) and its applicable [recurrence properties](/javascript/api/outlook_1_7/office.recurrenceproperties) (if any).
+To configure the recurrence pattern, you need to combine the [recurrence type](/javascript/api/outlook/office.mailboxenums.recurrencetype) and its applicable [recurrence properties](/javascript/api/outlook/office.recurrenceproperties) (if any).
 
 **Table 1. Recurrence types and their applicable properties**
 
@@ -172,16 +172,16 @@ var recurrenceType = recurrence.recurrenceType;
 
 [RecurrenceChanged event](/javascript/api/office/office.eventtype)
 
-[getAsync link]: /javascript/api/outlook_1_7/office.recurrence#getasync-options--callback-
+[getAsync link]: /javascript/api/outlook/office.recurrence#getasync-options--callback-
 [item.recurrence link]: /office/dev/add-ins/reference/objectmodel/requirement-set-1.7/office.context.mailbox.item#nullable-recurrence-recurrence
-[setAsync link]: /javascript/api/outlook_1_7/office.recurrence#setasync-recurrencepattern--options--callback-
+[setAsync link]: /javascript/api/outlook/office.recurrence#setasync-recurrencepattern--options--callback-
 
-[dayOfMonth link]: /javascript/api/outlook_1_7/office.recurrenceproperties#dayofmonth
-[dayOfWeek link]: /javascript/api/outlook_1_7/office.recurrenceproperties#dayofweek
-[days link]: /javascript/api/outlook_1_7/office.recurrenceproperties#days
-[firstDayOfWeek link]: /javascript/api/outlook_1_7/office.recurrenceproperties#firstdayofweek
-[interval link]: /javascript/api/outlook_1_7/office.recurrenceproperties#interval
-[month link]: /javascript/api/outlook_1_7/office.recurrenceproperties#month
-[weekNumber link]: /javascript/api/outlook_1_7/office.recurrenceproperties#weeknumber
+[dayOfMonth link]: /javascript/api/outlook/office.recurrenceproperties#dayofmonth
+[dayOfWeek link]: /javascript/api/outlook/office.recurrenceproperties#dayofweek
+[days link]: /javascript/api/outlook/office.recurrenceproperties#days
+[firstDayOfWeek link]: /javascript/api/outlook/office.recurrenceproperties#firstdayofweek
+[interval link]: /javascript/api/outlook/office.recurrenceproperties#interval
+[month link]: /javascript/api/outlook/office.recurrenceproperties#month
+[weekNumber link]: /javascript/api/outlook/office.recurrenceproperties#weeknumber
 
-[SeriesTime link]: /javascript/api/outlook_1_7/office.seriestime
+[SeriesTime link]: /javascript/api/outlook/office.seriestime

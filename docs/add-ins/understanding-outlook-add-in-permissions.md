@@ -51,11 +51,11 @@ The **Restricted** permission is the most basic level of permission. Specify **R
     - [mailbox.getUserIdentityTokenAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext)
     - [mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext)
     - [mailbox.userProfile](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.userProfile)
-    - [Body](/javascript/api/outlook_1_5/office.Body) and all its child members
-    - [Location](/javascript/api/outlook_1_5/office.Location) and all its child members
-    - [Recipients](/javascript/api/outlook_1_5/office.Recipients) and all its child members
-    - [Subject](/javascript/api/outlook_1_5/office.Subject) and all its child members
-    - [Time](/javascript/api/outlook_1_5/office.Time) and all its child members
+    - [Body](/javascript/api/outlook/office.Body) and all its child members
+    - [Location](/javascript/api/outlook/office.Location) and all its child members
+    - [Recipients](/javascript/api/outlook/office.Recipients) and all its child members
+    - [Subject](/javascript/api/outlook/office.Subject) and all its child members
+    - [Time](/javascript/api/outlook/office.Time) and all its child members
 
 ## ReadItem permission
 
@@ -63,11 +63,11 @@ The **ReadItem** permission is the next level of permission in the permissions m
 
 ### Can do
 
-- [Read all the properties](item-data.md) of the current item in a read or [compose form](get-and-set-item-data-in-a-compose-form.md), for example, [item.to](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#to-arrayemailaddressdetailsrecipients) in a read form and [item.to.getAsync](/javascript/api/outlook_1_5/office.Recipients#getasync-options--callback-) in a compose form.
+- [Read all the properties](item-data.md) of the current item in a read or [compose form](get-and-set-item-data-in-a-compose-form.md), for example, [item.to](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#to-arrayemailaddressdetailsrecipients) in a read form and [item.to.getAsync](/javascript/api/outlook/office.Recipients#getasync-options--callback-) in a compose form.
 
 - [Get a callback token to get item attachments](get-attachments-of-an-outlook-item.md) or the full item with Exchange Web Services (EWS) or [Outlook REST APIs](use-rest-api.md).
 
-- [Write custom properties](/javascript/api/outlook_1_5/office.CustomProperties) set by the add-in on that item.
+- [Write custom properties](/javascript/api/outlook/office.CustomProperties) set by the add-in on that item.
 
 - [Get all existing well-known entities](match-strings-in-an-item-as-well-known-entities.md), not just a subset, from the item's subject or body.
 
@@ -102,24 +102,24 @@ The **ReadItem** permission is the next level of permission in the permissions m
     - [mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext)
     - [item.addFileAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#addfileattachmentasyncuri-attachmentname-options-callback)
     - [item.addItemAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#additemattachmentasyncitemid-attachmentname-options-callback)
-    - [item.bcc.addAsync](/javascript/api/outlook_1_5/office.Recipients#addasync-recipients--options--callback-)
-    - [item.bcc.setAsync](/javascript/api/outlook_1_5/office.Recipients#setasync-recipients--options--callback-)
-    - [item.body.prependAsync](/javascript/api/outlook_1_5/office.Body#prependasync-data--options--callback-)
-    - [item.body.setAsync](/javascript/api/outlook_1_5/office.Body#setasync-data--options--callback-)
-    - [item.body.setSelectedDataAsync](/javascript/api/outlook_1_5/office.Body#setselecteddataasync-data--options--callback-)
-    - [item.cc.addAsync](/javascript/api/outlook_1_5/office.Recipients#addasync-recipients--options--callback-)
-    - [item.cc.setAsync](/javascript/api/outlook_1_5/office.Recipients#setasync-recipients--options--callback-)
-    - [item.end.setAsync](/javascript/api/outlook_1_5/office.Time#setasync-datetime--options--callback-)
-    - [item.location.setAsync](/javascript/api/outlook_1_5/office.Location#setasync-location--options--callback-)
-    - [item.optionalAttendees.addAsync](/javascript/api/outlook_1_5/office.Recipients#addasync-recipients--options--callback-)
-    - [item.optionalAttendees.setAsync](/javascript/api/outlook_1_5/office.Recipients#setasync-recipients--options--callback-)
+    - [item.bcc.addAsync](/javascript/api/outlook/office.Recipients#addasync-recipients--options--callback-)
+    - [item.bcc.setAsync](/javascript/api/outlook/office.Recipients#setasync-recipients--options--callback-)
+    - [item.body.prependAsync](/javascript/api/outlook/office.Body#prependasync-data--options--callback-)
+    - [item.body.setAsync](/javascript/api/outlook/office.Body#setasync-data--options--callback-)
+    - [item.body.setSelectedDataAsync](/javascript/api/outlook/office.Body#setselecteddataasync-data--options--callback-)
+    - [item.cc.addAsync](/javascript/api/outlook/office.Recipients#addasync-recipients--options--callback-)
+    - [item.cc.setAsync](/javascript/api/outlook/office.Recipients#setasync-recipients--options--callback-)
+    - [item.end.setAsync](/javascript/api/outlook/office.Time#setasync-datetime--options--callback-)
+    - [item.location.setAsync](/javascript/api/outlook/office.Location#setasync-location--options--callback-)
+    - [item.optionalAttendees.addAsync](/javascript/api/outlook/office.Recipients#addasync-recipients--options--callback-)
+    - [item.optionalAttendees.setAsync](/javascript/api/outlook/office.Recipients#setasync-recipients--options--callback-)
     - [item.removeAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#removeattachmentasyncattachmentid-options-callback)
-    - [item.requiredAttendees.addAsync](/javascript/api/outlook_1_5/office.Recipients#addasync-recipients--options--callback-)
-    - [item.requiredAttendees.setAsync](/javascript/api/outlook_1_5/office.Recipients#setasync-recipients--options--callback-)
-    - [item.start.setAsync](/javascript/api/outlook_1_5/office.Time#setasync-datetime--options--callback-)
-    - [item.subject.setAsync](/javascript/api/outlook_1_5/office.Subject#setasync-subject--options--callback-)
-    - [item.to.addAsync](/javascript/api/outlook_1_5/office.Recipients#addasync-recipients--options--callback-)
-    - [item.to.setAsync](/javascript/api/outlook_1_5/office.Recipients#setasync-recipients--options--callback-)
+    - [item.requiredAttendees.addAsync](/javascript/api/outlook/office.Recipients#addasync-recipients--options--callback-)
+    - [item.requiredAttendees.setAsync](/javascript/api/outlook/office.Recipients#setasync-recipients--options--callback-)
+    - [item.start.setAsync](/javascript/api/outlook/office.Time#setasync-datetime--options--callback-)
+    - [item.subject.setAsync](/javascript/api/outlook/office.Subject#setasync-subject--options--callback-)
+    - [item.to.addAsync](/javascript/api/outlook/office.Recipients#addasync-recipients--options--callback-)
+    - [item.to.setAsync](/javascript/api/outlook/office.Recipients#setasync-recipients--options--callback-)
 
 ## ReadWriteItem permission
 

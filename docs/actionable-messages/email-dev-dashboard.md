@@ -4,7 +4,7 @@ description: The developer dashboard helps you submit and track status of your s
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 05/07/2018
+ms.date: 08/01/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -114,7 +114,7 @@ There are some things you need to keep in mind when you submit your solution for
 - Emails must follow the email sender guidelines.
   - See [Sending mail to Office 365](https://docs.microsoft.com/office365/SecurityCompliance/sending-mail-to-office-365) for Office 365.
   - See [Policies, Practices, and Guidelines](https://sendersupport.olc.protection.outlook.com/pm/policies.aspx) for Outlook.com.
-  - See [M3AAWG Sender Best Practices](https://www.m3aawg.org/sites/default/files/document/M3AAWG_Senders_BCP_Ver3-2015-02.pdf) and [ReturnPath Sending Best Practices](https://help.returnpath.com/hc/en-us/articles/221634867-Sending-Best-Practices-PDF-) for industry guidelines.
+  - See [M3AAWG Sender Best Practices](https://www.m3aawg.org/sites/default/files/document/M3AAWG_Senders_BCP_Ver3-2015-02.pdf) and [ReturnPath Sending Best Practices](https://help.returnpath.com/hc/articles/221634867-Sending-Best-Practices-PDF-) for industry guidelines.
 - Consistent history of sending a high volume of mail from your domain (order of hundred emails a day minimum to Office 365) for a few weeks at least.
 - A very low rate of spam complaints from users.
 - High-fidelity, routine and simple actions available for your service should be used. For more complex interactions, `OpenURI` actions can be used.
