@@ -2,7 +2,7 @@
 title: Enable delegate access scenarios in an Outlook add-in
 description: Briefly describes delegate access and discusses how to configure add-in support.
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 08/05/2019
 localization_priority: Normal
 ---
 
@@ -11,7 +11,7 @@ localization_priority: Normal
 A mailbox owner can use the delegate access feature to [allow someone else to manage their mail and calendar](https://support.office.com/article/allow-someone-else-to-manage-your-mail-and-calendar-41c40c04-3bd1-4d22-963a-28eafec25926). This article specifies which delegate permissions the Office JavaScript API supports and describes how to enable delegate access scenarios in your Outlook add-in.
 
 > [!IMPORTANT]
-> Delegate access for Outlook add-ins is currently [in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in clients on Office build 16.0.10712.10000 or above and with their mailbox on Exchange Online. Delegate access APIs shouldn't be used in production environments yet.
+> Delegate access for Outlook add-ins is currently [in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in Office clients with mailboxes on Exchange Online. Delegate access APIs shouldn't be used in production environments yet.
 
 ## Supported permissions for delegate access
 
