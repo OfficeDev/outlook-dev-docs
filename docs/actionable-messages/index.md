@@ -110,7 +110,7 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Exchange 2016 On-Premises Outlook on the web      | Actionable Messages are available for Office 365 only | No |
 
 > [!NOTE]
-> Actionable message support in Outlook on iOS and Android requires the user to be on the [native Microsoft sync technology](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/outlook-for-ios-and-android#data-synchronization-protocol). Users are being migrated to this new technology in waves.
+> Actionable message support in Outlook on iOS and Android requires the user to be on the [native Microsoft sync technology](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/outlook-for-ios-and-android). Users are being migrated to this new technology in waves.
 
 ## Submit feedback
 
