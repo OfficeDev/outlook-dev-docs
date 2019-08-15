@@ -135,4 +135,4 @@ Office.context.mailbox.item.categories.removeAsync(categoriesToRemove, function 
 
 ## See also
 
-[Categories API in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#categories)
+- [Categories API in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#categories)
