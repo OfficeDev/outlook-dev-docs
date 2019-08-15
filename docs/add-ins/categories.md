@@ -10,6 +10,10 @@ localization_priority: Normal
 
 In Outlook, a user can group messages and appointments by using a category to color-code them. The user defines categories in a master list on their mailbox. They can then apply one or more categories to a message or appointment item. To create a new [category](/javascript/api/outlook/office.categorydetails), provide a name and assign a color based on the list of available [preset colors](/javascript/api/outlook/office.mailboxenums.categorycolor) (though the actual color displayed depends on how the Outlook client renders it). You can use the Office JavaScript API to manage the categories master list on the mailbox and the categories applied to an item.
 
+**Item categories are a subset of the mailbox master categories**
+
+![Item categories are a subset of mailbox master categories.](./images/categories-subset-of-master-categories.png)
+
 > [!IMPORTANT]
 > Categories API for Outlook add-ins are currently [in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#categories) in Outlook on Windows and Mac connected to an Office 365 subscription. These APIs shouldn't be used in production environments yet.
 
