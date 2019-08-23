@@ -2,7 +2,7 @@
 title: Contextual Outlook add-ins
 description: Initiate tasks related to a message without leaving the message itself to result in an easier and richer user experience.
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 08/23/2019
 localization_priority: Priority
 ---
 
@@ -19,6 +19,8 @@ The following are examples of contextual add-ins:
 
 > [!NOTE]
 > Contextual add-ins are not currently available in Outlook on Android and iOS. This functionality will be made available in the future.
+>
+> Support for this feature was introduced in requirement set 1.6. See [clients and platforms](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#clients) that support this requirement set.
 
 ## How to make a contextual add-in
 
