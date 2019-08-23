@@ -2,7 +2,7 @@
 title: Get and set categories
 description: How to manage categories on mailbox and item
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 08/23/2019
 localization_priority: Normal
 ---
 
@@ -20,6 +20,9 @@ In Outlook, a user can group messages and appointments by using a category to co
 ## Manage categories available for mailbox items
 
 Only categories in the master list on your mailbox are available for you to apply to a message or appointment. You can use the API to add, get, and remove master categories.
+
+> [!IMPORTANT]
+> For the add-in to manage the categories master list, you have to set the `Permissions` node in the manifest to `ReadWriteMailbox`.
 
 ### Add master categories
 
@@ -136,3 +139,5 @@ Office.context.mailbox.item.categories.removeAsync(categoriesToRemove, function 
 ## See also
 
 - [Categories API in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#categories)
+- [Outlook permissions](/outlook/add-ins/understanding-outlook-add-in-permissions)
+- [Permissions element in the manifest](/office/dev/add-ins/reference/manifest/permissions)
