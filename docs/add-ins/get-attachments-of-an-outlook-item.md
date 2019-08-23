@@ -264,7 +264,7 @@ private AttachmentSampleServiceResponse GetAttachmentsFromExchangeServerUsingEWS
     // Make the request to the Exchange server and get the response.
     HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
 
-    // If the response is okay, create an XML document from the reponse
+    // If the response is okay, create an XML document from the response
     // and process the request.
     if (webResponse.StatusCode == HttpStatusCode.OK)
     {
