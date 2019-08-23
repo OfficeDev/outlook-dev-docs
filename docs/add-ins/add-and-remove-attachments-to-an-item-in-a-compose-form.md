@@ -1,21 +1,31 @@
 ---
 title: Add and remove attachments in an Outlook add-in
-description: You can use the addFileAttachmentAsync and addItemAttachmentAsync methods to attach a file and an Outlook item respectively to the item that the user is composing.
+description: You can use various attachment APIs to manage the files or Outlook items attached to the item the user is composing.
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 08/23/2019
 localization_priority: Normal
 ---
 
-# Add and remove attachments to an item in a compose form in Outlook
+# Add, get, and remove an item's attachments in a compose form in Outlook
 
-You can use the [addFileAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#addfileattachmentasyncuri-attachmentname-options-callback) and [addItemAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#additemattachmentasyncitemid-attachmentname-options-callback) methods to attach a file and an Outlook item respectively to the item that the user is composing. Both are asynchronous methods, which means execution can go on without waiting for the action to complete. Depending on the original location and size of the attachment being added, the asynchronous call may take a while to complete.
+You can use several APIs to add, get, and remove an item's attachments when the user is composing.
 
-If there are tasks that depend on the action to complete, you should carry out those tasks in a callback method. This callback method is optional and is invoked when the uploading of the attachment is complete. The callback method takes an [AsyncResult](/javascript/api/office/office.asyncresult) object as an output parameter that provides any status, error, and returned value from adding the attachment. If the callback requires any extra parameters, you can specify them in the optional `options.asyncContext` parameter. `options.asyncContext` can be of any type that your callback method expects.
+## Add an attachment
 
-For example, you can define `options.asyncContext` as a JSON object that contains one or more key-value pairs. You can find more examples about passing optional parameters to asynchronous methods in the Office Add-ins platform in [Asynchronous programming in Office Add-ins](/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins#passing-optional-parameters-to-asynchronous-methods). The following example shows how to use the `asyncContext` parameter to pass 2 arguments to a callback method: 
+These include the following.
+
+- [addFileAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#addfileattachmentasyncuri-attachmentname-options-callback): Attach a file
+- [addFileAttachmentFromBase64Async (preview)](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#addfileattachmentfrombase64asyncbase64file-attachmentname-options-callback)
+- [addItemAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#additemattachmentasyncitemid-attachmentname-options-callback): Attach an Outlook item
+
+These are asynchronous methods, which means execution can go on without waiting for the action to complete. Depending on the original location and size of the attachment being added, the asynchronous call may take a while to complete.
+
+If there are tasks that depend on the action to complete, you should carry out those tasks in a callback method. This callback method is optional and is invoked when the attachment upload has completed. The callback method takes an [AsyncResult](/javascript/api/office/office.asyncresult) object as an output parameter that provides any status, error, and returned value from adding the attachment. If the callback requires any extra parameters, you can specify them in the optional `options.asyncContext` parameter. `options.asyncContext` can be of any type that your callback method expects.
+
+For example, you can define `options.asyncContext` as a JSON object that contains one or more key-value pairs. You can find more examples about passing optional parameters to asynchronous methods in the Office Add-ins platform in [Asynchronous programming in Office Add-ins](/office/dev/add-ins/develop/asynchronous-programming-in-office-add-ins#passing-optional-parameters-to-asynchronous-methods). The following example shows how to use the `asyncContext` parameter to pass 2 arguments to a callback method:
 
 ```js
-var options = { asyncContext: { var1: 1, var2: 2} };
+var options = { asyncContext: { var1: 1, var2: 2}};
 
 Office.context.mailbox.item.addFileAttachmentAsync('https://contoso.com/rtm/icon.png', 'icon.png', options, callback);
 ```
@@ -25,7 +35,7 @@ You can check for success or error of an asynchronous method call in the callbac
 > [!NOTE]
 > As a best practice, you should use the attachment ID to remove an attachment only if the same add-in has added that attachment in the same session. In Outlook on the web and mobile devices, the attachment ID is valid only within the same session. A session is over when the user closes the add-in, or if the user starts composing in an inline form and subsequently pops out the inline form to continue in a separate window.
 
-## Attaching a file
+### Attach a file
 
 You can attach a file to a message or appointment in a compose form by using the `addFileAttachmentAsync` method and specifying the URI of the file. If the file is protected, you can include an appropriate identity or authentication token as a URI query string parameter. Exchange will make a call to the URI to get the attachment, and the web service which protects the file will need to use the token as a means of authentication.
 
@@ -39,7 +49,7 @@ Office.initialize = function () {
         // Add the specified file attachment to the item
         // being composed.
         // When the attachment finishes uploading, the
-        // callback method is invoked and gets the attachment ID. 
+        // callback method is invoked and gets the attachment ID.
         // You can optionally pass any object that you would  
         // access in the callback method as an argument to  
         // the asyncContext parameter.
@@ -66,7 +76,7 @@ function write(message){
 }
 ```
 
-## Attaching an Outlook item
+### Attach an Outlook item
 
 You can attach an Outlook item (for example, email, calendar, or contact item) to a message or appointment in a compose form by specifying the Exchange Web Services (EWS) ID of the item and using the `addItemAttachmentAsync` method. You can get the EWS ID of an email, calendar, contact or task item in the user's mailbox by using the [mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method and accessing the EWS operation [FindItem](/exchange/client-developer/web-service-reference/finditem-operation). The [item.itemId](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#nullable-itemid-string) property also provides the EWS ID of an existing item in a read form.
 
@@ -80,8 +90,8 @@ function addItemAttachment(itemId) {
     // callback method is invoked. Here, the callback
     // method uses only asyncResult as a parameter,
     // and if the attaching succeeds, gets the attachment ID.
-    // You can optionally pass any other object you wish to 
-    // access in the callback method as an argument to 
+    // You can optionally pass any other object you wish to
+    // access in the callback method as an argument to
     // the asyncContext parameter.
     Office.context.mailbox.item.addItemAttachmentAsync(
         itemId,
@@ -102,7 +112,16 @@ function addItemAttachment(itemId) {
 > [!NOTE]
 > You can use a compose add-in to attach an instance of a recurring appointment in Outlook on the web or mobile devices. However, in a supporting Outlook rich client, attempting to attach an instance would result in attaching the recurring series (the master appointment).
 
-## Removing an attachment
+## Get attachments (preview)
+
+> [!IMPORTANT]
+> The APIs to get attachments are currently [in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in Office clients with mailboxes on Exchange Online. These APIs shouldn't be used in production environments yet.
+
+You can get attachments using the [getAttachmentsAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getattachmentsasyncoptions-callback--arrayattachmentdetails) method.
+
+You can get an attachment's content using the [getAttachmentContentAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getattachmentcontentasyncattachmentid-options-callback--attachmentcontent) method.
+
+## Remove an attachment
 
 You can remove a file or item attachment from a message or appointment item in a compose form by specifying the corresponding attachment ID and using the [removeAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#removeattachmentasyncattachmentid-options-callback) method. You should remove only attachments that the same add-in has added in the same session. You should make sure the attachment ID corresponds to a valid attachment, or the method will return an error. Similar to the `addFileAttachmentAsync` and `addItemAttachmentAsync` methods, `removeAttachmentAsync` is an asynchronous method. You should provide a callback method to check for the status and any error by using the `AsyncResult` output parameter object. You can also pass any additional parameters to the callback method by using the optional `asyncContext` parameter.
 
@@ -110,16 +129,16 @@ The following JavaScript function, `removeAttachment`, continues to extend the e
 
 ```js
 // Removes the specified attachment from the composed item.
-// ID is the Exchange identifier of the attachment to be 
-// removed. 
+// ID is the Exchange identifier of the attachment to be
+// removed.
 function removeAttachment(attachmentId) {
     // When the attachment is removed, the
     // callback method is invoked. Here, the callback
     // method uses an asyncResult parameter and gets
     // the ID of the removed attachment if the removal
     // succeeds.
-    // You can optionally pass any object you wish to 
-    // access in the callback method as an argument to 
+    // You can optionally pass any object you wish to
+    // access in the callback method as an argument to
     // the asyncContext parameter.
     Office.context.mailbox.item.removeAttachmentAsync(
         attachmentId,
