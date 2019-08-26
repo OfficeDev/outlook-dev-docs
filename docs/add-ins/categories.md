@@ -13,7 +13,7 @@ In Outlook, a user can apply categories to messages and appointments as a means 
 > [!IMPORTANT]
 > Category APIs for Outlook are currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#categories) for Outlook on Windows and Mac connected to an Office 365 subscription, and are not yet intended for use in production environments.
 >
-> [!INCLUDE [Information about using preview APIs](office/dev/add-ins/includes/using-preview-apis)]
+> [!INCLUDE [Information about using preview APIs](/office/dev/add-ins/includes/using-preview-apis)]
 
 ## Manage categories in the master list
 
