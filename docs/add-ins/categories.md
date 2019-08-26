@@ -2,7 +2,7 @@
 title: Get and set categories
 description: How to manage categories on mailbox and item
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 08/26/2019
 localization_priority: Normal
 ---
 
@@ -10,14 +10,10 @@ localization_priority: Normal
 
 In Outlook, a user can apply categories to messages and appointments as a means of organizing their mailbox data. The user defines the master list of color-coded categories for their mailbox, and can then apply one or more of those categories to any message or appointment item. Each [category](/javascript/api/outlook/office.categorydetails) in the master list is represented by the name and [color](/javascript/api/outlook/office.mailboxenums.categorycolor) that the user specifies. You can use the Office JavaScript API to manage the categories master list on the mailbox and the categories applied to an item.
 
-**Item categories are a subset of the mailbox master categories**
-
-![Item categories are a subset of mailbox master categories.](./images/categories-subset-of-master-categories.png)
-
 > [!IMPORTANT]
 > Category APIs for Outlook are currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#categories) for Outlook on Windows and Mac connected to an Office 365 subscription, and are not yet intended for use in production environments.
-> 
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
+>
+> [!INCLUDE [Information about using preview APIs](office/dev/add-ins/includes/using-preview-apis)]
 
 ## Manage categories in the master list
 
@@ -86,11 +82,11 @@ Office.context.mailbox.masterCategories.removeAsync(masterCategoriesToRemove, fu
 You can use the API to add, get, and remove categories for a message or appointment item.
 
 > [!IMPORTANT]
-> Only categories in the master list on your mailbox are available for you to apply to a message or appointment. See the earlier section [Manage categories available for mailbox items](#manage-categories-available-for-mailbox-items) for more information.
+> Only categories in the master list on your mailbox are available for you to apply to a message or appointment. See the earlier section [Manage categories in the master list](#manage-categories-in-the-master-list) for more information.
 
 ### Add categories to an item
 
-The following example shows how to apply a category named "Urgent!" to the current item by calling [addAsync](/javascript/api/outlook/office.categories#addasync-categories--options--callback-) on [item.categories](/javascript/api/outlook/office.item#categories).
+The following example shows how to apply the category named "Urgent!" to the current item by calling [addAsync](/javascript/api/outlook/office.categories#addasync-categories--options--callback-) on [item.categories](/javascript/api/outlook/office.item#categories).
 
 ```javascript
 var categoriesToAdd = ["Urgent!"];
