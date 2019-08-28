@@ -164,7 +164,7 @@ This section shows a code sample that sets the location of the appointment that 
 To use `item.location.setAsync`, specify a string of up to 255 characters in the data parameter. Optionally, you can provide a callback method and any arguments for the callback method in the `asyncContext` parameter. You should check the status, result, and any error message in the `asyncResult` output parameter of the callback. If the asynchronous call is successful, `setAsync` inserts the specified location string as plain text, overwriting any existing location for that item.
 
 > [!NOTE]
-> You can set multiple locations by using a semi-colon as the separator (e.g. 'Conference room A; Conference room B').
+> You can set multiple locations by using a semi-colon as the separator (e.g., 'Conference room A; Conference room B').
 
 ```javascript
 var item;
