@@ -11,7 +11,7 @@ localization_priority: Normal
 The JavaScript API for Office provides properties and methods to manage the location of an appointment that the user is composing. Currently, there are two properties that provide an appointment's location:
 
 - [item.location](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#location-stringlocation): Basic API that allows you to get and set the location.
-- [item.enhancedLocation](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#enhancedlocation-enhancedlocation) (preview): Enhanced API that allows you to get, add, and remove the location, and includes specifying the [location type](/javascript/api/outlook/office.mailboxenums.locationtype). The type is `LocationType.Custom` if you set the location using `item.location`.
+- [item.enhancedLocation](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#enhancedlocation-enhancedlocation) (preview): Enhanced API that allows you to get and set the location, and includes specifying the [location type](/javascript/api/outlook/office.mailboxenums.locationtype). The type is `LocationType.Custom` if you set the location using `item.location`.
 
 The following table lists the location APIs and the modes (i.e., Compose or Read) where they are available.
 
@@ -116,12 +116,12 @@ function write(message){
 
 ## Use the `enhancedLocation` API (preview)
 
-You can use the `enhancedLocation` API to add, get, and remove an appointment's location. The location field supports multiple locations and, for each location, you can set the display name, type, and email address (only applicable for conference rooms). At present, supported [location types](/javascript/api/outlook/office.mailboxenums.locationtype) are `Room` (e.g., a valid conference room or similar resource) and `Custom` (represents any other type of location).
-
 > [!IMPORTANT]
 > Enhanced location APIs are currently [in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#enhanced-location) for Outlook clients on Windows and Mac connected to an Office 365 subscription and on the web (modern), and shouldn't be used in production environments yet.
 >
 > [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
+
+You can use the `enhancedLocation` API to get and set an appointment's location. The location field supports multiple locations and, for each location, you can set the display name, type, and email address (only applicable for conference rooms). At present, supported [location types](/javascript/api/outlook/office.mailboxenums.locationtype) are `Room` (i.e., a valid conference room or similar resource) and `Custom` (represents any other type of location).
 
 ### Add location
 
