@@ -6,16 +6,16 @@ ms.date: 08/29/2019
 localization_priority: Normal
 ---
 
-# Add, get, and remove an item's attachments in a compose form in Outlook
+# Manage an item's attachments in a compose form in Outlook
 
-You can use several APIs to add, get, and remove an item's attachments when the user is composing.
+The JavaScript API for Office provides several APIs you can use to manage an item's attachments when the user is composing.
 
-## Add an attachment
+## Attach a file or Outlook item
 
-These include the following.
+You can attach a file or Outlook item to a compose form by using the method that's appropriate for the type of attachment.
 
 - [addFileAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#addfileattachmentasyncuri-attachmentname-options-callback): Attach a file
-- [addFileAttachmentFromBase64Async (preview)](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#addfileattachmentfrombase64asyncbase64file-attachmentname-options-callback)
+- [addFileAttachmentFromBase64Async](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#addfileattachmentfrombase64asyncbase64file-attachmentname-options-callback) (preview): Attach a file using its base64 string
 - [addItemAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#additemattachmentasyncitemid-attachmentname-options-callback): Attach an Outlook item
 
 These are asynchronous methods, which means execution can go on without waiting for the action to complete. Depending on the original location and size of the attachment being added, the asynchronous call may take a while to complete.
@@ -37,7 +37,7 @@ You can check for success or error of an asynchronous method call in the callbac
 
 ### Attach a file
 
-You can attach a file to a message or appointment in a compose form by using the `addFileAttachmentAsync` method and specifying the URI of the file. If the file is protected, you can include an appropriate identity or authentication token as a URI query string parameter. Exchange will make a call to the URI to get the attachment, and the web service which protects the file will need to use the token as a means of authentication.
+You can attach a file to a message or appointment in a compose form by using the `addFileAttachmentAsync` method and specifying the URI of the file. You can also use the `addFileAttachmentFromBase64Async` method but specify the base64 string as input. If the file is protected, you can include an appropriate identity or authentication token as a URI query string parameter. Exchange will make a call to the URI to get the attachment, and the web service which protects the file will need to use the token as a means of authentication.
 
 The following JavaScript example is a compose add-in that attaches a file, picture.png, from a web server to the message or appointment being composed. The callback method takes `asyncResult` as a parameter, checks for the result status, and gets the attachment ID if the method succeeds.
 
@@ -80,7 +80,7 @@ function write(message){
 
 You can attach an Outlook item (for example, email, calendar, or contact item) to a message or appointment in a compose form by specifying the Exchange Web Services (EWS) ID of the item and using the `addItemAttachmentAsync` method. You can get the EWS ID of an email, calendar, contact or task item in the user's mailbox by using the [mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method and accessing the EWS operation [FindItem](/exchange/client-developer/web-service-reference/finditem-operation). The [item.itemId](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#nullable-itemid-string) property also provides the EWS ID of an existing item in a read form.
 
-The following JavaScript function, `addItemAttachment`, extends the first example above, and adds an item as an attachment to the email or appointment that is being composed. The function takes as an argument the EWS ID of the item that is to be attached. If the attaching succeeds, it gets the attachment ID for further processing, including removing that attachment in the same session.
+The following JavaScript function, `addItemAttachment`, extends the first example above, and adds an item as an attachment to the email or appointment that is being composed. The function takes as an argument the EWS ID of the item that is to be attached. If attaching succeeds, it gets the attachment ID for further processing, including removing that attachment in the same session.
 
 ```js
 // Adds the specified item as an attachment to the composed item.
@@ -115,17 +115,52 @@ function addItemAttachment(itemId) {
 ## Get attachments (preview)
 
 > [!IMPORTANT]
-> The APIs to get attachments are currently [in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in Office clients with mailboxes on Exchange Online. These APIs shouldn't be used in production environments yet.
+> The APIs to get attachments are currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in Office clients with mailboxes on Exchange Online connected to an Office 365 subscription. These APIs shouldn't be used in production environments yet.
+>
+> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
 
-You can get attachments using the [getAttachmentsAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getattachmentsasyncoptions-callback--arrayattachmentdetails) method.
+You can use the [getAttachmentsAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getattachmentsasyncoptions-callback--arrayattachmentdetails) method to get the attachments of the message or appointment being composed.
 
-You can get an attachment's content using the [getAttachmentContentAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getattachmentcontentasyncattachmentid-options-callback--attachmentcontent) method.
+To get an attachment's content, you can use the [getAttachmentContentAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getattachmentcontentasyncattachmentid-options-callback--attachmentcontent) method. The supported formats are listed in the [AttachmentContentFormat](/javascript/api/outlook/office.mailboxenums.attachmentcontentformat) enum.
+
+You should provide a callback method to check for the status and any error by using the `AsyncResult` output parameter object. You can also pass any additional parameters to the callback method by using the optional `asyncContext` parameter.
+
+The following JavaScript example gets the attachments and allows you to set up distinct handling for each supported attachment format.
+
+```js
+var item = Office.context.mailbox.item;
+var options = {asyncContext: {currentItem: item}};
+item.getAttachmentsAsync(options, callback);
+
+function callback(result) {
+  if (result.value.length > 0) {
+    for (i = 0 ; i < result.value.length ; i++) {
+      result.asyncContext.currentItem.getAttachmentContentAsync(result.value[i].id, handleAttachmentsCallback);
+    }
+  }
+}
+
+function handleAttachmentsCallback(result) {
+  // Parse string to be a url, an .eml file, a base64-encoded string, or an .icalendar file.
+  if (result.value.format === Office.MailboxEnums.AttachmentContentFormat.Base64) {
+    // Handle file attachment.
+  } else if (result.value.format === Office.MailboxEnums.AttachmentContentFormat.Eml) {
+    // Handle email item attachment.
+  } else if (result.value.format === Office.MailboxEnums.AttachmentContentFormat.ICalendar) {
+    // Handle .icalender attachment.
+  } else if (result.value.format === Office.MailboxEnums.AttachmentContentFormat.Url) {
+    // Handle cloud attachment.
+  } else {
+    // Handle attachment formats that are not supported.
+  }
+}
+```
 
 ## Remove an attachment
 
-You can remove a file or item attachment from a message or appointment item in a compose form by specifying the corresponding attachment ID and using the [removeAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#removeattachmentasyncattachmentid-options-callback) method. You should remove only attachments that the same add-in has added in the same session. You should make sure the attachment ID corresponds to a valid attachment, or the method will return an error. Similar to the `addFileAttachmentAsync` and `addItemAttachmentAsync` methods, `removeAttachmentAsync` is an asynchronous method. You should provide a callback method to check for the status and any error by using the `AsyncResult` output parameter object. You can also pass any additional parameters to the callback method by using the optional `asyncContext` parameter.
+You can remove a file or item attachment from a message or appointment item in a compose form by specifying the corresponding attachment ID and using the [removeAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#removeattachmentasyncattachmentid-options-callback) method. You should only remove attachments that the same add-in has added in the same session. You should make sure the attachment ID corresponds to a valid attachment, or the method will return an error. Similar to the `addFileAttachmentAsync` and `addItemAttachmentAsync` methods, `removeAttachmentAsync` is an asynchronous method. You should provide a callback method to check for the status and any error by using the `AsyncResult` output parameter object. You can also pass any additional parameters to the callback method by using the optional `asyncContext` parameter.
 
-The following JavaScript function, `removeAttachment`, continues to extend the examples above, and removes the specified attachment from the email or appointment that is being composed. The function takes as an argument the ID of the attachment to be removed. You can obtain the ID of an attachment after a successful `addFileAttachmentAsync` or `addItemAttachmentAsync` method call, and store it for a subsequent `removeAttachmentAsync` method call.
+The following JavaScript function, `removeAttachment`, continues to extend the examples above, and removes the specified attachment from the email or appointment that is being composed. The function takes as an argument the ID of the attachment to be removed. You can obtain the ID of an attachment after a successful `addFileAttachmentAsync`, `addFileAttachmentFromBase64Async`, or `addItemAttachmentAsync` method call, and store it for a subsequent `removeAttachmentAsync` method call.
 
 ```js
 // Removes the specified attachment from the composed item.
@@ -144,10 +179,9 @@ function removeAttachment(attachmentId) {
         attachmentId,
         { asyncContext: null },
         function (asyncResult) {
-            if (asyncResult.status == Office.AsyncResultStatus.Failed){
+            if (asyncResult.status === Office.AsyncResultStatus.Failed) {
                 write(asyncResult.error.message);
-            }
-            else {
+            } else {
                 write('Removed attachment with the ID: ' + asyncResult.value);
             }
         });
