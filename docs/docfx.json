@@ -55,6 +55,9 @@
       },
       "ms.technology": {
         "add-ins/*.md": "add-ins"
+      },
+      "ms.topic": {
+        "add-ins/*.md": "conceptual"
       }
     },
     "template": [],

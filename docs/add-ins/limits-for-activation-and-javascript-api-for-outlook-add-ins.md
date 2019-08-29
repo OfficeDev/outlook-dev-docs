@@ -1,7 +1,6 @@
 ---
 title: Limits for activation and API usage in Outlook add-ins
 description: Be aware of certain activation and API usage guidelines, and implement your add-ins to stay within these limits.
-ms.topic: article
 ms.date: 06/24/2019
 localization_priority: Normal
 ---

@@ -1,7 +1,6 @@
 ---
 title: Add and remove attachments in an Outlook add-in
 description: You can use the addFileAttachmentAsync and addItemAttachmentAsync methods to attach a file and an Outlook item respectively to the item that the user is composing.
-ms.topic: article
 ms.date: 06/24/2019
 localization_priority: Normal
 ---
