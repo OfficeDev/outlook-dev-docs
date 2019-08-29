@@ -1,8 +1,7 @@
 ---
 title: Enable delegate access scenarios in an Outlook add-in
 description: Briefly describes delegate access and discusses how to configure add-in support.
-ms.topic: article
-ms.date: 08/05/2019
+ms.date: 08/26/2019
 localization_priority: Normal
 ---
 
@@ -12,6 +11,8 @@ A mailbox owner can use the delegate access feature to [allow someone else to ma
 
 > [!IMPORTANT]
 > Delegate access for Outlook add-ins is currently [in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in Office clients with mailboxes on Exchange Online. Delegate access APIs shouldn't be used in production environments yet.
+>
+> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
 
 ## Supported permissions for delegate access
 
