@@ -1,7 +1,6 @@
 ---
 title: Get and set metadata in an Outlook add-in
 description: Manage custom data in your Outlook add-in by using either roaming settings or custom properties.
-ms.topic: article
 ms.date: 06/24/2019
 localization_priority: Priority
 ---

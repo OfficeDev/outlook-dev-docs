@@ -1,8 +1,9 @@
 ---
 title: Outlook add-ins overview
 description: Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform. 
-ms.topic: article
 ms.date: 06/24/2019
+ms.topic: overview
+scenarios: getting-started
 localization_priority: Priority
 ---
 
