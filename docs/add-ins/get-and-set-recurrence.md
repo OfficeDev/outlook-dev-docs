@@ -1,7 +1,6 @@
 ---
 title: Get and set recurrence in an Outlook add-in
 description: This topic shows you how to use the Office JavaScript API to get and set various recurrence properties of an item in an Outlook add-in.
-ms.topic: article
 ms.date: 12/12/2018
 localization_priority: Normal
 ---
