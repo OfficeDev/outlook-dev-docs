@@ -141,7 +141,7 @@ function callback(result) {
 
 function handleAttachmentsCallback(result) {
   // Parse string to be a url, an .eml file, a base64-encoded string, or an .icalendar file.
-  switch(result.value.format) {
+  switch (result.value.format) {
     case Office.MailboxEnums.AttachmentContentFormat.Base64:
       // Handle file attachment.
       break;
