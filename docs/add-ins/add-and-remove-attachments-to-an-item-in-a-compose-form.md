@@ -141,23 +141,28 @@ function callback(result) {
 
 function handleAttachmentsCallback(result) {
   // Parse string to be a url, an .eml file, a base64-encoded string, or an .icalendar file.
-  if (result.value.format === Office.MailboxEnums.AttachmentContentFormat.Base64) {
-    // Handle file attachment.
-  } else if (result.value.format === Office.MailboxEnums.AttachmentContentFormat.Eml) {
-    // Handle email item attachment.
-  } else if (result.value.format === Office.MailboxEnums.AttachmentContentFormat.ICalendar) {
-    // Handle .icalender attachment.
-  } else if (result.value.format === Office.MailboxEnums.AttachmentContentFormat.Url) {
-    // Handle cloud attachment.
-  } else {
-    // Handle attachment formats that are not supported.
+  switch(result.value.format) {
+    case Office.MailboxEnums.AttachmentContentFormat.Base64:
+      // Handle file attachment.
+      break;
+    case Office.MailboxEnums.AttachmentContentFormat.Eml:
+      // Handle email item attachment.
+      break;
+    case Office.MailboxEnums.AttachmentContentFormat.ICalendar:
+      // Handle .icalender attachment.
+      break;
+    case Office.MailboxEnums.AttachmentContentFormat.Url:
+      // Handle cloud attachment.
+      break;
+    default:
+      // Handle attachment formats that are not supported.
   }
 }
 ```
 
 ## Remove an attachment
 
-You can remove a file or item attachment from a message or appointment item in a compose form by specifying the corresponding attachment ID and using the [removeAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#removeattachmentasyncattachmentid-options-callback) method. You should only remove attachments that the same add-in has added in the same session. You should make sure the attachment ID corresponds to a valid attachment, or the method will return an error. Similar to the `addFileAttachmentAsync` and `addItemAttachmentAsync` methods, `removeAttachmentAsync` is an asynchronous method. You should provide a callback method to check for the status and any error by using the `AsyncResult` output parameter object. You can also pass any additional parameters to the callback method by using the optional `asyncContext` parameter.
+You can remove a file or item attachment from a message or appointment item in a compose form by specifying the corresponding attachment ID and using the [removeAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#removeattachmentasyncattachmentid-options-callback) method. You should only remove attachments that the same add-in has added in the same session. Similar to the `addFileAttachmentAsync` and `addItemAttachmentAsync` methods, `removeAttachmentAsync` is an asynchronous method. You should provide a callback method to check for the status and any error by using the `AsyncResult` output parameter object. You can also pass any additional parameters to the callback method by using the optional `asyncContext` parameter.
 
 The following JavaScript function, `removeAttachment`, continues to extend the examples above, and removes the specified attachment from the email or appointment that is being composed. The function takes as an argument the ID of the attachment to be removed. You can obtain the ID of an attachment after a successful `addFileAttachmentAsync`, `addFileAttachmentFromBase64Async`, or `addItemAttachmentAsync` method call, and store it for a subsequent `removeAttachmentAsync` method call.
 
