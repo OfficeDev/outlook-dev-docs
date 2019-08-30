@@ -116,7 +116,7 @@ function write(message){
 ## Use the `enhancedLocation` API (preview)
 
 > [!IMPORTANT]
-> Enhanced location APIs are currently [in preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#enhanced-location) for Outlook clients on Windows and Mac connected to an Office 365 subscription and on the web (modern), and shouldn't be used in production environments yet.
+> Enhanced location APIs are currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#enhanced-location) for Outlook clients on Windows and Mac connected to an Office 365 subscription and on the web (modern), and shouldn't be used in production environments yet.
 >
 > [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
 
