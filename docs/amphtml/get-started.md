@@ -21,7 +21,7 @@ If you already created an AMP email that works in another email provider you can
 When developing AMP emails, you can use your own Outlook.com account to test them. 
 
 1. Register the sender address with Outlook. During development you can self-register. See [details](register-outlook.md)
-1. Send AMP email to your Outlook.com mailbox via an ESP that supports the format such as [Mailgun](https://www.mailgun.com/blog/mailgun-supports-amp-email), [AWeber](https://help.aweber.com/hc/en-us/articles/360025741194-Getting-Started-with-AMP-for-Email-in-AWeber), [SparkPost](https://www.sparkpost.com/docs/user-guide/amp-for-email/) and others.  See [more](https://amp.dev/documentation/tools/)
+1. Send AMP email to your Outlook.com mailbox via your own SMTP server or an ESP that supports the format such as [Mailgun](https://www.mailgun.com/blog/mailgun-supports-amp-email), [AWeber](https://help.aweber.com/hc/en-us/articles/360025741194-Getting-Started-with-AMP-for-Email-in-AWeber), [SparkPost](https://www.sparkpost.com/docs/user-guide/amp-for-email/) and others.  See [more](https://amp.dev/documentation/tools/)
 
 ## Send emails to Outlook.com users
 
