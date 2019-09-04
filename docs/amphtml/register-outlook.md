@@ -21,7 +21,7 @@ During development, you can self-register to test AMP emails on your account. Fo
 1. Check  **Enable dynamic email in my mailbox**.
 1. Add any sender email addresses that you will use during your testing.
 
-![Settings](images/dynamic-settings.png "Settings")
+![Settings](images/dynamic-settings.png)
 
 ## Global registration
 
