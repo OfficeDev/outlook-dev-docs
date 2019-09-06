@@ -3,7 +3,7 @@ title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
 scenarios: getting-started
-ms.date: 05/21/2019
+ms.date: 09/06/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -96,8 +96,6 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
 ## Create an Outlook add-in project
 
-[!include[note about Yeoman generator bug](../includes/note-yeoman-generator-bug-201908.md)]
-
 Use the Yeoman generator to create an Outlook add-in project.
 
 1. Run the following command from the command prompt and then answer the prompts as follows:
@@ -110,16 +108,18 @@ Use the Yeoman generator to create an Outlook add-in project.
 
     - **Choose a script type** - `Javascript`
 
-    - **What do you want to name your add-in?** - `git-the-gist`
+    - **What do you want to name your add-in?** - `Git the gist`
 
     - **Which Office client application would you like to support?** - `Outlook`
 
+    ![A screenshot of the prompts and answers for the Yeoman generator](images/addin-tutorial/yeoman-prompts-2.png)
+    
     After you complete the wizard, the generator will create the project and install supporting Node components.
 
 1. Navigate to the root directory of the project.
 
     ```command&nbsp;line
-    cd "git-the-gist"
+    cd "Git the gist"
     ```
 
 1. This add-in will use the following libraries:
