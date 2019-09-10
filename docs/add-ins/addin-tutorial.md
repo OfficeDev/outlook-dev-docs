@@ -3,7 +3,7 @@ title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
 scenarios: getting-started
-ms.date: 09/06/2019
+ms.date: 09/10/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -138,37 +138,9 @@ Use the Yeoman generator to create an Outlook add-in project.
 
 The manifest for an add-in controls how it appears in Outlook. It defines the way the add-in appears in the add-in list and the buttons that appear on the ribbon, and it sets the URLs for the HTML and JavaScript files used by the add-in.
 
-#### Specify a support page
-
-The manifest that the generator creates contains a placeholder value for the `SupportUrl` element that's not a valid URL. To prevent the file from failing validation, complete the following steps:
-
-1. In the root directory of the project, create a new file named **support.html** and add the following markup.
-
-    ```html
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, inline-scale=1">
-        <title>Support</title>
-      </head>
-      <body>
-        <h1>Support</h1>
-        <p>This is the support page for the <b>Git the gist</b> add-in.</p>
-        <p>In a real-world scenario, this page should provide support information for the add-in.</p>
-      </body>
-    </html>
-    ````
-
-1. Open the **manifest.xml** file and update the `SupportUrl` element to point to the **support.html** file that you created.
-
-    ```xml
-    <SupportUrl DefaultValue="https://localhost:3000/support.html" />
-    ```
-
 #### Specify basic information
 
-Next, make the following updates in the **manifest.xml** file to specify some basic information about the add-in:
+Make the following updates in the **manifest.xml** file to specify some basic information about the add-in:
 
 1. Locate the `ProviderName` element and replace the default value with your company name.
 
