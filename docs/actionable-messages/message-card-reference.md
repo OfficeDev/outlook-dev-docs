@@ -129,6 +129,9 @@ Although links can be achieved through Markdown, an `OpenUri` action has the adv
 - **Do** include at least an `OpenUri` action to view the entity in the external app it comes from.
 - **Do** make the `OpenUri` action the last one in the `potentialAction` collection.
 
+> [!NOTE]
+> Microsoft Teams and Outlook on the web only support HTTP/HTTPS URLs in the `targets` array for an `OpenUri` action.
+
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String | The `name` property defines the text that will be displayed on screen for the action.<br><br>**Do** use verbs. For instance, use "Set due date" instead of "Due date" or "Add note" instead of "Note." In some cases, the noun itself just works because it is also a verb: "Comment"<br>**Don't** name an `OpenUri` action in such a way that it suggests the action can be taken right from the client. Instead, name the action "View in &lt;name of site/app&gt;" or "Open in &lt;name of site/app&gt;" |
