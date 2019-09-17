@@ -96,16 +96,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
 
 ## Create an Outlook add-in project
 
-1. Run the following command to create an add-in project using the Yeoman generator: 
-
-    ```command&nbsp;line
-    yo office
-    ```
-
-    > [!NOTE]
-    > When you run the `yo office` command, you may receive prompts about the data collection policies of Yeoman and the Office Add-in CLI tools. Use the information that's provided to respond to the prompts as you see fit. If you choose **Exit** in response to the second prompt, you'll need to run the `yo office` command again when you're ready to create your add-in project.
-
-    When prompted, provide the following information to create your add-in project:
+1. [!include[Yeoman generator create project guidance](../includes/yo-office-command-guidance.md)]
 
     - **Choose a project type** - `Office Add-in Task Pane project`
 
@@ -119,8 +110,7 @@ The add-in that you'll create in this tutorial will read [gists](https://gist.gi
     
     After you complete the wizard, the generator will create the project and install supporting Node components.
 
-    > [!TIP]
-    > You can ignore the *next steps* guidance that the Yeoman generator provides after the add-in project's been created. The step-by-step instructions within this article provide all of the guidance you'll need to complete this tutorial.
+    [!include[Yeoman generator next steps](../includes/yo-office-next-steps.md)]
 
 1. Navigate to the root directory of the project.
 
