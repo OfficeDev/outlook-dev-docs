@@ -32,11 +32,7 @@ You can create an Office Add-in by using the [Yeoman generator for Office Add-in
 
 ### Create the add-in project
 
-1. Use the Yeoman generator to create an Outlook add-in project. Run the following command and then answer the prompts as follows:
-
-    ```command&nbsp;line
-    yo office
-    ```
+1. [!include[Yeoman generator create project guidance](../includes/yo-office-command-guidance.md)]
 
     - **Choose a project type** - `Office Add-in Task Pane project`
 
@@ -49,6 +45,8 @@ You can create an Office Add-in by using the [Yeoman generator for Office Add-in
     ![A screenshot of the prompts and answers for the Yeoman generator](images/yo-office-outlook.png)
     
     After you complete the wizard, the generator will create the project and install supporting Node components.
+
+    [!include[Yeoman generator next steps](../includes/yo-office-next-steps.md)]
 
 1. Navigate to the root folder of the web application project.
 
