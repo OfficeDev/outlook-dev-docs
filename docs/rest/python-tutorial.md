@@ -207,7 +207,7 @@ As you can see, our home page will be very simple. For now, the link doesn't do 
 
 1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
 
-1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations** under **Manage**.
 
 1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
