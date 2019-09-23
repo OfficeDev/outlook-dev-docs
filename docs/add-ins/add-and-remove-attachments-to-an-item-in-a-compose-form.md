@@ -1,7 +1,7 @@
 ---
 title: Add and remove attachments in an Outlook add-in
 description: You can use various attachment APIs to manage the files or Outlook items attached to the item the user is composing.
-ms.date: 08/30/2019
+ms.date: 09/23/2019
 localization_priority: Normal
 ---
 
@@ -14,7 +14,7 @@ The JavaScript API for Office provides several APIs you can use to manage an ite
 You can attach a file or Outlook item to a compose form by using the method that's appropriate for the type of attachment.
 
 - [addFileAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#addfileattachmentasyncuri-attachmentname-options-callback): Attach a file
-- [addFileAttachmentFromBase64Async](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#addfileattachmentfrombase64asyncbase64file-attachmentname-options-callback) (preview): Attach a file using its base64 string
+- [addFileAttachmentFromBase64Async](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#addfileattachmentfrombase64asyncbase64file-attachmentname-options-callback) ([preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview)): Attach a file using its base64 string
 - [addItemAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#additemattachmentasyncitemid-attachmentname-options-callback): Attach an Outlook item
 
 These are asynchronous methods, which means execution can go on without waiting for the action to complete. Depending on the original location and size of the attachment being added, the asynchronous call may take a while to complete.
