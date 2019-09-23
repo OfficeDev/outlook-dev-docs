@@ -1,7 +1,7 @@
 ---
 title: Outlook add-in manifests
 description: The manifest describes how an Outlook add-in integrates across Outlook clients; includes an example.
-ms.date: 05/29/2019
+ms.date: 09/23/2019
 localization_priority: Priority
 ---
 
@@ -17,7 +17,7 @@ An Outlook add-in consists of two components: the XML add-in manifest and a web 
 <!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
 <OfficeApp
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
   xsi:type="MailApp">
@@ -29,6 +29,7 @@ An Outlook add-in consists of two components: the XML add-in manifest and a web 
   <Description DefaultValue="Adds command buttons to the ribbon in Outlook"/>
   <IconUrl DefaultValue="https://appdemo.contoso.com/images/blue-64.png" />
   <HighResolutionIconUrl DefaultValue="https://appdemo.contoso.com/images/blue-128.png" />
+  <SupportUrl DefaultValue="https://appdemo.contoso.com"/>
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
