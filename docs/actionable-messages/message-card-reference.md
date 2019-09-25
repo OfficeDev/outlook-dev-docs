@@ -108,7 +108,7 @@ Cards are very powerful in the sense that they allow users to take quick actions
 Actions are specified using the `potentialAction` property which is available both on the card itself and on each section. There are four types of actions:
 
 - [OpenUri](#openuri-action)
-- [HttpPost](#httppost-action)
+- [HttpPOST](#httppost-action)
 - [ActionCard](#actioncard-action)
 - [InvokeAddInCommand](#invokeaddincommand-action)
 - [Transaction](#transaction-action)
