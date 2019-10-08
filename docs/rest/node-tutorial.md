@@ -613,6 +613,7 @@ To use the Microsoft Graph API, install the [Microsoft Graph JavaScript Client L
 
 ```Shell
 npm install @microsoft/microsoft-graph-client --save
+npm install isomorphic-fetch --save
 ```
 
 Let's start by creating a `mail` route. Create a file called `mail.js` in the `./routes` directory and add the following code.
@@ -624,6 +625,7 @@ var express = require('express');
 var router = express.Router();
 var authHelper = require('../helpers/auth');
 var graph = require('@microsoft/microsoft-graph-client');
+require('isomorphic-fetch');
 
 /* GET /mail */
 router.get('/', async function(req, res, next) {
