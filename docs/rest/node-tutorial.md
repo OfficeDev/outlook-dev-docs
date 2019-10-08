@@ -199,7 +199,7 @@ REDIRECT_URI=http://localhost:3000/authorize
 
 The first thing we do here is define our client ID and secret. We also define a redirect URI and an array of scopes. The scope array includes the `openid`, `User.Read`, and `Mail.Read` scopes, since we will only read the user's mail. Replace the `YOUR APP ID HERE` with the application ID and `YOUR APP PASSWORD HERE` with the password you generated in step 3 and save your changes.
 
-Now let's add code to load this file when the app starts. This will make the values in the file available in `process.env` at runtime. Open `./app.js` and add the following line just before the `var index = require('./routes/index');` line.
+Now let's add code to load this file when the app starts. This will make the values in the file available in `process.env` at runtime. Open `./app.js` and add the following line just before the `var indexRouter = require('./routes/index');` line.
 
 ```js
 require('dotenv').config();
@@ -299,13 +299,13 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
-Now let's add this file to the app's routes. Open the `./app.js` file and add the following line after the `var index = require('./routes/index');` line.
+Now let's add this file to the app's routes. Open the `./app.js` file and add the following line after the `var indexRouter = require('./routes/index');` line.
 
 ```js
 var authorize = require('./routes/authorize');
 ```
 
-Then add the following line after the `app.use('/', index);` line.
+Then add the following line after the `app.use('/', indexRouter);` line.
 
 ```js
 app.use('/authorize', authorize);
@@ -315,8 +315,8 @@ app.use('/authorize', authorize);
 > If you deleted the `./routes/users.js` file, be sure to remove the following lines from `./app.js. to avoid errors.
 >
 > ```js
-> var users = require('./routes/users');
-> app.use('/users', users);
+> var usersRouter = require('./routes/users');
+> app.use('/users', usersRouter);
 > ```
 
 Restart the Node server and refresh your browser (or repeat the sign-in process). Now instead of an error, you should see the value of the authorization code printed on the screen. We're getting closer, but that's still not very useful. Let's actually do something with that code.
