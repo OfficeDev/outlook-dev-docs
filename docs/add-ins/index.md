@@ -1,7 +1,7 @@
 ---
 title: Outlook add-ins overview
 description: Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform. 
-ms.date: 06/24/2019
+ms.date: 10/09/2019
 ms.topic: overview
 scenarios: getting-started
 localization_priority: Priority
@@ -65,7 +65,7 @@ In general, Outlook can activate add-ins in read form for items in the Sent Item
 
 ## Supported hosts
 
-Outlook add-ins are supported in Outlook 2013 or later on Windows, Outlook 2016 or later on Mac, Outlook on the web for Exchange 2013 on-premises and later versions, Outlook on iOS, Outlook on Android, and Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all [clients](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#clients) at the same time. Please refer to articles and API references for those features to see which hosts they may or may not be supported in.
+Outlook add-ins are supported in Outlook 2013 or later on Windows, Outlook 2016 or later on Mac, Outlook on the web for Exchange 2013 on-premises and later versions, Outlook on iOS, Outlook on Android, and Outlook on the web in Office 365 and Outlook.com. Not all of the newest features are supported in all [clients](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#requirement-sets-supported-by-exchange-servers-and-outlook-clients) at the same time. Please refer to articles and API references for those features to see which hosts they may or may not be supported in.
 
 
 ## Get started building Outlook add-ins
