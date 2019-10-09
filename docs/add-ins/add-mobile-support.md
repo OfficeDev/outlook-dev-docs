@@ -1,7 +1,7 @@
 ---
 title: Add mobile support to an Outlook add-in
 description: Adding support for Outlook Mobile requires updating the add-in manifest and possibly changing your code for mobile scenarios.
-ms.date: 08/01/2019
+ms.date: 10/09/2019
 localization_priority: Normal
 ---
 
@@ -104,4 +104,4 @@ APIs introduced in requirement set 1.6 or later are not supported by Outlook Mob
 
 ## See also
 
-[Requirement set support](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#clients)
+[Requirement set support](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#requirement-sets-supported-by-exchange-servers-and-outlook-clients)
