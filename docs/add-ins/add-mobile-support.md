@@ -1,7 +1,7 @@
 ---
 title: Add mobile support to an Outlook add-in
 description: Adding support for Outlook Mobile requires updating the add-in manifest and possibly changing your code for mobile scenarios.
-ms.date: 08/01/2019
+ms.date: 10/09/2019
 localization_priority: Normal
 ---
 
