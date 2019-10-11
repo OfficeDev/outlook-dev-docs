@@ -39,7 +39,7 @@ The following is an example of the structure, assuming there are three defined r
 
 ### Loading roaming settings
 
-A mail add-in typically loads roaming settings in the [Office.initialize](/javascript/api/office#office-initialize) event handler. The following JavaScript code example shows how to load existing roaming settings and get the values of 2 settings, **customerName** and **customerBalance**:
+A mail add-in typically loads roaming settings in the [Office.initialize](/javascript/api/office#office-initialize-reason-) event handler. The following JavaScript code example shows how to load existing roaming settings and get the values of 2 settings, **customerName** and **customerBalance**:
 
 
 ```js
@@ -128,7 +128,7 @@ The following example shows a simplified set of methods for an Outlook add-in th
 This example includes the following methods:
 
 
-- [Office.initialize](/javascript/api/office#office-initialize) -- Initializes the add-in and loads the custom property bag from the Exchange server.
+- [Office.initialize](/javascript/api/office#office-initialize-reason-) -- Initializes the add-in and loads the custom property bag from the Exchange server.
 
 - **customPropsCallback** -- Gets the custom property bag that is returned from the server and saves it for later use.
 

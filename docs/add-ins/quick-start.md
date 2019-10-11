@@ -2,7 +2,7 @@
 title: Build your first Outlook add-in
 description: Learn how to build a simple Outlook task pane add-in by using the Office JS API.
 ms.topic: quickstart
-scenarios: getting-started
+ms.custom: "scenarios:getting-started; languages:JavaScript,TypeScript"
 ms.date: 09/06/2019
 localization_priority: Priority
 ---
