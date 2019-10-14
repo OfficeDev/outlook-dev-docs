@@ -1,7 +1,7 @@
 ---
 title: Use the Outlook REST APIs from an Outlook add-in
 description: Learn how to use the Outlook REST APIs from an Outlook add-in to get an access token.
-ms.date: 04/15/2019
+ms.date: 10/14/2019
 localization_priority: Priority
 ---
 
@@ -28,10 +28,10 @@ Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function(result){
   if (result.status === "succeeded") {
     var accessToken = result.value;
 
-    // Use the access token
+    // Use the access token.
     getCurrentItem(accessToken);
   } else {
-    // Handle the error
+    // Handle the error.
   }
 });
 ```
@@ -51,10 +51,10 @@ Your add-in can determine which Outlook client it is loaded in by checking the [
 ```js
 function getItemRestId() {
   if (Office.context.mailbox.diagnostics.hostName === 'OutlookIOS') {
-    // itemId is already REST-formatted
+    // itemId is already REST-formatted.
     return Office.context.mailbox.item.itemId;
   } else {
-    // Convert to an item ID for API v2.0
+    // Convert to an item ID for API v2.0.
     return Office.context.mailbox.convertToRestId(
       Office.context.mailbox.item.itemId,
       Office.MailboxEnums.RestVersion.v2_0
@@ -80,12 +80,12 @@ After your add-in has the access token, item ID, and REST API URL, it can either
 
 ```js
 function getCurrentItem(accessToken) {
-  // Get the item's REST ID
+  // Get the item's REST ID.
   var itemId = getItemRestId();
 
-  // Construct the REST URL to the current item
+  // Construct the REST URL to the current item.
   // Details for formatting the URL can be found at
-  // /previous-versions/office/office-365-api/api/version-2.0/mail-rest-operations#get-a-message-rest
+  // https://docs.microsoft.com/previous-versions/office/office-365-api/api/version-2.0/mail-rest-operations#get-messages.
   var getMessageUrl = Office.context.mailbox.restUrl +
     '/v2.0/me/messages/' + itemId;
 
@@ -94,11 +94,11 @@ function getCurrentItem(accessToken) {
     dataType: 'json',
     headers: { 'Authorization': 'Bearer ' + accessToken }
   }).done(function(item){
-    // Message is passed in `item`
+    // Message is passed in `item`.
     var subject = item.Subject;
     ...
   }).fail(function(error){
-    // Handle error
+    // Handle error.
   });
 }
 ```
