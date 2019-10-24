@@ -46,10 +46,12 @@
     href: web-services.md
   - name: Get or set item data
     href: item-data.md
-  - name: Get or set recurrence
-    href: get-and-set-recurrence.md
   - name: Get or set categories
     href: categories.md
+  - name: Get or set internet headers
+    href: internet-headers.md
+  - name: Get or set recurrence
+    href: get-and-set-recurrence.md
   - name: Get or set add-in metadata
     href: metadata-for-an-outlook-add-in.md
   - name: Read scenario
