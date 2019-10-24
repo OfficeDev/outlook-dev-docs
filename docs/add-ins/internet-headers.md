@@ -17,7 +17,7 @@ It has been a common requirement in Outlook add-ins development to store custom 
 
 Both types of properties are not preserved after the item leaves the Exchange server so the email recipients can't get any properties set on the item. Therefore, developers can't access those settings or other MIME properties to enable better read scenarios.
 
-While there's a way for you to set the internet headers through EWS Requests, in some scenarios making an EWS request won't work. For example, in Compose mode on Outlook desktop, the item id isn't synced on `saveAsync` in cached mode.
+While there's a way for you to set the internet headers through EWS requests, in some scenarios making an EWS request won't work. For example, in Compose mode on Outlook desktop, the item id isn't synced on `saveAsync` in cached mode.
 
 > [!TIP]
 > See [Get and set add-in metadata for an Outlook add-in](metadata-for-an-outlook-add-in.md) to learn more about using these options.
