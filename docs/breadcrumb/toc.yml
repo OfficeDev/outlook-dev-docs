@@ -238,6 +238,9 @@
       - name: Invoke an Outlook add-in
         tocHref: /outlook/actionable-messages/invoke-add-in
         topicHref: /outlook/actionable-messages/invoke-add-in
+      - name: Refresh cards on open
+        tocHref: /outlook/actionable-messages/auto-invoke
+        topicHref: /outlook/actionable-messages/auto-invoke
       - name: Card Reference
         tocHref: /outlook/actionable-messages/card-reference
         topicHref: /outlook/actionable-messages/card-reference

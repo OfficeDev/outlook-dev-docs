@@ -12,6 +12,8 @@
   items:
   - name: Invoke an Outlook add-in
     href: invoke-add-in.md
+  - name: Refresh cards on open
+    href: auto-invoke.md
 - name: Security Requirements
   href: security-requirements.md
 - name: Adaptive Cards
