@@ -54,13 +54,14 @@ Signed actionable message cards are available when sending via email. Use this f
     <div itemprop="signedAdaptiveCard" style="mso-hide:all;display:none;max-height:0px;overflow:hidden;">[SignedCardPayload]</div>
 </section>
 ```
+
 > Note: Partners who prefer to use the legacy MessageCard entity may create a SignedMessageCard entity in place of a SignedAdaptiveCard.
 
 ##### SignedCardPayload
 
 SignedCardPayload is a string encoded by JSON Web Signature (JWS) standard. [RFC7515](https://tools.ietf.org/html/rfc7515) describes JWS, and [RFC7519](https://tools.ietf.org/html/rfc7519) describes JSON Web Token (JWT). Given no claim is required in JWT, JWT libraries can be used to build JWS signature.
 
-> Note: The term "JWT" can be used interchangeably in practice. However, we prefer the term "JWS" here. 
+> Note: The term "JWT" can be used interchangeably in practice. However, we prefer the term "JWS" here.
 
 Here is an example of SignedCardPayload. The encoded Adaptive Card appears in the form of [header].[payload].[signature] as per JWS specification.
 
@@ -76,7 +77,7 @@ The header in above JWS is:
   "typ": "JWT"
 }
 ```
- 
+
 The payload in above JWS is:
 
 ```json

@@ -11,7 +11,7 @@ localization_priority: Normal
 
 # Refresh an actionable message when the user opens it
 
-Actionable messages allow users to take quick actions on an email message, often based on data presented in the card. However, sometimes data changes after the actionable message has been sent. For example, your service might send an actionable message to multiple approvers asking them to approve or reject a request. One approver approves the request, but the actionable message in the other approver's mailbox still asks for approval. Now, with the `autoInvokeAction` property on actionable messages, you can provide an HTTP endpoint to retrieve an up-to-date Adaptive Card payload with the latest information.
+Actionable messages allow users to take quick actions on an email message, often based on data presented in the card. However, sometimes data changes after the actionable message has been sent. For example, your service might send an actionable message to multiple approvers asking them to approve or reject a request. One approver approves the request, but the actionable message in the other approver's mailbox still asks for approval. Now, with the `autoInvokeAction` property on actionable messages, you can provide an HTTP endpoint to retrieve an up-to-date Adaptive Card payload with the latest information when the user opens the email in Outlook.
 
 ## Using autoInvokeAction
 
@@ -35,7 +35,7 @@ In order to use this feature, your card must use the [Adaptive Card](adaptive-ca
 
 ## Implementing the Web API
 
-The URL specified in the `autoInvokeAction` must accept POST requests and should return a `200 OK` status and an Adaptive Card JSON payload. The Adaptive Card returned will completely replace the existing card in the email message. If the URL returns an error, the existing card will continue to display.
+The URL specified in the `autoInvokeAction` must accept POST requests. The contents of the `body` property within the `autoInvoke` is sent to the endpoint, and a JWT is sent in the `Authorization` header as specified [here](security-requirements.md#verifying-that-requests-come-from-microsoft). The URL should return a `200 OK` status and an Adaptive Card JSON payload in a timely fashion. Long-running requests will be terminated by the client. The Adaptive Card returned will completely replace the existing card in the email message. If the URL returns an error or times out, the existing card will continue to display.
 
 ## Example approval scenario
 
