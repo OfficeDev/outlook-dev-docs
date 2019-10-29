@@ -42,7 +42,8 @@ The URL specified in the `autoInvokeAction` must conform to the following requir
 
 - The endpoint must accept POST requests.
 - The endpoint should accept the contents of the `body` property within the `autoInvoke` section of the card.
-- The endpoint should use the JWT sent in the `Authorization` header to [verify that requests come from Microsoft](security-requirements.md#verifying-that-requests-come-from-microsoft). - Successful requests **must return within 2 seconds**. Requests that take longer will be canceled by the client.
+- The endpoint should use the JWT sent in the `Authorization` header to [verify that requests come from Microsoft](security-requirements.md#verifying-that-requests-come-from-microsoft).
+- Successful requests **must return within 2 seconds**. Requests that take longer will be canceled by the client.
 - Successful should return a `200 OK` status and an Adaptive Card JSON payload.
 
 On success, the Adaptive Card returned will completely replace the existing card in the email message. If the URL returns an error or times out, the existing card will continue to display.
