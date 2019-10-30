@@ -1,7 +1,7 @@
 ---
 title: Enable delegate access scenarios in an Outlook add-in
 description: Briefly describes delegate access and discusses how to configure add-in support.
-ms.date: 08/26/2019
+ms.date: 10/30/2019
 localization_priority: Normal
 ---
 
@@ -95,7 +95,7 @@ function performOperation() {
 
             // Determine if user can do the expected operation.
             // E.g., do they have Write permission?
-            if ((delegatePermissions & MailboxEnums.Write) != 0) {
+            if ((delegatePermissions & Office.MailboxEnums.DelegatePermissions.Write) != 0) {
               // Construct REST URL for your operation.
               // Update <version> placeholder with actual Outlook REST API version e.g. "v2.0".
               // Update <operation> placeholder with actual operation.
