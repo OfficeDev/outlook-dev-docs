@@ -1,13 +1,13 @@
 ---
 title: On-send feature for Outlook add-ins
-description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on-send.
+description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
 ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
 # On-send feature for Outlook add-ins
 
-The on-send feature for Outlook add-ins provides a way to handle email or block email users from certain actions, and allows an add-in to set certain properties on-send. For example, you can use the on-send feature to:
+The on-send feature for Outlook add-ins provides a way to handle email or block email users from certain actions, and allows an add-in to set certain properties on send. For example, you can use the on-send feature to:
 
 - Prevent a user from sending sensitive information or leaving the subject line blank.  
 - Add a specific recipient to the CC line.
@@ -275,7 +275,7 @@ To set mailbox policies, administrators can download the [Administrative Templat
 
 #### What the policy does
 
-For compliance reasons, administrators may need to ensure that users cannot send email until the latest on-send add-in is available to run. Administrators must enable the group policy **Disable send when web extensions can't load** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on-send.
+For compliance reasons, administrators may need to ensure that users cannot send email until the latest on-send add-in is available to run. Administrators must enable the group policy **Disable send when web extensions can't load** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
 
 |Policy status|Result|
 |---|---|
@@ -308,7 +308,7 @@ Add-ins for Outlook on Mac that use the on-send feature should run for any users
 
 #### What the setting does
 
-For compliance reasons, administrators may need to ensure that users cannot send email until the latest on-send add-isn are available to run. Admins must enable the key **OnSendAddinsWaitForLoad** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on-send.
+For compliance reasons, administrators may need to ensure that users cannot send email until the latest on-send add-isn are available to run. Admins must enable the key **OnSendAddinsWaitForLoad** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
 
 |Key's state|Result|
 |---|---|
@@ -381,9 +381,9 @@ The following code examples show you how to create a simple on-send add-in. To d
 
 The [Outlook-Add-in-On-Send](https://github.com/OfficeDev/Outlook-Add-in-On-Send) code sample includes two manifests:
 
-- `Contoso Message Body Checker.xml` &ndash; Shows how to check the body of a message for restricted words or sensitive information on-send.  
+- `Contoso Message Body Checker.xml` &ndash; Shows how to check the body of a message for restricted words or sensitive information on send.  
 
-- `Contoso Subject and CC Checker.xml` &ndash; Shows how to add a recipient to the CC line and verify that the message includes a subject line on-send.  
+- `Contoso Subject and CC Checker.xml` &ndash; Shows how to add a recipient to the CC line and verify that the message includes a subject line on send.  
 
 In the `Contoso Message Body Checker.xml` manifest file, you include the function file and function name that should be called on the `ItemSend` event. The operation runs synchronously.
 
@@ -513,7 +513,7 @@ In addition to the `addAsync` method, the `NotificationMessages` object also inc
 
 ### Subject and CC checker
 
-The following code example shows you how to add a recipient to the CC line and verify that the message includes a subject on-send. This example uses the on-send feature to allow or disallow an email from sending.  
+The following code example shows you how to add a recipient to the CC line and verify that the message includes a subject on send. This example uses the on-send feature to allow or disallow an email from sending.  
 
 ```js
 // Invoke by Contoso Subject and CC Checker add-in before send is allowed.
@@ -583,7 +583,7 @@ function subjectOnSendChange(subject, event) {
 }
 ```
 
-To learn more about how to add a recipient to the CC line and verify that the email message includes a subject line on-send, and to see the APIs you can use, see the [Outlook-Add-in-On-Send sample](https://github.com/OfficeDev/Outlook-Add-in-On-Send). The code is well commented.
+To learn more about how to add a recipient to the CC line and verify that the email message includes a subject line on send, and to see the APIs you can use, see the [Outlook-Add-in-On-Send sample](https://github.com/OfficeDev/Outlook-Add-in-On-Send). The code is well commented.
 
 ## See also
 
