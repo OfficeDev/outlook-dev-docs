@@ -1,7 +1,7 @@
 ---
 title: Validate an Outlook add-in identity token
 description: Your Outlook add-in can send you an Exchange user identity token, but before you trust the request you must validate the token to ensure that it came from the Exchange server that you expect.
-ms.date: 04/15/2019
+ms.date: 10/31/2019
 localization_priority: Normal
 ---
 
@@ -13,7 +13,7 @@ We suggest that you use a four-step process to validate the identity token and o
 
 ## Extract the JSON Web Token
 
-The token returned from [getUserIdentityTokenAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext) is an encoded string representation of the token. In this form, per RFC 7519, all JWTs have three parts, separated by a period. The format is as follows.
+The token returned from [getUserIdentityTokenAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext) is an encoded string representation of the token. In this form, per RFC 7519, all JWTs have three parts, separated by a period. The format is as follows.
 
 ```json
 {header}.{payload}.{signature}

@@ -1,7 +1,7 @@
 ---
 title: Get attachments in an Outlook add-in
 description: Your add-in can use the attachments API to send information about the attachments to a remote service.
-ms.date: 04/15/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
@@ -13,9 +13,9 @@ To send attachment information to the remote service, you use the following prop
 
 - [Office.context.mailbox.ewsUrl](/javascript/api/outlook/office.entities) property &ndash; Provides the URL of Exchange Web Services (EWS) on the Exchange server that hosts the mailbox. Your service uses this URL to call the [ExchangeService.GetAttachments](/exchange/client-developer/exchange-web-services/how-to-get-attachments-by-using-ews-in-exchange) method, or the [GetAttachment](/exchange/client-developer/web-service-reference/getattachment-operation) EWS operation.
 
-- [Office.context.mailbox.item.attachments](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#attachments-arrayattachmentdetails) property &ndash; Gets an array of [AttachmentDetails](/javascript/api/outlook/office.attachmentdetails) objects, one for each attachment to the item.
+- [Office.context.mailbox.item.attachments](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#attachments-arrayattachmentdetails) property &ndash; Gets an array of [AttachmentDetails](/javascript/api/outlook/office.attachmentdetails) objects, one for each attachment to the item.
 
-- [Office.context.mailbox.getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getcallbacktokenasyncoptions-callback) function &ndash; Makes an asynchronous call to the Exchange server that hosts the mailbox to get a callback token that the server sends back to the Exchange server to authenticate a request for an attachment.
+- [Office.context.mailbox.getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#getcallbacktokenasyncoptions-callback) function &ndash; Makes an asynchronous call to the Exchange server that hosts the mailbox to get a callback token that the server sends back to the Exchange server to authenticate a request for an attachment.
 
 ## Using the attachments API
 
@@ -36,7 +36,7 @@ Each of these steps is covered in detail in the following sections using code fr
 
 ## Get a callback token
 
-The [Office.context.mailbox](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox) object provides the `getCallbackTokenAsync` function to get a token that the remote server can use to authenticate with the Exchange server. The following code shows a function in an add-in that starts the asynchronous request to get the callback token, and the callback function that gets the response. The callback token is stored in the service request object that is defined in the next section.
+The [Office.context.mailbox](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox) object provides the `getCallbackTokenAsync` function to get a token that the remote server can use to authenticate with the Exchange server. The following code shows a function in an add-in that starts the asynchronous request to get the callback token, and the callback function that gets the response. The callback token is stored in the service request object that is defined in the next section.
 
 ```js
 function getAttachmentToken() {

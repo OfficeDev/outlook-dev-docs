@@ -1,13 +1,13 @@
 ---
 title: Inside the Exchange identity token in an Outlook add-in
 description: Learn about the contents of an Exchange user identity token generated from an Outlook add-in.
-ms.date: 04/15/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
 # Inside the Exchange identity token
 
-The Exchange user identity token returned by the [getUserIdentityTokenAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext) method provides a way for your add-in code to include the user's identity with calls to your back-end service. This article will discuss the format and contents of the token.
+The Exchange user identity token returned by the [getUserIdentityTokenAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext) method provides a way for your add-in code to include the user's identity with calls to your back-end service. This article will discuss the format and contents of the token.
 
 An Exchange user identity token is a base-64 URL-encoded string that is signed by the Exchange server that sent it. The token is not encrypted, and the public key that you use to validate the signature is stored on the Exchange server that issued the token. The token has three parts: a header, a payload, and a signature. In the token string, the parts are separated by a period character (`.`) to make it easy for you to split the token.
 

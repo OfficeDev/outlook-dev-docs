@@ -1,7 +1,7 @@
 ---
 title: Privacy, permissions, and security for Outlook add-ins
 description: Learn how to manage privacy, permissions, and security in an Outlook add-in.
-ms.date: 05/10/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
@@ -131,7 +131,7 @@ Developers should follow the tiered permissions model to provide transparency an
 
 - Developers should request the **read/write item** permission if the Outlook add-in needs to write to properties of the composed item, such as recipient names, email addresses, body, and subject, or needs to add or remove item attachments.
 
-- Developers request the **read/write mailbox** permission only if the Outlook add-in needs to do one or more of the following actions by using the [mailbox.makeEWSRequestAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method:
+- Developers request the **read/write mailbox** permission only if the Outlook add-in needs to do one or more of the following actions by using the [mailbox.makeEWSRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method:
 
   - Read or write to properties of items in the mailbox.
   - Create, read, write, or send items in the mailbox.

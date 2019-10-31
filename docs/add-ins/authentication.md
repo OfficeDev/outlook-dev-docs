@@ -1,7 +1,7 @@
 ---
 title: Authentication options in Outlook add-ins
 description: Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
-ms.date: 05/31/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
@@ -62,4 +62,4 @@ Callback tokens provide access to the user's mailbox from your server back-end, 
 
 - Needs access to the user's mailbox from your server back-end.
 
-Add-ins obtain callback tokens using one of the [getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#getcallbacktokenasyncoptions-callback) methods. The level of access is controlled by the permissions specified in the add-in manifest.
+Add-ins obtain callback tokens using one of the [getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#getcallbacktokenasyncoptions-callback) methods. The level of access is controlled by the permissions specified in the add-in manifest.
