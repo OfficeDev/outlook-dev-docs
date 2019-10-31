@@ -10,6 +10,8 @@
     href: send-via-connectors.md
 - name: Concepts
   items:
+  - name: Identity linking
+    href: identity-linking.md
   - name: Invoke an Outlook add-in
     href: invoke-add-in.md
   - name: Refresh cards on open

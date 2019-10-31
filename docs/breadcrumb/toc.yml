@@ -235,6 +235,9 @@
       - name: Security Requirements
         tocHref: /outlook/actionable-messages/security-requirements
         topicHref: /outlook/actionable-messages/security-requirements
+      - name: Identity linking
+        tocHref: /outlook/actionable-messages/identity-linking
+        topicHref: /outlook/actionable-messages/identity-linking
       - name: Invoke an Outlook add-in
         tocHref: /outlook/actionable-messages/invoke-add-in
         topicHref: /outlook/actionable-messages/invoke-add-in
