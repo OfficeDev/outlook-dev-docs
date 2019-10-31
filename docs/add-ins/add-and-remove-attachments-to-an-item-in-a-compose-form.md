@@ -1,7 +1,7 @@
 ---
 title: Add and remove attachments in an Outlook add-in
 description: You can use various attachment APIs to manage the files or Outlook items attached to the item the user is composing.
-ms.date: 09/23/2019
+ms.date: 10/31/2019
 localization_priority: Normal
 ---
 
@@ -14,7 +14,7 @@ The JavaScript API for Office provides several APIs you can use to manage an ite
 You can attach a file or Outlook item to a compose form by using the method that's appropriate for the type of attachment.
 
 - [addFileAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#addfileattachmentasyncuri-attachmentname-options-callback): Attach a file
-- [addFileAttachmentFromBase64Async](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#addfileattachmentfrombase64asyncbase64file-attachmentname-options-callback) ([preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview)): Attach a file using its base64 string
+- [addFileAttachmentFromBase64Async](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#addfileattachmentfrombase64asyncbase64file-attachmentname-options-callback): Attach a file using its base64 string
 - [addItemAttachmentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#additemattachmentasyncitemid-attachmentname-options-callback): Attach an Outlook item
 
 These are asynchronous methods, which means execution can go on without waiting for the action to complete. Depending on the original location and size of the attachment being added, the asynchronous call may take a while to complete.
@@ -111,16 +111,11 @@ function addItemAttachment(itemId) {
 > [!NOTE]
 > You can use a compose add-in to attach an instance of a recurring appointment in Outlook on the web or mobile devices. However, in a supporting Outlook rich client, attempting to attach an instance would result in attaching the recurring series (the master appointment).
 
-## Get attachments (preview)
+## Get attachments
 
-> [!IMPORTANT]
-> The APIs to get attachments are currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in Office clients with mailboxes on Exchange Online connected to an Office 365 subscription. These APIs shouldn't be used in production environments yet.
->
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
+You can use the [getAttachmentsAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getattachmentsasyncoptions-callback--arrayattachmentdetails) method to get the attachments of the message or appointment being composed.
 
-You can use the [getAttachmentsAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getattachmentsasyncoptions-callback--arrayattachmentdetails) method to get the attachments of the message or appointment being composed.
-
-To get an attachment's content, you can use the [getAttachmentContentAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getattachmentcontentasyncattachmentid-options-callback--attachmentcontent) method. The supported formats are listed in the [AttachmentContentFormat](/javascript/api/outlook/office.mailboxenums.attachmentcontentformat) enum.
+To get an attachment's content, you can use the [getAttachmentContentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getattachmentcontentasyncattachmentid-options-callback--attachmentcontent) method. The supported formats are listed in the [AttachmentContentFormat](/javascript/api/outlook/office.mailboxenums.attachmentcontentformat?view=outlook-js-1.8) enum.
 
 You should provide a callback method to check for the status and any error by using the `AsyncResult` output parameter object. You can also pass any additional parameters to the callback method by using the optional `asyncContext` parameter.
 

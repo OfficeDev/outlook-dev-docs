@@ -1,18 +1,13 @@
 ---
 title: Enable delegate access scenarios in an Outlook add-in
 description: Briefly describes delegate access and discusses how to configure add-in support.
-ms.date: 10/30/2019
+ms.date: 10/31/2019
 localization_priority: Normal
 ---
 
-# Enable delegate access scenarios in an Outlook add-in (preview)
+# Enable delegate access scenarios in an Outlook add-in
 
 A mailbox owner can use the delegate access feature to [allow someone else to manage their mail and calendar](https://support.office.com/article/allow-someone-else-to-manage-your-mail-and-calendar-41c40c04-3bd1-4d22-963a-28eafec25926). This article specifies which delegate permissions the Office JavaScript API supports and describes how to enable delegate access scenarios in your Outlook add-in.
-
-> [!IMPORTANT]
-> Delegate access for Outlook add-ins is currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in Office clients with mailboxes on Exchange Online. Delegate access APIs shouldn't be used in production environments yet.
->
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
 
 ## Supported permissions for delegate access
 
@@ -30,7 +25,7 @@ The following table describes the delegate permissions that the Office JavaScrip
 > [!NOTE]
 > Currently the API supports getting existing delegate permissions, but not setting delegate permissions.
 
-The [DelegatePermissions](/javascript/api/outlook/office.mailboxenums.delegatepermissions) object is implemented using a bitmask to indicate the delegate's permissions. Each position in the bitmask represents a particular permission and if it's set to `1` then the delegate has the respective permission. For example, if the second bit from the right is `1`, then the delegate has **Write** permission. You can see an example of how to check for a specific permission in the [Perform an operation as delegate](#perform-an-operation-as-delegate) section later in this article.
+The [DelegatePermissions](/javascript/api/outlook/office.mailboxenums.delegatepermissions?view=outlook-js-1.8) object is implemented using a bitmask to indicate the delegate's permissions. Each position in the bitmask represents a particular permission and if it's set to `1` then the delegate has the respective permission. For example, if the second bit from the right is `1`, then the delegate has **Write** permission. You can see an example of how to check for a specific permission in the [Perform an operation as delegate](#perform-an-operation-as-delegate) section later in this article.
 
 ## Sync across mailbox clients
 
@@ -41,9 +36,6 @@ However, if the add-in uses REST or EWS operations to set an extended property o
 ## Configure the manifest
 
 To enable delegate access scenarios in your add-in, you must set the [SupportsSharedFolders](/office/dev/add-ins/reference/manifest/supportssharedfolders) element to `true` in the manifest under the parent element `DesktopFormFactor`. At present, other form factors are not supported.
-
-> [!IMPORTANT]
-> Because delegate access for Outlook add-ins is currently in preview, add-ins that use the `SupportSharedFolders` element cannot be published to AppSource or deployed via centralized deployment.
 
 The following example shows the `SupportsSharedFolders` element set to `true` in a section of the manifest.
 
@@ -74,7 +66,7 @@ The following example shows the `SupportsSharedFolders` element set to `true` in
 
 ## Perform an operation as delegate
 
-You can get an item's shared properties in Compose or Read mode by calling the [item.getSharedPropertiesAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getsharedpropertiesasyncoptions-callback) method. This returns a [SharedProperties](/javascript/api/outlook/office.sharedproperties) object that currently provides the delegate's permissions, the owner's email address, the REST API's base URL, and the target mailbox.
+You can get an item's shared properties in Compose or Read mode by calling the [item.getSharedPropertiesAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getsharedpropertiesasyncoptions-callback) method. This returns a [SharedProperties](/javascript/api/outlook/office.sharedproperties?view=outlook-js-1.8) object that currently provides the delegate's permissions, the owner's email address, the REST API's base URL, and the target mailbox.
 
 The following example shows how to get the shared properties of a message or appointment, check if the delegate has **Write** permission, and make a REST call.
 

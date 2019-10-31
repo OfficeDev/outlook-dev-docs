@@ -134,6 +134,8 @@
   items:
   - name: Preview requirement set
     href: /office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview
+  - name: Requirement set 1.8
+    href: /office/dev/add-ins/reference/objectmodel/requirement-set-1.8/outlook-requirement-set-1.8
   - name: Requirement set 1.7
     href: /office/dev/add-ins/reference/objectmodel/requirement-set-1.7/outlook-requirement-set-1.7
   - name: Requirement set 1.6

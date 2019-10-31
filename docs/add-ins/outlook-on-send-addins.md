@@ -1,7 +1,7 @@
 ---
 title: On send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
-ms.date: 09/23/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
@@ -13,7 +13,7 @@ The on send feature for Outlook add-ins provides a way to handle email or block 
 - Add a specific recipient to the CC line.
 
 > [!NOTE]
-> The on send feature is currently supported for Outlook on the web in Office 365 (in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview)), Exchange 2016 on-premises (Cumulative Update 6 or later), and Exchange 2019 on-premises (Cumulative Update 1 or later). This feature is also available in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) on Windows and Mac connected to an Office 365 subscription. Add-ins that use the on send feature aren't allowed in [AppSource](https://appsource.microsoft.com).
+> The on send feature is currently supported for Outlook on the web in Office 365, Exchange 2016 on-premises (Cumulative Update 6 or later), and Exchange 2019 on-premises (Cumulative Update 1 or later). This feature is also available on Windows and Mac connected to an Office 365 subscription.
 
 The on send feature is triggered by events. Currently, the feature supports the `ItemSend` event type. Events in Outlook add-ins enable you to handle, check, or block user actions when something of interest occurs. For example, events provide ways to:
 
@@ -179,11 +179,6 @@ Get-OWAMailboxPolicy OWAOnSendAddinAllUserPolicy | Set-OWAMailboxPolicy –OnSen
 
 ### [Web browser - modern Outlook](#tab/modern)
 
-> [!IMPORTANT]
-> The on send feature is currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and shouldn't be used in production environments yet.
->
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
-
 Add-ins for Outlook on the web (modern) that use the on send feature should run for any users who have them installed. However, if users are required to run the add-in to meet compliance standards, then the mailbox policy must have the *OnSendAddinsEnabled* flag set to **true**.
 
 To install a new add-in, run the following Exchange Online PowerShell cmdlets.
@@ -274,11 +269,6 @@ Get-OWAMailboxPolicy OWAOnSendAddinAllUserPolicy | Set-OWAMailboxPolicy –OnSen
 
 ### [Windows](#tab/windows)
 
-> [!IMPORTANT]
-> The on send feature is currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and shouldn't be used in production environments yet.
->
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
-
 Add-ins for Outlook on Windows that use the on send feature should run for any users who have them installed. However, if users are required to run the add-in to meet compliance standards, then the group policy **Disable send when web extensions can't load** must be set to **Enabled** on each applicable machine.
 
 To set mailbox policies, administrators can download the [Administrative Templates tool](https://www.microsoft.com/download/details.aspx?id=49030) then access the latest administrative templates by running the Local Group Policy editor, **gpedit.msc**.
@@ -304,11 +294,6 @@ By default, the on send policy is disabled. Administrators can enable the on sen
 1. In the **Disable send when web extensions can't load** dialog window, select **Enabled** or **Disabled** as appropriate then select **OK** or **Apply** to put the update into effect.
 
 ### [Mac](#tab/unix)
-
-> [!IMPORTANT]
-> The on send feature is currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and shouldn't be used in production environments yet.
->
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
 
 Add-ins for Outlook on Mac that use the on send feature should run for any users who have them installed. However, if users are required to run the add-in to meet compliance standards, then the following mailbox setting must be applied on each user's machine. This setting or key is CFPreference-compatible, which means that it can be set by using enterprise management software for Mac, such as Jamf Pro.
 
@@ -599,7 +584,6 @@ function subjectOnSendChange(subject, event) {
 ```
 
 To learn more about how to add a recipient to the CC line and verify that the email message includes a subject line on send, and to see the APIs you can use, see the [Outlook-Add-in-On-Send sample](https://github.com/OfficeDev/Outlook-Add-in-On-Send). The code is well commented.
-
 
 ## See also
 
