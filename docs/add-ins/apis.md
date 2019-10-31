@@ -1,7 +1,7 @@
 ---
 title: Outlook add-in APIs
 description: Learn how to reference the Outlook add-in APIs and declare permissions in your Outlook add-in.
-ms.date: 04/15/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
@@ -58,7 +58,7 @@ Your add-in requires the appropriate permissions to use the APIs that it needs. 
 | **Restricted** | Allows use of entities but not regular expressions. |
 | **Read item** | In addition to what is allowed in **Restricted**, it allows:<ul><li>regular expressions</li><li>Outlook add-in API read access</li><li>getting the item properties and the callback token</li></ul> |
 | **Read/write** | In addition to what is allowed in **Read item**, it allows:<ul><li>full Outlook add-in API access except `makeEwsRequestAsync`</li><li>setting the item properties</li></ul> |
-| **Read/write mailbox** | In addition to what is allowed in **Read/write**, it allows:<ul><li>creating, reading, writing items and folders</li><li>sending items</li><li>calling [makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext)</li></ul> |
+| **Read/write mailbox** | In addition to what is allowed in **Read/write**, it allows:<ul><li>creating, reading, writing items and folders</li><li>sending items</li><li>calling [makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext)</li></ul> |
 
 In general, you should specify the minimum permission needed for your add-in. Permissions are declared in the `<Permissions>` element in the manifest. For more information, see [Outlook add-in manifests](manifests.md). For information about security issues, see [Privacy, permissions, and security for Office Add-ins](/office/dev/add-ins/concepts/privacy-and-security).
 

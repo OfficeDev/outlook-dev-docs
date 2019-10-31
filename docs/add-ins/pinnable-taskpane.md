@@ -1,7 +1,7 @@
 ---
 title: Implement a pinnable task pane in an Outlook add-in
 description: The task pane UX shape for add-in commands opens a vertical task pane to the right of an open message or meeting request, allowing the add-in to provide UI for more detailed interactions.
-ms.date: 06/24/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
@@ -77,7 +77,7 @@ function itemChanged(eventArgs) {
 
 ### Register the event handler
 
-Use the [Office.context.mailbox.addHandlerAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox#addhandlerasynceventtype-handler-options-callback) method to register your event handler for the `Office.EventType.ItemChanged` event. This should be done in the `Office.initialize` function for your task pane.
+Use the [Office.context.mailbox.addHandlerAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#addhandlerasynceventtype-handler-options-callback) method to register your event handler for the `Office.EventType.ItemChanged` event. This should be done in the `Office.initialize` function for your task pane.
 
 ```js
 Office.initialize = function (reason) {

@@ -66,7 +66,7 @@ The following example shows the `SupportsSharedFolders` element set to `true` in
 
 ## Perform an operation as delegate
 
-You can get an item's shared properties in Compose or Read mode by calling the [item.getSharedPropertiesAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getsharedpropertiesasyncoptions-callback) method. This returns a [SharedProperties](/javascript/api/outlook/office.sharedproperties) object that currently provides the delegate's permissions, the owner's email address, the REST API's base URL, and the target mailbox.
+You can get an item's shared properties in Compose or Read mode by calling the [item.getSharedPropertiesAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#getsharedpropertiesasyncoptions-callback) method. This returns a [SharedProperties](/javascript/api/outlook/office.sharedproperties) object that currently provides the delegate's permissions, the owner's email address, the REST API's base URL, and the target mailbox.
 
 The following example shows how to get the shared properties of a message or appointment, check if the delegate has **Write** permission, and make a REST call.
 
