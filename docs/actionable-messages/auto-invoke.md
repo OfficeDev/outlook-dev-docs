@@ -36,15 +36,23 @@ In order to use this feature, your card must use the [Adaptive Card](adaptive-ca
 }
 ```
 
+### Crafting the initial Adaptive Card
+
+When using autoInvokeAction, it is very important that the initial card included with the message still be valuable to the end user and, ideally, be actionable. The `autoInvokeAction` might fail, or network conditions might slow it down, in which case the initial card is all the end user will see.
+
+- **Do not** send an empty initial card with just an `autoInvokeAction`. Such cards will be rejected by the Actionable Message platform.
+- **Do not** send an initial card that is just a placeholder asking the user to wait.
+- **Do** send an initial card that presents the information in its current state, even if that means the user might see outdated data by the time they open your message.
+
 ## Implementing the Web API
 
-The URL specified in the `autoInvokeAction` must conform to the following requirements.
+The `Action.Http` action specified in the `autoInvokeAction` property works exactly the same as any other `Action.Http` action. For details on implementing the endpoint for this action, see [Implementing the Web API](adaptive-card.md#implementing-the-web-api).
 
-- The endpoint must accept POST requests.
-- The endpoint should accept the contents of the `body` property within the `autoInvoke` section of the card.
-- The endpoint should use the JWT sent in the `Authorization` header to [verify that requests come from Microsoft](security-requirements.md#verifying-that-requests-come-from-microsoft).
-- Successful requests **must return within 2 seconds**. Requests that take longer will be canceled by the client.
-- Successful should return a `200 OK` status and an Adaptive Card JSON payload.
+The endpoint for an `autoInvokeAction` must also meet the following additional requirements.
+
+- Requests **must return within 2 seconds**.
+- Requests that take longer will be ignored by the client, and the original card will continue to display. The message will still be updated on the server.
+- Successful responses should include an Adaptive Card JSON payload.
 
 On success, the Adaptive Card returned will completely replace the existing card in the email message. If the URL returns an error or times out, the existing card will continue to display.
 

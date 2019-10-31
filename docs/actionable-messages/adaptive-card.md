@@ -366,6 +366,14 @@ Outlook Actionable Messages use an HTTP-based action model via the `Action.Http`
 
 ![The Action.Http example card](images/adaptive-action-http.png)
 
+#### Implementing the Web API
+
+The URL specified in the `url` property must conform to the following requirements.
+
+- The endpoint must accept POST requests.
+- The endpoint should accept the contents of the `body` property.
+- The endpoint should use the JWT sent in the `Authorization` header to [verify that requests come from Microsoft](security-requirements.md#verifying-that-requests-come-from-microsoft).
+
 #### Input value substitution
 
 Adaptive Cards may contain inputs, and it may be necessary to pass the values of these inputs to the target endpoint via an `Action.Http` action. This is done using input value substitution. Consider the following example:
