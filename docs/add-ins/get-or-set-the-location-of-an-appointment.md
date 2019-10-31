@@ -1,7 +1,7 @@
 ---
 title: Get or set the location of an appointment in an add-in
 description: Learn how to get or set the location of an appointment in an Outlook add-in.
-ms.date: 09/23/2019
+ms.date: 10/31/2019
 localization_priority: Normal
 ---
 
@@ -10,7 +10,7 @@ localization_priority: Normal
 The JavaScript API for Office provides properties and methods to manage the location of an appointment that the user is composing. Currently, there are two properties that provide an appointment's location:
 
 - [item.location](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#location-stringlocation): Basic API that allows you to get and set the location.
-- [item.enhancedLocation](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#enhancedlocation-enhancedlocation) ([preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview)): Enhanced API that allows you to get and set the location, and includes specifying the [location type](/javascript/api/outlook/office.mailboxenums.locationtype). The type is `LocationType.Custom` if you set the location using `item.location`.
+- [item.enhancedLocation](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#enhancedlocation-enhancedlocation): Enhanced API that allows you to get and set the location, and includes specifying the [location type](/javascript/api/outlook/office.mailboxenums.locationtype). The type is `LocationType.Custom` if you set the location using `item.location`.
 
 The following table lists the location APIs and the modes (i.e., Compose or Read) where they are available.
 
@@ -24,6 +24,87 @@ The following table lists the location APIs and the modes (i.e., Compose or Read
 | [item.enhancedLocation.removeAsync](/javascript/api/outlook/office.enhancedlocation#removeasync-locationidentifiers--options--callback-) | Organizer/Compose |
 
 To use the methods that are available only to compose add-ins, configure the add-in manifest to activate the add-in in Organizer/Compose mode. See [Create Outlook add-ins for compose forms](compose-scenario.md) for more details.
+
+## Use the `enhancedLocation` API
+
+You can use the `enhancedLocation` API to get and set an appointment's location. The location field supports multiple locations and, for each location, you can set the display name, type, and conference room email address (if applicable). See [LocationType](/javascript/api/outlook/office.mailboxenums.locationtype) for supported location types.
+
+### Add location
+
+The following example shows how to add a location by calling [addAsync](/javascript/api/outlook/office.enhancedlocation#addasync-locationidentifiers--options--callback-) on [mailbox.item.enhancedLocation](/javascript/api/outlook/office.appointmentcompose#enhancedlocation).
+
+```js
+var item;
+var locations = [
+    {
+        "id": "Contoso",
+        "type": Office.MailboxEnums.LocationType.Custom
+    }
+];
+
+Office.initialize = function () {
+    item = Office.context.mailbox.item;
+    // Check for the DOM to load using the jQuery ready function.
+    $(document).ready(function () {
+        // After the DOM is loaded, app-specific code can run.
+        // Add to the location of the item being composed.
+        item.enhancedLocation.addAsync(locations);
+    });
+}
+```
+
+### Get location
+
+The following example shows how to get the location by calling [getAsync](/javascript/api/outlook/office.enhancedlocation#getasync-options--callback-) on [mailbox.item.enhancedLocation](/javascript/api/outlook/office.appointmentread#enhancedlocation).
+
+```js
+var item;
+
+Office.initialize = function () {
+    item = Office.context.mailbox.item;
+    // Checks for the DOM to load using the jQuery ready function.
+    $(document).ready(function () {
+        // After the DOM is loaded, app-specific code can run.
+        // Get the location of the item being composed.
+        item.enhancedLocation.getAsync(callbackFunction);
+    });
+}
+
+function callbackFunction(asyncResult) {
+    asyncResult.value.forEach(function (place) {
+        console.log("Display name: " + place.displayName);
+        console.log("Type: " + place.locationIdentifier.type);
+        if (place.locationIdentifier.type === Office.MailboxEnums.LocationType.Room) {
+            console.log("Email address: " + place.emailAddress);
+        }
+    });
+}
+```
+
+### Remove location
+
+The following example shows how to remove the location by calling [removeAsync](/javascript/api/outlook/office.enhancedlocation#removeasync-locationidentifiers--options--callback-) on [mailbox.item.enhancedLocation](/javascript/api/outlook/office.appointmentcompose#enhancedlocation).
+
+```js
+var item;
+
+Office.initialize = function () {
+    item = Office.context.mailbox.item;
+    // Checks for the DOM to load using the jQuery ready function.
+    $(document).ready(function () {
+        // After the DOM is loaded, app-specific code can run.
+        // Get the location of the item being composed.
+        item.enhancedLocation.getAsync(callbackFunction);
+    });
+}
+
+function callbackFunction(asyncResult) {
+    asyncResult.value.forEach(function (currentValue) {
+        // Remove each location from the item being composed.
+        Office.context.mailbox.item.enhancedLocation.removeAsync([currentValue.locationIdentifier]);
+    });
+}
+```
 
 ## Use the `location` API
 
@@ -110,92 +191,6 @@ function setLocation() {
 // Write to a div with id='message' on the page.
 function write(message){
     document.getElementById('message').innerText += message;
-}
-```
-
-## Use the `enhancedLocation` API (preview)
-
-> [!IMPORTANT]
-> Enhanced location APIs are currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#enhanced-location) for Outlook clients on Windows and Mac connected to an Office 365 subscription and on the web (modern), and shouldn't be used in production environments yet.
->
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
-
-You can use the `enhancedLocation` API to get and set an appointment's location. The location field supports multiple locations and, for each location, you can set the display name, type, and email address (only applicable for conference rooms). At present, supported [location types](/javascript/api/outlook/office.mailboxenums.locationtype) are `Room` (i.e., a valid conference room or similar resource) and `Custom` (represents any other type of location).
-
-### Add location
-
-The following example shows how to add a location by calling [addAsync](/javascript/api/outlook/office.enhancedlocation#addasync-locationidentifiers--options--callback-) on [mailbox.item.enhancedLocation](/javascript/api/outlook/office.appointmentcompose#enhancedlocation).
-
-```js
-var item;
-var locations = [
-    {
-        "id": "Contoso",
-        "type": Office.MailboxEnums.LocationType.Custom
-    }
-];
-
-Office.initialize = function () {
-    item = Office.context.mailbox.item;
-    // Check for the DOM to load using the jQuery ready function.
-    $(document).ready(function () {
-        // After the DOM is loaded, app-specific code can run.
-        // Add to the location of the item being composed.
-        item.enhancedLocation.addAsync(locations);
-    });
-}
-```
-
-### Get location
-
-The following example shows how to get the location by calling [getAsync](/javascript/api/outlook/office.enhancedlocation#getasync-options--callback-) on [mailbox.item.enhancedLocation](/javascript/api/outlook/office.appointmentread#enhancedlocation).
-
-```js
-var item;
-
-Office.initialize = function () {
-    item = Office.context.mailbox.item;
-    // Checks for the DOM to load using the jQuery ready function.
-    $(document).ready(function () {
-        // After the DOM is loaded, app-specific code can run.
-        // Get the location of the item being composed.
-        item.enhancedLocation.getAsync(callbackFunction);
-    });
-}
-
-function callbackFunction(asyncResult) {
-    asyncResult.value.forEach(function (place) {
-        console.log("Display name: " + place.displayName);
-        console.log("Type: " + place.locationIdentifier.type);
-        if (place.locationIdentifier.type === Office.MailboxEnums.LocationType.Room) {
-            console.log("Email address: " + place.emailAddress);
-        }
-    });
-}
-```
-
-### Remove location
-
-The following example shows how to remove the location by calling [removeAsync](/javascript/api/outlook/office.enhancedlocation#removeasync-locationidentifiers--options--callback-) on [mailbox.item.enhancedLocation](/javascript/api/outlook/office.appointmentcompose#enhancedlocation).
-
-```js
-var item;
-
-Office.initialize = function () {
-    item = Office.context.mailbox.item;
-    // Checks for the DOM to load using the jQuery ready function.
-    $(document).ready(function () {
-        // After the DOM is loaded, app-specific code can run.
-        // Get the location of the item being composed.
-        item.enhancedLocation.getAsync(callbackFunction);
-    });
-}
-
-function callbackFunction(asyncResult) {
-    asyncResult.value.forEach(function (currentValue) {
-        // Remove each location from the item being composed.
-        Office.context.mailbox.item.enhancedLocation.removeAsync([currentValue.locationIdentifier]);
-    });
 }
 ```
 

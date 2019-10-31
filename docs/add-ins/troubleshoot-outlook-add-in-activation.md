@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Outlook contextual add-in activation
 description: If your add-in doesn't activate as you expect, you should look into the following areas for possible reasons.
-ms.date: 06/24/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
@@ -19,7 +19,7 @@ You can verify the version of Exchange 2013 by using one of the following approa
 
 - If you are testing the add-in on Outlook on the web or mobile devices, in a script debugger (for example, the JScript Debugger that comes with Internet Explorer), look for the **src** attribute of the **script** tag that specifies the location from which scripts are loaded. The path should contain a substring **owa/15.0.516.x/owa2/...**, where **15.0.516.x** represents the version of the Exchange Server, such as **15.0.516.2**.
 
-- Alternatively, you can use the [Office.context.mailbox.diagnostics.hostVersion](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.diagnostics#hostversion-string) property to verify the version. On Outlook on the web and mobile devices, this property returns the version of the Exchange Server.
+- Alternatively, you can use the [Office.context.mailbox.diagnostics.hostVersion](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.diagnostics#hostversion-string) property to verify the version. On Outlook on the web and mobile devices, this property returns the version of the Exchange Server.
 
 - If you can test the add-in on Outlook, you can use the following simple debugging technique that uses the Outlook object model and Visual Basic Editor:
 

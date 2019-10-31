@@ -1,7 +1,7 @@
 ---
 title: Use regular expression activation rules to show an add-in
 description: Learn how to use regular expression activation rules for Outlook contextual add-ins.
-ms.date: 04/15/2019
+ms.date: 10/31/2019
 localization_priority: Priority
 ---
 
@@ -121,11 +121,11 @@ The following `ItemHasKnownEntity` rule activates the add-in whenever there is a
 
 You can obtain matches to a regular expression by using the following methods on the current item:
 
-- [getRegExMatches](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatches--object) returns matches in the current item for all regular expressions specified in `ItemHasRegularExpressionMatch` and `ItemHasKnownEntity` rules of the add-in.
+- [getRegExMatches](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getregexmatches--object) returns matches in the current item for all regular expressions specified in `ItemHasRegularExpressionMatch` and `ItemHasKnownEntity` rules of the add-in.
 
-- [getRegExMatchesByName](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-) returns matches in the current item for the identified regular expression specified in an `ItemHasRegularExpressionMatch` rule of the add-in.
+- [getRegExMatchesByName](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-) returns matches in the current item for the identified regular expression specified in an `ItemHasRegularExpressionMatch` rule of the add-in.
 
-- [getFilteredEntitiesByName](/office/dev/add-ins/reference/objectmodel/requirement-set-1.5/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactmeetingsuggestionphonenumbertasksuggestion) returns entire instances of entities that contain matches for the identified regular expression specified in an `ItemHasKnownEntity` rule of the add-in.
+- [getFilteredEntitiesByName](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactmeetingsuggestionphonenumbertasksuggestion) returns entire instances of entities that contain matches for the identified regular expression specified in an `ItemHasKnownEntity` rule of the add-in.
 
 When the regular expressions are evaluated, the matches are returned to your add-in in an array object. For `getRegExMatches`, that object has the identifier of the name of the regular expression.
 

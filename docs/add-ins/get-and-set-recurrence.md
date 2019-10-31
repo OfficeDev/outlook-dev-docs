@@ -1,7 +1,7 @@
 ---
 title: Get and set recurrence in an Outlook add-in
 description: This topic shows you how to use the Office JavaScript API to get and set various recurrence properties of an item in an Outlook add-in.
-ms.date: 12/12/2018
+ms.date: 10/31/2019
 localization_priority: Normal
 ---
 
@@ -172,7 +172,7 @@ var recurrenceType = recurrence.recurrenceType;
 [RecurrenceChanged event](/javascript/api/office/office.eventtype)
 
 [getAsync link]: /javascript/api/outlook/office.recurrence#getasync-options--callback-
-[item.recurrence link]: /office/dev/add-ins/reference/objectmodel/requirement-set-1.7/office.context.mailbox.item#nullable-recurrence-recurrence
+[item.recurrence link]: /office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#nullable-recurrence-recurrence
 [setAsync link]: /javascript/api/outlook/office.recurrence#setasync-recurrencepattern--options--callback-
 
 [dayOfMonth link]: /javascript/api/outlook/office.recurrenceproperties#dayofmonth
