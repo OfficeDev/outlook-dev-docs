@@ -34,20 +34,46 @@ Introduced in requirement set 1.8, the internet headers APIs enable developers t
 
 You can use the [item.internetHeaders](/javascript/api/outlook/office.messagecompose#internetheaders) property to manage the custom internet headers you place on the current message in Compose mode.
 
+### Example
+
+The following example shows how to set, get, and remove custom headers.
+
+```js
+Office.context.mailbox.item.internetHeaders.setAsync(
+  {"ny": "knicks", "la":"lakers", "uf":"gators", "uw":"huskies", "sea":"sonics"},
+  setCallback
+);
+
+function setCallback(async) {
+  Office.context.mailbox.item.internetHeaders.removeAsync(["sea", "cle", "orl"], removeCallback);
+}
+
+function removeCallback(async) {  
+  Office.context.mailbox.item.internetHeaders.getAsync(
+    ["ny", "LA", "uf", "uw", "sea", "header2", "header3"],
+    getCallback
+  );  
+}
+
+function getCallback(asyncResult) {
+    console.log(JSON.stringify(asyncResult));
+}
+```
+
 ## Get internet headers while reading a message
 
 You can call [item.getAllInternetHeadersAsync](/javascript/api/outlook/office.messageread#getallinternetheadersasync-options--callback-) to get internet headers on the current message in Read mode.
 
 ### Example
 
-The following example shows how you can get a subject up to 990 characters from the current email's headers.
+The following example shows how you can get the value of the MIME date header from the current email.
 
 > [!IMPORTANT]
-> This sample should work for most simple and common cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME parsing library.
+> This sample should work for simple cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME parsing library.
 
 ```js
 Office.context.mailbox.item.getAllInternetHeadersAsync(function(asyncResult) {
-    console.log(asyncResult.value.match(/subject:.*/gim)[0].slice(9));
+    console.log(asyncResult.value.match(/date:.*/gim)[0].slice(6));
 });
 
 ```
