@@ -10,24 +10,24 @@ localization_priority: Normal
 The JavaScript API for Office provides properties and methods to manage the location of an appointment that the user is composing. Currently, there are two properties that provide an appointment's location:
 
 - [item.location](/office/dev/add-ins/reference/objectmodel/requirement-set-1.1/office.context.mailbox.item#location-stringlocation): Basic API that allows you to get and set the location.
-- [item.enhancedLocation](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#enhancedlocation-enhancedlocation): Enhanced API that allows you to get and set the location, and includes specifying the [location type](/javascript/api/outlook/office.mailboxenums.locationtype?view=outlook-js-1.8). The type is `LocationType.Custom` if you set the location using `item.location`.
+- [item.enhancedLocation](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#enhancedlocation-enhancedlocation): Enhanced API that allows you to get and set the location, and includes specifying the [location type](/javascript/api/outlook/office.mailboxenums.locationtype). The type is `LocationType.Custom` if you set the location using `item.location`.
 
 The following table lists the location APIs and the modes (i.e., Compose or Read) where they are available.
 
 | API | Applicable appointment modes |
 |---|---|
-| [item.location](/javascript/api/outlook/office.appointmentread?view=outlook-js-1.1#location) | Attendee/Read |
-| [item.location.getAsync](/javascript/api/outlook/office.location?view=outlook-js-1.1#getasync-options--callback-) | Organizer/Compose |
-| [item.location.setAsync](/javascript/api/outlook/office.location?view=outlook-js-1.1#setasync-location--options--callback-) | Organizer/Compose |
-| [item.enhancedLocation.getAsync](/javascript/api/outlook/office.enhancedlocation?view=outlook-js-1.8#getasync-options--callback-) | Organizer/Compose,<br>Attendee/Read |
-| [item.enhancedLocation.addAsync](/javascript/api/outlook/office.enhancedlocation?view=outlook-js-1.8#addasync-locationidentifiers--options--callback-) | Organizer/Compose |
-| [item.enhancedLocation.removeAsync](/javascript/api/outlook/office.enhancedlocation?view=outlook-js-1.8#removeasync-locationidentifiers--options--callback-) | Organizer/Compose |
+| [item.location](/javascript/api/outlook/office.appointmentread#location) | Attendee/Read |
+| [item.location.getAsync](/javascript/api/outlook/office.location#getasync-options--callback-) | Organizer/Compose |
+| [item.location.setAsync](/javascript/api/outlook/office.location#setasync-location--options--callback-) | Organizer/Compose |
+| [item.enhancedLocation.getAsync](/javascript/api/outlook/office.enhancedlocation#getasync-options--callback-) | Organizer/Compose,<br>Attendee/Read |
+| [item.enhancedLocation.addAsync](/javascript/api/outlook/office.enhancedlocation#addasync-locationidentifiers--options--callback-) | Organizer/Compose |
+| [item.enhancedLocation.removeAsync](/javascript/api/outlook/office.enhancedlocation#removeasync-locationidentifiers--options--callback-) | Organizer/Compose |
 
 To use the methods that are available only to compose add-ins, configure the add-in manifest to activate the add-in in Organizer/Compose mode. See [Create Outlook add-ins for compose forms](compose-scenario.md) for more details.
 
 ## Use the `enhancedLocation` API
 
-You can use the `enhancedLocation` API to get and set an appointment's location. The location field supports multiple locations and, for each location, you can set the display name, type, and email address (only applicable for conference rooms). At present, supported [location types](/javascript/api/outlook/office.mailboxenums.locationtype) are `Room` (i.e., a valid conference room or similar resource) and `Custom` (represents any other type of location).
+You can use the `enhancedLocation` API to get and set an appointment's location. The location field supports multiple locations and, for each location, you can set the display name, type, and conference room email address (if applicable). See [LocationType](/javascript/api/outlook/office.mailboxenums.locationtype) for supported location types.
 
 ### Add location
 

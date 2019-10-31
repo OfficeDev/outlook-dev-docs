@@ -115,7 +115,7 @@ function addItemAttachment(itemId) {
 
 You can use the [getAttachmentsAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getattachmentsasyncoptions-callback--arrayattachmentdetails) method to get the attachments of the message or appointment being composed.
 
-To get an attachment's content, you can use the [getAttachmentContentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getattachmentcontentasyncattachmentid-options-callback--attachmentcontent) method. The supported formats are listed in the [AttachmentContentFormat](/javascript/api/outlook/office.mailboxenums.attachmentcontentformat?view=outlook-js-1.8) enum.
+To get an attachment's content, you can use the [getAttachmentContentAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getattachmentcontentasyncattachmentid-options-callback--attachmentcontent) method. The supported formats are listed in the [AttachmentContentFormat](/javascript/api/outlook/office.mailboxenums.attachmentcontentformat) enum.
 
 You should provide a callback method to check for the status and any error by using the `AsyncResult` output parameter object. You can also pass any additional parameters to the callback method by using the optional `asyncContext` parameter.
 

@@ -25,13 +25,13 @@ The following table describes the delegate permissions that the Office JavaScrip
 > [!NOTE]
 > Currently the API supports getting existing delegate permissions, but not setting delegate permissions.
 
-The [DelegatePermissions](/javascript/api/outlook/office.mailboxenums.delegatepermissions?view=outlook-js-1.8) object is implemented using a bitmask to indicate the delegate's permissions. Each position in the bitmask represents a particular permission and if it's set to `1` then the delegate has the respective permission. For example, if the second bit from the right is `1`, then the delegate has **Write** permission. You can see an example of how to check for a specific permission in the [Perform an operation as delegate](#perform-an-operation-as-delegate) section later in this article.
+The [DelegatePermissions](/javascript/api/outlook/office.mailboxenums.delegatepermissions) object is implemented using a bitmask to indicate the delegate's permissions. Each position in the bitmask represents a particular permission and if it's set to `1` then the delegate has the respective permission. For example, if the second bit from the right is `1`, then the delegate has **Write** permission. You can see an example of how to check for a specific permission in the [Perform an operation as delegate](#perform-an-operation-as-delegate) section later in this article.
 
 ## Sync across mailbox clients
 
 A delegate's updates to the owner's mailbox are usually synced across mailboxes immediately.
 
-However, if the add-in uses REST or EWS operations to set an extended property on an item, such changes could take a few hours to sync. We recommend you instead use the [CustomProperties](/javascript/api/outlook/office.customproperties?view=outlook-js-1.5) object and related APIs to avoid such a delay. To learn more, see the [custom properties section](metadata-for-an-outlook-add-in.md#custom-data-per-item-in-a-mailbox-custom-properties) of the "Get and set metadata in an Outlook add-in" article.
+However, if the add-in uses REST or EWS operations to set an extended property on an item, such changes could take a few hours to sync. We recommend you instead use the [CustomProperties](/javascript/api/outlook/office.customproperties) object and related APIs to avoid such a delay. To learn more, see the [custom properties section](metadata-for-an-outlook-add-in.md#custom-data-per-item-in-a-mailbox-custom-properties) of the "Get and set metadata in an Outlook add-in" article.
 
 ## Configure the manifest
 
@@ -66,7 +66,7 @@ The following example shows the `SupportsSharedFolders` element set to `true` in
 
 ## Perform an operation as delegate
 
-You can get an item's shared properties in Compose or Read mode by calling the [item.getSharedPropertiesAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getsharedpropertiesasyncoptions-callback) method. This returns a [SharedProperties](/javascript/api/outlook/office.sharedproperties?view=outlook-js-1.8) object that currently provides the delegate's permissions, the owner's email address, the REST API's base URL, and the target mailbox.
+You can get an item's shared properties in Compose or Read mode by calling the [item.getSharedPropertiesAsync](/office/dev/add-ins/reference/objectmodel/requirement-set-1.8/office.context.mailbox.item#getsharedpropertiesasyncoptions-callback) method. This returns a [SharedProperties](/javascript/api/outlook/office.sharedproperties) object that currently provides the delegate's permissions, the owner's email address, the REST API's base URL, and the target mailbox.
 
 The following example shows how to get the shared properties of a message or appointment, check if the delegate has **Write** permission, and make a REST call.
 
