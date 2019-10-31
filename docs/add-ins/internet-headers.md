@@ -2,11 +2,11 @@
 title: Get and set internet headers
 description: How to get and set internet headers on a message in an Outlook add-in.
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 10/31/2019
 localization_priority: Normal
 ---
 
-# Get and set internet headers (preview)
+# Get and set internet headers
 
 ## Background
 
@@ -24,24 +24,33 @@ While there's a way for you to set the internet headers through EWS requests, in
 
 ## Purpose of the internet headers API
 
-The internet headers APIs enable developers to:
+Introduced in requirement set 1.8, the internet headers APIs enable developers to:
 
 - Stamp information on an email that persists after it leaves Exchange across all clients.
 - Read information on an email that persisted after the email left Exchange across all clients in mail read scenarios.
 - Access the entire MIME header of the email.
 
+## Set internet headers while composing a message
+
+You can use the [item.internetHeaders](/javascript/api/outlook/office.messagecompose#internetheaders) property to manage the custom internet headers you place on the current message in Compose mode.
+
+## Get internet headers while reading a message
+
+You can call [item.getAllInternetHeadersAsync](/javascript/api/outlook/office.messageread#getallinternetheadersasync-options--callback-) to get internet headers on the current message in Read mode.
+
+### Example
+
+The following example shows how you can get a subject up to 990 characters from the current email's headers.
+
 > [!IMPORTANT]
-> Internet headers APIs for Outlook are currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview#internet-headers) for Outlook on Windows connected to an Office 365 subscription, and are not yet intended for use in production environments.
->
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
+> This sample should work for most simple and common cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME parsing library.
 
-## Example  
+```js
+Office.context.mailbox.item.getAllInternetHeadersAsync(function(asyncResult) {
+    console.log(asyncResult.value.match(/subject:.*/gim)[0].slice(9));
+});
 
-TODO: Set internet headers in compose. Retrieve in read.
-
-### Set internet headers while composing a message
-
-### Get internet headers while reading a message
+```
 
 ## See also
 
