@@ -1,18 +1,13 @@
 ---
 title: Enable delegate access scenarios in an Outlook add-in
 description: Briefly describes delegate access and discusses how to configure add-in support.
-ms.date: 10/30/2019
+ms.date: 10/31/2019
 localization_priority: Normal
 ---
 
-# Enable delegate access scenarios in an Outlook add-in (preview)
+# Enable delegate access scenarios in an Outlook add-in
 
 A mailbox owner can use the delegate access feature to [allow someone else to manage their mail and calendar](https://support.office.com/article/allow-someone-else-to-manage-your-mail-and-calendar-41c40c04-3bd1-4d22-963a-28eafec25926). This article specifies which delegate permissions the Office JavaScript API supports and describes how to enable delegate access scenarios in your Outlook add-in.
-
-> [!IMPORTANT]
-> Delegate access for Outlook add-ins is currently in [preview](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/outlook-requirement-set-preview) and only supported in Office clients with mailboxes on Exchange Online. Delegate access APIs shouldn't be used in production environments yet.
->
-> [!INCLUDE [Information about using preview APIs](../includes/using-preview-apis.md)]
 
 ## Supported permissions for delegate access
 
@@ -36,14 +31,11 @@ The [DelegatePermissions](/javascript/api/outlook/office.mailboxenums.delegatepe
 
 A delegate's updates to the owner's mailbox are usually synced across mailboxes immediately.
 
-However, if the add-in uses REST or EWS operations to set an extended property on an item, such changes could take a few hours to sync. We recommend you instead use the [CustomProperties](/javascript/api/outlook/office.customproperties?view=outlook-js-1.5) object and related APIs to avoid such a delay. To learn more, see the [custom properties section](metadata-for-an-outlook-add-in.md#custom-data-per-item-in-a-mailbox-custom-properties) of the "Get and set metadata in an Outlook add-in" article.
+However, if the add-in uses REST or EWS operations to set an extended property on an item, such changes could take a few hours to sync. We recommend you instead use the [CustomProperties](/javascript/api/outlook/office.customproperties) object and related APIs to avoid such a delay. To learn more, see the [custom properties section](metadata-for-an-outlook-add-in.md#custom-data-per-item-in-a-mailbox-custom-properties) of the "Get and set metadata in an Outlook add-in" article.
 
 ## Configure the manifest
 
 To enable delegate access scenarios in your add-in, you must set the [SupportsSharedFolders](/office/dev/add-ins/reference/manifest/supportssharedfolders) element to `true` in the manifest under the parent element `DesktopFormFactor`. At present, other form factors are not supported.
-
-> [!IMPORTANT]
-> Because delegate access for Outlook add-ins is currently in preview, add-ins that use the `SupportSharedFolders` element cannot be published to AppSource or deployed via centralized deployment.
 
 The following example shows the `SupportsSharedFolders` element set to `true` in a section of the manifest.
 
