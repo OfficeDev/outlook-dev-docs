@@ -95,7 +95,7 @@ getSelectedCustomHeaders();
 Successfully set headers
 Selected headers: {"x-best-vegetable":"spinach","x-preferred-fruit":"orange","x-preferred-vegetable":"broccoli"}
 Successfully removed selected headers
-Selected headers: {"x-preferred-fruit":"orange","x-preferred-vegetable":"broccoli"}  */
+Selected headers: {"x-preferred-fruit":"orange","x-preferred-vegetable":"broccoli"}
 */
 ```
 
