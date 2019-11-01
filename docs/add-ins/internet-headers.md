@@ -39,13 +39,13 @@ You can use the [item.internetHeaders](/javascript/api/outlook/office.messagecom
 The following example shows how to set, get, and remove custom headers.
 
 > [!NOTE]
-> If you want spaces and other special characters in the message header, you may need to encode them. See [RFC 2822](https://tools.ietf.org/html/rfc2822) for more details.
+> The recommended format for naming custom headers is "x-<custom-name>", e.g., "x-preferred-fruit".
 
 ```js
 // Set custom internet headers.
 function setCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.setAsync(
-    { "PreferredFruit": "orange", "PreferredVegetable": "broccoli", "BestVegetable": "spinach" },
+    { "x-preferred-fruit": "orange", "x-preferred-vegetable": "broccoli", "x-best-vegetable": "spinach" },
     setCallback
   );
 }
@@ -61,7 +61,7 @@ function setCallback(asyncResult) {
 // Get custom internet headers.
 function getSelectedCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.getAsync(
-    ["PreferredFruit", "preferredVegetable", "bestVegetable", "nonexistentHeader"],
+    ["x-preferred-fruit", "x-preferred-vegetable", "x-best-vegetable", "nonexistent-header"],
     getCallback
   );
 }
@@ -77,7 +77,7 @@ function getCallback(asyncResult) {
 // Remove custom internet headers.
 function removeSelectedCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.removeAsync(
-    ["bestVegetable", "aNonexistentHeader"],
+    ["x-best-vegetable", "aNonexistentHeader"],
     removeCallback);
 }
 
@@ -96,9 +96,9 @@ getSelectedCustomHeaders();
 
 /* Sample output:
 Successfully set headers
-Selected headers: {"PreferredFruit":"orange","preferredVegetable":"broccoli","bestVegetable":"spinach"}
+Selected headers: {"x-best-vegetable":"spinach","x-preferred-fruit":"orange","x-preferred-vegetable":"broccoli"}
 Successfully removed selected headers
-Selected headers: {"PreferredFruit":"orange","preferredVegetable":"broccoli"}
+Selected headers: {"x-preferred-fruit":"orange","x-preferred-vegetable":"broccoli"}  */
 */
 ```
 
@@ -115,8 +115,8 @@ Office.context.mailbox.item.getAllInternetHeadersAsync(getCallback);
 
 function getCallback(asyncResult) {
   if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-    console.log("Sender's preferred fruit: " + asyncResult.value.match(/preferredfruit:.*/gim)[0].slice(16));
-    console.log("Sender's preferred vegetable: " + asyncResult.value.match(/preferredvegetable:.*/gim)[0].slice(20));
+    console.log("Sender's preferred fruit: " + asyncResult.value.match(/x-preferred-fruit:.*/gim)[0].slice(19));
+    console.log("Sender's preferred vegetable: " + asyncResult.value.match(/x-preferred-vegetable:.*/gim)[0].slice(23));
   } else {
     console.log("Error getting preferences from header");
   }
@@ -131,7 +131,7 @@ Sender's preferred vegetable: broccoli
 > [!IMPORTANT]
 > This sample should work for simple cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME parsing library.
 >
-> Also, you should handle a nonexistent header gracefully.
+> Also, make sure to handle a nonexistent header gracefully.
 
 ## See also
 
