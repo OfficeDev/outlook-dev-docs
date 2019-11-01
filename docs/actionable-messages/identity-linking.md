@@ -75,6 +75,39 @@ Location: https://outlook.office.com/connectors/adelev@contoso.com/723a1c49-f8dc
 
 After Outlook receives the redirect back from your authentication server, it immediately retries the original request. This time, because you've associated the AAD identity with your own, your endpoint processes the request normally.
 
+## Example
+
+You can use the following sample card in the [Card Playground](https://messagecardplayground.azurewebsites.net/) to see this in action. The endpoint in this card will prompt you to login to the Microsoft identity platform and (with your consent) will make a Graph request to [get your profile](/graph/api/user-get?view=graph-rest-1.0).
+
+```json
+{
+  "hideOriginalBody": true,
+  "type": "AdaptiveCard",
+  "padding": "none",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Identity Linking Demo"
+    },
+    {
+      "type": "ActionSet",
+      "actions": [
+        {
+          "type": "Action.Http",
+          "method": "POST",
+          "url": "https://amidentitylinking.azurewebsites.net/action",
+          "body": "{}",
+          "title": "Get User Details",
+          "isPrimary": true
+        }
+      ]
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0"
+}
+```
+
 ## Client support roadmap
 
 Identity linking is available to a limited set of clients, with support for the feature being added in the future. The following table provides the approximate timeline.
