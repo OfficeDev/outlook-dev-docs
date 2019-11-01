@@ -77,7 +77,7 @@ After Outlook receives the redirect back from your authentication server, it imm
 
 ## Example
 
-You can use the following sample card in the [Card Playground](https://messagecardplayground.azurewebsites.net/) to see this in action. The endpoint in this card will prompt you to login to the Microsoft identity platform and (with your consent) will make a Graph request to [get your profile](/graph/api/user-get?view=graph-rest-1.0).
+You can use the following sample card in the [Card Playground](https://messagecardplayground.azurewebsites.net/) to see this in action. The endpoint in this card will prompt you to login to the Microsoft identity platform and (with your consent) will make a Graph request to [get your profile](/graph/api/user-get?view=graph-rest-1.0). The code for this endpoint is available as a sample on [GitHub](https://github.com/OfficeDev/outlook-actionable-messages-identity-linking).
 
 ```json
 {
@@ -124,3 +124,4 @@ Identity linking is available to a limited set of clients, with support for the 
 
 - [Security requirements for actionable messages in Office 365](security-requirements.md)
 - [Designing Outlook Actionable Message cards with the Adaptive Card format](adaptive-card.md)
+- [Sample identity linking service](https://github.com/OfficeDev/outlook-actionable-messages-identity-linking)
