@@ -248,6 +248,7 @@ All `TextBlock` elements in a card can be formatted using Markdown. Outlook supp
 | Bulleted list | `* List item` or `- List item` |
 
 > [!TIP]
+>
 > - **Do** use Markdown to format text.
 > - **Don't** use HTML markup in your cards. HTML is ignored and treated as plain text.
 
@@ -256,6 +257,7 @@ All `TextBlock` elements in a card can be formatted using Markdown. Outlook supp
 Just like when designing the HTML body of an email, you have to assume that your Adaptive Card might be displayed on both wide and narrow screens (e.g. a desktop and a mobile phone.)
 
 > [!TIP]
+>
 > - **Do** design your Adaptive Card in such a way that it looks great on a narrow screen. Typically, a card  designed for a narrow screen will scale well to a wide screen. The opposite is however not true.
 > - **Don't** design your Adaptive Card assuming that only users of Outlook on the desktop will see it.
 
@@ -266,6 +268,7 @@ Not so long ago, most screens had a somewhat low resolution (1024x768 pixels for
 When designing your Adaptive Cards, you need to make sure your images will look good on any screen regardless of its DPI.
 
 > [!TIP]
+>
 > - **Do** design your images assuming they will be displayed on a high DPI screen. An image designed for a low (96) DPI screen will be blown up when displayed on a higher DPI screen and will therefore look pixelated. An image designed for a high DPI screen will be shrunk on a lower DPI screen which usually yields good results. In other words, it is better to design a 100x100 pixels image and display it at 50x50 pixels than to design a 50x50 pixels image and display it at 100x100 pixels.
 > - **Do** use the `width` and `height` properties of the **Image** element if you need to precisely control the actual size of the images in your card.
 > - **Don't** design your images with a fixed background color, like white, unless that background color is supposed to be visible to the user. In Outlook, your Adaptive Cards will not necessarily be displayed on top of a white background, and your images should be able to superimpose themselves on top of any background color. For that reason, **do** make the background of your images transparent.
@@ -276,6 +279,7 @@ When designing your Adaptive Cards, you need to make sure your images will look 
 Use the `Container` element only when necessary. The `Container` element makes it possible to group a set of elements together.
 
 > [!TIP]
+>
 > - **Do** use a `Container` to **emphasize a group of elements**: by setting the `style` property of the `Container` to `emphasis` you can make that `Container`, and the elements it contains, stand out.
 > - **Do** use a `Container` to **associate an action with group of elements**: by setting the `selectAction` property of a `Container`, the `Container` and its content become a single clickable area that triggers the specified action.
 > - **Do** use a `Container` to make a portion of your card collapsible: by using an `Action.ToggleVisibility` targeted to a `Container`, you can easily make a group of elements collapsible.
@@ -286,6 +290,7 @@ Use the `Container` element only when necessary. The `Container` element makes i
 Use `ColumnSet` only when you need to align several elements on a single horizontal line.
 
 > [!TIP]
+>
 > - **Do** use `ColumnSet` for table-like layouts in general.
 > - **Do** use `ColumnSet` if you need to, for example, display an image of the far left of the card and some text on the same line at the far right of the card.
 > - **Do** use the appropriate sizing approach for columns:
@@ -360,6 +365,14 @@ Outlook Actionable Messages use an HTTP-based action model via the `Action.Http`
 ```
 
 ![The Action.Http example card](images/adaptive-action-http.png)
+
+#### Implementing the Web API
+
+The URL specified in the `url` property must conform to the following requirements.
+
+- The endpoint must accept POST requests.
+- The endpoint should accept the contents of the `body` property.
+- The endpoint should use the JWT sent in the `Authorization` header to [verify that requests come from Microsoft](security-requirements.md#verifying-that-requests-come-from-microsoft).
 
 #### Input value substitution
 
@@ -671,10 +684,11 @@ The following additional properties can be specified on an [AdaptiveCard object]
 
 | Property name | Type | Required | Description |
 |---------------|------|----------|-------------|
+| `autoInvokeAction` | [Action.Http](#actionhttp) | No | The `autoInvokeAction` property specifies a URL that supplies an updated Adaptive Card payload to replace the existing payload in the message. The `method` of the `Action.Http` action MUST be `POST`. This allows your service to supply up-to-date information in the actionable message. For more information, see [Refresh an actionable message when the user opens it](auto-invoke.md). |
 | `correlationId` | String | No | The `correlationId` property simplifies the process of locating logs for troubleshooting issues. We recommend that when sending an actionable card, your service should set and log a unique UUID in this property. When the user invokes an `Action.Http` action on the card, Office 365 sends the `Card-Correlation-Id` and `Action-Request-Id` headers in the POST request to your service. `Card-Correlation-Id` contains the same value as the `correlationId` property in the card. `Action-Request-Id` is a unique UUID generated by Office 365 to help locate specific action performed by a user. Your service should log both of these values when receiving action POST requests. |
 | `expectedActors` | Array of String | No | `expectedActors` contains a list of expected email addresses of the users that may take `Action.Http` actions on the card. A user can have multiple email addresses and the `Action.Http` target endpoint might not be expecting the particular email address presented in the `sub` claim of the bearer token. For example, a user could have both the `john.doe@contoso.com` or `john@contoso.com` email address, but the `Action.Http` target endpoint expects to receive `john@contoso.com` in the sub claim of the bearer token. By setting the `expectedActors` property to `["john@contoso.com"]`, the `sub` claim will have the expected email address. |
-| `originator` | String | Yes | For actionable email, MUST be set to the provider ID generated by the [Actionable Email Developer Dashboard](email-dev-dashboard.md). |
 | `hideOriginalBody` | Boolean | No. Defaults to **false**. | When set to true, causes the HTML body of the message to be hidden. This is very useful in scenarios where the card is a better or more useful representation of the content than the HTML body itself, which is especially true when the card contains actions. **Consider** hiding the original HTML body if the card itself contains all the information a user would need, or if the content of the card is redundant with the content of the body. Do always include a nice, meaningful HTML body, even if it is going to be hidden. The HTML body is the only thing an email client that doesn't support cards will be able to display. Furthermore, cards are not included when replying to or forwarding emails, only the HTML body. **Don't** hide the body when it is complementary to the information presented in the card. For example, the body of an expense report approval might describe the report in great details while the card just presents a quick summary along with approve/decline actions. |
+| `originator` | String | Yes | For actionable email, MUST be set to the provider ID generated by the [Actionable Email Developer Dashboard](email-dev-dashboard.md). |
 
 ### Additional properties on the Column type
 
