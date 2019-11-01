@@ -2,7 +2,7 @@
 title: Get and set internet headers
 description: How to get and set internet headers on a message in an Outlook add-in.
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 11/01/2019
 localization_priority: Normal
 ---
 
@@ -34,30 +34,69 @@ Introduced in requirement set 1.8, the internet headers APIs enable developers t
 
 You can use the [item.internetHeaders](/javascript/api/outlook/office.messagecompose#internetheaders) property to manage the custom internet headers you place on the current message in Compose mode.
 
-### Example
+### Examples
 
 The following example shows how to set, get, and remove custom headers.
 
 ```js
-Office.context.mailbox.item.internetHeaders.setAsync(
-  {"ny": "knicks", "la":"lakers", "uf":"gators", "uw":"huskies", "sea":"sonics"},
-  setCallback
-);
-
-function setCallback(async) {
-  Office.context.mailbox.item.internetHeaders.removeAsync(["sea", "cle", "orl"], removeCallback);
+// Set custom internet headers.
+function setCustomHeaders() {
+  Office.context.mailbox.item.internetHeaders.setAsync(
+    { "Preferred fruit": "orange", "Preferred vegetable": "broccoli", "Worst vegetable": "spinach" },
+    setCallback
+  );
 }
 
-function removeCallback(async) {  
+function setCallback(asyncResult) {
+  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+    console.log("Successfully set headers");
+  } else {
+    console.log("Error setting headers: " + JSON.stringify(asyncResult.error));
+  }
+}
+
+// Get custom internet headers.
+function getSelectedCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.getAsync(
-    ["ny", "LA", "uf", "uw", "sea", "header2", "header3"],
+    ["Preferred fruit", "preferred vegetable", "worst vegetable", "nonexistent header"],
     getCallback
-  );  
+  );
 }
 
 function getCallback(asyncResult) {
-    console.log(JSON.stringify(asyncResult));
+  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+    console.log("Selected headers: " + JSON.stringify(asyncResult.value));
+  } else {
+    console.log("Error getting selected headers: " + asyncResult.error);
+  }
 }
+
+// Remove custom internet headers.
+function removeSelectedCustomHeaders() {
+  Office.context.mailbox.item.internetHeaders.removeAsync(
+    ["worst Vegetable", "a nonexistent header"],
+    removeCallback);
+}
+
+function removeCallback(asyncResult) {
+  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+    console.log("Successfully removed selected headers");
+  } else {
+    console.log("Error removing selected headers: " + JSON.stringify(asyncResult.error));
+  }
+}
+
+setCustomHeaders();
+getSelectedCustomHeaders();
+removeSelectedCustomHeaders();
+getSelectedCustomHeaders();
+
+/* Sample output:
+Successfully set headers
+Selected headers: {"Preferred fruit":"orange","preferred vegetable":"broccoli","worst vegetable":"spinach"}
+Successfully removed selected headers
+Selected headers: {"Preferred fruit":"orange","preferred vegetable":"broccoli"}
+*/
 ```
 
 ## Get internet headers while reading a message
@@ -72,10 +111,19 @@ The following example shows how you can get the value of the MIME date header fr
 > This sample should work for simple cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME parsing library.
 
 ```js
-Office.context.mailbox.item.getAllInternetHeadersAsync(function(asyncResult) {
-    console.log(asyncResult.value.match(/date:.*/gim)[0].slice(6));
-});
+Office.context.mailbox.item.getAllInternetHeadersAsync(getCallback);
 
+function getCallback(asyncResult) {
+  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+    console.log("Date retrieved from header: " + asyncResult.value.match(/date:.*/gim)[0].slice(6));
+  } else {
+    console.log("Error getting date from header: " + asyncResult.error);
+  }
+}
+
+/* Sample output:
+Date retrieved from header: Fri, 1 Nov 2019 00:18:56 +0000
+*/
 ```
 
 ## See also
