@@ -4,7 +4,7 @@ description: The developer dashboard helps you submit and track status of your s
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 08/01/2019
+ms.date: 10/31/2019
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -25,9 +25,6 @@ If you are a developer working with actionable messages via email, you will use 
 
 For all the above cases, you will be submitting certain details to Microsoft, which after being reviewed and approved, will enable actionable messages for your service.
 
-> [!IMPORTANT]
-> We are gradually rolling out a new feature which enables self-service of registrations with a **My mailbox** or **My organization** scope. See [Scope of your submission](#scope-of-your-submission) for more details.
-
 ## Dashboard sections
 
 The developer dashboard is divided into a few logical sections you need to fill out based on the scope you’d like to request Microsoft to enable actionable message from your service.
@@ -45,8 +42,9 @@ The key fields are:
 
 In this section, you need to specify at what scope you want to enable actionable message for your service. The applicable scopes are:
 
-- **My mailbox**: This enables actionable emails from your service sent to your own mailbox.
-- **My organization**: This enables actionable message from your service to any Office 365 email user within your organization. This scope is typically used for enabling actionable messages from a service that is specific to your organization, like a line- of-business application internal to your organization.
+- **My Mailbox**: This enables actionable emails from your service sent to your own mailbox.
+- **Test Users**: This enables actionable emails from your service to some of the O365 email users in your organization. This scope is generally used for testing actionable messages integration with few test users that you have specified.
+- **Organization**: This enables actionable message from your service to any Office 365 email user within your organization. This scope is typically used for enabling actionable messages from a service that is specific to your organization, like a line- of-business application internal to your organization.
 - **Global**: This enables actionable message from your service for any email user in Office 365.
 
 Each of the above are independent steps. i.e. you can pick only one scope for each submission and will be subject to the approval process by Microsoft.
@@ -56,18 +54,11 @@ Each of the above are independent steps. i.e. you can pick only one scope for ea
 
 #### Self-service registration
 
-> [!IMPORTANT]
-> Self-service of registrations in the developer dashboard is gradually rolling out. You can tell if your Office 365 organization has self-service enabled if you see the following text under the **Scope of submission** section in the dashboard.
->
-> - The **My Mailbox** scope has the additional text "(auto-approved)".
-> - The **Organization** scope has the additional text "(You will be submitting this request to your company administrators)".
->
-> ![A screenshot of the Scope of submission section of the developer dashboard when self-service is enabled for the organization.](images/actionable-email-dashboard-self-serve.png)
-
 Self-service of registrations is available for registrations that use the following scopes.
 
-- **My mailbox**: The registration request is auto-approved for your own mailbox. This will enable actionable emails from your service sent to your own mailbox.
-- **My organization**: This registration request will be sent to your organization's administrators with **Exchange administrator** or **Global administrator** permissions. Any administrator with those permissions receive an email with submission details and will be able to review and approve your request.
+- **My Mailbox**: The registration request is auto-approved for your own mailbox. This will enable actionable emails from your service sent to your own mailbox.
+- **Test Users**: The registration request is auto-approved for your test users you specify. This will enable actionable emails from your service sent to test users.
+- **Organization**: This registration request will be sent to your organization's administrators with **Exchange administrator** or **Global administrator** permissions. Any administrator with those permissions receive an email with submission details and will be able to review and approve your request.
 
 Once the submission is approved, whether auto-approved or by your administrator, it will take up to an hour for the registration to take effect.
 
@@ -75,7 +66,15 @@ For **My organization** registrations, the administrator accounts will receive a
 
 After an hour has passed, you can verify if the registration has taken into effect by sending an actionable message from your service to your mailbox (for **My mailbox** scope), or any user mailbox in your organization (for **My organization** scope). If an hour has passed and the registration is still not in effect, please contact us by using the feedback link at the top the registration dashboard labeled **Registration not working?**.
 
+### Test user email addresses
+
+This section is only applicable when your scope of submission to enable actionable messages is **Test Users**.
+
+In this section provide a list of Office 365 email users in your organization, separated by a semi-colon (`;`). This will help you to test your actionable messages integration on a few users, before creating an **Organization** or **Global** scope submission.
+
 ### Contact info
+
+This section is only applicable when your scope of submission to enable actionable messages is **Global**.
 
 In this section, you need to provide contact details, so we can reach out to you if we have further questions regarding your submission. All information provided must be valid and accurate.
 
