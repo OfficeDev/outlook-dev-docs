@@ -38,9 +38,6 @@ You can use the [item.internetHeaders](/javascript/api/outlook/office.messagecom
 
 The following example shows how to set, get, and remove custom headers.
 
-> [!NOTE]
-> The recommended format for naming custom headers is "x-<custom-name>", e.g., "x-preferred-fruit".
-
 ```js
 // Set custom internet headers.
 function setCustomHeaders() {
@@ -61,7 +58,7 @@ function setCallback(asyncResult) {
 // Get custom internet headers.
 function getSelectedCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.getAsync(
-    ["x-preferred-fruit", "x-preferred-vegetable", "x-best-vegetable", "nonexistent-header"],
+    ["x-preferred-fruit", "x-preferred-vegetable", "x-best-vegetable", "x-nonexistent-header"],
     getCallback
   );
 }
@@ -70,14 +67,14 @@ function getCallback(asyncResult) {
   if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
     console.log("Selected headers: " + JSON.stringify(asyncResult.value));
   } else {
-    console.log("Error getting selected headers: " + asyncResult.error);
+    console.log("Error getting selected headers: " + JSON.stringify(asyncResult.error));
   }
 }
 
 // Remove custom internet headers.
 function removeSelectedCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.removeAsync(
-    ["x-best-vegetable", "aNonexistentHeader"],
+    ["x-best-vegetable", "x-nonexistent-header"],
     removeCallback);
 }
 
@@ -118,7 +115,7 @@ function getCallback(asyncResult) {
     console.log("Sender's preferred fruit: " + asyncResult.value.match(/x-preferred-fruit:.*/gim)[0].slice(19));
     console.log("Sender's preferred vegetable: " + asyncResult.value.match(/x-preferred-vegetable:.*/gim)[0].slice(23));
   } else {
-    console.log("Error getting preferences from header");
+    console.log("Error getting preferences from header: " + JSON.stringify(asyncResult.error));
   }
 }
 
