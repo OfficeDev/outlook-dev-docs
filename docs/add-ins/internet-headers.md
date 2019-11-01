@@ -131,7 +131,7 @@ Sender's preferred vegetable: broccoli
 > [!IMPORTANT]
 > This sample should work for simple cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME parsing library.
 >
-> Also, you should handle gracefully if the header is nonexistent.
+> Also, you should handle a nonexistent header gracefully.
 
 ## See also
 
