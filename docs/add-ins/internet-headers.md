@@ -38,11 +38,14 @@ You can use the [item.internetHeaders](/javascript/api/outlook/office.messagecom
 
 The following example shows how to set, get, and remove custom headers.
 
+> [!NOTE]
+> If you want spaces and other special characters in the message header, you may need to encode them. See [RFC 2822](https://tools.ietf.org/html/rfc2822) for more details.
+
 ```js
 // Set custom internet headers.
 function setCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.setAsync(
-    { "Preferred fruit": "orange", "Preferred vegetable": "broccoli", "Worst vegetable": "spinach" },
+    { "PreferredFruit": "orange", "PreferredVegetable": "broccoli", "BestVegetable": "spinach" },
     setCallback
   );
 }
@@ -58,7 +61,7 @@ function setCallback(asyncResult) {
 // Get custom internet headers.
 function getSelectedCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.getAsync(
-    ["Preferred fruit", "preferred vegetable", "worst vegetable", "nonexistent header"],
+    ["PreferredFruit", "preferredVegetable", "bestVegetable", "nonexistentHeader"],
     getCallback
   );
 }
@@ -74,7 +77,7 @@ function getCallback(asyncResult) {
 // Remove custom internet headers.
 function removeSelectedCustomHeaders() {
   Office.context.mailbox.item.internetHeaders.removeAsync(
-    ["worst Vegetable", "a nonexistent header"],
+    ["bestVegetable", "aNonexistentHeader"],
     removeCallback);
 }
 
@@ -93,9 +96,9 @@ getSelectedCustomHeaders();
 
 /* Sample output:
 Successfully set headers
-Selected headers: {"Preferred fruit":"orange","preferred vegetable":"broccoli","worst vegetable":"spinach"}
+Selected headers: {"PreferredFruit":"orange","preferredVegetable":"broccoli","bestVegetable":"spinach"}
 Successfully removed selected headers
-Selected headers: {"Preferred fruit":"orange","preferred vegetable":"broccoli"}
+Selected headers: {"PreferredFruit":"orange","preferredVegetable":"broccoli"}
 */
 ```
 
@@ -105,26 +108,30 @@ You can call [item.getAllInternetHeadersAsync](/javascript/api/outlook/office.me
 
 ### Example
 
-The following example shows how you can get the value of the MIME date header from the current email.
-
-> [!IMPORTANT]
-> This sample should work for simple cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME parsing library.
+Building on the example from the previous section, the following example shows how you can get the sender's preferences from the current email's MIME headers.
 
 ```js
 Office.context.mailbox.item.getAllInternetHeadersAsync(getCallback);
 
 function getCallback(asyncResult) {
   if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-    console.log("Date retrieved from header: " + asyncResult.value.match(/date:.*/gim)[0].slice(6));
+    console.log("Sender's preferred fruit: " + asyncResult.value.match(/preferredfruit:.*/gim)[0].slice(16));
+    console.log("Sender's preferred vegetable: " + asyncResult.value.match(/preferredvegetable:.*/gim)[0].slice(20));
   } else {
-    console.log("Error getting date from header: " + asyncResult.error);
+    console.log("Error getting preferences from header");
   }
 }
 
 /* Sample output:
-Date retrieved from header: Fri, 1 Nov 2019 00:18:56 +0000
+Sender's preferred fruit: orange
+Sender's preferred vegetable: broccoli
 */
 ```
+
+> [!IMPORTANT]
+> This sample should work for simple cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME parsing library.
+>
+> Also, you should handle gracefully if the header is nonexistent.
 
 ## See also
 
