@@ -13,7 +13,7 @@ localization_priority: Normal
 It has been a common requirement in Outlook add-ins development to store custom properties associated with an add-in at different levels. At present, you can store custom properties at the item or mailbox level.
 
 - Item level - For properties that apply to a specific item, you can use the [CustomProperties](/javascript/api/outlook/office.customproperties) object. For example, store a customer code associated with the person who sent the email.
-- Mailbox level - For properties that apply to the all mail items in the user's mailbox, you can use the [RoamingSettings](/javascript/api/outlook/office.roamingsettings) object. For example, store a user's preference to show the temperature in a particular scale.
+- Mailbox level - For properties that apply to all the mail items in the user's mailbox, you can use the [RoamingSettings](/javascript/api/outlook/office.roamingsettings) object. For example, store a user's preference to show the temperature in a particular scale.
 
 Both types of properties are not preserved after the item leaves the Exchange server so the email recipients can't get any properties set on the item. Therefore, developers can't access those settings or other MIME properties to enable better read scenarios.
 
@@ -34,7 +34,7 @@ Introduced in requirement set 1.8, the internet headers APIs enable developers t
 
 You can use the [item.internetHeaders](/javascript/api/outlook/office.messagecompose#internetheaders) property to manage the custom internet headers you place on the current message in Compose mode.
 
-### Examples
+### Example
 
 The following example shows how to set, get, and remove custom headers.
 
