@@ -6,14 +6,14 @@ ms.date: 11/01/2019
 localization_priority: Normal
 ---
 
-# Get and set internet headers
+# Get and set internet headers on a message in an Outlook add-in
 
 ## Background
 
-It has been a common requirement in Outlook add-ins development to store custom properties associated with an add-in at different levels. At present, you can store custom properties at the item or mailbox level.
+A common requirement in Outlook add-ins development is to store custom properties associated with an add-in at different levels. At present, custom properties are stored at the item or mailbox level.
 
-- Item level - For properties that apply to a specific item, you can use the [CustomProperties](/javascript/api/outlook/office.customproperties) object. For example, store a customer code associated with the person who sent the email.
-- Mailbox level - For properties that apply to all the mail items in the user's mailbox, you can use the [RoamingSettings](/javascript/api/outlook/office.roamingsettings) object. For example, store a user's preference to show the temperature in a particular scale.
+- Item level - For properties that apply to a specific item, use the [CustomProperties](/javascript/api/outlook/office.customproperties) object. For example, store a customer code associated with the person who sent the email.
+- Mailbox level - For properties that apply to all the mail items in the user's mailbox, use the [RoamingSettings](/javascript/api/outlook/office.roamingsettings) object. For example, store a user's preference to show the temperature in a particular scale.
 
 Both types of properties are not preserved after the item leaves the Exchange server so the email recipients can't get any properties set on the item. Therefore, developers can't access those settings or other MIME properties to enable better read scenarios.
 
@@ -32,9 +32,9 @@ Introduced in requirement set 1.8, the internet headers APIs enable developers t
 
 ## Set internet headers while composing a message
 
-You can use the [item.internetHeaders](/javascript/api/outlook/office.messagecompose#internetheaders) property to manage the custom internet headers you place on the current message in Compose mode.
+Try using the [item.internetHeaders](/javascript/api/outlook/office.messagecompose#internetheaders) property to manage the custom internet headers you place on the current message in Compose mode.
 
-### Example
+### Set, get, and remove custom headers example
 
 The following example shows how to set, get, and remove custom headers.
 
@@ -101,11 +101,11 @@ Selected headers: {"x-preferred-fruit":"orange","x-preferred-vegetable":"broccol
 
 ## Get internet headers while reading a message
 
-You can call [item.getAllInternetHeadersAsync](/javascript/api/outlook/office.messageread#getallinternetheadersasync-options--callback-) to get internet headers on the current message in Read mode.
+Try calling [item.getAllInternetHeadersAsync](/javascript/api/outlook/office.messageread#getallinternetheadersasync-options--callback-) to get internet headers on the current message in Read mode.
 
-### Example
+### Get sender preferences from current MIME headers example
 
-Building on the example from the previous section, the following example shows how you can get the sender's preferences from the current email's MIME headers.
+Building on the example from the previous section, the following code shows how to get the sender's preferences from the current email's MIME headers.
 
 ```js
 Office.context.mailbox.item.getAllInternetHeadersAsync(getCallback);
@@ -126,7 +126,7 @@ Sender's preferred vegetable: broccoli
 ```
 
 > [!IMPORTANT]
-> This sample should work for simple cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), you should use an appropriate MIME-parsing library.
+> This sample works for simple cases. For more complex information retrieval (e.g., multi-instance headers or folded values as described in [RFC 2822](https://tools.ietf.org/html/rfc2822)), try using an appropriate MIME-parsing library.
 >
 > Also, make sure to handle a nonexistent header gracefully.
 
