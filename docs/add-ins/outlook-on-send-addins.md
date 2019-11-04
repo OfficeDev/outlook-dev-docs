@@ -1,7 +1,7 @@
 ---
 title: On-send feature for Outlook add-ins
 description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
-ms.date: 10/31/2019
+ms.date: 11/04/2019
 localization_priority: Priority
 ---
 
@@ -13,15 +13,9 @@ The on-send feature for Outlook add-ins provides a way to handle email or block 
 - Add a specific recipient to the CC line.
 
 > [!NOTE]
-> The on-send feature is currently supported for Outlook on the web in Office 365, Exchange 2016 on-premises (Cumulative Update 6 or later), and Exchange 2019 on-premises (Cumulative Update 1 or later). This feature is also available on Windows and Mac connected to an Office 365 subscription.
+> The on-send feature is currently supported for Outlook on the web in Office 365, Exchange 2016 on-premises (Cumulative Update 6 or later), and Exchange 2019 on-premises (Cumulative Update 1 or later). This feature is also available on latest Windows and Mac builds, connected to an Office 365 subscription. The feature was introduced in requirement set 1.8.
 
-The on-send feature is triggered by events. Currently, the feature supports the `ItemSend` event type. Events in Outlook add-ins enable you to handle, check, or block user actions when something of interest occurs. For example, events provide ways to:
-
-- Control user actions
-- Handle changes
-- Signal user actions such as button clicks
-- Verify user data input
-- Validate content in a message
+The on-send feature is triggered by the `ItemSend` event type and is UI-less.
 
 For information about limitations related to the on-send feature, see [Limitations](#limitations) later in this article.
 
