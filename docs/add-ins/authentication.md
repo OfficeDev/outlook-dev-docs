@@ -1,7 +1,7 @@
 ---
 title: Authentication options in Outlook add-ins
 description: Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
-ms.date: 10/31/2019
+ms.date: 11/05/2019
 localization_priority: Priority
 ---
 
@@ -18,13 +18,11 @@ Single sign-on access tokens provide a seamless way for your add-in to authentic
 > To use SSO, you must load the beta version of the Office JavaScript Library from https://appsforoffice.microsoft.com/lib/beta/hosted/office.js in the startup HTML page of the add-in.
 > If you are working with an Outlook add-in, be sure to enable Modern Authentication for the Office 365 tenancy. For information about how to do this, see [Exchange Online: How to enable your tenant for modern authentication](https://social.technet.microsoft.com/wiki/contents/articles/32711.exchange-online-how-to-enable-your-tenant-for-modern-authentication.aspx).
 
-Consider using SSO access tokens if your add-in:
+Use the Exchange user identity token:
 
-
-- Is used primarily by Office 365 users
-- Needs access to:
-    - Microsoft services that are exposed as part of Microsoft Graph
-    - A non-Microsoft service that you control
+- When the add-in is used primarily by Exchange on-premises users.
+- When the add-in needs access to a non-Microsoft service that you control.
+- As a fallback authentication (and authorization to Microsoft Graph) when the add-in is running on a version of Office that doesn't support SSO.
 
 The SSO authentication method uses the [OAuth2 On-Behalf-Of flow provided by Azure Active Directory](/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of). It requires that the add-in register in the [Application Registration Portal](https://apps.dev.microsoft.com/) and specify any required Microsoft Graph scopes in its manifest.
 
