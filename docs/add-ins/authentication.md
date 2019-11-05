@@ -1,7 +1,7 @@
 ---
 title: Authentication options in Outlook add-ins
 description: Outlook add-ins provide a number of different methods to authenticate, depending on your specific scenario.
-ms.date: 10/31/2019
+ms.date: 11/05/2019
 localization_priority: Priority
 ---
 
@@ -19,7 +19,6 @@ Single sign-on access tokens provide a seamless way for your add-in to authentic
 > If you are working with an Outlook add-in, be sure to enable Modern Authentication for the Office 365 tenancy. For information about how to do this, see [Exchange Online: How to enable your tenant for modern authentication](https://social.technet.microsoft.com/wiki/contents/articles/32711.exchange-online-how-to-enable-your-tenant-for-modern-authentication.aspx).
 
 Consider using SSO access tokens if your add-in:
-
 
 - Is used primarily by Office 365 users
 - Needs access to:
@@ -41,10 +40,11 @@ For a sample add-in that uses the SSO token, see [AttachmentsDemo Sample Add-in]
 
 ## Exchange user identity token
 
-Exchange user identity tokens provide a way for your add-in to establish the identity of the user. By verifying the user's identity, you can then perform a one-time authentication into your back-end system, then accept the user identity token as an authorization for future requests. Consider using user identity tokens if your add-in:
+Exchange user identity tokens provide a way for your add-in to establish the identity of the user. By verifying the user's identity, you can then perform a one-time authentication into your back-end system, then accept the user identity token as an authorization for future requests. Use the Exchange user identity token:
 
-- Is used primarily by Exchange on-premises users
-- Needs access to a non-Microsoft service that you control
+- When the add-in is used primarily by Exchange on-premises users.
+- When the add-in needs access to a non-Microsoft service that you control.
+- As a fallback authentication (and authorization to Microsoft Graph) when the add-in is running on a version of Office that doesn't support SSO.
 
 Your add-in can call [getUserIdentityTokenAsync](/javascript/api/outlook/office.mailbox?view=office-js#getuseridentitytokenasync-callback--usercontext-) to get Exchange user identity tokens. For details on using these tokens, see [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md).
 
