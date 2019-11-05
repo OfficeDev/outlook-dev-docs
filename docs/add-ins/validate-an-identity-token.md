@@ -1,7 +1,7 @@
 ---
 title: Validate an Outlook add-in identity token
 description: Your Outlook add-in can send you an Exchange user identity token, but before you trust the request you must validate the token to ensure that it came from the Exchange server that you expect.
-ms.date: 10/31/2019
+ms.date: 11/05/2019
 localization_priority: Normal
 ---
 
@@ -38,7 +38,7 @@ To validate the token contents, you should check the following.
     - Check that the current time is between the times specified in the `nbf` and `exp` claims. The `nbf` claim specifies the earliest time that the token is considered valid, and the `exp` claim specifies the expiration time for the token. It is recommended to allow for some variation in clock settings between servers.
     - Check that the `aud` claim is the expected URL for your add-in.
     - Check that the `version` claim inside the `appctx` claim is set to `ExIdTok.V1`.
-    - Check that the `amurl` claim inside the `appctx` is set to a valid URL.
+    - Check that the `amurl` claim inside the `appctx` is set to an authorized key manifest URL.
 
 ### Verify the domain
 
