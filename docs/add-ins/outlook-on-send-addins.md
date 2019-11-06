@@ -15,6 +15,9 @@ The on-send feature for Outlook add-ins provides a way to handle email or block 
 > [!NOTE]
 > The on-send feature is currently supported for Outlook on the web in Office 365, Exchange 2016 on-premises (Cumulative Update 6 or later), and Exchange 2019 on-premises (Cumulative Update 1 or later). This feature is also available on the latest Windows and Mac builds, connected to an Office 365 subscription. The feature was introduced in requirement set 1.8.
 
+> [!IMPORTANT]
+> Add-ins that use the on send feature aren't allowed in [AppSource](https://appsource.microsoft.com).
+
 The on-send feature is triggered by the `ItemSend` event type and is UI-less.
 
 For information about limitations related to the on-send feature, see [Limitations](#limitations) later in this article.
