@@ -1,16 +1,16 @@
 ---
 title: On-send feature for Outlook add-ins
-description: Provides a way to handle email or block email users from certain actions, and allows an add-in to set certain items on send.
+description: Provides a way to handle an item or block users from certain actions, and allows an add-in to set certain properties on send.
 ms.date: 11/07/2019
 localization_priority: Priority
 ---
 
 # On-send feature for Outlook add-ins
 
-The on-send feature for Outlook add-ins provides a way to handle email or block email users from certain actions, and allows an add-in to set certain properties on send. For example, you can use the on-send feature to:
+The on-send feature for Outlook add-ins provides a way to handle a message or meeting item, or block users from certain actions, and allows an add-in to set certain properties on send. For example, you can use the on-send feature to:
 
 - Prevent a user from sending sensitive information or leaving the subject line blank.  
-- Add a specific recipient to the CC line.
+- Add a specific recipient to the CC line in messages, or to the optional recipients line in meetings.
 
 > [!NOTE]
 > The on-send feature is currently supported for Outlook on the web in Exchange Online (Office 365), Exchange 2016 on-premises (Cumulative Update 6 or later), and Exchange 2019 on-premises (Cumulative Update 1 or later). This feature is also available in the latest Outlook builds on Windows and Mac, connected to Exchange Online (Office 365). The feature was introduced in requirement set 1.8.
@@ -24,13 +24,13 @@ For information about limitations related to the on-send feature, see [Limitatio
 
 ## How does the on-send feature work?
 
-You can use the on-send feature to build an Outlook add-in that integrates the `ItemSend` synchronous event. This event detects that the user is pressing the **Send** button and can be used to block the email from sending if the message validation fails. For example, when a user triggers a message send event, an Outlook add-in that uses the on-send feature can:
+You can use the on-send feature to build an Outlook add-in that integrates the `ItemSend` synchronous event. This event detects that the user is pressing the **Send** button (or the **Send Update** button for existing meetings) and can be used to block the item from sending if the validation fails. For example, when a user triggers a message send event, an Outlook add-in that uses the on-send feature can:
 
 - Read and validate the email message contents
 - Verify that the message includes a subject line
 - Set a predetermined recipient
 
-Validation is done on the client side in Outlook, when the send event is triggered. If validation fails, the sending of the email is blocked, and an error message is displayed in an information bar that prompts the user to take action.  
+Validation is done on the client side in Outlook, when the send event is triggered. If validation fails, the sending of the item is blocked, and an error message is displayed in an information bar that prompts the user to take action.  
 
 The following screenshot shows an information bar that notifies the sender to add a subject.
 
@@ -54,7 +54,7 @@ The on-send feature currently has the following limitations.
 
 - **AppSource** &ndash; You can't publish Outlook add-ins that use the on-send feature to [AppSource](https://appsource.microsoft.com) as they will fail AppSource validation. Add-ins that use the on-send feature should be deployed by administrators.
 - **Manifest** &ndash; Only one `ItemSend` event is supported per add-in. If you have two or more `ItemSend` events in a manifest, the manifest will fail validation.
-- **Performance** &ndash; Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple email message-based operations.
+- **Performance** &ndash; Multiple roundtrips to the web server that hosts the add-in can affect the performance of the add-in. Consider the effects on performance when you create add-ins that require multiple message- or meeting-based operations.
 - **Send Later** (Mac only) &ndash; If there are on-send add-ins, the **Send Later** feature will be unavailable.
 
 ### Mailbox type/mode limitations
@@ -272,11 +272,11 @@ To set mailbox policies, administrators can download the [Administrative Templat
 
 #### What the policy does
 
-For compliance reasons, administrators may need to ensure that users cannot send email until the latest on-send add-in is available to run. Administrators must enable the group policy **Disable send when web extensions can't load** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
+For compliance reasons, administrators may need to ensure that users cannot send message or meeting items until the latest on-send add-in is available to run. Administrators must enable the group policy **Disable send when web extensions can't load** so that all add-ins are updated from Exchange and available to verify each message or meeting item meets expected rules and regulations on send.
 
 |Policy status|Result|
 |---|---|
-|Disabled|Send allowed. Email can be sent without running the on-send add-in, even if the add-in has not been updated from Exchange yet.|
+|Disabled|Send allowed. Message or meeting item can be sent without running the on-send add-in, even if the add-in has not been updated from Exchange yet.|
 |Enabled|Send allowed only when the add-in has been updated from Exchange; otherwise, send is blocked.|
 
 #### Manage the on-send policy
@@ -305,11 +305,11 @@ Add-ins for Outlook on Mac that use the on-send feature should run for any users
 
 #### What the setting does
 
-For compliance reasons, administrators may need to ensure that users cannot send email until the latest on-send add-isn are available to run. Admins must enable the key **OnSendAddinsWaitForLoad** so that all add-ins are updated from Exchange and available to verify each email meets expected rules and regulations on send.
+For compliance reasons, administrators may need to ensure that users cannot send message or meeting items until the latest on-send add-ins are available to run. Admins must enable the key **OnSendAddinsWaitForLoad** so that all add-ins are updated from Exchange and available to verify each message or meeting item meets expected rules and regulations on send.
 
 |Key's state|Result|
 |---|---|
-|false|Send allowed. Email can be sent without running the on-send add-in, even if the add-in has not been updated from Exchange yet.|
+|false|Send allowed. Message or meeting item can be sent without running the on-send add-in, even if the add-in has not been updated from Exchange yet.|
 |true|Send allowed only when add-ins have been updated from Exchange; otherwise, send is blocked and the **Send** button is disabled.|
 
 ---
@@ -320,7 +320,7 @@ The following are the supported and unsupported scenarios for add-ins that use t
 
 ### User mailbox has the on-send add-in feature enabled but no add-ins are installed
 
-In this scenario the user will be able to send mail without any add-ins executing.
+In this scenario the user will be able to send message and meeting items without any add-ins executing.
 
 ### User mailbox has the on-send add-in feature enabled and add-ins that supports on-send are installed and enabled
 
@@ -332,10 +332,10 @@ Add-ins will run during the send event, which will then either allow or block th
 
 |Scenario|Mailbox 1 on-send feature|Mailbox 2 on-send feature|Outlook web session (classic)|Result|Supported?|
 |:------------|:------------|:--------------------------|:---------|:-------------|:-------------|
-|1|Enabled|Enabled|New session|Mailbox 1 cannot send an email from mailbox 2.|Not currently supported. As a workaround, use scenario 3.|
-|2|Disabled|Enabled|New session|Mailbox 1 cannot send an email from mailbox 2.|Not currently supported. As a workaround, use scenario 3.|
+|1|Enabled|Enabled|New session|Mailbox 1 cannot send a message or meeting item from mailbox 2.|Not currently supported. As a workaround, use scenario 3.|
+|2|Disabled|Enabled|New session|Mailbox 1 cannot send a message or meeting item from mailbox 2.|Not currently supported. As a workaround, use scenario 3.|
 |3|Enabled|Enabled|Same session|On-send add-ins assigned to mailbox 1 run on-send.|Supported.|
-|4|Enabled|Disabled|New session|No on-send add-ins run; mail is sent.|Supported.|
+|4|Enabled|Disabled|New session|No on-send add-ins run; message or meeting item is sent.|Supported.|
 
 #### Web browser (modern Outlook), Windows, Mac
 
@@ -347,8 +347,8 @@ To enforce on-send, administrators should ensure the policy has been enabled on 
 
 |Scenario|Mailbox 1 on-send policy|On-send add-ins enabled?|Mailbox 1 action|Result|Supported?|
 |:------------|:-------------------------|:-------------------|:---------|:----------|:-------------|
-|1|Enabled|Yes|Mailbox 1 composes new message to Group 1.|On-send add-ins run during send.|Yes|
-|2|Enabled|Yes|Mailbox 1 composes a new message to Group 1 within Group 1's group window in Outlook on the web.|On-send add-ins do not run during send.|Not currently supported. As a workaround, use scenario 1.|
+|1|Enabled|Yes|Mailbox 1 composes new message or meeting to Group 1.|On-send add-ins run during send.|Yes|
+|2|Enabled|Yes|Mailbox 1 composes a new message or meeting to Group 1 within Group 1's group window in Outlook on the web.|On-send add-ins do not run during send.|Not currently supported. As a workaround, use scenario 1.|
 
 ### User mailbox with on-send add-in feature/policy enabled, add-ins that support on-send are installed and enabled and offline mode is enabled
 
@@ -356,7 +356,7 @@ On-send add-ins will run according to the online state of the user, the add-in b
 
 #### User's state
 
-The on-send add-ins will run during send if the user is online. If the user is offline, the on-send add-ins will not run during send and the email will not be sent.
+The on-send add-ins will run during send if the user is online. If the user is offline, the on-send add-ins will not run during send and the message or meeting item will not be sent.
 
 #### Add-in backend's state
 
@@ -367,7 +367,7 @@ An on-send add-in will run if its backend is online and reachable. If the backen
 The on-send add-ins will run during send if the Exchange server is online and reachable. If the on-send add-in cannot reach Exchange and the applicable policy or cmdlet is turned on, send is disabled.
 
 > [!NOTE]
-> On Mac in any offline state, the **Send** button is disabled and a notification displayed that their organization doesn't allow send when the user is offline.
+> On Mac in any offline state, the **Send** button (or the **Send Update** button for existing meetings) is disabled and a notification displayed that their organization doesn't allow send when the user is offline.
 
 
 ## Code examples
@@ -443,7 +443,7 @@ The on-send API requires `VersionOverrides v1_1`. The following shows you how to
 
 ### `Event` and `item` objects, and `body.getAsync` and `body.setAsync` methods
 
-To access the currently selected message (in this example, the newly composed message), use the `Office.context.mailbox.item` namespace. The `ItemSend` event is automatically passed by the on-send feature to the function specified in the manifest&mdash;in this example, the `validateBody` function.
+To access the currently selected message or meeting item (in this example, the newly composed message), use the `Office.context.mailbox.item` namespace. The `ItemSend` event is automatically passed by the on-send feature to the function specified in the manifest&mdash;in this example, the `validateBody` function.
 
 ```js
 var mailboxItem;
@@ -508,7 +508,7 @@ To signal that the add-in has finished processing the `ItemSend` event triggered
 In addition to the `addAsync` method, the `NotificationMessages` object also includes `replaceAsync`, `removeAsync`, and `getAllAsync` methods.  These methods are not used in this code sample.  For more information, see [NotificationMessages](/javascript/api/outlook/office.NotificationMessages).
 
 
-### Subject and CC checker
+### Subject and CC checker code
 
 The following code example shows you how to add a recipient to the CC line and verify that the message includes a subject on send. This example uses the on-send feature to allow or disallow an email from sending.  
 
