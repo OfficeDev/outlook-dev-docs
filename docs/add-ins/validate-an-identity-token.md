@@ -1,7 +1,7 @@
 ---
 title: Validate an Outlook add-in identity token
 description: Your Outlook add-in can send you an Exchange user identity token, but before you trust the request you must validate the token to ensure that it came from the Exchange server that you expect.
-ms.date: 11/05/2019
+ms.date: 11/07/2019
 localization_priority: Normal
 ---
 
@@ -29,16 +29,16 @@ After you have the three decoded components, you can proceed with validating the
 
 To validate the token contents, you should check the following.
 
-- Check the header and verify that:
-    - The `typ` claim is set to `JWT`.
-    - The `alg` claim is set to `RS256`.
-    - The `x5t` claim is present.
+- Check the header and verify that the:
+    - `typ` claim is set to `JWT`.
+    - `alg` claim is set to `RS256`.
+    - `x5t` claim is present.
 
-- Check the payload and verify that:
-    - Check that the current time is between the times specified in the `nbf` and `exp` claims. The `nbf` claim specifies the earliest time that the token is considered valid, and the `exp` claim specifies the expiration time for the token. It is recommended to allow for some variation in clock settings between servers.
-    - Check that the `aud` claim is the expected URL for your add-in.
-    - Check that the `version` claim inside the `appctx` claim is set to `ExIdTok.V1`.
-    - Check that the `amurl` claim inside the `appctx` is set to an authorized key manifest URL.
+- Check the payload and verify that the:
+    - `amurl` claim inside the `appctx` is set to the location of an authorized token signing key manifest file. For example, the expected `amurl` value for Office 365 is https://outlook.office365.com:443/autodiscover/metadata/json/1. See the next section [Verify the domain](#verify-the-domain) for additional information.
+    - Current time is between the times specified in the `nbf` and `exp` claims. The `nbf` claim specifies the earliest time that the token is considered valid, and the `exp` claim specifies the expiration time for the token. It is recommended to allow for some variation in clock settings between servers.
+    - `aud` claim is the expected URL for your add-in.
+    - `version` claim inside the `appctx` claim is set to `ExIdTok.V1`.
 
 ### Verify the domain
 
