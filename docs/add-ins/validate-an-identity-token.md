@@ -9,7 +9,7 @@ localization_priority: Normal
 
 Your Outlook add-in can send you an Exchange user identity token, but before you trust the request you must validate the token to ensure that it came from the Exchange server that you expect. Exchange user identity tokens are JSON Web Tokens (JWT). The steps required to validate a JWT are described in [RFC 7519 JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519.txt).
 
-We suggest that you use a four-step process to validate the identity token and obtain the user's unique identifier. First, extract the JSON Web Token (JWT) from a base64 URL-encoded string. Second, make sure that the token is well-formed, that it is for your Outlook add-in, that it has not expired, and that you can extract a valid URL for the authentication metadata document. Next, retrieve the authentication metadata document from the Exchange server and validate the signature attached to the identity token. Finally, compute a unique identifier for the user by hashing the user's Exchange ID with the URL of the authentication metadata document.
+We suggest that you use a four-step process to validate the identity token and obtain the user's unique identifier. First, extract the JSON Web Token (JWT) from a base64 URL-encoded string. Second, make sure that the token is well-formed, that it is for your Outlook add-in, that it has not expired, and that you can extract a valid URL for the authentication metadata document. Next, retrieve the authentication metadata document from the Exchange server and validate the signature attached to the identity token. Finally, compute a unique identifier for the user by concatenating the user's Exchange ID with the URL of the authentication metadata document.
 
 ## Extract the JSON Web Token
 
@@ -42,7 +42,7 @@ To validate the token contents, you should check the following.
 
 ### Verify the domain
 
-In addition to implementing the verification logic described previously in this section, you may also choose to require that the domain of the `amurl` claim matches the Autodiscover domain for the user. To do so, you'll need to use or implement Autodiscover. To learn more, you can start with [Autodiscover for Exchange](/exchange/client-developer/exchange-web-services/autodiscover-for-exchange).
+When implementing the verification logic described previously in this section, you should also require that the domain of the `amurl` claim matches the Autodiscover domain for the user. To do so, you'll need to use or implement Autodiscover. To learn more, you can start with [Autodiscover for Exchange](/exchange/client-developer/exchange-web-services/autodiscover-for-exchange).
 
 ## Validate the identity token signature
 
@@ -97,7 +97,7 @@ After you have the correct public key, verify the signature. The signed data is 
 
 ## Compute the unique ID for an Exchange account
 
-You can create a unique identifier for an Exchange account by hashing the authentication metadata document URL with the Exchange identifier for the account. When you have this unique identifier, you can use it to create a single sign-on (SSO) system for your Outlook add-in web service. For details about using the unique identifier for SSO, see [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md).
+You can create a unique identifier for an Exchange account by concatenating the authentication metadata document URL with the Exchange identifier for the account. When you have this unique identifier, you can use it to create a single sign-on (SSO) system for your Outlook add-in web service. For details about using the unique identifier for SSO, see [Authenticate a user with an identity token for Exchange](authenticate-a-user-with-an-identity-token.md).
 
 ## Use a library to validate the token
 
@@ -169,7 +169,7 @@ public class ExchangeAppContext
     /// </summary>
     [JsonProperty("msexchuid")]
     public string ExchangeUid { get; set; }
-    
+
     /// <summary>
     /// The token version
     /// </summary>
