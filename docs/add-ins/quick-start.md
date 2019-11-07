@@ -3,7 +3,7 @@ title: Build your first Outlook add-in
 description: Learn how to build a simple Outlook task pane add-in by using the Office JS API.
 ms.topic: quickstart
 ms.custom: "scenarios:getting-started; languages:JavaScript,TypeScript"
-ms.date: 09/06/2019
+ms.date: 11/07/2019
 localization_priority: Priority
 ---
 
@@ -111,11 +111,13 @@ The add-in project that you've created with the Yeoman generator contains sample
 
 1. Choose the **Home** tab (or the **Message** tab if you opened the message in a new window), and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane.
 
-    ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button-2.png)
+    ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button-1.png)
 
 1. Scroll to the bottom of the task pane and choose the **Run** link to write the message subject to the task pane.
 
-    ![A screenshot of the add-in's task pane displaying message properties](images/quick-start-task-pane-1.png)
+    ![A screenshot of the add-in's task pane with the Run link highlighted](images/quick-start-task-pane-2.png)
+
+    ![A screenshot of the add-in's task pane displaying message subject](images/quick-start-task-pane-3.png)
 
 # [Visual Studio](#tab/visualstudio)
 
@@ -247,7 +249,7 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
     ```xml
     ...
-    <ProviderName>Jason Johnston</ProviderName>
+    <ProviderName>Northwind Traders</ProviderName>
     <DefaultLocale>en-US</DefaultLocale>
     <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
     <DisplayName DefaultValue="My Office Add-in" />
@@ -266,13 +268,17 @@ When you've completed the wizard, Visual Studio creates a solution that contains
 
 1. In Outlook on the web, select or open a message.
 
-1. Within the message, locate the add-in's button.
+1. Within the message, locate the ellipsis for the overflow menu containing the add-in's button.
 
-    ![A screenshot of a message window in Outlook on the web with the add-in button highlighted](images/quick-start-button-owa.png)
+    ![A screenshot of a message window in Outlook on the web with the ellipsis highlighted](images/quick-start-button-owa-1.png)
+
+1. Within the overflow menu, locate the add-in's button.
+
+    ![A screenshot of a message window in Outlook on the web with the add-in button highlighted](images/quick-start-button-owa-2.png)
 
 1. Click the button to open the add-in's task pane.
 
-    ![A screenshot of the add-in's task pane in Outlook on the web displaying message properties](images/quick-start-task-pane-owa.png)
+    ![A screenshot of the add-in's task pane in Outlook on the web displaying message properties](images/quick-start-task-pane-owa-1.png)
 
     > [!NOTE]
     > If the task pane doesn't load, try to verify by opening it in a browser on the same machine.
