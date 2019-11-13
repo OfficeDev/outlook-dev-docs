@@ -105,7 +105,7 @@ Defines an image as used by the `heroImage` and `images` property of a section.
 
 Cards are very powerful in the sense that they allow users to take quick actions without leaving their email client. When designing cards, consider making them actionable, as that will increase user engagement and productivity.
 
-Actions are specified using the `potentialAction` property which is available both on the card itself and on each section. There are four types of actions:
+Actions are specified using the `potentialAction` property which is available both on the card itself and on each section. There are five types of actions:
 
 - [OpenUri](#openuri-action)
 - [HttpPOST](#httppost-action)
