@@ -1,11 +1,11 @@
 ---
 title: Authenticate a user with a single-sign-on token
 description: Learn about using the single-sign-on token provided by an Outlook add-in to implement SSO with your service.
-ms.date: 04/15/2019
+ms.date: 11/19/2019
 localization_priority: Priority
 ---
 
-# Authenticate a user with an single-sign-on token in an Outlook add-in (preview)
+# Authenticate a user with a single-sign-on token in an Outlook add-in (preview)
 
 Single sign-on (SSO) provides a seamless way for your add-in to authenticate users (and optionally to obtain access tokens to call the [Microsoft Graph API](/graph/overview)).
 
