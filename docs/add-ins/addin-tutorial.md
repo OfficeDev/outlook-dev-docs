@@ -3,7 +3,7 @@ title: 'Tutorial: Build a message compose Outlook add-in'
 description: In this tutorial, you'll build an Outlook add-in that inserts GitHub gists into the body of a new message.
 ms.topic: tutorial
 ms.custom: "scenarios:getting-started; languages:JavaScript,TypeScript"
-ms.date: 09/10/2019
+ms.date: 11/25/2019
 #Customer intent: As a developer, I want to create a message compose Outlook add-in.
 localization_priority: Priority
 ---
@@ -173,7 +173,7 @@ Before going any further, let's test the basic add-in that the generator created
 
 1. In Outlook, open an existing message and select the **Show Taskpane** button. If everything's been set up correctly, the task pane will open and render the add-in's welcome page.
 
-    ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane-1.png)
+    ![A screenshot of the button and task pane added by the sample](images/addin-tutorial/button-and-pane.png)
 
 ## Define buttons
 
@@ -295,11 +295,11 @@ After you've reinstalled the add-in, you can verify that it installed successful
 
 - If you're running this add-in in Outlook 2016 or later on Windows, you should see two new buttons in the ribbon of the compose message window: **Insert gist** and **Insert default gist**.
 
-    ![A screenshot of the ribbon in Outlook on Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-windows.png)
+    ![A screenshot of the ribbon in Outlook on Windows with the add-in's buttons highlighted](images/addin-tutorial/add-in-buttons-in-windows.png)
 
 - If you're running this add-in in Outlook on the web, you should see a new button at the bottom of the compose message window. Select that button to see the options **Insert gist** and **Insert default gist**.
 
-    ![A screenshot of the message compose form in Outlook for the web with the add-in button and pop-up menu highlighted](images/addin-tutorial/add-in-buttons-for-owa.png)
+    ![A screenshot of the message compose form in Outlook on the web with the add-in button and pop-up menu highlighted](images/addin-tutorial/add-in-buttons-in-owa.png)
 
 ## Implement a first-run experience
 
@@ -910,11 +910,11 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 1. In the compose message window, select the **Insert default gist** button. You should be prompted to configure the add-in.
 
-    ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure-1.png)
+    ![A screenshot of the add-in's prompt to configure](images/addin-tutorial/addin-prompt-configure.png)
 
 1. In the settings dialog, enter your GitHub username and then either **Tab** or click elsewhere in the dialog to invoke the `change` event, which should load your list of gists. Select a gist to be the default, and select **Done**.
 
-    ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings-1.png)
+    ![A screenshot of the add-in's settings dialog](images/addin-tutorial/addin-settings.png)
 
 1. Select the **Insert default gist** button again. This time, you should see the contents of the gist inserted into the body of the email.
 
@@ -1273,7 +1273,7 @@ Save all of your changes and run `npm start` from the command prompt, if the ser
 
 1. In the task pane, select the **Hello World Html** gist and select **Insert** to insert that gist into the body of the message.
 
-![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane-1.png)
+![A screenshot of the add-in task pane](images/addin-tutorial/addin-taskpane.png)
 
 ## Next steps
 
