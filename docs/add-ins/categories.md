@@ -1,13 +1,15 @@
 ---
 title: Get and set categories
 description: How to manage categories on mailbox and item
-ms.date: 10/31/2019
+ms.date: 12/03/2019
 localization_priority: Normal
 ---
 
 # Get and set categories
 
 In Outlook, a user can apply categories to messages and appointments as a means of organizing their mailbox data. The user defines the master list of color-coded categories for their mailbox, and can then apply one or more of those categories to any message or appointment item. Each [category](/javascript/api/outlook/office.categorydetails) in the master list is represented by the name and [color](/javascript/api/outlook/office.mailboxenums.categorycolor) that the user specifies. You can use the Office JavaScript API to manage the categories master list on the mailbox and the categories applied to an item.
+
+![Categories from master list applied to an item](images/categories.png)
 
 ## Manage categories in the master list
 
