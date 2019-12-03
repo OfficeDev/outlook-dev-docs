@@ -2,7 +2,7 @@
 title: Get and set internet headers
 description: How to get and set internet headers on a message in an Outlook add-in.
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 12/03/2019
 localization_priority: Normal
 ---
 
@@ -29,6 +29,8 @@ Introduced in requirement set 1.8, the internet headers APIs enable developers t
 - Stamp information on an email that persists after it leaves Exchange across all clients.
 - Read information on an email that persisted after the email left Exchange across all clients in mail read scenarios.
 - Access the entire MIME header of the email.
+
+![Sending and receiving custom internet headers](images/internet-headers.png)
 
 ## Set internet headers while composing a message
 
