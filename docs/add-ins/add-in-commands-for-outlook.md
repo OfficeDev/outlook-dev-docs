@@ -76,7 +76,7 @@ Use an add-in command button to launch a task pane for scenarios where a user ne
 
 The default width of the vertical task pane is 320 px. The vertical task pane can be resized in both the Outlook Explorer and inspector. The pane can be resized in the same way the to-do pane and list view resize.
 
-![A button that opens a task pane on the Outlook ribbon.](images/commands-task-pane.png)
+![A button that opens a task pane on the Outlook ribbon.](images/commands-task-pane-button-1.png)
 
 <br/>
 
@@ -88,7 +88,7 @@ If a user chooses another add-in command that opens a task pane, the task pane i
 
 A drop-down menu add-in command defines a static list of buttons. The buttons within the menu can be any mix of buttons that execute a function or buttons that open a task pane. Submenus are not supported.
 
-![A button that drops down a menu on the Outlook ribbon.](images/commands-menu.png)
+![A button that drops down a menu on the Outlook ribbon.](images/commands-menu-button-1.png)
 
 ## Where do add-in commands appear in the UI?
 
