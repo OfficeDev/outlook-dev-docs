@@ -1,7 +1,7 @@
 ---
 title: Outlook add-in commands
 description: Outlook add-in commands provide ways to initiate specific add-in actions from the ribbon by adding buttons or drop-down menus. 
-ms.date: 08/01/2019
+ms.date: 12/05/2019
 localization_priority: Priority
 ---
 
@@ -19,7 +19,7 @@ Outlook add-in commands provide ways to initiate specific add-in actions from th
 >
 > Support for add-in commands in Exchange 2016 requires [Cumulative Update 5](https://support.microsoft.com/help/4012106/cumulative-update-5-for-exchange-server-2016).
 
-Add-in commands are only available for add-ins that do not use [ItemHasAttachment, ItemHasKnownEntity, or ItemHasRegularExpressionMatch rules](activation-rules.md) to limit the types of items they activate on. However, contextual add-ins can present different commands depending on whether the currently selected item is a message or appointment, and can choose to appear in read or compose scenarios. Using add-in commands if possible is a [best practice](/office/dev/add-ins/concepts/add-in-development-best-practices).
+Add-in commands are only available for add-ins that do not use [ItemHasAttachment, ItemHasKnownEntity, or ItemHasRegularExpressionMatch rules](activation-rules.md) to limit the types of items they activate on. However, contextual menus can present different commands depending on whether the currently selected item is a message or appointment, and can choose to appear in read or compose scenarios. Using add-in commands if possible is a [best practice](/office/dev/add-ins/concepts/add-in-development-best-practices).
 
 ## Creating the add-in command
 
@@ -35,14 +35,24 @@ For more information about creating add-in commands, see [Create add-in commands
 
 ## How do add-in commands appear?
 
-An add-in command appears on the ribbon as a button. When a user installs an add-in, its commands appear in the UI as a group of buttons labeled with the add-in name. This can either be on the ribbon's default tab or on a custom tab. For messages, the default is either the **Home** or **Message** tab. For the calendar, the default is the **Meeting**, **Meeting Occurrence**, **Meeting Series**, or **Appointment** tab. For module extensions,
+An add-in command appears on the ribbon as a button. When a user installs an add-in, its commands appear in the UI as a group of buttons. This can either be on the ribbon's default tab or on a custom tab. For messages, the default is either the **Home** or **Message** tab. For the calendar, the default is the **Meeting**, **Meeting Occurrence**, **Meeting Series**, or **Appointment** tab. For module extensions,
 the default is a custom tab. On the default tab, each add-in can have one ribbon group with up to 6 commands. On custom tabs, the add-in can have up to 10 groups, each with 6 commands. Add-ins are limited to only one custom tab.
 
-As the ribbon gets more crowded, the add-in commands will adjust (collapse) in an orderly way. In all cases, the add-in commands for an add-in will be grouped together.
+As the ribbon gets more crowded, add-in commands will be displayed in the overflow menu. The add-in commands for an add-in are usually grouped together.
 
-![Screenshots showing add-in command buttons in a normal and a collapsed state.](images/commands-normal-collapsed.png)
+![Add-in command buttons on ribbon](images/commands-normal.png)
+
+![Add-in command buttons on ribbon and in overflow menu](images/commands-collapsed.png)
 
 When an add-in command is added to an add-in, the add-in name is removed from the app bar. Only the add-in command button on the ribbon remains.
+
+### Modern Outlook on the web
+
+In Outlook on the web, the add-in name is displayed in an overflow menu. If the add-in has multiple add-in commands, you can expand the add-in menu to see the group of buttons labeled with the add-in name.
+
+![Overflow menu where add-in command buttons will be found](images/commands-overflow-menu-web.png)
+
+![Overflow menu displaying add-in command buttons](images/commands-overflow-menu-expand-web.png)
 
 ## What UX shapes exist for add-in commands?
 
@@ -54,11 +64,11 @@ The UX shape for an add-in command consists of a ribbon tab in the host applicat
 
 ### Executing a JavaScript function
 
-Use an add-in command button that executes a JavaScript function for scenarios where the user doesn't need to make any additional selections to initiate the action. This can be for actions such as track, remind me, or print, or scenarios when the user wants more in-depth information from a service. 
+Use an add-in command button that executes a JavaScript function for scenarios where the user doesn't need to make any additional selections to initiate the action. This can be for actions such as track, remind me, or print, or scenarios when the user wants more in-depth information from a service.
 
 In module extensions, the add-in command button can execute JavaScript functions that interact with the content in the main user interface.
 
-![A button that executes a function on the Outlook ribbon.](images/commands-uiless-button.png)
+![A button that executes a function on the Outlook ribbon.](images/commands-uiless-button-1.png)
 
 ### Launching a task pane
 
@@ -66,7 +76,7 @@ Use an add-in command button to launch a task pane for scenarios where a user ne
 
 The default width of the vertical task pane is 320 px. The vertical task pane can be resized in both the Outlook Explorer and inspector. The pane can be resized in the same way the to-do pane and list view resize.
 
-![A button that opens a task pane on the Outlook ribbon.](images/commands-taskpane-button.png)
+![A button that opens a task pane on the Outlook ribbon.](images/commands-task-pane.png)
 
 <br/>
 
@@ -78,7 +88,7 @@ If a user chooses another add-in command that opens a task pane, the task pane i
 
 A drop-down menu add-in command defines a static list of buttons. The buttons within the menu can be any mix of buttons that execute a function or buttons that open a task pane. Submenus are not supported.
 
-![A button that drops down a menu on the Outlook ribbon.](images/commands-menu-button.png)
+![A button that drops down a menu on the Outlook ribbon.](images/commands-menu.png)
 
 ## Where do add-in commands appear in the UI?
 
