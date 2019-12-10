@@ -1,7 +1,7 @@
 ---
 title: Get or modify recipients in an Outlook add-in
 description: Learn how to get, set, or add recipients of a message or appointment in an Outlook add-in.
-ms.date: 10/31/2019
+ms.date: 12/10/2019
 localization_priority: Normal
 ---
 
@@ -43,7 +43,7 @@ This section shows a code sample that gets the recipients of the appointment or 
 </Rule>
 ```
 
-In the JavaScript API for Office, because the properties that represent the recipients of an appointment ( **optionalAttendees** and **requiredAttendees**) are different from those of a message ([bcc](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#bcc-recipients), **cc**, and **to**), you should first use the [item.itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-officemailboxenumsitemtype) property to identify whether the item being composed is an appointment or message. In compose mode, all these properties of appointments and messages are [Recipients](/javascript/api/outlook/office.Recipients) objects, so you can then apply the asynchronous method, **Recipients.getAsync**, to get the corresponding recipients.
+In the JavaScript API for Office, because the properties that represent the recipients of an appointment ( **optionalAttendees** and **requiredAttendees**) are different from those of a message ([bcc](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#bcc-recipients), **cc**, and **to**), you should first use the [item.itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-mailboxenumsitemtype) property to identify whether the item being composed is an appointment or message. In compose mode, all these properties of appointments and messages are [Recipients](/javascript/api/outlook/office.Recipients) objects, so you can then apply the asynchronous method, **Recipients.getAsync**, to get the corresponding recipients.
 
 To use **getAsync**, provide a callback method to check for the status, results, and any error returned by the asynchronous **getAsync** call. You can provide any arguments to the callback method using the optional _asyncContext_ parameter. The callback method returns an _asyncResult_ output parameter. You can use the **status** and **error** properties of the [AsyncResult](/javascript/api/office/office.asyncresult) parameter object to check for status and any error messages of the asynchronous call, and the **value** property to get the actual recipients. Recipients are represented as an array of [EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails) objects.
 
