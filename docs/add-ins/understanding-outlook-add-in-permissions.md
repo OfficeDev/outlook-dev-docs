@@ -1,7 +1,7 @@
 ---
 title: Understanding Outlook add-in permissions
 description: Outlook add-ins specify the required permission level in their manifest, which include Restricted, ReadItem, ReadWriteItem, or ReadWriteMailbox. 
-ms.date: 10/31/2019
+ms.date: 12/10/2019
 localization_priority: Priority
 ---
 
@@ -37,11 +37,11 @@ The **Restricted** permission is the most basic level of permission. Specify **R
     - [item.bcc](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#bcc-recipients)
     - [item.body](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#body-body)
     - [item.cc](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#cc-arrayemailaddressdetailsrecipients)
-    - [item.from](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#from-emailaddressdetails)
+    - [item.from](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#from-emailaddressdetailsfrom)
     - [item.getRegExMatches](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getregexmatches--object)
     - [item.getRegExMatchesByName](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-)
     - [item.optionalAttendees](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#optionalattendees-arrayemailaddressdetailsrecipients)
-    - [item.organizer](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#organizer-emailaddressdetails)
+    - [item.organizer](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#organizer-emailaddressdetailsorganizer)
     - [item.removeAttachmentAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#removeattachmentasyncattachmentid-options-callback)
     - [item.requiredAttendees](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#requiredattendees-arrayemailaddressdetailsrecipients)
     - [item.sender](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#sender-emailaddressdetails)
@@ -49,12 +49,12 @@ The **Restricted** permission is the most basic level of permission. Specify **R
     - [mailbox.getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#getcallbacktokenasyncoptions-callback)
     - [mailbox.getUserIdentityTokenAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#getuseridentitytokenasynccallback-usercontext)
     - [mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext)
-    - [mailbox.userProfile](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.userProfile)
-    - [Body](/javascript/api/outlook/office.Body) and all its child members
-    - [Location](/javascript/api/outlook/office.Location) and all its child members
-    - [Recipients](/javascript/api/outlook/office.Recipients) and all its child members
-    - [Subject](/javascript/api/outlook/office.Subject) and all its child members
-    - [Time](/javascript/api/outlook/office.Time) and all its child members
+    - [mailbox.userProfile](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.userprofile)
+    - [Body](/javascript/api/outlook/office.body) and all its child members
+    - [Location](/javascript/api/outlook/office.location) and all its child members
+    - [Recipients](/javascript/api/outlook/office.recipients) and all its child members
+    - [Subject](/javascript/api/outlook/office.subject) and all its child members
+    - [Time](/javascript/api/outlook/office.time) and all its child members
 
 ## ReadItem permission
 
