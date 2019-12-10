@@ -1,7 +1,7 @@
 ---
 title: Get or set item data in an Outlook add-in
 description: Depending on whether an add-in is activated in a read or compose form, the properties that are available to the add-in on an item differ.
-ms.date: 10/31/2019
+ms.date: 12/10/2019
 localization_priority: Priority
 ---
 
@@ -13,9 +13,9 @@ For example, the [dateTimeCreated](/office/dev/add-ins/reference/objectmodel/pre
 
 ## Item properties available in compose and read forms
 
-Table 1 shows the item-level properties in the JavaScript API for Office that are available in each of read and compose modes of mail add-ins. Typically, those properties available in read forms are read-only, and those available in compose forms are read/write, with the exception of the [itemId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#nullable-itemid-string) and [conversationId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#nullable-conversationid-string) properties, which are always read-only regardless.
+Table 1 shows the item-level properties in the JavaScript API for Office that are available in each mode (read and compose) of mail add-ins. Typically, those properties available in read forms are read-only, and those available in compose forms are read/write, with the exception of the [itemId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#nullable-itemid-string), [conversationId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#nullable-conversationid-string), and [itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-mailboxenumsitemtype) properties, which are always read-only regardless.
 
-For the remaining item-level properties available in compose forms, because the add-in and user can possibly be reading or writing the same property at the same time, the methods to get or set them in compose mode are asynchronous, and hence the type of the objects returned by these properties are also different in compose forms than in read forms. For more information about using asynchronous methods to get or set item-level properties in compose mode, see [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md).
+For the remaining item-level properties available in compose forms, because the add-in and user can possibly be reading or writing the same property at the same time, the methods to get or set them in compose mode are asynchronous, and hence the type of the objects returned by these properties may also be different in compose forms than in read forms. For more information about using asynchronous methods to get or set item-level properties in compose mode, see [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md).
 
 
 **Table 1. Item properties available in compose and read forms**
@@ -28,24 +28,24 @@ For the remaining item-level properties available in compose forms, because the 
 |Appointments and messages|[dateTimeModified](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#datetimemodified-date)|JavaScript **Date** object|Property not available|
 |Appointments and messages|[itemClass](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemclass-string)|String|Property not available|
 |Appointments and messages|[itemId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#nullable-itemid-string)|String|Property not available|
-|Appointments and messages|[itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-officemailboxenumsitemtype)|String in [ItemType](/javascript/api/outlook/office.mailboxenums.itemtype) enumeration|Property not available|
+|Appointments and messages|[itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-mailboxenumsitemtype)|String in [ItemType](/javascript/api/outlook/office.mailboxenums.itemtype) enumeration|String in [ItemType](/javascript/api/outlook/office.mailboxenums.itemtype) enumeration (read only)|
 |Appointments and messages|[attachments](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#attachments-arrayattachmentdetails)|[AttachmentDetails](/javascript/api/outlook/office.attachmentdetails)|Property not available|
-|Appointments and messages|[body](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#body-body)|[Body](/javascript/api/outlook/office.Body)|[Body](/javascript/api/outlook/office.Body)|
-|Appointments|[end](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#end-datetime)|JavaScript **Date** object|[Time](/javascript/api/outlook/office.Time)|
-|Appointments|[location](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#location-stringlocation)|String|[Location](/javascript/api/outlook/office.Location)|
+|Appointments and messages|[body](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#body-body)|[Body](/javascript/api/outlook/office.body)|[Body](/javascript/api/outlook/office.body)|
 |Appointments and messages|[normalizedSubject](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#normalizedsubject-string)|String|Property not available|
-|Appointments|[optionalAttendees](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#optionalattendees-arrayemailaddressdetailsrecipients)|[EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails)|[Recipients](/javascript/api/outlook/office.Recipients)|
-|Appointments|[organizer](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#organizer-emailaddressdetails)|EmailAddressDetails|Property not available|
-|Appointments|[requiredAttendees](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#requiredattendees-arrayemailaddressdetailsrecipients)|EmailAddressDetails|Recipients|
-|Appointments|[start](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#start-datetime)|JavaScript **Date** object|Time|
-|Appointments and messages|[subject](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#subject-stringsubject)|String|[Subject](/javascript/api/outlook/office.Subject)|
-|Messages|[bcc](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#bcc-recipients)|Property not available|Recipients|
-|Messages|[cc](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#cc-arrayemailaddressdetailsrecipients)|EmailAddressDetails|Recipients|
+|Appointments and messages|[subject](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#subject-stringsubject)|String|[Subject](/javascript/api/outlook/office.subject)|
+|Appointments|[end](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#end-datetime)|JavaScript **Date** object|[Time](/javascript/api/outlook/office.time)|
+|Appointments|[location](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#location-stringlocation)|String|[Location](/javascript/api/outlook/office.location)|
+|Appointments|[optionalAttendees](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#optionalattendees-arrayemailaddressdetailsrecipients)|[EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails)|[Recipients](/javascript/api/outlook/office.recipients)|
+|Appointments|[organizer](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#organizer-emailaddressdetailsorganizer)|[EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails)|[Organizer](/javascript/api/outlook/office.organizer)|
+|Appointments|[requiredAttendees](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#requiredattendees-arrayemailaddressdetailsrecipients)|[EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails)|[Recipients](/javascript/api/outlook/office.recipients)|
+|Appointments|[start](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#start-datetime)|JavaScript **Date** object|[Time](/javascript/api/outlook/office.time)|
+|Messages|[bcc](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#bcc-recipients)|Property not available|[Recipients](/javascript/api/outlook/office.recipients)|
+|Messages|[cc](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#cc-arrayemailaddressdetailsrecipients)|[EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails)|[Recipients](/javascript/api/outlook/office.recipients)|
 |Messages|[conversationId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#nullable-conversationid-string)|String|String (read only)|
-|Messages|[from](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#from-emailaddressdetails)|EmailAddressDetails|Property not available|
+|Messages|[from](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#from-emailaddressdetailsfrom)|[EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails)|[From](/javascript/api/outlook/office.from)|
 |Messages|[internetMessageId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#internetmessageid-string)|Integer|Property not available|
-|Messages|[sender](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#sender-emailaddressdetails)|EmailAddressDetails|Property not available|
-|Messages|[to](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#to-arrayemailaddressdetailsrecipients)|EmailAddressDetails|Recipients|
+|Messages|[sender](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#sender-emailaddressdetails)|[EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails)|Property not available|
+|Messages|[to](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#to-arrayemailaddressdetailsrecipients)|[EmailAddressDetails](/javascript/api/outlook/office.emailaddressdetails)|[Recipients](/javascript/api/outlook/office.recipients)|
 
 ## Use Exchange Server callback tokens from a read add-in
 
@@ -65,6 +65,3 @@ For more information about using **makeEwsRequestAsync** to access EWS operation
 
 - [Get and set item data in a compose form in Outlook](get-and-set-item-data-in-a-compose-form.md)
 - [Call web services from an Outlook add-in](web-services.md)
-    
-
-

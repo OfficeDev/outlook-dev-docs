@@ -1,7 +1,7 @@
 ---
 title: Get and set item data in a compose form in Outlook
 description: Get or set various properties of an item in an Outlook add-in in a compose scenario, including its recipients, subject, body, and appointment location and time.
-ms.date: 10/31/2019
+ms.date: 12/10/2019
 localization_priority: Normal
 ---
 
@@ -13,7 +13,7 @@ Learn how to get or set various properties of an item in an Outlook add-in in a 
 
 In a compose form, you can get most of the properties that are exposed on the same kind of item as in a read form (such as attendees, recipients, subject, and body), and you can get a few extra properties that are relevant in only a compose form but not a read form (body, bcc).
 
-For most of these properties, because it's possible that an Outlook add-in and the user can be modifying the same property in the user interface at the same time, the methods to get and set them are asynchronous. Table 1 lists the item-level properties and corresponding asynchronous methods to get and set them in a compose form. The  [item.itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-officemailboxenumsitemtype) and [item.conversationId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#nullable-conversationid-string) properties are exceptions because users cannot modify them. You can programmatically get them the same way in a compose form as in a read form, directly from the parent object.
+For most of these properties, because it's possible that an Outlook add-in and the user can be modifying the same property in the user interface at the same time, the methods to get and set them are asynchronous. Table 1 lists the item-level properties and corresponding asynchronous methods to get and set them in a compose form. The  [item.itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-mailboxenumsitemtype) and [item.conversationId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#nullable-conversationid-string) properties are exceptions because users cannot modify them. You can programmatically get them the same way in a compose form as in a read form, directly from the parent object.
 
 Other than accessing item properties in the JavaScript API for Office, you can access item-level properties using Exchange Web Services (EWS). With the **ReadWriteMailbox** permission, you can use the [mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method to access EWS operations, [GetItem](/exchange/client-developer/web-service-reference/getitem-operation) and [UpdateItem](/exchange/client-developer/web-service-reference/updateitem-operation), to get and set more properties of an item or items in the user's mailbox.
 

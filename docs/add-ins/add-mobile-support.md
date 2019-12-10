@@ -1,7 +1,7 @@
 ---
 title: Add mobile support to an Outlook add-in
 description: Adding support for Outlook Mobile requires updating the add-in manifest and possibly changing your code for mobile scenarios.
-ms.date: 10/31/2019
+ms.date: 12/10/2019
 localization_priority: Normal
 ---
 
@@ -85,7 +85,7 @@ Currently add-ins in Outlook Mobile only support activation when reading message
 
 APIs introduced in requirement set 1.6 or later are not supported by Outlook Mobile. The following APIs from earlier requirement sets are also not supported.
 
-  - [Office.context.officeTheme](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context#officetheme-object)
+  - [Office.context.officeTheme](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context#officetheme-officetheme)
   - [Office.context.mailbox.ewsUrl](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#ewsurl-string)
   - [Office.context.mailbox.convertToEwsId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#converttoewsiditemid-restversion--string)
   - [Office.context.mailbox.convertToRestId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#converttorestiditemid-restversion--string)

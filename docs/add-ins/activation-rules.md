@@ -1,7 +1,7 @@
 ---
 title: Outlook add-in activation rules
 description: Outlook activates some types of add-ins if the message or appointment that the user is reading or composing satisfies the activation rules of the add-in.
-ms.date: 10/31/2019
+ms.date: 12/10/2019
 localization_priority: Priority
 ---
 
@@ -62,7 +62,7 @@ The **FormType** attribute is used to specify the mode (read or compose) in whic
  > [!NOTE]
  > The ItemIs **FormType** attribute is defined in schema v1.1 and later but not in **VersionOverrides** v1.0. Do not include the **FormType** attribute when defining add-in commands.
 
-After an add-in is activated, you can use the [mailbox.item](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item) property to obtain the currently selected item in Outlook, and the [item.itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-officemailboxenumsitemtype) property to obtain the type of the current item.
+After an add-in is activated, you can use the [mailbox.item](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item) property to obtain the currently selected item in Outlook, and the [item.itemType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#itemtype-mailboxenumsitemtype) property to obtain the type of the current item.
 
 You can optionally use the **ItemClass** attribute to specify the message class of the item, and the **IncludeSubClasses** attribute to specify whether the rule should be **true** when the item is a subclass of the specified class.
 
