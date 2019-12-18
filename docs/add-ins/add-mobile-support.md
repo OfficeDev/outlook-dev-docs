@@ -65,9 +65,9 @@ Designing an add-in for mobile introduces some additional considerations.
 
 ### Use REST instead of Exchange Web Services
 
-The [Office.context.mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) method is not supported in Outlook Mobile. Add-ins should prefer to get information from the Office.js API when possible. If add-ins require information not exposed by the Office.js API, then they should use the [Outlook REST APIs](/outlook/rest/) to access the user's mailbox.
+The [Office.context.mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods) method is not supported in Outlook Mobile. Add-ins should prefer to get information from the Office.js API when possible. If add-ins require information not exposed by the Office.js API, then they should use the [Outlook REST APIs](/outlook/rest/) to access the user's mailbox.
 
-Mailbox requirement set 1.5 introduced a new version of [Office.context.mailbox.getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#getcallbacktokenasyncoptions-callback) that can request an access token compatible with the REST APIs, and a new [Office.context.mailbox.restUrl](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#resturl-string) property that can be used to find the REST API endpoint for the user.
+Mailbox requirement set 1.5 introduced a new version of [Office.context.mailbox.getCallbackTokenAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods) that can request an access token compatible with the REST APIs, and a new [Office.context.mailbox.restUrl](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#properties) property that can be used to find the REST API endpoint for the user.
 
 ### Pinch zoom
 
@@ -85,22 +85,22 @@ Currently add-ins in Outlook Mobile only support activation when reading message
 
 APIs introduced in requirement set 1.6 or later are not supported by Outlook Mobile. The following APIs from earlier requirement sets are also not supported.
 
-  - [Office.context.officeTheme](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context#officetheme-officetheme)
-  - [Office.context.mailbox.ewsUrl](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#ewsurl-string)
-  - [Office.context.mailbox.convertToEwsId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#converttoewsiditemid-restversion--string)
-  - [Office.context.mailbox.convertToRestId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#converttorestiditemid-restversion--string)
-  - [Office.context.mailbox.displayAppointmentForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#displayappointmentformitemid)
-  - [Office.context.mailbox.displayMessageForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#displaymessageformitemid)
-  - [Office.context.mailbox.displayNewAppointmentForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#displaynewappointmentformparameters)
-  - [Office.context.mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext)
-  - [Office.context.mailbox.item.dateTimeModified](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#datetimemodified-date)
-  - [Office.context.mailbox.item.displayReplyAllForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#displayreplyallformformdata-callback)
-  - [Office.context.mailbox.item.displayReplyForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#displayreplyformformdata-callback)
-  - [Office.context.mailbox.item.getEntities](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getentities--entities)
-  - [Office.context.mailbox.item.getEntitiesByType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getentitiesbytypeentitytype--nullable-arraystringcontactmeetingsuggestionphonenumbertasksuggestion)
-  - [Office.context.mailbox.item.getFilteredEntitiesByName](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getfilteredentitiesbynamename--nullable-arraystringcontactmeetingsuggestionphonenumbertasksuggestion)
-  - [Office.context.mailbox.item.getRegexMatches](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getregexmatches--object)
-  - [Office.context.mailbox.item.getRegexMatchesByName](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item#getregexmatchesbynamename--nullable-array-string-)
+  - [Office.context.officeTheme](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context#officetheme-officetheme)
+  - [Office.context.mailbox.ewsUrl](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#properties)
+  - [Office.context.mailbox.convertToEwsId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods)
+  - [Office.context.mailbox.convertToRestId](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods)
+  - [Office.context.mailbox.displayAppointmentForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods)
+  - [Office.context.mailbox.displayMessageForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods)
+  - [Office.context.mailbox.displayNewAppointmentForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods)
+  - [Office.context.mailbox.makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods)
+  - [Office.context.mailbox.item.dateTimeModified](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#properties)
+  - [Office.context.mailbox.item.displayReplyAllForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods)
+  - [Office.context.mailbox.item.displayReplyForm](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods)
+  - [Office.context.mailbox.item.getEntities](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods)
+  - [Office.context.mailbox.item.getEntitiesByType](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods)
+  - [Office.context.mailbox.item.getFilteredEntitiesByName](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods)
+  - [Office.context.mailbox.item.getRegexMatches](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods)
+  - [Office.context.mailbox.item.getRegexMatchesByName](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods)
 
 ## See also
 
