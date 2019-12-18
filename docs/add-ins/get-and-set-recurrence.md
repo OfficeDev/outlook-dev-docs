@@ -172,7 +172,7 @@ var recurrenceType = recurrence.recurrenceType;
 [RecurrenceChanged event](/javascript/api/office/office.eventtype)
 
 [getAsync link]: /javascript/api/outlook/office.recurrence#getasync-options--callback-
-[item.recurrence link]: /office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#nullable-recurrence-recurrence
+[item.recurrence link]: /office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#properties
 [setAsync link]: /javascript/api/outlook/office.recurrence#setasync-recurrencepattern--options--callback-
 
 [dayOfMonth link]: /javascript/api/outlook/office.recurrenceproperties#dayofmonth

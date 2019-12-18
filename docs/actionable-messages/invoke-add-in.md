@@ -142,7 +142,7 @@ For example, to extend the sample action from above, we could modify the action 
 
 ## Receiving initialization data in the add-in
 
-If your action passes initialization data, the add-in must be prepared to receive it. Add-ins can retrieve initialization data by calling the [Office.context.mailbox.item.getInitializationContextAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox.item) method. This should be done whenever the task pane opens or loads a new message.
+If your action passes initialization data, the add-in must be prepared to receive it. Add-ins can retrieve initialization data by calling the [Office.context.mailbox.item.getInitializationContextAsync](https://docs.microsoft.com/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods) method. This should be done whenever the task pane opens or loads a new message.
 
 ```js
 // Get the initialization context (if present)

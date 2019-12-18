@@ -29,7 +29,7 @@ Outlook mobile add-ins are supported on all Office 365 Commercial accounts, Outl
 
 - Only mail read is supported at this time. That means `MobileMessageReadCommandSurface` is the only [ExtensionPoint](/office/dev/add-ins/reference/manifest/extensionpoint) you should declare in the mobile section of your manifest.
 
-- The [makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/Office.context.mailbox#makeewsrequestasyncdata-callback-usercontext) API is not supported on mobile since the mobile app uses REST APIs to communicate with the server. If your app backend needs to connect to the Exchange server, you can use the callback token to make REST API calls. For details, see [Use the Outlook REST APIs from an Outlook add-in](use-rest-api.md).
+- The [makeEwsRequestAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox#methods) API is not supported on mobile since the mobile app uses REST APIs to communicate with the server. If your app backend needs to connect to the Exchange server, you can use the callback token to make REST API calls. For details, see [Use the Outlook REST APIs from an Outlook add-in](use-rest-api.md).
 
 - When you submit your add-in to the store with [MobileFormFactor](/office/dev/add-ins/reference/manifest/mobileformfactor) in the manifest, you'll need to agree to our developer addendum for add-ins on iOS, and you must submit your Apple Developer ID for verification.
 
