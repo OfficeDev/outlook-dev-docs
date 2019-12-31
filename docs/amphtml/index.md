@@ -13,7 +13,7 @@ localization_priority: Priority
 [AMP for Email](https://amp.dev/about/email.html) is a new open source email format, based on HTML, that enables developers to create dynamic and interactive emails. These experiences make users more efficient by providing up-to-date information and actions that can be taken directly on email, reducing context switches.
 
 > [!IMPORTANT]
-> There are multiple technologies that enable the creation of dynamic and interactive emails. [Actionable messages](https://docs.microsoft.com/en-us/outlook/actionable-messages/) is Outlook's officially supported format to create interactive email experiences. AMP for email is a new email format that we are evaluating.
+> There are multiple technologies that enable the creation of dynamic and interactive emails. [Actionable messages](../actionable-messages/index.md) is Outlook's officially supported format to create interactive email experiences. AMP for email is a new email format that we are evaluating.
 
 ## Preview details
 
