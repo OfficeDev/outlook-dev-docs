@@ -36,12 +36,12 @@ DKIM and SPF are industry standard ways to prove a sender's identity when sendin
 
 ### Signed card payloads
 
-Actionable messages [sent via email](send-via-email.md) support an alternative verification method: signing the card payload with and RSA key or X509 certificate. This method is required in the following scenarios:
+Actionable messages [sent via email](send-via-email.md) support an alternative verification method: signing the card payload with an RSA key or X509 certificate. This method is required in the following scenarios:
 
 - SPF/DKIM failure caused by sender setup or recipient tenant set custom security services in front of Office 365 services.
-- You scenario for actionable messages requires sending from multiple email accounts.
+- Your scenario for actionable messages requires sending from multiple email accounts.
 
-Using signed card payloads requires onboarding with Microsoft. Please contact [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) for more information.
+To use signed cards, you must register your public key in the [email developer dashboard](email-dev-dashboard.md), and use the corresponding private key to sign the card.
 
 #### SignedCard
 

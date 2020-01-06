@@ -37,6 +37,16 @@ The key fields are:
 
 - **Sender email address**: This is one or more static email addresses corresponding to the service that will send out emails with action markup. Example: `myservice@contoso.com`.
 - **Target URLs**: This is one or more domains corresponding to URLs that will process the actions. Your target URL can correspond to the top level domain or the sub-domain of the TLD. They need to be https enabled URLs. Example. `https://api.myservice.com`.
+- **Public Key**: If you plan to send actionable messages as Signed Card, then you need to specify the public key corresponding to the private key you will use for signing the card. The format for this field is an [RSAKeyValue element](https://www.w3.org/TR/xmldsig-core/#sec-RSAKeyValue).
+
+  ```xml
+  <RSAKeyValue>
+    <Modulus>xA7SEU+e0yQ...</Modulus>
+    <Exponent>AQAB</Exponent>
+  </RSAKeyValue>
+  ```
+
+  For an example of how to get public key XML from  a .cert file, see [PublicKey Class](/dotnet/api/system.security.cryptography.x509certificates.publickey?view=netframework-4.8#examples).
 
 ### Scope of your submission
 
