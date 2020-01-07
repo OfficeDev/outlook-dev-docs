@@ -15,6 +15,9 @@ localization_priority: Priority
 
 Let's start by creating an actionable message card. We'll start with something simple, just a basic card with an `HttpPOST` action and an `OpenUri` action. We'll use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to design the card.
 
+> [!IMPORTANT]
+> Office 365 connectors only support the [legacy MessageCard format](message-card-reference.md) for cards. They do not support the Adaptive Card format.
+
 Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and paste in the following JSON:
 
 ```json
