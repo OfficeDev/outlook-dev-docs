@@ -1,13 +1,16 @@
 ---
 title: Get and set recurrence in an Outlook add-in
 description: This topic shows you how to use the Office JavaScript API to get and set various recurrence properties of an item in an Outlook add-in.
-ms.date: 10/31/2019
+ms.date: 01/14/2020
 localization_priority: Normal
 ---
 
 # Get and set recurrence
 
 Sometimes you need to create and update a recurring appointment, such as a weekly status meeting for a team project or a yearly birthday reminder. You can use the JavaScript API for Office to manage the recurrence patterns of an appointment series in your add-in.
+
+> [!NOTE]
+> Support for this feature was introduced in requirement set 1.7. See [clients and platforms](/office/dev/add-ins/reference/requirement-sets/outlook-api-requirement-sets#requirement-sets-supported-by-exchange-servers-and-outlook-clients) that support this requirement set.
 
 ## Available recurrence patterns
 
