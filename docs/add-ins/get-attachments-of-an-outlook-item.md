@@ -1,7 +1,7 @@
 ---
 title: Get attachments in an Outlook add-in
 description: Your add-in can use the attachments API to send information about the attachments to a remote service.
-ms.date: 10/31/2019
+ms.date: 01/13/2020
 localization_priority: Priority
 ---
 
@@ -80,7 +80,7 @@ The `Office.context.mailbox.item.attachments` property contains a collection of 
 function makeServiceRequest() {
   // Format the attachment details for sending.
   for (var i = 0; i < mailbox.item.attachments.length; i++) {
-    serviceRequest.attachments[i] = JSON.parse(JSON.stringify(mailbox.item.attachments[i].$0_0));
+    serviceRequest.attachments[i] = JSON.parse(JSON.stringify(mailbox.item.attachments[i]));
   }
 
   $.ajax({
