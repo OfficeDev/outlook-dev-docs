@@ -80,6 +80,8 @@ You can use the API to add, get, and remove categories for a message or appointm
 
 > [!IMPORTANT]
 > Only categories in the master list on your mailbox are available for you to apply to a message or appointment. See the earlier section [Manage categories in the master list](#manage-categories-in-the-master-list) for more information.
+>
+> In Outlook on the web, you can't use the API to manage categories on a message in Read mode.
 
 ### Add categories to an item
 
