@@ -19,10 +19,10 @@ localization_priority: Priority
 
 Outlook.com supports AMP for email as a preview. During the preview:
 
-- AMP support is available but it is initially turned off by default in user mailboxes. We will evaluate turning it on by default in the future.
-- Developers can [turn on AMP support](get-started.md) to test AMP emails on their own mailboxes.
+- AMP support is available and turned on, but it is in preview and could be turned off without notice
+- Developers can [turn on AMP support](get-started.md) to test AMP emails on their own mailboxes (in case it is turned off).
 - Only the Outlook.com web application will render AMP emails. Other Outlook clients and platforms are not currently supported.
-- Email senders can register to become an authorized sender so that, in the future, they can send AMP emails to their customers.
+- Email senders can register to become an authorized sender
 
 ## Your feedback is important
 
