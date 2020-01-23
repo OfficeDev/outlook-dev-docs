@@ -253,19 +253,3 @@
       - name: Connectors Developer Dashboard
         tocHref: /outlook/actionable-messages/connectors-dev-dashboard
         topicHref: /outlook/actionable-messages/connectors-dev-dashboard
-  - name: Payments in Outlook
-    tocHref: /outlook/payments/
-    topicHref: /outlook/payments/index
-    items:
-      - name: Get Started
-        tocHref: /outlook/payments/get-started
-        topicHref: /outlook/payments/get-started
-      - name: ActionRequest Reference
-        tocHref: /outlook/payments/action-request
-        topicHref: /outlook/payments/action-request
-      - name: Webhook Reference
-        tocHref: /outlook/payments/reference
-        topicHref: /outlook/payments/reference
-      - name: Partner Dashboard
-        tocHref: /outlook/payments/partner-dashboard
-        topicHref: /outlook/payments/partner-dashboard

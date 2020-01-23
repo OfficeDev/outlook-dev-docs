@@ -111,7 +111,6 @@ Actions are specified using the `potentialAction` property which is available bo
 - [HttpPOST](#httppost-action)
 - [ActionCard](#actioncard-action)
 - [InvokeAddInCommand](#invokeaddincommand-action)
-- [Transaction](#transaction-action)
 
 There can be a maximum of 4 actions (whatever their type) in a `potentialAction` collection.
 
@@ -418,39 +417,6 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
     "property2": 5,
     "property3": true
   }
-}
-```
-
-### Transaction action
-
-> [!IMPORTANT]
-> The `Transaction` action has been deprecated. Payment request messages should be sent using the [ActionRequest format](../payments/action-request.md) instead.
-
-Initiates an payments in Outlook scenario. For more information see [Payments in Outlook](../payments/index.md).
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String | The `name` property defines the text that will be displayed on screen for the action.<br><br>**Do** use verbs. For instance, use "Pay invoice" instead of "Invoice". |
-| `isPrimaryAction` | Boolean | Indicates that the action should be highlighted as the primary action if multiple actions are present. It is recommended to set this to `true` for when including multiple actions. |
-| `merchantId` | UUID | Your merchant ID provided by registering with the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md). |
-| `displayId` | UUID | Your display ID provided by registering with the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md). |
-| `productContext` | Object | Required. Developers may specify any valid JSON object in this field. The value is included in the payloads sent to your payment request and payment complete webhooks. |
-
-#### Example Transaction
-
-```json
-{
-  "@type" : "Transaction",
-  "name" : "Pay invoice",
-  "isPrimaryAction" : true,
-  "merchantId": "SAMPLE_ID",
-  "displayId": "SAMPLE_ID",
-  "productContext": {
-    "invoiceId": "103032",
-    "createdDate" :"12/8/2017",
-    "dueDate":"01/31/2019"
-  },
-  "environment": "ppe"
 }
 ```
 
