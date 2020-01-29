@@ -565,62 +565,6 @@ The example card renders similar to the following after the button is clicked:
 
 ![A screenshot of the Action.ToggleVisibility example card in an expanded state](images/adaptive-visibility-expanded.png)
 
-### Action.Transaction
-
-> [!IMPORTANT]
-> The `Action.Transaction` action has been deprecated. Payment request messages should be sent using the [ActionRequest format](../payments/action-request.md) instead.
-
-The `Action.Transaction` action triggers the [payments in Outlook](../payments/index.md) experience. When the user invokes the action, Outlook retrieves the latest invoice details from the merchant. This information is displayed in a pane in Outlook, allowing the user to click through the Microsoft Pay experience to pay the invoice. See [Get started with payments in Outlook](../payments/get-started.md) for more information.
-
-> [!NOTE]
-> Before you can use the `Action.Transaction` type, you must register in the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md) to receive a merchant ID and display ID.
-
-| Property name | Type | Required | Description |
-|---------------|------|----------|-------------|
-| `type` | String | Yes | Must be set to `Action.Transaction`. |
-| `title` | String | No | The title of the action as it will appear on screen on a button control, for instance. |
-| `initializationContext` | Object | Yes | Contains required information for the payments in Outlook experience. |
-| `initializationContext.merchantId` | GUID | Yes | Your merchant ID obtained by registering in the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md). |
-| `initializationContext.displayId` | GUID | Yes | Your display ID obtained by registering in the [partner dashboard for payments in Outlook](../payments/partner-dashboard.md). |
-| `initializationContext.productContext` | Object | Yes | Developers may specify any valid JSON object in this field. The value is included in the payloads sent to your payment request and payment complete webhooks. |
-
-#### Action.Transaction example
-
-```json
-{
-  "type": "AdaptiveCard",
-  "version": "1.0",
-  "body": [
-    {
-      "type": "TextBlock",
-      "weight": "bolder",
-      "size": "large",
-      "color": "accent",
-      "text": "Invoice from Contoso"
-    },
-    {
-      "type": "TextBlock",
-      "weight": "bolder",
-      "size": "medium",
-      "text": "$57.28 due on May 30, 2018"
-    }
-  ],
-  "actions": [
-    {
-      "type": "Action.Transaction",
-      "title": "Review and pay",
-      "initializationContext": {
-          "merchantId": "6b810c7b-4dc5-40dd-82b2-916189ed4524",
-          "displayId": "0a55e631-60b1-4bad-b77a-3c3b1749a12f",
-          "productContext": {
-              "invoiceId": "INV-0115"
-          }
-      }
-    }
-  ]
-}
-```
-
 ### ActionSet element
 
 Outlook Actionable Messages add support for the `ActionSet` element that makes it possible to add action buttons anywhere in a card.
