@@ -2,7 +2,7 @@
 title: On-send feature for Outlook add-ins
 description: Provides a way to handle an item or block users from certain actions, and allows an add-in to set certain properties on send.
 ms.date: 11/07/2019
-localization_priority: Priority
+localization_priority: Normal
 ---
 
 # On-send feature for Outlook add-ins

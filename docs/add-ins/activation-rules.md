@@ -2,7 +2,7 @@
 title: Outlook add-in activation rules
 description: Outlook activates some types of add-ins if the message or appointment that the user is reading or composing satisfies the activation rules of the add-in.
 ms.date: 12/10/2019
-localization_priority: Priority
+localization_priority: Normal
 ---
 
 # Activation rules for contextual Outlook add-ins
