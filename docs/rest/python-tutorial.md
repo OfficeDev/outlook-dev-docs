@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: conceptual
 ms.technology: ms-graph
 ms.devlang: python
-ms.date: 04/04/2019
+ms.date: 02/06/2020
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -228,7 +228,7 @@ As you can see, our home page will be very simple. For now, the link doesn't do 
 
 ## Implementing OAuth2
 
-Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](/azure/active-directory/develop/v2-oauth2-auth-code-flow). To make things easier, we'll use the [Requests: HTTP for Humans](http://docs.python-requests.org/en/latest/) library to handle all of our HTTP requests. At your command prompt, enter the following command.
+Our goal in this section is to make the link on our home page initiate the [OAuth2 Authorization Code Grant flow with Azure AD](/azure/active-directory/develop/v2-oauth2-auth-code-flow). To make things easier, we'll use the [Requests: HTTP for Humans](https://2.python-requests.org/en/master/) library to handle all of our HTTP requests. At your command prompt, enter the following command.
 
 ```Shell
 pip install requests
