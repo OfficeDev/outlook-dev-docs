@@ -3,7 +3,7 @@
 - name: REST APIs
   href: rest/toc.yml
 - name: Add-ins
-  href: add-ins/toc.yml
+  href: /office/dev/add-ins/outlook/index.md
 - name: Actionable Messages
   href: actionable-messages/toc.yml
 - name: AMP for Email
