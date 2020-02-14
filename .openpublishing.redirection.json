@@ -12,7 +12,7 @@
     },
     {
       "source_path": "docs/add-ins/addin-tutorial.md",
-      "redirect_url": "/office/dev/add-ins/tutorials/outlook-tutorial.md",
+      "redirect_url": "/office/dev/add-ins/tutorials/outlook-tutorial",
       "redirect_document_id": false
     },
     {
