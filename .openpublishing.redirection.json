@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "docs/add-ins/index.md",
-      "redirect_url": "/office/dev/add-ins/outlook-add-ins-overview",
+      "redirect_url": "/office/dev/add-ins/outlook/outlook-add-ins-overview",
       "redirect_document_id": false
     },
     {
