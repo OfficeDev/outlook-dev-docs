@@ -1,3 +1,4 @@
+items:
 - name: Outlook
   tocHref: /outlook/
   topicHref: /outlook/index
@@ -10,30 +11,54 @@
         tocHref: /outlook/rest/get-started
         topicHref: /outlook/rest/get-started
         items:
-          - name: .NET
-            tocHref: /outlook/rest/dotnet-tutorial
-            topicHref: /outlook/rest/dotnet-tutorial
-          - name: iOS
-            tocHref: /outlook/rest/ios-tutorial
-            topicHref: /outlook/rest/ios-tutorial
+          - name: .NET Core
+            tocHref: /graph/tutorials/dotnet-core
+            topicHref: /graph/tutorials/dotnet-core
+          - name: Android
+            tocHref: /graph/tutorials/android
+            topicHref: /graph/tutorials/android
+          - name: Angular
+            tocHref: /graph/tutorials/angular
+            topicHref: /graph/tutorials/angular
+          - name: ASP.NET
+            tocHref: /graph/tutorials/aspnet
+            topicHref: /graph/tutorials/aspnet
+          - name: Microsoft Flow
+            tocHref: /graph/tutorials/flow
+            topicHref: /graph/tutorials/flow
+          - name: iOS Objective-C
+            tocHref: /graph/tutorials/ios-objectivec
+            topicHref: /graph/tutorials/ios-objectivec
+          - name: iOS Swift
+            tocHref: /graph/tutorials/ios-swift
+            topicHref: /graph/tutorials/ios-swift
           - name: Java
-            tocHref: /outlook/rest/java-tutorial
-            topicHref: /outlook/rest/java-tutorial
-          - name: JavaScript
-            tocHref: /outlook/rest/javascript-tutorial
-            topicHref: /outlook/rest/javascript-tutorial
+            tocHref: /graph/tutorials/java
+            topicHref: /graph/tutorials/java
           - name: Node.js
-            tocHref: /outlook/rest/node-tutorial
-            topicHref: /outlook/rest/node-tutorial
+            tocHref: /graph/tutorials/node
+            topicHref: /graph/tutorials/node
           - name: PHP
-            tocHref: /outlook/rest/php-tutorial
-            topicHref: /outlook/rest/php-tutorial
+            tocHref: /graph/tutorials/php
+            topicHref: /graph/tutorials/php
           - name: Python
-            tocHref: /outlook/rest/python-tutorial
-            topicHref: /outlook/rest/python-tutorial
+            tocHref: /graph/tutorials/python
+            topicHref: /graph/tutorials/python
+          - name: React
+            tocHref: /graph/tutorials/react
+            topicHref: /graph/tutorials/react
+          - name: React Native
+            tocHref: /graph/tutorials/react-native
+            topicHref: /graph/tutorials/react-native
           - name: Ruby
-            tocHref: /outlook/rest/ruby-tutorial
-            topicHref: /outlook/rest/ruby-tutorial
+            tocHref: /graph/tutorials/ruby
+            topicHref: /graph/tutorials/ruby
+          - name: UWP
+            tocHref: /graph/tutorials/uwp
+            topicHref: /graph/tutorials/uwp
+          - name: Xamarin
+            tocHref: /graph/tutorials/xamarin
+            topicHref: /graph/tutorials/xamarin
       - name: Compare Graph and Outlook
         tocHref: /outlook/rest/compare-graph
         topicHref: /outlook/rest/compare-graph
