@@ -69,6 +69,46 @@
       "source_path": "docs/rest/terms-of-use.md",
       "redirect_url": "/legal/microsoft-apis/terms-of-use",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/dotnet-tutorial.md",
+      "redirect_url": "/graph/tutorials/aspnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/ios-tutorial.md",
+      "redirect_url": "/graph/tutorials/ios-swift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/java-tutorial.md",
+      "redirect_url": "/graph/tutorials/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/javascript-tutorial.md",
+      "redirect_url": "/graph/tutorials/react",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/node-tutorial.md",
+      "redirect_url": "/graph/tutorials/node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/php-tutorial.md",
+      "redirect_url": "/graph/tutorials/php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/python-tutorial.md",
+      "redirect_url": "/graph/tutorials/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/rest/ruby-tutorial.md",
+      "redirect_url": "/graph/tutorials/ruby",
+      "redirect_document_id": false
     }
   ]
 }
