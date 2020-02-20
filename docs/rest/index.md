@@ -4,7 +4,7 @@ description: With the simplicity of REST, you can use your favorite language and
 author: jasonjoh
 ms.topic: overview
 ms.technology: ms-graph
-ms.date: 04/04/2019
+ms.date: 02/19/2020
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -33,12 +33,14 @@ Take an early look at the following services in preview status:
 
 - v2 endpoints:
 
-  [Use these common authentication endpoints](/azure/active-directory/develop/active-directory-appmodel-v2-overview) to sign users in with their personal Outlook.com accounts, or business or school credentials, and request authorization for access. Instantly expand the reach of your app!
+  [Use these common authentication endpoints](/azure/active-directory/develop/v2-overview) to sign users in with their personal Outlook.com accounts, or business or school credentials, and request authorization for access. Instantly expand the reach of your app!
 
   - `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
   - `https://login.microsoftonline.com/common/oauth2/v2.0/token`
 
+<!-- markdownlint-disable MD026 -->
 ### Use these preview services when:
+<!-- markdownlint-enable MD026 -->
 
 - Rewriting existing Outlook.com apps that use the Windows Live API. Windows Live API has been deprecated for Outlook.com. Plan to accommodate changes to these services over their preview period.
 - Creating new Outlook.com and Office 365 apps that access mailbox data.
