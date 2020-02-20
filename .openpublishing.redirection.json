@@ -1,6 +1,256 @@
 {
   "redirections": [
     {
+      "source_path": "docs/add-ins/index.md",
+      "redirect_url": "/office/dev/add-ins/outlook/outlook-add-ins-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/quick-start.md",
+      "redirect_url": "/office/dev/add-ins/quickstarts/outlook-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/addin-tutorial.md",
+      "redirect_url": "/office/dev/add-ins/tutorials/outlook-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/outlook-addin-design.md",
+      "redirect_url": "/office/dev/add-ins/outlook/outlook-addin-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/add-in-commands-for-outlook.md",
+      "redirect_url": "/office/dev/add-ins/outlook/add-in-commands-for-outlook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/contextual-outlook-add-ins.md",
+      "redirect_url": "/office/dev/add-ins/outlook/contextual-outlook-add-ins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/extension-module-outlook-add-ins.md",
+      "redirect_url": "/office/dev/add-ins/outlook/extension-module-outlook-add-ins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/outlook-mobile-addins.md",
+      "redirect_url": "/office/dev/add-ins/outlook/outlook-mobile-addins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/outlook-on-send-addins.md",
+      "redirect_url": "/office/dev/add-ins/outlook/outlook-on-send-addins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/pinnable-taskpane.md",
+      "redirect_url": "/office/dev/add-ins/outlook/pinnable-taskpane",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/delegate-access.md",
+      "redirect_url": "/office/dev/add-ins/outlook/delegate-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/manifests.md",
+      "redirect_url": "/office/dev/add-ins/outlook/manifests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/activation-rules.md",
+      "redirect_url": "/office/dev/add-ins/outlook/activation-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/add-mobile-support.md",
+      "redirect_url": "/office/dev/add-ins/outlook/add-mobile-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/add-in-requirements.md",
+      "redirect_url": "/office/dev/add-ins/outlook/add-in-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/apis.md",
+      "redirect_url": "/office/dev/add-ins/outlook/apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/use-rest-api.md",
+      "redirect_url": "/office/dev/add-ins/outlook/use-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/web-services.md",
+      "redirect_url": "/office/dev/add-ins/outlook/web-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/item-data.md",
+      "redirect_url": "/office/dev/add-ins/outlook/item-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/categories.md",
+      "redirect_url": "/office/dev/add-ins/outlook/categories",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/internet-headers.md",
+      "redirect_url": "/office/dev/add-ins/outlook/internet-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/get-and-set-recurrence.md",
+      "redirect_url": "/office/dev/add-ins/outlook/get-and-set-recurrence",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/metadata-for-an-outlook-add-in.md",
+      "redirect_url": "/office/dev/add-ins/outlook/metadata-for-an-outlook-add-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/read-scenario.md",
+      "redirect_url": "/office/dev/add-ins/outlook/read-scenario",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/use-regular-expressions-to-show-an-outlook-add-in.md",
+      "redirect_url": "/office/dev/add-ins/outlook/use-regular-expressions-to-show-an-outlook-add-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/match-strings-in-an-item-as-well-known-entities.md",
+      "redirect_url": "/office/dev/add-ins/outlook/match-strings-in-an-item-as-well-known-entities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/extract-entity-strings-from-an-item.md",
+      "redirect_url": "/office/dev/add-ins/outlook/extract-entity-strings-from-an-item",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/get-attachments-of-an-outlook-item.md",
+      "redirect_url": "/office/dev/add-ins/outlook/get-attachments-of-an-outlook-item",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/compose-scenario.md",
+      "redirect_url": "/office/dev/add-ins/outlook/compose-scenario",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/add-and-remove-attachments-to-an-item-in-a-compose-form.md",
+      "redirect_url": "/office/dev/add-ins/outlook/add-and-remove-attachments-to-an-item-in-a-compose-form",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/get-and-set-item-data-in-a-compose-form.md",
+      "redirect_url": "/office/dev/add-ins/outlook/get-and-set-item-data-in-a-compose-form",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/get-set-or-add-recipients.md",
+      "redirect_url": "/office/dev/add-ins/outlook/get-set-or-add-recipients",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/insert-data-in-the-body.md",
+      "redirect_url": "/office/dev/add-ins/outlook/insert-data-in-the-body",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/get-or-set-the-subject.md",
+      "redirect_url": "/office/dev/add-ins/outlook/get-or-set-the-subject",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/get-or-set-the-time-of-an-appointment.md",
+      "redirect_url": "/office/dev/add-ins/outlook/get-or-set-the-time-of-an-appointment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/get-or-set-the-location-of-an-appointment.md",
+      "redirect_url": "/office/dev/add-ins/outlook/get-or-set-the-location-of-an-appointment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/privacy-and-security.md",
+      "redirect_url": "/office/dev/add-ins/outlook/privacy-and-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/understanding-outlook-add-in-permissions.md",
+      "redirect_url": "/office/dev/add-ins/outlook/understanding-outlook-add-in-permissions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/authentication.md",
+      "redirect_url": "/office/dev/add-ins/outlook/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/authenticate-a-user-with-an-sso-token.md",
+      "redirect_url": "/office/dev/add-ins/outlook/authenticate-a-user-with-an-sso-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/authenticate-a-user-with-an-identity-token.md",
+      "redirect_url": "/office/dev/add-ins/outlook/authenticate-a-user-with-an-identity-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/validate-an-identity-token.md",
+      "redirect_url": "/office/dev/add-ins/outlook/validate-an-identity-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/inside-the-identity-token.md",
+      "redirect_url": "/office/dev/add-ins/outlook/inside-the-identity-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/implement-sso-in-outlook-add-in.md",
+      "redirect_url": "/office/dev/add-ins/outlook/implement-sso-in-outlook-add-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/testing-and-tips.md",
+      "redirect_url": "/office/dev/add-ins/outlook/testing-and-tips",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/sideload-outlook-add-ins-for-testing.md",
+      "redirect_url": "/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/compare-outlook-add-in-support-in-outlook-for-mac.md",
+      "redirect_url": "/office/dev/add-ins/outlook/compare-outlook-add-in-support-in-outlook-for-mac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/tips-for-handling-date-values-in-outlook-add-ins.md",
+      "redirect_url": "/office/dev/add-ins/outlook/tips-for-handling-date-values-in-outlook-add-ins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/limits-for-activation-and-javascript-api-for-outlook-add-ins.md",
+      "redirect_url": "/office/dev/add-ins/outlook/limits-for-activation-and-javascript-api-for-outlook-add-ins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/add-ins/troubleshoot-outlook-add-in-activation.md",
+      "redirect_url": "/office/dev/add-ins/outlook/troubleshoot-outlook-add-in-activation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/add-ins/legacy-addins.md",
       "redirect_url": "/outlook/add-ins/",
       "redirect_document_id": false
