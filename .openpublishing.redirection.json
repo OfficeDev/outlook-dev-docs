@@ -337,7 +337,7 @@
     },
     {
       "source_path": "docs/rest/javascript-tutorial.md",
-      "redirect_url": "/graph/tutorials/react",
+      "redirect_url": "/graph/tutorials/javascript",
       "redirect_document_id": false
     },
     {
