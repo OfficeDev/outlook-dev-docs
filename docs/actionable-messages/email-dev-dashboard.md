@@ -27,7 +27,7 @@ For all the above cases, you will be submitting certain details to Microsoft, wh
 
 ## Dashboard sections
 
-The developer dashboard is divided into a few logical sections you need to fill out based on the scope you’d like to request Microsoft to enable actionable message from your service.
+The developer dashboard is divided into a few logical sections you need to fill out based on the scope you'd like to request Microsoft to enable actionable message from your service.
 
 ### Details of your provider
 
@@ -52,7 +52,6 @@ The key fields are:
 
 In this section, you need to specify at what scope you want to enable actionable message for your service. The applicable scopes are:
 
-- **My Mailbox**: This enables actionable emails from your service sent to your own mailbox.
 - **Test Users**: This enables actionable emails from your service to some of the O365 email users in your organization. This scope is generally used for testing actionable messages integration with few test users that you have specified.
 - **Organization**: This enables actionable message from your service to any Office 365 email user within your organization. This scope is typically used for enabling actionable messages from a service that is specific to your organization, like a line- of-business application internal to your organization.
 - **Global**: This enables actionable message from your service for any email user in Office 365.
@@ -66,7 +65,6 @@ Each of the above are independent steps. i.e. you can pick only one scope for ea
 
 Self-service of registrations is available for registrations that use the following scopes.
 
-- **My Mailbox**: The registration request is auto-approved for your own mailbox. This will enable actionable emails from your service sent to your own mailbox.
 - **Test Users**: The registration request is auto-approved for your test users you specify. This will enable actionable emails from your service sent to test users.
 - **Organization**: This registration request will be sent to your organization's administrators with **Exchange administrator** or **Global administrator** permissions. Any administrator with those permissions receive an email with submission details and will be able to review and approve your request.
 
@@ -74,7 +72,7 @@ Once the submission is approved, whether auto-approved or by your administrator,
 
 For **My organization** registrations, the administrator accounts will receive an email and the submitter will also be copied on those emails. This will allow you to reach out to your administrator if you need to provide further clarifications or details. Once the request is approved, the submitter and the administrators will be notified with another email.
 
-After an hour has passed, you can verify if the registration has taken into effect by sending an actionable message from your service to your mailbox (for **My mailbox** scope), or any user mailbox in your organization (for **My organization** scope). If an hour has passed and the registration is still not in effect, please contact us by using the feedback link at the top the registration dashboard labeled **Registration not working?**.
+After an hour has passed, you can verify if the registration has taken into effect by sending an actionable message from your service to your mailbox or specified test users (for **Test Users** scope), or any user mailbox in your organization (for **Organization** scope). If an hour has passed and the registration is still not in effect, please contact us by using the feedback link at the top the registration dashboard labeled **Registration not working?**.
 
 ### Test user email addresses
 
