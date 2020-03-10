@@ -35,6 +35,9 @@ items:
           - name: Java
             tocHref: /graph/tutorials/java
             topicHref: /graph/tutorials/java
+          - name: JavaScript
+            tocHref: /graph/tutorials/javascript
+            topicHref: /graph/tutorials/javascript
           - name: Node.js
             tocHref: /graph/tutorials/node
             topicHref: /graph/tutorials/node

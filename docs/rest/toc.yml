@@ -21,6 +21,8 @@ items:
     href: /graph/tutorials/ios-swift?context=outlook/context
   - name: Java
     href: /graph/tutorials/java?context=outlook/context
+  - name: JavaScript
+    href: /graph/tutorials/javascript?context=outlook/context
   - name: Node.js
     href: /graph/tutorials/node?context=outlook/context
   - name: PHP
