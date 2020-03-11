@@ -322,7 +322,7 @@
     },
     {
       "source_path": "docs/rest/dotnet-tutorial.md",
-      "redirect_url": "/graph/tutorials/aspnet",
+      "redirect_url": "/learn/modules/msgraph-build-aspnetmvc-apps",
       "redirect_document_id": false
     },
     {
