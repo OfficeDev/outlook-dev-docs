@@ -14,7 +14,9 @@ localization_priority: Priority
 
 The Outlook REST APIs are available in both [Microsoft Graph](/graph/overview) and the Outlook API endpoint (`https://outlook.office.com/api`). The APIs generally provide the same functionality and use the same resource types.
 
+<!-- markdownlint-disable MD026 -->
 ## Which endpoint should I use?
+<!-- markdownlint-enable MD026 -->
 
 Use Microsoft Graph whenever possible. The Microsoft Graph endpoint lets you access Outlook and many more [services and features](/graph/overview-major-services), including other Office 365 services, Enterprise Mobility + Security, and Windows 10. Choosing the Microsoft Graph endpoint allows your app to get an access token that can provide access to both Outlook data and other resources, without having to make multiple token requests.
 
@@ -22,12 +24,13 @@ Use Microsoft Graph whenever possible. The Microsoft Graph endpoint lets you acc
 
 There are some features that are currently either only available on the Outlook endpoint, or are only in beta in Microsoft Graph. If your app needs these features, you should access them via the Outlook endpoint.
 
-> **Note:** We are constantly working to incorporate all of the features currently available on the Outlook endpoint into Microsoft Graph. Be sure to check back periodically as this list is updated.
+> [!NOTE]
+> We are constantly working to incorporate all of the features currently available on the Outlook endpoint into Microsoft Graph. Be sure to check back periodically as this list is updated.
 
 | Feature | Difference between endpoints |
 |---------|-------------|
 | [Outlook tasks](/previous-versions/office/office-365-api/api/version-2.0/task-rest-operations) | The Outlook API provides access to user's tasks. This feature is currently only available in beta in Microsoft Graph. |
-| Attachments over 4MB in size | Microsoft Graph cannot create attachments over 4MB in size. Attempts to create an attachment larger than 4MB results in a `413 Request Entity Too Large` error. |
+| Attachments over 4MB in size | [Large file attachment support](/graph/outlook-large-attachments) is only available in beta in Microsoft Graph. |
 | [Rich notifications](/previous-versions/office/office-365-api/api/version-2.0/notify-rest-operations#get-instance-properties-by-subscribing-to-rich-notifications) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph does not support this feature. |
 | [Streaming notifications](/previous-versions/office/office-365-api/api/beta/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature. |
 
@@ -50,7 +53,8 @@ Apps that use the [Azure AD v2.0 endpoint](/azure/active-directory/develop/activ
 - For Microsoft Graph, apps specify permissions prefixed with `https://graph.microsoft.com/`. For example, an app can request the `Mail.Read` permission by including `https://graph.microsoft.com/Mail.Read` in the `scope` parameter.
 - For the Outlook endpoint, apps specify permissions prefixed with `https://outlook.office.com/`. For example, an app can request the `Mail.Read` permission by including `https://outlook.office.com/Mail.Read` in the `scope` parameter.
 
-> **Note:** If a domain is not included in a scope, Microsoft Graph is assumed.
+> [!NOTE]
+> If a domain is not included in a scope, Microsoft Graph is assumed.
 
 Tokens issued for one endpoint are not valid for the other. Additionally, you cannot mix permissions for one endpoint with permissions for the other in a single request.
 

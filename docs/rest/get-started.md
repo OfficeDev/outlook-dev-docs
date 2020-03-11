@@ -6,7 +6,7 @@ author: jasonjoh
 ms.topic: article
 ms.technology: ms-graph
 ms.devlang: rest-api
-ms.date: 04/04/2019
+ms.date: 02/19/2020
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -25,12 +25,12 @@ With the information in this guide, you can implement this in any language or pl
 
 ## Use OAuth2 to authenticate
 
-In order to call the Mail API, the app requires an access token from Azure Active Directory. In order to do that, the app implements one of the supported OAuth flows in the [Azure v2.0 endpoint](/azure/active-directory/develop/active-directory-appmodel-v2-overview). However, before this will work, the app must be registered in the Application Registration Portal.
+In order to call the Mail API, the app requires an access token from Azure Active Directory. In order to do that, the app implements one of the supported OAuth flows in the [Azure v2.0 endpoint](/azure/active-directory/develop/v2-overview). However, before this will work, the app must be registered in the Application Registration Portal.
 
 ### Registering an app
 
 > [!NOTE]
-> This example scenario will use the [authorization code flow](/azure/active-directory/develop/active-directory-v2-protocols-oauth-code). The steps for the [implicit flow](/azure/active-directory/develop/active-directory-v2-protocols-implicit) or [client credentials flow](/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds) will be slightly different.
+> This simple example scenario will use a basic authorization code flow. For full details on the available options in this flow, see [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow). The steps for the [implicit flow](/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) or [client credentials flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) will be slightly different.
 
 You can use the [Azure Active Directory admin center](https://aad.portal.azure.com) to quickly register an app that uses any of the Outlook APIs in Microsoft Graph.
 
@@ -146,7 +146,6 @@ GET https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages?$select=subje
 
 Accept: application/json
 Authorization: Bearer eyJ0eXAi...b66LoPVA
-X-AnchorMailbox: jason@contoso.onmicrosoft.com
 ```
 
 #### Mail API Response
