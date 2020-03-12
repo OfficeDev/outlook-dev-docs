@@ -1,25 +1,44 @@
+items:
 - name: Overview
   href: index.md
 - name: Get Started
   items:
   - name: Using the Outlook REST APIs
     href: get-started.md
-  - name: .NET
-    href: dotnet-tutorial.md
-  - name: iOS
-    href: ios-tutorial.md
+  - name: .NET Core
+    href: /graph/tutorials/dotnet-core?context=outlook/context
+  - name: Android
+    href: /graph/tutorials/android?context=outlook/context
+  - name: Angular
+    href: /graph/tutorials/angular?context=outlook/context
+  - name: ASP.NET
+    href: /graph/tutorials/aspnet?context=outlook/context
+  - name: Microsoft Flow
+    href: /graph/tutorials/flow?context=outlook/context
+  - name: iOS Objective-C
+    href: /graph/tutorials/ios-objectivec?context=outlook/context
+  - name: iOS Swift
+    href: /graph/tutorials/ios-swift?context=outlook/context
   - name: Java
-    href: java-tutorial.md
+    href: /graph/tutorials/java?context=outlook/context
   - name: JavaScript
-    href: javascript-tutorial.md
+    href: /graph/tutorials/javascript?context=outlook/context
   - name: Node.js
-    href: node-tutorial.md
+    href: /graph/tutorials/node?context=outlook/context
   - name: PHP
-    href: php-tutorial.md
+    href: /graph/tutorials/php?context=outlook/context
   - name: Python
-    href: python-tutorial.md
+    href: /graph/tutorials/python?context=outlook/context
+  - name: React
+    href: /graph/tutorials/react?context=outlook/context
+  - name: React Native
+    href: /graph/tutorials/react-native?context=outlook/context
   - name: Ruby
-    href: ruby-tutorial.md
+    href: /graph/tutorials/ruby?context=outlook/context
+  - name: UWP
+    href: /graph/tutorials/uwp?context=outlook/context
+  - name: Xamarin
+    href: /graph/tutorials/xamarin?context=outlook/context
 - name: Concepts
   items:
   - name: Overview

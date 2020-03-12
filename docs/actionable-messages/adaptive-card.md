@@ -24,7 +24,7 @@ Our [Card Playground tool](https://messagecardplayground.azurewebsites.net) has 
 
 ## Adaptive Cards Designer (preview)
 
-The [Adaptive Cards Designer](https://acdesignerbeta.azurewebsites.net/) provides a drag-and-drop experience to quickly build and tweak adaptive cards.
+The [Adaptive Cards Designer](https://amdesigner.azurewebsites.net/) provides a drag-and-drop experience to quickly build and tweak adaptive cards.
 
 ## A simple Adaptive Card example
 

@@ -1,3 +1,4 @@
+items:
 - name: Overview
   href: index.md
 - name: Get Started
@@ -26,7 +27,7 @@
   href: connectors-dev-dashboard.md
 - name: Card Playground
   href: https://messagecardplayground.azurewebsites.net/
-- name: Adaptive Card Designer (preview)
-  href: https://acdesignerstaging.azurewebsites.net
+- name: Adaptive Card Designer
+  href: https://amdesigner.azurewebsites.net/
 - name: MessageCard Reference (Legacy)
   href: message-card-reference.md

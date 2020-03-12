@@ -29,7 +29,7 @@ A Contoso employee submits a request to join a private Office 365 group. Office 
 
 ![A join group request message card rendered in Outlook on iOS](images/group-join-request-ios.png)
 
-The new member of the group submits a second request to add her team members to the group. Office 365 send an Actionable Message to the owner with clear information about who submitted the request and the new members to add. The recipient can approve all, some, or none of the proposed new members. The owner approves one new member, and the card updates to indicate the outcome. The approved member is no longer selectable, while the remaining member remains selectable.
+The new member of the group submits a second request to add her team members to the group. Office 365 sends an Actionable Message to the owner with clear information about who submitted the request and the new members to add. The recipient can approve all, some, or none of the proposed new members. The owner approves one new member, and the card updates to indicate the outcome. The approved member is no longer selectable, while the remaining member remains selectable.
 
 ![An add group members message card showing the first requested member being approved as rendered in Outlook on iOS](images/group-add-members-request-ios-1.png)
 
@@ -95,7 +95,7 @@ For information on admin controls, look at the FAQ section of this <a target="_b
 
 ### Outlook version requirements for actionable messages
 
-Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Office 365 ProPlus](/DeployOffice/overview-of-update-channels-for-office-365-proplus).
+Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 or Outlook.com with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Office 365 ProPlus](/DeployOffice/overview-of-update-channels-for-office-365-proplus).
 
 > [!NOTE]
 > Currently actionable message cards do not change the way that they render when Outlook is in dark mode. Support for dark mode for actionable messages is coming soon.
