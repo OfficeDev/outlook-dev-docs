@@ -113,7 +113,7 @@ All action requests from Microsoft have a bearer token in the HTTP `Authorizatio
 |------------|-------|
 | `aud` | The base URL of the target service, e.g. `https://api.contoso.com` |
 | `sub` | The identity of the user who took the action. For Actionable Messages sent over email, `sub` would be the email address of the user. For connectors, `sub` will be the objectID of the user who took the action. |
-| `sender` | The identity of sender of the message containing the action. |
+| `sender` | The identity of sender of the message containing the action. This value is only present if the actionable message was [sent via email](send-via-email.md). Actionable messages [sent via connectors](send-via-connectors.md) do not include this claim in their bearer token. |
 
 Typically, a service will perform the following verifications.
 
