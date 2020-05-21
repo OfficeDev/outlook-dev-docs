@@ -116,8 +116,8 @@ Identity linking is available to a limited set of clients, with support for the 
 |-----------------------------------|-------------------------|
 | Office 365 ProPlus                | Available               |
 | Outlook on the web for Office 365 | December 2019 (planned) |
-| Outlook on iOS                    | January 2020 (planned)  |
-| Outlook on Android                | January 2020 (planned)  |
+| Outlook on iOS                    | Coming soon             |
+| Outlook on Android                | Coming soon             |
 | Outlook on Mac                    | TBD                     |
 
 ## Resources
