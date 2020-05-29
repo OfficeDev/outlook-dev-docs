@@ -4,7 +4,7 @@ description: Learn how to authenticate an actionable message recipient with your
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 10/31/2019
+ms.date: 05/29/2020
 ms.author: jasonjoh
 localization_priority: Normal
 ---
@@ -17,7 +17,7 @@ localization_priority: Normal
 
 Your service can trigger authentication on any `Action.Http` action endpoint by returning a `401 Unauthorized` response with a `ACTION-AUTHENTICATE` header. The header contains the authentication URL for your service.
 
-Once authentication is completed, redirect the request to the URL specified in the `Post-Identity-Linking-Redirect-Url` header sent in the original request.
+Once authentication is completed, redirect the request to the URL specified in the `Identity-Linking-Redirect-Url` header sent in the original request.
 
 ## Identity linking flow
 
@@ -28,7 +28,7 @@ Microsoft servers send an initial POST request to your action endpoint.
 ```http
 POST https://api.contoso.com/myEndpoint
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6...
-Post-Identity-Linking-Redirect-Url: https://outlook.office.com/connectors/adelev@contoso.com/723a1c49-f8dc-4063-843e-d4c2b7180b8b/postAuthenticate
+Identity-Linking-Redirect-Url: https://outlook.office.com/connectors/adelev@contoso.com/723a1c49-f8dc-4063-843e-d4c2b7180b8b/postAuthenticate
 Content-Type: application/json
 
 {
@@ -46,10 +46,10 @@ Your service [validates the JWT token](security-requirements.md#verifying-that-r
 }
 ```
 
-Your service finds no user with a linked identity of `AdeleV@contoso.com` so it persists `Post-Identity-Linking-Redirect-Url` header value and returns a `401` response.
+Your service finds no user with a linked identity of `AdeleV@contoso.com` so it persists `Identity-Linking-Redirect-Url` header value and returns a `401` response.
 
 > [!NOTE]
-> The exact method you use to persist the redirect URL from the `Post-Identity-Linking-Redirect-Url` header is dependent on your implementation. If your service uses OAuth, you may save it in the `state` parameter, for example.
+> The exact method you use to persist the redirect URL from the `Identity-Linking-Redirect-Url` header is dependent on your implementation. If your service uses OAuth, you may save it in the `state` parameter, for example.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -64,7 +64,7 @@ After Outlook receives the `401` with the `ACTION-AUTHENTICATE` header, it will 
 GET https://identity.contoso.com/authenticate?state=https://outlook.office.com/connectors/adelev@contoso.com/723a1c49-f8dc-4063-843e-d4c2b7180b8b/postAuthenticate
 ```
 
-Your service authenticates the user and associates the identity provided by the AAD-issued token with the user in your system. Once complete, the service redirects the request to the URL from the `Post-Identity-Linking-Redirect-Url` header.
+Your service authenticates the user and associates the identity provided by the AAD-issued token with the user in your system. Once complete, the service redirects the request to the URL from the `Identity-Linking-Redirect-Url` header.
 
 ```http
 HTTP/1.1 302 Found
