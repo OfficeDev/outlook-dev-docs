@@ -1,6 +1,6 @@
 ---
 title: Get started with actionable messages via connectors
-description: Learn how to create an actionable message card and send it via Office 365 connectors.
+description: Learn how to create an actionable message card and send it via Office connectors.
 author: jasonjoh
 ms.topic: conceptual
 ms.technology: o365-connectors
@@ -16,7 +16,7 @@ localization_priority: Priority
 Let's start by creating an actionable message card. We'll start with something simple, just a basic card with an `HttpPOST` action and an `OpenUri` action. We'll use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to design the card.
 
 > [!IMPORTANT]
-> Office 365 connectors only support the [legacy MessageCard format](message-card-reference.md) for cards. They do not support the Adaptive Card format.
+> Office connectors only support the [legacy MessageCard format](message-card-reference.md) for cards. They do not support the Adaptive Card format.
 
 Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and paste in the following JSON:
 
@@ -61,11 +61,11 @@ Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and pa
 
 Feel free to experiment with this simple example in the playground. You can see the [message card reference](message-card-reference.md) for details on the available fields. Once you have a card you're happy with, you can move on to sending it.
 
-## Sending actionable messages via Office 365 Connectors
+## Sending actionable messages via Office connectors
 
 Connectors use webhooks to create Connector Card messages within an Office 365 group. Developers can create these cards by sending an HTTP request with a simple JSON payload to an Office 365 group webhook address. Let's try posting some basic cards to a group.
 
-You'll need an Office 365 subscription to proceed. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://developer.microsoft.com/office/dev-program) under the Office 365 Developer Program.
+You'll need an Microsoft 365 subscription to proceed. If you do not have an Microsoft 365 subscription you can get a one year [FREE Microsoft 365 subscription](https://developer.microsoft.com/office/dev-program) under the Microsoft 365 Developer Program.
 
 ### Get a connector webhook URL for your Inbox
 

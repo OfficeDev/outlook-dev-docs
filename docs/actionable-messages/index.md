@@ -14,10 +14,10 @@ localization_priority: Priority
 
 Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity.
 
-Office 365 provides two solutions to enhance productivity with Outlook Actionable Messages: actionable messages via email, and actionable messages via Office 365 Connectors.
+Office 365 provides two solutions to enhance productivity with Outlook Actionable Messages: actionable messages via email, and actionable messages via Office connectors.
 
 > [!NOTE]
-> Actionable messages are also available in Microsoft Teams. See [Office 365 Connectors for Teams](https://docs.microsoft.com/microsoftteams/platform/concepts/connectors/connectors) for more information.
+> Actionable messages are also available in Microsoft Teams. See [Office connectors for Teams](https://docs.microsoft.com/microsoftteams/platform/concepts/connectors/connectors) for more information.
 
 ## User experience
 
@@ -37,7 +37,7 @@ The owner declines the other requested new member, and the card updates to indic
 
 ![An add group members message card showing the second requested member being declined as rendered in Outlook on iOS](images/group-add-members-request-ios-2.png)
 
-### Actionable messages via Office 365 Connectors: task management scenario
+### Actionable messages via Office connectors: task management scenario
 
 Adele Vance and her team use Trello as their task management system. Adele has configured the Trello connector in her account, and will receive granular notifications as activity occurs in the Trello boards she is interested in.
 
@@ -53,13 +53,13 @@ Adele then clicks the **Save** button, and the notes are immediately saved to th
 
 ![The confirmation message](images/trello-card-infobar.png)
 
-## Office 365 Connectors
+## Office connectors
 
-Office 365 Connectors are a great way to get useful information and content into your Office 365 Groups in Outlook or Microsoft Teams. Any user can connect their group or team to services like Trello, Bing News, Twitter, etc., and get notified of activity from that service. From tracking a team's progress in Trello, to following important hashtags in Twitter, Office 365 Connectors make it easier for an Office 365 group in Outlook, Microsoft Teams, or Yammer to stay in sync and get more done.
+Office connectors are a great way to get useful information and content into your Office 365 Groups in Outlook or Microsoft Teams. Any user can connect their group or team to services like Trello, Bing News, Twitter, etc., and get notified of activity from that service. From tracking a team's progress in Trello, to following important hashtags in Twitter, Office connectors make it easier for an Office 365 group in Outlook, Microsoft Teams, or Yammer to stay in sync and get more done.
 
-## Accessing Office 365 Connectors from Outlook
+## Accessing Office connectors from Outlook
 
-Office 365 Connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web, or Outlook 2016 or later on Windows.
+Office connectors are available for both the inbox and Groups for any Office 365 Mail user. Connectors can be managed in either Outlook on the web, or Outlook 2016 or later on Windows.
 
 ### Accessing connectors in Outlook on the web
 

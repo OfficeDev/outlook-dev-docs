@@ -53,7 +53,7 @@ The key fields are:
 In this section, you need to specify at what scope you want to enable actionable message for your service. The applicable scopes are:
 
 - **Test Users**: This enables actionable emails from your service to some of the O365 email users in your organization. This scope is generally used for testing actionable messages integration with few test users that you have specified.
-- **Organization**: This enables actionable message from your service to any Office 365 email user within your organization. This scope is typically used for enabling actionable messages from a service that is specific to your organization, like a line- of-business application internal to your organization.
+- **Organization**: This enables actionable message from your service to any Microsoft 365 email user within your organization. This scope is typically used for enabling actionable messages from a service that is specific to your organization, like a line- of-business application internal to your organization.
 - **Global**: This enables actionable message from your service for any email user in Office 365.
 
 Each of the above are independent steps. i.e. you can pick only one scope for each submission and will be subject to the approval process by Microsoft.
@@ -78,7 +78,7 @@ After an hour has passed, you can verify if the registration has taken into effe
 
 This section is only applicable when your scope of submission to enable actionable messages is **Test Users**.
 
-In this section provide a list of Office 365 email users in your organization, separated by a semi-colon (`;`). This will help you to test your actionable messages integration on a few users, before creating an **Organization** or **Global** scope submission.
+In this section provide a list of Microsoft 365 email users in your organization, separated by a semi-colon (`;`). This will help you to test your actionable messages integration on a few users, before creating an **Organization** or **Global** scope submission.
 
 ### Contact info
 
