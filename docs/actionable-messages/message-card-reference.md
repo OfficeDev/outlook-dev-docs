@@ -14,7 +14,7 @@ localization_priority: Priority
 # Legacy actionable message card reference
 
 > [!NOTE]
-> This document describes the original JSON format for the actionable message card format. For actionable messages sent via email, this has been replaced with the [Adaptive Card format](adaptive-card.md). Microsoft recommends that new actionable message integrations use the Adaptive Card format, and existing integrations consider updating to Adaptive Card format. The Adaptive Card format is **required** to support Outlook on iOS and Android. However, if you are sending actionable messages via an Office 365 connector, or to a Microsoft Teams connector, you must continue to use the message card format.
+> This document describes the original JSON format for the actionable message card format. For actionable messages sent via email, this has been replaced with the [Adaptive Card format](adaptive-card.md). Microsoft recommends that new actionable message integrations use the Adaptive Card format, and existing integrations consider updating to Adaptive Card format. The Adaptive Card format is **required** to support Outlook on iOS and Android. However, if you are sending actionable messages via an Office connector, or to a Microsoft Teams connector, you must continue to use the message card format.
 
 Cards are meant to provide easy to read, at-a-glance information that users can very quickly decipher and act upon when appropriate. As such, the guiding principle for designing great card is "content over chrome," which means cards are straight to the point and minimize the use of anything that would be distracting such as icons or custom colors.
 

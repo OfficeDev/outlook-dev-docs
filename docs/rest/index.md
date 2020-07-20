@@ -29,7 +29,7 @@ Take an early look at the following services in preview status:
 
 - [Azure Active Directory admin center](https://aad.portal.azure.com)
 
-  Use a Microsoft account or Office 365 subscription account to register your app. It takes only a few steps to identify your app for Outlook.com and Office 365.
+  Use a Microsoft account or Microsoft 365 subscription account to register your app. It takes only a few steps to identify your app for Outlook.com and Office 365.
 
 - v2 endpoints:
 
