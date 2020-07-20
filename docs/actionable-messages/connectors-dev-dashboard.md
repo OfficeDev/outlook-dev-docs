@@ -9,15 +9,15 @@ ms.author: jasonjoh
 localization_priority: Priority
 ---
 
-# Register your connector with the Office 365 Connectors developer dashboard
+# Register your connector with the Office connectors developer dashboard
 
-Building an Office 365 Connector for your application is easy. All you need to do is register your connector in our developer portal, add an integrated configuration experience to your application, and implement your connector. You can make it easy for your users to discover the connector by publishing to our catalog.
+Building an Office connector for your application is easy. All you need to do is register your connector in our developer portal, add an integrated configuration experience to your application, and implement your connector. You can make it easy for your users to discover the connector by publishing to our catalog.
 
 ## Build your own Connector
 
 ### Registering your Connector
 
-Visit the [Connector Developer Portal](https://aka.ms/connectorsdashboard) and login with your Office 365 credentials. If you do not have an Office 365 subscription you can get a one year [FREE Office 365 Subscription](https://developer.microsoft.com/office/dev-program) under the Office 365 Developer Program.
+Visit the [Connector Developer Portal](https://aka.ms/connectorsdashboard) and login with your Microsoft 365 credentials. If you do not have an Microsoft 365 subscription you can get a one year [FREE Microsoft 365 subscription](https://developer.microsoft.com/office/dev-program) under the Microsoft 365 Developer Program.
 
 Choose **New Connector** and fill out the form. Once you choose **Save**, new options appear on the page.
 
@@ -51,7 +51,7 @@ microsoftTeams.authentication.notifySuccess(result, callbackUrl);
 
 ## Publish your Connector to the Store
 
-Once you have thoroughly tested your connector and it is ready to be listed in the Office 365 connector catalog, you can use the **Publish to Store** button to submit it for review. Once reviewed and approved your connector would be added to the connector catalog.
+Once you have thoroughly tested your connector and it is ready to be listed in the Office connector catalog, you can use the **Publish to Store** button to submit it for review. Once reviewed and approved your connector would be added to the connector catalog.
 
 ### Connector submission checklist
 
