@@ -18,7 +18,7 @@ Actionable messages allow users to take quick actions on an email message, often
 
 ## Using autoInvokeAction
 
-In order to use this feature, your card must use the [Adaptive Card](adaptive-card.md) format. The [autoInvokeAction](adaptive-card.md#additional-properties-on-the-adaptivecard-type) property is an Outlook-specific property added to the AdaptiveCard type. The value of this property is an [Action.Http](adaptive-card.md#actionhttp) action with the `method` set to `POST`. The `url` property specifies a Web API endpoint in your service that will provide the updated Adaptive Card payload.
+In order to use this feature, your card must use the [Adaptive Card](adaptive-card.md) format. The [autoInvokeAction](adaptive-card.md#additional-properties-on-the-adaptivecard-type) property is an Outlook-specific property added to the AdaptiveCard type. The value of this property is an [Action.Http](adaptive-card.md#actionhttp) action with the `method` set to `POST`. The `url` property specifies a Web API endpoint in your service that will provide the updated Adaptive Card payload. You also need to provide `CARD-UPDATE-IN-BODY` header in response with value `true` in order for your response to be accepted.
 
 ```json
 {
