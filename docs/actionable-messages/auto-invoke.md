@@ -18,7 +18,7 @@ Actionable messages allow users to take quick actions on an email message, often
 
 ## Using autoInvokeAction
 
-In order to use this feature, your card must use the [Adaptive Card](adaptive-card.md) format. The [autoInvokeAction](adaptive-card.md#additional-properties-on-the-adaptivecard-type) property is an Outlook-specific property added to the AdaptiveCard type. The value of this property is an [Action.Http](adaptive-card.md#actionhttp) action with the `method` set to `POST`. The `url` property specifies a Web API endpoint in your service that will provide the updated Adaptive Card payload. You also need to provide `CARD-UPDATE-IN-BODY` header in response with value `true` in order for your response to be accepted.
+In order to use this feature, your card must use the [Adaptive Card](adaptive-card.md) format. The [autoInvokeAction](adaptive-card.md#additional-properties-on-the-adaptivecard-type) property is an Outlook-specific property added to the AdaptiveCard type. The value of this property is an [Action.Http](adaptive-card.md#actionhttp) action with the `method` set to `POST`. The `url` property specifies a Web API endpoint in your service that will provide the updated Adaptive Card payload.
 
 ```json
 {
@@ -52,7 +52,7 @@ The endpoint for an `autoInvokeAction` must also meet the following additional r
 
 - Requests **must return within 2 seconds**.
 - Requests that take longer will be ignored by the client, and the original card will continue to display. The message will still be updated on the server.
-- Successful responses should include an Adaptive Card JSON payload.
+- Successful responses should include a `CARD-UPDATE-IN-BODY` header with value `true` and an Adaptive Card JSON payload.
 
 On success, the Adaptive Card returned will completely replace the existing card in the email message. If the URL returns an error or times out, the existing card will continue to display.
 
