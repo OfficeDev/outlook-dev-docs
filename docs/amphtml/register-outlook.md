@@ -10,6 +10,8 @@ localization_priority: Priority
 
 # Sender registration
 
+[!INCLUDE [end-of-support](includes/end-of-support.md)]
+
 The email address AMP emails originate from must be registered with Outlook to render AMP emails. If the address is not registered the AMP part will be ignored and the HTML version of the email will be rendered instead. There are two mechanisms to register an address with Outlook.
 
 ## Individual mailbox registration
