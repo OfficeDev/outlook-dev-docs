@@ -9,6 +9,8 @@ localization_priority: Priority
 ---
 # Security requirements
 
+[!INCLUDE [end-of-support](includes/end-of-support.md)]
+
 To protect users' experience, privacy and security for AMP emails are subject to additional requirements and restrictions. Failure to comply with any of these requirements will result in a fallback behavior where the AMP for email MIME part is ignored and the HTML part is rendered instead.
 
 ## Sender Authentication

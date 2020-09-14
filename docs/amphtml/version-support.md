@@ -9,6 +9,8 @@ localization_priority: Priority
 ---
 # Supported Outlook versions
 
+[!INCLUDE [end-of-support](includes/end-of-support.md)]
+
 During preview, AMP for Email is only supported in the **web version** (browser-based) of **Outlook.com** for **personal accounts**. Additionally, only about half of users mailboxes have the feature turned on by default. This is because we are evaluating the impact of the feature before making a decision to roll it out to all users and other versions of Outlook.
 
 ## Supported desktop browsers
