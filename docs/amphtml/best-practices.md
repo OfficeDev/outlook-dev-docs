@@ -9,6 +9,8 @@ localization_priority: Priority
 ---
 # AMP for Email best practices
 
+[!INCLUDE [end-of-support](includes/end-of-support.md)]
+
 ## AMP specific best practices
 
 - Design your email to truly leverage the power of AMP. Deliver value by providing up-to-date information whenever possible and in-place email interaction that keeps your users engaged and allows them to be as efficient as possible.

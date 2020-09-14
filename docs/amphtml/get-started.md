@@ -9,6 +9,8 @@ localization_priority: Priority
 ---
 # Get Started with AMP for Email
 
+[!INCLUDE [end-of-support](includes/end-of-support.md)]
+
 ## Author AMP for Email code
 
 > [!NOTE]

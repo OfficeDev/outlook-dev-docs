@@ -52,7 +52,7 @@ The endpoint for an `autoInvokeAction` must also meet the following additional r
 
 - Requests **must return within 2 seconds**.
 - Requests that take longer will be ignored by the client, and the original card will continue to display. The message will still be updated on the server.
-- Successful responses should include an Adaptive Card JSON payload.
+- Successful responses should include a `CARD-UPDATE-IN-BODY` header with value `true` and an Adaptive Card JSON payload.
 
 On success, the Adaptive Card returned will completely replace the existing card in the email message. If the URL returns an error or times out, the existing card will continue to display.
 

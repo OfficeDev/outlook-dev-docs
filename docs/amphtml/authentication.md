@@ -9,6 +9,8 @@ localization_priority: Priority
 ---
 # AMP for Email Authentication
 
+[!INCLUDE [end-of-support](includes/end-of-support.md)]
+
 If your AMP email performs an authenticated action, such as accessing a protected Web API, you must supply access tokens as query string parameters in the URL of your actions and verify those tokens on your service. The following example illustrates this with an `amp-list`.
 
 ```html
