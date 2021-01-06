@@ -359,6 +359,41 @@
       "source_path": "docs/rest/ruby-tutorial.md",
       "redirect_url": "/graph/tutorials/ruby",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/amphtml/authentication.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/outlook-blog/developer-preview-of-amp-for-email-in-outlook-com-no-longer/ba-p/821020",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/amphtml/best-practices.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/outlook-blog/developer-preview-of-amp-for-email-in-outlook-com-no-longer/ba-p/821020",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/amphtml/get-started.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/outlook-blog/developer-preview-of-amp-for-email-in-outlook-com-no-longer/ba-p/821020",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/amphtml/index.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/outlook-blog/developer-preview-of-amp-for-email-in-outlook-com-no-longer/ba-p/821020",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/amphtml/register-outlook.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/outlook-blog/developer-preview-of-amp-for-email-in-outlook-com-no-longer/ba-p/821020",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/amphtml/security-requirements.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/outlook-blog/developer-preview-of-amp-for-email-in-outlook-com-no-longer/ba-p/821020",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/amphtml/version-support.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/outlook-blog/developer-preview-of-amp-for-email-in-outlook-com-no-longer/ba-p/821020",
+      "redirect_document_id": false
     }
   ]
 }

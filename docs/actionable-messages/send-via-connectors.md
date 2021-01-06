@@ -67,17 +67,21 @@ Connectors use webhooks to create Connector Card messages within an Office 365 g
 
 You'll need an Microsoft 365 subscription to proceed. If you do not have an Microsoft 365 subscription you can get a one year [FREE Microsoft 365 subscription](https://developer.microsoft.com/office/dev-program) under the Microsoft 365 Developer Program.
 
-### Get a connector webhook URL for your Inbox
+### Get a connector webhook URL for a Microsoft 365 Group
 
-1. Log on to the Office 365 Mail app at [https://outlook.office.com](https://outlook.office.com). Click the gear icon in the upper-right-hand corner of the page, and select **Manage connectors**.
+1. Log on to Outlook on the web at [https://outlook.office.com](https://outlook.office.com).
+
+1. In the folder list, select a group under the **Groups** section. In the group's menu, select the ellipses (**...**), then select **Settings**.
+
+    ![A screenshot of the location of the Settings menu in a Microsoft 365 Group](images/get-started/group-menu.png)
+
+1. In the **Group Settings** pane, select **Connectors**.
 
 1. Locate and select the **Incoming Webhook** connector in the list of available connectors.
 
     ![A screenshot of the Incoming Webhook item in the available connectors list](images/get-started/incoming-webhook.png)
 
 1. Enter a name for this connector and choose **Create**.
-
-    ![A screenshot of the Incoming Webhook creation page](images/get-started/create-webhook.png)
 
 1. Copy the webhook URL that is displayed and save it. Choose **Done**.
 

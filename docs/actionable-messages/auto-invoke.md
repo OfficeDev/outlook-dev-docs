@@ -4,7 +4,7 @@ description: Learn how to update an actionable message card automatically when t
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 10/25/2019
+ms.date: 01/06/2021
 ms.author: jasonjoh
 localization_priority: Normal
 ---
@@ -15,6 +15,10 @@ Actionable messages allow users to take quick actions on an email message, often
 
 > [!IMPORTANT]
 > Refreshing the actionable message when the user opens it has a direct impact on the perceived performance of your actionable message solution. It is crucial that your service that supplies the updated card meet the performance requirements described in [Implementing the Web API](#implementing-the-web-api).
+
+## Registration requirements
+
+Actionable Messages services registered in the [developer dashboard](email-dev-dashboard.md) with the **Test Users** or **Organization** scope can use this feature as soon as they are approved. If your service is registered with the **Global** scope, you must contact [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) to enable this feature.
 
 ## Using autoInvokeAction
 

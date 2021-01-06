@@ -111,7 +111,7 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Outlook 2016 on Mac                               | Yes, in version 16.38, Build 20060702                 | Yes (Legacy MessageCard format is not supported) |
 | Outlook on iOS                                    | Yes                                                   | Yes (Legacy MessageCard format is not supported) |
 | Outlook on Android                                | Yes                                                   | Yes (Legacy MessageCard format is not supported) |
-| Office Professional Plus 2016                     | Actionable Messages are available for Office 365 only | No |
+| Office Professional Plus 2016 (Click-to-Run only) | Actionable Messages are available for Office 365 only | No |
 | Exchange 2016 On-Premises Outlook on the web      | Actionable Messages are available for Office 365 only | No |
 
 ## Submit feedback
