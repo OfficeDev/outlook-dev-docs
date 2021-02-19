@@ -14,7 +14,7 @@ localization_priority: Priority
 Outlook Actionable Messages cards are designed using the Adaptive Card format. The Adaptive Card format is a simple yet powerful declarative layout format that provides a lot of flexibility, allowing for visually rich cards. In this topic we'll cover the Outlook-specific features of the Adaptive Card format.
 
 > [!IMPORTANT]
-> The Adaptive Card format is only available for Actionable Messages sent via email, and is **required** to support Outlook on iOS and Android. The MessageCard format is still supported but is now de-emphasized. Office connectors and Microsoft Teams connectors do not currently support the Adaptive Card format. If you are implementing an Office 365 or Microsoft Teams connector, please refer to the [MessageCard format reference](https://docs.microsoft.com/outlook/actionable-messages/message-card-reference).
+> The Adaptive Card format is only available for Actionable Messages sent via email, and is **required** to support Outlook on iOS and Android. The MessageCard format is still supported but is now de-emphasized. Office connectors and Microsoft Teams connectors do not currently support the Adaptive Card format. If you are implementing an Office 365 or Microsoft Teams connector, please refer to the [MessageCard format reference](./message-card-reference.md).
 >
 > For information on which Outlook versions support the Adaptive Card format, see [Outlook version requirements for actionable messages](index.md#outlook-version-requirements-for-actionable-messages).
 
@@ -487,8 +487,8 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
 |---------------|------|----------|-------------|
 | `type` | String | Yes | Must be set to `Action.InvokeAddInCommand`. |
 | `title` | String | No | The title of the action as it will appear on screen on a button control, for instance. |
-| `addInId` | String | Yes | Specifies the add-in ID of the required add-in. The add-in ID is found in the [Id element in the add-in's manifest](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/id). |
-| `desktopCommandId` | String | Yes | Specifies the ID of the add-in command button that opens the required task pane. The command button ID is found in the `id` attribute of the [Control element](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/control) that defines the button in the add-in's manifest. The specified `Control` element MUST be defined inside a [MessageReadCommandSurface extension point](https://docs.microsoft.com/office/dev/add-ins/reference/manifest/extensionpoint), be of type `Button`, and the control's `Action` must be of type `ShowTaskPane`. |
+| `addInId` | String | Yes | Specifies the add-in ID of the required add-in. The add-in ID is found in the [Id element in the add-in's manifest](/office/dev/add-ins/reference/manifest/id). |
+| `desktopCommandId` | String | Yes | Specifies the ID of the add-in command button that opens the required task pane. The command button ID is found in the `id` attribute of the [Control element](/office/dev/add-ins/reference/manifest/control) that defines the button in the add-in's manifest. The specified `Control` element MUST be defined inside a [MessageReadCommandSurface extension point](/office/dev/add-ins/reference/manifest/extensionpoint), be of type `Button`, and the control's `Action` must be of type `ShowTaskPane`. |
 | `initializationContext` | Object | Yes | Developers may specify any valid JSON object in this field. The value is serialized into a string and made available to the add-in when the action is executed. This allows the action to pass initialization data to the add-in. |
 
 ### Action.DisplayMessageForm

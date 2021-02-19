@@ -28,14 +28,14 @@ Choose **New Connector** and fill out the form. Once you choose **Save**, new op
 
 An integrated configuration experience allows the user to configure your connector without leaving Outlook. Your application exposes the configuration as a web page that utilizes the Microsoft Teams JavaScript library to communicate configuration status back to Outlook.
 
-For details, see [Integrating the configuration experience](https://docs.microsoft.com/microsoftteams/platform/concepts/connectors/connectors-creating#integrating-the-configuration-experience).
+For details, see [Integrating the configuration experience](/microsoftteams/platform/concepts/connectors/connectors-creating#integrating-the-configuration-experience).
 
 > [!NOTE]
 > The **Integrating the configuration experience** document is Microsoft Teams-specific, but the documented methods work the same way in Outlook.
 
 #### Outlook-specific configuration requirements
 
-If your configuration experience requires authentication, there are additional requirements to enable the [authentication flow](https://docs.microsoft.com/microsoftteams/platform/concepts/authentication/auth-flow-tab) in Outlook on Windows.
+If your configuration experience requires authentication, there are additional requirements to enable the [authentication flow](/microsoftteams/platform/concepts/authentication/auth-flow-tab) in Outlook on Windows.
 
 Outlook on Windows passes an additional query parameter to your connectors authentication start page.
 
