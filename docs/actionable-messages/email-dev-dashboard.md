@@ -46,7 +46,7 @@ The key fields are:
   </RSAKeyValue>
   ```
 
-  For an example of how to get public key XML from  a .cert file, see [PublicKey Class](/dotnet/api/system.security.cryptography.x509certificates.publickey?view=netframework-4.8#examples).
+  For an example of how to get public key XML from  a .cert file, see [PublicKey Class](/dotnet/api/system.security.cryptography.x509certificates.publickey#examples).
 
 ### Scope of your submission
 
