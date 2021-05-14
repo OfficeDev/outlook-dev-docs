@@ -4,7 +4,7 @@ description: Learn about security requirements for actionable messages and how t
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 05/21/2019
+ms.date: 05/13/2021
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -65,9 +65,11 @@ SignedCardPayload is a string encoded by JSON Web Signature (JWS) standard. [RFC
 
 Here is an example of SignedCardPayload. The encoded Adaptive Card appears in the form of [header].[payload].[signature] as per JWS specification.
 
+<!-- markdownlint-disable MD040 -->
 ```
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZW5kZXIiOiJzZXJ2aWNlLWFjY291bnRAY29udG9zby5jb20iLCJvcmlnaW5hdG9yIjoiNjVjNjgwZWYtMzZhNi00YTFiLWI4NGMtYTdiNWM2MTk4NzkyIiwicmVjaXBpZW50c1NlcmlhbGl6ZWQiOiJbXCJqb2huQGNvbnRvc28uY29tXCIsXCJqYW5lQGNvbnRvc28uY29tXCJdIiwiYWRhcHRpdmVDYXJkU2VyaWFsaXplZCI6IntcIiRzY2hlbWFcIjpcImh0dHA6Ly9hZGFwdGl2ZWNhcmRzLmlvL3NjaGVtYXMvYWRhcHRpdmUtY2FyZC5qc29uXCIsXCJ0eXBlXCI6XCJBZGFwdGl2ZUNhcmRcIixcInZlcnNpb25cIjpcIjEuMFwiLFwiYm9keVwiOlt7XCJzaXplXCI6XCJsYXJnZVwiLFwidGV4dFwiOlwiSGVsbG8gQWN0aW9uYWJsZSBtZXNzYWdlXCIsXCJ3cmFwXCI6dHJ1ZSxcInR5cGVcIjpcIlRleHRCbG9ja1wifV0sXCJhY3Rpb25zXCI6W3tcInR5cGVcIjpcIkFjdGlvbi5JbnZva2VBZGRJbkNvbW1hbmRcIixcInRpdGxlXCI6XCJPcGVuIEFjdGlvbmFibGUgTWVzc2FnZXMgRGVidWdnZXJcIixcImFkZEluSWRcIjpcIjNkMTQwOGY2LWFmYjMtNGJhZi1hYWNkLTU1Y2Q4NjdiYjBmYVwiLFwiZGVza3RvcENvbW1hbmRJZFwiOlwiYW1EZWJ1Z2dlck9wZW5QYW5lQnV0dG9uXCJ9XX0iLCJpYXQiOjE1NDUzNDgxNTN9.BP9mK33S1VZyjtWZd-lNTTjvueyeeoitygw9bl17TeQFTUDh9Kg5cB3fB7BeZYQs6IiWa1VGRdiiR4q9EkAB1qDsmIcJnw6aYwDUZ1KY4lNoYgQCH__FxEPHViGidNGtq1vAC6ODw0oIfaTUWTa5cF5MfiRBIhpQ530mbRNnA0QSrBYtyB54EDJxjBF1vNSKOeVHAl2d4gqcGxsytQA0PA7XMbrZ8B7fEU2uNjSiLQpoh6A1tevpla2C7W6h-Wekgsmjpw2YToAOX67VZ1TcS5oZAHmjv2RhqsfX5DlN-ZsTRErU4Hs5d92NY9ijJPDunSLyUFNCw7HLNPFqqPmZsw
 ```
+<!-- markdownlint-enable MD040 -->
 
 The header in above JWS is:
 
@@ -98,7 +100,7 @@ The payload in above JWS is:
 | `iat` | The time that the payload was signed. |
 | `sender` | The email address used to send this actionable message. |
 | `recipientsSerialized` | The stringified list of the recipients of the email. This should include all the To/CC recipients of the email. |
-| `adaptiveCardSerialized` | The stringfied Adaptive Card. |
+| `adaptiveCardSerialized` | The stringified Adaptive Card. |
 
 Sample code generating signed card:
 
@@ -112,12 +114,13 @@ All action requests from Microsoft have a bearer token in the HTTP `Authorizatio
 | Claim name | Value |
 |------------|-------|
 | `aud` | The base URL of the target service, e.g. `https://api.contoso.com` |
+| `iss` | The issuer of the token. This should be `https://substrate.office.com/sts/`
 | `sub` | The identity of the user who took the action. For Actionable Messages sent over email, `sub` would be the email address of the user. For connectors, `sub` will be the objectID of the user who took the action. |
 | `sender` | The identity of sender of the message containing the action. This value is only present if the actionable message was [sent via email](send-via-email.md). Actionable messages [sent via connectors](send-via-connectors.md) do not include this claim in their bearer token. |
 
 Typically, a service will perform the following verifications.
 
-1. The token is signed by Microsoft.
+1. The token is signed by Microsoft. OpenID metadata is located at `https://substrate.office.com/sts/common/.well-known/openid-configuration`, which includes information regarding signing keys.
 1. The `aud` claim corresponds to the service's base URL.
 
 With all the above verifications done, the service can trust the `sender` and `sub` claims to be the identity of the sender and the user taking the action. The service can validate that the `sender` and `sub` claims match the sender and user it is expecting.
