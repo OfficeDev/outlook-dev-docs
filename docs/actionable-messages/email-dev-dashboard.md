@@ -46,7 +46,7 @@ The key fields are:
   </RSAKeyValue>
   ```
 
-  For an example of how to get public key XML from  a .cert file, see [PublicKey Class](/dotnet/api/system.security.cryptography.x509certificates.publickey?view=netframework-4.8#examples).
+  For an example of how to get public key XML from  a .cert file, see [PublicKey Class](/dotnet/api/system.security.cryptography.x509certificates.publickey#examples).
 
 ### Scope of your submission
 
@@ -119,7 +119,7 @@ There are some things you need to keep in mind when you submit your solution for
 - The top-level domain (TLD) of the SPF check or DKIM signature must match the TLD of your `From:` email address. For example, if you use `From: myservice@contoso.com` the DKIM or SPF must be for `contoso.com` or `-.contoso.com`.
 - Emails must come from a static email address, e.g. `myservice@contoso.com`.
 - Emails must follow the email sender guidelines.
-  - See [Sending mail to Office 365](https://docs.microsoft.com/office365/SecurityCompliance/sending-mail-to-office-365) for Office 365.
+  - See [Sending mail to Office 365](/office365/SecurityCompliance/sending-mail-to-office-365) for Office 365.
   - See [Policies, Practices, and Guidelines](https://sendersupport.olc.protection.outlook.com/pm/policies.aspx) for Outlook.com.
   - See [M3AAWG Sender Best Practices](https://www.m3aawg.org/sites/default/files/document/M3AAWG_Senders_BCP_Ver3-2015-02.pdf) and [ReturnPath Sending Best Practices](https://help.returnpath.com/hc/articles/221634867-Sending-Best-Practices-PDF-) for industry guidelines.
 - Consistent history of sending a high volume of mail from your domain (order of hundred emails a day minimum to Office 365) for a few weeks at least.
