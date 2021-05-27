@@ -5,7 +5,7 @@ author: jasonjoh
 
 ms.topic: article
 ms.technology: ms-graph
-ms.date: 04/26/2017
+ms.date: 05/27/2021
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -13,6 +13,11 @@ localization_priority: Priority
 # Compare Microsoft Graph and Outlook REST API endpoints
 
 The Outlook REST APIs are available in both [Microsoft Graph](/graph/overview) and the Outlook API endpoint (`https://outlook.office.com/api`). The APIs generally provide the same functionality and use the same resource types.
+
+> [!NOTE]
+> **The Outlook REST APIs are deprecated.**
+>
+> The Outlook REST endpoints will be fully decommissioned in November 2022. Migrate existing apps to use Microsoft Graph.
 
 <!-- markdownlint-disable MD026 -->
 ## Which endpoint should I use?
@@ -39,7 +44,7 @@ The APIs are very similar on the Microsoft Graph endpoint and the Outlook endpoi
 
 ### API versions
 
-The Microsoft Graph API offers two versions: `v1.0` and `beta`, while Outlook offers `v1.0`, `v2.0`, and `beta`. Microsoft Graph `v1.0` matches Outlook `v2.0`, and Microsoft Graph `beta` matches Outlook `beta`. The Outlook `v1.0` version is being deprecated.
+The Microsoft Graph API offers two versions: `v1.0` and `beta`, while Outlook offers `v1.0`, `v2.0`, and `beta`. Microsoft Graph `v1.0` matches Outlook `v2.0`, and Microsoft Graph `beta` matches Outlook `beta`.
 
 ### OAuth scopes
 
