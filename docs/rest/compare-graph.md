@@ -29,8 +29,7 @@ There are some features that are currently either only available on the Outlook 
 
 | Feature | Difference between endpoints |
 |---------|-------------|
-| [Outlook tasks](/previous-versions/office/office-365-api/api/version-2.0/task-rest-operations) | The Outlook API provides access to user's tasks. This feature is currently only available in beta in Microsoft Graph. |
-| Attachments over 4MB in size | [Large file attachment support](/graph/outlook-large-attachments) is only available in beta in Microsoft Graph. |
+| [Outlook tasks](/previous-versions/office/office-365-api/api/version-2.0/task-rest-operations) | Access to users' tasks in Microsoft Graph is available through the [To Do API](/graph/api/resources/todo-overview) |
 | [Rich notifications](/previous-versions/office/office-365-api/api/version-2.0/notify-rest-operations#get-instance-properties-by-subscribing-to-rich-notifications) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph does not support this feature. |
 | [Streaming notifications](/previous-versions/office/office-365-api/api/beta/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature. |
 
@@ -69,9 +68,17 @@ Apps that use the [Azure AD v1.0 endpoint](/azure/active-directory/develop/activ
 
 ### Resource property names
 
-The resources are the same between Microsoft Graph and Outlook. However, the two endpoints handle casing of the property names differently. Microsoft Graph uses camelCase for property names, while Outlook uses PascalCase. Translating between the two simply requires converting the case.
+The resources are largely the same between Microsoft Graph and Outlook. However, the two endpoints handle casing of the property names differently. Microsoft Graph uses camelCase for property names, while Outlook uses PascalCase. Translating between the two simply requires converting the case. Property names that are changed are specified in the table below.
 
-For example, the Microsoft Graph [message resource](/graph/api/resources/message?view=graph-rest-1.0) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
+For example, the Microsoft Graph [message resource](/graph/api/resources/message) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
+
+#### Changed property names
+
+The following property names are different between Microsoft Graph and Outlook.
+
+| Resource type | Microsoft Graph property | Outlook property |
+|---------------|--------------------------|------------------|
+| `contact`     | `mobilePhone`            | `MobilePhone1`   |
 
 ### Tracking changes (synchronization)
 
