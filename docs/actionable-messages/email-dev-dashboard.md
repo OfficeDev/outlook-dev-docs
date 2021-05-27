@@ -4,7 +4,7 @@ description: The developer dashboard helps you submit and track status of your s
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 10/31/2019
+ms.date: 05/27/2021
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -66,7 +66,7 @@ Each of the above are independent steps. i.e. you can pick only one scope for ea
 Self-service of registrations is available for registrations that use the following scopes.
 
 - **Test Users**: The registration request is auto-approved for your test users you specify. This will enable actionable emails from your service sent to test users.
-- **Organization**: This registration request will be sent to your organization's administrators with **Exchange administrator** or **Global administrator** permissions. Any administrator with those permissions receive an email with submission details and will be able to review and approve your request.
+- **Organization**: This registration request will be sent to your organization's administrators with **Exchange administrator** permissions. Any administrator with those permissions receive an email with submission details and will be able to review and approve your request. If no users have the **Exchange administrator** role assigned, users with the **Global administrator** role will receive this email instead.
 
 Once the submission is approved, whether auto-approved or by your administrator, it will take up to an hour for the registration to take effect.
 
