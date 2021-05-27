@@ -70,7 +70,7 @@ Apps that use the [Azure AD v1.0 endpoint](/azure/active-directory/develop/activ
 
 The resources are largely the same between Microsoft Graph and Outlook. However, the two endpoints handle casing of the property names differently. Microsoft Graph uses camelCase for property names, while Outlook uses PascalCase. Translating between the two simply requires converting the case. Property names that are changed are specified in the table below.
 
-For example, the Microsoft Graph [message resource](/graph/api/resources/message?view=graph-rest-1.0) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
+For example, the Microsoft Graph [message resource](/graph/api/resources/message) defines properties such as `subject`, `from`, and `receivedDateTime`. On the Outlook endpoint, these properties are named `Subject`, `From`, and `ReceivedDateTime`.
 
 #### Changed property names
 
