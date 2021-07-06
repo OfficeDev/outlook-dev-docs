@@ -4,7 +4,7 @@ description: Learn how to authenticate an actionable message recipient with your
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 07/04/20210
+ms.date: 07/04/2021
 ms.author: jasonjoh
 localization_priority: Normal
 ---
