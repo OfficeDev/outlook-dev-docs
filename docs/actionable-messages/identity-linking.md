@@ -1,17 +1,17 @@
 ---
 title: Link Azure Active Directory identity with your own identity provider (Preview)
-description: Learn how to authenticate an actionable message recipient with your service to link their AAD identity.
+description: Learn how to authenticate an actionable message recipient with your service to link their Azure AD identity.
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 05/29/2020
+ms.date: 07/04/2021
 ms.author: jasonjoh
 localization_priority: Normal
 ---
 
 # Link Azure Active Directory identity with your own identity provider (Preview)
 
-[Action.Http](adaptive-card.md#actionhttp) actions in actionable messages include an AAD-issued token in the `Authorization` header, which provides information about the user's identity. However, this information may not be sufficient to authenticate the user to your service. With identity linking, you can signal the Outlook client to present UI to allow the user to authenticate with your service. Once the user authenticates, you can associate their AAD identity with your own to allow for seamless authentication for future requests.
+[Action.Http](adaptive-card.md#actionhttp) actions in actionable messages include an Azure AD-issued token in the `Authorization` header, which provides information about the user's identity. However, this information may not be sufficient to authenticate the user to your service. With identity linking, you can signal the Outlook client to present UI to allow the user to authenticate with your service. Once the user authenticates, you can associate their Azure AD identity with your own to allow for seamless authentication for future requests.
 
 ## Using identity linking
 
@@ -64,7 +64,7 @@ After Outlook receives the `401` with the `ACTION-AUTHENTICATE` header, it will 
 GET https://identity.contoso.com/authenticate?state=https://outlook.office.com/connectors/adelev@contoso.com/723a1c49-f8dc-4063-843e-d4c2b7180b8b/postAuthenticate
 ```
 
-Your service authenticates the user and associates the identity provided by the AAD-issued token with the user in your system. Once complete, the service redirects the request to the URL from the `Identity-Linking-Redirect-Url` header.
+Your service authenticates the user and associates the identity provided by the Azure AD-issued token with the user in your system. Once complete, the service redirects the request to the URL from the `Identity-Linking-Redirect-Url` header.
 
 ```http
 HTTP/1.1 302 Found
@@ -73,7 +73,7 @@ Location: https://outlook.office.com/connectors/adelev@contoso.com/723a1c49-f8dc
 
 ### Retry action
 
-After Outlook receives the redirect back from your authentication server, it immediately retries the original request. This time, because you've associated the AAD identity with your own, your endpoint processes the request normally.
+After Outlook receives the redirect back from your authentication server, it immediately retries the original request. This time, because you've associated the Azure AD identity with your own, your endpoint processes the request normally.
 
 ## Example
 
