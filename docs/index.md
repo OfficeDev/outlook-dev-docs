@@ -35,7 +35,7 @@ Whether you are filling out a survey, approving an expense report, or updating a
 
 ## Need help?
 
-Ask the developer community questions about your code on the [Microsoft Q&A forum](https://docs.microsoft.com/answers/topics/office-addins-dev.html).
+Ask the developer community questions about your code on the [Microsoft Q&A forum](/answers/topics/office-addins-dev.html).
 
 You can also join the Outlook developer community on Stack Overflow. We use the following tags for each of the integration types:
 
