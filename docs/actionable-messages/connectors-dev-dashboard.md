@@ -76,7 +76,7 @@ Once you have thoroughly tested your connector and it is ready to be listed in t
 
 ## Next steps
 
-- If you have a question, need help, or are experiencing an issue with your code, ask the developer community on [Microsoft Q&A](https://docs.microsoft.com/answers/topics/office-addins-dev.html).
+- If you have a question, need help, or are experiencing an issue with your code, ask the developer community on [Microsoft Q&A](/answers/topics/office-addins-dev.html).
 - You can also post your question or issue on **Stack Overflow**. Tag your question according to the technology involved:
   - REST APIs: [microsoftgraph](http://stackoverflow.com/questions/tagged/microsoftgraph) or [outlook-rest-api](http://stackoverflow.com/questions/tagged/outlook-rest-api)
   - Add-ins: [outlook-web-addins](http://stackoverflow.com/questions/tagged/outlook-web-addins)
