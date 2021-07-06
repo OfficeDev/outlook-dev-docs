@@ -27,15 +27,15 @@ Let's take a look at the end-to-end user experience for both an email-based and 
 
 A Contoso employee submits a request to join a private Office 365 group. Office 365 sends an Actionable Message to the person who owns the group to approve or decline the request. The card included in the message contains all the information the approver might need to quickly understand who submitted the request and any message they included to explain their request. It also includes **Approve** and **Decline** actions that can be taken right from Outlook. The owner approves the request, and the card updates to indicate the outcome.
 
-![A join group request message card rendered in Outlook on iOS](images/group-join-request-ios.png)
+![A join group request message card rendered in Outlook on iOS.](images/group-join-request-ios.png)
 
 The new member of the group submits a second request to add her team members to the group. Office 365 sends an Actionable Message to the owner with clear information about who submitted the request and the new members to add. The recipient can approve all, some, or none of the proposed new members. The owner approves one new member, and the card updates to indicate the outcome. The approved member is no longer selectable, while the remaining member remains selectable.
 
-![An add group members message card showing the first requested member being approved as rendered in Outlook on iOS](images/group-add-members-request-ios-1.png)
+![An add group members message card showing the first requested member being approved as rendered in Outlook on iOS.](images/group-add-members-request-ios-1.png)
 
 The owner declines the other requested new member, and the card updates to indicate the outcome. Both members are no longer selectable, and the action buttons are removed.
 
-![An add group members message card showing the second requested member being declined as rendered in Outlook on iOS](images/group-add-members-request-ios-2.png)
+![An add group members message card showing the second requested member being declined as rendered in Outlook on iOS.](images/group-add-members-request-ios-2.png)
 
 ### Actionable messages via Office connectors: task management scenario
 
@@ -43,15 +43,15 @@ Adele Vance and her team use Trello as their task management system. Adele has c
 
 Shiva, in Adele's team, creates a new Trello card in the "Hiring" board. He needs the latest job postings to be published. Adele receives an actionable message that tells her all about the new card and the task it represents: who created it, in which list, what the due date is, and more.
 
-![A Trello connector card with actions](images/trello-card-actions.png)
+![A Trello connector card with actions.](images/trello-card-actions.png)
 
 Adele has a few notes she recently took on a piece of paper with important things that should be mentioned in the job postings. She decides to add these as a comment to the Trello card. She clicks the **Add a comment** action, and is presented with a text input field in which she can type her notes:
 
-![The "Add a comment" action UI with a text input](images/trello-card-add-comment.png)
+![The "Add a comment" action UI with a text input.](images/trello-card-add-comment.png)
 
 Adele then clicks the **Save** button, and the notes are immediately saved to the Trello card. A confirmation appears at the bottom of the message:
 
-![The confirmation message](images/trello-card-infobar.png)
+![The confirmation message.](images/trello-card-infobar.png)
 
 ## Office connectors
 
@@ -67,25 +67,25 @@ Office connectors are available for both the inbox and Groups for any Office 365
 
 Users access inbox connectors from the **Settings** menu, accessed from the gear icon in the top-right corner.
 
-![A screenshot of the Settings menu in Outlook on the web](images/web-inbox-connector-menu.png)
+![A screenshot of the Settings menu in Outlook on the web.](images/web-inbox-connector-menu.png)
 
 #### Groups connectors
 
 Users access group connectors from the **Group settings** menu, accessed from the gear icon in the group title bar.
 
-![A screenshot of the Group settings icon in Outlook on the web](images/web-group-settings-icon.png)
+![A screenshot of the Group settings icon in Outlook on the web.](images/web-group-settings-icon.png)
 
-![A screenshot of the Group settings menu in Outlook on the web](images/web-group-connector-menu.png)
+![A screenshot of the Group settings menu in Outlook on the web.](images/web-group-connector-menu.png)
 
 #### Accessing connectors in Outlook 2016 on Windows
 
 Users access both inbox and group connectors from the **Store** button. The Store button loads connectors for the inbox if Outlook is currently displaying a mail folder in the user's mailbox, and loads connectors for the currently selected group if displaying a group.
 
-![A screenshot of the Store button in Outlook 2016 on Windows](images/win-store-icon.png)
+![A screenshot of the Store button in Outlook 2016 on Windows.](images/win-store-icon.png)
 
 In the inbox case, the Store dialog displays the **Add-ins** tab by default. Connectors are available in the **Connectors** tab.
 
-![A screenshot of the Connectors tab in the Store dialog in Outlook 2016 on Windows](images/win-store-connectors-tab.png)
+![A screenshot of the Connectors tab in the Store dialog in Outlook 2016 on Windows.](images/win-store-connectors-tab.png)
 
 ## Release Notes
 

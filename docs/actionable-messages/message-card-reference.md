@@ -428,19 +428,19 @@ For more information, see [Invoke an Outlook add-in from an actionable message](
 
 Card is created in a list:
 
-![An example Trello card](images/reference/trello-example.png)
+![An example Trello card.](images/reference/trello-example.png)
 
 Here is how that card is built:
 
-![A diagram explaining the parts of an example Trello card](images/reference/trello-example-explained.png)
+![A diagram explaining the parts of an example Trello card.](images/reference/trello-example-explained.png)
 
 Here's the same card with the **Add a comment** action expanded:
 
-![An example Trello card with an action card expanded](images/reference/trello-example-expanded.png)
+![An example Trello card with an action card expanded.](images/reference/trello-example-expanded.png)
 
 Here's how the **Add a comment** action is built:
 
-![A diagram explaining the parts of an example Trello card with an action card expanded](images/reference/trello-example-expanded-explained.png)
+![A diagram explaining the parts of an example Trello card with an action card expanded.](images/reference/trello-example-expanded-explained.png)
 
 #### Trello JSON
 
@@ -550,11 +550,11 @@ Here's how the **Add a comment** action is built:
 
 Here's an example of a Twitter digest card:
 
-![An example Twitter digest card](images/reference/twitter-example.png)
+![An example Twitter digest card.](images/reference/twitter-example.png)
 
 Here's how that card is built:
 
-![A diagram explaining the parts of an example Twitter digest card](images/reference/twitter-example-explained.png)
+![A diagram explaining the parts of an example Twitter digest card.](images/reference/twitter-example-explained.png)
 
 #### Twitter JSON
 
