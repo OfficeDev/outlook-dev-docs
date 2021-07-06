@@ -4,7 +4,7 @@ description: Register your connector in our developer portal, add an integrated 
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 08/02/2018
+ms.date: 07/04/2021
 ms.author: jasonjoh
 localization_priority: Priority
 ---
@@ -76,4 +76,9 @@ Once you have thoroughly tested your connector and it is ready to be listed in t
 
 ## Next steps
 
-If you have any feedback share it on <a target="_blank" href="https://officespdev.uservoice.com/forums/224641-general/category/146379-connectors">UserVoice</a>. Post your questions on Stack Overflow and tag them with [Office365Connectors](https://stackoverflow.com/questions/tagged/Office365Connectors?sort=newest).
+- If you have a question, need help, or are experiencing an issue with your code, ask the developer community on [Microsoft Q&A](https://docs.microsoft.com/answers/topics/office-addins-dev.html).
+- You can also post your question or issue on **Stack Overflow**. Tag your question according to the technology involved:
+  - REST APIs: [microsoftgraph](http://stackoverflow.com/questions/tagged/microsoftgraph) or [outlook-rest-api](http://stackoverflow.com/questions/tagged/outlook-rest-api)
+  - Add-ins: [outlook-web-addins](http://stackoverflow.com/questions/tagged/outlook-web-addins)
+  - Actionable messages or Outlook connectors: [office365connectors](http://stackoverflow.com/questions/tagged/office365connectors)
+- If you have a feature suggestion, please post your idea on our [**Microsoft 365 Developer Platform Ideas**](https://aka.ms/m365dev-suggestions) forum, and vote for your suggestions there.

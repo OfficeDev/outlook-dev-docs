@@ -120,6 +120,7 @@ There are multiple ways you can send us feedback.
 
 <!-- markdownlint-disable MD033 -->
 - The in-product **Send Feedback** link (preferred)
-- Post questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/Office365Connectors?sort=newest) - Tag your questions with `Office365Connectors`.
-- Post feedback and suggestions to <a target="_blank" href="https://officespdev.uservoice.com/forums/224641-general/category/146379-connectors">UserVoice</a>.
+- If you have a question, need help, or are experiencing an issue with your code, ask the developer community on [Microsoft Q&A](https://docs.microsoft.com/answers/topics/office-addins-dev.html).
+- You can also post questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/Office365Connectors?sort=newest) - Tag your questions with `Office365Connectors`.
+- If you have a feature suggestion, please post your idea on our [**Microsoft 365 Developer Platform Ideas**](https://aka.ms/m365dev-suggestions) forum, and vote for your suggestions there.
 <!-- markdownlint-enable MD033 -->
