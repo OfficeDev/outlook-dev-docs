@@ -15,14 +15,14 @@ Here are some ways you can contribute to this documentation:
 
 * To make small changes to an article, [Contribute using GitHub](#contribute-using-github).
 * To make large changes, or changes that involve code, [Contribute using Git](#contribute-using-git).
-* Report documentation bugs via GitHub Issues
-* Request new documentation at the [Office Developer Platform UserVoice](http://officespdev.uservoice.com) site.
+* Report documentation bugs or request new documentation via GitHub Issues.
+* Make suggestions on our [**Microsoft 365 Developer Platform Ideas**](https://aka.ms/m365dev-suggestions) forum.
 
 > **Note:** Always submit pull requests to the **master** branch of this repository. That is the only branch that accepts pull requests.
 
 ## Contribute using GitHub
 
-Use GitHub to contribute to this documentation without having to clone the repo to your desktop. This is the easiest way to create a pull request in this repository. Use this method to make a minor change that doesn't involve code changes. 
+Use GitHub to contribute to this documentation without having to clone the repo to your desktop. This is the easiest way to create a pull request in this repository. Use this method to make a minor change that doesn't involve code changes.
 
 **Note** Using this method allows you to contribute to one article at a time.
 

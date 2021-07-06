@@ -24,7 +24,7 @@ Actionable messages allow the user to take quick actions on an email message or 
 
 The following example shows the prompt users see if the add-in is not installed.
 
-![A screenshot of the prompt to install an add-in when invoked from an actionable message](images/invoke-mha-add-in.png)
+![A screenshot of the prompt to install an add-in when invoked from an actionable message.](images/invoke-mha-add-in.png)
 
 ## Invoking the add-in
 

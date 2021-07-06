@@ -28,7 +28,7 @@ The [Adaptive Cards Designer](https://amdesigner.azurewebsites.net/) provides a 
 
 ## A simple Adaptive Card example
 
-![A sample Adaptive Card](images/adaptive-card-example.png)
+![A sample Adaptive Card.](images/adaptive-card-example.png)
 
 The above card illustrates some of the core and most powerful capabilities of the Adaptive Card format:
 
@@ -364,7 +364,7 @@ Outlook Actionable Messages use an HTTP-based action model via the `Action.Http`
 }
 ```
 
-![The Action.Http example card](images/adaptive-action-http.png)
+![The Action.Http example card.](images/adaptive-action-http.png)
 
 #### Implementing the Web API
 
@@ -404,7 +404,7 @@ Adaptive Cards may contain inputs, and it may be necessary to pass the values of
 }
 ```
 
-![The input value substitution example card](images/adaptive-input-substitution.png)
+![The input value substitution example card.](images/adaptive-input-substitution.png)
 
 The above card defines a text input and sets it `id` property to `nameInput`. It also defines an `Action.Http` action that makes a GET call to an endpoint on domain contoso.com. With the inclusion of `?name={{nameInput.value}}` on the target URL, the value of the input with id `nameInput` will be dynamically substituted at the time the action is taken by the user. So if the user had entered the name David in the text input, the target URL after substitution would be `https://contoso.com/sayhello?name=David`
 
@@ -559,11 +559,11 @@ The `Action.ToggleVisibility` action makes it possible to show and/or hide speci
 
 The example card renders similar to the following before the button is clicked:
 
-![A screenshot of the Action.ToggleVisibility example card in a collapsed state](images/adaptive-visibility-collapsed.png)
+![A screenshot of the Action.ToggleVisibility example card in a collapsed state.](images/adaptive-visibility-collapsed.png)
 
 The example card renders similar to the following after the button is clicked:
 
-![A screenshot of the Action.ToggleVisibility example card in an expanded state](images/adaptive-visibility-expanded.png)
+![A screenshot of the Action.ToggleVisibility example card in an expanded state.](images/adaptive-visibility-expanded.png)
 
 ### ActionSet element
 
@@ -612,7 +612,7 @@ Aside from the fact that `ActionSet` can be placed anywhere in the card, it beha
 }
 ```
 
-![A screenshot of the ActionSet example card](images/adaptive-action-set.png)
+![A screenshot of the ActionSet example card.](images/adaptive-action-set.png)
 
 ### Additional properties on all Adaptive Card element types
 
@@ -712,7 +712,7 @@ If `width` is expressed as a string, it can have the following values:
 }
 ```
 
-![A screenshot of the width example card](images/adaptive-column-pixel-width.png)
+![A screenshot of the width example card.](images/adaptive-column-pixel-width.png)
 
 ### Additional properties on the Container type
 
@@ -764,7 +764,7 @@ The following additional properties can be specified on an [Image object](https:
 }
 ```
 
-![A screenshot of the Image properties example card](images/adaptive-image-properties.png)
+![A screenshot of the Image properties example card.](images/adaptive-image-properties.png)
 
 ## See also
 

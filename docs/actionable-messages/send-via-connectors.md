@@ -73,19 +73,19 @@ You'll need an Microsoft 365 subscription to proceed. If you do not have an Micr
 
 1. In the folder list, select a group under the **Groups** section. In the group's menu, select the ellipses (**...**), then select **Settings**.
 
-    ![A screenshot of the location of the Settings menu in a Microsoft 365 Group](images/get-started/group-menu.png)
+    ![A screenshot of the location of the Settings menu in a Microsoft 365 Group.](images/get-started/group-menu.png)
 
 1. In the **Group Settings** pane, select **Connectors**.
 
 1. Locate and select the **Incoming Webhook** connector in the list of available connectors.
 
-    ![A screenshot of the Incoming Webhook item in the available connectors list](images/get-started/incoming-webhook.png)
+    ![A screenshot of the Incoming Webhook item in the available connectors list.](images/get-started/incoming-webhook.png)
 
 1. Enter a name for this connector and choose **Create**.
 
 1. Copy the webhook URL that is displayed and save it. Choose **Done**.
 
-    ![A screenshot of the Incoming Webhook URL](images/get-started/webhook-url.png)
+    ![A screenshot of the Incoming Webhook URL.](images/get-started/webhook-url.png)
 
 The webhook URL should look similar to the following:
 
@@ -109,6 +109,6 @@ Use [Postman](https://www.getpostman.com/) to post an actionable message payload
 
    The Postman window should look like this when you are done:
 
-   ![The Postman request window configured to post a sample actionable message to a webhook URL](images/get-started/postman-setup.png)
+   ![The Postman request window configured to post a sample actionable message to a webhook URL.](images/get-started/postman-setup.png)
 
 6. Click **Send** to post the message.
