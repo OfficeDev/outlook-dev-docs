@@ -6,7 +6,7 @@ ms.topic: article
 ms.technology: o365-connectors
 ms.author: jasonjoh
 ms.date: 06/24/2019
-localization_priority: Priority
+ms.localizationpriority: high
 ---
 
 # Designing Outlook Actionable Message cards with the Adaptive Card format

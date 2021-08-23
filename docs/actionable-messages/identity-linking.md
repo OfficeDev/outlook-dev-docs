@@ -6,7 +6,7 @@ ms.topic: article
 ms.technology: o365-connectors
 ms.date: 07/04/2021
 ms.author: jasonjoh
-localization_priority: Normal
+ms.localizationpriority: medium
 ---
 
 # Link Azure Active Directory identity with your own identity provider (Preview)

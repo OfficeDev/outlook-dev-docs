@@ -6,7 +6,7 @@ ms.topic: article
 ms.technology: o365-connectors
 ms.date: 01/06/2021
 ms.author: jasonjoh
-localization_priority: Normal
+ms.localizationpriority: medium
 ---
 
 # Refresh an actionable message when the user opens it

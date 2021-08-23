@@ -6,7 +6,7 @@ ms.topic: article
 ms.technology: o365-connectors
 ms.date: 05/07/2018
 ms.author: jasonjoh
-localization_priority: Normal
+ms.localizationpriority: medium
 ---
 
 # Invoke an Outlook add-in from an actionable message

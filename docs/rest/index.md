@@ -6,7 +6,7 @@ ms.topic: overview
 ms.technology: ms-graph
 ms.date: 02/19/2020
 ms.author: jasonjoh
-localization_priority: Priority
+ms.localizationpriority: high
 ---
 
 # One Outlook REST API - your favorite platform - 400+ million users
