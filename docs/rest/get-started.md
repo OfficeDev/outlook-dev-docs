@@ -17,7 +17,7 @@ ms.localizationpriority: high
 >
 > If your preferred platform isn't listed yet, continue reading on this page. We'll go through the same set of steps using raw HTTP requests.
 
-The purpose of this guide is to walk through the process of calling the [Outlook Mail API](/graph/api/resources/message?view=graph-rest-1.0) to retrieve messages in Office 365 and Outlook.com. Unlike the platform-specific getting started guides, this guide focuses on the OAuth and REST requests and responses. It will cover the sequence of requests and responses that an app uses to authenticate and retrieve messages.
+The purpose of this guide is to walk through the process of calling the [Outlook Mail API](/graph/api/resources/message?view=graph-rest-1.0&preserve-view=true) to retrieve messages in Office 365 and Outlook.com. Unlike the platform-specific getting started guides, this guide focuses on the OAuth and REST requests and responses. It will cover the sequence of requests and responses that an app uses to authenticate and retrieve messages.
 
 This tutorial will use [Microsoft Graph](/graph/overview) to call the Mail API. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts. You should use the Outlook APIs directly (via `https://outlook.office.com/api`) only if you require a feature that is not available on the Graph endpoints.
 
@@ -29,7 +29,7 @@ In order to call the Mail API, the app requires an access token from the Microso
 
 ## Calling the Mail API
 
-Once the app has an access token, it's ready to call the Mail API. The [Mail API Reference](/graph/api/resources/message?view=graph-rest-1.0) has all of the details. Since the app is retrieving messages, it will use an HTTP GET request to the `https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages` URL. This will retrieve messages from the inbox.
+Once the app has an access token, it's ready to call the Mail API. The [Mail API Reference](/graph/api/resources/message?view=graph-rest-1.0&preserve-view=true) has all of the details. Since the app is retrieving messages, it will use an HTTP GET request to the `https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages` URL. This will retrieve messages from the inbox.
 
 ### Refining the request
 

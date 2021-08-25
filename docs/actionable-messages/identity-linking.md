@@ -77,7 +77,7 @@ After Outlook receives the redirect back from your authentication server, it imm
 
 ## Example
 
-You can use the following sample card in the [Card Playground](https://messagecardplayground.azurewebsites.net/) to see this in action. The endpoint in this card will prompt you to login to the Microsoft identity platform and (with your consent) will make a Graph request to [get your profile](/graph/api/user-get?view=graph-rest-1.0). The code for this endpoint is available as a sample on [GitHub](https://github.com/OfficeDev/outlook-actionable-messages-identity-linking).
+You can use the following sample card in the [Card Playground](https://messagecardplayground.azurewebsites.net/) to see this in action. The endpoint in this card will prompt you to login to the Microsoft identity platform and (with your consent) will make a Graph request to [get your profile](/graph/api/user-get?view=graph-rest-1.0&preserve-view=true). The code for this endpoint is available as a sample on [GitHub](https://github.com/OfficeDev/outlook-actionable-messages-identity-linking).
 
 ```json
 {
