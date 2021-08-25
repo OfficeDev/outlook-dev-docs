@@ -6,7 +6,7 @@ ms.topic: overview
 ms.technology: ms-graph
 ms.date: 02/19/2020
 ms.author: jasonjoh
-localization_priority: Priority
+ms.localizationpriority: high
 ---
 
 # One Outlook REST API - your favorite platform - 400+ million users
@@ -57,11 +57,11 @@ https://graph.microsoft.com/{version}
 
 ...to make all Outlook REST API calls in the following APIs:
 
-- [Outlook Mail REST API](/graph/api/resources/message?view=graph-rest-1.0)
-- [Outlook Calendar REST API](/graph/api/resources/calendar?view=graph-rest-1.0)
-- [Outlook Contacts REST API](/graph/api/resources/contact?view=graph-rest-1.0)
-- [Outlook Notifications REST API](/graph/api/resources/webhooks?view=graph-rest-1.0)
-- [Outlook Photo REST API](/graph/api/resources/profilephoto?view=graph-rest-1.0)
-- [Outlook Settings REST API](/graph/api/resources/outlookuser?view=graph-rest-1.0)
+- [Outlook Mail REST API](/graph/api/resources/message?view=graph-rest-1.0&preserve-view=true)
+- [Outlook Calendar REST API](/graph/api/resources/calendar?view=graph-rest-1.0&preserve-view=true)
+- [Outlook Contacts REST API](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true)
+- [Outlook Notifications REST API](/graph/api/resources/webhooks?view=graph-rest-1.0&preserve-view=true)
+- [Outlook Photo REST API](/graph/api/resources/profilephoto?view=graph-rest-1.0&preserve-view=true)
+- [Outlook Settings REST API](/graph/api/resources/outlookuser?view=graph-rest-1.0&preserve-view=true)
 
 For more information and a comparison between the Graph endpoints and the Outlook API endpoints, see [Compare Microsoft Graph and Outlook endpoints](compare-graph.md).

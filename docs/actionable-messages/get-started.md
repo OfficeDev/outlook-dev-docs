@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.technology: o365-connectors
 ms.date: 05/09/2017
 ms.author: jasonjoh
-localization_priority: Priority
+ms.localizationpriority: high
 ---
 
 # Get started with actionable messages in Office 365

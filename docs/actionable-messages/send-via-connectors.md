@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.technology: o365-connectors
 ms.date: 10/30/2018
 ms.author: jasonjoh
-localization_priority: Priority
+ms.localizationpriority: high
 ---
 
 # Post an actionable message card to an Office 365 group

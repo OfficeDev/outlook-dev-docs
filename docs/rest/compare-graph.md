@@ -7,7 +7,7 @@ ms.topic: article
 ms.technology: ms-graph
 ms.date: 07/04/2021
 ms.author: jasonjoh
-localization_priority: Priority
+ms.localizationpriority: high
 ---
 
 # Compare Microsoft Graph and Outlook REST API endpoints
