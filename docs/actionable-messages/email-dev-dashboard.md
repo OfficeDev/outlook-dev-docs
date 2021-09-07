@@ -4,7 +4,7 @@ description: The developer dashboard helps you submit and track status of your s
 author: jasonjoh
 ms.topic: article
 ms.technology: o365-connectors
-ms.date: 05/27/2021
+ms.date: 09/07/2021
 ms.author: jasonjoh
 ms.localizationpriority: high
 ---
@@ -68,11 +68,11 @@ Self-service of registrations is available for registrations that use the follow
 - **Test Users**: The registration request is auto-approved for your test users you specify. This will enable actionable emails from your service sent to test users.
 - **Organization**: This registration request will be sent to your organization's administrators with **Exchange administrator** permissions. Any administrator with those permissions receive an email with submission details and will be able to review and approve your request. If no users have the **Exchange administrator** role assigned, users with the **Global administrator** role will receive this email instead.
 
-Once the submission is approved, whether auto-approved or by your administrator, it will take up to an hour for the registration to take effect.
+Once the submission is approved, whether auto-approved or by your administrator, it will take up to 24 hours for the registration to take effect.
 
 For **My organization** registrations, the administrator accounts will receive an email and the submitter will also be copied on those emails. This will allow you to reach out to your administrator if you need to provide further clarifications or details. Once the request is approved, the submitter and the administrators will be notified with another email.
 
-After an hour has passed, you can verify if the registration has taken into effect by sending an actionable message from your service to your mailbox or specified test users (for **Test Users** scope), or any user mailbox in your organization (for **Organization** scope). If an hour has passed and the registration is still not in effect, please contact us by using the feedback link at the top the registration dashboard labeled **Registration not working?**.
+After 24 hours have passed, you can verify if the registration has taken into effect by sending an actionable message from your service to your mailbox or specified test users (for **Test Users** scope), or any user mailbox in your organization (for **Organization** scope). If 24 hours have passed and the registration is still not in effect, please contact us by using the feedback link at the top the registration dashboard labeled **Registration not working?**.
 
 ### Test user email addresses
 
