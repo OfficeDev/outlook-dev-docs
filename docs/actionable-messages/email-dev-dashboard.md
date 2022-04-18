@@ -48,6 +48,13 @@ The key fields are:
 
   For an example of how to get public key XML from  a .cert file, see [PublicKey Class](/dotnet/api/system.security.cryptography.x509certificates.publickey#examples).
 
+> [!NOTE]
+> Once your submission is approved, it may take some time to take effect. If you encounter the error below when sending signed cards, and you're sure that your payload is correct, please try again after a few hours.
+>
+> ```text
+> Adaptive card signature validation failed - Failed to validate signature
+> ```
+
 ### Scope of your submission
 
 In this section, you need to specify at what scope you want to enable actionable message for your service. The applicable scopes are:
