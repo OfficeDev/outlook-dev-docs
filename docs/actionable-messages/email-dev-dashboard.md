@@ -49,8 +49,9 @@ The key fields are:
   For an example of how to get public key XML from  a .cert file, see [PublicKey Class](/dotnet/api/system.security.cryptography.x509certificates.publickey#examples).
 
 > [!NOTE]
-> After creating a new provider the signed cards won't load immmediately and they will fail with the error below. If you're sure that your payload is correct, then it is advised to just wait for the changes to propagate.
-> ```
+> Once your submission is approved, it may take some time to take effect. If you encounter the error below when sending signed cards, and you're sure that your payload is correct, please try again after a few hours.
+>
+> ```text
 > Adaptive card signature validation failed - Failed to validate signature
 > ```
 
