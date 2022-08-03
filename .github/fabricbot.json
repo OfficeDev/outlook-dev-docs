@@ -41,8 +41,7 @@
           "issues",
           "project_card"
         ]
-      },
-      "id": "hdNTbmBoZ"
+      }
     },
     {
       "taskType": "scheduled",
@@ -193,8 +192,7 @@
             }
           }
         ]
-      },
-      "id": "rBihCwm6DK"
+      }
     },
     {
       "taskType": "scheduled",
@@ -343,8 +341,7 @@
             "parameters": {}
           }
         ]
-      },
-      "id": "jy1cprQGNq"
+      }
     },
     {
       "taskType": "trigger",
@@ -388,8 +385,7 @@
           "issues",
           "project_card"
         ]
-      },
-      "id": "5y-57FedbR"
+      }
     },
     {
       "taskType": "trigger",
@@ -421,8 +417,7 @@
         "eventNames": [
           "issue_comment"
         ]
-      },
-      "id": "zaw2dTsNOE"
+      }
     },
     {
       "taskType": "trigger",
@@ -474,8 +469,7 @@
         "eventNames": [
           "issue_comment"
         ]
-      },
-      "id": "wpO_skZN4y"
+      }
     },
     {
       "taskType": "trigger",
@@ -487,8 +481,7 @@
         "fixedLabelEnabled": true,
         "label_inPr": "Status: in PR",
         "label_fixed": "Status: fixed"
-      },
-      "id": "lhip2mIY-g"
+      }
     },
     {
       "taskType": "scheduled",
@@ -717,12 +710,12 @@
             }
           }
         ],
-        "taskName": "Redirect programming questions to Stack Overflow",
+        "taskName": "Redirect programming questions to Q&A",
         "actions": [
           {
             "name": "addReply",
             "parameters": {
-              "comment": "Thanks for your interest in Outlook development! Feedback here is intended for reporting problems with the Outlook developer *documentation*. Can you please post your question to Stack Overflow (with the [office-js](https://stackoverflow.com/questions/tagged/office-js) tag if it's an add-ins-related question, or other tag(s) as appropriate)? By posting how-to questions like this to Stack Overflow, you'll not only be able to reach a broader audience of folks who have expertise in the area, but will also enable others to benefit from any answers that are provided there. Thanks!"
+              "comment": "Thanks for your interest in Outlook development! Feedback here is intended for reporting problems with the Outlook developer *documentation*. Can you please post your question to [Microsoft Q&A](https://docs.microsoft.com/answers/topics/office-addins-dev.html)? By posting how-to questions like this to Q&A, you'll not only be able to reach a broader audience of folks who have expertise in the area, but will also enable others to benefit from any answers that are provided there. Thanks!"
             }
           },
           {
@@ -730,8 +723,7 @@
             "parameters": {}
           }
         ]
-      },
-      "id": "RHMpA0OIvI"
+      }
     },
     {
       "taskType": "scheduled",
@@ -965,7 +957,7 @@
           {
             "name": "addReply",
             "parameters": {
-              "comment": "Thanks for your interest in Outlook development! Feedback here is intended for reporting problems with the Outlook developer *documentation*. Can you please post this feature request to [Microsoft 365 on Q&A](https://docs.microsoft.com/answers/products/m365) site? Feature Requests submitted to **Q&A** are regularly reviewed by the product teams as they plan future releases. Thanks!"
+              "comment": "Thanks for your interest in Outlook development! Feedback here is intended for reporting problems with the Outlook developer *documentation*. Can you please post this feature request to [Microsoft Feedback](https://feedbackportal.microsoft.com/feedback/forum/89a8afa3-2e1c-ec11-b6e7-0022481f8472)? Feature Requests submitted to **Microsoft Feedback** are regularly reviewed by the product teams as they plan future releases. Thanks!"
             }
           },
           {
@@ -973,15 +965,13 @@
             "parameters": {}
           }
         ]
-      },
-      "id": "y9lxuW-MuX"
+      }
     },
     {
       "taskType": "trigger",
       "capabilityId": "IssueResponder",
       "subCapability": "IssuesOnlyResponder",
       "version": "1.0",
-      "id": "javvrjsbM",
       "config": {
         "conditions": {
           "operator": "and",
@@ -1025,7 +1015,6 @@
       "capabilityId": "IssueResponder",
       "subCapability": "IssuesOnlyResponder",
       "version": "1.0",
-      "id": "ojVTNEiWQ",
       "config": {
         "conditions": {
           "operator": "and",
@@ -1069,7 +1058,6 @@
       "capabilityId": "IssueResponder",
       "subCapability": "IssuesOnlyResponder",
       "version": "1.0",
-      "id": "UN8YQTy6X",
       "config": {
         "conditions": {
           "operator": "and",
@@ -1209,8 +1197,7 @@
             }
           }
         ]
-      },
-      "id": "5jfTdlxEE"
+      }
     },
     {
       "taskType": "trigger",
@@ -1272,8 +1259,7 @@
             }
           }
         ]
-      },
-      "id": "2ZCroEBPqi"
+      }
     },
     {
       "taskType": "scheduled",
@@ -1375,15 +1361,13 @@
             }
           }
         ]
-      },
-      "id": "FumgdtieyK"
+      }
     },
     {
       "taskType": "scheduled",
       "capabilityId": "ScheduledSearch",
       "subCapability": "ScheduledSearch",
       "version": "1.1",
-      "id": "UEURVB3ur",
       "config": {
         "frequency": [
           {
@@ -1504,7 +1488,6 @@
       "capabilityId": "IssueResponder",
       "subCapability": "IssueCommentResponder",
       "version": "1.0",
-      "id": "jp1poRdpO",
       "config": {
         "conditions": {
           "operator": "and",
@@ -1579,7 +1562,6 @@
       "capabilityId": "ScheduledSearch",
       "subCapability": "ScheduledSearch",
       "version": "1.1",
-      "id": "Uj_FRoYaZ",
       "config": {
         "frequency": [
           {
@@ -1688,7 +1670,6 @@
       "capabilityId": "ScheduledSearch",
       "subCapability": "ScheduledSearch",
       "version": "1.1",
-      "id": "rUMhXcY7l",
       "config": {
         "frequency": [
           {
@@ -1840,7 +1821,6 @@
       "capabilityId": "ScheduledSearch",
       "subCapability": "ScheduledSearch",
       "version": "1.1",
-      "id": "O8E9FqqKz",
       "config": {
         "frequency": [
           {
