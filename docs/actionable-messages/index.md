@@ -91,9 +91,7 @@ In the inbox case, the Store dialog displays the **Add-ins** tab by default. Con
 
 Currently, you can only configure connectors from Outlook on the web, or Outlook 2016 or later on Windows, but you can view information posted by Connectors to your Group or inbox in multiple clients such as Outlook on the web, Outlook 2016 or later, and the Office365 Groups Mobile app.
 
-<!-- markdownlint-disable MD033 -->
-For information on admin controls, look at the FAQ section of this <a target="_blank" href="https://support.office.com/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab">support article</a>.
-<!-- markdownlint-enable MD033 -->
+For information on admin controls, look at the FAQ section of this [support article](https://support.office.com/article/Connect-apps-to-your-groups-ed0ce547-038f-4902-b9b3-9e518ae6fbab).
 
 ### Outlook version requirements for actionable messages
 
@@ -102,25 +100,23 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 > [!NOTE]
 > Currently actionable message cards do not change the way that they render when Outlook is in dark mode. Support for dark mode for actionable messages is coming soon.
 
-| Client                                            | Actionable messages supported?                        | Adaptive card supported? |
-|---------------------------------------------------|-------------------------------------------------------|---|
-| Outlook on the web for Office 365                 | Yes                                                   | Yes |
-| Office 365 ProPlus Monthly Channel                | Yes, in version 1705, Build 8201                      | Yes, in version 1805, Build 9330 |
-| Office 365 ProPlus Semi-Annual Channel (Targeted) | Yes, in version 1708, Build 8431                      | Yes, in version 1808, Build 10730.20262 |
-| Office 365 ProPlus Semi-Annual Channel            | Yes, in version 1708, Build 8431.2153                 | Yes, in version 1808, Build 10730.20264 |
-| Outlook 2016 on Mac                               | Yes, in version 16.38, Build 20060702                 | Yes (Legacy MessageCard format is not supported) |
-| Outlook on iOS                                    | Yes                                                   | Yes (Legacy MessageCard format is not supported) |
-| Outlook on Android                                | Yes                                                   | Yes (Legacy MessageCard format is not supported) |
-| Office Professional Plus 2016 (Click-to-Run only) | Actionable Messages are available for Office 365 only | No |
-| Exchange 2016 On-Premises Outlook on the web      | Actionable Messages are available for Office 365 only | No |
+| Client                                               | Actionable messages supported?                                          | Adaptive card supported? |
+|------------------------------------------------------|-------------------------------------------------------------------------|---|
+| Outlook on the web for Microsoft 365                 | Yes                                                                     | Yes |
+| Microsoft 365 ProPlus Monthly Channel                | Yes, version 2003, Build 12624.20588 or version 2002, Build 12527.20194 | Yes, version 2003, Build 12624.20588 or version 2002, Build 12527.20194 |
+| Microsoft 365 ProPlus Semi-Annual Channel (Targeted) | Yes, version 2002, Build 12527.20194                                    | Yes, version 2002, Build 12527.20194 |
+| Microsoft 365 ProPlus Semi-Annual Channel            | Yes, version 2002, Build 12527.20880                                    | Yes, version 2002, Build 12527.20880 |
+| Outlook on Mac                                       | Yes, version 16.0.12817.10000                                           | Yes (Legacy MessageCard format is not supported) |
+| Outlook on iOS                                       | Yes, version 4.34.0                                                     | Yes (Legacy MessageCard format is not supported) |
+| Outlook on Android                                   | Yes, version 4.1.71                                                     | Yes (Legacy MessageCard format is not supported) |
+| Office Professional Plus 2016 (Click-to-Run only)    | Actionable Messages are available for Office 365 only                   | No |
+| Exchange 2016 On-Premises Outlook on the web         | Actionable Messages are available for Office 365 only                   | No |
 
 ## Submit feedback
 
 There are multiple ways you can send us feedback.
 
-<!-- markdownlint-disable MD033 -->
 - The in-product **Send Feedback** link (preferred)
 - If you have a question, need help, or are experiencing an issue with your code, ask the developer community on [Microsoft Q&A](/answers/topics/office-addins-dev.html).
 - You can also post questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/Office365Connectors?sort=newest) - Tag your questions with `Office365Connectors`.
 - If you have a feature suggestion, please post your idea on our [**Microsoft 365 Developer Platform Ideas**](https://aka.ms/m365dev-suggestions) forum, and vote for your suggestions there.
-<!-- markdownlint-enable MD033 -->
