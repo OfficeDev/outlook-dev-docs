@@ -59,7 +59,7 @@ Go to the Card Playground and paste in the following JSON:
     {
       "type": "Action.OpenUrl",
       "title": "Learn More",
-      "url": "https://docs.microsoft.com/outlook/actionable-messages"
+      "url": "https://learn.microsoft.com/outlook/actionable-messages"
     }
   ]
 }
@@ -111,7 +111,7 @@ To embed an actionable message card in an email message, we need to wrap the car
         {
           "type": "Action.OpenUrl",
           "title": "Learn More",
-          "url": "https://docs.microsoft.com/outlook/actionable-messages"
+          "url": "https://learn.microsoft.com/outlook/actionable-messages"
         }
       ]
     }
@@ -154,7 +154,7 @@ To embed an actionable message card in an email message, we need to wrap the car
         {
           "type": "Action.OpenUrl",
           "title": "Learn More",
-          "url": "https://docs.microsoft.com/outlook/actionable-messages"
+          "url": "https://learn.microsoft.com/outlook/actionable-messages"
         }
       ]
     }
@@ -198,14 +198,14 @@ To embed an actionable message card in an email message, we need to wrap the car
           {
             "type": "Action.OpenUrl",
             "title": "Learn More",
-            "url": "https://docs.microsoft.com/outlook/actionable-messages"
+            "url": "https://learn.microsoft.com/outlook/actionable-messages"
           }
         ]
       }
       </script>
     </head>
     <body>
-    Visit the <a href="https://docs.microsoft.com/outlook/actionable-messages">Outlook Dev Portal</a> to learn more about Actionable Messages.
+    Visit the <a href="https://learn.microsoft.com/outlook/actionable-messages">Outlook Dev Portal</a> to learn more about Actionable Messages.
     </body>
     </html>
     ```

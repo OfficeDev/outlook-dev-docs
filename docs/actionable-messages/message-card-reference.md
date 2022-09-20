@@ -619,7 +619,7 @@ Here's an example of an HTML email body with an embedded message card.
         "@type": "OpenUri",
         "name": "Learn More",
         "targets": [
-          { "os": "default", "uri": "https://docs.microsoft.com/outlook/actionable-messages" }
+          { "os": "default", "uri": "https://learn.microsoft.com/outlook/actionable-messages" }
         ]
       }
     ]
@@ -627,7 +627,7 @@ Here's an example of an HTML email body with an embedded message card.
   </script>
 </head>
 <body>
-Visit the <a href="https://docs.microsoft.com/outlook/actionable-messages">Outlook Dev Portal</a> to learn more about Actionable Messages.
+Visit the <a href="https://learn.microsoft.com/outlook/actionable-messages">Outlook Dev Portal</a> to learn more about Actionable Messages.
 </body>
 </html>
 ```
