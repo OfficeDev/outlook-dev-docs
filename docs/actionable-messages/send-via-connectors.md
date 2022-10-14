@@ -52,7 +52,7 @@ Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and pa
       "@type": "OpenUri",
       "name": "Learn More",
       "targets": [
-        { "os": "default", "uri": "https://docs.microsoft.com/outlook/actionable-messages" }
+        { "os": "default", "uri": "https://learn.microsoft.com/outlook/actionable-messages" }
       ]
     }
   ]
