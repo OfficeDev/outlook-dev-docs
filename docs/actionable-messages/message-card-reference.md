@@ -258,7 +258,7 @@ The following fields are common to all input types.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | String | Uniquely identifies the input so it is possible to reference it in the URL or body of an `HttpPOST` action. See [Input value substitution](#input-value-substitution). |
+| `id` | String | Uniquely identifies the input so it is possible to reference it in the body of an `HttpPOST` action. See [Input value substitution](#input-value-substitution). |
 | `isRequired` | Boolean | Indicates whether users are required to type a value before they are able to take an action that would take the value of the input as a parameter.<br><br>**Do** make an input required if users MUST provide a value.<br>**Consider** making an input required if its value is complementary to that of another required input. For instance, you could define a survey question that asks "How satisfied are you with your car" with a multi choice input followed by "Please explain your answer" as a free text input. Keep in mind that some users might not like being forced into providing such explanations, and might as a result not respond to the survey at all.<br>**Do** make sure users know which inputs are required. Include a label in the input's title property. For example: `Comment (optional)` or `Please rate your experience (required)`. |
 | `title` | String | Defines a title for the input. |
 | `value` | String | Defines the initial value of the input. For multi-choice inputs, value must be equal to the value property of one of the input's choices. |
@@ -360,7 +360,7 @@ Use this input type when you need users to select from a list of pre-defined cho
 
 #### Input value substitution
 
-The value of an input can be referenced in any URL of a `ViewAction` or `HttpPOST` action. It can also be referenced in an `HttpPOST` action's body. When an input value is referenced, it is substituted with the actual value of the input right before the action is executed.
+The value of an input can be referenced in the body of an `HttpPOST` action. When an input value is referenced, it is substituted with the actual value of the input right before the action is executed.
 
 To reference an input's value, use the following format:
 
