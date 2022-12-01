@@ -145,28 +145,20 @@ For example, to extend the sample action from above, we could modify the action 
 If your action passes initialization data, the add-in must be prepared to receive it. Add-ins can retrieve initialization data by calling the [Office.context.mailbox.item.getInitializationContextAsync](/office/dev/add-ins/reference/objectmodel/preview-requirement-set/office.context.mailbox.item#methods) method. This should be done whenever the task pane opens or loads a new message.
 
 ```js
-// Get the initialization context (if present)
-Office.context.mailbox.item.getInitializationContextAsync(
-  function(asyncResult) {
-    if (asyncResult.status == Office.AsyncResultStatus.Succeeded) {
-      if (asyncResult.value != null && asyncResult.value.length > 0) {
-        // The value is a string, parse to an object
-        var context = JSON.parse(asyncResult.value);
-        // Do something with context
-      } else {
-        // Empty context, treat as no context
-      }
+// Get the initialization context (if present).
+Office.context.mailbox.item.getInitializationContextAsync((asyncResult) => {
+  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+    if (asyncResult.value.length > 0) {
+      // The value is a string, parse to an object.
+      const context = JSON.parse(asyncResult.value);
+      // Do something with context.
     } else {
-      if (asyncResult.error.code == 9020) {
-        // GenericResponseError returned when there is
-        // no context
-        // Treat as no context
-      } else {
-        // Handle the error
-      }
+      // Empty context, treat as no context.
     }
+  } else {
+    // Handle the error.
   }
-);
+});
 ```
 
 ## Resources
