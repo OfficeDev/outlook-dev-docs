@@ -7,7 +7,7 @@
       "locale": "en-us",
       "monikers": [],
       "open_to_public_contributors": true,
-      "type_mapping": {
+      "type_mapping": { 
         "Conceptual": "Content",
         "ManagedReference": "Content",
         "RestApi": "Content",
