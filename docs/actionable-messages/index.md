@@ -112,7 +112,7 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Office Professional Plus 2016 (Click-to-Run only)    | Actionable Messages are available for Office 365 only                   | No |
 | Exchange 2016 On-Premises Outlook on the web         | Actionable Messages are available for Office 365 only                   | No |
 
-###Note:
+### Notes
 Actionable messages may not render correctly in Outlook for windows if you have any of the following options enabled.
 -Download Headers and then Full Items
 -Download Headers or
