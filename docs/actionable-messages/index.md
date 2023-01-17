@@ -112,6 +112,17 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Office Professional Plus 2016 (Click-to-Run only)    | Actionable Messages are available for Office 365 only                   | No |
 | Exchange 2016 On-Premises Outlook on the web         | Actionable Messages are available for Office 365 only                   | No |
 
+> [!NOTE]
+> Actionable messages may not render correctly in Outlook for Windows if you have any of the following options enabled in **Download Preferences** on the **Send / Receive** tab.
+>
+> - Download Headers and then Full Items
+> - Download Headers
+> - On Slow Connections Download Only Headers
+>
+> To resolve the problem, select **Download Full Items**. 
+> Depending on your connection type, you may want to uncheck **On Slow Connections Download Only Headers** .
+
+
 ## Submit feedback
 
 There are multiple ways you can send us feedback.
