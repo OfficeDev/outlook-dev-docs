@@ -122,7 +122,6 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 > To resolve the problem, select **Download Full Items**. 
 > Depending on your connection type, you may want to uncheck **On Slow Connections Download Only Headers** .
 
-You may want to uncheck **On Slow Connections Download Only Headers** depending on your connection type.
 
 ## Submit feedback
 
