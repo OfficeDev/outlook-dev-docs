@@ -116,7 +116,6 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 Actionable messages may not render correctly in Outlook for Windows if you have any of the following options enabled.
 -Download Headers and then Full Items
 -Download Headers or
--On Slow Connections Download Only Headers, under Download Preferences in the Ribbon.
 
 To resolve the problem, navigate to Send /Receive tab in Outlook ribbon > click on Download Preferences and select **Download Full Items**. 
 You may want to uncheck **On Slow Connections Download Only Headers** depending on your connection type.
