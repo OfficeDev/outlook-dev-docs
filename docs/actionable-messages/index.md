@@ -123,7 +123,6 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 > Depending on your connection type, you may want to uncheck **On Slow Connections Download Only Headers** .
 -Download Headers and then Full Items
 
-To resolve the problem, navigate to Send /Receive tab in Outlook ribbon > click on Download Preferences and select **Download Full Items**. 
 You may want to uncheck **On Slow Connections Download Only Headers** depending on your connection type.
 
 ## Submit feedback
