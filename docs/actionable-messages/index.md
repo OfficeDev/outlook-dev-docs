@@ -121,7 +121,6 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 >
 > To resolve the problem, select **Download Full Items**. 
 > Depending on your connection type, you may want to uncheck **On Slow Connections Download Only Headers** .
-Actionable messages may not render correctly in Outlook for Windows if you have any of the following options enabled.
 -Download Headers and then Full Items
 -Download Headers or
 
