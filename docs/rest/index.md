@@ -3,7 +3,7 @@ title: Outlook REST API Overview
 description: With the simplicity of REST, you can use your favorite language and IDE and write your app once to capture millions of users.
 author: jasonjoh
 ms.topic: overview
-ms.technology: ms-graph
+ms.technology: microsoft-graph
 ms.date: 02/19/2020
 ms.author: jasonjoh
 ms.localizationpriority: high
