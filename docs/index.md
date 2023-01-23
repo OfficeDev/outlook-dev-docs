@@ -3,7 +3,7 @@ title: Outlook Developer Documentation
 description: Learn about the different ways to integrate with Outlook, including REST, add-ins, and actionable messages.
 author: jasonjoh
 ms.topic: overview
-ms.technology: ms-graph
+ms.technology: microsoft-graph
 ms.date: 07/04/2021
 ms.author: jasonjoh
 ms.localizationpriority: high

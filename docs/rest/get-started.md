@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Graph via REST requests and responses to
 author: jasonjoh
 
 ms.topic: article
-ms.technology: ms-graph
+ms.technology: microsoft-graph
 ms.devlang: rest-api
 ms.date: 02/19/2020
 ms.author: jasonjoh

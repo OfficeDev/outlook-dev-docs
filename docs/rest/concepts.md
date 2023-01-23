@@ -4,7 +4,7 @@ description: Learn about the Outlook API-related topics in the Microsoft Graph d
 author: jasonjoh
 
 ms.topic: article
-ms.technology: ms-graph
+ms.technology: microsoft-graph
 ms.date: 06/01/2018
 ms.author: jasonjoh
 ms.localizationpriority: high
