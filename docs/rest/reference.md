@@ -3,7 +3,7 @@ title: Outlook API reference
 description: The Outlook REST APIs are a part of Microsoft Graph. Microsoft recommends using Microsoft Graph to access Outlook mail, calendar, and contacts.
 author: jasonjoh
 ms.topic: reference
-ms.technology: ms-graph
+ms.technology: microsoft-graph
 ms.date: 04/26/2017
 ms.author: jasonjoh
 ms.localizationpriority: high
