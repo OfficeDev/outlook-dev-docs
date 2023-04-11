@@ -3,10 +3,11 @@ title: Get started with actionable messages via email
 description: Learn how to create an actionable message card and send it via Outlook or Microsoft 365 email.
 author: jasonjoh
 ms.topic: conceptual
-ms.technology: o365-connectors
+ms.service: outlook
 ms.date: 08/01/2019
 ms.author: jasonjoh
 ms.localizationpriority: high
+ms.subservice: o365-connectors
 ---
 
 # Send an actionable message via email in Office 365

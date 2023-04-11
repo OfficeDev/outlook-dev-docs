@@ -3,10 +3,11 @@ title: Connectors developer dashboard
 description: Register your connector in our developer portal, add an integrated configuration experience to your application, and implement your connector.
 author: jasonjoh
 ms.topic: article
-ms.technology: o365-connectors
+ms.service: outlook
 ms.date: 07/04/2021
 ms.author: jasonjoh
 ms.localizationpriority: high
+ms.subservice: o365-connectors
 ---
 
 # Register your connector with the Office connectors developer dashboard
