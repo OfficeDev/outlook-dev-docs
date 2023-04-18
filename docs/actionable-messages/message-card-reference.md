@@ -3,10 +3,11 @@ title: Legacy actionable message card reference
 description: Learn about the available fields for actionable message cards and design guidelines for creating an effective card.
 author: jasonjoh
 ms.topic: reference
-ms.technology: o365-connectors
+ms.service: outlook
 ms.author: jasonjoh
 ms.date: 06/24/2019
 ms.localizationpriority: high
+ms.subservice: o365-connectors
 ---
 
 <!-- markdownlint-disable MD033 -->

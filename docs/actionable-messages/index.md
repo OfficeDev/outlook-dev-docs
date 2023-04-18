@@ -3,11 +3,12 @@ title: What are actionable messages in Office 365?
 description: Actionable Messages enable you to take quick actions right from within Outlook.
 author: jasonjoh
 ms.topic: article
-ms.technology: o365-connectors
+ms.service: outlook
 ms.author: jasonjoh
 ms.date: 08/01/2019
 nodes_to_expand: get-started
 ms.localizationpriority: high
+ms.subservice: o365-connectors
 ---
 
 # Actionable messages in Outlook and Office 365 Groups

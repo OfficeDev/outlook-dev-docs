@@ -3,10 +3,11 @@ title: Actionable messages via email developer dashboard guide
 description: The developer dashboard helps you submit and track status of your submission via the web portal.
 author: jasonjoh
 ms.topic: article
-ms.technology: o365-connectors
+ms.service: outlook
 ms.date: 09/07/2021
 ms.author: jasonjoh
 ms.localizationpriority: high
+ms.subservice: o365-connectors
 ---
 
 # Register your service with the actionable email developer dashboard
