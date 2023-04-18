@@ -16,6 +16,16 @@ Actionable messages can be posted via a group or inbox connector, or can be sent
 > [!NOTE]
 > Office 365 administrators can disable actionable messages via the [Set-OrganizationConfig cmdlet](/powershell/module/exchange/organization/set-organizationconfig). If actionable messages do not render, check with your administrator to make sure the feature is enabled in your organization.
 
+## Universal Actions in Outlook
+[Adaptive Card](./adaptive-card.md) have evolved from the developer feedback that even though layout and rendering for Adaptive Cards was universal, action handling was not. 
+
+This is resolved with Universal Actions and above that brings the bot as the common backend for handling actions and introduces a new action type, [Action.Execute](https://adaptivecards.io/explorer/Action.Execute.html), which works across apps, such as Teams and Outlook. Universal Actions is available with adaptive card version 1.4 and higher.
+
+Here are few code samples to help you with building Actionable messages with universal actions
+
+- [Expense Approvals](./adaptive-card-code-sample-1.md)
+- [Project management](./adaptive-card-code-sample-2.md)
+
 ## Connectors vs Email: Choosing a delivery mechanism
 
 With Office connectors, any user can choose to connect to services like Trello, Bing News, Twitter, etc., from Outlook and get notified of activity from that service into their Office 365 inbox or Group. With actionable messages for Office connectors, user can now act on these notifications to complete routine tasks without the hassle of context switching or signing in. For example the Trello connector allow users to subscribe to the boards and notifications they care about and lets them take actions such as set a due date or add a comment without ever leaving Outlook.
