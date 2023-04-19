@@ -1,7 +1,7 @@
 ---
-title: Actionable message using adaptive card version 1.4+
-description: Demonstrating how to implement Universal Action Model in Outlook
-author: avijityadav
+title: Universal Actions Model code sample - Expense Approval
+description: Demonstrating how to implement Universal Actions in Outlook with Expense Approval scenario
+author: avyad
 ms.topic: sample
 ms.technology: o365-connectors
 ms.date: 04/08/2023
@@ -15,12 +15,12 @@ This sample illustrates the Universal Action Model implementation available for 
 
 ## Prequistise
 * Outlook/OWA client is available and you have an account
-* [.NET Core SDK](https://dotnet.microsoft.com/en-us/download) version 6.0
+* [.NET Core SDK](https://dotnet.microsoft.com/download) version 6.0
 
 ## Setup for bot
 * Register a new application in the [Azure Active Directory – App Registrations](https://go.microsoft.com/fwlink/?linkid=2083908) portal.
 * Register a bot with Azure Bot Service, following the instructions [here](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-3.0).
-* Ensure that you've [enabled the Outlook Channel](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-actionable-email?view=azure-bot-service-4.0)
+* Ensure that you've [enabled the Outlook Channel](https://learn.microsoft.com/azure/bot-service/bot-service-channel-connect-actionable-email?view=azure-bot-service-4.0)
 * Request for access to send Actionable Messages.
     - Open your bot resource in the [Azure portal](https://ms.portal.azure.com/).
     - Open the **Channels** pane.
@@ -96,7 +96,7 @@ Here is a snippet of Actions for Approval scenario.
         }
 ```
 
-For more information, see [Action.Execute schema and properties](https://learn.microsoft.com/en-us/adaptive-cards/authoring-cards/universal-action-model#actionexecute)
+For more information, see [Action.Execute schema and properties](https://learn.microsoft.com/adaptive-cards/authoring-cards/universal-action-model#actionexecute)
 
 ## Step 2: Write custom logic in the bot for approval
 

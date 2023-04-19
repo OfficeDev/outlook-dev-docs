@@ -5,6 +5,10 @@ items:
   items:
   - name: Get started with actionable messages
     href: get-started.md
+  - name: Universal Action Model sample - Approvals
+    href: adaptive-card-code-sample-1.md
+  - name: Universal Action Model sample - Project Management
+    href: adaptive-card-code-sample-2.md
   - name: Actionable Messages via Email
     href: send-via-email.md
   - name: Actionable Messages via Connectors
@@ -25,6 +29,8 @@ items:
   href: email-dev-dashboard.md
 - name: Connectors Developer Dashboard
   href: connectors-dev-dashboard.md
+- name: Actionable Messages FAQs
+  href: actionable-messages-faq.md
 - name: Card Playground
   href: https://messagecardplayground.azurewebsites.net/
 - name: Adaptive Card Designer
