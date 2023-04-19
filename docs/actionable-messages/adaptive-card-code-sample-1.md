@@ -9,9 +9,9 @@ ms.author: avijityadav
 ms.localizationpriority: high
 ---
 
-# Universal Actions model code sample - Expense Approval
+# Universal Actions Model code sample - Expense Approval
 
-This sample illustrates the Universal Action Model implementation available for adaprive cards version 1.4 or higher.
+This sample illustrates the Universal Action Model implementation available for adaptive cards version 1.4 or higher.
 
 ## Prequistise
 * Outlook/OWA client is available and you have an account
@@ -30,22 +30,25 @@ This sample illustrates the Universal Action Model implementation available for 
 
 ## Step 1: Ensure your adaptive card payloads are ready
 
-For the Approvals scenario, json payload is added here.
+For the Approvals scenario, you can find the [JSON Payload here](./Approval.json). Below, You can see the payload rendering in mobile and desktop screens. 
 
 # [Mobile](#tab/mobile)
 
-:::image type="content" source="~/images/approvals-mobile.png" alt-text="Mobile card for approvals":::
+:::image type="content" source="./images/approvals-mobile.png" alt-text="Mobile card for approvals":::
 
 # [Desktop](#tab/desktop)
 
-:::image type="content" source="~/images/approvals-desktop.png" alt-text="desktop card for approvals":::
+:::image type="content" source="./images/approvals-desktop.png" alt-text="Desktop card for approvals":::
 
 * * *
 
-Here is snippet for json around how you can include Univsal Actions in Microsoft.
+For Universal Actions, you need to use `Action.Execute` which gathers input fields and send an event Invoke activity of type adaptiveCard/action to the target Bot. Target bot can identify the the Action done using the `verb` field. Any additional input can be sent using the `data` field.
+
+Here is a snippet of Actions for Approval scenario.
 
 ```JSON
 {
+          {
           "type": "ActionSet",
           "actions": [
             {
@@ -93,10 +96,11 @@ Here is snippet for json around how you can include Univsal Actions in Microsoft
         }
 ```
 
+For more information, see [Action.Execute schema and properties](https://learn.microsoft.com/en-us/adaptive-cards/authoring-cards/universal-action-model#actionexecute)
+
 ## Step 2: Write custom logic in the bot for approval
 
-
-
+In the Azure bot, you can write logic to capture the action using the `verb` field, add you business logic and send the refresh card back to Outlook.
 
 ```C#
        protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAsync(ITurnContext<IInvokeActivity> turnContext, AdaptiveCardInvokeValue invokeValue, CancellationToken cancellationToken)
