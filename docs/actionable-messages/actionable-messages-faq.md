@@ -1,9 +1,10 @@
 ---
 title: Frequently asked questions for Actionable Messages documentation
 description: Frequently asked questions for Actionable Messages documentation
+author: avijityadav
 ms.topic: reference
 ms.date: 04/08/2023
-ms.author: avijityadav
+ms.author: avyad
 ms.localizationpriority: high
 ---
 
@@ -15,7 +16,7 @@ This section contains the frequently asked questions and the answers.
 
 
 <details>
-<summary>I am trying to fill in the registration form but getting error while submitting the form. How can I proceed ?</summary>
+<summary>I am trying to fill in the registration form but getting error while submitting. How can I proceed?</summary>
 
 This might happen if there are some fields where the value is unexpected. 
 
@@ -26,7 +27,7 @@ This might happen if there are some fields where the value is unexpected.
 
 
 <details>
-<summary>I have submitted a registration request with organization scope. Who will approve my registration</summary>
+<summary>I have submitted a registration request with organization scope. Who will approve my registration?</summary>
 
 For an org scope registration of Actionable Messages, the approval of the registration depends on the policies of your organization. Typically, the person or team responsible for managing the M365 tenant will need to approve the registration of Actionable Messages. This could be an IT administrator, a security team, or another group within the organization that is responsible for managing Office 365.
 To check who are your org IT admins, follow the following steps :
@@ -65,7 +66,7 @@ This is the expected beahviour. Actionable Messages works only with single user 
 </details>
 
 <details>
-<summary>Users from one tenant are not able to use Actionable Messages and the action redirects them to webpage. Actionable messages is working of users from other organizations.</summary>
+<summary>Users from my organizer are not able to use Actionable Messages and the action redirects them to webpage.</summary>
 
 Please check if the organization usese Mimecase or other similar services. Mimecast changes emails in ways that prevent Actionable Messages workflow . Please perform the following actions to check if it really the issue
 1.  Disable Mimecast temporarily and check if  AMs (new mails)are working in that case .

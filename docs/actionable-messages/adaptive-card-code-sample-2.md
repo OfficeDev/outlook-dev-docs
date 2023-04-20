@@ -1,11 +1,11 @@
 ---
-title: Universal Actions Model code sample - Expense Approval
+title: Universal Actions Model code sample - Project Management
 description: Demonstrating how to implement Universal Actions in Outlook with Project management scenario
-author: avyad
+author: avijityadav
 ms.topic: sample
 ms.technology: o365-connectors
 ms.date: 04/08/2023
-ms.author: avijityadav
+ms.author: avyad
 ms.localizationpriority: high
 ---
 
@@ -19,8 +19,8 @@ This sample illustrates the Universal Action Model implementation available for 
 
 ## Setup for bot
 * Register a new application in the [Azure Active Directory – App Registrations](https://go.microsoft.com/fwlink/?linkid=2083908) portal.
-* Register a bot with Azure Bot Service, following the instructions [here](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-3.0).
-* Ensure that you've [enabled the Outlook Channel](https://learn.microsoft.com/azure/bot-service/bot-service-channel-connect-actionable-email?view=azure-bot-service-4.0)
+* Register a bot with Azure Bot Service, following the instructions [here](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration).
+* Ensure that you've [enabled the Outlook Channel](https://learn.microsoft.com/azure/bot-service/bot-service-channel-connect-actionable-email)
 * Request for access to send Actionable Messages.
     - Open your bot resource in the [Azure portal](https://ms.portal.azure.com/).
     - Open the **Channels** pane.
@@ -105,11 +105,11 @@ In the Azure bot, you can write logic to capture the action using the `verb` fie
             {
                 if (invokeValue.Action.Verb == "markComplete")
                 {
-                    return await ProcessProjectMarkComplete();
+                    return await ProcessProjectMarkComplete(); // This function can contain your business logic to capture the complete action and show the refresh card
                 }
                 else if (invokeValue.Action.Verb == "projectSubmitComment")
                 {
-                    return await ProcessProjectSubmitComment();
+                    return await ProcessProjectSubmitComment(); // This function can contain your business logic to submit the comment and show the refresh car
                 }
                 else
                 {
@@ -123,7 +123,7 @@ In the Azure bot, you can write logic to capture the action using the `verb` fie
         }
 ```
 
-## Sending the Actionable Message
+## Step 3: Sending the Actionable Message
 
 You can send the Actionable Message backed by Universal Actions similar to any other Actionable message. For more information, please see [Send an actionable message via email](./send-via-email.md).
 
