@@ -3,10 +3,11 @@ title: Refresh an actionable message on open
 description: Learn how to update an actionable message card automatically when the user opens it.
 author: jasonjoh
 ms.topic: article
-ms.technology: o365-connectors
+ms.service: outlook
 ms.date: 01/06/2021
 ms.author: jasonjoh
 ms.localizationpriority: medium
+ms.subservice: o365-connectors
 ---
 
 # Refresh an actionable message when the user opens it
