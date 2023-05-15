@@ -33,7 +33,7 @@ This sample illustrates the Universal Action Model implementation available for 
 
 ## Step 1: Ensure your adaptive card payloads are ready
 
-For the approvals scenario, you can find the [JSON payload here](#json-payload). Below, you can see the payload rendering in mobile and desktop screens.
+For the approvals scenario, you can find the [JSON payload here](https://github.com/OfficeDev/outlook-dev-docs/blob/main/files/actionable-messages/samples/Approval.json). Below, you can see the payload rendering in mobile and desktop screens.
 
 <!-- markdownlint-disable MD051 -->
 ### [Mobile](#tab/mobile)
@@ -53,7 +53,7 @@ For Universal Actions, you need to use `Action.Execute` which gathers input fiel
 
 Here is a snippet of Actions for Approval scenario.
 
-:::code language="json" source="samples/Approval.json" highlight="652-697":::
+:::code language="json" source="samples/Approval.json" range="652-697":::
 
 For more information, see [Action.Execute schema and properties](/adaptive-cards/authoring-cards/universal-action-model#actionexecute)
 
