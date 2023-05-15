@@ -24,7 +24,7 @@ This might happen if there are some fields that contain unexpected values.
 
 1. Please recheck all the fields again.
 1. Try to use smaller size payload and check that HTML tags are not used.
-1. In case you do not find any discrepancy, please remove the card payload json and submit again. If the form is submitted, please send the card payload separately to [onboardoam@microsoft.com](onboardoam@microsoft.com) along with your originator ID.
+1. In case you do not find any discrepancy, please remove the card payload json and submit again. If the form is submitted, please send the card payload separately to [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) along with your originator ID.
 
 ### I have submitted a registration request with organization scope. Who will approve my registration?
 
@@ -39,7 +39,7 @@ To check who are your organization IT admins, follow the following steps :
 
 ### How can I update sender email address for an approved registered provider?
 
-To update the sender list for you Actionable Message provider, you can reach out to [onboardoam@microsoft.com](onboardoam@microsoft.com) with updated details. Our team will acknowledge and update it in backend. Please note that any update will take 2 weeks after the team acknowledges your update.
+To update the sender list for you Actionable Message provider, you can reach out to [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) with updated details. Our team will acknowledge and update it in backend. Please note that any update will take 2 weeks after the team acknowledges your update.
 
 ## Actionable Message Rendering
 
