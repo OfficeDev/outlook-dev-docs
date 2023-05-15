@@ -96,4 +96,4 @@ protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAs
 
 ## Step 3: Sending the Actionable Message
 
-You can send the Actionable Message backed by Universal Actions similar to any other Actionable message. For more information, please see [Send an actionable message via email](./send-via-email.md).
+You can send the Actionable Message backed by Universal Actions similar to any other Actionable Message. For more information, please see [Send an actionable message via email](./send-via-email.md).
