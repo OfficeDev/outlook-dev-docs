@@ -18,14 +18,15 @@ Actionable messages can be posted via a group or inbox connector, or can be sent
 > Office 365 administrators can disable actionable messages via the [Set-OrganizationConfig cmdlet](/powershell/module/exchange/organization/set-organizationconfig). If actionable messages do not render, check with your administrator to make sure the feature is enabled in your organization.
 
 ## Universal Actions in Outlook
-[Adaptive Card](./adaptive-card.md) have evolved from the developer feedback that even though layout and rendering for Adaptive Cards was universal, action handling was not. 
+
+[Adaptive Card](./adaptive-card.md) have evolved from the developer feedback that even though layout and rendering for Adaptive Cards was universal, action handling was not.
 
 This is resolved with Universal Actions and above that brings the bot as the common backend for handling actions and introduces a new action type, [Action.Execute](https://adaptivecards.io/explorer/Action.Execute.html), which works across apps, such as Teams and Outlook. Universal Actions is available with adaptive card version 1.4 and higher.
 
 Here are few code samples to help you with building Actionable messages with universal actions
 
-- [Expense Approvals](./adaptive-card-code-sample-1.md)
-- [Project management](./adaptive-card-code-sample-2.md)
+- [Expense Approvals](./adaptive-card-expense-approval-sample.md)
+- [Project management](./adaptive-card-project-management-sample.md)
 
 ## Connectors vs Email: Choosing a delivery mechanism
 
