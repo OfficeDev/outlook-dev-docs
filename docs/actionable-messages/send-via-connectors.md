@@ -3,10 +3,11 @@ title: Get started with actionable messages via connectors
 description: Learn how to create an actionable message card and send it via Office connectors.
 author: jasonjoh
 ms.topic: conceptual
-ms.technology: o365-connectors
+ms.service: outlook
 ms.date: 10/30/2018
 ms.author: jasonjoh
 ms.localizationpriority: high
+ms.subservice: o365-connectors
 ---
 
 # Post an actionable message card to an Office 365 group
