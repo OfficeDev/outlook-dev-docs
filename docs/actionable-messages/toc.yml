@@ -6,9 +6,9 @@ items:
   - name: Get started with actionable messages
     href: get-started.md
   - name: Universal Action Model sample - Approvals
-    href: adaptive-card-code-sample-1.md
+    href: adaptive-card-expense-approval-sample.md
   - name: Universal Action Model sample - Project Management
-    href: adaptive-card-code-sample-2.md
+    href: adaptive-card-project-management-sample.md
   - name: Actionable Messages via Email
     href: send-via-email.md
   - name: Actionable Messages via Connectors
