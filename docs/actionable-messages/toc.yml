@@ -5,14 +5,18 @@ items:
   items:
   - name: Get started with actionable messages
     href: get-started.md
-  - name: Universal Action Model sample - Approvals
-    href: adaptive-card-expense-approval-sample.md
-  - name: Universal Action Model sample - Project Management
-    href: adaptive-card-project-management-sample.md
   - name: Actionable Messages via Email
     href: send-via-email.md
   - name: Actionable Messages via Connectors
     href: send-via-connectors.md
+- name: Universal Action Model
+  items:
+  - name: Overview of Universal Action Model
+    href: universal-action-model.md
+  - name: Universal Action Model sample - Approvals
+    href: adaptive-card-expense-approval-sample.md
+  - name: Universal Action Model sample - Project Management
+    href: adaptive-card-project-management-sample.md
 - name: Concepts
   items:
   - name: Identity linking

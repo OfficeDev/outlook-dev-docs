@@ -10,26 +10,26 @@ ms.author: avyad
 ms.localizationpriority: high
 ---
 
-# Universal Actions Model code sample - Project Management
+# Universal Actions Model code sample - Expense Approval
 
 This sample illustrates the Universal Action Model implementation available for adaptive cards version 1.4 or higher.
 
 ## Prerequisites
 
-- Outlook/OWA client is available and you have an account
-- [.NET Core SDK](https://dotnet.microsoft.com/download) version 6.0
+- Outlook/OWA client is available and you have an account.
+- A valid Azure subsciption.
+- Understanding of [Azure Bot Framework](/azure/bot-service/bot-builder-basics).
 
 ## Setup for bot
 
-- Register a new application in the [Azure Active Directory – App Registrations](https://go.microsoft.com/fwlink/?linkid=2083908) portal.
 - Register a bot with Azure Bot Service, following the instructions [here](/azure/bot-service/bot-service-quickstart-registration).
-- Ensure that you've [enabled the Outlook Channel](/azure/bot-service/bot-service-channel-connect-actionable-email)
-- Request for access to send Actionable Messages.
+- Ensure that you've [enabled the Outlook Channel](/azure/bot-service/bot-service-channel-connect-actionable-email).
   - Open your bot resource in the [Azure portal](https://ms.portal.azure.com/).
   - Open the **Channels** pane.
-  - Select the **Outlook** channel.
-  - On the **Configure Outlook** page, select **please register here**.
+  - Select the **Outlook** channel in *Available Channels* section.
+  - Under the **Actionable Messages** tab, Click **Apply** followed by **please register here**.
   - Fill out the registration form to request access. See [Register your service with the actionable email developer dashboard](./email-dev-dashboard.md) for more information.
+- Create your bot with the Bot Framework SDK, following the instruction [here](/azure/bot-service/bot-service-quickstart-create-bot).
 
 ## Step 1: Ensure your adaptive card payloads are ready
 
@@ -57,9 +57,9 @@ Here is a snippet of Actions for Project management scenario.
 
 For more information, see [Action.Execute schema and properties](/adaptive-cards/authoring-cards/universal-action-model#actionexecute)
 
-## Step 2: Write custom logic in the bot for Project management
+## Step 2: Write custom business logic in the bot for Project management
 
-In the Azure bot, you can write logic to capture the action using the `verb` field, add you business logic and send the refresh card back to Outlook.
+In the Azure bot, you can use [OnAdaptiveCardInvokeAsync](/dotnet/api/microsoft.bot.builder.activityhandler.onadaptivecardinvokeasync) method to capture the action using the `verb` field, add your business logic and send the refresh card back to Outlook.
 
 ```csharp
 protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAsync(
@@ -92,6 +92,9 @@ protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAs
     }
 }
 ```
+
+You can test your bot locally or [deploy your bot to Azure](/azure/bot-service/provision-and-publish-a-bot).
+
 
 ## Step 3: Sending the Actionable Message
 

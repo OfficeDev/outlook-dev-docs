@@ -21,12 +21,7 @@ Actionable messages can be posted via a group or inbox connector, or can be sent
 
 [Adaptive Card](./adaptive-card.md) have evolved from the developer feedback that even though layout and rendering for Adaptive Cards was universal, action handling was not.
 
-This is resolved with Universal Actions and above that brings the bot as the common backend for handling actions and introduces a new action type, [Action.Execute](https://adaptivecards.io/explorer/Action.Execute.html), which works across apps, such as Teams and Outlook. Universal Actions is available with adaptive card version 1.4 and higher.
-
-Here are few code samples to help you with building Actionable messages with universal actions
-
-- [Expense Approvals](./adaptive-card-expense-approval-sample.md)
-- [Project management](./adaptive-card-project-management-sample.md)
+This is resolved with Universal Actions and above that brings the bot as the common backend for handling actions and introduces a new action type, [Action.Execute](https://adaptivecards.io/explorer/Action.Execute.html), which works across apps, such as Teams and Outlook. Universal Actions is available with adaptive card version 1.4 and higher. See Overview of [Universal Action Model](./universal-action-model) to learn more.
 
 ## Connectors vs Email: Choosing a delivery mechanism
 
