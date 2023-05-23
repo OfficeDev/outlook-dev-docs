@@ -10,7 +10,7 @@ ms.author: avyad
 ms.localizationpriority: high
 ---
 
-# Universal Actions Model code sample - Expense Approval
+# Universal Actions Model code sample - Project Management
 
 This sample illustrates the Universal Action Model implementation available for adaptive cards version 1.4 or higher.
 

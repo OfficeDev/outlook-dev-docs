@@ -1,10 +1,10 @@
 ---
 title: Overview of Universal Action Model
-description: Learn Universal Actions for Adaptive Cards in Outlook
+description: Learn more about Universal Actions for Adaptive Cards in Outlook
 author: avijityadav
 ms.topic: conceptual
 ms.service: outlook
-ms.date: 05/05/2023
+ms.date: 05/18/2023
 ms.author: avyad
 ms.localizationpriority: high
 ms.subservice: o365-connectors
