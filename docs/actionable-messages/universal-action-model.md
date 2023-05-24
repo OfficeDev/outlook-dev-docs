@@ -85,7 +85,7 @@ Alongside `Action.Execute`, a new refresh mechanism is now supported, making it 
 | Property | Type | Required | Description 
 | -------- | ---- | -------- | ----------- 
 | **action** | `"Action.Execute"` | Yes | Must be an action instance of type `"Action.Execute"`. |
-| **userIds** | `Array<string>` | Yes | An array of `MRI`s of users for whom Auto Refresh must be enabled in Teams.<br><br>Note that the `userIds` property is ignored in Outlook, and the `refresh` property is always automatically honored.|
+| **userIds** | `Array<string>` | Yes | An array of Message Resource Identifier (`MRI`) of users for whom Auto Refresh must be enabled in Teams. For Teams, refer to [User IDs in refresh](/microsoftteams/platform/task-modules-and-cards/cards/universal-actions-for-adaptive-cards/work-with-universal-actions-for-adaptive-cards#user-ids-in-refresh) to learn more.<br><br>Note that the `userIds` property is ignored in Outlook, and the `refresh` property is always automatically honored.|
 
 **Sample JSON**
 ```JSON
