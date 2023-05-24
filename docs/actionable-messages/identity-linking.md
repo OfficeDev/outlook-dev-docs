@@ -3,10 +3,11 @@ title: Link Azure Active Directory identity with your own identity provider (Pre
 description: Learn how to authenticate an actionable message recipient with your service to link their Azure AD identity.
 author: jasonjoh
 ms.topic: article
-ms.technology: o365-connectors
+ms.service: outlook
 ms.date: 07/04/2021
 ms.author: jasonjoh
 ms.localizationpriority: medium
+ms.subservice: o365-connectors
 ---
 
 # Link Azure Active Directory identity with your own identity provider (Preview)

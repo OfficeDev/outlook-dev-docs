@@ -3,10 +3,11 @@ title: Get started with actionable messages
 description: Get started with actionable messages. Learn about the available delivery mechanisms and applicable scenarios.
 author: jasonjoh
 ms.topic: conceptual
-ms.technology: o365-connectors
+ms.service: outlook
 ms.date: 05/09/2017
 ms.author: jasonjoh
 ms.localizationpriority: high
+ms.subservice: o365-connectors
 ---
 
 # Get started with actionable messages in Office 365
@@ -15,6 +16,12 @@ Actionable messages can be posted via a group or inbox connector, or can be sent
 
 > [!NOTE]
 > Office 365 administrators can disable actionable messages via the [Set-OrganizationConfig cmdlet](/powershell/module/exchange/organization/set-organizationconfig). If actionable messages do not render, check with your administrator to make sure the feature is enabled in your organization.
+
+## Universal Actions in Outlook
+
+[Adaptive Card](./adaptive-card.md) have evolved from the developer feedback that even though layout and rendering for Adaptive Cards was universal, action handling was not.
+
+This is resolved with Universal Actions and above that brings the bot as the common backend for handling actions and introduces a new action type, [Action.Execute](https://adaptivecards.io/explorer/Action.Execute.html), which works across apps, such as Teams and Outlook. Universal Actions is available with adaptive card version 1.4 and higher. See Overview of [Universal Action Model](./universal-action-model.md) to learn more.
 
 ## Connectors vs Email: Choosing a delivery mechanism
 

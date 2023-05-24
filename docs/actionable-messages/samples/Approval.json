@@ -1,0 +1,706 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "style": "emphasis",
+      "columns": [
+        {
+          "type": "Column",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Expense Approval",
+              "wrap": true
+            }
+          ],
+          "width": "stretch",
+          "padding": "None"
+        },
+        {
+          "type": "Column",
+          "items": [
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "Right",
+              "color": "Accent",
+              "text": "[#ER-093249-90](https://amdesigner.azurewebsites.net/)",
+              "wrap": true
+            }
+          ],
+          "width": "stretch",
+          "padding": "None"
+        }
+      ],
+      "padding": "Default",
+      "spacing": "None"
+    },
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "Large",
+          "weight": "Bolder",
+          "text": "Expense report by Miguel garcia is pending your approval.",
+          "wrap": true,
+          "style": "heading"
+        }
+      ],
+      "padding": "Default",
+      "spacing": "None",
+      "separator": true
+    },
+    {
+      "type": "Container",
+      "id": "7d00f965-40bb-9fc3-ff7b-a9b82a09ead4",
+      "padding": "Default",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "Image",
+                  "style": "Person",
+                  "url": "https://amdesigner.azurewebsites.net/samples/assets/Miguel_Garcia.png",
+                  "size": "Small",
+                  "altText": "Miguel Garcia Avatar"
+                }
+              ],
+              "width": "auto",
+              "padding": "None"
+            },
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "Miguel Garcia",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "None",
+                  "color": "Light",
+                  "text": "Program Manager",
+                  "wrap": true,
+                  "size": "Small"
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "None",
+                  "color": "Light",
+                  "text": "Oslo-O365",
+                  "wrap": true,
+                  "size": "Small"
+                }
+              ],
+              "width": "stretch",
+              "padding": "None"
+            }
+          ],
+          "spacing": "None",
+          "padding": "None"
+        }
+      ],
+      "spacing": "None",
+      "separator": true
+    },
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "*\"Please approve the expenses incurred during my trip to San Francisco for the annual developer conference.\"*",
+          "wrap": true
+        },
+        {
+          "type": "FactSet",
+          "id": "a46a50e6-11c3-27bb-349f-b40d820a7b83",
+          "facts": [
+            {
+              "title": "Total Amount:",
+              "value": "$1,473.35"
+            },
+            {
+              "title": "Request on:",
+              "value": "09/21/2019"
+            }
+          ]
+        }
+      ],
+      "padding": {
+        "top": "None",
+        "bottom": "Default",
+        "left": "Default",
+        "right": "Default"
+      },
+      "spacing": "None"
+    },
+    {
+      "type": "Container",
+      "spacing": "None",
+      "items": [
+        {
+          "type": "Container",
+          "id": "b149e1cc-0414-662b-6435-ad68d851bf67",
+          "padding": "Default",
+          "items": [
+            {
+              "type": "ColumnSet",
+              "spacing": "None",
+              "style": "emphasis",
+              "columns": [
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "weight": "Bolder",
+                      "text": "Activity History",
+                      "wrap": true,
+                      "spacing": "None"
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "None",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "id": "ActivityHistoryChevronDown",
+                  "items": [
+                    {
+                      "type": "Image",
+                      "selectAction": {
+                        "type": "Action.ToggleVisibility",
+                        "id": "ExpandActivityHistory",
+                        "title": "Expand Activity History",
+                        "targetElements": [
+                          "ActivityHistoryWrapper",
+                          "ActivityHistoryChevronUp",
+                          "ActivityHistoryChevronDown"
+                        ]
+                      },
+                      "url": "https://amdesigner.azurewebsites.net/samples/assets/Down.png",
+                      "width": "20px",
+                      "altText": "Expand",
+                      "height": "20px"
+                    }
+                  ],
+                  "width": "auto",
+                  "spacing": "None",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "id": "ActivityHistoryChevronUp",
+                  "isVisible": false,
+                  "items": [
+                    {
+                      "type": "Image",
+                      "selectAction": {
+                        "type": "Action.ToggleVisibility",
+                        "id": "CollapseActivityHistory",
+                        "title": "Collapse Activity History",
+                        "targetElements": [
+                          "ActivityHistoryWrapper",
+                          "ActivityHistoryChevronUp",
+                          "ActivityHistoryChevronDown"
+                        ]
+                      },
+                      "url": "https://amdesigner.azurewebsites.net/samples/assets/Up.png",
+                      "width": "20px",
+                      "altText": "Collapse",
+                      "height": "20px"
+                    }
+                  ],
+                  "width": "auto",
+                  "padding": "None"
+                }
+              ],
+              "padding": "None"
+            }
+          ],
+          "spacing": "None",
+          "style": "emphasis",
+          "separator": true,
+          "selectAction": {
+            "type": "Action.ToggleVisibility",
+            "targetElements": [
+              "ActivityHistoryWrapper",
+              "ActivityHistoryChevronUp",
+              "ActivityHistoryChevronDown"
+            ],
+            "id": "ExpandActivityHistory",
+            "title": "Expand Activity History"
+          }
+        },
+        {
+          "type": "Container",
+          "id": "ActivityHistoryWrapper",
+          "isVisible": false,
+          "items": [
+            {
+              "type": "TextBlock",
+              "spacing": "Small",
+              "color": "Good",
+              "text": "[pending] Amanda Brady (you)",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "spacing": "Small",
+              "color": "Light",
+              "text": "[pending] Kevin Sturgis",
+              "wrap": true
+            }
+          ],
+          "padding": {
+            "top": "Default",
+            "bottom": "Large",
+            "left": "Default",
+            "right": "Default"
+          },
+          "spacing": "None",
+          "separator": true
+        }
+      ],
+      "padding": "None",
+      "separator": true
+    },
+    {
+      "type": "Container",
+      "id": "c8472889-6d94-90e5-5311-3ede0967cd86",
+      "items": [
+        {
+          "type": "Container",
+          "spacing": "None",
+          "separator": true,
+          "items": [
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "weight": "Bolder",
+                      "text": "Expense Details",
+                      "wrap": true,
+                      "spacing": "None"
+                    }
+                  ],
+                  "width": "stretch",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "id": "ExpenseDetailsChevronDown",
+                  "items": [
+                    {
+                      "type": "Image",
+                      "selectAction": {
+                        "type": "Action.ToggleVisibility",
+                        "id": "ExpandExpenseDetails",
+                        "title": "Expand Expense Details",
+                        "targetElements": [
+                          "ExpenseDetailsWrapper",
+                          "ExpenseDetailsChevronUp",
+                          "ExpenseDetailsChevronDown"
+                        ]
+                      },
+                      "url": "https://amdesigner.azurewebsites.net/samples/assets/Down.png",
+                      "width": "20px",
+                      "altText": "Expand",
+                      "height": "20px"
+                    }
+                  ],
+                  "width": "auto",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "id": "ExpenseDetailsChevronUp",
+                  "isVisible": false,
+                  "items": [
+                    {
+                      "type": "Image",
+                      "selectAction": {
+                        "type": "Action.ToggleVisibility",
+                        "id": "CollapseExpenseDetails",
+                        "title": "Collapse Expense Details",
+                        "targetElements": [
+                          "ExpenseDetailsWrapper",
+                          "ExpenseDetailsChevronUp",
+                          "ExpenseDetailsChevronDown"
+                        ]
+                      },
+                      "url": "https://amdesigner.azurewebsites.net/samples/assets/Up.png",
+                      "width": "20px",
+                      "altText": "Collapse",
+                      "height": "20px"
+                    }
+                  ],
+                  "width": "auto",
+                  "padding": "None"
+                }
+              ],
+              "padding": "None"
+            }
+          ],
+          "padding": "Default",
+          "style": "emphasis",
+          "selectAction": {
+            "type": "Action.ToggleVisibility",
+            "targetElements": [
+              "ExpenseDetailsWrapper",
+              "ExpenseDetailsChevronUp",
+              "ExpenseDetailsChevronDown"
+            ],
+            "id": "ExpandExpenseDetails",
+            "title": "Expand Expense Details"
+          }
+        },
+        {
+          "type": "Container",
+          "id": "ExpenseDetailsWrapper",
+          "isVisible": false,
+          "items": [
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "horizontalAlignment": "Left",
+                      "text": "1.",
+                      "wrap": true,
+                      "size": "Medium"
+                    }
+                  ],
+                  "width": "auto",
+                  "padding": "None",
+                  "spacing": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "FactSet",
+                      "id": "9d60e7c6-611b-c2b9-b43e-af37c0154ad6",
+                      "facts": [
+                        {
+                          "title": "Expense Category:",
+                          "value": "Hotel"
+                        },
+                        {
+                          "title": "Transaction Amount:",
+                          "value": "228.12 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "Small",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "FactSet",
+                      "id": "274d7b95-17ae-ff6d-fa93-27568cf0fb2c",
+                      "facts": [
+                        {
+                          "title": "Transaction date:",
+                          "value": "07/31/2018"
+                        },
+                        {
+                          "title": "Foreign Currency:",
+                          "value": "228.12 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "Small",
+                  "padding": "None"
+                }
+              ],
+              "padding": "None"
+            },
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "horizontalAlignment": "Left",
+                      "text": "2.",
+                      "wrap": true,
+                      "size": "Medium"
+                    }
+                  ],
+                  "width": "auto",
+                  "padding": "None",
+                  "spacing": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "FactSet",
+                      "id": "96be582e-4971-5a04-a892-e3a9dbf88d40",
+                      "facts": [
+                        {
+                          "title": "Expense Category:",
+                          "value": "Travel"
+                        },
+                        {
+                          "title": "Transaction Amount:",
+                          "value": "25.7 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "Small",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "FactSet",
+                      "id": "0e2b3791-6d26-c8e8-6b9a-73a41566a1b3",
+                      "facts": [
+                        {
+                          "title": "Transaction date:",
+                          "value": "08/02/2019"
+                        },
+                        {
+                          "title": "Foreign Currency:",
+                          "value": "228.12 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "Small",
+                  "padding": "None"
+                }
+              ],
+              "padding": "None",
+              "separator": true
+            },
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "horizontalAlignment": "Left",
+                      "text": "3.",
+                      "wrap": true,
+                      "size": "Medium"
+                    }
+                  ],
+                  "width": "auto",
+                  "padding": "None",
+                  "spacing": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "FactSet",
+                      "id": "ad183c8c-00b6-f723-977d-5e5fd58a8b16",
+                      "facts": [
+                        {
+                          "title": "Expense Category:",
+                          "value": "Hotel"
+                        },
+                        {
+                          "title": "Transaction Amount:",
+                          "value": "205.3 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "Small",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "FactSet",
+                      "id": "3ac7f96e-9e02-27eb-8c96-ce44c9f7c7b9",
+                      "facts": [
+                        {
+                          "title": "Transaction date:",
+                          "value": "08/02/2019"
+                        },
+                        {
+                          "title": "Foreign Currency:",
+                          "value": "205.3 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "Small",
+                  "padding": "None"
+                }
+              ],
+              "padding": "None",
+              "separator": true
+            },
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "horizontalAlignment": "Left",
+                      "text": "4.",
+                      "wrap": true,
+                      "size": "Medium"
+                    }
+                  ],
+                  "width": "auto",
+                  "padding": "None",
+                  "spacing": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "FactSet",
+                      "id": "dc1e22e7-d681-6d0f-5ac2-8ed95ba7b399",
+                      "facts": [
+                        {
+                          "title": "Expense Category:",
+                          "value": "Travel"
+                        },
+                        {
+                          "title": "Transaction Amount:",
+                          "value": "1198.33 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "Small",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "FactSet",
+                      "id": "97e7396a-bbb8-9c2d-b03f-7da75c20c503",
+                      "facts": [
+                        {
+                          "title": "Transaction date:",
+                          "value": "09/02/2019"
+                        },
+                        {
+                          "title": "Foreign Currency:",
+                          "value": "1198.33 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "stretch",
+                  "spacing": "Small",
+                  "padding": "None"
+                }
+              ],
+              "padding": "None",
+              "separator": true
+            }
+          ],
+          "padding": "Default",
+          "separator": true,
+          "spacing": "None"
+        }
+      ],
+      "padding": "None",
+      "separator": true,
+      "spacing": "None"
+    },
+    {
+      "type": "Container",
+      "id": "353b659f-b668-fac0-5b7f-5d2f1bdb46ac",
+      "padding": "Default",
+      "items": [
+        {
+          "type": "ActionSet",
+          "actions": [
+            {
+              "type": "Action.Execute",
+              "title": "Accept",
+              "verb": "approvalAccept",
+              "data": {},
+              "isPrimary": true,
+              "style": "positive"
+            },
+            {
+              "type": "Action.ShowCard",
+              "id": "e1487cbc-66b0-037e-cdc4-045fb7d8d0b8",
+              "title": "Reject",
+              "card": {
+                "type": "AdaptiveCard",
+                "body": [
+                  {
+                    "type": "Input.Text",
+                    "id": "Comment",
+                    "placeholder": "Add a comment",
+                    "isMultiline": true
+                  },
+                  {
+                    "type": "ActionSet",
+                    "actions": [
+                      {
+                        "type": "Action.Execute",
+                        "title": "Submit",
+                        "verb": "approvalReject",
+                        "data": {
+                          "comment": "${Comment.value}"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "fallbackText": "Unable to render the card",
+                "padding": "None"
+              }
+            }
+          ],
+          "spacing": "None"
+        }
+      ],
+      "spacing": "None",
+      "separator": true
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.4",
+  "padding": "None"
+}

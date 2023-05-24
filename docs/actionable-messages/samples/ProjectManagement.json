@@ -1,0 +1,153 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Container",
+      "style": "emphasis",
+      "items": [
+        {
+          "type": "TextBlock",
+          "horizontalAlignment": "Left",
+          "color": "Accent",
+          "text": "Task Management",
+          "wrap": true,
+          "size": "Medium",
+          "weight": "Bolder"
+        }
+      ],
+      "padding": "Default",
+      "spacing": "None"
+    },
+    {
+      "type": "Container",
+      "separator": true,
+      "items": [
+        {
+          "type": "Container",
+          "items": [
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "Image",
+                      "horizontalAlignment": "Center",
+                      "style": "Person",
+                      "url": "https://amdesigner.azurewebsites.net/samples/assets/Colin_Ballinger.png",
+                      "size": "Small",
+                      "altText": "Collin Ballinger Avatar"
+                    }
+                  ],
+                  "width": "auto",
+                  "padding": "None"
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "weight": "Bolder",
+                      "text": "Collin Ballinger assigned you a task",
+                      "wrap": true
+                    },
+                    {
+                      "type": "TextBlock",
+                      "spacing": "None",
+                      "color": "Light",
+                      "text": "Task title - \"Social Media marketing plan\" to \"Marketing\" list",
+                      "wrap": true,
+                      "size": "Small"
+                    },
+                    {
+                      "type": "TextBlock",
+                      "spacing": "None",
+                      "color": "Light",
+                      "text": "Due Date - 23.09.2019",
+                      "wrap": true,
+                      "size": "Small"
+                    },
+                    {
+                      "type": "TextBlock",
+                      "spacing": "None",
+                      "color": "Light",
+                      "text": "Comment - We need to make sure that we have the plan ready for our meeting on Wednesday.",
+                      "wrap": true,
+                      "size": "Small"
+                    }
+                  ],
+                  "width": "stretch",
+                  "padding": "None"
+                }
+              ],
+              "padding": "None"
+            }
+          ],
+          "padding": "None"
+        }
+      ],
+      "padding": {
+        "top": "Default",
+        "bottom": "None",
+        "left": "Default",
+        "right": "Default"
+      },
+      "spacing": "None"
+    },
+    {
+      "type": "Container",
+      "id": "466ee0a4-b5ba-520e-0b5d-53841fffe66e",
+      "padding": "Default",
+      "items": [
+        {
+          "type": "ActionSet",
+          "actions": [
+            {
+              "type": "Action.Execute",
+              "title": "Mark complete",
+              "verb": "markComplete",
+              "data": {},
+              "isPrimary": true,
+              "style": "positive"
+            },
+            {
+              "type": "Action.ShowCard",
+              "title": "Add a comment",
+              "card": {
+                "type": "AdaptiveCard",
+                "body": [
+                  {
+                    "type": "Input.Text",
+                    "id": "AddComment",
+                    "placeholder": "Add a comment",
+                    "isMultiline": true
+                  },
+                  {
+                    "type": "ActionSet",
+                    "actions": [
+                      {
+                        "type": "Action.Execute",
+                        "title": "Submit",
+                        "verb": "projectSubmitComment",
+                        "data": "{Reason: {{AddComment.value}}}"
+                      }
+                    ]
+                  }
+                ],
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "padding": "None"
+              }
+            }
+          ],
+          "spacing": "None"
+        }
+      ],
+      "spacing": "None"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "originator": "c9b4352b-a76b-43b9-88ff-80edddaa243b",
+  "version": "1.4",
+  "padding": "None"
+}
