@@ -80,8 +80,8 @@ When authoring Adaptive Cards for Outlook, use `Action.Execute` in place of `Act
 
 Alongside `Action.Execute`, a new refresh mechanism is now supported, making it possible to create Adaptive Cards that automatically update at the time they are displayed. This ensures that users always see up-to-date data. To allow an Adaptive Card to automatically refresh in Outlook, define its `refresh` property, which embeds an `action` of type `Action.Execute`.
 
-| Property | Type | Required | Description 
-| -------- | ---- | -------- | ----------- 
+| Property | Type | Required | Description
+| -------- | ---- | -------- | -----------
 | **action** | `"Action.Execute"` | Yes | Must be an action instance of type `"Action.Execute"`. |
 | **userIds** | `Array<string>` | Yes | An array of Message Resource Identifier (`MRI`) of users for whom Auto Refresh must be enabled in Teams. For Teams, refer to [User IDs in refresh](/microsoftteams/platform/task-modules-and-cards/cards/universal-actions-for-adaptive-cards/work-with-universal-actions-for-adaptive-cards#user-ids-in-refresh) to learn more. Note that the `userIds` property is ignored in Outlook, and the `refresh` property is always automatically honored.|
 

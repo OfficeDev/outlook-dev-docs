@@ -96,22 +96,22 @@ For information on admin controls, look at the FAQ section of this [support arti
 
 ### Outlook version requirements for actionable messages
 
-Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 or Outlook.com with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Office 365 ProPlus](/DeployOffice/overview-of-update-channels-for-office-365-proplus).
+Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 or Outlook.com with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Microsoft 365 apps](/deployoffice/updates/overview-update-channels). For current supported versions of Microsoft 365 Apps, see [supported versions](/officeupdates/update-history-microsoft365-apps-by-date#supported-versions).
 
 > [!NOTE]
 > Currently actionable message cards do not change the way that they render when Outlook is in dark mode. Support for dark mode for actionable messages is coming soon.
 
-| Client                                               | Actionable messages supported?                                          | Adaptive card supported? |
-|------------------------------------------------------|-------------------------------------------------------------------------|---|
-| Outlook on the web for Microsoft 365                 | Yes                                                                     | Yes |
-| Microsoft 365 ProPlus Monthly Channel                | Yes, version 2003, Build 12624.20588 or version 2002, Build 12527.20194 | Yes, version 2003, Build 12624.20588 or version 2002, Build 12527.20194 |
-| Microsoft 365 ProPlus Semi-Annual Channel (Targeted) | Yes, version 2002, Build 12527.20194                                    | Yes, version 2002, Build 12527.20194 |
-| Microsoft 365 ProPlus Semi-Annual Channel            | Yes, version 2002, Build 12527.20880                                    | Yes, version 2002, Build 12527.20880 |
-| Outlook on Mac                                       | Yes, version 16.0.12817.10000                                           | Yes (Legacy MessageCard format is not supported) |
-| Outlook on iOS                                       | Yes, version 4.34.0                                                     | Yes (Legacy MessageCard format is not supported) |
-| Outlook on Android                                   | Yes, version 4.1.71                                                     | Yes (Legacy MessageCard format is not supported) |
-| Office Professional Plus 2016 (Click-to-Run only)    | Actionable Messages are available for Office 365 only                   | No |
-| Exchange 2016 On-Premises Outlook on the web         | Actionable Messages are available for Office 365 only                   | No |
+| Client                                                     | Actionable messages supported? | Adaptive card supported? |
+|------------------------------------------------------------|--------------------------------|--------------------------|
+| Outlook on the web for Microsoft 365                       | Yes                            | Yes |
+| Microsoft 365 Apps Current Channel                         | Yes                            | Yes |
+| Microsoft 365 Apps Monthly Enterprise Channel              | Yes                            | Yes |
+| Microsoft 365 Apps Semi-Annual Enterprise Channel          | Yes                            | Yes |
+| Outlook on Mac                                             | Yes, version 16.0.12817.10000  | Yes (Legacy MessageCard format is not supported) |
+| Outlook on iOS                                             | Yes, version 4.34.0            | Yes (Legacy MessageCard format is not supported) |
+| Outlook on Android                                         | Yes, version 4.1.71            | Yes (Legacy MessageCard format is not supported) |
+| Office Professional Plus (Click-to-Run only), all versions | No                             | No |
+| Exchange On-Premises Outlook on the web, all versions      | No                             | No |
 
 > [!NOTE]
 > Actionable messages may not render correctly in Outlook for Windows if you have any of the following options enabled in **Download Preferences** on the **Send / Receive** tab.
@@ -120,9 +120,7 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 > - Download Headers
 > - On Slow Connections Download Only Headers
 >
-> To resolve the problem, select **Download Full Items**. 
-> Depending on your connection type, you may want to uncheck **On Slow Connections Download Only Headers** .
-
+> To resolve the problem, select **Download Full Items**. Depending on your connection type, you may want to uncheck **On Slow Connections Download Only Headers**.
 
 ## Submit feedback
 
