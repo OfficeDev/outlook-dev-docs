@@ -69,7 +69,7 @@ To verify that this is the cause:
 
 ### Is there a limit to number of Actionable messages that can be opened in Outlook at one time?
 
-To maintain optimal performance, we allow a maximum of 5 actionable messages emails to be opened at one time. Trying to open more than that at the same time will shown an error.
+To maintain optimal performance, we allow a maximum of 10 actionable messages emails to be opened at one time. Trying to open more than that at the same time will shown an error.
 
 ## Upgrading to Adaptive Card 1.4 and above
 
