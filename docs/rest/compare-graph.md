@@ -17,17 +17,17 @@ The Outlook REST APIs are available in both [Microsoft Graph](/graph/overview) a
 > [!NOTE]
 > **The Outlook REST APIs are deprecated.**
 >
-> The Outlook REST endpoints will be fully decommissioned in November 2022. Migrate existing apps to use Microsoft Graph.
+> The Outlook REST endpoints will be fully decommissioned in March 2024. Migrate existing apps to use Microsoft Graph.
 
 <!-- markdownlint-disable MD026 -->
 ## Which endpoint should I use?
 <!-- markdownlint-enable MD026 -->
 
-Use Microsoft Graph whenever possible. The Microsoft Graph endpoint lets you access Outlook and many more [services and features](/graph/overview-major-services), including other Office 365 services, Enterprise Mobility + Security, and Windows 10. Choosing the Microsoft Graph endpoint allows your app to get an access token that can provide access to both Outlook data and other resources, without having to make multiple token requests.
+Use Microsoft Graph, Outlook REST v2.0 is on its path to decommission. The Microsoft Graph endpoint lets you access Outlook and many more [services and features](/graph/overview-major-services), including other Office 365 services, Enterprise Mobility + Security, and Windows 10. Choosing the Microsoft Graph endpoint allows your app to get an access token that can provide access to both Outlook data and other resources, without having to make multiple token requests.
 
 ## Feature differences
 
-There are some features that are currently either only available on the Outlook endpoint, or are only in beta in Microsoft Graph. If your app needs these features, you should access them via the Outlook endpoint.
+There are some features that are currently either only available on the Outlook endpoint, or are only in beta in Microsoft Graph.
 
 > [!NOTE]
 > We are constantly working to incorporate all of the features currently available on the Outlook endpoint into Microsoft Graph. Be sure to check back periodically as this list is updated.
@@ -35,8 +35,8 @@ There are some features that are currently either only available on the Outlook 
 | Feature | Difference between endpoints |
 |---------|-------------|
 | [Outlook tasks](/previous-versions/office/office-365-api/api/version-2.0/task-rest-operations) | Access to users' tasks in Microsoft Graph is available through the [To Do API](/graph/api/resources/todo-overview) |
-| [Rich notifications](/previous-versions/office/office-365-api/api/version-2.0/notify-rest-operations#get-instance-properties-by-subscribing-to-rich-notifications) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph does not support this feature. |
-| [Streaming notifications](/previous-versions/office/office-365-api/api/beta/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature. |
+| [Rich notifications](/previous-versions/office/office-365-api/api/version-2.0/notify-rest-operations#get-instance-properties-by-subscribing-to-rich-notifications) | The Outlook API allows developers to request specific fields to be included with the notification payload by using the `$select` parameter. Microsoft Graph currently supports this feature in the beta endpoint only, planning to release it to v1.0 soon. |
+| [Streaming notifications](/previous-versions/office/office-365-api/api/beta/notify-streaming-rest-operations) | The Outlook API supports streaming notifications in preview on the beta endpoint. Microsoft Graph does not support this feature and it is not part of the roadmap. |
 
 ## Moving from Outlook endpoint to Microsoft Graph
 
