@@ -17,7 +17,7 @@ The Outlook REST APIs are available in both [Microsoft Graph](/graph/overview) a
 > [!NOTE]
 > **The Outlook REST APIs are deprecated.**
 >
-> The Outlook REST endpoints will be fully decommissioned in March 2024. Migrate existing apps to use Microsoft Graph.
+> The Outlook REST endpoints will be fully decommissioned in March 2024. Migrate existing apps to use Microsoft Graph. This does not include the OAuth2 token audience as described in [Authenticate an IMAP, POP or SMTP connection using OAuth](/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth).
 
 <!-- markdownlint-disable MD026 -->
 ## Which endpoint should I use?
