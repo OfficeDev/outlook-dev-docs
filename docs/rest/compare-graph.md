@@ -2,7 +2,7 @@
 title: Compare Microsoft Graph and Outlook endpoints
 description: Compare the differences between Microsoft Graph and Outlook APIs. Learn which endpoint is the best fit for your scenario and how to translate between them.
 author: jasonjoh
-
+ms.service: outlook
 ms.topic: article
 ms.technology: microsoft-graph
 ms.date: 07/04/2021
@@ -17,7 +17,7 @@ The Outlook REST APIs are available in both [Microsoft Graph](/graph/overview) a
 > [!NOTE]
 > **The Outlook REST APIs are deprecated.**
 >
-> The Outlook REST endpoints will be fully decommissioned in March 2024. Migrate existing apps to use Microsoft Graph.
+> The Outlook REST endpoints will be fully decommissioned in March 2024. Migrate existing apps to use Microsoft Graph. This does not include the OAuth2 token audience as described in [Authenticate an IMAP, POP or SMTP connection using OAuth](/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth).
 
 <!-- markdownlint-disable MD026 -->
 ## Which endpoint should I use?
