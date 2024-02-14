@@ -18,7 +18,7 @@ Building an Office connector for your application is easy. All you need to do is
 
 ### Registering your Connector
 
-Visit the [Connector Developer Portal](https://aka.ms/connectorsdashboard) and login with your Microsoft 365 credentials. If you do not have an Microsoft 365 subscription you can get a one year [FREE Microsoft 365 subscription](https://developer.microsoft.com/office/dev-program) under the Microsoft 365 Developer Program.
+Visit the [Connector Developer Portal](https://aka.ms/connectorsdashboard) and sign in with your Microsoft 365 credentials. If you don't have a Microsoft 365 tenant, you might qualify for one through the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program); for details, see the [FAQ](/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-). Alternatively, you can [sign up for a 1-month free trial or purchase a Microsoft 365 plan](https://www.microsoft.com/en-us/microsoft-365/try).
 
 Choose **New Connector** and fill out the form. Once you choose **Save**, new options appear on the page.
 
