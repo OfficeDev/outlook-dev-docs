@@ -35,9 +35,7 @@ items:
   href: connectors-dev-dashboard.md
 - name: Actionable Messages FAQs
   href: actionable-messages-faq.md
-- name: Card Playground
-  href: https://messagecardplayground.azurewebsites.net/
-- name: Adaptive Card Designer
+- name: Actionable Message Designer
   href: https://amdesigner.azurewebsites.net/
 - name: MessageCard Reference (Legacy)
   href: message-card-reference.md
