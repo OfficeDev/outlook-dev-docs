@@ -14,12 +14,12 @@ ms.subservice: o365-connectors
 
 ## Create an actionable message card
 
-Let's start by creating an actionable message card. We'll start with something simple, just a basic card with an `HttpPOST` action and an `OpenUri` action. We'll use the [Card Playground](https://messagecardplayground.azurewebsites.net/) to design the card.
+Let's start by creating an actionable message card. We'll start with something simple, just a basic card with an `HttpPOST` action and an `OpenUri` action. We'll use the [Actionable Messages Designer](https://amdesigner.azurewebsites.net/) to design the card.
 
 > [!IMPORTANT]
 > Office connectors only support the [legacy MessageCard format](message-card-reference.md) for cards. They do not support the Adaptive Card format.
 
-Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and paste in the following JSON:
+Go to [Actionable Message Designer](https://amdesigner.azurewebsites.net/) and paste in the following JSON:
 
 ```json
 {
@@ -60,7 +60,7 @@ Go to [Card Playground](https://messagecardplayground.azurewebsites.net/) and pa
 }
 ```
 
-Feel free to experiment with this simple example in the playground. You can see the [message card reference](message-card-reference.md) for details on the available fields. Once you have a card you're happy with, you can move on to sending it.
+Feel free to experiment with this simple example in the Actionable Message Designer. You can see the [message card reference](message-card-reference.md) for details on the available fields. Once you have a card you're happy with, you can move on to sending it.
 
 ## Sending actionable messages via Office connectors
 
