@@ -11,6 +11,7 @@ ms.subservice: o365-connectors
 ---
 
 # Register your service with the actionable email developer dashboard
+
 [!INCLUDE [global-onboarding-paused-notice](../includes/actionable-messages/global-onboarding-paused-notice.md)]
 
 To test and publish actionable messages from your service, you need to provide certain information to Microsoft to enable this functionality for emails from your service. The [developer dashboard](https://aka.ms/publishoam) helps you submit and track status of your submission via the web portal.

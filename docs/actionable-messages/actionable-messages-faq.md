@@ -79,20 +79,8 @@ Action execution paradigm has changed in Adaptive card version 1.4. We have star
 
 ## Actionable Message onboarding paused till June 15, 2024
 
-### I have submitted Global scoped registration but its not yet approved.
+### I have submitted a Global scoped registration but it's not yet approved.
 
-We are upgrading our service and hence temporarily paused the onborading for Global scoped registration till June 15, 2024
+Due to a service upgrade, onboarding for **Global** scoped registrations is temporarily paused until June 15, 2024. Registrations for Actionable Messages with **Organization** and **Test** scopes remain unaffected and will continue to operate as expected during this period.
 
-**Scope of Change:**
-1. The onboarding process for Actionable Messages with Global scope is temporarily paused until June 15, 2024. This pause is to facilitate service improvements and ensure a seamless onboarding experience post-upgrade.
-
-2. Registrations for Actionable Messages with Organization and Test scopes remain unaffected and will continue to operate as expected during this period.
-
-**Next Steps:**
-
-1. For those affected by the pause in Global scope onboarding, please prepare your services and await the resumption of the process on May 30th.
-2. For Organization and Test scope registrations, continue to use the existing process to onboard and test your services.
-Support:
-
-For any queries or assistance during this period, please reach out to the Actionable Messages team through the usual channels.
-
+For those affected by the pause in **Global** scope onboarding, please prepare your services and await the resumption of the process. For any queries or assistance during this period, please reach out to the Actionable Messages team through the usual channels.
