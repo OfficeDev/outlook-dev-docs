@@ -76,3 +76,23 @@ To maintain optimal performance, we allow a maximum of 10 actionable messages em
 ### I have upgraded the Adaptive card version from 1.0 to 1.4, and my Action buttons have disappeared.
 
 Action execution paradigm has changed in Adaptive card version 1.4. We have started supporting [Action.Execute](https://adaptivecards.io/explorer/Action.Execute.html) in place of `Action.Http`. For more information, see [code sample using Adaptive cards 1.4+](./adaptive-card-expense-approval-sample.md).
+
+## Actionable Message onboarding paused till June 15, 2024
+
+### I have submitted Global scoped registration but its not yet approved.
+
+We are upgrading our service and hence temporarily paused the onborading for Global scoped registration till June 15, 2024
+
+**Scope of Change:**
+1. The onboarding process for Actionable Messages with Global scope is temporarily paused until June 15, 2024. This pause is to facilitate service improvements and ensure a seamless onboarding experience post-upgrade.
+
+2. Registrations for Actionable Messages with Organization and Test scopes remain unaffected and will continue to operate as expected during this period.
+
+**Next Steps:**
+
+1. For those affected by the pause in Global scope onboarding, please prepare your services and await the resumption of the process on May 30th.
+2. For Organization and Test scope registrations, continue to use the existing process to onboard and test your services.
+Support:
+
+For any queries or assistance during this period, please reach out to the Actionable Messages team through the usual channels.
+

@@ -12,6 +12,8 @@ ms.subservice: o365-connectors
 
 # Send an actionable message via email in Office 365
 
+[!INCLUDE [global-onboarding-paused-notice](../includes/actionable-messages/global-onboarding-paused-notice.md)]
+
 ## Supported scenarios
 
 Sending actionable messages via email is supported in the following scenarios.
