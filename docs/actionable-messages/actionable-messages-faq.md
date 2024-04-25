@@ -81,6 +81,6 @@ Action execution paradigm has changed in Adaptive card version 1.4. We have star
 
 ### I have submitted a Global scoped registration but it's not yet approved.
 
-Due to a service upgrade, onboarding for **Global** scoped registrations is temporarily paused until June 15, 2024. Registrations for Actionable Messages with **Organization** and **Test** scopes remain unaffected and will continue to operate as expected during this period.
+Due to a service upgrade, onboarding for **Global** scoped registrations is temporarily paused until June 30, 2024. Registrations for Actionable Messages with **Organization** and **Test** scopes remain unaffected and will continue to operate as expected during this period.
 
 For those affected by the pause in **Global** scope onboarding, please prepare your services and await the resumption of the process. For any queries or assistance during this period, please reach out to the Actionable Messages team through the usual channels.
