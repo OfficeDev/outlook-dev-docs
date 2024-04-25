@@ -12,6 +12,8 @@ ms.subservice: o365-connectors
 
 # Get started with actionable messages in Office 365
 
+[!INCLUDE [global-onboarding-paused-notice](../includes/actionable-messages/global-onboarding-paused-notice.md)]
+
 Actionable messages can be posted via a group or inbox connector, or can be sent directly over email. Choosing the right delivery mechanism depends on your scenario.
 
 > [!NOTE]

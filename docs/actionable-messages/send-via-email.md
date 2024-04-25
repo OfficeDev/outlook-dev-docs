@@ -12,6 +12,8 @@ ms.subservice: o365-connectors
 
 # Send an actionable message via email in Office 365
 
+[!INCLUDE [global-onboarding-paused-notice](../includes/actionable-messages/global-onboarding-paused-notice.md)]
+
 ## Supported scenarios
 
 Sending actionable messages via email is supported in the following scenarios.
@@ -228,4 +230,4 @@ For examples of performing actions, see the following.
 
 ## Troubleshooting tools
 
-- [Actionable Messages Debugger](https://appsource.microsoft.com/product/office/WA104381686): an Outlook add-in that allows developers to inspect the card payload in their actionable messages and identify why the card is not rendering.
+- [Actionable Messages Debugger](https://appsource.microsoft.com/en-us/product/Office365/WA104381686): an Outlook add-in that allows developers to inspect the card payload in their actionable messages and identify why the card is not rendering.
