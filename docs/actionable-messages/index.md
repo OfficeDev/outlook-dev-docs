@@ -101,7 +101,7 @@ For information on admin controls, look at the FAQ section of this [support arti
 Actionable messages are available to all customer mailboxes on Exchange Online in Office 365 or Outlook.com with a supported client. The following table lists the availability of actionable messages for current Outlook clients. For information on the Office 365 release channels, see [Overview of update channels for Microsoft 365 apps](/deployoffice/updates/overview-update-channels). For current supported versions of Microsoft 365 Apps, see [supported versions](/officeupdates/update-history-microsoft365-apps-by-date#supported-versions).
 
 > [!NOTE]
-> Currently actionable message cards do not change the way that they render when Outlook is in dark mode. Support for dark mode for actionable messages is coming soon.
+> Currently actionable message cards do not change the way that they render when Outlook is in dark mode. Support for dark mode for actionable messages is coming soon. Actionable messages are not supported when you use Outlook on the web in a browser on a mobile device.
 
 | Client                                                     | Actionable messages supported? | Adaptive card supported? |
 |------------------------------------------------------------|--------------------------------|--------------------------|
