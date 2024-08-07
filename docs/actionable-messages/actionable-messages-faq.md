@@ -37,9 +37,9 @@ To check who are your organization IT admins, follow the following steps :
 1. In the response you can search for **Exchange Administrator** and **Global Administrator**.
 1. In some tenants **Exchange Administrator** might not be present. If the **Exchange Administrator** role is not listed then you can use the `id` from the **Global Administrator** role to fetch the list of tenant admins.
 
-### How can I update sender email address for an approved registered provider?
+### How can I update details for an approved global scoped Actionable message registration?
 
-To update the sender list for you Actionable Message provider, you can reach out to [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) with updated details. Our team will acknowledge and update it in backend. Please note that any update will take 2 weeks after the team acknowledges your update.
+To update details for an approved global scoped Actionable Message provider, you can reach out to [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) with updated details. Our team will acknowledge and update it in backend. Please note that any update will take 2 weeks after the team acknowledges your update.
 
 ## Actionable Message Rendering
 
