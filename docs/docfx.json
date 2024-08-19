@@ -38,7 +38,7 @@
       "searchScope": [ "Outlook Developer" ],
       "ms.suite": "office",
       "breadcrumb_path": "/outlook/breadcrumb/toc.json",
-      "feedback_system": "GitHub",
+      "feedback_system": "Standard",
       "feedback_github_repo": "OfficeDev/outlook-dev-docs",
       "feedback_product_url": "https://techcommunity.microsoft.com/t5/microsoft-365-developer-platform/idb-p/Microsoft365DeveloperPlatform"
     },
