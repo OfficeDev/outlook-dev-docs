@@ -71,6 +71,10 @@ To verify that this is the cause:
 
 To maintain optimal performance, we allow a maximum of 10 actionable messages emails to be opened at one time. Trying to open more than that at the same time will shown an error.
 
+### Is there a time limit before which actions can be taken on Actionable messages?
+
+Actionable messages are typically designed for quick actions on emails. Hence, you cannot take actions of an Actionable messages that is more than a month old.
+
 ## Upgrading to Adaptive Card 1.4 and above
 
 ### I have upgraded the Adaptive card version from 1.0 to 1.4, and my Action buttons have disappeared.
