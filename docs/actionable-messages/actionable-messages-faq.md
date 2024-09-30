@@ -19,6 +19,7 @@ This section contains the frequently asked questions for Actionable Messages and
 ## Registration process
 
 ### I am unable to open the AM Developer Dashboard . How can I proceed?
+
 If you are facing errors when opening the [AM Developer Dashboard](https://outlook.office.com/connectors/oam/publish) then please follow the below steps to mitigate. 
 1. Open [Outlook Web Email](https://outlook.office.com/mail/)
 2. In the next tab open the [AM Developer Dashboard](https://outlook.office.com/connectors/oam/publish)
