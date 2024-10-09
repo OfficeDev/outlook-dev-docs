@@ -12,7 +12,7 @@ ms.subservice: o365-connectors
 
 # Invoke an Outlook add-in from an actionable message
 
-Actionable messages allow the user to take quick actions on an email message or connector card, and Outlook add-ins allow you to extend Outlook to add new features and interactions. Now, with the `Action.InvokeAddInCommand` action type, you can combine these two types of integrations to create more powerful and compelling experiences. For example, you could:
+Actionable messages allow the user to take quick actions on an email message, and Outlook add-ins allow you to extend Outlook to add new features and interactions. Now, with the `Action.InvokeAddInCommand` action type, you can combine these two types of integrations to create more powerful and compelling experiences. For example, you could:
 
 - Send a welcome message as an actionable email message to new users after they sign up for your service, with an action that allows them to quickly install and start using your add-in.
 - Use an add-in for more complex actions (i.e. to present a form to the user), for scenarios where a simple action input would not suffice.

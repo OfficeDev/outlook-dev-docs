@@ -2,9 +2,7 @@
 title: Get Started with the Outlook REST APIs
 description: Learn how to use Microsoft Graph via REST requests and responses to access the Outlook API.
 author: jasonjoh
-
 ms.topic: article
-ms.technology: microsoft-graph
 ms.devlang: rest-api
 ms.date: 02/19/2020
 ms.author: jasonjoh

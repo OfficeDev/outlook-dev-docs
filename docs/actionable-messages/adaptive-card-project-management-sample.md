@@ -17,7 +17,7 @@ This sample illustrates the Universal Action Model implementation available for 
 ## Prerequisites
 
 - Outlook/OWA client is available and you have an account.
-- A valid Azure subsciption.
+- A valid Azure subscription.
 - Understanding of [Azure Bot Framework](/azure/bot-service/bot-builder-basics).
 
 ## Setup for bot
@@ -94,7 +94,6 @@ protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAs
 ```
 
 You can test your bot locally or [deploy your bot to Azure](/azure/bot-service/provision-and-publish-a-bot).
-
 
 ## Step 3: Sending the Actionable Message
 
