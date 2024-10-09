@@ -3,7 +3,6 @@ title: Outlook Developer Documentation
 description: Learn about the different ways to integrate with Outlook, including REST, add-ins, and actionable messages.
 author: jasonjoh
 ms.topic: overview
-ms.technology: microsoft-graph
 ms.date: 07/04/2021
 ms.author: jasonjoh
 ms.localizationpriority: high
@@ -29,7 +28,7 @@ Outlook add-ins provide a way for you to bring your app or experience right into
 
 ### Actionable Messages
 
-Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook and Teams. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity. Check out our [Get Started](actionable-messages/get-started.md) section to try it out.
+Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity. Check out our [Get Started](actionable-messages/get-started.md) section to try it out.
 
 ![A Twitter actionable message displayed on a mobile device.](images/connectors.png)
 

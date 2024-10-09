@@ -394,6 +394,16 @@
       "source_path": "docs/amphtml/version-support.md",
       "redirect_url": "https://techcommunity.microsoft.com/t5/outlook-blog/developer-preview-of-amp-for-email-in-outlook-com-no-longer/ba-p/821020",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/actionable-messages/send-via-connectors.md",
+      "redirect_url": "https://support.microsoft.com/en-us/office/connect-apps-to-your-groups-in-outlook-ed0ce547-038f-4902-b9b3-9e518ae6fbab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/actionable-messages/send-via-email.md",
+      "redirect_url": "/outlook/actionable-messages/get-started",
+      "redirect_document_id": false
     }
   ]
 }
