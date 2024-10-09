@@ -2,9 +2,7 @@
 title: Outlook REST API concepts
 description: Learn about the Outlook API-related topics in the Microsoft Graph documentation.
 author: jasonjoh
-
 ms.topic: article
-ms.technology: microsoft-graph
 ms.date: 06/01/2018
 ms.author: jasonjoh
 ms.localizationpriority: high

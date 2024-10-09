@@ -37,6 +37,7 @@
       "uhfHeaderId": "MSDocsHeader-Outlook",
       "searchScope": [ "Outlook Developer" ],
       "ms.suite": "office",
+      "ms.service": "outlook",
       "breadcrumb_path": "/outlook/breadcrumb/toc.json",
       "feedback_system": "Standard",
       "feedback_github_repo": "OfficeDev/outlook-dev-docs",
