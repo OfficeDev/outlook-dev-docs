@@ -2,13 +2,7 @@ items:
 - name: Overview
   href: index.md
 - name: Get Started
-  items:
-  - name: Get started with actionable messages
-    href: get-started.md
-  - name: Actionable Messages via Email
-    href: send-via-email.md
-  - name: Actionable Messages via Connectors
-    href: send-via-connectors.md
+  href: get-started.md
 - name: Universal Action Model
   items:
   - name: Overview of Universal Action Model
