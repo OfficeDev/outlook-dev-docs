@@ -5,7 +5,7 @@ author: jasonjoh
 ms.topic: article
 ms.service: outlook
 ms.author: jasonjoh
-ms.date: 10/09/2024
+ms.date: 01/27/2025
 nodes_to_expand: get-started
 ms.localizationpriority: high
 ms.subservice: o365-connectors
@@ -48,9 +48,9 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Microsoft 365 Apps Current Channel                         | Yes                            | Yes |
 | Microsoft 365 Apps Monthly Enterprise Channel              | Yes                            | Yes |
 | Microsoft 365 Apps Semi-Annual Enterprise Channel          | Yes                            | Yes |
-| Outlook on Mac                                             | Yes, version 16.0.12817.10000  | Yes (Legacy MessageCard format is not supported) |
-| Outlook on iOS                                             | Yes, version 4.34.0            | Yes (Legacy MessageCard format is not supported) |
-| Outlook on Android                                         | Yes, version 4.1.71            | Yes (Legacy MessageCard format is not supported) |
+| Outlook on Mac                                             | Yes                            | Yes (Legacy MessageCard format is not supported) |
+| Outlook on iOS                                             | Yes                            | Yes (Legacy MessageCard format is not supported) |
+| Outlook on Android                                         | Yes                            | Yes (Legacy MessageCard format is not supported) |
 | Office Professional Plus (Click-to-Run only), all versions | No                             | No |
 | Exchange On-Premises Outlook on the web, all versions      | No                             | No |
 
