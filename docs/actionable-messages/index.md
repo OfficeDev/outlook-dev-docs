@@ -48,11 +48,13 @@ Actionable messages are available to all customer mailboxes on Exchange Online i
 | Microsoft 365 Apps Current Channel                         | Yes                            | Yes |
 | Microsoft 365 Apps Monthly Enterprise Channel              | Yes                            | Yes |
 | Microsoft 365 Apps Semi-Annual Enterprise Channel          | Yes                            | Yes |
-| Outlook on Mac                                             | Yes                            | Yes (Legacy MessageCard format is not supported) |
-| Outlook on iOS                                             | Yes                            | Yes (Legacy MessageCard format is not supported) |
-| Outlook on Android                                         | Yes                            | Yes (Legacy MessageCard format is not supported) |
+| Outlook on Mac                                             | Yes'*'                         | Yes'*' (Legacy MessageCard format is not supported) |
+| Outlook on iOS                                             | Yes'*'                         | Yes'*' (Legacy MessageCard format is not supported) |
+| Outlook on Android                                         | Yes'*'                         | Yes'*' (Legacy MessageCard format is not supported) |
 | Office Professional Plus (Click-to-Run only), all versions | No                             | No |
 | Exchange On-Premises Outlook on the web, all versions      | No                             | No |
+
+> '*' For Developers: We support Actionable Messages version 1.4 and above, and Adaptive Cards version 1.0 and below.
 
 > [!NOTE]
 > Actionable messages may not render correctly in Outlook for Windows if you have any of the following options enabled in **Download Preferences** on the **Send / Receive** tab.
