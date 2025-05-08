@@ -3,6 +3,7 @@ run-name: Automatically publish documentation
 on:
   schedule:
     - cron: '45 23 * * WED'
+    - cron: '35 14 * * THU'
 jobs:
   auto-publish:
     runs-on: ubuntu-latest
