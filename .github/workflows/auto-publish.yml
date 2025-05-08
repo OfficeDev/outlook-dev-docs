@@ -3,7 +3,7 @@ run-name: Automatically publish documentation
 on:
   schedule:
     - cron: '45 23 * * WED'
-    - cron: '45 14 * * THU'
+    - cron: '05 15 * * THU'
 jobs:
   auto-publish:
     runs-on: ubuntu-latest
@@ -36,4 +36,3 @@ jobs:
         run: |
           echo "Pushing changes to live branch"
           git push origin live
-
