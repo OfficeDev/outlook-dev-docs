@@ -12,8 +12,6 @@ ms.subservice: o365-connectors
 
 # Security requirements for actionable messages in Office 365
 
-[!INCLUDE [global-onboarding-paused-notice](../includes/actionable-messages/global-onboarding-paused-notice.md)]
-
 Securing actionable email is simple and easy. There are two phases within the end-to-end experience that impose security requirements on your service when supporting actionable messages with Office 365. The phases and their corresponding requirements are as follows.
 
 1. Send phase: The pre-requisites for your service to send actionable messages are as follows:
