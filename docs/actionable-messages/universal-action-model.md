@@ -12,8 +12,6 @@ ms.subservice: o365-connectors
 
 # Overview of Universal Action Model
 
-[!INCLUDE [global-onboarding-paused-notice](../includes/actionable-messages/global-onboarding-paused-notice.md)]
-
 Adaptive Cards are platform-agnostic snippets of UI, authored using a lightweight JSON format, that apps and services can share. Adaptive Cards not only adapt to the look-and-feel of the host, but also provide rich interaction capabilities.
 
 As Adaptive Cards grew in popularity, different hosts started supporting different action models and this led to fragmentation. To solve this problem, the Teams, Outlook and Adaptive Cards teams worked on creating a new universal Bot action model compatible across hosts. This effort led to the following:
