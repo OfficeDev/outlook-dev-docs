@@ -33,7 +33,7 @@ This sample illustrates the Universal Action Model implementation available for 
 
 ## Step 1: Ensure your adaptive card payloads are ready
 
-For the approvals scenario, you can find the [JSON payload here](https://github.com/OfficeDev/outlook-dev-docs/blob/main/files/actionable-messages/samples/Approval.json). Below, you can see the payload rendering in mobile and desktop screens.
+For the approvals scenario, you can find the [JSON payload here](https://github.com/OfficeDev/outlook-dev-docs/blob/main/docs/actionable-messages/samples/Approval.json). Below, you can see the payload rendering in mobile and desktop screens.
 
 <!-- markdownlint-disable MD051 -->
 ### [Mobile](#tab/mobile)
