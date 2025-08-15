@@ -59,7 +59,7 @@ https://graph.microsoft.com/{version}
 - [Outlook Mail REST API](/graph/api/resources/message?view=graph-rest-1.0&preserve-view=true)
 - [Outlook Calendar REST API](/graph/api/resources/calendar?view=graph-rest-1.0&preserve-view=true)
 - [Outlook Contacts REST API](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true)
-- [Outlook Notifications REST API](/graph/api/resources/change-notifications-api-overview?view=graph-rest-1.0)
+- [Outlook Notifications REST API](/graph/api/resources/change-notifications-api-overview?view=graph-rest-1.0&preserve-view=true)
 - [Outlook Photo REST API](/graph/api/resources/profilephoto?view=graph-rest-1.0&preserve-view=true)
 - [Outlook Settings REST API](/graph/api/resources/outlookuser?view=graph-rest-1.0&preserve-view=true)
 
