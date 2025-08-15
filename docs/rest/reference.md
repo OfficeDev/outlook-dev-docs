@@ -22,7 +22,7 @@ The following APIs are released and ready for production use in both the Graph a
 - [Calendar API](/graph/api/resources/calendar?view=graph-rest-1.0&preserve-view=true)
 - [Contacts API](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true)
 - [Groups API](/graph/api/resources/groups-overview?view=graph-rest-1.0&preserve-view=true)
-- [Push Notifications API](/graph/api/resources/webhooks?view=graph-rest-1.0&preserve-view=true)
+- [Push Notifications API](/graph/api/resources/change-notifications-api-overview?view=graph-rest-1.0)
 - [User Photo API](/graph/api/resources/profilephoto?view=graph-rest-1.0&preserve-view=true)
 - [Open Extensions API](/graph/api/resources/opentypeextension?view=graph-rest-1.0&preserve-view=true)
 - [Extended Properties API](/graph/api/resources/extended-properties-overview?view=graph-rest-1.0&preserve-view=true)
