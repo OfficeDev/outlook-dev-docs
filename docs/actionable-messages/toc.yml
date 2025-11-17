@@ -13,6 +13,8 @@ items:
     href: adaptive-card-project-management-sample.md
 - name: Concepts
   items:
+  - name: Enable Entra ID
+    href: enable-entra-token-for-actionable-messages.md
   - name: Identity linking
     href: identity-linking.md
   - name: Invoke an Outlook add-in
