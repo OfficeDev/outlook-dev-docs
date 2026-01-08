@@ -84,6 +84,8 @@ The following shows the JSON for a extenions object that includes a control that
             {
               "groups": [            
                 {
+                  -- other properties omitted --
+                  
                   "controls" [
                     {
                       "id": "msgReadOpenPaneButton",
