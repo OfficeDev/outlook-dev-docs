@@ -56,7 +56,7 @@ Next, you'll need the [`"control.id"`](/microsoft-365/extensibility/schema/exten
 - Have its `"type"` property set to `button`.
 - Contain an `"actionId"` set to the same value as a the [`"actions.id"`](/microsoft-365/extensibility/schema/extension-runtimes-actions-item#id) of an action object defined in the [`"extensions.runtimes"`](/microsoft-365/extensibility/schema/extension-runtimes-array) array.
 
-The following shows the JSON for a extenions object that includes a control that opens a task pane.
+The following shows the JSON for an extensions object that includes a control that opens a task pane.
 
 ```json
 {
