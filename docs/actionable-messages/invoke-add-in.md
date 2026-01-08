@@ -31,7 +31,90 @@ The following example shows the prompt users see if the add-in is not installed.
 
 Actionable messages invoke add-ins by specifying an [Action.InvokeAddInCommand action](adaptive-card.md#actioninvokeaddincommand) in the message. This action specifies the add-in to invoke, along with the identifier of the add-in button that opens the appropriate task pane.
 
-The required information is found in the [add-in's manifest](/office/dev/add-ins/outlook/manifests). First, you'll need the add-in's identifier, which is specified in the [Id element](/office/dev/add-ins/reference/manifest/id).
+The required information is found in the [add-in's manifest](/office/dev/add-ins/develop/add-in-manifests). Open the tab for the type of manifest that the add-in uses.
+
+# [Unified manifest for Microsoft 365](#tab/jsonmanifest)
+
+First, you'll need the add-in's identifier, which is specified in the [`"id"`](/microsoft-365/extensibility/schema/root#id) property.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.24/MicrosoftTeams.schema.json",
+  "id": "527104a1-f1a5-475a-9199-7a968161c870",
+  "version": "1.0.0",
+  "manifestVersion": "1.24",
+
+  -- other properties omitted --
+}
+```
+
+For this add-in, the add-in identifier is `527104a1-f1a5-475a-9199-7a968161c870`.
+
+Next, you'll need the [`"control.id"`](/microsoft-365/extensibility/schema/extension-common-custom-group-controls-item#id) value of the control object that defines the add-in button that opens the appropriate task pane. Keep in mind that the control object MUST:
+
+- Be defined inside a ribbon object that includes `mailRead` in its [`"ribbons.contexts"`](/microsoft-365/extensibility/schema/extension-ribbons-array#contexts) array.
+- Have its `"type"` property set to `button`.
+- Contain an `"actionId"` set to the same value as a the [`"actions.id"`](/microsoft-365/extensibility/schema/extension-runtimes-actions-item#id) of an action object defined in the [`"extensions.runtimes"`](/microsoft-365/extensibility/schema/extension-runtimes-array) array.
+
+The following shows the JSON for an extensions object that includes a control that opens a task pane.
+
+```json
+{
+  -- other properties omitted --
+
+  "extensions": [
+    {
+      "runtimes": [
+        {
+          -- other properties omitted --
+
+          "actions": [
+            {
+              -- other properties omitted --
+
+              "id": "ShowTaskpane"
+            }
+          ]
+        }
+      ],
+      "ribbons": [
+        {
+          "contexts": ["mailRead"],
+          "tabs" [
+            {
+              "groups": [            
+                {
+                  -- other properties omitted --
+                  
+                  "controls" [
+                    {
+                      "id": "msgReadOpenPaneButton",
+                      "type": "button",
+                      "label": "Show Task Pane",
+                      "icons": [ -- icons markup omitted -- ],
+                      "supertip": {
+                          "title": "Show Contoso Task Pane",
+                          "description": "Opens the Contoso task pane."
+                      },
+                      "actionId": "ShowTaskPane"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+For this add-in button, the ID is `msgReadOpenPaneButton`.
+
+# [Add-in only manifest](#tab/xmlmanifest)
+
+First, you'll need the add-in's identifier, which is specified in the [Id element](/office/dev/add-ins/reference/manifest/id).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -81,6 +164,8 @@ Next, you'll need the `id` attribute of the [Control element](/office/dev/add-in
 ```
 
 For this add-in button, the ID is `showInitContext`.
+
+---
 
 With these two pieces of information, we can create a basic `Action.InvokeAddInCommand` action as follows:
 
