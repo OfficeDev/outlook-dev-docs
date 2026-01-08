@@ -63,8 +63,6 @@ The following shows the JSON for a extenions object that includes a control that
   -- other properties omitted --
 
   "extensions": [
-    -- other properties omitted --
-
     {
       "runtimes": [
         {
@@ -80,32 +78,28 @@ The following shows the JSON for a extenions object that includes a control that
         }
       ],
       "ribbons": [
-        -- other properties omitted --
-
         {
           "contexts": ["mailRead"],
           "tabs" [
-            -- other properties omitted --
-
-            "groups": [
-              -- other properties omitted --
-              
-              {
-                "controls" [
-                  {
-                    "id": "msgReadOpenPaneButton",
-                    "type": "button",
-                    "label": "Show Task Pane",
-                    "icons": [ -- icons markup omitted -- ],
-                    "supertip": {
-                        "title": "Show Contoso Task Pane",
-                        "description": "Opens the Contoso task pane."
-                    },
-                    "actionId": "ShowTaskPane"
-                  }
-                ]
-              }
-            ]
+            {
+              "groups": [            
+                {
+                  "controls" [
+                    {
+                      "id": "msgReadOpenPaneButton",
+                      "type": "button",
+                      "label": "Show Task Pane",
+                      "icons": [ -- icons markup omitted -- ],
+                      "supertip": {
+                          "title": "Show Contoso Task Pane",
+                          "description": "Opens the Contoso task pane."
+                      },
+                      "actionId": "ShowTaskPane"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
