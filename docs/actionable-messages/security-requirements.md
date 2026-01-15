@@ -110,6 +110,9 @@ Sample code generating signed card:
 
 ## Verifying that requests come from Microsoft
 
+> [!IMPORTANT]
+> Actionable Messages (AM) are moving from EAT (External Access Token) to Microsoft Entra ID token authentication. Partners using EAT tokens must update their integration to support AAD tokens for requests from the AM service. For more information, see [Enabling AAD token of Actionable Messages](enable-entra-token-for-actionable-messages.md).
+
 All action requests from Microsoft have a bearer token in the HTTP `Authorization` header. This token is a [JSON Web Token](https://jwt.io/) (JWT) token signed by Microsoft, and it includes important claims that we strongly recommend should be verified by the service handling the associated request.
 
 | Claim name | Value |
