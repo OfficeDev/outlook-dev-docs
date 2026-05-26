@@ -15,7 +15,32 @@ ms.localizationpriority: high
 <!-- cSpell:ignore vermaanimesh -->
 
 > [!IMPORTANT]
-> Actionable Messages (AM) are moving from EAT (External Access Token) to Microsoft Entra ID token authentication. Partners using EAT tokens must update their integration to support AAD tokens for requests from the AM service. Starting November 21st 2025 we will **stop** accepting new registrations with EAT (External Access Token).
+>Actionable Messages (AM) are transitioning from legacy (EAT) authentication to Entra ID–based token authentication. The phase-out of legacy authentication is in progress and will be completed by <strong>June 8, 2026</strong>. After this date, integrations relying on **legacy tokens will no longer function**.
+
+>To ensure uninterrupted service, partners should implement support for Entra ID tokens as soon as possible. For guidance on updating your integration, please refer to the [Enable Microsoft Entra ID token for Actionable Messages](https://learn.microsoft.com/en-us/outlook/actionable-messages/enable-entra-token-for-actionable-messages)
+
+## Admin Guide: View providers with Auth type
+
+Admins can download the list of all approved providers in their organization along with the token type being used. The data is exported in a .csv format for easy analysis and reporting.
+
+### How to download the provider list
+
+1.  Navigate to the Actionable Email Developer Dashboard (Admin Portal).
+2.  Use the Status filter and select "Approved".
+
+3.  Click on the Search button to load the approved providers.
+<img src="images/Enabling AAD Token/Get_provider.jpg" alt="Get Provider List - 1"/>
+4.  Once the approved providers are displayed, the "Get Provider List" (Download) button will become visible.
+<img src="images/Enabling AAD Token/Get_Provider-1.jpg" alt="Get Provider List"/>
+5.  Click on the Download button to export the list.
+6.  The provider list will be downloaded automatically in .csv format.
+
+**Important Notes**
+
+•   The download button is visible only after filtering by Approved providers.
+•   The downloaded file contains provider details along with their token type.
+•   In case of a timeout error, the error message is displayed on the UI and disappears automatically after 5 seconds.
+
 
 ## Register an app in Azure
 

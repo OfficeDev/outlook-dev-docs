@@ -12,6 +12,11 @@ ms.subservice: o365-connectors
 
 # Get started with actionable messages in Office 365
 
+> [!IMPORTANT]
+>Actionable Messages (AM) are transitioning from legacy (EAT) authentication to Entra ID–based token authentication. The phase-out of legacy authentication is in progress and will be completed by <strong>June 8, 2026</strong>. After this date, integrations relying on **legacy tokens will no longer function**.
+
+>To ensure uninterrupted service, partners should implement support for Entra ID tokens as soon as possible. For guidance on updating your integration, please refer to the [Enable Microsoft Entra ID token for Actionable Messages](https://learn.microsoft.com/en-us/outlook/actionable-messages/enable-entra-token-for-actionable-messages)
+
 ## Supported scenarios
 
 Sending actionable messages via email is supported in the following scenarios.
