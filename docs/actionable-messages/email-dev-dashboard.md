@@ -15,7 +15,7 @@ ms.subservice: o365-connectors
 > [!IMPORTANT]
 >Actionable Messages (AM) are transitioning from legacy (EAT) authentication to Entra ID–based token authentication. The phase-out of legacy authentication is in progress and will be completed by <strong>June 8, 2026</strong>. After this date, integrations relying on **legacy tokens will no longer function**.
 
->To ensure uninterrupted service, partners should implement support for Entra ID tokens as soon as possible. For guidance on updating your integration, please refer to the [Enable Microsoft Entra ID token for Actionable Messages](https://learn.microsoft.com/outlook/actionable-messages/enable-entra-token-for-actionable-messages)
+>To ensure uninterrupted service, partners should implement support for Entra ID tokens as soon as possible. For guidance on updating your integration, please refer to [Enable Microsoft Entra ID token for Actionable Messages](enable-entra-token-for-actionable-messages.md).
 
 To test and publish actionable messages from your service, you need to provide certain information to Microsoft to enable this functionality for emails from your service. The [developer dashboard](https://aka.ms/publishoam) helps you submit and track status of your submission via the web portal.
 
