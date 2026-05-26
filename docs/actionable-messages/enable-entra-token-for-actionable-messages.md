@@ -17,7 +17,7 @@ ms.localizationpriority: high
 > [!IMPORTANT]
 >Actionable Messages (AM) are transitioning from legacy (EAT) authentication to Entra ID–based token authentication. The phase-out of legacy authentication is in progress and will be completed by <strong>June 8, 2026</strong>. After this date, integrations relying on **legacy tokens will no longer function**.
 
->To ensure uninterrupted service, partners should implement support for Entra ID tokens as soon as possible. For guidance on updating your integration, please refer to the [Enable Microsoft Entra ID token for Actionable Messages](https://learn.microsoft.com/en-us/outlook/actionable-messages/enable-entra-token-for-actionable-messages)
+>To ensure uninterrupted service, partners should implement support for Entra ID tokens as soon as possible. For guidance on updating your integration, please refer to the [Enable Microsoft Entra ID token for Actionable Messages](https://learn.microsoft.com/outlook/actionable-messages/enable-entra-token-for-actionable-messages)
 
 ## Admin Guide: View providers with Auth type
 
@@ -29,9 +29,9 @@ Admins can download the list of all approved providers in their organization alo
 2.  Use the Status filter and select "Approved".
 
 3.  Click on the Search button to load the approved providers.
-<img src="images/Enabling AAD Token/Get_provider.jpg" alt="Get Provider List - 1"/>
+<img src="images/Enabling AAD Token/get_provider_search.png" alt="get_provider_search"/>
 4.  Once the approved providers are displayed, the "Get Provider List" (Download) button will become visible.
-<img src="images/Enabling AAD Token/Get_Provider-1.jpg" alt="Get Provider List"/>
+<img src="images/Enabling AAD Token/get_provider.png" alt="get_provider"/>
 5.  Click on the Download button to export the list.
 6.  The provider list will be downloaded automatically in .csv format.
 
