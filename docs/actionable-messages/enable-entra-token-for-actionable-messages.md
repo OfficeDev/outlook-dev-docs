@@ -5,7 +5,7 @@ author: vermaanimesh
 ms.topic: how-to
 ms.service: outlook
 ms.subservice: o365-connectors
-ms.date: 11/17/2025
+ms.date: 05/27/2026
 ms.author: vermaanimesh
 ms.localizationpriority: high
 ---
@@ -14,8 +14,31 @@ ms.localizationpriority: high
 
 <!-- cSpell:ignore vermaanimesh -->
 
-> [!IMPORTANT]
-> Actionable Messages (AM) are moving from EAT (External Access Token) to Microsoft Entra ID token authentication. Partners using EAT tokens must update their integration to support AAD tokens for requests from the AM service. Starting November 21st 2025 we will **stop** accepting new registrations with EAT (External Access Token).
+[!INCLUDE [legacy-token-deprecation](../includes/actionable-messages/legacy-token-deprecation.md)]
+
+## Admin Guide: View providers with Auth type
+
+Admins can download the list of all approved providers in their organization along with the token type being used. The data is exported in a .csv format for easy analysis and reporting.
+
+### How to download the provider list
+
+1. Navigate to the Actionable Email Developer Dashboard (Admin Portal).
+1. Use the **Status** filter and select **Approved**.
+1. Select **Search** to load the approved providers.
+
+    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider-search.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Search button":::
+
+1. Once the approved providers are displayed, the **Get Provider List** button will become visible.
+
+    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Get Provider List button":::
+
+1. Select **Get Provider List** to export the list in .csv format.
+
+#### Important Notes
+
+- The download button is visible only after filtering by Approved providers.
+- The downloaded file contains provider details along with their token type.
+- In case of a timeout error, the error message is displayed on the UI and disappears automatically after 5 seconds.
 
 ## Register an app in Azure
 
