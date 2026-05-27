@@ -14,10 +14,7 @@ ms.localizationpriority: high
 
 <!-- cSpell:ignore vermaanimesh -->
 
-> [!IMPORTANT]
->Actionable Messages (AM) are transitioning from legacy (EAT) authentication to Entra ID–based token authentication. The phase-out of legacy authentication is in progress and will be completed by <strong>June 8, 2026</strong>. After this date, integrations relying on **legacy tokens will no longer function**.
-
->To ensure uninterrupted service, partners should implement support for Entra ID tokens as soon as possible. Follow the guidance in this article to update your integration.
+[!INCLUDE [legacy-token-deprecation](../includes/actionable-messages/legacy-token-deprecation.md)]
 
 ## Admin Guide: View providers with Auth type
 
@@ -25,22 +22,23 @@ Admins can download the list of all approved providers in their organization alo
 
 ### How to download the provider list
 
-1.  Navigate to the Actionable Email Developer Dashboard (Admin Portal).
-2.  Use the Status filter and select "Approved".
+1. Navigate to the Actionable Email Developer Dashboard (Admin Portal).
+1. Use the **Status** filter and select **Approved**.
+1. Select **Search** to load the approved providers.
 
-3.  Click on the Search button to load the approved providers.
-<img src="images/enabling-entra-token-for-actionable-messages/get-provider-search.png" alt="get provider search"/>
-4.  Once the approved providers are displayed, the "Get Provider List" (Download) button will become visible.
-<img src="images/enabling-entra-token-for-actionable-messages/get-provider.png" alt="get provider"/>
-5.  Click on the Download button to export the list.
-6.  The provider list will be downloaded automatically in .csv format.
+    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider-search.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Search button":::
 
-**Important Notes**
+1. Once the approved providers are displayed, the **Get Provider List** button will become visible.
 
-•   The download button is visible only after filtering by Approved providers.
-•   The downloaded file contains provider details along with their token type.
-•   In case of a timeout error, the error message is displayed on the UI and disappears automatically after 5 seconds.
+    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Get Provider List button":::
 
+1. Select **Get Provider List** to export the list in .csv format.
+
+#### Important Notes
+
+- The download button is visible only after filtering by Approved providers.
+- The downloaded file contains provider details along with their token type.
+- In case of a timeout error, the error message is displayed on the UI and disappears automatically after 5 seconds.
 
 ## Register an app in Azure
 
