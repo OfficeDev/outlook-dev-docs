@@ -5,7 +5,7 @@ author: jasonjoh
 ms.topic: article
 ms.service: outlook
 ms.author: jasonjoh
-ms.date: 11/17/2025
+ms.date: 05/27/2026
 nodes_to_expand: get-started
 ms.localizationpriority: high
 ms.subservice: o365-connectors
@@ -13,8 +13,7 @@ ms.subservice: o365-connectors
 
 # Actionable messages in Outlook and Office 365 Groups
 
-> [!IMPORTANT]
-> Actionable Messages (AM) are moving from EAT (External Access Token) to Microsoft Entra ID token authentication. Partners using EAT tokens must update their integration to support AAD tokens for requests from the AM service. For more information, see [Enabling AAD token of Actionable Messages](enable-entra-token-for-actionable-messages.md).
+[!INCLUDE [legacy-token-deprecation](../includes/actionable-messages/legacy-token-deprecation.md)]
 
 Whether you are filling out a survey, approving an expense report, or updating a CRM sales opportunity, Actionable Messages enable you to take quick actions right from within Outlook. Developers can now embed actions in their emails or notifications, elevating user engagement with their services and increasing organizational productivity.
 

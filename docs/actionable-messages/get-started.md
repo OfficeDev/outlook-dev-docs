@@ -4,13 +4,15 @@ description: Learn how to create an actionable message card and send it via Outl
 author: jasonjoh
 ms.topic: article
 ms.service: outlook
-ms.date: 10/09/2024
+ms.date: 05/27/2026
 ms.author: jasonjoh
 ms.localizationpriority: high
 ms.subservice: o365-connectors
 ---
 
 # Get started with actionable messages in Office 365
+
+[!INCLUDE [legacy-token-deprecation](../includes/actionable-messages/legacy-token-deprecation.md)]
 
 ## Supported scenarios
 
