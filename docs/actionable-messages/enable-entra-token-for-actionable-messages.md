@@ -5,7 +5,7 @@ author: vermaanimesh
 ms.topic: how-to
 ms.service: outlook
 ms.subservice: o365-connectors
-ms.date: 11/17/2025
+ms.date: 05/27/2026
 ms.author: vermaanimesh
 ms.localizationpriority: high
 ---

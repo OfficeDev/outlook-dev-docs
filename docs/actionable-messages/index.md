@@ -5,7 +5,7 @@ author: jasonjoh
 ms.topic: article
 ms.service: outlook
 ms.author: jasonjoh
-ms.date: 11/17/2025
+ms.date: 05/27/2026
 nodes_to_expand: get-started
 ms.localizationpriority: high
 ms.subservice: o365-connectors
