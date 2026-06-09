@@ -20,10 +20,10 @@ This section contains the frequently asked questions for Actionable Messages and
 
 ### I am unable to open the AM Developer Dashboard . How can I proceed?
 
-If you are facing errors when opening the [AM Developer Dashboard](https://outlook.office.com/connectors/oam/publish) then please follow the below steps to mitigate.
+If you are facing errors when opening the [AM Developer Dashboard](https://aka.ms/ActionableMessagesPortal) then please follow the below steps to mitigate.
 
 1. Open [Outlook Web Email](https://outlook.office.com/mail/)
-2. In the next tab open the [AM Developer Dashboard](https://outlook.office.com/connectors/oam/publish)
+2. In the next tab open the [AM Developer Dashboard](https://aka.ms/ActionableMessagesPortal)
 
 *This is a known issue and is being fixed*
 
@@ -89,11 +89,3 @@ Actionable messages are typically designed for quick actions on emails. Hence, y
 ### I have upgraded the Adaptive card version from 1.0 to 1.4, and my Action buttons have disappeared.
 
 Action execution paradigm has changed in Adaptive card version 1.4. We have started supporting [Action.Execute](https://adaptivecards.io/explorer/Action.Execute.html) in place of `Action.Http`. For more information, see [code sample using Adaptive cards 1.4+](./adaptive-card-expense-approval-sample.md).
-
-## Actionable Message onboarding paused till June 15, 2024
-
-### I have submitted a Global scoped registration but it's not yet approved.
-
-Due to a service upgrade, onboarding for **Global** scoped registrations is temporarily paused until June 30, 2024. Registrations for Actionable Messages with **Organization** and **Test** scopes remain unaffected and will continue to operate as expected during this period.
-
-For those affected by the pause in **Global** scope onboarding, please prepare your services and await the resumption of the process. For any queries or assistance during this period, please reach out to the Actionable Messages team through the usual channels.
