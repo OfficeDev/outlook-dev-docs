@@ -5,8 +5,8 @@ author: avijityadav
 ms.topic: sample
 ms.service: outlook
 ms.subservice: o365-connectors
-ms.date: 04/08/2023
-ms.author: avyad
+ms.date: 006/10/2026
+ms.author: vermaanimesh
 ms.localizationpriority: high
 ---
 
@@ -78,7 +78,7 @@ protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAs
         else if (invokeValue.Action.Verb == "projectSubmitComment")
         {
             // This function can contain your business logic
-            // to submit the comment and show the refresh car
+            // to submit the comment and show the refresh card
             return await ProcessProjectSubmitComment();
         }
         else

@@ -4,8 +4,8 @@ description: The developer dashboard helps you submit and track status of your s
 author: jasonjoh
 ms.topic: article
 ms.service: outlook
-ms.date: 05/27/2026
-ms.author: jasonjoh
+ms.date: 06/10/2026
+ms.author: vermaanimesh
 ms.localizationpriority: high
 ms.subservice: o365-connectors
 ---
@@ -23,14 +23,14 @@ To test and publish actionable messages from your service, you need to provide c
 If you are a developer working with actionable messages via email, you will use the portal for the following cases:
 
 - To test actionable messages from your service to your own mail box
-- To publish actionable message from your service so any email user within your organization using Office 365 can receive these specially formatted message (this is typically used for enabling actionable messages from a service that is specific to your organization, like a line-of-business app)
+- To publish actionable messages from your service so any email user within your organization using Office 365 can receive these specially formatted messages (this is typically used for enabling actionable messages from a service that is specific to your organization, like a line-of-business app)
 - To publish actionable messages from your service so any email user in Office 365 using your service can receive these specially formatted messages
 
-For all the above cases, you will be submitting certain details to Microsoft, which after being reviewed and approved, will enable actionable messages for your service.
+For all these cases, you will submit details to Microsoft. After review and approval, actionable messages will be enabled for your service.
 
 ## Dashboard sections
 
-The developer dashboard is divided into a few logical sections you need to fill out based on the scope you'd like to request Microsoft to enable actionable message from your service.
+The developer dashboard is divided into a few logical sections you need to fill out based on the scope you'd like to request Microsoft to enable actionable messages from your service.
 
 ### Details of your provider
 
@@ -39,7 +39,7 @@ In this section, you need to supply key details that will allow Office 365 to ac
 The key fields are:
 
 - **Sender email address**: This is one or more static email addresses corresponding to the service that will send out emails with action markup. Example: `myservice@contoso.com`.
-- **Target URLs**: This is one or more domains corresponding to URLs that will process the actions. Your target URL can correspond to the top level domain or the sub-domain of the TLD. They need to be https enabled URLs. Example. `https://api.myservice.com`.
+- **Target URLs**: This is one or more domains corresponding to URLs that will process the actions. Your target URL can correspond to the top level domain or the sub-domain of the TLD. They need to be https enabled URLs. Example: `https://api.myservice.com`.
 - **Public Key**: If you plan to send actionable messages as Signed Card, then you need to specify the public key corresponding to the private key you will use for signing the card. The format for this field is an [RSAKeyValue element](https://www.w3.org/TR/xmldsig-core/#sec-RSAKeyValue).
 
   ```xml
@@ -62,7 +62,7 @@ $rsa.ToXmlString($true)
 $rsa.ToXmlString($false)
 ```
 
-For an example of how to get public key XML from  a .cert file, see [PublicKey class](/dotnet/api/system.security.cryptography.x509certificates.publickey#examples).
+For an example of how to get public key XML from a .cert file, see [PublicKey class](/dotnet/api/system.security.cryptography.x509certificates.publickey#examples).
 
 > [!NOTE]
 > Once your submission is approved, it may take some time to take effect. If you encounter the error below when sending signed cards, and you're sure that your payload is correct, please try again after a few hours.
@@ -76,30 +76,30 @@ For an example of how to get public key XML from  a .cert file, see [PublicKey c
 In this section, you need to specify at what scope you want to enable actionable message for your service. The applicable scopes are:
 
 - **Test Users**: This enables actionable emails from your service to some of the O365 email users in your organization. This scope is generally used for testing actionable messages integration with few test users that you have specified.
-- **Organization**: This enables actionable message from your service to any Microsoft 365 email user within your organization. This scope is typically used for enabling actionable messages from a service that is specific to your organization, like a line- of-business application internal to your organization.
+- **Organization**: This enables actionable message from your service to any Microsoft 365 email user within your organization. This scope is typically used for enabling actionable messages from a service that is specific to your organization, like a line-of-business application.
 - **Global**: This enables actionable message from your service for any email user in Office 365.
 
-Each of the above are independent steps. i.e. you can pick only one scope for each submission and will be subject to the approval process by Microsoft.
+Each scope is independent — you can submit only one scope per request and must obtain Microsoft approval.
 
 > [!NOTE]
 > Remember, you can easily try out actionable messages by sending an email to yourself with the required markup without any intervention from Microsoft. You can use the [Actionable Message Designer](https://amdesigner.azurewebsites.net/) to send to yourself without writing any code. This would typically be the first step to try out actionable messages.
 
 #### Self-service registration
 
-Self-service of registrations is available for registrations that use the following scopes.
+Self-service registration is available for the following scopes.
 
 - **Test Users**: The registration request is auto-approved for your test users you specify. This will enable actionable emails from your service sent to test users.
--**Organization**: This registration request will be sent to your organization's administrators with Exchange administrator permissions. The Exchange administrator with those permissions will be able to review and approve your request.
+- **Organization**: This registration request is routed to your organization's [Exchange or Global administrator](https://learn.microsoft.com/en-us/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide) for review and approval.
 
 Once the submission is approved, whether auto-approved or by your administrator, it will take up to 24 hours for the registration to take effect.
 
-After 24 hours have passed, you can verify if the registration has taken into effect by sending an actionable message from your service to your mailbox or specified test users (for **Test Users** scope), or any user mailbox in your organization (for **Organization** scope). If 24 hours have passed and the registration is still not in effect, please contact us by using the feedback link at the top the registration dashboard labeled **Registration not working?**.
+After 24 hours, verify the registration is active by sending an actionable message from your service to your mailbox or specified test users (for **Test Users** scope), or any user in your organization (for **Organization** scope). If 24 hours have passed and the registration is still not active, contact us using the feedback link at the top of the registration dashboard labeled **Registration not working?**.
 
 ### Test user email addresses
 
 This section is only applicable when your scope of submission to enable actionable messages is **Test Users**.
 
-In this section provide a list of Microsoft 365 email users in your organization, separated by a semi-colon (`;`). This will help you to test your actionable messages integration on a few users, before creating an **Organization** or **Global** scope submission.
+In this section, provide a list of Microsoft 365 email users in your organization, separated by a semicolon (`;`). This will help you test your actionable messages integration with a few users before creating an **Organization** or **Global** scope submission.
 
 
 ### Contact info
@@ -118,7 +118,7 @@ In this section, you need to provide details about your service that will be sen
 
 This section is only applicable when your scope of submission to enable actionable messages is **Global**.
 
-In this section, you need to provide details on the scenario for which users will consume actionable messages from your service and other relevant details. This is to help Microsoft determine that validity and usefulness of the solution provided by your service.
+In this section, you need to provide details about the scenario in which users will use actionable messages from your service. This helps Microsoft determine the validity and usefulness of your solution.
 
 ### Verification details
 
@@ -146,8 +146,8 @@ There are some things you need to keep in mind when you submit your solution for
   - See [M3AAWG Sender Best Practices](https://www.m3aawg.org/sites/default/files/doc_files/M3AAWG_Senders_BCP_Ver3-2015-02.pdf) and [ReturnPath Sending Best Practices](https://help.returnpath.com/hc/articles/221634867-Sending-Best-Practices-PDF-) for industry guidelines.
 - Consistent history of sending a high volume of mail from your domain (order of hundred emails a day minimum to Office 365) for a few weeks at least.
 - A very low rate of spam complaints from users.
-- High-fidelity, routine and simple actions available for your service should be used. For more complex interactions, `OpenURI` actions can be used.
-- Actions should be used for transactional mail where a high interaction rate is expected. They should not be used on promotional bulk mail.
+- Use high-fidelity, routine, and simple actions for your service. For more complex interactions, use `Action.OpenUrl` actions.
+- Use actions for transactional mail where a high interaction rate is expected. Do not use them on promotional bulk mail.
 
 ### Actions guidelines
 
