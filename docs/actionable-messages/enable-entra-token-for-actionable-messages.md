@@ -5,7 +5,7 @@ author: vermaanimesh
 ms.topic: how-to
 ms.service: outlook
 ms.subservice: o365-connectors
-ms.date: 05/27/2026
+ms.date: 06/10/2026
 ms.author: vermaanimesh
 ms.localizationpriority: high
 ---
@@ -22,17 +22,12 @@ Admins can download the list of all approved providers in their organization alo
 
 ### How to download the provider list
 
-1. Navigate to the Actionable Email Developer Dashboard (Admin Portal).
-1. Use the **Status** filter and select **Approved**.
-1. Select **Search** to load the approved providers.
-
-    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider-search.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Search button":::
-
-1. Once the approved providers are displayed, the **Get Provider List** button will become visible.
+1. Navigate to the [Actionable Email Developer Dashboard](https://aka.ms/ActionableMessagesPortal).
+2. The top right corener there will be **Export Approved Providers** button..
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Get Provider List button":::
 
-1. Select **Get Provider List** to export the list in .csv format.
+3. Click on the button to export the list of approved providers in .csv format.
 
 #### Important Notes
 
@@ -72,21 +67,21 @@ Admins can download the list of all approved providers in their organization alo
 ## Expose an API and pre-authorize the Actions app
 
 1. Select the **Expose an API** option from left navigation pane of the registered app
-1. Add URI under the **Application ID URI** option. Use the **AppIdUri** generated in the provider registration. Example format:
+2. Add URI under the **Application ID URI** option. Use the **AppIdUri** generated in the provider registration. Example format:
 `api://auth-am-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/expose-an-api.jpg" alt-text="A screenshot of the 'Expose an API' form in the Entra admin portal":::
 
-1. Add the scope for this app under **Add a scope section** (e.g., Global.Test).
+3. Add the scope for this app under **Add a scope section** (e.g., Global.Test).
 
-1. Choose a value for **Who can consent?**.
+4. Choose a value for **Who can consent?**.
 
     - **Admins and users:** Consent from either works.
     - **Admins only (Recommended):** Only admin approval works.
 
     Once the Admin has authorized, consent is for the whole tenant and won't be prompted again.
 
-1. Go to **Add a client application** and authorize Action app ID `48af08dc-f6d2-435f-b2a7-069abd99c086` to the scopes created above.
+5. Go to **Add a client application** and authorize Action app ID `48af08dc-f6d2-435f-b2a7-069abd99c086` to the scopes created above.
 
 ## Validate the AAD token
 
@@ -128,29 +123,28 @@ There are also [code samples for Microsoft identity platform authentication and 
 
 ## Get approval from admins
 
-For a Global scope actionable message registration to work in any tenant, the tenant admin must consent to the app hosting the target URL. Admins can grant consent using the [Actionable Email Developer Dashboard](https://outlook.office.com/connectors/oam/admin) page.
+For a Global scope actionable message registration to work in any tenant, the tenant admin must consent to the app hosting the target URL. Admins can grant consent using the [Actionable Email Developer Dashboard](https://aka.ms/ActionableMessagesPortal) page.
 
-1. Go to the Actionable Email Developer Dashboard and select the **Consent 3P Apps** button (top right).
+1. Go to the Actionable Email Developer Dashboard and select the **AAD Consent** button (left side panel).
 
-    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/consent-third-party-apps.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the 'Consent 3P Apps' button":::
+    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/aad-consent.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the 'Consent 3P Apps' button":::
 
-1. The Admin Consent Dashboard will open, listing all 3P providers. Apps that need consent show an **Approve** button.
+2. The Admin Consent Dashboard will open, listing all 3P providers. Apps that need consent show an **Grant Consent** button.
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/actionable-message-dashboard.png" alt-text="AM Email Dashboard":::
 
-1. Select a provider row to review details.
-1. Select **Approve** to trigger the consent flow. Sign in and review the requested permissions.
-1. Ensure **Consent on behalf of your organization** is selected for tenant-wide consent.
-1. Select **Accept** to grant consent. The Microsoft Entra app is now authorized in your tenant. The browser redirects back to the dashboard where the app status is **Approved**.
+3. Select **Grant Consent** to trigger the consent flow. Sign in and review the requested permissions.
+4. Ensure **Consent on behalf of your organization** is selected for tenant-wide consent.
+5. Select **Accept** to grant consent. The Microsoft Entra app is now authorized in your tenant. The browser redirects back to the dashboard where the app status is **Consented**.
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/permission.png" alt-text="User permission screen":::
 
-1. If status remains **Approving**, use the **Refresh** button to update.
+6. If status remains **Consenting**, use the **Refresh Consent Status** button to update.
 
-1. Use the search bar to find a provider by **Name, Provider ID,** or **Microsoft Entra ID**.
+7. Use the search bar to find a provider by **Name, Provider ID,** or **Microsoft Entra ID**.
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/search-bar.png" alt-text="Search bar in AM portal":::
 
-1. To remove consent, open Azure Portal and select **Enterprise Applications**. Search for the app's service principal, and delete it in **Properties**.
+8. To remove consent, open Azure Portal and select **Enterprise Applications**. Search for the app's service principal, and delete it in **Properties**.
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/service-principal-azure-portal.png" alt-text="Azure portal screen":::

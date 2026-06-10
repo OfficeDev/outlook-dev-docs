@@ -89,6 +89,7 @@ Each of the above are independent steps. i.e. you can pick only one scope for ea
 Self-service of registrations is available for registrations that use the following scopes.
 
 - **Test Users**: The registration request is auto-approved for your test users you specify. This will enable actionable emails from your service sent to test users.
+-**Organization**: This registration request will be sent to your organization's administrators with Exchange administrator permissions. The Exchange administrator with those permissions will be able to review and approve your request.
 
 Once the submission is approved, whether auto-approved or by your administrator, it will take up to 24 hours for the registration to take effect.
 
@@ -99,6 +100,7 @@ After 24 hours have passed, you can verify if the registration has taken into ef
 This section is only applicable when your scope of submission to enable actionable messages is **Test Users**.
 
 In this section provide a list of Microsoft 365 email users in your organization, separated by a semi-colon (`;`). This will help you to test your actionable messages integration on a few users, before creating an **Organization** or **Global** scope submission.
+
 
 ### Contact info
 
