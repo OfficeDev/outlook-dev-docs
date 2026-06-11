@@ -25,6 +25,8 @@ Admins can download the list of all approved providers in their organization alo
 1. Go to the [Actionable Email Developer Dashboard](https://aka.ms/ActionableMessagesPortal).
 1. In the upper-right corner, select the **Export Approved Providers** button to export the list of approved providers in .csv format.
 
+:::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Get Provider List button":::
+
 #### Important notes
 
 - You see the download button only after filtering by approved providers.
