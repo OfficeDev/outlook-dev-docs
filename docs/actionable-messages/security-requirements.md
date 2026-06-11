@@ -42,7 +42,7 @@ Actionable messages [sent via email](send-via-email.md) support an alternative v
 - SPF/DKIM failure caused by sender setup or recipient tenant set custom security services in front of Office 365 services.
 - Your scenario for actionable messages requires sending from multiple email accounts.
 
-To use signed cards, you must register your public key in the [email developer dashboard](email-dev-dashboard.md), and use the corresponding private key to sign the card.
+To use signed cards, you must register your public key in the [email developer dashboard](https://aka.ms/ActionableMessagesPortal), and use the corresponding private key to sign the card.
 
 #### SignedCard
 

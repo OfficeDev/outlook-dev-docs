@@ -19,7 +19,7 @@ Actionable messages allow users to take quick actions on an email message, often
 
 ## Registration requirements
 
-Actionable Messages services registered in the [developer dashboard](email-dev-dashboard.md) with the **Test Users** or **Organization** scope can use this feature as soon as they are approved. If your service is registered with the **Global** scope, you must contact [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) to enable this feature.
+Actionable Messages services registered in the [developer dashboard](https://aka.ms/ActionableMessagesPortal) with the **Test Users** or **Organization** scope can use this feature as soon as they are approved. If your service is registered with the **Global** scope, you must contact [onboardoam@microsoft.com](mailto:onboardoam@microsoft.com) to enable this feature.
 
 ## Using autoInvokeAction
 
