@@ -5,7 +5,7 @@ author: vermaanimesh
 ms.topic: how-to
 ms.service: outlook
 ms.subservice: o365-connectors
-ms.date: 05/27/2026
+ms.date: 06/10/2026
 ms.author: vermaanimesh
 ms.localizationpriority: high
 ---
@@ -16,29 +16,22 @@ ms.localizationpriority: high
 
 [!INCLUDE [legacy-token-deprecation](../includes/actionable-messages/legacy-token-deprecation.md)]
 
-## Admin Guide: View providers with Auth type
+## Admin guide: View providers with Auth type
 
 Admins can download the list of all approved providers in their organization along with the token type being used. The data is exported in a .csv format for easy analysis and reporting.
 
 ### How to download the provider list
 
-1. Navigate to the Actionable Email Developer Dashboard (Admin Portal).
-1. Use the **Status** filter and select **Approved**.
-1. Select **Search** to load the approved providers.
+1. Go to the [Actionable Email Developer Dashboard](https://aka.ms/ActionableMessagesPortal).
+1. In the upper-right corner, select the **Export Approved Providers** button to export the list of approved providers in .csv format.
 
-    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider-search.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Search button":::
+:::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Get Provider List button":::
 
-1. Once the approved providers are displayed, the **Get Provider List** button will become visible.
+#### Important notes
 
-    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Get Provider List button":::
-
-1. Select **Get Provider List** to export the list in .csv format.
-
-#### Important Notes
-
-- The download button is visible only after filtering by Approved providers.
+- You see the download button only after filtering by approved providers.
 - The downloaded file contains provider details along with their token type.
-- In case of a timeout error, the error message is displayed on the UI and disappears automatically after 5 seconds.
+- If a timeout error occurs, the error message is displayed in the UI and disappears automatically after 5 seconds.
 
 ## Register an app in Azure
 
@@ -46,7 +39,7 @@ Admins can download the list of all approved providers in their organization alo
 > If you already have an app registration in Azure, skip to the next step.
 
 1. Sign in to the Microsoft Entra admin center.
-1. If you have access to multiple tenants, use the Settings icon to switch to the desired tenant via **Directories + subscriptions**.
+1. If you have access to multiple tenants, use the **Settings** icon to switch to the desired tenant via **Directories + subscriptions**.
 1. Go to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. Enter a display name for your application.
 1. Specify who can use the application in the **Supported account types** section:
@@ -67,32 +60,30 @@ Admins can download the list of all approved providers in their organization alo
 - Approval and onboarding of the AM registration remain unchanged.
 
 > [!TIP]
-> Use this new registration to test the AAD token scenario end-to-end. Gradually move traffic to the new registration once validated.
+> Use this new registration to test the Microsoft Entra ID token scenario end-to-end. Gradually move traffic to the new registration once validated.
 
-## Expose an API and pre-authorize the Actions app
+## Expose an API and preauthorize the Actions app
 
-1. Select the **Expose an API** option from left navigation pane of the registered app
-1. Add URI under the **Application ID URI** option. Use the **AppIdUri** generated in the provider registration. Example format:
+1. Select **Expose an API** from the left navigation pane of the registered app.
+1. Add a URI under **Application ID URI**. Use the **AppIdUri** generated in the provider registration. Example format:
 `api://auth-am-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
 
-    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/expose-an-api.jpg" alt-text="A screenshot of the 'Expose an API' form in the Entra admin portal":::
-
-1. Add the scope for this app under **Add a scope section** (e.g., Global.Test).
+1. Add the scope for this app under **Add a scope section** (for example, Global.Test).
 
 1. Choose a value for **Who can consent?**.
 
     - **Admins and users:** Consent from either works.
     - **Admins only (Recommended):** Only admin approval works.
 
-    Once the Admin has authorized, consent is for the whole tenant and won't be prompted again.
+    Once an admin authorizes, consent applies to the whole tenant and users aren't prompted again.
 
-1. Go to **Add a client application** and authorize Action app ID `48af08dc-f6d2-435f-b2a7-069abd99c086` to the scopes created above.
+1. Go to **Add a client application** and authorize Action app ID `48af08dc-f6d2-435f-b2a7-069abd99c086` to the scopes you created.
 
-## Validate the AAD token
+## Validate the Microsoft Entra ID token
 
-Upon receiving the token in the request from Actions service, partners should perform validation. For details on validating tokens, see [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens).
+When your service receives the token in the request from the Actions service, validate it. For details on validating tokens, see [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens).
 
-There are also [code samples for Microsoft identity platform authentication and authorization](/entra/identity-platform/sample-v2-code?tabs=framework) for validation in your preferred language/framework.
+There are also [code samples for Microsoft identity platform authentication and authorization](/entra/identity-platform/sample-v2-code?tabs=framework) for validation in your preferred language or framework.
 
 ### Sample token
 
@@ -128,29 +119,28 @@ There are also [code samples for Microsoft identity platform authentication and 
 
 ## Get approval from admins
 
-For a Global scope actionable message registration to work in any tenant, the tenant admin must consent to the app hosting the target URL. Admins can grant consent using the [Actionable Email Developer Dashboard](https://outlook.office.com/connectors/oam/admin) page.
+For a Global scope actionable message registration to work in any tenant, the tenant admin must consent to the app hosting the target URL. Admins can grant consent by using the [Actionable Email Developer Dashboard](https://aka.ms/ActionableMessagesPortal).
 
-1. Go to the Actionable Email Developer Dashboard and select the **Consent 3P Apps** button (top right).
+1. Go to the Actionable Email Developer Dashboard and select the **AAD Consent** button (left side panel).
 
-    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/consent-third-party-apps.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the 'Consent 3P Apps' button":::
+    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/aad-consent.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the Consent 3P Apps button":::
 
-1. The Admin Consent Dashboard will open, listing all 3P providers. Apps that need consent show an **Approve** button.
+1. The Admin Consent Dashboard opens, listing all third-party providers. Apps that need consent show a **Grant Consent** button.
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/actionable-message-dashboard.png" alt-text="AM Email Dashboard":::
 
-1. Select a provider row to review details.
-1. Select **Approve** to trigger the consent flow. Sign in and review the requested permissions.
+1. Select **Grant Consent** to start the consent flow. Sign in and review the requested permissions.
 1. Ensure **Consent on behalf of your organization** is selected for tenant-wide consent.
-1. Select **Accept** to grant consent. The Microsoft Entra app is now authorized in your tenant. The browser redirects back to the dashboard where the app status is **Approved**.
+1. Select **Accept** to grant consent. The Microsoft Entra app is now authorized in your tenant. The browser redirects back to the dashboard where the app status is **Consented**.
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/permission.png" alt-text="User permission screen":::
 
-1. If status remains **Approving**, use the **Refresh** button to update.
+1. If status remains **Consenting**, use the **Refresh Consent Status** button to update.
 
 1. Use the search bar to find a provider by **Name, Provider ID,** or **Microsoft Entra ID**.
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/search-bar.png" alt-text="Search bar in AM portal":::
 
-1. To remove consent, open Azure Portal and select **Enterprise Applications**. Search for the app's service principal, and delete it in **Properties**.
+1. To remove consent, open the Azure portal and select **Enterprise Applications**. Search for the app's service principal and delete it in **Properties**.
 
     :::image type="content" source="images/enabling-entra-token-for-actionable-messages/service-principal-azure-portal.png" alt-text="Azure portal screen":::

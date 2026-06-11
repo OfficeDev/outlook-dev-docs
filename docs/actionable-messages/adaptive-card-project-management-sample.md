@@ -5,10 +5,12 @@ author: avijityadav
 ms.topic: sample
 ms.service: outlook
 ms.subservice: o365-connectors
-ms.date: 04/08/2023
-ms.author: avyad
+ms.date: 06/10/2026
+ms.author: vermaanimesh
 ms.localizationpriority: high
 ---
+
+<!-- cSpell:ignore avijityadav vermaanimesh -->
 
 # Universal Actions Model code sample - Project Management
 
@@ -16,24 +18,24 @@ This sample illustrates the Universal Action Model implementation available for 
 
 ## Prerequisites
 
-- Outlook/OWA client is available and you have an account.
+- Outlook or OWA client is available and you have an account.
 - A valid Azure subscription.
 - Understanding of [Azure Bot Framework](/azure/bot-service/bot-builder-basics).
 
 ## Setup for bot
 
-- Register a bot with Azure Bot Service, following the instructions [here](/azure/bot-service/bot-service-quickstart-registration).
-- Ensure that you've [enabled the Outlook Channel](/azure/bot-service/bot-service-channel-connect-actionable-email).
+- Register a bot with Azure Bot Service, following the instructions in [Register a bot with Azure](/azure/bot-service/bot-service-quickstart-registration).
+- Ensure that you [enabled the Outlook Channel](/azure/bot-service/bot-service-channel-connect-actionable-email).
   - Open your bot resource in the [Azure portal](https://ms.portal.azure.com/).
   - Open the **Channels** pane.
   - Select the **Outlook** channel in *Available Channels* section.
-  - Under the **Actionable Messages** tab, Click **Apply** followed by **please register here**.
+  - Under the **Actionable Messages** tab, select **Apply** followed by **please register here**.
   - Fill out the registration form to request access. See [Register your service with the actionable email developer dashboard](./email-dev-dashboard.md) for more information.
-- Create your bot with the Bot Framework SDK, following the instruction [here](/azure/bot-service/bot-service-quickstart-create-bot).
+- Create your bot with the Bot Framework SDK, following the instructions in [Create a bot with the Bot Framework SDK](/azure/bot-service/bot-service-quickstart-create-bot).
 
 ## Step 1: Ensure your adaptive card payloads are ready
 
-For the Project management scenario, you can find the [JSON payload here](https://github.com/OfficeDev/outlook-dev-docs/blob/main/files/actionable-messages/samples/ProjectManagement.json). Below, You can see the payload rendering in mobile and desktop screens.
+For the Project management scenario, you can find the [JSON payload here](https://github.com/OfficeDev/outlook-dev-docs/blob/main/files/actionable-messages/samples/ProjectManagement.json). In the following section, you can see the payload rendering in mobile and desktop screens.
 
 <!-- markdownlint-disable MD051 -->
 ### [Mobile](#tab/mobile)
@@ -78,7 +80,7 @@ protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAs
         else if (invokeValue.Action.Verb == "projectSubmitComment")
         {
             // This function can contain your business logic
-            // to submit the comment and show the refresh car
+            // to submit the comment and show the refresh card
             return await ProcessProjectSubmitComment();
         }
         else
