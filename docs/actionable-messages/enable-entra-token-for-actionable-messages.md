@@ -25,8 +25,6 @@ Admins can download the list of all approved providers in their organization alo
 1. Go to the [Actionable Email Developer Dashboard](https://aka.ms/ActionableMessagesPortal).
 1. In the upper-right corner, select the **Export Approved Providers** button to export the list of approved providers in .csv format.
 
-    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/get-provider.png" alt-text="A screenshot of the Actionable Email Developer Dashboard showing the position of the Get Provider List button":::
-
 #### Important notes
 
 - You see the download button only after filtering by approved providers.
@@ -67,8 +65,6 @@ Admins can download the list of all approved providers in their organization alo
 1. Select **Expose an API** from the left navigation pane of the registered app.
 1. Add a URI under **Application ID URI**. Use the **AppIdUri** generated in the provider registration. Example format:
 `api://auth-am-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-
-    :::image type="content" source="images/enabling-entra-token-for-actionable-messages/expose-an-api.jpg" alt-text="A screenshot of the Expose an API form in the Entra admin portal":::
 
 1. Add the scope for this app under **Add a scope section** (for example, Global.Test).
 

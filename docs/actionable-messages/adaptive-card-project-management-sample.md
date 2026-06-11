@@ -5,7 +5,7 @@ author: avijityadav
 ms.topic: sample
 ms.service: outlook
 ms.subservice: o365-connectors
-ms.date: 006/10/2026
+ms.date: 06/10/2026
 ms.author: vermaanimesh
 ms.localizationpriority: high
 ---

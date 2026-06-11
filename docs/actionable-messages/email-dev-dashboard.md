@@ -91,7 +91,7 @@ Each scope is independent. You can submit only one scope per request and must ob
 Self-service registration is available for the following scopes.
 
 - **Test Users**: The registration request auto-approves for your test users you specify. This registration enables actionable emails from your service sent to test users.
-- **Organization**: This registration request routes to your organization's [Exchange or Global administrator](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide) for review and approval.
+- **Organization**: This registration request routes to your organization's [Exchange or Global administrator](/microsoft-365/admin/add-users/about-admin-roles) for review and approval.
 
 Once the submission is approved, whether auto-approved or by your administrator, it can take up to 24 hours for the registration to take effect.
 
