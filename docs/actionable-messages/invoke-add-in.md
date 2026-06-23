@@ -88,7 +88,7 @@ The following shows the JSON for an extensions object that includes a control th
                   
                   "controls" [
                     {
-                      "id": "msgReadOpenPaneButton",
+                      "id": "showInitContext",
                       "type": "button",
                       "label": "Show Task Pane",
                       "icons": [ -- icons markup omitted -- ],
@@ -110,7 +110,7 @@ The following shows the JSON for an extensions object that includes a control th
 }
 ```
 
-For this add-in button, the ID is `msgReadOpenPaneButton`.
+For this add-in button, the ID is `showInitContext`.
 
 # [Add-in only manifest](#tab/xmlmanifest)
 
@@ -249,4 +249,4 @@ Office.context.mailbox.item.getInitializationContextAsync((asyncResult) => {
 
 ## Resources
 
-- [Outlook-Add-In-Actionable-Message sample add-in](https://github.com/OfficeDev/Outlook-Add-In-Actionable-Message)
+- [Outlook-Add-In-Actionable-Message sample add-in](https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/outlook-actionable-message)
