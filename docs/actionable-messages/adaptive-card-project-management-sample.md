@@ -31,7 +31,7 @@ This sample illustrates the Universal Action Model implementation available for 
   - Select the **Outlook** channel in *Available Channels* section.
   - Under the **Actionable Messages** tab, select **Apply** followed by **please register here**.
   - Fill out the registration form to request access. See [Register your service with the actionable email developer dashboard](./email-dev-dashboard.md) for more information.
-- Create your bot with the Bot Framework SDK, following the instructions in [Create a bot with the Bot Framework SDK](/azure/bot-service/bot-service-quickstart-create-bot).
+- Create your bot with the Bot Framework SDK, following the instructions in [Create a bot with the Bot Framework SDK](https://docs.azure.cn/en-us/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0).
 
 ## Step 1: Ensure your adaptive card payloads are ready
 
